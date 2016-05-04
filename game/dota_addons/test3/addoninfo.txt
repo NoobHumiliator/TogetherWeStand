@@ -1,0 +1,18 @@
+"AddonInfo"
+{
+	maps			"together_we_stand"
+	"IsPlayable"	"1"
+	"together_we_stand"
+	{
+					"MaxPlayers"                    "5"
+	}
+   "Default_Keys"
+	{
+		"01"
+		{
+			"Key"		"F6"
+			"Command"	"+CustomGameTestButton"
+			"Name"		"Example"
+		}
+	}
+}

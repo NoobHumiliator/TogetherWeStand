@@ -1,0 +1,194 @@
+.DifficultySelectionPanel
+{
+   width: 30%;
+   height: 67%;
+   horizontal-align: middle;
+   position: 0 6% 0; 
+   flow-children: down;
+   transition-property: opacity;
+   transition-duration: 0.75s;
+}
+
+.VoteLable
+{
+    horizontal-align: middle;
+    color: #78F6FE;
+    font-size: 45px;
+    text-shadow: 0px 0px 10px #15F9FF;
+    margin-top: 35px;
+    font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+
+.DifficultyPanel
+{
+    flow-children: down;
+    horizontal-align: middle;
+    width:  62%;
+}
+
+.DifficultyRadioButton
+{
+    flow-children: down;
+    padding: 10px;
+    background-color: gradient( linear, 0% 0%, 100% 100%, from( #0f475a58 ), to( #20253058 ) );
+    box-shadow: #3AD5FF 0px 0px 10px 0px;
+    margin-top: 15px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    width:  100%;
+}
+
+.DifficultyTitlePanel
+{
+    width: 100%;
+}
+
+.DifficultyRadioButton:hover{
+    box-shadow: #FEE38C 0px 0px 3px 0px;
+}
+
+.DifficultyRadioButton:selected{
+    background-color: gradient( linear, 0% 0%, 100% 100%, from( #568e2658 ), to( #24420a58 ) );
+    box-shadow: #7fe22a 0px 0px 10px 0px;
+}
+
+.DifficultyRadioButton .title{
+    horizontal-align: middle;
+    color: #fff;
+    font-size: 30px;
+    font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+
+    text-shadow: #000 0px 0px 2px 1.2;
+}
+
+.DifficultyRadioButton .number{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    horizontal-align: middle;
+    /*background-color: #00E6ED;*/
+    box-shadow: #fff -2px -2px 2px 4px;
+    margin: 5px;
+}
+
+.DifficultyRadioButton .number .value{
+    horizontal-align: middle;
+    vertical-align: middle;
+    font-size: 60px;
+    text-align: center;
+    transform: translateX(0px) translateY(5px);
+    color: #fff;
+}
+
+.DifficultyRadioButton .RadioBox{
+    visibility: collapse;
+}
+
+.hidden {
+    visibility: collapse;
+}
+
+
+
+.ConfirmButton
+{
+
+    background-color: gradient( linear, 0% 0%, 100% 100%, from( #145b7db8 ), to( #11264fb8 ) );
+    box-shadow: #3AD5FF 0px 0px 8px 0px;
+    width: 40%;
+    height: 20%;
+    margin: 2%;
+    horizontal-align: middle;
+    transition-property:background-color, box-shadow, color, brightness;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+}
+
+.ConfirmText
+{
+    vertical-align: middle;
+    margin:5%;
+    color: #fff;
+    font-size: 30px;
+    font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+}
+
+
+#RemainingSetupTime{
+    
+    horizontal-align: right;
+    vertical-align: middle;
+    margin:5%;
+    font-size: 40px;
+    color: #78F6FE;
+    text-shadow: 0px 0px 2px #15F9FF;
+}
+
+.ConfirmButtonCenter
+{
+    flow-children: right;
+    horizontal-align: middle;
+    vertical-align: middle;
+}
+
+.Opacity
+{
+    opacity: 0;
+}
+
+
+
+.ConfirmButton:hover
+{
+    box-shadow:  #FEE38C 0px 0px 5px 0px;
+}
+
+
+
+.line-1{
+    width: 100%;
+    height: 3px;
+    horizontal-align: right;
+    background-color: gradient( linear, 100% 0%, 0% 0%, from( #78F6FE ), to( #4DF2FF00 ) );
+}
+
+.DifficultySelect{
+    width: 100%;
+    height: 100%;
+}
+
+
+.ConfirmButton:active {
+    margin: 2.3%;
+    width: 37%;
+    height: 18.5%;
+}
+
+.NumberAndAvatar
+{
+    horizontal-align: middle;
+    flow-children:right;
+}
+
+.Avatar
+{
+    flow-children: down;
+}
+
+
+.DifficultyAnnouncePanel
+{
+    horizontal-align: center;
+    position: 0px 15% 0px;
+}
+
+.DifficultyAnnounceText {
+    font-size: 90;
+    font-weight: bold;
+    text-shadow: 0px 0px 3px 3.0 #000;
+    text-align: center;
+    vertical-align: center;
+    color: gradient( linear, 0% 0%, 0% 100%, from( #C0D631 ), color-stop( 0.25, #C0D631 ), color-stop( 0.5, #FFC684 ), color-stop( 0.75, #C0D631 ), to( #879626 ) );
+    transition-property: opacity;
+    transition-duration: 0.75s;
+}

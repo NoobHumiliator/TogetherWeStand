@@ -1,0 +1,37 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/tws_common.css" />
+		<include src="file://{resources}/styles/custom_game/tws_round_end.css" />
+		<include src="file://{resources}/styles/dotastyles.css" />
+	</styles>
+		<Panel class="BoardLine">
+			
+			<Panel class="LineRank LinePanel">
+				<Label class="RankLabel" />
+			</Panel>
+		  
+			<Panel class="LineAvatar LinePanel">
+                <DOTAAvatarImage class="AvatarPanel Center" id="new_avatar" steamid=""/>
+				<!-- <DOTAAvatarImage class="AvatarPanel Center" id="avatar_new" steamid=""/> -->
+			</Panel>
+			<Panel class="LineNames LinePanel">
+				<DOTAUserName class="SteamNameLabel" />
+			</Panel>
+			<Panel class="LineSpeed LinePanel">
+				<Panel class="StyleLeft">
+					<Label text="#EndSpeedLabel" html="true" />
+				</Panel>
+				<Panel class="StyleRight">
+					<Label class="EndSpeedRank" />
+				</Panel>
+			</Panel>
+			<Panel class="LineExplor LinePanel">
+				<Panel class="StyleLeft">					
+					<Label text="#EndExplorLabel" html="true" />
+				</Panel>
+				<Panel class="StyleRight">
+					<Label class="EndExplorRank" />
+				</Panel>
+			</Panel>
+		</Panel>
+</root>
