@@ -1,0 +1,472 @@
+"adcmHeroList"
+{
+
+  "1"
+  {
+    "1"
+    {
+      "earthshaker" "1"
+    }
+    "2"
+    {
+      "sven" "1"
+    }
+    "3"
+    {
+      "tiny" "1"
+    }
+    "4"
+    {
+      "kunkka" "1"
+    }
+    "5"
+    {
+      "beastmaster" "1"
+    }
+    "6"
+    {
+      "dragon_knight" "1"
+    }
+    "7"
+    {
+      "rattletrap" "1"
+    }
+    "8"
+    {
+      "omniknight" "1"
+    }
+    "9"
+    {
+      "huskar" "1"
+    }
+    "10"
+    {
+      "alchemist" "1"
+    }
+    "11"
+    {
+      "brewmaster" "1"
+    }
+    "12"
+    {
+      "treant" "1"
+    }
+    "13"
+    {
+      "wisp" "1"
+    }
+    "14"
+    {
+      "centaur" "1"
+    }
+    "15"
+    {
+      "shredder" "1"
+    }
+    "16"
+    {
+      "bristleback" "1"
+    }
+    "17"
+    {
+      "tusk" "1"
+    }
+    "18"
+    {
+      "elder_titan" "1"
+    }
+    "19"
+    {
+      "legion_commander" "1"
+    }
+    "20"
+    {
+      "earth_spirit" "1"
+    }
+  }
+
+  "2"
+  {
+    "1"
+    {
+      "axe" "1"
+    }
+    "2"
+    {
+      "pudge" "1"
+    }
+    "3"
+    {
+      "sand_king" "1"
+    }
+    "4"
+    {
+      "slardar" "1"
+    }
+    "5"
+    {
+      "tidehunter" "1"
+    }
+    "6"
+    {
+      "skeleton_king" "1"
+    }
+    "7"
+    {
+      "life_stealer" "1"
+    }
+    "8"
+    {
+      "night_stalker" "1"
+    }
+    "9"
+    {
+      "doom_bringer" "1"
+    }
+    "10"
+    {
+      "spirit_breaker" "1"
+    }
+    "11"
+    {
+      "lycan" "1"
+    }
+    "12"
+    {
+      "chaos_knight" "1"
+    }
+    "13"
+    {
+      "undying" "1"
+    }
+    "14"
+    {
+      "magnataur" "1"
+    }
+    "15"
+    {
+      "abaddon" "1"
+    }
+    "16"
+    {
+      "phoenix" "1"
+    }
+  }
+
+  "3"
+  {
+    "1"
+    {
+      "antimage" "1"
+    }
+    "2"
+    {
+      "drow_ranger" "1"
+    }
+    "3"
+    {
+      "juggernaut" "1"
+    }
+    "4"
+    {
+      "mirana" "1"
+    }
+    "5"
+    {
+      "morphling" "1"
+    }
+    "6"
+    {
+      "phantom_lancer" "1"
+    }
+    "7"
+    {
+      "vengefulspirit" "1"
+    }
+    "8"
+    {
+      "riki" "1"
+    }
+    "9"
+    {
+      "sniper" "1"
+    }
+    "10"
+    {
+      "templar_assassin" "1"
+    }
+    "11"
+    {
+      "luna" "1"
+    }
+    "12"
+    {
+      "bounty_hunter" "1"
+    }
+    "13"
+    {
+      "ursa" "1"
+    }
+    "14"
+    {
+      "gyrocopter" "1"
+    }
+    "15"
+    {
+      "lone_druid" "1"
+    }
+    "16"
+    {
+      "naga_siren" "1"
+    }
+    "17"
+    {
+      "troll_warlord" "1"
+    }
+    "18"
+    {
+      "ember_spirit" "1"
+    }
+    "19"
+    {
+      "arc_warden" "1"
+    }
+  }
+
+  "4"
+  {
+    "1"
+    {
+      "bloodseeker" "1"
+    }
+    "2"
+    {
+      "nevermore" "1"
+    }
+    "3"
+    {
+      "razor" "1"
+    }
+    "4"
+    {
+      "venomancer" "1"
+    }
+    "5"
+    {
+      "faceless_void" "1"
+    }
+    "6"
+    {
+      "phantom_assassin" "1"
+    }
+    "7"
+    {
+      "viper" "1"
+    }
+    "8"
+    {
+      "clinkz" "1"
+    }
+    "9"
+    {
+      "broodmother" "1"
+    }
+    "10"
+    {
+      "weaver" "1"
+    }
+    "11"
+    {
+      "spectre" "1"
+    }
+    "12"
+    {
+      "meepo" "1"
+    }
+    "13"
+    {
+      "nyx_assassin" "1"
+    }
+    "14"
+    {
+      "slark" "1"
+    }
+    "15"
+    {
+      "medusa" "1"
+    }
+    "16"
+    {
+      "terrorblade" "1"
+    }
+  }
+
+  "5"
+  {
+    "1"
+    {
+      "crystal_maiden" "1"
+    }
+    "2"
+    {
+      "puck" "1"
+    }
+    "3"
+    {
+      "storm_spirit" "1"
+    }
+    "4"
+    {
+      "windrunner" "1"
+    }
+    "5"
+    {
+      "zuus" "1"
+    }
+    "6"
+    {
+      "lina" "1"
+    }
+    "7"
+    {
+      "shadow_shaman" "1"
+    }
+    "8"
+    {
+      "tinker" "1"
+    }
+    "9"
+    {
+      "furion" "1"
+    }
+    "10"
+    {
+      "enchantress" "1"
+    }
+    "11"
+    {
+      "jakiro" "1"
+    }
+    "12"
+    {
+      "chen" "1"
+    }
+    "13"
+    {
+      "silencer" "1"
+    }
+    "14"
+    {
+      "ogre_magi" "1"
+    }
+    "15"
+    {
+      "rubick" "1"
+    }
+    "16"
+    {
+      "disruptor" "1"
+    }
+    "17"
+    {
+      "keeper_of_the_light" "1"
+    }
+    "18"
+    {
+      "skywrath_mage" "1"
+    }
+    "19"
+    {
+      "oracle" "1"
+    }
+    "20"
+    {
+      "techies" "1"
+    }
+  }
+
+  "6"
+  {
+    "1"
+    {
+      "bane" "1"
+    }
+    "2"
+    {
+      "lich" "1"
+    }
+    "3"
+    {
+      "lion" "1"
+    }
+    "4"
+    {
+      "witch_doctor" "1"
+    }
+    "5"
+    {
+      "enigma" "1"
+    }
+    "6"
+    {
+      "necrolyte" "1"
+    }
+    "7"
+    {
+      "warlock" "1"
+    }
+    "8"
+    {
+      "queenofpain" "1"
+    }
+    "9"
+    {
+      "death_prophet" "1"
+    }
+    "10"
+    {
+      "pugna" "1"
+    }
+    "11"
+    {
+      "dazzle" "1"
+    }
+    "12"
+    {
+      "leshrac" "1"
+    }
+    "13"
+    {
+      "dark_seer" "1"
+    }
+    "14"
+    {
+      "batrider" "1"
+    }
+    "15"
+    {
+      "ancient_apparition" "1"
+    }
+    "16"
+    {
+      "invoker" "1"
+    }
+    "17"
+    {
+      "obsidian_destroyer" "1"
+    }
+    "18"
+    {
+      "shadow_demon" "1"
+    }
+    "19"
+    {
+      "visage" "1"
+    }
+    "20"
+    {
+      "winter_wyvern" "1"
+    }
+  }
+
+}

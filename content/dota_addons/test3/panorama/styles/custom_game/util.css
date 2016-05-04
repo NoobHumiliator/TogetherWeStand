@@ -1,0 +1,42 @@
+
+.hBlock {
+    width: 100%; 
+}
+.vBlock {
+    height: 100%;
+}
+
+/*------------------------------*/
+
+.hidden {
+    visibility: collapse;
+}
+.invisible {
+    opacity: 0;
+}
+
+/*------------------------------*/
+
+.fadeOut {
+    /*transition: opacity 2s ease-in-out 0s;
+    opacity: 0;*/
+    animation-name: fadeOut;
+    animation-delay: 0s;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    /*animation-fill-mode: forwards;*/
+}
+
+@keyframes 'fadeOut'
+{
+    0%
+    {
+        opacity: 1;
+    }
+
+    100%
+    {
+        opacity: 0;
+    }
+}

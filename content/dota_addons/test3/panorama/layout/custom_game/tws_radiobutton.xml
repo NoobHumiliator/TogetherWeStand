@@ -1,0 +1,12 @@
+<root>
+    <styles>
+        <include src="file://{resources}/styles/custom_game/util.css" />
+        <include src="file://{resources}/styles/custom_game/tws_radiobutton.css" />
+    </styles>
+
+    <Panel>
+    	<RadioButton id="RadioButton">
+    		<DOTAHeroImage id="RadioImage" heroname="" />
+    	</RadioButton>
+    </Panel>
+</root>

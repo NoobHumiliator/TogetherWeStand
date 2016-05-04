@@ -1,0 +1,11 @@
+<root>
+    <styles>
+    	<include src="s2r://panorama/styles/custom_game/util.css" />
+        <include src="s2r://panorama/styles/custom_game/tws_heroes_group.css" />
+    </styles>
+
+    <Panel class="hBlock">
+        <Label id="GroupName" text="Group" />
+        <Panel id="GroupTable" class="hBlock" />
+    </Panel>
+</root>

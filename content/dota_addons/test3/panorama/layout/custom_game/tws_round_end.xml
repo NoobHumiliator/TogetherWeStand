@@ -1,0 +1,33 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/tws_common.css" />
+		<include src="file://{resources}/styles/custom_game/tws_round_end.css" />
+		<include src="file://{resources}/styles/dotastyles.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/tws_round_end.js" />
+	</scripts>
+	<Panel hittest="false">
+		<Panel hittest="false" id="EndScreen" class="EndScreen Hidden">
+			<Panel class="EndBoard RightTop LightDarkBackground">
+				<Panel class="MapInfo HCenter">
+				</Panel>
+				
+				<Panel class="BoardTitle">
+					<Label class="HCenter" id="board_title" text="#end_board_title" />
+				</Panel>
+
+				<Panel class="TimeAchievementInfo HCenter">
+					<Label text="#round_time_cost" />
+					<Label id="time_cost_var" text="#time_cost_var" />
+					<Label text="#round_achievement" />
+					<Label id="succeed_or_not" text="#succeed_or_not" />
+				</Panel>
+
+				<Panel class="BoardLines " id="BoardLines">
+					
+				</Panel>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

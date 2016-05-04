@@ -1,0 +1,12 @@
+<root>
+  <styles>
+    <include src="s2r://panorama/styles/dotastyles.css" />
+    <include src="s2r://panorama/styles/custom_game/tws_difficulty_selection.css" />
+  </styles>
+  <scripts>
+    <include src="s2r://panorama/scripts/custom_game/tws_difficulty_selection.js" />
+  </scripts>
+   <Panel hittest="false" class="DifficultyAnnouncePanel">
+          <Label hittest="false" id="DifficultyAnnounceText" class="DifficultyAnnounceText hidden" text=""/>
+   </Panel>
+</root>

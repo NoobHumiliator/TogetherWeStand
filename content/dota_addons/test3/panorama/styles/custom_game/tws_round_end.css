@@ -1,0 +1,240 @@
+.EndScreen{
+	height: 1080px;
+	width: 1920px;
+	flow-children:right;
+}
+
+.EndBoard{
+	width: 800px;
+	flow-children:down;
+	margin-bottom: 200px;
+}
+
+.MapInfo{
+	flow-children:right;
+	width: 100%;
+	padding-left: 10px;
+}
+
+.TimeAchievementInfo{
+	flow-children:right;
+	width: 100%;
+	padding-left: 3%;
+}
+
+.TimeAchievementInfo Label{
+	margin: 0 4%;
+	font-size: 28px;
+}
+
+.Succeed{
+	    color: #DAA520;
+        font-family: MingLiU;
+}
+
+.Fail{
+	  color: #FF3333;
+        font-family: MingLiU;
+}
+
+
+
+.MapInfo Label{
+	margin: 0 5px;
+	color:gray;
+}
+
+.BoardTitle{
+	width: 100%;
+	flow-children:right;
+	margin: 10px 0;
+}
+
+.BoardTitle Label{
+	font-size: 50px;
+	text-transform: uppercase;
+	color: white;
+}
+
+.BoardLines{
+	width: 100%;
+	margin: 0 3% 30px 3%;
+	background-color: black;
+	opacity: 0.5;
+	padding: 10px 0 ;
+	flow-children:down;
+}
+
+.BoardLine{
+	width: 100%;
+	height: 70px;
+	padding: 0 10px;
+	margin: 5px 0;
+	flow-children:right;
+}
+
+.BoardLine Label{
+	horizontal-align:center;
+	vertical-align: center;
+}
+
+.LinePanel{
+	height: 100%;
+	flow-children:right;
+	margin-right: 5px;
+}
+
+.LineRank{
+	background-color: transparent;
+	width: 20px;
+	flow-children:right;
+}
+
+.LineRank Label{
+	font-size: 40px;
+	color: white;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.AvatarPanel{
+     height: 100%;
+     width: 100px;
+}
+
+.LineNames{
+	flow-children:down;
+	width: 100px;
+}
+
+.SteamNameLabel{
+	height: 100%;
+	flow-children:down;
+}
+
+.SteamNameLabel Label{
+	color: white;
+}
+
+.CourierNameLabel{
+
+}
+
+.LineRounds{
+	width: 100px;
+	flow-children:down;
+}
+
+.RoundIcon{
+	width: 20px;
+	height: 20px;
+	border: 2px solid #5e686966;
+	margin-right: 5px;
+	vertical-align: center;
+}
+
+.RoundIcon.Pass1{
+	background-color: #FF4500;
+}
+
+.RoundIcon.Pass2{
+	background-color: #00FFFF;
+}
+
+.RoundIcon.Pass3{
+	background-color: #00FF00;
+}
+
+.RoundIcon.Pass4{
+	background-color: #EE00EE;
+}
+
+.UsedTimeLabel{
+	color: white;
+}
+
+.LineSpeed {
+	width: 35%;
+}
+
+.LineExplor{
+	width: 35%;
+}
+
+.LineBattle{
+	width: 175px;
+}
+
+
+
+
+
+.EndExplorPoint, .EndBattlePoint, .EndSpeedPoint {
+	color:white;
+}
+
+
+.EndPointRank, .EndBattleRank , .EndExplorRank , .EndSpeedRank{
+	font-size: 36px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.RankS{
+	color: #EE00EE;
+}
+
+.RankA{
+	color: #00FF00;
+}
+
+.RankB{
+	color: #00FFFF;
+}
+
+.RankC{
+	color: #FF4500;
+}
+
+.LinePoint{
+	width: 100%;
+}
+
+.BoardLine .EndPointRank{
+	horizontal-align:right;
+	margin-right: 30px;
+}
+
+.EndPointRank{
+	font-size: 50px;
+}
+
+
+
+
+
+
+.StyleTop{
+	height: 50%;
+	flow-children:right;
+}
+
+.StyleBottom{
+	height: 50%;
+
+	flow-children:right;
+}
+
+.StyleLeft{
+	width: 30%;
+	height: 100%;
+	flow-children:down;
+	horizontal-align: left;
+}
+
+.StyleRight{
+	width: 70%;
+	height: 100%;
+	flow-children:down;
+	horizontal-align: right;
+}
