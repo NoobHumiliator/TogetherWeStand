@@ -19,11 +19,15 @@ function CHoldoutGameRound:ReadConfiguration( kv, gameMode, roundNumber )
 	self._nBagVariance = tonumber( kv.BagVariance or 0 )
 	self._nFixedXP = tonumber( kv.FixedXP or 0 )
 	self._vSpawners = {}
+	self._totalCreatureNum=0
 	for k, v in pairs( kv ) do
 		if type( v ) == "table" and v.NPCName then
 			local spawner = CHoldoutGameSpawner()
 			spawner:ReadConfiguration( k, v, self )
 			self._vSpawners[ k ] = spawner
+			if (v.TotalUnitsToSpawn) then   --统计怪物数量，影响物品爆率
+              self._totalCreatureNum=self._totalCreatureNum+tonumber(v.TotalUnitsToSpawn)
+			end
 		end
 	end
 
