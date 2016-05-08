@@ -30,7 +30,6 @@ function CHoldoutGameRound:ReadConfiguration( kv, gameMode, roundNumber )
 			end
 		end
 	end
-
 	for _, spawner in pairs( self._vSpawners ) do
 		spawner:PostLoad( self._vSpawners )
 	end
@@ -82,6 +81,7 @@ function CHoldoutGameRound:Begin()
 	self._nGoldBagsRemaining = self._nBagCount
 	self._nGoldBagsExpired = 0
 	self._nCoreUnitsTotal = 0
+	LootController:SetItemProbability(self._nRoundNumber)
 	for _, spawner in pairs( self._vSpawners ) do
 		spawner:Begin()
 		self._nCoreUnitsTotal = self._nCoreUnitsTotal + spawner:GetTotalUnitsToSpawn()
@@ -457,7 +457,7 @@ function CHoldoutGameRound:OnEntityKilled( event )
 	if killedUnit.Holdout_IsCore then
 		self._nCoreUnitsKilled = self._nCoreUnitsKilled + 1
 		self:_CheckForGoldBagDrop( killedUnit )
-		self._gameMode:CheckForLootItemDrop( killedUnit )
+		LootController:CheckForLootItemDrop(self._nRoundNumber,10000,self._totalCreatureNum,killedUnit )
 		if self._entKillCountSubquest then
 			self._entKillCountSubquest:SetTextReplaceValue( QUEST_TEXT_REPLACE_VALUE_CURRENT_VALUE, self._nCoreUnitsKilled )
 		end

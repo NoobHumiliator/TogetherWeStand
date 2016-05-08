@@ -17,7 +17,7 @@ end
 
 function CHoldoutGameMode:HeroListRefill()
 	self._vHeroList={}
-	local heroListKV = LoadKeyValues("scripts/npc/npc_heroes_precache.txt")
+	local heroListKV = LoadKeyValues("scripts/kv/npc_heroes_precache.txt")
 	for k, v in pairs( heroListKV ) do
 		if type( v ) == "table" and v.Ability1 then
 			for i = 1,7 do
