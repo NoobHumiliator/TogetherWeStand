@@ -4,6 +4,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false --减少刷兵间隔，增加初始金钱
+testMode=true --减少刷兵间隔，增加初始金钱
 
 
 
@@ -12,6 +13,7 @@ require( "holdout_game_spawner" )
 require( "util" )
 require( "timers")
 require( "spell_shop_UI")
+require( "loot_controller" )
 require( "difficulty_select_UI")
 require( "global_setting")
 require( "game_functions")
@@ -48,6 +50,7 @@ function CHoldoutGameMode:InitGameMode()
     GameRules:GetGameModeEntity().CHoldoutGameMode = self
     
 	Timers:start()
+	LootController:ReadConfigration() 
 	self.startflag=0 
 	self.loseflag=0 
 	self.last_live=3
