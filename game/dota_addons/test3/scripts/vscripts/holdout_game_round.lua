@@ -18,7 +18,8 @@ function CHoldoutGameRound:ReadConfiguration( kv, gameMode, roundNumber )
 	self._nBagCount = tonumber( kv.BagCount or 0 )
 	self._nBagVariance = tonumber( kv.BagVariance or 0 )
 	self._nFixedXP = tonumber( kv.FixedXP or 0 )
-	self._vSpawners = {}
+	self._nItemDropNum = tonumber( kv.ItemDropNum or 5 )  --单人玩家一关默认掉落5级件物品 ，5人15件
+ 	self._vSpawners = {}
 	self._totalCreatureNum=0
 	for k, v in pairs( kv ) do
 		if type( v ) == "table" and v.NPCName then
@@ -63,7 +64,7 @@ function CHoldoutGameRound:Begin()
 			nPlayersResurrected = 0
 		}
 	end
-    --在此调节人数奖励
+    --调节人数奖励
     local playernumberbonus=0.5
     for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
 		if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
@@ -76,12 +77,16 @@ function CHoldoutGameRound:Begin()
 	if self._not_multiple then
 	  self._nFixedXP=self._nFixedXP*playernumberbonus
 	  self._nGoldRemainingInRound = self._nMaxGold*playernumberbonus
+	  self._nItemDropNum=self._nItemDropNum*playernumberbonus
+	  self._nItemDropNum=math.ceil(self._nItemDropNum* hardLevelItemDropBonus[self._gameMode.map_difficulty])
+	  	print("hehe"..hardLevelItemDropBonus[self._gameMode.map_difficulty])
 	  self._not_multiple=false
     end
+
 	self._nGoldBagsRemaining = self._nBagCount
 	self._nGoldBagsExpired = 0
 	self._nCoreUnitsTotal = 0
-	LootController:SetItemProbability(self._nRoundNumber)
+	LootController:SetItemProbability(self._nRoundNumber,self._gameMode.map_difficulty)
 	for _, spawner in pairs( self._vSpawners ) do
 		spawner:Begin()
 		self._nCoreUnitsTotal = self._nCoreUnitsTotal + spawner:GetTotalUnitsToSpawn()
@@ -457,7 +462,7 @@ function CHoldoutGameRound:OnEntityKilled( event )
 	if killedUnit.Holdout_IsCore then
 		self._nCoreUnitsKilled = self._nCoreUnitsKilled + 1
 		self:_CheckForGoldBagDrop( killedUnit )
-		LootController:CheckForLootItemDrop(self._nRoundNumber,10000,self._totalCreatureNum,killedUnit )
+		LootController:CheckForLootItemDrop(self._nRoundNumber,self._nItemDropNum,self._totalCreatureNum,killedUnit )
 		if self._entKillCountSubquest then
 			self._entKillCountSubquest:SetTextReplaceValue( QUEST_TEXT_REPLACE_VALUE_CURRENT_VALUE, self._nCoreUnitsKilled )
 		end

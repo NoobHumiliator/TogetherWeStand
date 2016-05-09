@@ -80,3 +80,6 @@ xpTable = {
 		315900, --79
 		323900, --80
 	}
+
+
+hardLevelItemDropBonus = {2,1,0.65}
