@@ -20,27 +20,28 @@ function LootController:ReadConfigration()
 end
 
 
-function LootController:SetItemProbability(roundNumber)  
+function LootController:SetItemProbability(roundNumber,hardLevel)  
 
 	local denominator=0
 	self._roundItemProbability={}
-	self._valuetable={}
-	self._reverttable={}
-	local exponent= -1.1+roundNumber*0.1
+	--self._valuetable={}
+	--self._reverttable={}
+	local exponent= -2.5+roundNumber*0.1+(3-hardLevel)*0.3   --每增加一关掉落品质增加0.1  困难难度无加成
 	for k,v in pairs(self._itemCost) do
 		denominator=denominator+v^exponent
 	end
 	for k,v in pairs(self._itemCost) do
 		self._roundItemProbability[k]=(v^exponent)/denominator
-		table.insert(self._valuetable, self._roundItemProbability[k])
-		self._reverttable[self._roundItemProbability[k]]=v
-		print(k.."'s price:"..v.." probality:"..self._roundItemProbability[k])
+		--table.insert(self._valuetable, self._roundItemProbability[k])
+		--self._reverttable[self._roundItemProbability[k]]=v
+		--print(k.."'s price:"..v.." probality:"..self._roundItemProbability[k])
 	end
+  --[[
 	table.sort(self._valuetable)
 	for _,v in pairs(self._valuetable) do
 		print(self._reverttable[v].."  "..v)
 	end
-
+  ]]
 end
 
 
