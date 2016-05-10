@@ -12528,8 +12528,8 @@
 	}
         "self_sniper_take_aim"
 	{
-		        "BaseClass"					"sniper_take_aim"
-                "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		   "BaseClass"					"sniper_take_aim"
+           "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -12538,7 +12538,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_attack_range"			"300 600 1000 1400"
+				"bonus_attack_range"			"200 500 800 1000"
 			}
 		}
 	}
@@ -12551,7 +12551,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
-			"01"
+				"01"
 			{
 				"var_type"						"FIELD_INTEGER"
 				"necromastery_damage_per_soul"	"2"
@@ -12559,7 +12559,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"necromastery_max_souls"	   "25 48 69 86"
+				"necromastery_max_souls"	    "25 48 69 86"
 			}
 			"03"
 			{
@@ -12569,8 +12569,13 @@
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"necromastery_souls_hero_bonus"	   "11"
+				"necromastery_souls_hero_bonus"	"11"
 			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"necromastery_max_souls_scepter" "32 62 89 112"
+			}			
 			
 		}
 	}

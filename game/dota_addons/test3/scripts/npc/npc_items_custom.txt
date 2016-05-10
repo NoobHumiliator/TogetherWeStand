@@ -6,8 +6,8 @@
 	"item_rock"
 	{
 		"ID"							"1007"
-                "BaseClass"						"item_datadriven"
-                "AbilityName"					"item_rock"
+        "BaseClass"						"item_datadriven"
+        "AbilityName"					"item_rock"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -197,17 +197,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"buff_duration"			"10"
+				"buff_duration"			"20"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"total_mana"			"150"
+				"total_mana"			"1500"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_per_tick"			"15"  // %total_mana / %buff_duration
+				"mana_per_tick"			"75"  // %total_mana / %buff_duration
 			}
 		}
 	}
@@ -274,7 +274,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"275"
+		"ItemCost"						"90"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -329,21 +329,21 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"buff_duration"			"10"
+				"buff_duration"			"20"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"total_hp"				"1000"
+				"total_hp"				"3000"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"hp_per_tick"			"100"  // %total_mana / %buff_duration
+				"hp_per_tick"			"150"  // %total_mana / %buff_duration
 			}
 		}
 	}
-
+   
 	//=================================================================================================================
 	// Recipe: Slippers of Halcyon
 	//=================================================================================================================
@@ -2919,6 +2919,191 @@
 		"ItemRequirements"
 		{
 			"01"						"item_summon_crown_4;item_heart;item_butterfly;item_shivas_guard"
+		}
+	}
+
+	"item_small_purple_potion"
+	{
+		"ID"							"16210"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"Model"							"models/props_gameplay/rune_arcane.vmdl"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_small_purple_potion"
+		"ItemKillable"					"0"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"100"
+		"AbilityCastPoint"				"0.0"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"120"
+		"ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"SideShop"						"1"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" "CURSOR_TARGET"
+				"ModifierName" "modifier_item_small_purple_potion"
+			}
+			"FireSound"
+			{
+				"Target" "UNIT"
+				"EffectName" "DOTA_Item.HealingSalve.Activate"
+			}
+			"SpendCharge"
+			{}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_small_purple_potion"
+			{
+				"TextureName" "item_small_purple_potion"
+				"EffectName" "particles/items_fx/healing_flask.vpcf"
+				"EffectAttachType" "follow_origin"
+				"Duration" "%buff_duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%hp_per_tick"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"   "%mana_per_tick"
+				}
+			}
+		}
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"buff_duration"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"total_hp"				"800"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hp_per_tick"			"80"  // %total_mana / %buff_duration
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"total_mana"		    "350"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_per_tick"			"35"  // %total_mana / %buff_duration
+			}
+		}
+	}
+	"item_greater_purple_potion"
+	{
+		"ID"							"16260"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"Model"							"models/props_gameplay/smoke.vmdl"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_greater_purple_potion"
+		"ItemKillable"					"0"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"100"
+		"AbilityCastPoint"				"0.0"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"150"
+		"ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"SideShop"						"1"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" "CURSOR_TARGET"
+				"ModifierName" "modifier_item_greater_purple_potion"
+			}
+			"FireSound"
+			{
+				"Target" "UNIT"
+				"EffectName" "DOTA_Item.HealingSalve.Activate"
+			}
+			"SpendCharge"
+			{}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_small_purple_potion"
+			{
+				"TextureName" "item_greater_purple_potion"
+				"EffectName" "particles/items_fx/healing_flask.vpcf"
+				"EffectAttachType" "follow_origin"
+				"Duration" "%buff_duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%hp_per_tick"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"   "%mana_per_tick"
+				}
+			}
+		}
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"buff_duration"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"total_hp"				"1600"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hp_per_tick"			"160"  // %total_mana / %buff_duration
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"total_mana"		    "800"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_per_tick"			"80"  // %total_mana / %buff_duration
+			}
 		}
 	}
 } //主函数
