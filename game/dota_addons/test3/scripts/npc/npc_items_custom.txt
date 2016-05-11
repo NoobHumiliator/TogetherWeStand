@@ -142,7 +142,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"90"
+		"ItemCost"						"100"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -274,7 +274,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"90"
+		"ItemCost"						"180"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -329,12 +329,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"buff_duration"			"20"
+				"buff_duration"			"30"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"total_hp"				"3000"
+				"total_hp"				"4500"
 			}
 			"03"
 			{
@@ -547,7 +547,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"BaseClass"						"item_flask"
-		"AbilityTextureName"			"item_flask"
+		"AbilityTextureName"			"item_flask2"
 		"Model"							"models/props_gameplay/salve.vmdl"
 		
 		// Stats
@@ -572,12 +572,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"buff_duration"			"10"
+				"buff_duration"			"30"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"total_health"			"400"
+				"total_health"			"2700"
 			}
 		}
 	}
@@ -2937,7 +2937,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"100"
+		"AbilityCastRange"				"90"
 		"AbilityCastPoint"				"0.0"
 		
 		// Item Info
