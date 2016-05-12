@@ -18,7 +18,7 @@ function CHoldoutGameRound:ReadConfiguration( kv, gameMode, roundNumber )
 	self._nBagCount = tonumber( kv.BagCount or 0 )
 	self._nBagVariance = tonumber( kv.BagVariance or 0 )
 	self._nFixedXP = tonumber( kv.FixedXP or 0 )
-	self._nItemDropNum = tonumber( kv.ItemDropNum or 5 )  --单人玩家一关默认掉落5级件物品 ，5人15件
+	self._nItemDropNum = tonumber( kv.ItemDropNum or 6 )  --单人玩家一关默认掉落6件物品 ，5人18件
  	self._vSpawners = {}
 	self._totalCreatureNum=0
 	for k, v in pairs( kv ) do

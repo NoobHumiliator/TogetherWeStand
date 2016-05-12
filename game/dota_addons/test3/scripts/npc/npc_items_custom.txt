@@ -134,7 +134,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_greater_clarity"
 		"ItemKillable"					"0"
-
+        
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"100"
@@ -146,6 +146,7 @@
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
+		"ItemPurchasable"				"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
@@ -277,6 +278,7 @@
 		"ItemCost"						"180"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
+		"ItemPurchasable"				"0"
 		"ItemStackable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 		"ItemPermanent"					"0"
@@ -560,6 +562,7 @@
 		"ItemCost"						"100"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
+		"ItemPurchasable"				"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 		"ItemStackable"					"1"
 		"ItemPermanent"					"0"
@@ -2946,6 +2949,7 @@
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
+		"ItemPurchasable"				"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
@@ -3038,6 +3042,7 @@
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
+		"ItemPurchasable"				"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
@@ -3061,7 +3066,7 @@
 
 		"Modifiers"
 		{
-			"modifier_item_small_purple_potion"
+			"modifier_item_greater_purple_potion"
 			{
 				"TextureName" "item_greater_purple_potion"
 				"EffectName" "particles/items_fx/healing_flask.vpcf"
