@@ -48,7 +48,7 @@ end
 
 
 function LootController:CheckForLootItemDrop( roundNumber,dropNum,creatureNum,killedUnit)
-	print("dropNum"..dropNum.."creatureNum"..creatureNum)
+	--print("dropNum"..dropNum.."creatureNum"..creatureNum)
 	if dropNum/creatureNum>2 then    --一个单位掉落多个物品
 		local itemMultiNum=math.floor(dropNum/creatureNum)
 		for i=1,itemMultiNum do

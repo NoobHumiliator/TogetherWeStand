@@ -2,6 +2,7 @@ function AnimateDead( event )
 	local caster = event.caster
 	local ability = event.ability
 	local team = event.caster:GetTeamNumber()
+	local radius = ability:GetLevelSpecialValueFor( "radius", ability:GetLevel() - 1 )
 	local duration = ability:GetLevelSpecialValueFor( "duration", ability:GetLevel() - 1 )
 	local max_units_resurrected = ability:GetLevelSpecialValueFor( "max_units_resurrected", ability:GetLevel() - 1 )
 
