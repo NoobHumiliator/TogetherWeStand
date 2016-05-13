@@ -16425,7 +16425,7 @@
 	"death_knight_death_pact"
 	{
 		"BaseClass"             		"ability_datadriven"
-		"AbilityTextureName"			"death_knight_death_pact"
+		"AbilityTextureName"			"clinkz_death_pact"
 		"MaxLevel" 						"3"
 	
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -16453,15 +16453,6 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"conversion_rate"	"300"
-			}
-		}
-	
-		"OnAbilityPhaseStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/death_knight/death_pact.lua"
-				"Function"		"DeathPactPrecast"
 			}
 		}
 	
@@ -16531,7 +16522,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"900"
+				"radius"				"700"
 			}
 		}
 	
