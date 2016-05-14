@@ -61,7 +61,7 @@ function warlock_disappear( keys )
         caster:ForceKill(true)
         GameRules:SendCustomMessage("#warlock_disappear_dbm", 0, 0)
         Notifications:TopToAll({ability= "warlock_disappear"})
-        Notifications:TopToTeam(DOTA_TEAM_GOODGUYS, {text="#warlock_disappear_dbm_simple", duration=1.5, style = {color = "Azure"},continue=true})     
+        Notifications:TopToAll({text="#warlock_disappear_dbm_simple", duration=1.5, style = {color = "Azure"},continue=true})     
 end
 
 

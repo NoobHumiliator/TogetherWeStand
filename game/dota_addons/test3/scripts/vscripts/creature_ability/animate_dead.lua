@@ -16,4 +16,5 @@ function AnimateDead( event )
 			ability:ApplyDataDrivenModifier(caster, resurected, "modifier_animate_dead", nil)
 
 	end
+	Notifications:BossAbilityDBM("death_knight_boss_animate_dead")
 end

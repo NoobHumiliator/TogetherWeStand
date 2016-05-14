@@ -34,6 +34,18 @@ DOTA_UNIT_ORDER_CAST_RUNE
 
 AICore = {}
 
+function AICore:RandomNormalFriendCreepInRange( entity, range )  --选一个范围内非英雄的普通单位 死亡契约
+	local creeps = FindUnitsInRadius( DOTA_TEAM_BADGUYS, entity:GetOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES+DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO, 0, false )
+	if #creeps > 0 then
+		local index = RandomInt( 1, #creeps )
+		return creeps[index]
+	else
+		return nil
+	end
+end
+
+
+
 function AICore:RandomEnemyHeroInRange( entity, range )
 	local enemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, entity:GetOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
 	if #enemies > 0 then

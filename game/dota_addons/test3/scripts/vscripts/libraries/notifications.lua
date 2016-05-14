@@ -243,3 +243,10 @@ function Notifications:BottomToTeam(team, table)
 		CustomGameEventManager:Send_ServerToTeam(team, "bottom_notification", {text="No TEXT provided.", duration=table.duration, class=table.class, style=table.style, continue=table.continue} )
 	end
 end
+
+
+
+function Notifications:BossAbilityDBM(abilityName)
+	self:TopToAll({ability= abilityName})
+    self:TopToAll({text="#DOTA_Tooltip_ability_"..abilityName, duration=1.5, style = {color = "Azure"},continue=true}) 
+end
