@@ -11139,7 +11139,7 @@
 			}
 		}
 	}	//////¼¼ÄÜÀ¨ºÅ	
-           "holdout_mist_coil"
+    "holdout_mist_coil"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -16630,68 +16630,6 @@
 		}
 	}
   }
-
-  "lich_boss_nova"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"					    "lich_frost_nova"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.2"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6.0"
-		"AbilityDuration"				"4.0"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"800"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.3"	// Primarily about the damage
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{			
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"200"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_movement_speed"	"-30"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_attack_speed"		 "-20"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aoe_damage"		    "1000"
-			}
-		}
-	}
-
 	 "lich_boss_nova"
 	{
 		// General
@@ -17007,5 +16945,55 @@
 			}
 		}
 	}
-	
+	"death_knight_boss_mist_coil"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"					   "abaddon_death_coil"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"	        "DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"FightRecapLevel"				"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"950"
+		"AbilityCastPoint"				"0.2"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"		"1250"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"self_damage"			"600"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"target_damage"			"1200"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heal_amount"			"5000"
+			}
+		}
+	}	//////¼¼ÄÜÀ¨ºÅ
 } //主括号
