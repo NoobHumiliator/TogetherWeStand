@@ -14021,22 +14021,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor_bonus"			"10"
+				"armor_bonus"			"10 90"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"slow_duration"			"8.0"
+				"slow_duration"			"8.0 5.0"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow_movement_speed"	        "-30"
+				"slow_movement_speed"	"-30 -300"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow_attack_speed"		"-50"
+				"slow_attack_speed"		"-50  -300"
 			}
 			"05"
 			{
@@ -16336,8 +16336,8 @@
 		"AbilityCastRange"				"1800"
 		"AbilityCastPoint"				"0.453"
 	
-		"AbilityCooldown" 				"180"
-		"AbilityManacost" 				"175"
+		"AbilityCooldown" 				"45"
+		"AbilityManacost" 				"75"
 	
 		"precache"
 		{
@@ -16353,7 +16353,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"duration"					"40"
+				"duration"					"15"
 			}
 			"02"
 			{
@@ -16512,7 +16512,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"move_speed_bonus"		"150"
+				"move_speed_bonus"		"250"
 			}
 			"02"
 			{
@@ -16570,12 +16570,12 @@
 		"02"
 		{
 			"var_type"			"FIELD_FLOAT"
-			"damage_per_second"	"300"
+			"damage_per_second"	"250"
 		}
 		"03"
 		{
 			"var_type"			"FIELD_FLOAT"
-			"debuff_duration"	"10"
+			"debuff_duration"	"4"
 		}
 	}
 
@@ -16610,7 +16610,7 @@
 			"Aura_Radius"   	"%radius"
 			"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 			"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-			"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+			"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		}
 
 		"modifier_disease_cloud_debuff"
@@ -16691,162 +16691,6 @@
 		}
 	}	//////¼¼ÄÜÀ¨ºÅ	
 
-  "lich_boss_frost_armor"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_BUILDING"
-		"SpellImmunityType"			    "SPELL_IMMUNITY_ALLIES_YES"
-		"AbilityTextureName"			"lich_frost_armor"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1200"
-		"AbilityCastPoint"				"0.3"	
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"10.0"
-		"AbilityDuration"				"15.0"	
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"25"	
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.3"	// Easy to spam 	
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor_bonus"			"90"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"			"8.0"
-			}
-			"03"
-			{
-				"var_type"				 "FIELD_INTEGER"
-				"slow_movement_speed"	 "-300"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_attack_speed"		"-500"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_duration"		"8"
-			}
-		}	
-
-		"precache"
-		{
-			"particle"					"particles/units/heroes/hero_lich/lich_frost_armor.vpcf"
-			"particle"					"particles/status_fx/status_effect_frost_armor.vpcf"
-			"particle"					"particles/status_fx/status_effect_frost.vpcf"
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
-		}	
-
-		"OnSpellStart"
-		{
-			"FireSound"
-			{
-				"EffectName"			"Hero_Lich.FrostArmor"
-				"Target"				"TARGET"
-			}	
-
-			"ApplyModifier"
-			{
-				"ModifierName"			"modifier_imba_frost_armor"
-				"Target"				"TARGET"
-				"Duration"				"%AbilityDuration"
-			}
-		}	
-
-		"Modifiers"
-		{
-			"modifier_imba_frost_armor"
-			{
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_bonus"
-				}	
-
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"    "creature_ability/ice_armor.lua"
-				        "Function"      "FrostArmorParticle"	
-				        "particle"		"particles/units/heroes/hero_lich/lich_frost_armor.vpcf"
-				    }
-				}	
-
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"    "creature_ability/ice_armor.lua"
-				        "Function"      "EndFrostArmorParticle"	
-				    }
-				}	
-
-				"StatusEffectName"		"particles/status_fx/status_effect_frost_armor.vpcf"
-				"StatusEffectPriority"	"10"	
-
-				"OnTakeDamage"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_imba_frost_armor_slow"
-
-						"Target"
-						{
-							"Center"  	"ATTACKER"
-							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-							"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
-						}
-						
-						"Duration"		"%slow_duration"
-					}	
-
-					"FireSound"
-					{
-						"EffectName"	"Hero_Lich.FrostArmorDamage"
-						"Target"		"TARGET"
-					}
-				}
-			}	
-
-			"modifier_imba_frost_armor_slow"
-			{
-				"IsDebuff"				"1"
-				"IsPurgable"			"1"
-
-				"StatusEffectName"		"particles/status_fx/status_effect_frost.vpcf"
-				"StatusEffectPriority"	"10"	
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%slow_attack_speed"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_movement_speed"
-				}
-			}	
-		}
-	}
 	"lich_boss_death_and_dacay"
 	{
 	
@@ -16904,12 +16748,12 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"950"
+		"AbilityCastRange"				"1950"
 		"AbilityCastPoint"				"0.1"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"7.5"
+		"AbilityCooldown"				"3.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -16936,7 +16780,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"length"			"950"
+				"length"			"1950"
 			}
 			"04"
 			{

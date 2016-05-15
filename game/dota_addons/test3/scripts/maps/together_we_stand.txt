@@ -8,20 +8,7 @@
 	"RewardForTowersStanding"		"1"
 	"TowerRewardAmount"				"18"
 	"TowerScalingRewardPerRound"	"2"
-	
-	"ItemDrops"
-	{
-		"HealingSalve"
-		{
-			"Item"					"item_flask2"
-			"Chance"				"2"
-		}
-		"Clarity"
-		{
-			"Item"					"item_greater_clarity"
-			"Chance"				"2"
-		}
-	}
+
 	
 	"RandomSpawns"
 	{
@@ -259,7 +246,7 @@
 		"FixedXP"					"10500"
 		"alias"                     "scourge"
 		
-                 // Stage 1 ================================================ 36Ãë
+                 // Stage 1 ================================================ 36ÃƒÃ«
                  "UnitSpider"
 		{
 			"NPCName"	       "npc_dota_creature_basic_spider"
@@ -276,7 +263,7 @@
 			"UnitsPerSpawn"			"1"
 		}
                 
-                 // Stage 2 ================================================µÚ¶ş²¨±ù¼×Ö©Öë
+                 // Stage 2 ================================================ÂµÃšÂ¶Ã¾Â²Â¨Â±Ã¹Â¼Ã—Ã–Â©Ã–Ã«
                  "UnitSpider_2"
 		{        
                         "WaitForUnit"			"UnitSpider"
@@ -294,7 +281,7 @@
 			"TotalUnitsToSpawn"		"3"
 			"UnitsPerSpawn"			"1"
 		}
-                 // Stage 3 ================================================ÌìµØË«¹í
+                 // Stage 3 ================================================ÃŒÃ¬ÂµÃ˜Ã‹Â«Â¹Ã­
                  "UnitGual"
 		{        
                         "WaitForUnit"			"UnitSpider_2"
@@ -574,7 +561,7 @@
 			"SpawnInterval"			"15"
                         "SpawnerName"			"spawner4"
 		}
-                "Unit_firespirit_2a"   //¸úµÚÈı²¨ÑªÄ§Í¬Ê±³ö
+                "Unit_firespirit_2a"   //Â¸ÃºÂµÃšÃˆÃ½Â²Â¨Ã‘ÂªÃ„Â§ÃÂ¬ÃŠÂ±Â³Ã¶
 		{
                         "WaitForUnit"			"Unit_bloodseeker_2a"
                         "WaitForTime"			"20"
@@ -675,7 +662,7 @@
 			"SpawnInterval"			"13"
                         "SpawnerName"			"spawner4"
 		}
-		"Unit_firespirit_3a"     //µÚÈı²¨ÑªÄ§ÖĞÍ¾³ö
+		"Unit_firespirit_3a"     //ÂµÃšÃˆÃ½Â²Â¨Ã‘ÂªÃ„Â§Ã–ÃÃÂ¾Â³Ã¶
 		{
                         "WaitForUnit"			"Unit_bloodseeker_2a"
                         "WaitForTime"			"56"
@@ -693,7 +680,7 @@
 			"UnitsPerSpawn"			"1"
                         "SpawnerName"			"spawner4"
 		}
-                //×îºóÒ»²¨ÖĞÍ¾³ö
+                //Ã—Ã®ÂºÃ³Ã’Â»Â²Â¨Ã–ÃÃÂ¾Â³Ã¶
                 "Unit_firespirit_4a"
 		{
                         "WaitForUnit"			"Unit_bloodseeker_3a"
@@ -1883,7 +1870,7 @@
 		"BagVariance"				        "10"
 		"FixedXP"					"35700"
 	    "alias"                     "tree"	
-                // Stage 1 ================================================Ã¿¸öË¢Ò»Ö» 
+                // Stage 1 ================================================ÃƒÂ¿Â¸Ã¶Ã‹Â¢Ã’Â»Ã–Â» 
                  "Unit_1"
 		{
 			"NPCName"	       "npc_dota_boss_enchantress"
@@ -1927,7 +1914,7 @@
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
 		}
-               // stage2 ÓëÉÏÒ»²¨¼ä¸ô25Ãë ±¾ÂÖ15ÃëË¢Íê
+               // stage2 Ã“Ã«Ã‰ÃÃ’Â»Â²Â¨Â¼Ã¤Â¸Ã´25ÃƒÃ« Â±Â¾Ã‚Ã–15ÃƒÃ«Ã‹Â¢ÃÃª
                 "UnitTreeElder_2"
 		{	
                     "WaitForUnit"		"Unit_1"
@@ -2014,7 +2001,7 @@
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
 		}
-                //stage3ÓëÉÏÂÖ¼ä¸ô15Ãë 30ÃëË¢Íê
+                //stage3Ã“Ã«Ã‰ÃÃ‚Ã–Â¼Ã¤Â¸Ã´15ÃƒÃ« 30ÃƒÃ«Ã‹Â¢ÃÃª
                 "UnitTreeElder_3"
 		{	
                     "WaitForUnit"		"UnitTreeFast_2_1"
@@ -2128,7 +2115,7 @@
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
 		} 
-                //stage 4 Ë¢Á©³¤ÕßÓëÉÏÂÖ¾àÀë10Ãë Ë¢±ø³ÖĞø30Ãë ³öÒ»¸ökiller
+                //stage 4 Ã‹Â¢ÃÂ©Â³Â¤Ã•ÃŸÃ“Ã«Ã‰ÃÃ‚Ã–Â¾Ã Ã€Ã«10ÃƒÃ« Ã‹Â¢Â±Ã¸Â³Ã–ÃÃ¸30ÃƒÃ« Â³Ã¶Ã’Â»Â¸Ã¶killer
                  "UnitTreeElder_4_1"
 		{	
                     "WaitForUnit"		"UnitTreeFast_3_1"
@@ -2387,7 +2374,7 @@
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
 		}                     						
-        //stage6 Ë¢Á©³¤ÕßÓëÉÏÂÖ¾àÀë10Ãë Ë¢±ø³ÖĞø25Ãë ³ö3¸ökiller ÔÙ¼ÓÒ»°ëµÄ³ö±øÊıÁ¿
+        //stage6 Ã‹Â¢ÃÂ©Â³Â¤Ã•ÃŸÃ“Ã«Ã‰ÃÃ‚Ã–Â¾Ã Ã€Ã«10ÃƒÃ« Ã‹Â¢Â±Ã¸Â³Ã–ÃÃ¸25ÃƒÃ« Â³Ã¶3Â¸Ã¶killer Ã”Ã™Â¼Ã“Ã’Â»Â°Ã«ÂµÃ„Â³Ã¶Â±Ã¸ÃŠÃ½ÃÂ¿
                  "UnitTreeElder_6_1"
 		{	
                     "WaitForUnit"		"UnitTreeFast_5_1"
@@ -2529,7 +2516,7 @@
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
 		}                             						
-        //stage7 Ë¢Á©³¤ÕßÓëÉÏÂÖ¾àÀë10Ãë Ë¢±ø³ÖĞø25Ãë ³ö3¸ökiller ÔÙ¼Ó³ö±øÆµÂÊ
+        //stage7 Ã‹Â¢ÃÂ©Â³Â¤Ã•ÃŸÃ“Ã«Ã‰ÃÃ‚Ã–Â¾Ã Ã€Ã«10ÃƒÃ« Ã‹Â¢Â±Ã¸Â³Ã–ÃÃ¸25ÃƒÃ« Â³Ã¶3Â¸Ã¶killer Ã”Ã™Â¼Ã“Â³Ã¶Â±Ã¸Ã†ÂµÃ‚ÃŠ
                  "UnitTreeElder_7_1"
 		{	
                     "WaitForUnit"		"UnitTreeFast_6_1"
@@ -2671,7 +2658,7 @@
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
 		}                             						
-         //stage8 Ë¢Á©³¤ÕßÓëÉÏÂÖ¾àÀë5Ãë Ë¢±ø³ÖĞø25Ãë ³ö3¸ökiller 
+         //stage8 Ã‹Â¢ÃÂ©Â³Â¤Ã•ÃŸÃ“Ã«Ã‰ÃÃ‚Ã–Â¾Ã Ã€Ã«5ÃƒÃ« Ã‹Â¢Â±Ã¸Â³Ã–ÃÃ¸25ÃƒÃ« Â³Ã¶3Â¸Ã¶killer 
                  "UnitTreeElder_8_1"
 		{	
                     "WaitForUnit"		"UnitTreeFast_7_1"
@@ -2813,7 +2800,7 @@
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
 		}                             						
-        // stage9 ËùÓĞ¹ÖÊıÁ¿*5 10ÃëÒ»²¨ È«²¿Ë¢Íê
+        // stage9 Ã‹Ã¹Ã“ÃÂ¹Ã–ÃŠÃ½ÃÂ¿*5 10ÃƒÃ«Ã’Â»Â²Â¨ ÃˆÂ«Â²Â¿Ã‹Â¢ÃÃª
                "UnitTreeElder_9_1"
 		{	
                     "WaitForUnit"		"UnitTreeFast_8_1"
@@ -2978,13 +2965,364 @@
             "SpawnerName"			"spawner4"
 		} 														
 	} 
-   "Round13" //twins
+	"Round13" //Dark Citadel
+	{
+		"round_quest_title"			"#DOTA_Holdout_Round_Dark_Citadel_Quest_Title"
+		"round_title"				"#DOTA_Holdout_Round_Dark_Citadel_Title"
+		"MaxGold"					"7850"
+		"BagCount"					"50"
+		"BagVariance"		        "40"
+		"FixedXP"					"35700"
+		"alias"                     "dark_citadel"
+
+		"UnitAbomination_1a" // Duration 80s - Continues with UnitFodderGrouped_2a & 3a to 120s total
+		{
+			"NPCName"				"npc_dota_creature_abomination"
+			"TotalUnitsToSpawn"		"48"
+			"UnitsPerSpawn"			"6"
+			"SpawnInterval"			"10"
+		}
+		
+		"UnitAbomination_1b" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
+		{
+			"NPCName"				"npc_dota_creature_abomination"
+			"TotalUnitsToSpawn"		"48"
+			"UnitsPerSpawn"			"6"
+			"SpawnInterval"			"10"
+		}
+		"UnitDeathKnight_1" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
+		{
+			"NPCName"				"npc_dota_death_knight_boss"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"UnitLich_1" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
+		{
+			"NPCName"				"npc_dota_lich_boss"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"UnitAbomination_1c"   //120
+		{
+			"WaitForTime"			"30"
+			"NPCName"				"npc_dota_creature_abomination"
+			"TotalUnitsToSpawn"		"36"
+			"UnitsPerSpawn"			"4"
+			"SpawnInterval"			"10"
+		}
+		
+		"UnitRanged_1a" // Duration 60s + 30s
+		{
+			"WaitForTime"			"30"
+			"NPCName"				"npc_dota_frost_wyrm"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+		"UnitRanged_1b" // Duration 60s + 30s
+		{
+			"WaitForTime"			"30"
+			"NPCName"				"npc_dota_frost_wyrm"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+		"UnitRanged_1c" // Duration 60s + 30s
+		{
+			"WaitForTime"			"30"
+			"NPCName"				"npc_dota_frost_wyrm"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+		"UnitRanged_1d" // Duration 60s + 30s
+		{
+			"WaitForTime"			"30"
+			"NPCName"				"npc_dota_frost_wyrm"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+		"UnitRanged_1e" // Duration 60s + 30s
+		{
+			"WaitForTime"			"30"
+			"NPCName"				"npc_dota_frost_wyrm"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+		"UnitRanged_1f" // Duration 60s + 30s
+		{
+			"WaitForTime"			"30"
+			"NPCName"				"npc_dota_frost_wyrm"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+		
+		// Stage 2 ================================================
+		"UnitAbomination_2a" // Duration 80s - Continues with UnitFodderGrouped_2a & 3a to 120s total
+		{
+			"WaitForUnit"			"UnitAbomination_1a"
+			"WaitForTime"			"1"
+			"NPCName"				"npc_dota_creature_abomination"
+			"TotalUnitsToSpawn"		"64"
+			"UnitsPerSpawn"			"8"
+			"SpawnInterval"			"10"
+		}
+		
+		"UnitAbomination_2b" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
+		{
+			"WaitForUnit"			"UnitAbomination_1a"
+			"WaitForTime"			"1"
+			"NPCName"				"npc_dota_creature_abomination"
+			"TotalUnitsToSpawn"		"64"
+			"UnitsPerSpawn"			"8"
+			"SpawnInterval"			"10"
+		}
+		"UnitCryptLord_2" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
+		{
+			"WaitForUnit"			"UnitAbomination_1a"
+			"WaitForTime"			"1"
+			"NPCName"				"npc_dota_crypt_lord_boss"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"UnitLich_2" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
+		{
+			"WaitForUnit"			"UnitAbomination_1a"
+			"WaitForTime"			"1"
+			"NPCName"				"npc_dota_lich_boss"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"UnitAbomination_2c"   //120
+		{
+			"WaitForUnit"			"UnitAbomination_1a"
+			"WaitForTime"			"30"
+			"NPCName"				"npc_dota_creature_abomination"
+			"TotalUnitsToSpawn"		"45"
+			"UnitsPerSpawn"			"5"
+			"SpawnInterval"			"10"
+		}
+		
+		"UnitRanged_2a" // Duration 60s + 30s
+		{
+			"WaitForUnit"			"UnitAbomination_1a"
+			"WaitForTime"			"31"
+			"NPCName"				"npc_dota_frost_wyrm"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+		"UnitRanged_2b" // Duration 60s + 30s
+		{
+			"WaitForUnit"			"UnitAbomination_1a"
+			"WaitForTime"			"31"
+			"NPCName"				"npc_dota_frost_wyrm"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+		"UnitRanged_2c" // Duration 60s + 30s
+		{
+			"WaitForUnit"			"UnitAbomination_1a"
+			"WaitForTime"			"31"
+			"NPCName"				"npc_dota_frost_wyrm"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+		"UnitRanged_2d" // Duration 60s + 30s
+		{
+			"WaitForUnit"			"UnitAbomination_1a"
+			"WaitForTime"			"31"
+			"NPCName"				"npc_dota_frost_wyrm"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+		"UnitRanged_2e" // Duration 60s + 30s
+		{
+			"WaitForUnit"			"UnitAbomination_1a"
+			"WaitForTime"			"31"
+			"NPCName"				"npc_dota_frost_wyrm"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+		"UnitRanged_2f" // Duration 60s + 30s
+		{
+			"WaitForUnit"			"UnitAbomination_1a"
+			"WaitForTime"			"31"
+			"NPCName"				"npc_dota_frost_wyrm"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+		
+		
+		// Stage 3 ================================================
+		"UnitAbomination_3a" // Duration 80s - Continues with UnitFodderGrouped_2a & 3a to 120s total
+		{
+			"WaitForUnit"			"UnitAbomination_2a"
+			"WaitForTime"			"1"
+			"NPCName"				"npc_dota_creature_abomination"
+			"TotalUnitsToSpawn"		"64"
+			"UnitsPerSpawn"			"8"
+			"SpawnInterval"			"10"
+		}
+		
+		"UnitAbomination_3b" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
+		{
+			"WaitForUnit"			"UnitAbomination_2a"
+			"WaitForTime"			"1"
+			"NPCName"				"npc_dota_creature_abomination"
+			"TotalUnitsToSpawn"		"64"
+			"UnitsPerSpawn"			"8"
+			"SpawnInterval"			"10"
+		}
+		"UnitDeathKnight_3" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
+		{
+			"WaitForUnit"			"UnitAbomination_2a"
+			"WaitForTime"			"1"
+			"NPCName"				"npc_dota_death_knight_boss"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"UnitCryptLord_3" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
+		{
+			"WaitForUnit"			"UnitAbomination_1a"
+			"WaitForTime"			"16"
+			"NPCName"				"npc_dota_crypt_lord_boss"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"UnitLich_3" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
+		{
+			"WaitForUnit"			"UnitAbomination_2a"
+			"WaitForTime"			"31"
+			"NPCName"				"npc_dota_lich_boss"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"UnitAbomination_3c"   //120
+		{
+			"WaitForUnit"			"UnitAbomination_2a"
+			"WaitForTime"			"31"
+			"NPCName"				"npc_dota_creature_abomination"
+			"TotalUnitsToSpawn"		"45"
+			"UnitsPerSpawn"			"5"
+			"SpawnInterval"			"10"
+		}
+		
+		"UnitRanged_3a" // Duration 60s + 30s
+		{
+			"WaitForUnit"			"UnitAbomination_2a"
+			"WaitForTime"			"31"
+			"NPCName"				"npc_dota_frost_wyrm"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+		"UnitRanged_3b" // Duration 60s + 30s
+		{
+			"WaitForUnit"			"UnitAbomination_2a"
+			"WaitForTime"			"31"
+			"NPCName"				"npc_dota_frost_wyrm"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+		"UnitRanged_3c" // Duration 60s + 30s
+		{
+			"WaitForUnit"			"UnitAbomination_2a"
+			"WaitForTime"			"31"
+			"NPCName"				"npc_dota_frost_wyrm"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+		"UnitRanged_3d" // Duration 60s + 30s
+		{
+			"WaitForUnit"			"UnitAbomination_2a"
+			"WaitForTime"			"31"
+			"NPCName"				"npc_dota_frost_wyrm"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+		"UnitRanged_3e" // Duration 60s + 30s
+		{
+			"WaitForUnit"			"UnitAbomination_2a"
+			"WaitForTime"			"31"
+			"NPCName"				"npc_dota_frost_wyrm"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+		"UnitRanged_3f" // Duration 60s + 30s
+		{
+			"WaitForUnit"			"UnitAbomination_2a"
+			"WaitForTime"			"31"
+			"NPCName"				"npc_dota_frost_wyrm"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+        // Stage 4 ================================================ 6ä¸ªBoss
+		"UnitDeathKnight_4a" 
+		{
+			"WaitForUnit"			"UnitAbomination_3a"
+			"WaitForTime"			"15"	
+			"NPCName"		        "npc_dota_boss_nec"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}		
+		"UnitLich_4a" 
+		{
+			"GroupWithUnit"			"UnitDeathKnight_4a"
+			"NPCName"		        "npc_dota_lich_boss"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"UnitCryptLord_4a" // Duration 15s
+		{
+			"GroupWithUnit"			"UnitDeathKnight_4a"
+			"NPCName"		        "npc_dota_crypt_lord_boss"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+	    "UnitDeathKnight_4b" 
+		{
+			"WaitForUnit"			"UnitAbomination_3a"
+			"WaitForTime"			"15"	
+			"NPCName"		        "npc_dota_boss_nec"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}		
+		"UnitLich_4b" 
+		{
+			"GroupWithUnit"			"UnitDeathKnight_4b"
+			"NPCName"		        "npc_dota_lich_boss"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"UnitCryptLord_4b" // Duration 15s
+		{
+			"GroupWithUnit"			"UnitDeathKnight_4b"
+			"NPCName"		        "npc_dota_crypt_lord_boss"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}									
+	} 
+   "Round14" //twins
 	{
 		"round_quest_title"			"#DOTA_Holdout_Round_Twins_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Twins_Title"
 		"MaxGold"					"8350"
 		"BagCount"					"15"
-		"BagVariance"				        "40"
+		"BagVariance"			    "40"
 		"FixedXP"					"35700"
         "alias"                     "twins"
 		// Stage 1 ================================================
@@ -3003,7 +3341,7 @@
                         "SpawnerName"			"spawner3"
 		}  														
 	} 
-    "Round14" // morphing again!
+    "Round15" // morphing again!
 	{
 		"round_quest_title"			"#DOTA_Holdout_Round_Again_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Again_Title"
@@ -3177,7 +3515,7 @@
                         "SpawnerName"			        "spawner4"
 		}
     }
-     "Round15" //party
+     "Round16" //party
 	{
 		"round_quest_title"			"#DOTA_Holdout_Round_BossParty_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_BossParty_Title"
