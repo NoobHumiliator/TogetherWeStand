@@ -4,7 +4,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false --减少刷兵间隔，增加初始金钱
---testMode=true --减少刷兵间隔，增加初始金钱
+testMode=true --减少刷兵间隔，增加初始金钱
 
 
 
@@ -580,7 +580,7 @@ function CHoldoutGameMode:OnEntityKilled( event )
 	end
 
 	if killedUnit and killedUnit:IsRealHero() then
-		if self._currentRound._alias=="skeleton"  and self._currentRound.achievement_flag then
+		if self._currentRound  and  self._currentRound._alias=="skeleton"  and self._currentRound.achievement_flag then
 		         local playername=PlayerResource:GetPlayerName(killedUnit:GetPlayerOwnerID())
                  local hero_name=PlayerResource:GetSelectedHeroName(killedUnit:GetPlayerOwnerID())  
                  Notifications:BottomToAll({hero = hero_name, duration = 4})
