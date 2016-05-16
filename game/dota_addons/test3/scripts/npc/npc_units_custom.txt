@@ -10707,8 +10707,8 @@
 		//----------------------------------------------------------------
 		"Model"						"models/heroes/abaddon/abaddon.vmdl"
 		"BaseClass"					"npc_dota_creature"
-		"ModelScale"				        "1.3"
-		"Level"					         	"5"
+		"ModelScale"				        "1.5"
+		"Level"					         	"50"
 		"ConsideredHero"			        "1"
 		
 		"MinimapIcon"				"minimap_roshancamp"
@@ -10758,7 +10758,7 @@
 		// Bounds
 		//----------------------------------------------------------------
 		"RingRadius"				"70"
-		"HealthBarOffset"			"300"
+		"HealthBarOffset"			"500"
 		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"	
 
 		// Movement
@@ -10844,8 +10844,8 @@
 		//----------------------------------------------------------------
 		"Model"						"models/heroes/lich/lich.vmdl"
 		"BaseClass"					"npc_dota_creature"
-		"ModelScale"				        "1.3"
-		"Level"						"1"
+		"ModelScale"				        "1.5"
+		"Level"						"50"
 		"ConsideredHero"			        "1"
 		
 		"MinimapIcon"				"minimap_roshancamp"
@@ -10897,7 +10897,7 @@
 		// Bounds
 		//----------------------------------------------------------------
 		"RingRadius"				"70"
-		"HealthBarOffset"			"300"
+		"HealthBarOffset"			"1000"
 		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"	
 
 		// Movement
@@ -10986,8 +10986,8 @@
 		//----------------------------------------------------------------
 		"Model"						"models/heroes/nerubian_assassin/nerubian_assassin.vmdl"
 		"BaseClass"					"npc_dota_creature"
-		"ModelScale"				        "1.3"
-		"Level"						"5"
+		"ModelScale"				"1.5"
+		"Level"						"50"
 		"ConsideredHero"			        "1"
 		
 		"MinimapIcon"				"minimap_roshancamp"
@@ -11038,7 +11038,7 @@
 		// Bounds
 		//----------------------------------------------------------------
 		"RingRadius"				"70"
-		"HealthBarOffset"			"300"
+		"HealthBarOffset"			"1000"
 		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"	
 
 		// Movement

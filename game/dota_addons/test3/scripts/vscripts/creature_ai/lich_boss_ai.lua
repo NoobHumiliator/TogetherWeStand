@@ -68,7 +68,7 @@ function BehaviorStatic_Link:Evaluate()
 	local range = self.staticlinkAbility:GetCastRange()
 	local target = AICore:RandomEnemyHeroInRangeNotIllusion(thisEntity,range)   --范围对内随机非幻象英雄使用死亡缠绕
 	if self.staticlinkAbility and self.staticlinkAbility:IsFullyCastable() and target then   
-		desire = 4
+		desire = 6
 		self.target = target
 	else
 		desire = 1
@@ -86,7 +86,9 @@ function BehaviorStatic_Link:Begin()
 		TargetIndex = self.target:entindex(),
 		AbilityIndex = self.staticlinkAbility:entindex()
 	}
-	Notifications:BossAbilityDBM("lich_boss_nova")
+	if thisEntity:IsAlive() then
+	  Notifications:BossAbilityDBM("lich_boss_nova")
+	end
 end 
 
 BehaviorStatic_Link.Continue = BehaviorStatic_Link.Begin
@@ -130,7 +132,9 @@ function BehaviorIce_Armor:Evaluate()
 			TargetIndex = target:entindex(),
 			AbilityIndex = self.icearmorAbility:entindex()
 		}
-		Notifications:BossAbilityDBM("lich_creature_frost_armor")
+	    if thisEntity:IsAlive() then
+		  Notifications:BossAbilityDBM("lich_creature_frost_armor")
+		end
 	else
 		desire = 1
 	end
@@ -166,6 +170,7 @@ function BehaviorDeath_Decay:Evaluate()
 	else
 		desire = 1
 	end
+    self.target=target
 
 	return desire
 end
@@ -179,13 +184,15 @@ function BehaviorDeath_Decay:Begin()
 		AbilityIndex = self.staticlinkAbility:entindex(),
 		Position = self.targetPoint
 	}
-	Notifications:BossAbilityDBM("lich_boss_death_and_dacay")
+	if thisEntity:IsAlive() then
+	   Notifications:BossAbilityDBM("lich_boss_death_and_dacay")
+	end
 end 
 
 BehaviorDeath_Decay.Continue = BehaviorDeath_Decay.Begin
 
 function BehaviorDeath_Decay:Think(dt)
-	if not self.target:IsAlive() then
+	if self.target  and not self.target:IsAlive() then
 		self.endTime = GameRules:GetGameTime()
 		return
 	end

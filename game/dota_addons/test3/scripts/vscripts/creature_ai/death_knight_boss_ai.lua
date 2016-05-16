@@ -91,7 +91,9 @@ function BehaviorStatic_Link:Begin()
 		TargetIndex = self.target:entindex(),
 		AbilityIndex = self.staticlinkAbility:entindex()
 	}
-	Notifications:BossAbilityDBM("death_knight_boss_mist_coil")
+	if thisEntity:IsAlive() then
+	  Notifications:BossAbilityDBM("death_knight_boss_mist_coil")
+	end
 end 
 
 BehaviorStatic_Link.Continue = BehaviorStatic_Link.Begin
@@ -133,7 +135,9 @@ function BehaviorIce_Armor:Evaluate()
 			TargetIndex = target:entindex(),
 			AbilityIndex = self.icearmorAbility:entindex()
 		}
-		Notifications:BossAbilityDBM("death_knight_boss_mist_coil")
+		if thisEntity:IsAlive() then
+		  Notifications:BossAbilityDBM("death_knight_boss_mist_coil")
+		end
 	else
 		desire = 1
 	end
@@ -191,12 +195,13 @@ function BehaviorDeath_Pact:Evaluate()
 	
 	if currentBehavior == self then return desire end
 
-	self.ability = thisEntity:FindAbilityByName( "death_knight_boss_animate_dead" )
+	self.ability = thisEntity:FindAbilityByName( "death_knight_boss_death_pact" )
 	local range = self.ability:GetCastRange()
 
 	if self.ability and self.ability:IsFullyCastable() then
 		self.target = AICore:RandomNormalFriendCreepInRange(thisEntity, range)
 		if self.target then
+			print(self.target:GetUnitName())
 			desire = 3
 		end
 	end	

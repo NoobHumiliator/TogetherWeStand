@@ -16478,7 +16478,7 @@
 				
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/death_knight/death_pact.lua"
+				"ScriptFile"	"creature_ability/death_pact.lua"
 				"Function"		"DeathPact"
 			}
 	
@@ -16707,7 +16707,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5"
+		"AbilityCooldown"				"6"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
