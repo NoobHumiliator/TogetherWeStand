@@ -16493,7 +16493,7 @@
 	"death_knight_boss_unholy_aura"
 	{
 		"BaseClass"             		"ability_datadriven"
-		"AbilityTextureName"			"death_knight_unholy_aura"
+		"AbilityTextureName"			"ursa_enrage"
 		"MaxLevel" 						"3"
 	
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -16793,7 +16793,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"					   "abaddon_death_coil"
+		"BaseClass"					    "abaddon_death_coil"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"	        "DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL"
