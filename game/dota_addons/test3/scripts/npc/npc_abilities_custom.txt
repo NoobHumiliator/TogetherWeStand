@@ -224,12 +224,12 @@
 			"var_type"				"FIELD_FLOAT"
 			"damage_increase"		    "1.3"
 		}
-                "04"
+        "04"
 		{
 			"var_type"				"FIELD_INTEGER"
 			"initial_radius"		  "50"
 		}
-                 "05"
+        "05"
 		{
 			"var_type"				"FIELD_INTEGER"
 			"radius_increase"		  "50"
@@ -604,7 +604,7 @@
 		"01"
 		{
 			"var_type"					"FIELD_INTEGER"
-			"link_distance"		                        "1400"
+			"link_distance"		                        "1300"
 		}
 		"02"
 		{
@@ -614,12 +614,12 @@
                 "03"
 		{
 			"var_type"					"FIELD_INTEGER"
-			"bonus_damage"		                        "360"
+			"bonus_damage"		                        "560"
 		}
                 "04"
 		{
 			"var_type"					"FIELD_INTEGER"
-			"hp_threshold"		                        "2000"
+			"hp_threshold"		                        "5000"
 		}				
 	}
 

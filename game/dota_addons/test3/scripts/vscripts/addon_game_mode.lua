@@ -3,7 +3,7 @@ if CHoldoutGameMode == nil then
 	_G.CHoldoutGameMode = class({}) 	
 end
 
-testMode=false --减少刷兵间隔，增加初始金钱
+testMode=false 
 --testMode=true --减少刷兵间隔，增加初始金钱
 
 
@@ -20,6 +20,7 @@ require( "game_functions")
 require( "utility_functions" )
 require( "libraries/notifications")
 require( "item_ability/damage_filter")
+require( "vip/extra_particles")
 
 -- Precache resources
 -- Actually make the game mode when we activate
@@ -80,7 +81,13 @@ function CHoldoutGameMode:InitGameMode()
 	GameRules:SetCreepMinimapIconScale( 0.7 )
 	GameRules:SetRuneMinimapIconScale( 0.7 )
 	GameRules:GetGameModeEntity():SetUseCustomHeroLevels( true )
-    GameRules:GetGameModeEntity():SetCustomHeroMaxLevel( 80 )
+    GameRules:GetGameModeEntity():SetCustomHeroMaxLevel( 999 )
+	local xpTable = {}
+	xpTable[0]=0
+	xpTable[1]=200
+	for i = 2, 1000 do
+		xpTable[i] = xpTable[i-1]+i*100
+	end
     GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel( xpTable )
 	GameRules:GetGameModeEntity():SetRemoveIllusionsOnDeath( true )
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesOverride( true )
@@ -469,13 +476,19 @@ function CHoldoutGameMode:OnNPCSpawned( event )
         end
     end
 
-	-- Attach client side hero effects on spawning players
+	-- Attach client side hero effects on spawning players 配置Vip的粒子效果
 	if spawnedUnit:IsRealHero() then
 		for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
 			if ( PlayerResource:IsValidPlayer( nPlayerID ) ) then
+				local hPlayerHero = spawnedUnit
 				self:_SpawnHeroClientEffects( spawnedUnit, nPlayerID )
+				local nSteamID = PlayerResource:GetSteamAccountID(nPlayerID)    --获取steam ID 
+		        if TableFindKey(vipSteamIDTable, nSteamID) then                       --steam ID 符合VIP表
+			       CreateVipParticle(hPlayerHero)
+		        end
 			end
 		end
+
 	end
 	if spawnedUnit:GetTeam()==DOTA_TEAM_GOODGUYS and string.sub(spawnedUnit:GetUnitName(),1,14)~="npc_dota_tiny_"then
 		if spawnedUnit:HasAbility("damage_counter") then
@@ -619,11 +632,13 @@ end
 
 function CHoldoutGameMode:OnItemPickUp( event ,level )
 	local item = EntIndexToHScript( event.ItemEntityIndex )
-	local owner = EntIndexToHScript( event.HeroEntityIndex )
-	if string.sub(event.itemname,1,20)== "item_treasure_chest_" then
-		SpecialItemAdd( event,  tonumber(string.sub(event.itemname,21,21)))
-		UTIL_Remove( item )
-	end
+	if event.HeroEntityIndex then
+	   local owner = EntIndexToHScript( event.HeroEntityIndex )
+	   if string.sub(event.itemname,1,20)== "item_treasure_chest_" then
+		  SpecialItemAdd( event,  tonumber(string.sub(event.itemname,21,21)))
+		  UTIL_Remove( item )
+	   end
+    end
 end
 
 -- Custom game specific console command "holdout_test_round"
