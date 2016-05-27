@@ -21,7 +21,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"99999"
+		"ItemCost"				    	"99999"
 		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -94,6 +94,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"2000"
+		"ItemPurchasable"				"1"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -1501,8 +1502,7 @@
   "BaseClass"					"item_datadriven"
   "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "AbilityTextureName" 		    "item_mage_staff_1"
-
-  "ItemPurchasable"				"0"
+  "ItemPurchasable"				"1"
   "ItemCost"					"750"
   "ItemQuality"					"common"
   "ItemShareability"			"ITEM_NOT_SHAREABLE"
@@ -1966,7 +1966,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"1400"	
 		"ItemShopTags"					""
-		"ItemSellable"					"1"
+		"ItemPurchasable"				"1"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -2002,7 +2002,7 @@
 		"ItemAliases"					"Shuzdali Offerings;shuzdal"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
-		"ItemSellable"					"0"
+		"ItemPurchasable"				"1"
 		"ItemKillable"					"1"
 		"ItemAlertable"					"1"
 

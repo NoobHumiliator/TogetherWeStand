@@ -10444,7 +10444,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"183500"		// Base health.
+		"StatusHealth"				"185000"		// Base health.
 		"StatusHealthRegen"			"20.0"		// Health regeneration rate.
 		"StatusMana"				"1000"			// Base mana.
 		"StatusManaRegen"			"150"			// Mana regeneration rate.
@@ -10758,7 +10758,7 @@
 		// Bounds
 		//----------------------------------------------------------------
 		"RingRadius"				"70"
-		"HealthBarOffset"			"500"
+		"HealthBarOffset"			"600"
 		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"	
 
 		// Movement
@@ -10897,7 +10897,7 @@
 		// Bounds
 		//----------------------------------------------------------------
 		"RingRadius"				"70"
-		"HealthBarOffset"			"1000"
+		"HealthBarOffset"			"600"
 		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"	
 
 		// Movement
@@ -11038,7 +11038,7 @@
 		// Bounds
 		//----------------------------------------------------------------
 		"RingRadius"				"70"
-		"HealthBarOffset"			"1000"
+		"HealthBarOffset"			"600"
 		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"	
 
 		// Movement

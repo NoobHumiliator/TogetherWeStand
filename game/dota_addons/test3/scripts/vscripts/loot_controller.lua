@@ -13,7 +13,8 @@ function LootController:ReadConfigration()
   end
   local itemCsmListKV = LoadKeyValues("scripts/npc/npc_items_custom.txt")
   for k, v in pairs( itemCsmListKV ) do
-    if type( v ) == "table" and v.ItemCost and tonumber(v.ItemCost)~=0 then
+    if type( v ) == "table" and v.ItemCost and tonumber(v.ItemCost)~=0  and  (v.ItemPurchasable==nil or  (v.ItemPurchasable and v.ItemPurchasable==1) )  then  --必须是有价钱并且能买到的物品
+       print("costom item"..k)
        self._itemCost[k] = v.ItemCost
     end
   end
@@ -26,7 +27,7 @@ function LootController:SetItemProbability(roundNumber,hardLevel)
 	self._roundItemProbability={}
 	--self._valuetable={}
 	--self._reverttable={}
-	local exponent= -2.5+roundNumber*0.1+(3-hardLevel)*0.3   --每增加一关掉落品质增加0.1  困难难度无加成
+	local exponent= -2.5+roundNumber*0.1+(3-hardLevel)*0.6   --每增加一关掉落品质增加0.1  困难难度无加成
 	for k,v in pairs(self._itemCost) do
 		denominator=denominator+v^exponent
 	end
@@ -66,6 +67,7 @@ end
 
 function LootController:LaunchWorldItemFromUnit( sItemName, flLaunchHeight, flDuration, hUnit )
     local newItem = CreateItem( sItemName, nil, nil )
+    --print("itemname"..sItemName)
     newItem:SetPurchaseTime( 0 )
     if newItem:IsPermanent() and newItem:GetShareability() == ITEM_FULLY_SHAREABLE then
 		 newItem:SetStacksWithOtherOwners( true )
@@ -84,15 +86,17 @@ end
 
 
 function LootController:ChooseRandomItemName()
-	local newItemName=nil
-	local temp=0
-	local randomNum=math.random()
-	for k,v in pairs(self._roundItemProbability) do
-		temp=temp+self._roundItemProbability[k]
-		if randomNum<=temp then
-			newItemName=k
-			break;
+	local sNewItemName=nil
+	while  CreateItem( sNewItemName, nil, nil )==nil  do   --防止物品不能被创建
+		local temp=0
+		local randomNum=math.random()
+		for k,v in pairs(self._roundItemProbability) do
+			temp=temp+self._roundItemProbability[k]
+			if randomNum<=temp then
+				sNewItemName=k
+				break;
+			end
 		end
 	end
-	return newItemName
+	return sNewItemName
 end

@@ -106,8 +106,9 @@ end
 
 function BehaviorStatic_Link:Begin()
 	self.endTime = GameRules:GetGameTime() + 1
-	Notifications:TopToAll({ability="fire_twin_fire_debuff_datadriven"})
-	Notifications:TopToTeam(DOTA_TEAM_GOODGUYS, {text="#fire_debuff_simple", duration=1.5, style = {color = "Azure"},continue=true})
+	if thisEntity:IsAlive() then
+		Notifications:BossAbilityDBM("fire_twin_fire_debuff_datadriven")
+	end
 	--[[self.order =
 	{
 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
