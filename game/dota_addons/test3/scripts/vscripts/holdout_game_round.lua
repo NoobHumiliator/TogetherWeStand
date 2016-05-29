@@ -79,7 +79,6 @@ function CHoldoutGameRound:Begin()
 	  self._nGoldRemainingInRound = self._nMaxGold*playernumberbonus
 	  self._nItemDropNum=self._nItemDropNum*playernumberbonus
 	  self._nItemDropNum=math.ceil(self._nItemDropNum* hardLevelItemDropBonus[self._gameMode.map_difficulty])
-	  	print("hehe"..hardLevelItemDropBonus[self._gameMode.map_difficulty])
 	  self._not_multiple=false
     end
 

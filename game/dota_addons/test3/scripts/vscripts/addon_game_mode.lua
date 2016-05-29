@@ -409,9 +409,10 @@ function CHoldoutGameMode:_ProcessItemForLootExpiry( item, flCutoffTime )
 	ParticleManager:ReleaseParticleIndex( nFXIndex )
 	local inventoryItem = item:GetContainedItem()
 	if inventoryItem then
-		UTIL_Remove( inventoryItem )
+		--print("item cost"..inventoryItem:GetCost())
+		inventoryItem:RemoveSelf()
 	end
-	UTIL_Remove( item )
+	item:RemoveSelf()
 	return false
 end
 
@@ -483,7 +484,9 @@ function CHoldoutGameMode:OnNPCSpawned( event )
 				local hPlayerHero = spawnedUnit
 				self:_SpawnHeroClientEffects( spawnedUnit, nPlayerID )
 				local nSteamID = PlayerResource:GetSteamAccountID(nPlayerID)    --获取steam ID 
-		        if TableFindKey(vipSteamIDTable, nSteamID) then                       --steam ID 符合VIP表
+		        if TableFindKey(vipSteamIDTable, nSteamID) then                  --steam ID 符合VIP表
+		           --DeepPrint(vipSteamIDTable)
+		           --print('steam id'..nSteamID)
 			       CreateVipParticle(hPlayerHero)
 		        end
 			end

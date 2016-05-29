@@ -14,7 +14,7 @@ function LootController:ReadConfigration()
   local itemCsmListKV = LoadKeyValues("scripts/npc/npc_items_custom.txt")
   for k, v in pairs( itemCsmListKV ) do
     if type( v ) == "table" and v.ItemCost and tonumber(v.ItemCost)~=0  and  (v.ItemPurchasable==nil or  (v.ItemPurchasable and v.ItemPurchasable==1) )  then  --必须是有价钱并且能买到的物品
-       print("costom item"..k)
+      --print("costom item"..k)
        self._itemCost[k] = v.ItemCost
     end
   end
