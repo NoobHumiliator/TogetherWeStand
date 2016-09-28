@@ -1,7 +1,3 @@
---[[
-最基本的追着人打的AI
-]]
-
 require( "ai_core" )
 
 behaviorSystem = {} -- create the global so we can assign to it
@@ -111,4 +107,3 @@ end
 BehaviorStatic_Link.Continue = BehaviorStatic_Link.Begin --if we re-enter this ability, we might have a different target; might as well do a full reset
 --------------------------------------------------------------------------------------------------------
 AICore.possibleBehaviors = { BehaviorNone , BehaviorStatic_Link}
-

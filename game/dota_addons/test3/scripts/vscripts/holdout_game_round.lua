@@ -2,6 +2,8 @@
 	CHoldoutGameRound - A single round of Holdout
 ]]
 
+require( "environment_controller/round_environment_controller")
+
 if CHoldoutGameRound == nil then
 	CHoldoutGameRound = class({})
 end
@@ -21,6 +23,8 @@ function CHoldoutGameRound:ReadConfiguration( kv, gameMode, roundNumber )
 	self._nItemDropNum = tonumber( kv.ItemDropNum or 6 )  --单人玩家一关默认掉落6件物品 ，5人18件
  	self._vSpawners = {}
 	self._totalCreatureNum=0
+	self._environmentcontroller= EnvironmentController()
+	self._environmentcontroller:Init()  --环境控制器初始化
 	for k, v in pairs( kv ) do
 		if type( v ) == "table" and v.NPCName then
 			local spawner = CHoldoutGameSpawner()
@@ -359,6 +363,10 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
 			   end
 			end
 			})    
+	end
+    if self._alias=="darkness"  then
+		self._environmentcontroller:ApplyBlindModifier()
+		self._environmentcontroller:SpawnLightBall()
 	end
 end
 

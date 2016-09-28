@@ -9,13 +9,17 @@ function RestoreMana( keys )
 	local cast_ability = keys.event_ability
 	local essence_particle = keys.essence_particle
 	local essence_sound = keys.essence_sound
+    
+   local exempt_table = {}
+	exempt_table["shredder_chakram"]=true
+    exempt_table["shredder_chakram_2"]=true
 
 	-- Parameters
 	local restore_amount = ability:GetLevelSpecialValueFor("restore_amount", ability_level)
 	local mana_restore = target:GetMaxMana() * restore_amount / 100
 
 	-- If the ability just cast uses mana, restore mana accordingly
-	if cast_ability and cast_ability:GetManaCost( cast_ability:GetLevel() - 1 ) > 0 and cast_ability:GetCooldown( cast_ability:GetLevel() - 1 ) > 1.01  then
+	if cast_ability and cast_ability:GetManaCost( cast_ability:GetLevel() - 1 ) > 0 and cast_ability:GetCooldown( cast_ability:GetLevel() - 1 ) > 1.01  and not exempt_table[cast_ability:GetAbilityName()]  then
 		-- Restores mana
 		target:GiveMana(mana_restore)
 		-- Plays sound and effect

@@ -42,7 +42,7 @@ function BlackHole( event )
                  local vec = face * length *speed
                  enemy:SetOrigin(enemy:GetAbsOrigin() + vec)
              end
-            if caster.fly_switch>=2 or  (not caster:IsAlive()) or caster==nil then
+            if  caster==nil or (not caster:IsAlive()) or caster.fly_switch>=2 then
                   ParticleManager:DestroyParticle( particle, true )        
                   ParticleManager:ReleaseParticleIndex( particle )
                return  nil

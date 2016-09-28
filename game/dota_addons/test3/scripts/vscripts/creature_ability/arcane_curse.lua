@@ -21,7 +21,7 @@ function AddStack( keys )
      else
          -- 获取玩家的Modifier叠加数
          local bullets_count = target:GetModifierStackCount("modifier_arcane_curse_debuff_stack",keys.ability)
-         print("stack_count"..bullets_count)
+         --print("stack_count"..bullets_count)
          bullets_count=bullets_count+1
 
          if  bullets_count>9  and GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag==true then

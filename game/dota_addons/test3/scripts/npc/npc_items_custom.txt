@@ -1024,8 +1024,8 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
-		"ItemCost"					"4075"
-                "ItemPurchasable"				 "0"
+		"ItemCost"					    "4075"
+        "ItemPurchasable"				"0"
 		"ItemShopTags"					"int;attack_speed;damage;regen_mana;damage;hard_to_tag"
 		"ItemQuality"					"artifact"
                 "ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -1074,7 +1074,7 @@
 				
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		        "%bonus_attack_speed"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"			"%bonus_mana_regen"
 				}
@@ -1700,6 +1700,11 @@
 			"var_type"						"FIELD_INTEGER"
 			"bonus_mana_regen"	            "50"
 		    }
+		    "03"
+		    {
+			"var_type"						"FIELD_INTEGER"
+			"manacost_percentage"	        "120"
+		    }
 	    }
   "Modifiers"
 	{
@@ -1728,6 +1733,7 @@
 		   {
 		      "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
 		      "MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
+		      "MODIFIER_PROPERTY_MANACOST_PERCENTAGE"   "%manacost_percentage"
 		   }
 		}
    }
@@ -1800,6 +1806,11 @@
 			"var_type"						"FIELD_INTEGER"
 			"bonus_str"	                    "10"
 		    }
+		    "05"
+		    {
+			"var_type"						"FIELD_INTEGER"
+			"manacost_percentage"	        "160"
+		    }
 
 	    }
   "Modifiers"
@@ -1831,6 +1842,7 @@
 		      "MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
 		      "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
 		      "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"
+		       "MODIFIER_PROPERTY_MANACOST_PERCENTAGE"   "%manacost_percentage"
 		   }
 		}
    }
@@ -1913,6 +1925,11 @@
 			"var_type"						"FIELD_INTEGER"
 			"bonus_damage"	                 "80"
 		    }
+		    "07"
+		    {
+			"var_type"						"FIELD_INTEGER"
+			"manacost_percentage"	         "240"
+		    }
 	    }
   "Modifiers"
 	{
@@ -1945,7 +1962,8 @@
 		      "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
 		      "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"
 		      "MODIFIER_PROPERTY_HEALTH_BONUS"		    "%bonus_health"
-		      "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage"		    
+		      "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage"
+		      "MODIFIER_PROPERTY_MANACOST_PERCENTAGE"   "%manacost_percentage"	    
 		   }
 		}
    }
@@ -2459,12 +2477,13 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"		    
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_str"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_agi"		    
 				}
 			}
 		}
@@ -2561,12 +2580,13 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"		    
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_str"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_agi"		    
 				}
 			}
 		}
@@ -2663,12 +2683,13 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"		    
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_str"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_agi"		    
 				}
 			}
 		}
@@ -2765,12 +2786,13 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"		    
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_str"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_agi"		    
 				}
 			}
 		}
@@ -2887,12 +2909,13 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"	
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_str"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_agi"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"  "%bonus_armor"  
 				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"			"%bonus_damage"
@@ -3109,6 +3132,214 @@
 				"var_type"				"FIELD_INTEGER"
 				"mana_per_tick"			"80"  // %total_mana / %buff_duration
 			}
+		}
+	}
+
+	"item_rapier1_datadriven"
+	{
+		"ID"							"12000"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"item_rapier1_datadriven"
+
+		"ItemCost"						"6200"
+		"ItemShopTags"					"damage"
+		"ItemQuality"					"epic"
+		"ItemPurchasable"				"1"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"SideShop"						"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_bonus"			"330"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"         "scripts/vscripts/item_ability/remove_rapier.lua"
+				"Function"           "RemoveRapier"
+			}        
+		}    
+
+		"Modifiers"
+		{
+			"modifier_item_rapier_datadriven"
+			{
+				"IsHidden"         "1"
+				"Passive"          "1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%damage_bonus"
+				}				
+			}
+		}
+	}
+    "item_recipe_rapier1_datadriven"
+	{
+		"ID"							"12005"
+
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"BaseClass"						"item_datadriven"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_rapier1_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_relic;item_demon_edge"
+		}
+	}
+    "item_rapier2_datadriven"
+	{
+		"ID"							"12010"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"item_rapier2_datadriven"
+
+		"ItemCost"						"18600"
+		"ItemShopTags"					"damage"
+		"ItemQuality"					"epic"
+		"ItemPurchasable"				"1"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"SideShop"						"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_bonus"			"1000"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"         "scripts/vscripts/item_ability/remove_rapier.lua"
+				"Function"           "RemoveRapier"
+			}        
+		}    
+
+		"Modifiers"
+		{
+			"modifier_item_rapier2_datadriven"
+			{
+				"IsHidden"         "1"
+				"Passive"          "1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%damage_bonus"
+				}				
+			}
+		}
+	}
+    "item_recipe_rapier2_datadriven"
+	{
+		"ID"							"12015"
+
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"BaseClass"						"item_datadriven"
+
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_rapier2_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_rapier1_datadriven;item_rapier1_datadriven;item_rapier1_datadriven"
+		}
+	}
+	"item_rapier3_datadriven"
+	{
+		"ID"							"12020"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"			"item_rapier3_datadriven"
+
+		"ItemCost"						"74400"
+		"ItemShopTags"					"damage"
+		"ItemQuality"					"epic"
+		"ItemPurchasable"				"1"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"SideShop"						"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_bonus"			"3300"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"         "scripts/vscripts/item_ability/remove_rapier.lua"
+				"Function"           "RemoveRapier"
+			}        
+		}    
+
+		"Modifiers"
+		{
+			"modifier_item_rapier3_datadriven"
+			{
+				"IsHidden"         "1"
+				"Passive"          "1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%damage_bonus"
+				}				
+			}
+		}
+	}
+    "item_recipe_rapier3_datadriven"
+	{
+		"ID"							"12025"
+
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"BaseClass"						"item_datadriven"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_rapier3_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_rapier2_datadriven;item_rapier2_datadriven;item_rapier2_datadriven;item_rapier2_datadriven"
 		}
 	}
 } //主函数
