@@ -159,7 +159,7 @@
 		"item"		"item_monkey_king_bar" 	
 		"item"		"item_greater_crit"
 		"item"		"item_butterfly"
-		"item"		"item_rapier"
+		"item"		"item_rapier1_datadriven"
 		"item"		"item_abyssal_blade"					
 	}
 		

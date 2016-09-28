@@ -1,3 +1,7 @@
+--damageTable.damagetype_const
+--1 physical
+--2 magical
+--4 pure
 
 sp_exempt_table = {}
 sp_exempt_table["necrolyte_reapers_scythe_datadriven"]=true
@@ -51,12 +55,21 @@ function CHoldoutGameMode:DamageFilter(damageTable)
           end
       end
       if attacker:GetTeam()==DOTA_TEAM_BADGUYS then
-      	 if self.map_difficulty==1 then 
-      	  damageTable.damage=damageTable.damage*0.5
-      	 end
-      	 if self.map_difficulty==3 then
-	      	damageTable.damage=damageTable.damage*1.5
-	     end
+      	if self.map_difficulty==1 then 
+      		damageTable.damage=damageTable.damage*0.5
+      	end
+      	if self.map_difficulty==3 then
+      		damageTable.damage=damageTable.damage*1.5
+      	end
+
+      	if attacker:HasModifier("modifier_night_damage_stack") then
+      		local ability=attacker:FindAbilityByName("night_creature_increase_damage")
+      		local magic_enhance_per_stack=ability:GetSpecialValueFor("magic_enhance_per_stack")
+      		local stacks_number=attacker:GetModifierStackCount("modifier_night_damage_stack",ability)
+      		if damageTable.damagetype_const==2 or damageTable.damagetype_const==4  then
+      			damageTable.damage=damageTable.damage* (1+stacks_number*magic_enhance_per_stack)
+      		end     	
+      	end
       end
    end
    return true

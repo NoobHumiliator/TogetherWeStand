@@ -41,6 +41,14 @@ function Precache( context )
 	PrecacheItemByNameSync( "item_greater_clarity", context )
 	PrecacheItemByNameSync( "item_unholy", context )
 	PrecacheItemByNameSync( "item_fallen_sword", context )
+	PrecacheItemByNameSync( "item_treasure_chest_1", context )
+	PrecacheItemByNameSync( "item_treasure_chest_2", context )
+	PrecacheItemByNameSync( "item_treasure_chest_3", context )
+	PrecacheItemByNameSync( "item_treasure_chest_4", context )
+	PrecacheItemByNameSync( "item_treasure_chest_5", context )
+	PrecacheItemByNameSync( "item_treasure_chest_6", context )
+	PrecacheItemByNameSync( "item_treasure_chest_7", context )
+	PrecacheItemByNameSync( "item_treasure_chest_8", context )
 	PrecacheUnitByNameAsync('npc_dota_tiny_1',function() end)
 end
 
@@ -54,7 +62,7 @@ function CHoldoutGameMode:InitGameMode()
 	LootController:ReadConfigration() 
 	self.startflag=0 
 	self.loseflag=0 
-	self.last_live=3
+	self.last_live=5
 	self._nRoundNumber = 1
 	self._currentRound = nil
 	self._flLastThinkGameTime = nil
@@ -316,8 +324,10 @@ function CHoldoutGameMode:_CheckForDefeat()
 		 if self.last_live==0 then
 		  GameRules:MakeTeamLose( DOTA_TEAM_GOODGUYS )
 		  return
-	       elseif self.last_live==2 then
-		     Notifications:BottomToAll({text = "#life_left_note_2", duration = 4, style = {color = "Fuchsia"}, continue = true})
+	       else
+	       	 Notifications:BottomToAll( {text="#round_fail", duration=3, style={color="Fuchsia"}})
+             Notifications:BottomToAll( {text=tostring(self.last_live), duration=3, style={color="Red"}, continue=true})
+             Notifications:BottomToAll( {text="#chance_left", duration=3, style={color="Fuchsia"}, continue=true})
 		        if self._currentRound then
 		          self._currentRound.achievement_flag=false
 		    	  self._currentRound:End()
@@ -325,16 +335,7 @@ function CHoldoutGameMode:_CheckForDefeat()
 				self._currentRound = nil
 				self:_RefreshPlayers()
 				self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
-		    elseif self.last_live==1 then
-		    	 Notifications:BottomToAll({text = "#life_left_note_1", duration = 4, style = {color = "Fuchsia"}, continue = true})
-		         if self._currentRound then
-		          self._currentRound.achievement_flag=false
-		    	  self._currentRound:End()
-		         end
-				 self._currentRound = nil
-				 self:_RefreshPlayers()
-				 self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
-		  end
+		 end
 	end	
 end
 
@@ -409,10 +410,11 @@ function CHoldoutGameMode:_ProcessItemForLootExpiry( item, flCutoffTime )
 	ParticleManager:ReleaseParticleIndex( nFXIndex )
 	local inventoryItem = item:GetContainedItem()
 	if inventoryItem then
-		--print("item cost"..inventoryItem:GetCost())
-		inventoryItem:RemoveSelf()
+		--print("Removing item "..inventoryItem:GetName()) 
+		--有时候移除特殊物品会导致游戏崩溃（各类飞鞋）
+		UTIL_Remove( inventoryItem )
 	end
-	item:RemoveSelf()
+	UTIL_Remove( item )
 	return false
 end
 
@@ -432,89 +434,85 @@ function CHoldoutGameMode:OnNPCSpawned( event )
 	if not spawnedUnit or spawnedUnit:GetClassname() == "npc_dota_thinker" or spawnedUnit:IsPhantom() then
 		return 
 	end
- Timers:CreateTimer({
-    endTime = 0.3, 
-    callback = function()
-      if  spawnedUnit:IsSummoned() and not spawnedUnit:IsRealHero()  then
-		local playerid=spawnedUnit:GetOwner():GetPlayerID()
-        print(spawnedUnit:GetUnitName().."has owner, ID"..playerid)
-		local owner=spawnedUnit:GetOwner()
-		local crownLevel=0
-		if owner:HasModifier("modifier_crown_5_datadriven") then
-			crownLevel=5
-		else
-			if owner:HasModifier("modifier_crown_4_datadriven") then
-				crownLevel=4
-			else
-				if owner:HasModifier("modifier_crown_3_datadriven") then
-					crownLevel =3
-				else
-					if owner:HasModifier("modifier_crown_2_datadriven") then
-						crownLevel =2 
-					else
-						if owner:HasModifier("modifier_crown_1_datadriven") then
-							crownLevel=1
-						end
-					end
-				end
-			end
-		end
+	Timers:CreateTimer({
+		endTime = 0.3, 
+		callback = function()
+		if  spawnedUnit~=nil then
+			if  spawnedUnit:IsSummoned() and not spawnedUnit:IsRealHero()  then
+				local playerid=spawnedUnit:GetOwner():GetPlayerID()
+             --print(spawnedUnit:GetUnitName().."has owner, ID"..playerid)
+             local owner=spawnedUnit:GetOwner()
+             local crownLevel=0
+             if owner:HasModifier("modifier_crown_5_datadriven") then
+             	crownLevel=5
+             else
+             	if owner:HasModifier("modifier_crown_4_datadriven") then
+             		crownLevel=4
+             	else
+             		if owner:HasModifier("modifier_crown_3_datadriven") then
+             			crownLevel =3
+             		else
+             			if owner:HasModifier("modifier_crown_2_datadriven") then
+             				crownLevel =2 
+             			else
+             				if owner:HasModifier("modifier_crown_1_datadriven") then
+             					crownLevel=1
+             				end
+             			end
+             		end
+             	end
+             end
 
-		if crownLevel>0 then
-			spawnedUnit.owner=owner
-			owner.crownLevel=crownLevel
-			if  spawnedUnit:HasAbility("crown_summoned_buff") then
+             if crownLevel>0 then
+             	spawnedUnit.owner=owner
+             	owner.crownLevel=crownLevel
+             	if  spawnedUnit:HasAbility("crown_summoned_buff") then
 
-			else 
-	            spawnedUnit:AddAbility("crown_summoned_buff")
-			    local ability=spawnedUnit:FindAbilityByName("crown_summoned_buff")
-			    ability:SetLevel(crownLevel)
-            end
-        else
-        	if spawnedUnit:FindAbilityByName("crown_summoned_buff") then
-				spawnedUnit:RemoveAbility("crown_summoned_buff")
-			end
-        end
-    end
+             	else 
+             		spawnedUnit:AddAbility("crown_summoned_buff")
+             		local ability=spawnedUnit:FindAbilityByName("crown_summoned_buff")
+             		ability:SetLevel(crownLevel)
+             	end
+             else
+             	if spawnedUnit:FindAbilityByName("crown_summoned_buff") then
+             		spawnedUnit:RemoveAbility("crown_summoned_buff")
+             	end
+             end
+         end
 
 	-- Attach client side hero effects on spawning players 配置Vip的粒子效果
 	if spawnedUnit:IsRealHero() then
-		for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
-			if ( PlayerResource:IsValidPlayer( nPlayerID ) ) then
-				local hPlayerHero = spawnedUnit
-				self:_SpawnHeroClientEffects( spawnedUnit, nPlayerID )
+		local hPlayerHero = spawnedUnit
+		local nPlayerID= hPlayerHero:GetPlayerID()
+		self:_SpawnHeroClientEffects( spawnedUnit, nPlayerID )
 				local nSteamID = PlayerResource:GetSteamAccountID(nPlayerID)    --获取steam ID 
-		        if TableFindKey(vipSteamIDTable, nSteamID) then                  --steam ID 符合VIP表
-		           --DeepPrint(vipSteamIDTable)
-		           --print('steam id'..nSteamID)
-			       CreateVipParticle(hPlayerHero)
-		        end
+			    if TableFindKey(vipSteamIDTable, nSteamID) then                       --steam ID 符合VIP表
+			    	CreateVipParticle(hPlayerHero)
+			    end
+			end
+			if spawnedUnit:GetTeam()==DOTA_TEAM_GOODGUYS and string.sub(spawnedUnit:GetUnitName(),1,14)~="npc_dota_tiny_"then
+				if spawnedUnit:HasAbility("damage_counter") then
+				else
+					spawnedUnit:AddAbility("damage_counter")
+					local ability=spawnedUnit:FindAbilityByName("damage_counter")
+					ability:SetLevel(1)
+					if self.map_difficulty==1 then
+						ability:ApplyDataDrivenModifier(spawnedUnit, spawnedUnit, "modifier_map_easy_show", {})
+					end
+					if self.map_difficulty==3 then
+						ability:ApplyDataDrivenModifier(spawnedUnit, spawnedUnit, "modifier_map_hard_show", {})
+					end
+				end
+			end
+			if spawnedUnit:GetTeam()==DOTA_TEAM_BADGUYS and self.map_difficulty==3  then
+				if spawnedUnit:HasAbility("monster_buff_datadriven") then
+				else
+					spawnedUnit:AddAbility("monster_buff_datadriven")
+				end
 			end
 		end
-
-	end
-	if spawnedUnit:GetTeam()==DOTA_TEAM_GOODGUYS and string.sub(spawnedUnit:GetUnitName(),1,14)~="npc_dota_tiny_"then
-		if spawnedUnit:HasAbility("damage_counter") then
-		else
-			spawnedUnit:AddAbility("damage_counter")
-			local ability=spawnedUnit:FindAbilityByName("damage_counter")
-			ability:SetLevel(1)
-			if self.map_difficulty==1 then
-				ability:ApplyDataDrivenModifier(spawnedUnit, spawnedUnit, "modifier_map_easy_show", {})
-			end
-			if self.map_difficulty==3 then
-				ability:ApplyDataDrivenModifier(spawnedUnit, spawnedUnit, "modifier_map_hard_show", {})
-			end
-		end
-	end
-	if spawnedUnit:GetTeam()==DOTA_TEAM_BADGUYS and self.map_difficulty==3  then
-		if spawnedUnit:HasAbility("monster_buff_datadriven") then
-		else
-			spawnedUnit:AddAbility("monster_buff_datadriven")
-		end
-	end
     end
-  })
+})
 	
 end
 

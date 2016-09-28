@@ -171,7 +171,7 @@ function AICore:CreateBehaviorSystem( behaviors )
 		end
 
 		if self.currentBehavior.order and self.currentBehavior.order.OrderType ~= DOTA_UNIT_ORDER_NONE  then
-			if (self.repeatedlyIssueOrders and   self.currentBehavior.order.OrderType ~= DOTA_UNIT_ORDER_ATTACK_MOVE ) or
+			if (self.repeatedlyIssueOrders and  self.currentBehavior.order.OrderType ~= DOTA_UNIT_ORDER_ATTACK_MOVE ) or  --为了避免重置攻击动作，不重置下达攻击指令
 				self.previousOrderType ~= self.currentBehavior.order.OrderType or
 				self.previousOrderTarget ~= self.currentBehavior.order.TargetIndex or
 				self.previousOrderPosition ~= self.currentBehavior.order.Position then

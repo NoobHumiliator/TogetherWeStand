@@ -237,3 +237,57 @@ function LogDeepPrint(debugInstance, prefix)
     prefix = prefix or ""
     LogEndLine(LogDeepToString(debugInstance, prefix))
 end
+
+
+
+NHLog = function( ... )  
+    local tv = "\n"  
+    local xn = 0  
+    local function tvlinet(xn)  
+        -- body  
+        for i=1,xn do  
+            tv = tv.."\t"  
+        end  
+    end  
+  
+    local function printTab(i,v)  
+        -- body  
+        if type(v) == "table" then  
+            tvlinet(xn)  
+            xn = xn + 1  
+            tv = tv..""..i..":Table{\n"  
+            table.foreach(v,printTab)  
+            tvlinet(xn)  
+            tv = tv.."}\n"  
+            xn = xn - 1  
+        elseif type(v) == nil then  
+            tvlinet(xn)  
+            tv = tv..i..":nil\n"  
+        else  
+            tvlinet(xn)  
+            tv = tv..i..":"..tostring(v).."\n"   
+        end  
+    end  
+    local function dumpParam(tab)  
+        for i=1, #tab do    
+            if tab[i] == nil then   
+                tv = tv.."nil\t"  
+            elseif type(tab[i]) == "table" then   
+                xn = xn + 1  
+                tv = tv.."\ntable{\n"  
+                table.foreach(tab[i],printTab)  
+                tv = tv.."\t}\n"  
+            else  
+                tv = tv..tostring(tab[i]).."\t"  
+            end  
+        end  
+    end  
+    local x = ...  
+    if type(x) == "table" then  
+        table.foreach(x,printTab)  
+    else  
+        dumpParam({...})  
+        -- table.foreach({...},printTab)  
+    end  
+    print(tv)  
+end  
