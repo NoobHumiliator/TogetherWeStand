@@ -11016,5 +11016,29 @@
 				"duration"	"5"
 			}
 		}
-	}	
+	}
+	"item_greater_purple_potion"
+	{
+		"ItemCost"						"150"
+	}
+	"item_greater_clarity"
+	{
+		"ItemCost"						"100"
+	}
+	"item_small_purple_potion"
+	{
+		"ItemCost"						"90"
+	}
+	"item_greater_clarity"
+	{
+		"ItemCost"						"100"
+	}
+	"item_greater_salve"
+	{
+		"ItemCost"						"180"
+	}
+	"item_flask2"
+	{
+		"ItemCost"						"100"
+	}
 }

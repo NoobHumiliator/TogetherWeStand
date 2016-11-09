@@ -16,6 +16,8 @@ sp_exempt_table["phoenix_sun_ray"]=true
 
 
 function CHoldoutGameMode:DamageFilter(damageTable)
+
+   --DeepPrint( damageTable )
    if damageTable and damageTable.entindex_attacker_const then
 	  local attacker = EntIndexToHScript(damageTable.entindex_attacker_const)
 	  local victim = EntIndexToHScript(damageTable.entindex_victim_const)
@@ -35,16 +37,12 @@ function CHoldoutGameMode:DamageFilter(damageTable)
 	             damageTable.damage=damageTable.damage*(1+attacker.sp*attacker:GetIntellect()/100)
 	           end
 	        end
-	      if self.map_difficulty==1 then 
-	      	damageTable.damage=damageTable.damage*1.4
-	      end
-	      if self.map_difficulty==3 then
-	      	damageTable.damage=damageTable.damage*0.7
-	      end
           if attacker then
           	local playerid=nil
           	if attacker:GetOwner() then
-          		playerid=attacker:GetOwner():GetPlayerID()
+               if attacker:GetOwner():IsPlayer() then
+          		   playerid=attacker:GetOwner():GetPlayerID()
+               end
           	end
           	if playerid==nil then
           		 print(attacker:GetUnitName().."has no owner")
@@ -55,13 +53,9 @@ function CHoldoutGameMode:DamageFilter(damageTable)
           end
       end
       if attacker:GetTeam()==DOTA_TEAM_BADGUYS then
-      	if self.map_difficulty==1 then 
-      		damageTable.damage=damageTable.damage*0.5
-      	end
-      	if self.map_difficulty==3 then
-      		damageTable.damage=damageTable.damage*1.5
-      	end
-
+        if damageTable.damagetype_const ~=1 and attacker.damageMultiple~=nil then  --Ability damage
+          damageTable.damage=damageTable.damage*attacker.damageMultiple
+        end 
       	if attacker:HasModifier("modifier_night_damage_stack") then
       		local ability=attacker:FindAbilityByName("night_creature_increase_damage")
       		local magic_enhance_per_stack=ability:GetSpecialValueFor("magic_enhance_per_stack")

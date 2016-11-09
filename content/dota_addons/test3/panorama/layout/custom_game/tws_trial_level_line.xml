@@ -1,0 +1,9 @@
+<root>
+    <styles>
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+        <include src="file://{resources}/styles/custom_game/tws_difficulty_selection.css" />
+    </styles>
+    <RadioButton class="TrialLevelLinePanel">
+        <Label  id="TrialLevelLineText" class="TrialLevelLineText" text="" />
+    </RadioButton>
+</root>

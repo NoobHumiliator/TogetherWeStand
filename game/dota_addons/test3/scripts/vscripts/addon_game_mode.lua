@@ -1,10 +1,19 @@
+--[[
+	Underscore prefix such as "_function()" denotes a local function and is used to improve readability
+	Variable Prefix Examples
+		"fl"	Float
+		"n"		Int
+		"v"		Table
+		"b"		Boolean
+		"h"     Handle
+]]
 
 if CHoldoutGameMode == nil then
 	_G.CHoldoutGameMode = class({}) 	
 end
 
-testMode=false 
---testMode=true --减少刷兵间隔，增加初始金钱
+testMode=false
+testMode=true --减少刷兵间隔，增加初始金钱
 
 
 
@@ -21,6 +30,7 @@ require( "utility_functions" )
 require( "libraries/notifications")
 require( "item_ability/damage_filter")
 require( "vip/extra_particles")
+require( "server/rank")
 
 -- Precache resources
 -- Actually make the game mode when we activate
@@ -69,19 +79,24 @@ function CHoldoutGameMode:InitGameMode()
 	self.enchantress_already_die_flag=0
 	self:_ReadGameConfiguration()
 	self.itemSpawnIndex = 1
+	self.flProgressTime=0 --记录progress阶段开始时间
+	self.flDDadjust=1  --保存难度产生的伤害系数修正
+	self.flDHPadjust=1  --保存难度产生的血量系数修正
 	GameRules:SetTimeOfDay( 0.75 )
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 0)
 	GameRules:SetHeroRespawnEnabled( true )
 	GameRules:SetUseUniversalShopMode( true )
 	GameRules:SetHeroSelectionTime( 35.0 )
+    
+
 	if testMode then
-	  GameRules:SetPreGameTime( 1.0 )
+	  GameRules:SetPreGameTime( 3.0 )
 	  GameRules:SetGoldTickTime( 0.5 )
 	  GameRules:SetGoldPerTick( 10000 )
 	  else
+	  GameRules:SetPreGameTime( 15.0 )
 	  GameRules:SetGoldTickTime( 60.0 )
 	  GameRules:SetGoldPerTick( 0 )
-	  GameRules:SetPreGameTime( 15.0 )
     end
 	GameRules:SetPostGameTime( 10.0 )
 	GameRules:SetTreeRegrowTime( 35.0 )
@@ -106,12 +121,14 @@ function CHoldoutGameMode:InitGameMode()
     CustomGameEventManager:RegisterListener("AddAbility", Dynamic_Wrap(CHoldoutGameMode, 'AddAbility'))
     CustomGameEventManager:RegisterListener("RemoveAbility", Dynamic_Wrap(CHoldoutGameMode, 'RemoveAbility'))
     CustomGameEventManager:RegisterListener("SelectDifficulty",Dynamic_Wrap(CHoldoutGameMode, 'SelectDifficulty'))
+    CustomGameEventManager:RegisterListener("SendTrialLeveltoServer",Dynamic_Wrap(CHoldoutGameMode, 'SendTrialLeveltoServer'))
+
 
 	-- Hook into game events allowing reload of functions at run time
 	ListenToGameEvent( "npc_spawned", Dynamic_Wrap( CHoldoutGameMode, "OnNPCSpawned" ), self )
 	--ListenToGameEvent( "npc_replaced", Dynamic_Wrap( CHoldoutGameMode, "OnNPCReplaced" ), self )
 	--ListenToGameEvent( "dota_player_used_ability", Dynamic_Wrap( CHoldoutGameMode, "OnUseAbility" ), self )
-	ListenToGameEvent( "player_reconnected", Dynamic_Wrap( CHoldoutGameMode, 'OnPlayerReconnected' ), self )
+	--ListenToGameEvent( "player_reconnected", Dynamic_Wrap( CHoldoutGameMode, 'OnPlayerReconnected' ), self )
 	ListenToGameEvent( "entity_killed", Dynamic_Wrap( CHoldoutGameMode, 'OnEntityKilled' ), self )
 	ListenToGameEvent( "game_rules_state_change", Dynamic_Wrap( CHoldoutGameMode, "OnGameRulesStateChange" ), self )
 	ListenToGameEvent( "dota_item_picked_up", Dynamic_Wrap( CHoldoutGameMode, "OnItemPickUp"), self )
@@ -244,13 +261,19 @@ end
 -- When game state changes set state in script
 function CHoldoutGameMode:OnGameRulesStateChange()
 	local nNewState = GameRules:State_Get()
+	if nNewState==DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
+		for i=1,5 do  
+			Rank:GetRankDataFromServer(i) --从服务器获取天梯数据
+		end
+	end
 	if nNewState ==  DOTA_GAMERULES_STATE_HERO_SELECTION then
 		PrecacheUnitByNameAsync('npc_precache_always', function() end) 
 		ShowGenericPopup( "#holdout_instructions_title", "#holdout_instructions_body", "", "", DOTA_SHOWGENERICPOPUP_TINT_SCREEN )
 	end
 	if nNewState ==  DOTA_GAMERULES_STATE_GAME_IN_PROGRESS   then
+		 self.flProgressTime=GameRules:GetGameTime()
 		 CustomGameEventManager:Send_ServerToAllClients( "UpdateCmHud", {} )
-		 self:SetDifficulty()
+		 self:SetBaseDifficulty()
 	end
 end
 
@@ -258,22 +281,29 @@ end
 function CHoldoutGameMode:OnThink()
 	if GameRules:State_Get() > DOTA_GAMERULES_STATE_HERO_SELECTION then
 	end
-	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-		if self.startflag==0 then 
-		self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
-		self.startflag=1
-	    end
-		self:_CheckForDefeat()
-		self:_ThinkLootExpiry()
-		if self._flPrepTimeEnd ~= nil then
-			self:_ThinkPrepTime()
-		elseif self._currentRound ~= nil then
-			self._currentRound:Think()
-			if self._currentRound:IsFinished() then
-				UTIL_ResetMessageTextAll()
-                self:RoundEnd()
+	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then  
+	   if self.map_difficulty==nil then  --难度未定，不能开始
+          if  GameRules:GetGameTime()>self.flProgressTime+12 then
+          	self:SetTrialMapDifficulty()
+          end
+	   else
+	   	    self:AddHeroDifficultyModifier()
+			if self.startflag==0 then 
+			self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
+			self.startflag=1
+		    end
+			self:_CheckForDefeat()
+			self:_ThinkLootExpiry()
+			if self._flPrepTimeEnd ~= nil then
+				self:_ThinkPrepTime()
+			elseif self._currentRound ~= nil then
+				self._currentRound:Think()
+				if self._currentRound:IsFinished() then
+					UTIL_ResetMessageTextAll()
+		            self:RoundEnd()
+				end
 			end
-		end
+	   end
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then		-- Safe guard catching any state that may exist beyond DOTA_GAMERULES_STATE_POST_GAME
 		return nil
 	end
@@ -289,6 +319,15 @@ function CHoldoutGameMode:_RefreshPlayers()
 				  if not hero:IsAlive() then
 				    	hero:RespawnUnit()
 				  end
+				  --重置买活时间与惩罚
+				  --PlayerResource:SetBuybackCooldownTime( nPlayerID, 0 )  
+
+			      PlayerResource:SetBuybackGoldLimitTime( nPlayerID, 0 )
+			      PlayerResource:ResetBuybackCostTime( nPlayerID )
+			      PlayerResource:SetCustomBuybackCooldown(nPlayerID,0)
+			      hero:RemoveModifierByName("modifier_overflow_show")
+			      hero:RemoveModifierByName("modifier_silence_permenant")
+			      hero:RemoveModifierByName("modifier_affixes_falling_rock")
 				  hero:SetHealth( hero:GetMaxHealth() )
 				  hero:SetMana( hero:GetMaxMana() )
 			    end
@@ -322,9 +361,16 @@ function CHoldoutGameMode:_CheckForDefeat()
 	if self.loseflag>6 then
 		self.last_live=self.last_live-1
 		 if self.last_live==0 then
-		  GameRules:MakeTeamLose( DOTA_TEAM_GOODGUYS )
-		  return
-	       else
+		 	 if self.map_difficulty==3 and not GameRules:IsCheatMode()then 
+			   Rank:RecordGame(self._nRoundNumber-1,DOTA_TEAM_GOODGUYS) --储存并结束游戏
+			   return
+			 else
+			   GameRules:MakeTeamLose( DOTA_TEAM_GOODGUYS )
+			   return
+			 end
+	     elseif self.last_live<0 then
+	         return
+	     else   
 	       	 Notifications:BottomToAll( {text="#round_fail", duration=3, style={color="Fuchsia"}})
              Notifications:BottomToAll( {text=tostring(self.last_live), duration=3, style={color="Red"}, continue=true})
              Notifications:BottomToAll( {text="#chance_left", duration=3, style={color="Fuchsia"}, continue=true})
@@ -351,8 +397,13 @@ function CHoldoutGameMode:_ThinkPrepTime()
 		end
 
 		if self._nRoundNumber > #self._vRounds then
-			GameRules:SetGameWinner( DOTA_TEAM_GOODGUYS )
-			return false
+			 if self.map_difficulty==3 and not GameRules:IsCheatMode()then 
+			   Rank:RecordGame(self._nRoundNumber-1,DOTA_TEAM_BADGUYS) --储存游戏game
+			   return false
+			 else
+			   GameRules:MakeTeamLose( DOTA_TEAM_BADGUYS ) --作弊或者难度不对，直接结束比赛
+			   return false
+			 end
 		end
 
 		self._currentRound = self._vRounds[ self._nRoundNumber ]
@@ -420,13 +471,6 @@ end
 
 
 
-function CHoldoutGameMode:_SpawnHeroClientEffects( hero, nPlayerID )
-	-- Spawn these effects on the client, since we don't need them to stay in sync or anything
-	-- ParticleManager:ReleaseParticleIndex( ParticleManager:CreateParticleForPlayer( "particles/generic_gameplay/winter_effects_hero.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero, PlayerResource:GetPlayer( nPlayerID ) ) )	-- Attaches the breath effects to players for winter maps
-	ParticleManager:ReleaseParticleIndex( ParticleManager:CreateParticleForPlayer( "particles/frostivus_gameplay/frostivus_hero_light.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero, PlayerResource:GetPlayer( nPlayerID ) ) )
-end
-
-
 function CHoldoutGameMode:OnNPCSpawned( event )
 
 	local spawnedUnit = EntIndexToHScript( event.entindex )
@@ -437,7 +481,7 @@ function CHoldoutGameMode:OnNPCSpawned( event )
 	Timers:CreateTimer({
 		endTime = 0.3, 
 		callback = function()
-		if  spawnedUnit~=nil then
+		if  spawnedUnit~=nil and not spawnedUnit:IsNull() then
 			if  spawnedUnit:IsSummoned() and not spawnedUnit:IsRealHero()  then
 				local playerid=spawnedUnit:GetOwner():GetPlayerID()
              --print(spawnedUnit:GetUnitName().."has owner, ID"..playerid)
@@ -484,7 +528,6 @@ function CHoldoutGameMode:OnNPCSpawned( event )
 	if spawnedUnit:IsRealHero() then
 		local hPlayerHero = spawnedUnit
 		local nPlayerID= hPlayerHero:GetPlayerID()
-		self:_SpawnHeroClientEffects( spawnedUnit, nPlayerID )
 				local nSteamID = PlayerResource:GetSteamAccountID(nPlayerID)    --获取steam ID 
 			    if TableFindKey(vipSteamIDTable, nSteamID) then                       --steam ID 符合VIP表
 			    	CreateVipParticle(hPlayerHero)
@@ -496,24 +539,73 @@ function CHoldoutGameMode:OnNPCSpawned( event )
 					spawnedUnit:AddAbility("damage_counter")
 					local ability=spawnedUnit:FindAbilityByName("damage_counter")
 					ability:SetLevel(1)
-					if self.map_difficulty==1 then
+					if self.map_difficulty and self.map_difficulty==1 then
 						ability:ApplyDataDrivenModifier(spawnedUnit, spawnedUnit, "modifier_map_easy_show", {})
 					end
-					if self.map_difficulty==3 then
+					if self.map_difficulty and self.map_difficulty==3 then
 						ability:ApplyDataDrivenModifier(spawnedUnit, spawnedUnit, "modifier_map_hard_show", {})
+					end
+					if self.map_difficulty and self.map_difficulty>3 then
+						ability:ApplyDataDrivenModifier(spawnedUnit, spawnedUnit, "modifier_map_endless_stack", {})
+						spawnedUnit:SetModifierStackCount("modifier_map_endless_stack",ability, self.map_difficulty-3)			
 					end
 				end
 			end
-			if spawnedUnit:GetTeam()==DOTA_TEAM_BADGUYS and self.map_difficulty==3  then
-				if spawnedUnit:HasAbility("monster_buff_datadriven") then
-				else
-					spawnedUnit:AddAbility("monster_buff_datadriven")
+			if spawnedUnit:GetTeam()==DOTA_TEAM_BADGUYS then
+                if not spawnedUnit:HasAbility("monster_endless_stack_show") then
+					spawnedUnit:AddAbility("monster_endless_stack_show")
 				end
+				local ability=spawnedUnit:FindAbilityByName("monster_endless_stack_show")
+                local maxHealth=spawnedUnit:GetMaxHealth()
+				local minDamage=spawnedUnit:GetBaseDamageMin()*self.flDDadjust
+                local maxDamage=spawnedUnit:GetBaseDamageMax()*self.flDDadjust
+                spawnedUnit.damageMultiple=self.flDDadjust
+                spawnedUnit:SetBaseDamageMin(minDamage)
+                spawnedUnit:SetBaseDamageMax(maxDamage)
+                local newMaxHealth=maxHealth*self.flDHPadjust
+                local healthRegen=math.max(newMaxHealth*0.0045, spawnedUnit:GetBaseHealthRegen())  --4.5%%的基础恢复
+
+                if newMaxHealth<1 then --避免出现0血单位
+                	newMaxHealth=1
+                end
+                spawnedUnit:SetBaseHealthRegen(healthRegen)
+				spawnedUnit:SetBaseMaxHealth(newMaxHealth)
+                spawnedUnit:SetMaxHealth(newMaxHealth)
+                spawnedUnit:SetHealth(newMaxHealth)
+                if self.map_difficulty==1 then
+					ability:ApplyDataDrivenModifier(spawnedUnit, spawnedUnit, "modifier_monster_debuff", {})
+				end
+				if self.map_difficulty==3 then
+                    ability:ApplyDataDrivenModifier(spawnedUnit, spawnedUnit, "modifier_monster_buff", {})
+				end
+                if self.map_difficulty>3 then
+					ability:ApplyDataDrivenModifier(spawnedUnit, spawnedUnit, "modifier_monster_map_endless_stack", {})
+					spawnedUnit:SetModifierStackCount("modifier_monster_map_endless_stack",ability, self.map_difficulty-3)			
+				end
+                if self._currentRound~=nil and self._currentRound.vAffixes.necrotic then
+                    spawnedUnit:AddAbility("affixes_ability_necrotic")
+                    spawnedUnit:FindAbilityByName("affixes_ability_necrotic"):SetLevel(1)
+                end
+                if self._currentRound~=nil and self._currentRound.vAffixes.raging then
+                    spawnedUnit:AddAbility("affixes_ability_raging")
+                    spawnedUnit:FindAbilityByName("affixes_ability_raging"):SetLevel(1) 
+                end
+                if self._currentRound~=nil and self._currentRound.vAffixes.fortify then
+                    spawnedUnit:AddAbility("affixes_ability_fortify")
+                    spawnedUnit:FindAbilityByName("affixes_ability_fortify"):SetLevel(1) 
+                end
+                if self._currentRound~=nil and self._currentRound.vAffixes.bolstering then
+                    spawnedUnit:AddAbility("affixes_ability_bolstering")
+                    spawnedUnit:FindAbilityByName("affixes_ability_bolstering"):SetLevel(1)
+                end
+                if self._currentRound~=nil and self._currentRound.vAffixes.sanguine then
+                    spawnedUnit:AddAbility("affixes_ability_sanguine")
+                    spawnedUnit:FindAbilityByName("affixes_ability_sanguine"):SetLevel(1)
+                end
 			end
 		end
     end
 })
-	
 end
 
 
@@ -534,15 +626,6 @@ function CHoldoutGameMode:OnUseAbility(event)
 end
 ]]
 
--- Attach client-side hero effects for a reconnecting player
-function CHoldoutGameMode:OnPlayerReconnected( event )
-	local nReconnectedPlayerID = event.PlayerID
-	for _, hero in pairs( Entities:FindAllByClassname( "npc_dota_hero" ) ) do
-		if hero:IsRealHero() then
-			self:_SpawnHeroClientEffects( hero, nReconnectedPlayerID )
-		end
-	end
-end
 
 
 function CHoldoutGameMode:RoundEnd()
@@ -552,7 +635,7 @@ function CHoldoutGameMode:RoundEnd()
 		local line={}
 		line.playerid=i
 		line.total_damage= self._currentRound._vPlayerStats[i].nTotalDamage
-		line.total_heal=self._currentRound._vPlayerStats[i].nCreepsKilled
+		line.total_heal=self._currentRound._vPlayerStats[i].nTotalHeal
 		line.gold_collect=self._currentRound._vPlayerStats[i].nGoldBagsCollected
 		table.insert(data, line)
 	end
@@ -572,8 +655,13 @@ function CHoldoutGameMode:RoundEnd()
 	self:_RefreshPlayers()
 	self._nRoundNumber = self._nRoundNumber + 1
 	if self._nRoundNumber > #self._vRounds then
-		self._nRoundNumber = 1
-		GameRules:MakeTeamLose( DOTA_TEAM_BADGUYS )
+		if self.map_difficulty==3 and not GameRules:IsCheatMode()then 
+		   Rank:RecordGame(self._nRoundNumber-1,DOTA_TEAM_BADGUYS) --储存游戏
+		   return false
+		 else
+		   GameRules:MakeTeamLose( DOTA_TEAM_BADGUYS ) --作弊或者难度不对，直接结束比赛
+		   return false
+		end
 	else
 		self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
 	end

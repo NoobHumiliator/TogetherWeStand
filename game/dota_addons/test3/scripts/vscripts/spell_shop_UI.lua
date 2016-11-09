@@ -1,7 +1,7 @@
 alreadyCached = {} 
 
 pairedAbility = {shredder_chakram="shredder_return_chakram", morphling_replicate="morphling_morph_replicate", elder_titan_ancestral_spirit="elder_titan_return_spirit" , 
-phoenix_icarus_dive="phoenix_icarus_dive_stop" , phoenix_sun_ray="phoenix_sun_ray_stop",   phoenix_fire_spirits="phoenix_launch_fire_spirit"}
+phoenix_icarus_dive="phoenix_icarus_dive_stop" , phoenix_sun_ray="phoenix_sun_ray_stop",phoenix_fire_spirits="phoenix_launch_fire_spirit",abyssal_underlord_dark_rift="abyssal_underlord_cancel_dark_rift"}
 
 local unitList = LoadKeyValues('scripts/npc/npc_units_custom.txt')
 

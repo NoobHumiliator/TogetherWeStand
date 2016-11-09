@@ -4,6 +4,10 @@
 
 require( "environment_controller/round_environment_controller")
 
+
+
+
+
 if CHoldoutGameRound == nil then
 	CHoldoutGameRound = class({})
 end
@@ -63,17 +67,18 @@ function CHoldoutGameRound:Begin()
 		self._vPlayerStats[ nPlayerID ] = {
 			nCreepsKilled = 0,
 			nTotalDamage = 0,
+			nTotalHeal=0,
 			nGoldBagsCollected = 0,
 			nPriorRoundDeaths = PlayerResource:GetDeaths( nPlayerID ),
 			nPlayersResurrected = 0
 		}
 	end
     --调节人数奖励
-    local playernumberbonus=0.5
+    local playernumberbonus=0.6
     for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
 		if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
 			if  PlayerResource:HasSelectedHero( nPlayerID ) then
-				playernumberbonus=playernumberbonus+0.5
+				playernumberbonus=playernumberbonus+0.6
 				self.Palyer_Number=self.Palyer_Number+1
 			end
 		end
@@ -95,7 +100,72 @@ function CHoldoutGameRound:Begin()
 		self._nCoreUnitsTotal = self._nCoreUnitsTotal + spawner:GetTotalUnitsToSpawn()
 	end
 	self._nCoreUnitsKilled = 0
+ 
+   local vAffixes_Text={
+	    necrotic="#affixes_necrotic",
+        teeming="#affixes_teeming",
+        raging="#affixes_raging",
+        fortify="#affixes_fortify",
+        bolstering="#affixes_bolstering",
+        overflowing="#affixes_overflowing",
+        sanguine="#affixes_sanguine",
+        silence="#affixes_silence",
+        falling_rock="#affixes_falling_rock"
+    }
 
+    self.vAffixes=
+    {
+        necrotic=false,
+        teeming=false,
+        raging=false,
+        fortify=false,
+        bolstering=false,
+        overflowing=false,
+        sanguine=false,
+        silence=false,
+        falling_rock=false
+    }
+    local affixes_temp={}
+    local affixes_number=math.floor( (self._gameMode.map_difficulty+2)/10 ) --从试炼5开始，每10层加一个词缀
+    for k,v in pairs(self.vAffixes) do
+        table.insert(affixes_temp, k)
+    end
+	for i=1,affixes_number do
+		if #affixes_temp>0 then
+		  local random=RandomInt(1,#affixes_temp)
+		  self.vAffixes[affixes_temp[random]]=true
+		  table.remove(affixes_temp,random)
+		end
+	end
+    --处理词缀Debuff
+	for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+		if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
+			if PlayerResource:HasSelectedHero( nPlayerID ) then
+				local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
+				if hero then
+					ability=hero:FindAbilityByName("damage_counter")
+					if ability then
+						if self.vAffixes.overflowing then
+						  ability:ApplyDataDrivenModifier(hero, hero, "modifier_overflow_show", {})
+						end
+                        if self.vAffixes.silence then
+						  ability:ApplyDataDrivenModifier(hero, hero, "modifier_silence_permenant", {})
+						end
+			            if self.vAffixes.falling_rock then
+						  ability:ApplyDataDrivenModifier(hero, hero, "modifier_affixes_falling_rock", {})
+						end
+					end
+				end
+			end
+		end
+	end	
+   for k,v in pairs(self.vAffixes) do
+   	  if v then
+   	  	print(vAffixes_Text[k])
+   	  	 Notifications:BottomToAll({text=vAffixes_Text[k], duration=10, style = {color = "Red"},continue=true})
+   	  	 --Notifications:BottomToAll({text=" ", duration=5.5, style = {color = "Red"},continue=true})
+   	  end
+   end
 	self._entQuest = SpawnEntityFromTableSynchronous( "quest", {
 		name = self._szRoundTitle,
 		title =  self._szRoundQuestTitle
@@ -161,6 +231,16 @@ function CHoldoutGameRound:End()
 	for _,spawner in pairs( self._vSpawners ) do
 		spawner:End()
 	end
+    
+    if self._alias=="morphing" or self._alias=="morphing_again" then   --清理马甲单位
+    	for _,unit in pairs( FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector( 0, 0, 0 ), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )) do
+			if unit:IsAlive() then 
+				unit:ForceKill(true)
+			end
+	    end 
+    end
+
+
 
 	if self._entQuest then
 		UTIL_Remove( self._entQuest )

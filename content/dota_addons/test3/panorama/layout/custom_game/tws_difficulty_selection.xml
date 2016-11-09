@@ -9,46 +9,62 @@
         <include src="s2r://panorama/scripts/custom_game/tws_difficulty_selection.js" />
     </scripts>
     <Panel hittest="false" class="DifficultySelect">
-        <Panel id ="DifficultySelectionPanel" class="DifficultySelectionPanel">
-                <Label id="select_difficulty" class="VoteLable" text="#vote_difficulty"/>
-                <Panel class="line-1"></Panel>
-               <Panel class="DifficultyPanel">
-                     <RadioButton class="DifficultyRadioButton"  onactivate="SendCustomSelectDifficulty('easy')">
-                        <Panel class="NumberAndAvatar">
-                           <Panel id="EasyAvatar2" class="Avatar"/>
-                           <Panel class="number">
-                             <Label id="DifficultyEasyValue" class="value" text="0"/>
-                           </Panel>
-                           <Panel id="EasyAvatar" class="Avatar"/>
-                        </Panel>
-                        <Panel class="DifficultyTitlePanel">
-                          <Label class="title" html="true" text="#game_difficulty_easy"/>
-                        </Panel>
-                     </RadioButton>
-                    <RadioButton class="DifficultyRadioButton"  onactivate="SendCustomSelectDifficulty('normal')">
-                        <Panel class="NumberAndAvatar">
-                             <Panel id="NormalAvatar2" class="Avatar"/>
-                            <Panel class="number">
-                             <Label id="DifficultyNormalValue" class="value" text="0"/>
-                            </Panel>
-                            <Panel id="NormalAvatar" class="Avatar"/>
-                        </Panel>
-                        <Panel class="DifficultyTitlePanel">
-                          <Label class="title" html="true" text="#game_difficulty_normal"/>
-                        </Panel>
-                    </RadioButton>
-                    <RadioButton class="DifficultyRadioButton"  onactivate="SendCustomSelectDifficulty('hard')">
-                        <Panel class="NumberAndAvatar">
-                            <Panel id="HardAvatar2" class="Avatar"/>
-                            <Panel class="number">
-                            <Label id="DifficultyHardValue" class="value" text="0"/>
-                           </Panel>
-                           <Panel id="HardAvatar" class="Avatar"/>
-                        </Panel>
-                        <Panel class="DifficultyTitlePanel">
-                          <Label class="title" html="true" text="#game_difficulty_hard"/>
-                        </Panel>
-                    </RadioButton>
+        <Panel hittest="false"  id ="DifficultySelectionPanel" class="DifficultySelectionPanel">
+                <Label hittest="false" id="select_difficulty" class="VoteLable" text="#vote_difficulty"/>
+                <Panel hittest="false" class="line-1"></Panel>
+                <Panel hittest="false" class="DifficultyPanel">
+                   <Panel hittest="false" class="DifficultyGroupPanel">
+                       <RadioButton class="DifficultyRadioButton"  onactivate="SendCustomSelectDifficulty('easy')">
+                          <Panel class="NumberAndAvatar">
+                             <Panel id="EasyAvatar2" class="Avatar"/>
+                             <Panel class="number">
+                               <Label id="DifficultyEasyValue" class="value" text="0"/>
+                             </Panel>
+                             <Panel id="EasyAvatar" class="Avatar"/>
+                          </Panel>
+                          <Panel class="DifficultyTitlePanel">
+                            <Label class="title" html="true" text="#game_difficulty_easy"/>
+                          </Panel>
+                       </RadioButton>
+                      <RadioButton class="DifficultyRadioButton"  onactivate="SendCustomSelectDifficulty('normal')">
+                          <Panel class="NumberAndAvatar">
+                               <Panel id="NormalAvatar2" class="Avatar"/>
+                               <Panel class="number">
+                                <Label id="DifficultyNormalValue" class="value" text="0"/>
+                               </Panel>
+                              <Panel id="NormalAvatar" class="Avatar"/>
+                          </Panel>
+                          <Panel class="DifficultyTitlePanel">
+                            <Label class="title" html="true" text="#game_difficulty_normal"/>
+                          </Panel>
+                      </RadioButton>
+                   </Panel>
+                   <Panel hittest="false" class="DifficultyGroupPanel">
+                      <RadioButton class="DifficultyRadioButton"  onactivate="SendCustomSelectDifficulty('hard')">
+                          <Panel class="NumberAndAvatar">
+                              <Panel id="HardAvatar2" class="Avatar"/>
+                              <Panel class="number">
+                               <Label id="DifficultyHardValue" class="value" text="0"/>
+                              </Panel>
+                             <Panel id="HardAvatar" class="Avatar"/>
+                          </Panel>
+                          <Panel class="DifficultyTitlePanel">
+                            <Label class="title" html="true" text="#game_difficulty_hard"/>
+                          </Panel>
+                      </RadioButton>
+                      <RadioButton class="DifficultyRadioButton"  onactivate="SendCustomSelectDifficulty('trial')">
+                          <Panel class="NumberAndAvatar">
+                              <Panel id="TrialAvatar2" class="Avatar"/>
+                              <Panel class="number">
+                               <Label id="DifficultyTrialValue" class="value" text="0"/>
+                              </Panel>
+                             <Panel id="TrialAvatar" class="Avatar"/>
+                          </Panel>
+                          <Panel class="DifficultyTitlePanel">
+                            <Label class="title" html="true" text="#game_difficulty_trial"/>
+                          </Panel>
+                      </RadioButton>
+                    </Panel>
                 </Panel>
                 <Panel class="line-1"></Panel>
                 <Button class="ConfirmButton"  onactivate="ConfirmDifficulty()">
@@ -57,6 +73,19 @@
                       <Label id="RemainingSetupTime" class="RemainingSetupTime" text="20" />
                     </Panel>
                 </Button>
-        </Panel>
+         </Panel>
+         <Panel hittest="false"  id ="TrailLevelPanel" class="TrailLevelPanel Opacity">
+              <Label id="select_trial_detial" class="VoteLable" text="#vote_trial_level"/>
+              <Panel class="line-1"></Panel>
+              <Panel id="TrialLevelContainer" class="TrialLevelPanel">             
+              </Panel>
+              <Panel class="line-1"></Panel>
+              <Button class="ConfirmButton"  onactivate="ConfirmTrialLevel()">
+                  <Panel id="ConfirmButtonCenter" class="ConfirmButtonCenter">
+                    <Label id="ConfirmText" class="ConfirmText" text="#confirm" />
+                    <Label id="RemainingTrialLevelTime" class="RemainingSetupTime" text="20" />
+                  </Panel>
+              </Button>
+          </Panel>
     </Panel>
 </root>

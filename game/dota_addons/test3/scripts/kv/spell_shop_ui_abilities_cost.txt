@@ -67,7 +67,7 @@
     "lycan_shapeshift"                        "2"
     "chaos_knight_phantasm"                   "2"
     "undying_flesh_golem"                     "2"
-    "clinkz_death_pact"                       "2"
+    "death_pact_datadriven"                   "3"
     "broodmother_insatiable_hunger"           "2"
     "weaver_time_lapse"                       "2"
     "queenofpain_sonic_wave"                  "2"
@@ -82,4 +82,5 @@
     "winter_wyvern_winters_curse"             "2"
     "templar_assassin_trap"                   "0"
     "beastmaster_call_of_the_wild"            "0"
+    "abyssal_underlord_cancel_dark_rift"      "0"
 }

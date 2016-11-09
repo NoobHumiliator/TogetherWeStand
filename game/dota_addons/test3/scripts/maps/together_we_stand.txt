@@ -1058,9 +1058,9 @@
 	{
 		"round_quest_title"			"#DOTA_Holdout_Round_Slithereen_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Slithereen_Title"
-		"MaxGold"					"1850"
-		"BagCount"					"40"
-		"BagVariance"			    "50"
+		"MaxGold"					"0"
+		"BagCount"					"0"
+		"BagVariance"			    "0"
 		"FixedXP"					"14600"
 		"alias"                     "morphing"
 		// Stage 1 ================================================
@@ -3347,29 +3347,29 @@
 	{
 		"round_quest_title"			"#DOTA_Holdout_Round_Again_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Again_Title"
-		"MaxGold"					"3550"
-		"BagCount"					"40"
-		"BagVariance"				        "50"
+		"MaxGold"					"0"
+		"BagCount"					"0"
+		"BagVariance"				"0"
 		"FixedXP"					"35700"
 		"alias"                     "morphing_again"
 		// Stage 1 ================================================
 		"Unitwater_1"
 		{
-			"NPCName"				"npc_dota_water_1"
+			"NPCName"				"npc_dota_water_1s"
 			"TotalUnitsToSpawn"		        "10"
 			"UnitsPerSpawn"			        "10"
 			"SpawnerName"			      "spawner2"
 		}
 		"Unitwater_2"
 		{       
-			"NPCName"				"npc_dota_water_1"
+			"NPCName"				"npc_dota_water_1s"
 			"TotalUnitsToSpawn"		        "5"
 			"UnitsPerSpawn"			        "5"
 			"SpawnerName"			      "spawner3"
 		} 
 		"Unitwater_3"
 		{
-			"NPCName"				"npc_dota_water_1"
+			"NPCName"				"npc_dota_water_1s"
 			"TotalUnitsToSpawn"		        "10"
 			"UnitsPerSpawn"			        "10"
 			"SpawnerName"			        "spawner4"
@@ -3380,7 +3380,7 @@
 		{
 			"WaitForUnit"			"Unitwater_3"
 			"WaitForTime"			"25"	
-			"NPCName"				"npc_dota_water_1"
+			"NPCName"				"npc_dota_water_1s"
 			"TotalUnitsToSpawn"		        "12"
 			"UnitsPerSpawn"			        "12"
 			"SpawnerName"			      "spawner2"
@@ -3389,7 +3389,7 @@
 		{       
 			"WaitForUnit"			"Unitwater_3"
 			"WaitForTime"			"25"
-			"NPCName"				"npc_dota_water_1"
+			"NPCName"				"npc_dota_water_1s"
 			"TotalUnitsToSpawn"		        "12"
 			"UnitsPerSpawn"			        "12"
 			"SpawnerName"			      "spawner3"
@@ -3398,7 +3398,7 @@
 		{
 			"WaitForUnit"			"Unitwater_3"
 			"WaitForTime"			"25"
-			"NPCName"				"npc_dota_water_1"
+			"NPCName"				"npc_dota_water_1s"
 			"TotalUnitsToSpawn"		        "6"
 			"UnitsPerSpawn"			        "6"
 			"SpawnerName"			        "spawner4"
@@ -3408,7 +3408,7 @@
 		{
 			"WaitForUnit"			 "Unitwater_5"
 			"WaitForTime"			 "20"	
-			"NPCName"				"npc_dota_water_1"
+			"NPCName"				"npc_dota_water_1s"
 			"TotalUnitsToSpawn"		        "6"
 			"UnitsPerSpawn"			        "6"
 			"SpawnerName"			      "spawner2"
@@ -3417,7 +3417,7 @@
 		{       
 			"WaitForUnit"			 "Unitwater_5"
 			"WaitForTime"			 "20"	
-			"NPCName"				"npc_dota_water_1"
+			"NPCName"				"npc_dota_water_1s"
 			"TotalUnitsToSpawn"		        "12"
 			"UnitsPerSpawn"			        "12"
 			"SpawnerName"			      "spawner3"
@@ -3426,7 +3426,7 @@
 		{         
 			"WaitForUnit"			       "Unitwater_5"
 			"WaitForTime"			       "20"	
-			"NPCName"				"npc_dota_water_1"
+			"NPCName"				"npc_dota_water_1s"
 			"TotalUnitsToSpawn"		        "12"
 			"UnitsPerSpawn"			        "12"
 			"SpawnerName"			        "spawner4"
@@ -3437,7 +3437,7 @@
 		{
 			"WaitForUnit"			 "Unitwater_10"
 			"WaitForTime"			 "15"	
-			"NPCName"				"npc_dota_water_1"
+			"NPCName"				"npc_dota_water_1s"
 			"TotalUnitsToSpawn"		        "15"
 			"UnitsPerSpawn"			        "15"
 			"SpawnerName"			      "spawner2"
@@ -3446,7 +3446,7 @@
 		{       
 			"WaitForUnit"			 "Unitwater_10"
 			"WaitForTime"			 "15"	
-			"NPCName"				"npc_dota_water_1"
+			"NPCName"				"npc_dota_water_1s"
 			"TotalUnitsToSpawn"		        "15"
 			"UnitsPerSpawn"			        "15"
 			"SpawnerName"			      "spawner3"
@@ -3455,7 +3455,7 @@
 		{         
 			"WaitForUnit"			       "Unitwater_10"
 			"WaitForTime"			       "15"	
-			"NPCName"				"npc_dota_water_1"
+			"NPCName"				"npc_dota_water_1s"
 			"TotalUnitsToSpawn"		        "15"
 			"UnitsPerSpawn"			        "15"
 			"SpawnerName"			        "spawner4"
@@ -3465,7 +3465,7 @@
 		{
 			"WaitForUnit"			 "Unitwater_13"
 			"WaitForTime"			 "10"	
-			"NPCName"				"npc_dota_water_1"
+			"NPCName"				"npc_dota_water_1s"
 			"TotalUnitsToSpawn"		        "15"
 			"UnitsPerSpawn"			        "15"
 			"SpawnerName"			      "spawner2"
@@ -3474,7 +3474,7 @@
 		{       
 			"WaitForUnit"			 "Unitwater_13"
 			"WaitForTime"			 "10"	
-			"NPCName"				"npc_dota_water_1"
+			"NPCName"				"npc_dota_water_1s"
 			"TotalUnitsToSpawn"		        "15"
 			"UnitsPerSpawn"			        "15"
 			"SpawnerName"			      "spawner3"
@@ -3483,7 +3483,7 @@
 		{         
 			"WaitForUnit"			       "Unitwater_13"
 			"WaitForTime"			       "10"	
-			"NPCName"				"npc_dota_water_1"
+			"NPCName"				"npc_dota_water_1s"
 			"TotalUnitsToSpawn"		        "15"
 			"UnitsPerSpawn"			        "15"
 			"SpawnerName"			        "spawner4"
@@ -3493,7 +3493,7 @@
 		{
 			"WaitForUnit"			 "Unitwater_16"
 			"WaitForTime"			 "5"	
-			"NPCName"				"npc_dota_water_1"
+			"NPCName"				"npc_dota_water_1s"
 			"TotalUnitsToSpawn"		        "15"
 			"UnitsPerSpawn"			        "15"
 			"SpawnerName"			      "spawner2"
@@ -3502,7 +3502,7 @@
 		{       
 			"WaitForUnit"			 "Unitwater_16"
 			"WaitForTime"			 "5"	
-			"NPCName"				"npc_dota_water_1"
+			"NPCName"				"npc_dota_water_1s"
 			"TotalUnitsToSpawn"		        "15"
 			"UnitsPerSpawn"			        "15"
 			"SpawnerName"			      "spawner3"
@@ -3511,7 +3511,7 @@
 		{         
 			"WaitForUnit"			       "Unitwater_16"
 			"WaitForTime"			       "5"	
-			"NPCName"				"npc_dota_water_1"
+			"NPCName"				"npc_dota_water_1s"
 			"TotalUnitsToSpawn"		        "15"
 			"UnitsPerSpawn"			        "15"
 			"SpawnerName"			        "spawner4"
@@ -3948,5 +3948,5 @@
 			"SpawnInterval"			"15"
 			"SpawnerName"			"spawner4"
 		}									
-	}            
+	}                    
 }

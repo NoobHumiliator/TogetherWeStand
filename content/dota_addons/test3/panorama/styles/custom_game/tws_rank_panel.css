@@ -1,0 +1,565 @@
+.TopHorizonLine
+{
+    width: 100%;
+    height: 2px;
+    vertical-align: bottom;
+    background-color: gradient( linear, 0% 0%, 100% 0%, from( #6f829c00 ), color-stop( 0.3, #6f829c44 ), color-stop( 0.7, #6f829c44 ), to( #6f829c00 ) );
+    margin-bottom: 5.5px;
+    margin-top: 5.5px;
+}
+
+.CollumInformerPanel
+{
+    width: 100%;
+    horizontal-align: center;
+    flow-children: down;
+}
+
+.Informers
+{
+    height:30px;
+    width: 100%;
+    horizontal-align: center;
+    flow-children: right;
+}
+.NavigeteButtonPanel
+{
+    height:30px;
+    width: 100px;
+    margin-right: 40px;
+    horizontal-align: right;
+    flow-children: right;
+    margin-top: 20px;
+}
+
+
+#InformerLabelRank
+{
+    color: white;
+    margin: 0px;
+    height: 100%;
+    width: 80px;
+    font-size: 20px;
+    horizontal-align: center;
+    vertical-align: middle;
+    text-align: left;
+    transform: translateY(10px);
+    text-shadow: 0px 0px 0px 1.0 #ffffff00;
+    letter-spacing: 2px;
+    
+    transition-property: transform, color, text-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in;    
+}
+
+
+#InformerLabelPlayer
+{
+    color: white;
+    margin: 0px;
+    margin-left: 50px;
+    height: 100%;
+    width: 80px;
+    font-size: 20px;
+    horizontal-align: center;
+    vertical-align: middle;
+    text-align: center;
+    transform: translateY(10px);
+    text-shadow: 0px 0px 0px 1.0 #ffffff00;
+    letter-spacing: 2px;
+    
+    transition-property: transform, color, text-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in;    
+}
+
+#InformerLabelRound
+{
+    color: white;
+    margin: 0px;
+    margin-left: 140px;
+    height: 100%;
+    width: 80px;
+    font-size: 20px;
+    horizontal-align: center;
+    vertical-align: middle;
+    text-align: center;
+    transform: translateY(10px);
+    text-shadow: 0px 0px 0px 1.0 #ffffff00;
+    letter-spacing: 2px;
+    
+    transition-property: transform, color, text-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in;    
+}
+
+#InformerLabelTimeCost
+{
+    color: white;
+    margin-left: 10px;
+    height: 100%;
+    width: 80px;
+    font-size: 20px;
+    horizontal-align: center;
+    vertical-align: middle;
+    text-align: left;
+    transform: translateY(10px);
+    text-shadow: 0px 0px 0px 1.0 #ffffff00;
+    letter-spacing: 2px;
+    
+    transition-property: transform, color, text-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in;    
+}
+
+
+.NavigetePreButtonPic
+{
+    background-image: url("s2r://panorama/images/custom_game/arrow_solid_left.png");
+}
+
+.NavigeteNextButtonPic
+{
+    background-image: url("s2r://panorama/images/custom_game/arrow_solid_right.png");
+}
+
+.NavigeteButton
+{
+    margin-left : 10px;
+    margin-right : 10px;
+    width: 18px;
+    height: 33px;
+    background-size: 18px 28px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    /*wash-color: #25292f;*/
+    
+    transition-property: background-color, wash-color;
+    transition-delay: 0.0s;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+}
+
+
+.NavigeteButton:disabled
+{
+   wash-color:#111111;
+}
+
+
+
+
+#RankPlayerNumberTabs
+{
+    width: fill-parent-flow( 1.0 );
+    /*background-color: gradient( linear, 0% 0%, 100% 0%, from( #000000aa ), color-stop( 0.8, #000000aa ),  to( #00000000 ) );*/
+    height: 50px;
+    flow-children: right;
+    vertical-align: middle;
+    
+    padding-left: 1%;
+    padding-top: 14px;
+    padding-bottom: 7px;
+    
+    opacity: 1.0;
+    
+    transition-property: transform, opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    
+
+    
+}
+
+
+.SecondaryTabButton
+{
+    margin: 0px;
+    vertical-align: middle;
+    wash-color: white;  
+    width: 85px;
+    transition-property: wash-color;
+    transition-duration: 0.6s;
+    transition-timing-function: ease-in-out;
+
+    flow-children: right;
+}
+
+.SecondaryTabButton Label
+{
+    color: #768e8d;
+    vertical-align: middle;
+    font-size: 19px;
+    /*text-transform: uppercase;*/
+    margin: 0px;
+    letter-spacing: 3px;
+}
+
+.SecondaryTabButton:hover Label
+{
+    color: white;
+}
+
+.SecondaryTabButton:disabled Label,
+.SecondaryTabButton:disabled:hover Label
+{
+    color: #768e8d33;
+}
+
+
+.Language_schinese .SecondaryTabButton Label
+{
+    font-size: 20px;
+    letter-spacing: 4px;
+}
+
+
+.AspectRatio4x3 .SecondaryTabButton Label,
+.AspectRatio5x4 .SecondaryTabButton Label
+{
+    letter-spacing: 0px;
+    font-size: 18px;
+}
+
+.SecondaryTabButton:active
+{
+    sound: "ui_rollover_micro";
+}
+
+.SecondaryTabButton:selected Label
+{
+    text-shadow: 0px 0px 12px #5d7070;
+}
+
+.SecondaryTabButton .RadioBox
+{
+    visibility: collapse;
+}
+
+.SecondaryTabButton.NoLabel Label
+{
+    visibility: collapse;
+}
+
+.SecondaryTabButton DOTAViolator
+{
+    vertical-align: bottom;
+    margin-bottom: 8px;
+    opacity: 1.0;
+    transition-property: opacity;
+    transition-duration: 0.50s;
+    transition-timing-function: ease-in-out;
+    background-color: #C1272D;
+}
+
+.SecondaryTabButton DOTAViolator Label
+{
+    font-size: 12px;
+    color: white;
+    letter-spacing: 1px;
+    padding-left: 4px;
+}
+
+.SecondaryTabButton DOTAViolator.Acknowledged
+{
+    visibility: collapse;
+}
+
+.SecondaryTabButton .SecondaryTabPrefixImage,
+.SecondaryTabButton .SecondaryTabPostfixImage
+{
+    width: height-percentage( 100% );
+    height: 85%;
+
+    transition-property: wash-color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+
+    wash-color: #768e8d;
+}
+
+.SecondaryTabButton:hover .SecondaryTabPrefixImage,
+.SecondaryTabButton:hover .SecondaryTabPostfixImage
+{
+    wash-color: white;
+}
+
+.SecondaryTabButton .SecondaryTabPrefixImage
+{
+    margin-right: -5px;
+}
+
+.SecondaryTabButton .SecondaryTabPostfixImage
+{
+    margin-left: -5px;
+}
+
+
+.SecondaryTabSeparator
+{
+    color: #768e8d;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 1px;
+    vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+
+.LadderInfoRoot
+{
+    width:100%;
+    flow-children: down;
+}
+
+.Logo
+{
+  width:70px;
+  height:20px;
+  vertical-align: bottom;
+  horizontal-align:right;
+}
+
+#Title
+{
+    flow-children: down;
+    /*horizontal-align:center;*/
+    margin-left:15%;
+}
+
+#TitleIcon
+{
+    width: 64px;
+    height: 64px;
+    vertical-align: center;
+}
+
+#TitleName
+{
+    color: #cccccc;
+    font-size: 50px;
+    text-transform: uppercase;
+    vertical-align: center;
+}
+
+.PlayerNumberPanel
+{
+    /*margin-top:5px;*/
+    flow-children:down;
+    horizontal-align:center;
+    width:  100%;
+}
+
+.LadderPlayerRoot
+{
+    vertical-align: center;
+    flow-children:right;
+    width:  100%;
+    margin-top:15px;
+}
+
+
+.RankTextRound
+{
+    width:50px;
+    height: 100%;
+    margin-left:30px;
+    vertical-align: center;
+    font-size: 46px;
+    text-align:center;
+    color:white;
+
+}
+
+.RankTextRound2P
+{
+    width:50px;
+    height: 100%;
+    margin-left:20px;
+    vertical-align: center;
+    font-size: 46px;
+    text-align:center;
+    color:white;
+
+}
+
+.RankTextRound3P
+{
+    width:50px;
+    height: 100%;
+    margin-left:20px;
+    vertical-align: center;
+    font-size: 46px;
+    text-align:center;
+    color:white;
+
+}
+
+
+
+.RankTextRound4P
+{
+    width:50px;
+    height: 100%;
+    margin-left:50px;
+    vertical-align: center;
+    font-size: 46px;
+    text-align:center;
+    color:white;
+
+}
+
+
+
+.RankTextTime
+{
+    width:110px;
+    /*height: 78%;*/
+    margin-left:30px;
+    vertical-align: center;
+    font-size: 33px;
+    text-align:center;
+    color:white;
+
+}
+
+
+
+
+
+.TeamIndex
+{
+    width:40px;
+    vertical-align: center;
+    font-size: 25px;
+    text-align:center;
+    color:white;
+}
+
+.PlayerAvatarImage
+{
+    width:60px;
+    height:60px;
+    vertical-align: center;
+}
+
+
+
+.PlayerUserName
+{
+    width:250px;
+    margin-left:10px;
+    vertical-align: center;
+    padding-left:10px;
+}
+
+.PlayerLadderScore
+{
+    width:50px;
+    text-align:center;
+    margin-left:10px;
+    margin-right:10px;
+    vertical-align: center;
+    font-size: 20px;
+}
+
+#RatingImage
+{
+    width:40px;
+    height:40px;
+}
+
+#RatingSubImage
+{
+    width:15px;
+    height:15px;
+    vertical-align: center;
+    horizontal-align: center;
+}
+
+#Stars
+{
+    flow-children:right;
+    width:105px;
+    vertical-align: center;
+}
+
+#Stars Image
+{
+    width:15px;
+    height:15px;
+    vertical-align: center;
+    horizontal-align: left;
+}
+
+.Hidden {
+    visibility: collapse;
+}
+
+
+.PlayerUserName
+{
+    width:230px;
+    margin-left:10px;
+    vertical-align: center;
+    horizontal-align: center;
+    padding-left:10px;
+    font-size: 30px;
+}
+
+.PlayerUserName2PL
+{
+    width:90px;
+     height: 20px;
+    vertical-align: center;
+    horizontal-align: center;
+    font-size: 30px;
+}
+
+.PlayerUserName2PR
+{
+    width:90px;
+    height: 20px;
+    vertical-align: center;
+    horizontal-align: center;
+    font-size: 30px;
+}
+
+.Seperator
+{
+    color: #768e8d;
+    margin-left: 3px;
+    margin-right: 3px;
+    vertical-align: middle;
+}
+.PlayerNamePanel
+{
+    flow-children: down;
+    width:120px;
+    height: 60px;
+    margin-left: 10px;
+}
+
+.PlayerUserName3P
+{
+    width:120px;
+    height: 20px;
+    vertical-align: center;
+    horizontal-align: center;
+    font-size: 30px;
+    text-align:center;
+}
+
+.PlayerAvatarImageFirst4P
+{
+    margin-left:35px;
+    width:60px;
+    height:60px;
+    vertical-align: center;
+}

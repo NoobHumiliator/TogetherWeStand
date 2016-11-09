@@ -27,7 +27,7 @@
 			</Panel>
 			<Panel class="LineExplor LinePanel">
 				<Panel class="StyleLeft">					
-					<Label text="#EndExplorLabel" html="true" />
+					<Label text="#EndHealLabel" html="true" />
 				</Panel>
 				<Panel class="StyleRight">
 					<Label class="EndExplorRank" />
