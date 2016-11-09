@@ -16,6 +16,7 @@ function BloodLinkCheck( event )
 	    caster.BloodLinkParticle = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
 	    ParticleManager:SetParticleControlEnt(caster.BloodLinkParticle, 1, friend, PATTACH_POINT_FOLLOW, "attach_hitloc", friend:GetAbsOrigin(), true)
 	    ability:ApplyDataDrivenModifier(caster, caster, modifier_regen_health, {})
+	    EmitSoundOn("terrorblade_terr_shards_conjureimage_01",caster)
 	    caster.link_flag=1
 	    end
 	    if (caster:GetOrigin()-friend:GetOrigin()):Length()<link_distance and friend:HasModifier("modifier_bloodlink_think") and friend~=caster then

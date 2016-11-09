@@ -9,7 +9,6 @@ end
 function CHoldoutGameSpawner:ReadConfiguration( name, kv, gameRound )
 	self._gameRound = gameRound
 	self._dependentSpawners = {}
-
 	self._szChampionNPCClassName = kv.ChampionNPCName or ""
 	self._szGroupWithUnit = kv.GroupWithUnit or ""
 	self._szName = name
@@ -190,7 +189,9 @@ end
 
 function CHoldoutGameSpawner:_DoSpawn()
 	local nUnitsToSpawn = math.min( self._nUnitsPerSpawn, self._nTotalUnitsToSpawn - self._nUnitsSpawnedThisRound )
-
+    if self._gameRound.vAffixes.teeming then  --繁盛词缀，数量乘以2
+         nUnitsToSpawn= nUnitsToSpawn*2 
+    end
 	if nUnitsToSpawn <= 0 then
 		return
 	elseif self._nUnitsSpawnedThisRound == 0 then

@@ -6,12 +6,20 @@ require( "ai_core" )
 
 behaviorSystem = {} -- create the global so we can assign to it
 
+initFlag=false   --是否成功初始化的标志位
+
 function Spawn( entityKeyValues )
 	thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
     behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone , BehaviorWishFuse , BehaviorFusing,BehaviorThrowHook,BehaviorDismember} ) 
 end
 
 function AIThink() -- For some reason AddThinkToEnt doesn't accept member functions
+	   if not initFlag then
+	   	  thisEntity:FindAbilityByName("water_fuse"):SetLevel(1)
+     	  thisEntity:FindAbilityByName("water_current"):SetLevel(1)
+	      thisEntity:FindAbilityByName("water_waveform"):SetLevel(1)
+	   	  initFlag=true
+	   end
        return behaviorSystem:Think()
 end
 
@@ -137,7 +145,7 @@ function BehaviorThrowHook:Evaluate()
 	
 	-- let's not choose this twice in a row
 	if currentBehavior == self then return desire end
-	self.hookAbility = thisEntity:FindAbilityByName( "holdout_waveform" )
+	self.hookAbility = thisEntity:FindAbilityByName( "water_waveform" )
 	local targets = FindUnitsInRadius(DOTA_TEAM_BADGUYS, thisEntity:GetOrigin() , nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
 	local MaxDistance = 100
 	    if #targets > 0 then
@@ -173,7 +181,7 @@ BehaviorThrowHook.Continue = BehaviorThrowHook.Begin
 BehaviorDismember = {}          ------------------洪流
 
 function BehaviorDismember:Evaluate()
-	self.dismemberAbility = thisEntity:FindAbilityByName("holdout_current")
+	self.dismemberAbility = thisEntity:FindAbilityByName("water_current")
 	local target
 	local desire = 0
 

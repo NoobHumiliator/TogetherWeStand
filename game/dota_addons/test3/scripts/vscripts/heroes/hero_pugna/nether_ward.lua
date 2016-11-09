@@ -33,31 +33,6 @@ function NetherWardZap( event )
     end
 end
 
---[[
-	Author: Noya
-	Date: April 5, 2015
-	"Nether Ward has 4 HP. Heroes can attack it for 1 damage, while non-hero units deal 0.25 damage."
-]]
-function NetherWardAttacked( event )
-	local target = event.unit -- the ward
-	local attacker = event.attacker
-	local damage = event.Damage
-	local ability = event.ability
-	local hero_attack_damage = ability:GetLevelSpecialValueFor("hero_attack_damage", ability:GetLevel() - 1 )
-
-	print(target:GetEntityIndex(), target.attack_counter)
-
-	if attacker:IsRealHero() then
-		target.attack_counter = target.attack_counter - hero_attack_damage
-	else
-		target.attack_counter = target.attack_counter - 1
-	end
-
-	-- Adjust the health of the ward
-	-- TODO: Check if this should be /4, and if the Damage is still dealt
-	target:SetHealth(target.attack_counter)
-	print("SetHealth of "..target:GetUnitName().." at "..target.attack_counter)
-end
 
 --[[
 	Author: Noya

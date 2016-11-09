@@ -1,3 +1,5 @@
+LinkLuaModifier( "modifier_unholy_cd_reduction_lua","item_ability/modifier_unholy_cd_reduction_lua",LUA_MODIFIER_MOTION_NONE )
+
 function Unholy( event )
 	local caster = event.caster
 	local ability = event.ability
@@ -44,11 +46,12 @@ function ApplyUnholy( keys )
 	local ability = keys.ability
 	local stack_modifier = keys.stack_modifier
 	local stack_count = caster:GetModifierStackCount(stack_modifier, ability)
+	local duration = ability:GetLevelSpecialValueFor("buff_duration", (ability:GetLevel() - 1))
 
 	ability:ApplyDataDrivenModifier(caster, caster, stack_modifier, {})
 
 	caster:SetModifierStackCount(stack_modifier, ability, stack_count + 1)
-
+    caster:AddNewModifier( caster, ability, "modifier_unholy_cd_reduction_lua", { duration = duration } )
 end
 
 
@@ -60,6 +63,7 @@ function RemoveUnholy( keys )
 
 	if stack_count <= 1 then
 		caster:RemoveModifierByName(stack_modifier)
+		caster:RemoveModifierByName("modifier_unholy_cd_reduction_lua")
 	else
 		caster:SetModifierStackCount(stack_modifier, ability, stack_count - 1)
 	end

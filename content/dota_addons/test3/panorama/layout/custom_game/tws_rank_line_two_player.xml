@@ -1,0 +1,16 @@
+<root>
+    <styles>
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+         <include src="file://{resources}/styles/custom_game/tws_rank_panel.css" />
+    </styles>
+    <Panel class="LadderPlayerRoot">
+        <Label id="TeamIndex" class="TeamIndex" text="0" />
+        <DOTAAvatarImage id="PlayerAvatarImage1" class="PlayerAvatarImage" steamid="local" />
+        <DOTAAvatarImage id="PlayerAvatarImage2" class="PlayerAvatarImage" steamid="local" />
+        <DOTAUserName id="PlayerUserName1" class="PlayerUserName2PL" steamid="local" />
+        <Label id="Seperator" class="Seperator" text="/" />
+        <DOTAUserName id="PlayerUserName2" class="PlayerUserName2PR" steamid="local" />
+        <Label id="MaxRound" class="RankTextRound2P" text="#unknown" />
+        <Label id="TimeCost" class="RankTextTime" text="#unknown" />
+    </Panel>
+</root>

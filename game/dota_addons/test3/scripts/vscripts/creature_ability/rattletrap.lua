@@ -6,6 +6,9 @@ DY = {1, 0, -1, 0}
 DX_DIAG = {1, 1, -1, -1}
 DY_DIAG = {1, -1, -1, 1}
 
+power_cogs_sounds={"rattletrap_ratt_ability_cogs_01","rattletrap_ratt_ability_cogs_05","rattletrap_ratt_ability_cogs_03","rattletrap_ratt_ability_cogs_04","rattletrap_ratt_attack_04"}
+gears_up_sounds={"rattletrap_ratt_level_01","rattletrap_ratt_level_03","rattletrap_ratt_level_06","rattletrap_ratt_level_11"}
+
 
 
 
@@ -331,7 +334,8 @@ function TecMazeCreater:ExplodeBomb(bomb,power)
                    ApplyDamage(damageTable)    --造成伤害
                 end
             end
-       local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf", PATTACH_CUSTOMORIGIN, bomb)
+        local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf", PATTACH_ABSORIGIN, bomb)
+        local position=self:GetPosition(cx, cy)
         ParticleManager:SetParticleControl(particle, 0, self:GetPosition(cx, cy) )-- set position
         if self.bombs[cx][cy] and not (cx == x and cy==y) then
           hitBombs[#hitBombs+1] = {x=cx, y=cy}
@@ -340,9 +344,12 @@ function TecMazeCreater:ExplodeBomb(bomb,power)
     end
   end
 
-    self.bombs[x][y] = nil
-  bomb:RemoveSelf()
-  
+  self.bombs[x][y] = nil
+  Timers:CreateTimer(0.5, function()
+      if bomb~=nil  and not bomb:IsNull() then
+       bomb:RemoveSelf()
+      end
+  end)
    for _, bombPos in pairs(hitBombs) do
     local bomb = self.bombs[bombPos.x][bombPos.y]
     if bomb then
@@ -426,6 +433,8 @@ function CheckForMaze( keys )
        Notifications:TopToAll({ability= "rattletrap_power_cogs"})
        Notifications:TopToTeam(DOTA_TEAM_GOODGUYS, {text="#cogs_maze_dbm_simple", duration=1.5, style = {color = "Azure"},continue=true})
        GridNav:DestroyTreesAroundPoint( Vector(0,0,0), 9999, false )
+       local randomInt=RandomInt(1,5)
+       EmitSoundOn(power_cogs_sounds[randomInt],caster)
        TecMazeCreater:Init()
        local duration =2.0
        local pull_end_time = GameRules:GetGameTime()+2.0
@@ -481,6 +490,8 @@ function CheckForMaze( keys )
        Notifications:TopToAll({ability= "rattletrap_power_cogs"})
        Notifications:TopToTeam(DOTA_TEAM_GOODGUYS, {text="#cogs_maze_dbm_simple", duration=1.5, style = {color = "Azure"},continue=true})
        GridNav:DestroyTreesAroundPoint( Vector(0,0,0), 9999, false )
+       local randomInt=RandomInt(1,5)
+       EmitSoundOn(power_cogs_sounds[randomInt],caster)
        TecMazeCreater:Init()
        local duration =2.0
        local pull_end_time = GameRules:GetGameTime()+2.0
@@ -550,8 +561,8 @@ end
 function LaserStart(keys)
     Notifications:TopToAll({ability= "tinker_laser"})
     Notifications:TopToTeam(DOTA_TEAM_GOODGUYS, {text="#laser_turret_dbm_simple", duration=1.5, style = {color = "Azure"},continue=true})     
-    local pathLength          = 800
-    local numThinkers         = 10
+    local pathLength          = 2000
+    local numThinkers         = 25
     local thinkerRadius       = 192
     local ability = keys.ability
     local modifierThinkerName = keys.modifier_thinker_name
@@ -570,9 +581,11 @@ function LaserStart(keys)
 
     -- Create particle FX
     local particleName = "particles/units/heroes/hero_phoenix/phoenix_sunray.vpcf"
-    local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, caster )
-    ParticleManager:SetParticleControlEnt( pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true )
-
+    local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN , caster )
+    --ParticleManager:SetParticleControlEnt( pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin()+Vector(0,0,500), true )
+    ParticleManager:SetParticleControl( pfx, 0, caster:GetAbsOrigin()+Vector(0,0,96))
+    ParticleManager:SetParticleControl( pfx, 1, caster:GetAbsOrigin()+Vector(300,300,96) )
+    --print("hahahah"..caster:GetAbsOrigin()+Vector(300,300,96))
     -- Attach a loop sound to the endcap
     local endcapSoundName = "Hero_Phoenix.SunRay.Beam"
     StartSoundEvent( endcapSoundName, endcap )
@@ -595,12 +608,12 @@ function LaserStart(keys)
                         --print("endcap"..endcapPos.x.." "..endcapPos.y.." "..endcapPos.z)
                         caster:SetForwardVector((location_for_turn-casterOrigin):Normalized())
                         local casterForward = (endcapPos-casterOrigin):Normalized()
-                        for i=1, numThinkers-1 do
+                        for i=1, numThinkers do
                            local thinker = caster.vThinkers[i]
-                           thinker:SetAbsOrigin( casterOrigin + casterForward * ( 100 * i))
+                           thinker:SetAbsOrigin( casterOrigin + casterForward * ( (pathLength/ (numThinkers-1) ) * i))
                         end
                         laser_angel=laser_angel+0.2
-                        ParticleManager:SetParticleControl( pfx, 1, endcapPos+Vector(0,0,52) )
+                        ParticleManager:SetParticleControl( pfx, 1, endcapPos+Vector(0,0,96) )
                         return 0.01
                    end
             end})
@@ -654,6 +667,10 @@ function AIThink()
   if GameRules:GetGameTime()-thisEntity.upgrade_time>20 then 
      Notifications:TopToAll({ability="tinker_rearm"})
      Notifications:TopToTeam(DOTA_TEAM_GOODGUYS, {text="#gears_upgrade_dbm", duration=1.5, style = {color = "Azure"},continue=true})
+     
+     local randomInt=RandomInt(1,4)
+     EmitSoundOn(gears_up_sounds[randomInt],thisEntity)
+     
      local level=thisEntity:FindAbilityByName("boss_battery_assault_aura_datadriven"):GetLevel()
      if level>1 then
        thisEntity:FindAbilityByName("boss_battery_assault_aura_datadriven"):SetLevel(level-1)  --其实是增强了，弹幕光环的效果

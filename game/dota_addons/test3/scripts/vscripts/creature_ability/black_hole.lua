@@ -12,6 +12,7 @@ function BlackHole( event )
 
       Notifications:TopToAll({ability= "boss_fly_black_hole_datadriven"})
       Notifications:TopToTeam(DOTA_TEAM_GOODGUYS, {text="#boss_fly_black_hole_datadriven_dbm_simple", duration=1.5, style = {color = "Azure"},continue=true})
+      EmitSoundOn("winter_wyvern_winwyv_attack_08",caster)
 
       ability:ApplyDataDrivenModifier(caster, caster, "modifier_blue_dragon_boss_fly", {})
       local caster_location=caster:GetAbsOrigin()
@@ -61,7 +62,8 @@ function BlackHole( event )
       
       Notifications:TopToAll({ability= "boss_fly_black_hole_datadriven"})
       Notifications:TopToTeam(DOTA_TEAM_GOODGUYS, {text="#boss_fly_black_hole_datadriven_dbm_simple", duration=1.5, style = {color = "Azure"},continue=true})
-
+      EmitSoundOn("winter_wyvern_winwyv_attack_08",caster)
+      
       ability:ApplyDataDrivenModifier(caster, caster, "modifier_blue_dragon_boss_fly", {})
       local caster_location=caster:GetAbsOrigin()
       caster_location.z = GetGroundHeight(caster_location,nil)

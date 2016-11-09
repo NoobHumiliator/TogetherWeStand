@@ -1812,7 +1812,7 @@
 		"Level"						"6"
 		"ConsideredHero"			        "0"
 		
-		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIcon"				"minimap_enemyicon"
 		"MinimapIconSize"			"250"
 		
 		"SoundSet"				"Hero_Morphling"								// Name of sound set.
@@ -1914,7 +1914,7 @@
 			
 		}
 	}
-         "npc_dota_water_2"
+    "npc_dota_water_2"
 	{
 		// General
 		//----------------------------------------------------------------
@@ -1924,7 +1924,7 @@
 		"Level"						"6"
 		"ConsideredHero"			        "0"
 		
-		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIcon"				"minimap_enemyicon"
 		"MinimapIconSize"			"300"
 		
 		"SoundSet"				"Hero_Morphling"								// Name of sound set.
@@ -1936,11 +1936,11 @@
 		
 		// Abilities
 		//----------------------------------------------------------------
-		"AbilityLayout"				       "5"
+		"AbilityLayout"				"5"
 		"Ability1"					"water_die"	// Ability 1.
 		"Ability2"					"water_grow"		        // Ability 2.
 		"Ability3"					"water_fuse"			// Ability 3.
-		"Ability4"					"holdout_current"			// Ability 4.
+		"Ability4"					"water_current"			// Ability 4.
 		"Ability5"					"water_evolve_to3"			// Ability 5.
 		"Ability6"					"generic_gold_bag_fountain_200"		        // Ability 6 - Extra.
 		"Ability7"					""			// Ability 7 - Extra.
@@ -2044,7 +2044,7 @@
 			}
 		}
 	}
-         "npc_dota_water_3"
+   "npc_dota_water_3"
 	{
 		// General
 		//----------------------------------------------------------------
@@ -2054,11 +2054,11 @@
 		"Level"						        "6"
 		"ConsideredHero"			        "0"
 	    "CanBeDominated"			        "0"
-	    "IsAncient"					"1"
-		"MinimapIcon"				"minimap_roshancamp"
-		"MinimapIconSize"			"350"
+	    "IsAncient"					        "1"
+		"MinimapIcon"				 "minimap_roshancamp"
+		"MinimapIconSize"			 "350"
 		
-		"SoundSet"				"Hero_Morphling"								// Name of sound set.
+		"SoundSet"				    "Hero_Morphling"								// Name of sound set.
 		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
                 
 		// Inventory
@@ -2067,15 +2067,15 @@
 		
 		// Abilities
 		//----------------------------------------------------------------
-		"AbilityLayout"				       "4"
-		"Ability1"					"water_die"	// Ability 1.
-		"Ability2"					""		        // Ability 2.
-		"Ability3"					"water_fuse"			// Ability 3.
-		"Ability4"					"holdout_current"			// Ability 4.
-		"Ability5"					"holdout_waveform"			// Ability 5.
-		"Ability6"					""		        // Ability 6 - Extra.
-		"Ability7"					""			// Ability 7 - Extra.
-		"Ability8"					""			// Ability 8 - Extra.
+		"AbilityLayout"				"4"
+		"Ability1"					"water_die"	     // Ability 1.
+		"Ability2"					"water_fuse"	 // Ability 2.
+		"Ability3"					"water_current"	 // Ability 3.
+		"Ability4"					"water_waveform" // Ability 4.
+		"Ability5"					""	             // Ability 5.
+		"Ability6"					""		         // Ability 6 - Extra.
+		"Ability7"					""			     // Ability 7 - Extra.
+		"Ability8"					""			     // Ability 8 - Extra.
 
 		// Armor
 		//----------------------------------------------------------------
@@ -7815,7 +7815,7 @@
 		//Inventory
 		"HasInventory"				"0"
 	}
-        "npc_majia_water_1"
+    "npc_majia_water_1"
 	{
 		"BaseClass"					"npc_dota_creature"
 		"Model"						"models\development\invisiblebox.vmdl" //¿ÕÄ£ÐÍ
@@ -7899,7 +7899,7 @@
 		"Ability2"					"creature_reverse_polarity"		        // Ability 2.
 		"Ability3"					"mag_melee_smash"			// Ability 3.
 		"Ability4"					"mag_kill_them_all"			// Ability 4.
-                "Ability5"					"mag_gold_bag_fountain"			// Ability 4.
+        "Ability5"					"mag_gold_bag_fountain"			// Ability 4.
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"42"			// Physical protection.
@@ -8003,7 +8003,7 @@
 			
 		}
 	}
-         "npc_dota_boss_enchantress"
+   "npc_dota_boss_enchantress"
 	{
 		// General
 		//----------------------------------------------------------------
@@ -10216,7 +10216,7 @@
 		"VisionNighttimeRange"		"0"
 	}
     
-     "bomber_bomb"							
+    "bomber_bomb"							
 	{										
 		// General
 		//----------------------------------------------------------------
@@ -10233,7 +10233,7 @@
 		"AttackCapabilities"		 "DOTA_UNIT_CAP_NO_ATTACK"
 		"MovementCapabilities"		 "DOTA_UNIT_CAP_MOVE_NONE"
 
-		"StatusHealth"				"1"
+		"StatusHealth"				"100"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
@@ -10241,7 +10241,7 @@
 		"VisionDaytimeRange"		"0"
 		"VisionNighttimeRange"		"0"
 	}
-         "stasis_trap"							
+    "stasis_trap"							
 	{										
 		// General
 		//----------------------------------------------------------------
@@ -10258,7 +10258,7 @@
 		"AttackCapabilities"		 "DOTA_UNIT_CAP_NO_ATTACK"
 		"MovementCapabilities"		 "DOTA_UNIT_CAP_MOVE_NONE"
 
-		"StatusHealth"				"1"
+		"StatusHealth"				"100"
 		"StatusHealthRegen"			"0"
 		"StatusMana"				"0"
 		"StatusManaRegen"			"0"
@@ -11164,7 +11164,7 @@
 	
 	// Status
 	//----------------------------------------------------------------
-	"StatusHealth"				"340000"
+	"StatusHealth"				"3400000"
 	"StatusHealthRegen"			"10"
 	"StatusMana"				"1500"
 	"StatusManaRegen"			"20"
@@ -11350,6 +11350,61 @@
         "VisionDaytimeRange"		"400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"400"		// Range of vision at night time.
 	}
+ "npc_falling_rock_dummy"  //落石马甲
+ {
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models\development\invisiblebox.vmdl" 
+		"SoundSet"					""								        
+		"ModelScale" 				"0.9"							       
+	
+		"Ability1"					"dummy_normal"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"  	
+		"AttackDamageMin"			"0"							
+		"AttackDamageMax"			"0"							
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1"							
+		"AttackAcquisitionRange"	"0"						
+		"AttackRange"				"0"							
+
+
+		//----------------------------------------------------------------
+		"BountyXP"				    "0"		
+		"BountyGoldMin"				"0"		
+		"BountyGoldMax"				"0"		
+
+
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		
+		"RingRadius"				"0"							
+		"HealthBarOffset"			"0"							
+
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"				"0"							
+		"MovementTurnRate"			"3"							
+
+		//----------------------------------------------------------------
+		"StatusHealth"				"100000"					
+		"StatusHealthRegen"			"0"							
+        "TeamName"		            "DOTA_TEAM_BADGUYS"			
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+
+        "VisionDaytimeRange"		"0"		// Range of vision during day light.
+		"VisionNighttimeRange"		"0"		// Range of vision at night time.
+		"Creature"
+		{                    		
+			"DisableResistance"			"100.0"
+		}
+ }
+
+
 
  "npc_dota_night_bane"   
  {
@@ -11402,7 +11457,7 @@
 	
 	// Status
 	//----------------------------------------------------------------
-	"StatusHealth"				"185000"
+	"StatusHealth"				"1850000"
 	"StatusHealthRegen"			"10"
 	"StatusMana"				"1500"
 	"StatusManaRegen"			"20"
@@ -11478,7 +11533,7 @@
 	
 	// Status
 	//----------------------------------------------------------------
-	"StatusHealth"				"395000"
+	"StatusHealth"				"3950000"
 	"StatusHealthRegen"			"10"
 	"StatusMana"				"1500"
 	"StatusManaRegen"			"20"
@@ -11500,5 +11555,375 @@
 		}
 	}
  }
+ 
+ "npc_dota_water_1s"  //Round 15's water
+ {
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/heroes/morphling/morphling.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"ModelScale"				"0.7"
+		"Level"						"6"
+		"ConsideredHero"			"0"
+		
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"250"
+		
+		"SoundSet"				    "Hero_Morphling"								// Name of sound set.
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
+
+		// Inventory
+		//----------------------------------------------------------------
+		"HasInventory"				"1"
+		
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"				       "4"
+		"Ability1"					"water_die"	    // Ability 1.
+		"Ability2"					"water_grow"    // Ability 2.
+		"Ability3"					"water_fuse"	// Ability 3.
+		"Ability4"					"water_evolve_to_2s"			// Ability 4.
+		"Ability5"					"generic_gold_bag_fountain_100"			// Ability 5.
+		"Ability6"					""		        // Ability 6 - Extra.
+		"Ability7"					""			// Ability 7 - Extra.
+		"Ability8"					""			// Ability 8 - Extra.
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"			// Physical protection.
+		"MagicalResistance"			"25"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		     "DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"25"		// Damage range min.
+		"AttackDamageMax"			"36"		// Damage range max.
+		"AttackRate"				"1.5"		// Speed of attack.
+		"AttackAnimationPoint"		        "0.3"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	        "600"		// Range within a target can be acquired.
+		"AttackRange"				"700"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_morphling/morphling_base_attack.vpcf"			// Particle system model for projectile.
+		"ProjectileSpeed"			"1600"			// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"				    "100"		// Experience earn.
+		"BountyGoldMin"				"200"		// Gold earned min.
+		"BountyGoldMax"				"200"		// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"300"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"	
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		 "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"100"		// Speed
+		"MovementTurnRate"			"0.4"		// Turning rate.
+
+		
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
+		"VoiceFile"				    "soundevents/voscripts/game_sounds_vo_morphling.vsndevts"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"12000"		// Base health.
+		"StatusHealthRegen"			"20.0"		// Health regeneration rate.
+		"StatusMana"				"10000"		// Base mana.
+		"StatusManaRegen"			"500.0"		// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		 "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
+        "vscripts" 				    "creature_ai/water_1s_ai.lua"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"		                    		
+			"DisableResistance"			"0.0"
+
+			//Level Up Parameters
+			//-----------------------------------------------------------------
+			"HPGain"				"500"
+			"DamageGain"				"1"
+			"ArmorGain"				"1"
+			"MagicResistGain"			"1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"1"
+			"XPGain"				"1"
+
+			"DefaultState"				"Invade"
+			
+		}
+   }
+   "npc_dota_water_2s"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/heroes/morphling/morphling.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"ModelScale"				        "1.0"
+		"Level"						"6"
+		"ConsideredHero"			        "0"
+		
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"300"
+		
+		"SoundSet"				"Hero_Morphling"								// Name of sound set.
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
+
+		// Inventory
+		//----------------------------------------------------------------
+		"HasInventory"				"1"
+		
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"				       "5"
+		"Ability1"					"water_die"	                // Ability 1.
+		"Ability2"					"water_grow"		        // Ability 2.
+		"Ability3"					"water_fuse"			    // Ability 3.
+		"Ability4"					"water_current"			    // Ability 4.
+		"Ability5"					"water_evolve_to_3s"	    // Ability 5.
+		"Ability6"					"generic_gold_bag_fountain_50"		        // Ability 6 - Extra.
+		"Ability7"					""			// Ability 7 - Extra.
+		"Ability8"					""			// Ability 8 - Extra.
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"15"			// Physical protection.
+		"MagicalResistance"			"25"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"58"		// Damage range min.
+		"AttackDamageMax"			"86"		// Damage range max.
+		"AttackRate"				"1.5"		// Speed of attack.
+		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
+		"AttackRange"				"700"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_morphling/morphling_base_attack.vpcf"			// Particle system model for projectile.
+		"ProjectileSpeed"			"1600"			// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"				    "100"		// Experience earn.
+		"BountyGoldMin"				"200"		// Gold earned min.
+		"BountyGoldMax"				"200"		// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"300"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"	
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		  "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"350"		// Speed
+		"MovementTurnRate"			"0.4"		// Turning rate.
+
+		
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
+		"VoiceFile"				    "soundevents/voscripts/game_sounds_vo_morphling.vsndevts"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"30000"		// Base health.
+		"StatusHealthRegen"			"100.0"		// Health regeneration rate.
+		"StatusMana"				"10000"		// Base mana.
+		"StatusManaRegen"			"500.0"		// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
+        "vscripts" 				    "creature_ai/water_2s_ai.lua"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"		                    		
+			"DisableResistance"			"0.0"
+
+			//Level Up Parameters
+			//-----------------------------------------------------------------
+			"HPGain"				    "1"
+			"DamageGain"				"1"
+			"ArmorGain"				    "1"
+			"MagicResistGain"			"1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"100"
+
+			"DefaultState"				"Invade"
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"4260"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"4261"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"4262"
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"4263"
+				}
+			}
+		}
+	}
+	"npc_dota_water_3s"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/heroes/morphling/morphling.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"ModelScale"				        "1.6"
+		"Level"						        "6"
+		"ConsideredHero"			        "0"
+	    "CanBeDominated"			        "0"
+	    "IsAncient"					        "1"
+		"MinimapIcon"				 "minimap_roshancamp"
+		"MinimapIconSize"			 "350"
+		
+		"SoundSet"				    "Hero_Morphling"								// Name of sound set.
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
+                
+		// Inventory
+		//----------------------------------------------------------------
+		"HasInventory"				"1"
+		
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"				"5"
+		"Ability1"					"water_die"	// Ability 1.
+		"Ability2"					"water_fuse"		    // Ability 2.
+		"Ability3"					"water_adaptive_strike"	// Ability 3.
+		"Ability4"					"water_current"			// Ability 4.
+		"Ability5"					"water_waveform"	    // Ability 5.
+		"Ability6"					""		        // Ability 6 - Extra.
+		"Ability7"					""			// Ability 7 - Extra.
+		"Ability8"					""			// Ability 8 - Extra.
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"20"			// Physical protection.
+		"MagicalResistance"			"25"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		     "DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"600"		// Damage range min.
+		"AttackDamageMax"			"840"		// Damage range max.
+		"AttackRate"				"1.5"		// Speed of attack.
+		"AttackAnimationPoint"		        "0.3"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	        "600"		// Range within a target can be acquired.
+		"AttackRange"				"700"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_morphling/morphling_base_attack.vpcf"			// Particle system model for projectile.
+		"ProjectileSpeed"			"1600"			// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"				    "100"		// Experience earn.
+		"BountyGoldMin"				"200"		// Gold earned min.
+		"BountyGoldMax"				"200"		// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"300"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"	
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		  "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"500"		// Speed
+		"MovementTurnRate"			"0.4"		// Turning rate.
+
+		
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
+		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_morphling.vsndevts"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"50000"		// Base health.
+		"StatusHealthRegen"			"200.0"		// Health regeneration rate.
+		"StatusMana"				"10000"		// Base mana.
+		"StatusManaRegen"			"500.0"		// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
+               				
+                "vscripts"                    "creature_ai/water_3s_ai.lua"               
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"		                    		
+			"DisableResistance"			"15.0"
+
+			//Level Up Parameters
+			//-----------------------------------------------------------------
+			"HPGain"			     	"1"
+			"DamageGain"				"1"
+			"ArmorGain"				    "1"
+			"MagicResistGain"			"1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"100"
+
+			"DefaultState"				"Invade"
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"6833"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"5129"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"5150"
+				}
+			}
+		}
+	}
 
 }  //主括号

@@ -1,0 +1,21 @@
+
+.Hidden {
+    visibility: collapse;
+}
+
+.NewRankAnnouncePanel
+{
+    horizontal-align: center;
+    position: 0px 15% 0px;
+}
+
+.NewRankAnnounceText {
+    font-size: 90;
+    font-weight: bold;
+    text-shadow: 0px 0px 3px 3.0 #000;
+    text-align: center;
+    vertical-align: center;
+    color: gradient( linear, 0% 0%, 0% 100%, from( #C0D631 ), color-stop( 0.25, #C0D631 ), color-stop( 0.5, #FFC684 ), color-stop( 0.75, #C0D631 ), to( #879626 ) );
+    transition-property: opacity;
+    transition-duration: 0.75s;
+}

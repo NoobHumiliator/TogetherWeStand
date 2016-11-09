@@ -124,25 +124,30 @@ end
 
 function water_grow( keys )
         local caster = keys.caster
+        local ability = keys.ability
          if caster:GetContext("big_scale")==nil then    --dot计数器初始化
             caster:SetContextNum("big_scale", 1, 0) 
         end
         caster:SetContextNum("big_scale", caster:GetContext("big_scale") + 0.05, 0) 
         caster:SetModelScale(caster:GetContext("big_scale"))
         local rate=(caster:GetHealth()/caster:GetMaxHealth()) 
-        --local max=caster:GetMaxHealth()
-        caster:SetBaseMaxHealth(caster:GetMaxHealth()+500)
-        caster:SetHealth(math.floor(rate* caster:GetMaxHealth()))   
+        local flDHPadjust=GameRules:GetGameModeEntity().CHoldoutGameMode.flDHPadjust  --难度修正
+        local bonus_health = ability:GetSpecialValueFor("bonus_health")*flDHPadjust --获取新增的生命值
+        caster:SetBaseMaxHealth(caster:GetMaxHealth()+bonus_health)
+        caster:SetHealth(math.ceil(rate* caster:GetMaxHealth()))   
 end
 
 function water_fuse( keys )
         local caster = keys.caster
+        local ability = keys.ability
          if caster:GetContext("big_scale")==nil then    --长大计数器
             caster:SetContextNum("big_scale", 1, 0) 
         end
-        local rate=(caster:GetHealth()/caster:GetMaxHealth()) 
-        caster:SetBaseMaxHealth(caster:GetMaxHealth()+2100)
-        caster:SetHealth(math.floor(rate* caster:GetMaxHealth()))
+        local rate=(caster:GetHealth()/caster:GetMaxHealth())
+        local flDHPadjust=GameRules:GetGameModeEntity().CHoldoutGameMode.flDHPadjust  --难度修正
+        local bonus_health = ability:GetSpecialValueFor("bonus_health")*flDHPadjust --获取新增的生命值
+        caster:SetBaseMaxHealth(caster:GetMaxHealth()+bonus_health)
+        caster:SetHealth(math.ceil(rate* caster:GetMaxHealth()))
         caster:SetContextNum("big_scale", caster:GetContext("big_scale") + 0.3, 0) 
         caster:SetModelScale(caster:GetContext("big_scale")) 
         local c_team = caster:GetTeam()         
@@ -162,8 +167,9 @@ function water_fuse( keys )
                 end
         end
         Notifications:TopToAll({ability= "water_fuse"})
-        Notifications:TopToTeam(DOTA_TEAM_GOODGUYS, {text="#fuse_dbm_simple", duration=1.5, style = {color = "Azure"},continue=true})
+        Notifications:TopToAll({text="#fuse_dbm_simple", duration=1.5, style = {color = "Azure"},continue=true})
 end
+
 function water_remove_self( keys )
         local caster = keys.caster
         caster.tiny_die_in_peace=true
@@ -173,6 +179,12 @@ function water_remove_self( keys )
         end
         if caster:FindAbilityByName("generic_gold_bag_fountain_200") then
         caster:RemoveAbility('generic_gold_bag_fountain_200')
+        end
+        if caster:FindAbilityByName("generic_gold_bag_fountain_100") then
+        caster:RemoveAbility('generic_gold_bag_fountain_100')
+        end
+        if caster:FindAbilityByName("generic_gold_bag_fountain_50") then
+        caster:RemoveAbility('generic_gold_bag_fountain_50')
         end
         local casterOrigin=caster:GetOrigin()
         caster:SetOrigin(casterOrigin-Vector(0,0,1500)) 
@@ -292,7 +304,7 @@ function charge_unit( keys )
                                                   else
                                                    -- 获取玩家的Modifier叠加数
                                                   local bullets_count = target:GetModifierStackCount("modifier_charge_dot",keys.ability)
-                                                  print("stack_count"..bullets_count)
+                                                  --print("stack_count"..bullets_count)
                                                   bullets_count=bullets_count+1
                                                   target:RemoveModifierByName("modifier_charge_dot")
                                                   AddModifier(caster, target, ability, "modifier_charge_dot", nil)
@@ -342,7 +354,8 @@ function charge_dot_damage( keys )
           GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag=false
         end
    end
-  local dot_damage = 100*stacks*stacks
+  local flDDadjust=GameRules:GetGameModeEntity().CHoldoutGameMode.flDDadjust
+  local dot_damage = 100*stacks*stacks*flDDadjust --物理伤害的难度修正
   local damageTable = {victim=target,
   attacker=caster,
   damage_type=DAMAGE_TYPE_PURE,

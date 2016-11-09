@@ -46,7 +46,7 @@ function OnGameEnd(data){
 		EndSpeedRank.text = (linedata.total_damage/1000).toFixed(1)+"k"
 
         var EndExplorRank = GetByClass(line, "EndExplorRank")
-		EndExplorRank.text = linedata.total_heal
+		EndExplorRank.text = (linedata.total_heal/1000).toFixed(1)+"k"
 
 	};
     var maxtime = 8

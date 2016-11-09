@@ -17,6 +17,7 @@ var unsellableAbility = {
 	"broodmother_spin_web" : true,
 };
 
+//卖技能的面板中不显示这些技能
 var hideAbility = {
 	"damage_counter" : true,
 	"attribute_bonus" : true,
@@ -30,6 +31,7 @@ var hideAbility = {
 	"phoenix_icarus_dive_stop": true,
 	"phoenix_sun_ray_stop":  true,
 	"phoenix_launch_fire_spirit" : true,
+	"abyssal_underlord_cancel_dark_rift":  true
 };
 
 

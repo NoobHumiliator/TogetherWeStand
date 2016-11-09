@@ -151,6 +151,11 @@
     {
       "phoenix" "1"
     }
+    "17"
+    {
+      "abyssal_underlord" "1"
+    }
+
   }
 
   "3"

@@ -27,6 +27,7 @@ function rearm_refresh_cooldown( keys )
     ability_exempt_table["undying_tombstone"]=true
     ability_exempt_table["self_undying_tombstone"]=true
     ability_exempt_table["arc_warden_tempest_double"]=true
+    ability_exempt_table["juggernaut_healing_ward"]=true
 	for i = 0, caster:GetAbilityCount() - 1 do
 		local ability = caster:GetAbilityByIndex( i )
 		if ability and ability ~= keys.ability and not ability_exempt_table[ability:GetAbilityName()]then

@@ -14,9 +14,9 @@ end
 
 function RemoveSpValue( keys )
   local caster = keys.caster
-	if caster.sp and caster.sp < 1.4 then 
+	if caster.sp and caster.sp < 1.1 then 
 	   if caster:HasModifier("modifier_mage_staff_1_datadriven") then 
-	   	  caster.sp=0.5
+	   	  caster.sp=0.6
 	   else
 	      caster.sp=nil   
 	      --caster:RemoveModifierByName("modifier_increase_mana_cost_lua")   

@@ -1,9 +1,16 @@
+require("util")
+
 if LootController == nil then
   LootController = class({})
 end
 
 
+
 function LootController:ReadConfigration()
+
+  self._vHardLevelItemValue={
+	500,400,300
+  }
   self._itemCost={}
   local itemListKV = LoadKeyValues("scripts/kv/items_precache.txt")
   for k, v in pairs( itemListKV ) do
@@ -24,25 +31,30 @@ end
 function LootController:SetItemProbability(roundNumber,hardLevel)  
 
 	local denominator=0
+	if hardLevel>3 then
+	   hardLevel=3
+    end
 	self._roundItemProbability={}
-	--self._valuetable={}
-	--self._reverttable={}
-	local exponent= -2.5+roundNumber*0.1+(3-hardLevel)*0.6   --每增加一关掉落品质增加0.1  困难难度无加成
+	self._valuetable={}
+	self._reverttable={}
+	local average= self._vHardLevelItemValue[hardLevel]*roundNumber --基础的item value*关卡数
+	local stdDeviation= average*(4-hardLevel)*0.5
 	for k,v in pairs(self._itemCost) do
-		denominator=denominator+v^exponent
+		denominator=denominator+NormalDistribution(v,average,stdDeviation)
 	end
 	for k,v in pairs(self._itemCost) do
-		self._roundItemProbability[k]=(v^exponent)/denominator
-		--table.insert(self._valuetable, self._roundItemProbability[k])
-		--self._reverttable[self._roundItemProbability[k]]=v
-		--print(k.."'s price:"..v.." probality:"..self._roundItemProbability[k])
+		self._roundItemProbability[k]=NormalDistribution(v,average,stdDeviation)/denominator
+		--以下注释
+		table.insert(self._valuetable, self._roundItemProbability[k])
+		self._reverttable[self._roundItemProbability[k]]=v
+		--以上注释
 	end
-  --[[
+    --以下注释
 	table.sort(self._valuetable)
 	for _,v in pairs(self._valuetable) do
 		print(self._reverttable[v].."  "..v)
 	end
-  ]]
+    --以上注释
 end
 
 
@@ -99,4 +111,10 @@ function LootController:ChooseRandomItemName()
 		end
 	end
 	return sNewItemName
+end
+
+
+
+function NormalDistribution (x,average,stdDeviation)
+	return math.exp( math.pow(x-average,2)/ (-2*math.pow(stdDeviation,2)) ) / (math.sqrt(2*math.pi)*stdDeviation)
 end

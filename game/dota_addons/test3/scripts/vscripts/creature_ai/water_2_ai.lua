@@ -6,12 +6,20 @@ require( "ai_core" )
 
 behaviorSystem = {} -- create the global so we can assign to it
 
+initFlag=false   --是否成功初始化的标志位
+
 function Spawn( entityKeyValues )
 	thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
     behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone , BehaviorWishFuse , BehaviorFusing,BehaviorThrowHook,BehaviorDismember,BehaviorPlasma_Field ,BehaviorHold ,BehaviorEvolve} ) 
 end
 
 function AIThink() -- For some reason AddThinkToEnt doesn't accept member functions
+       if not initFlag then
+	   	  thisEntity:FindAbilityByName("water_grow"):SetLevel(1)
+	      thisEntity:FindAbilityByName("water_fuse"):SetLevel(1)
+	      thisEntity:FindAbilityByName("water_current"):SetLevel(1)
+	   	  initFlag=true
+	   end
        return behaviorSystem:Think()
 end
 
@@ -197,9 +205,11 @@ end
 BehaviorEvolve = {}                --------------进化
 function BehaviorEvolve:Evaluate()
 	local desire = 1
+	local flDHPadjust=GameRules:GetGameModeEntity().CHoldoutGameMode.flDHPadjust
+
 	if currentBehavior == self then return desire end
 	self.plasmaAbility = thisEntity:FindAbilityByName( "water_evolve_to3" )                          
-    if thisEntity:GetMaxHealth()>5000 and self.plasmaAbility and self.plasmaAbility:IsFullyCastable() then
+    if thisEntity:GetMaxHealth()>5000*flDHPadjust and self.plasmaAbility and self.plasmaAbility:IsFullyCastable() then
           desire=15
     end 
     return desire
