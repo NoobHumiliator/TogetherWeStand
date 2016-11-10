@@ -11981,14 +11981,14 @@
 		//
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/creeps/neutral_creeps/n_creep_golem_b/n_creep_golem_b.vmdl"	// Model.
-		"ModelScale"				"1.2"
+		"ModelScale"				"1.6"
 		"Level"						"1"
 		"CanBeDominated"			"0"
 
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"creature_split_a"			// Ability 1.
-		"Ability2"					""			// Ability 2.
+		"Ability2"					"splitter_slow_aura_datadriven"			// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
@@ -12071,14 +12071,14 @@
 		//
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/creeps/neutral_creeps/n_creep_golem_b/n_creep_golem_b.vmdl"	// Model.
-		"ModelScale"				"0.7"
+		"ModelScale"				"1.2"
 		"Level"						"1"
 		
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"creature_split_b"			// Ability 1.
 		"Ability2"					"base_attack_immune_datadriven"	// Ability 2.
-		"Ability3"					""			// Ability 3.
+		"Ability3"					"splitter_slow_aura_datadriven"			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.
@@ -12093,8 +12093,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"120"		// Damage range min.
-		"AttackDamageMax"			"148"		// Damage range max.
+		"AttackDamageMin"			"242"		// Damage range min.
+		"AttackDamageMax"			"262"		// Damage range max.
 		"AttackRate"				"1.0"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
@@ -12161,14 +12161,14 @@
 		//
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/creeps/neutral_creeps/n_creep_golem_b/n_creep_golem_b.vmdl"	// Model.
-		"ModelScale"				"0.4"
+		"ModelScale"				"0.8"
 		"Level"						"1"
 		
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"neutral_spell_immunity"// Ability 1.
-		"Ability2"					"neutral_spell_immunity"			// Ability 2.
-		"Ability3"					""			// Ability 3.
+		"Ability1"					"neutral_spell_immunity"    // Ability 1.
+		"Ability2"					"splitter_attack_passive"	// Ability 2.
+		"Ability3"					"splitter_slow_aura_datadriven"			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.
