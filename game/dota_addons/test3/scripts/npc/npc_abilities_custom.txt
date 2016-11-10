@@ -18174,9 +18174,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_viper.vsndevts"
-			"particle"		"particles/units/heroes/hero_viper/viper_poison_attack.vpcf"
-			"particle"		"particles/units/heroes/hero_viper/viper_poison_debuff.vpcf"
 		}
 
 		// Casting
