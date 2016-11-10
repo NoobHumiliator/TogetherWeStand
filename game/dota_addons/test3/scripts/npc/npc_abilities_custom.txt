@@ -563,41 +563,41 @@
 {	
 	"BaseClass"				"ability_datadriven"
 	"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "MaxLevel"                                       "1"
-        "AbilityTextureName"			"pugna_nether_blast"
+	"MaxLevel"                                       "1"
+	"AbilityTextureName"			"neutral_spell_immunity"
 	"Modifiers"
 	{
 		"modifier_dark_twin_immune"
 		{
 			"IsBuff"			"1"
 			"IsPurgable"		        "0"
-	                "Passive"                       "1"
-                     "States"
-		      {								
-                        "MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-		      } 		
+			"Passive"                       "1"
+			"States"
+			{								
+				"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+			} 		
 		}            
-	 }	
+	}	
 }
 "fire_twin_attack_immune_datadriven"
 {	
-	"BaseClass"				"ability_datadriven"
+	"BaseClass"				    "ability_datadriven"
 	"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"			"neutral_spell_immunity"
-        "MaxLevel"                                       "1"
+	"AbilityTextureName"		"neutral_spell_immunity"
+	"MaxLevel"                  "1"
 	"Modifiers"
 	{
 		"modifier_fire_twin_immune"
 		{
 			"IsBuff"			"1"
 			"IsPurgable"		        "0"
-	                "Passive"                       "1"
-                     "States"
-		      {					
-			"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"                      
-		      } 		
+			"Passive"                       "1"
+			"States"
+			{					
+				"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"                      
+			} 		
 		}            
-	 }	
+	}	
 }
 "twins_bloodlink_datadriven"
 {
@@ -8038,7 +8038,7 @@
 				
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900"
+		"AbilityCastRange"				"950"
 		"AbilityCastPoint"				"0"
 
 		// Time		
@@ -8177,12 +8177,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"impact_radius"			"240"
+				"impact_radius"			"200"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration_stun"			"2.0"
+				"duration_stun"			"1.4"
 			}
 			"03"
 			{
@@ -8192,7 +8192,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"think_time"			"2.5"
+				"think_time"			"2.0"
 			}
 			"05"
 			{
@@ -16634,8 +16634,8 @@
 			}
 		   "05"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"model_scale_per_att"	"0.002 0.002 0.002 0.002 0.002"
+				"var_type"			    "FIELD_FLOAT"
+				"model_scale_per_att"	"0.001 0.001 0.001 0.001 0.001"
 			}
 		}
 	}
@@ -17301,7 +17301,7 @@
 			"02"
 			{
 				"var_type"				    "FIELD_INTEGER"
-				"bad_damage_percentage"	    "15000"
+				"bad_damage_percentage"	    "10000"
 			}
 			"03"
 			{
@@ -18129,6 +18129,167 @@
 						"Function"				"SanguineDamage"
 						"Target"                "TARGET"
 					}
+				}
+			}
+		}
+	}
+
+	"base_attack_immune_datadriven"
+	{	
+		"BaseClass"				    "ability_datadriven"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"		"pugna_nether_blast"
+		"MaxLevel"                  "1"
+		"precache"
+		{
+			"particle" 	"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+		}
+		"Modifiers"
+		{
+			"base_attack_immune_datadriven"
+			{
+				"IsBuff"			           "1"
+				"EffectName"		  "particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+				"EffectAttachType"	  "follow_origin"
+				"IsPurgable"		           "0"
+				"Passive"                      "1"
+				"States"
+				{					
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"                      
+				} 		
+			}            
+		}	
+	}
+	"splitter_attack_passive"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				        "ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"viper_poison_attack"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_viper.vsndevts"
+			"particle"		"particles/units/heroes/hero_viper/viper_poison_attack.vpcf"
+			"particle"		"particles/units/heroes/hero_viper/viper_poison_debuff.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0 0 0 0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"20 20 20 20"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"duration"						"2.0 2.0 2.0 2.0"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage"						"10 16 22 28"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_movement_speed"			"-10 -20 -30 -40"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_attack_speed"			"-10 -20 -30 -40"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_viper_poison_attack_orb_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+
+				"Orb"
+				{
+					"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
+					"ProjectileName"	"particles/units/heroes/hero_viper/viper_poison_attack.vpcf"
+					"CastAttack"		"1"
+				}
+
+				"OnOrbFire"
+				{
+					"SpendMana"
+					{
+						"Mana"	"%AbilityManaCost"
+					}
+
+					"FireSound"
+					{
+						"EffectName"	"Hero_Viper.poisonAttack.Cast"
+						"Target"		"CASTER"
+					}
+				}
+
+				"OnOrbImpact"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_viper_poison_attack_debuff_datadriven"
+						"Target"		"TARGET"
+					}
+
+					"FireSound"
+					{
+						"EffectName"	"Hero_Viper.PoisonAttack.Target"
+						"Target"		"TARGET"
+					}
+				}
+			}
+
+			"modifier_viper_poison_attack_debuff_datadriven"
+			{
+				"IsDebuff"	"1"
+				"Duration"	"%duration"
+
+				"EffectName"	"particles/units/heroes/hero_viper/viper_poison_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"ThinkInterval"	"1.0"
+
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Target"	"TARGET"
+						"Type"		"DAMAGE_TYPE_MAGICAL"
+						"Damage"	"%damage"
+					}
+				}
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_movement_speed"
 				}
 			}
 		}

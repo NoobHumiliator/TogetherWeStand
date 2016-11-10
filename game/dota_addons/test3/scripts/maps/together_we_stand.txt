@@ -3529,19 +3529,19 @@
 		// Stage 1 ================================================
 		"Unit_1"
 		{
-			"NPCName"			"npc_dota_boss_mag"
+			"NPCName"			"npc_dota_boss_mag_hp_bonus"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
 		}
 		"Unit_2"
 		{
-			"NPCName"	       "npc_dota_boss_rattletrap"
+			"NPCName"	         "npc_dota_boss_rattletrap_hp_bonus"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
 		} 
 		"Unit_3"
 		{
-			"NPCName"	            "npc_dota_boss_blue_dragon"
+			"NPCName"	            "npc_dota_boss_blue_dragon_hp_bonus"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
 		}        														
@@ -3550,7 +3550,7 @@
 	{
 		"round_quest_title"			"#DOTA_Holdout_Round_Darkness_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Darkness_Title"
-		"MaxGold"					"8350"
+		"MaxGold"					"11350"
 		"BagCount"					"15"
 		"BagVariance"				"40"
 		"FixedXP"					"50000"
@@ -3948,5 +3948,70 @@
 			"SpawnInterval"			"15"
 			"SpawnerName"			"spawner4"
 		}									
-	}                    
+	}
+	"Round18" // Splitters
+	{
+		"round_quest_title"			"#DOTA_Holdout_Round_Splitter_Quest_Title"
+		"round_title"				"#DOTA_Holdout_Round_Splitter_Title"
+		"MaxGold"					"9350"
+		"BagCount"					"15"
+		"BagVariance"				"40"
+		"FixedXP"					"5500"
+
+		// Stage 1 ================================================
+		"UnitSplitter_1"
+		{
+			"NPCName"				"npc_dota_splitter_a"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"25"
+		}
+		
+		// Stage 2 ================================================
+		"UnitSplitterSmall_2a"
+		{
+			"WaitForUnit"			"UnitSplitter_1"
+			"WaitForTime"			"15"
+			
+			"NPCName"				"npc_dota_splitter_a"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"15"
+		}
+		
+		"UnitSplitterSmall_2b"
+		{
+			"WaitForUnit"			"UnitSplitter_1"
+			"WaitForTime"			"15"
+			
+			"NPCName"				"npc_dota_splitter_a"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"15"
+		}
+		
+		// Stage 3 ================================================
+		"UnitSplitter_3a"
+		{
+			"WaitForUnit"			"UnitSplitterSmall_2a"
+			"WaitForTime"			"20"
+			
+			"NPCName"				"npc_dota_splitter_a"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"20"
+		}
+		
+		"UnitSplitter_3b"
+		{
+			"WaitForUnit"			"UnitSplitterSmall_2a"
+			"WaitForTime"			"30"
+			
+			"NPCName"				"npc_dota_splitter_a"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"20"
+		}
+	}
+
 }
