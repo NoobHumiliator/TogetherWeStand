@@ -17112,12 +17112,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"radius"					"500"
+				"radius"					"300"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"damage_percent"			"20"
+				"damage_percent"			"15"
 			}
 			"03"
 			{
@@ -18173,7 +18173,7 @@
 		"BaseClass"				        "ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"mud_golem_hurl_boulder"
 
 		// Casting
@@ -18205,7 +18205,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage"						"140"
+				"damage"						"180"
 			}
 		}
 
@@ -18226,7 +18226,11 @@
 						    "ApplyModifier"
 							{
 								"ModifierName"	"modifier_splitter_attack_interrupt"
-								"Target"		"TARGET"
+								"Target" 
+								{
+									"Center"	"TARGET"
+									"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+								}
 								"Duration"      "0.01"
 							}
 

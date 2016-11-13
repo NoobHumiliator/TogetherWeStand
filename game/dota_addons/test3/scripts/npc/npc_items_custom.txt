@@ -1538,7 +1538,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"	"item_ability/mage_staff_1.lua"
+					"ScriptFile"	"item_ability/mage_staff.lua"
 					"Function"		"ApplySpValue"
 				}
 			}
@@ -1546,7 +1546,7 @@
 		    {
 				"RunScript"
 				{
-					"ScriptFile"	"item_ability/mage_staff_1.lua"
+					"ScriptFile"	"item_ability/mage_staff.lua"
 					"Function"		"RemoveSpValue"
 				}
 			}
@@ -1624,7 +1624,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"	"item_ability/mage_staff_2.lua"
+					"ScriptFile"	"item_ability/mage_staff.lua"
 					"Function"		"ApplySpValue"
 				}
 			}
@@ -1632,7 +1632,7 @@
 		    {
 				"RunScript"
 				{
-					"ScriptFile"	"item_ability/mage_staff_2.lua"
+					"ScriptFile"	"item_ability/mage_staff.lua"
 					"Function"		"RemoveSpValue"
 				}
 			}
@@ -1722,7 +1722,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"	"item_ability/mage_staff_3.lua"
+					"ScriptFile"	"item_ability/mage_staff.lua"
 					"Function"		"ApplySpValue"
 				}
 			}
@@ -1730,7 +1730,7 @@
 		    {
 				"RunScript"
 				{
-					"ScriptFile"	"item_ability/mage_staff_3.lua"
+					"ScriptFile"	"item_ability/mage_staff.lua"
 					"Function"		"RemoveSpValue"
 				}
 			}
@@ -1829,7 +1829,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"	"item_ability/mage_staff_4.lua"
+					"ScriptFile"	"item_ability/mage_staff.lua"
 					"Function"		"ApplySpValue"
 				}
 			}
@@ -1837,7 +1837,7 @@
 		    {
 				"RunScript"
 				{
-					"ScriptFile"	"item_ability/mage_staff_4.lua"
+					"ScriptFile"	"item_ability/mage_staff.lua"
 					"Function"		"RemoveSpValue"
 				}
 			}
@@ -1947,7 +1947,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"	"item_ability/mage_staff_5.lua"
+					"ScriptFile"	"item_ability/mage_staff.lua"
 					"Function"		"ApplySpValue"
 				}
 			}
@@ -1955,7 +1955,7 @@
 		    {
 				"RunScript"
 				{
-					"ScriptFile"	"item_ability/mage_staff_5.lua"
+					"ScriptFile"	"item_ability/mage_staff.lua"
 					"Function"		"RemoveSpValue"
 				}
 			}
@@ -1973,130 +1973,6 @@
 		}
    }
  }
-
-"item_recipe_mage_staff_6"
-{
-	"ID"							"16039"		
-	"BaseClass"						"item_recipe_arcane_boots"									
-	"Model"							"models/props_gameplay/recipe.vmdl"
-	
-	// Item Info
-	//-------------------------------------------------------------------------------------------------------------
-	"ItemCost"						"4525"	
-	"ItemShopTags"					""
-	
-	// Recipe
-	//-------------------------------------------------------------------------------------------------------------
-	"ItemRecipe"					"1"
-	"ItemResult"					"item_mage_staff_5"
-	"ItemRequirements"
-	{
-		"01"						"item_mage_staff_4;item_sheepstick;item_dagon_5;item_rod_of_atos"
-	}
-}
-
-
-
-"item_mage_staff_6"
- {
-
-  "ID"							"16040"
-  "BaseClass"					"item_datadriven"
-  "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-  "AbilityTextureName" 		    "item_mage_staff_5"
-
-  "ItemPurchasable"				"1"
-  "ItemCost"					"34145"
-  "ItemQuality"					"artifact"
-  "ItemShareability"			"ITEM_FULLY_SHAREABLE"
-  "ItemAliases"					"orchid malevolence"
-  "ItemDeclarations"			"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-  
- "precache"
-	{
-		"particle" "particles/units/heroes/hero_slardar/slardar_loadout.vpcf"
-		"soundfile"	"soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
-	}
-   "AbilitySpecial"
-	    {
-	    	"01"
-		    {
-			"var_type"						"FIELD_INTEGER"
-			"bonus_int"	                    "188"
-		    }
-		    "02"
-		    {
-			"var_type"						"FIELD_INTEGER"
-			"bonus_mana_regen"	            "500"
-		    }
-		    "03"
-		    {
-			"var_type"						"FIELD_INTEGER"
-			"bonus_agi"	                    "20"
-		    }
-		    "04"
-		    {
-			"var_type"						"FIELD_INTEGER"
-			"bonus_str"	                    "20"
-		    }
-		    "05"
-		    {
-			"var_type"						"FIELD_INTEGER"
-			"bonus_health"	                 "400"
-		    }
-		    "06"
-		    {
-			"var_type"						"FIELD_INTEGER"
-			"bonus_damage"	                 "80"
-		    }
-		    "07"
-		    {
-			"var_type"						"FIELD_INTEGER"
-			"manacost_percentage"	         "240"
-		    }
-	    }
-  "Modifiers"
-	{
-	   "modifier_mage_staff_5_datadriven"
-		{
-			"Passive"                  "1"
-			"IsHidden"			"1"
-			"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-			"OnCreated"
-			{
-				"RunScript"
-				{
-					"ScriptFile"	"item_ability/mage_staff_5.lua"
-					"Function"		"ApplySpValue"
-				}
-			}
-		   "OnDestroy"
-		    {
-				"RunScript"
-				{
-					"ScriptFile"	"item_ability/mage_staff_5.lua"
-					"Function"		"RemoveSpValue"
-				}
-			}
-
-		  "Properties"
-		   {
-		      "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
-		      "MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
-		      "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
-		      "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"
-		      "MODIFIER_PROPERTY_HEALTH_BONUS"		    "%bonus_health"
-		      "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage"
-		      "MODIFIER_PROPERTY_MANACOST_PERCENTAGE"   "%manacost_percentage"	    
-		   }
-		}
-   }
- }
-
-
-
-
-
 
  //=================================================================================================================
 	// Recipe: Vladmir2 Shuzdal Offering
@@ -2582,22 +2458,22 @@
 			"05"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_bonus_per_str"		"0.02 0.04 0.06 0.08 0.10"		
+				"hp_bonus_per_str"		"0.02 0.035 0.05 0.06 0.07"		
 			}
 			"06"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"damage_bonus_per_int"	"0.04 0.06 0.08 0.10 0.12"
+				"damage_bonus_per_int"	"0.03 0.045 0.06 0.07 0.08"
 			}
 			"07"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"speed_bonus_per_agi"   "0.4 0.6 0.8 1.0 1.2"
+				"speed_bonus_per_agi"   "0.2 0.3 0.4 0.5 0.6"
 			}
 			"08"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"armor_bonus_per_agi"	"0.2 0.3 0.4 0.5 0.6"
+				"armor_bonus_per_agi"	"0.2 0.28 0.36 0.41 0.46"
 			}
 		}
 		"Modifiers"
@@ -2685,22 +2561,22 @@
 			"05"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_bonus_per_str"		"0.02 0.04 0.06 0.08 0.10"		
+				"hp_bonus_per_str"		"0.02 0.035 0.05 0.06 0.07"	
 			}
 			"06"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"damage_bonus_per_int"	"0.04 0.06 0.08 0.10 0.12"
+				"damage_bonus_per_int"	"0.03 0.045 0.06 0.07 0.08"
 			}
 			"07"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"speed_bonus_per_agi"   "0.4 0.6 0.8 1.0 1.2"
+				"speed_bonus_per_agi"   "0.2 0.3 0.4 0.5 0.6"
 			}
 			"08"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"armor_bonus_per_agi"	"0.2 0.3 0.4 0.5 0.6"
+				"armor_bonus_per_agi"	"0.2 0.28 0.36 0.41 0.46"
 			}
 		}
 		"Modifiers"
@@ -2788,22 +2664,22 @@
 			"05"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_bonus_per_str"		"0.02 0.04 0.06 0.08 0.10"		
+				"hp_bonus_per_str"		"0.02 0.035 0.05 0.06 0.07"	
 			}
 			"06"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"damage_bonus_per_int"	"0.04 0.06 0.08 0.10 0.12"
+				"damage_bonus_per_int"	"0.03 0.045 0.06 0.07 0.08"
 			}
 			"07"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"speed_bonus_per_agi"   "0.4 0.6 0.8 1.0 1.2"
+				"speed_bonus_per_agi"   "0.2 0.3 0.4 0.5 0.6"
 			}
 			"08"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"armor_bonus_per_agi"	"0.2 0.3 0.4 0.5 0.6"
+				"armor_bonus_per_agi"	"0.2 0.28 0.36 0.41 0.46"
 			}
 		}
 		"Modifiers"
@@ -2891,22 +2767,22 @@
 			"05"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_bonus_per_str"		"0.02 0.04 0.06 0.08 0.10"		
+				"hp_bonus_per_str"		"0.02 0.035 0.05 0.06 0.07"	
 			}
 			"06"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"damage_bonus_per_int"	"0.04 0.06 0.08 0.10 0.12"
+				"damage_bonus_per_int"	"0.03 0.045 0.06 0.07 0.08"
 			}
 			"07"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"speed_bonus_per_agi"   "0.4 0.6 0.8 1.0 1.2"
+				"speed_bonus_per_agi"   "0.2 0.3 0.4 0.5 0.6"
 			}
 			"08"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"armor_bonus_per_agi"	"0.2 0.3 0.4 0.5 0.6"
+				"armor_bonus_per_agi"	"0.2 0.28 0.36 0.41 0.46"
 			}
 		}
 		"Modifiers"
@@ -2994,22 +2870,22 @@
 			"05"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_bonus_per_str"		"0.02 0.04 0.06 0.08 0.10"		
+				"hp_bonus_per_str"		"0.02 0.035 0.05 0.06 0.07"	
 			}
 			"06"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"damage_bonus_per_int"	"0.04 0.06 0.08 0.10 0.12"
+				"damage_bonus_per_int"	"0.03 0.045 0.06 0.07 0.08"
 			}
 			"07"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"speed_bonus_per_agi"   "0.4 0.6 0.8 1.0 1.2"
+				"speed_bonus_per_agi"   "0.2 0.3 0.4 0.5 0.6"
 			}
 			"08"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"armor_bonus_per_agi"	"0.2 0.3 0.4 0.5 0.6"
+				"armor_bonus_per_agi"	"0.2 0.28 0.36 0.41 0.46"
 			}
 			"09"
 			{
@@ -4313,118 +4189,117 @@
 		}
 	}
     
-"item_recipe_mage_staff_6"
-{
-	"ID"							"12045"		
-	"BaseClass"						"item_recipe_arcane_boots"									
-	"Model"							"models/props_gameplay/recipe.vmdl"
-	
-	// Item Info
-	//-------------------------------------------------------------------------------------------------------------
-	"ItemCost"						"5000"	
-	"ItemShopTags"					""
-	
-	// Recipe
-	//-------------------------------------------------------------------------------------------------------------
-	"ItemRecipe"					"1"
-	"ItemResult"					"item_mage_staff_6"
-	"ItemRequirements"
+	"item_recipe_mage_staff_6"
 	{
-		"01"						"item_mage_staff_5;item_mystic_staff_3;item_ultimate_orb_3"
-	}
-}
+		"ID"							"12045"		
+		"BaseClass"						"item_recipe_arcane_boots"									
+		"Model"							"models/props_gameplay/recipe.vmdl"
 
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"5000"	
+		"ItemShopTags"					""
 
-"item_mage_staff_6"
- {
-
-  "ID"							"12047"
-  "BaseClass"					"item_datadriven"
-  "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-  "AbilityTextureName" 		    "item_mage_staff_6"
-
-  "ItemPurchasable"				"1"
-  "ItemCost"					"109145"
-  "ItemQuality"					"artifact"
-  "ItemShareability"			"ITEM_FULLY_SHAREABLE"
-  "ItemAliases"					"orchid malevolence"
-  "ItemDeclarations"			"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-  
-  "AbilitySpecial"
-	    {
-	    	"01"
-		    {
-			"var_type"						"FIELD_INTEGER"
-			"bonus_int"	                    "532"
-		    }
-		    "02"
-		    {
-			"var_type"						"FIELD_INTEGER"
-			"bonus_mana_regen"	            "500"
-		    }
-		    "03"
-		    {
-			"var_type"						"FIELD_INTEGER"
-			"bonus_agi"	                    "220"
-		    }
-		    "04"
-		    {
-			"var_type"						"FIELD_INTEGER"
-			"bonus_str"	                    "220"
-		    }
-		    "05"
-		    {
-			"var_type"						"FIELD_INTEGER"
-			"bonus_health"	                 "1200"
-		    }
-		    "06"
-		    {
-			"var_type"						"FIELD_INTEGER"
-			"bonus_damage"	                 "160"
-		    }
-		    "07"
-		    {
-			"var_type"						"FIELD_INTEGER"
-			"manacost_percentage"	         "240"
-		    }
-	    }
-  "Modifiers"
-	{
-	   "modifier_mage_staff_6_datadriven"
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_mage_staff_6"
+		"ItemRequirements"
 		{
-			"Passive"                  "1"
-			"IsHidden"			"1"
-			"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-			"OnCreated"
-			{
-				"RunScript"
-				{
-					"ScriptFile"	"item_ability/mage_staff_6.lua"
-					"Function"		"ApplySpValue"
-				}
-			}
-		   "OnDestroy"
-		    {
-				"RunScript"
-				{
-					"ScriptFile"	"item_ability/mage_staff_6.lua"
-					"Function"		"RemoveSpValue"
-				}
-			}
-
-		  "Properties"
-		   {
-		      "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
-		      "MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
-		      "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
-		      "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"
-		      "MODIFIER_PROPERTY_HEALTH_BONUS"		    "%bonus_health"
-		      "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage"
-		      "MODIFIER_PROPERTY_MANACOST_PERCENTAGE"   "%manacost_percentage"	    
-		   }
+			"01"						"item_mage_staff_5;item_mystic_staff_3;item_ultimate_orb_3"
 		}
-   }
- }
+	}
+
+	"item_mage_staff_6"
+	{
+
+		"ID"							"12047"
+		"BaseClass"					"item_datadriven"
+		"AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 		    "item_mage_staff_6"
+
+		"ItemPurchasable"				"1"
+		"ItemCost"					"109145"
+		"ItemQuality"					"artifact"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		"ItemAliases"					"orchid malevolence"
+		"ItemDeclarations"			"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_int"	                    "532"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_mana_regen"	            "500"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_agi"	                    "220"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_str"	                    "220"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_health"	                 "1200"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_damage"	                 "160"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"manacost_percentage"	         "240"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_mage_staff_6_datadriven"
+			{
+				"Passive"                  "1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"item_ability/mage_staff.lua"
+						"Function"		"ApplySpValue"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"item_ability/mage_staff.lua"
+						"Function"		"RemoveSpValue"
+					}
+				}
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"		    "%bonus_health"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage"
+					"MODIFIER_PROPERTY_MANACOST_PERCENTAGE"   "%manacost_percentage"	    
+				}
+			}
+		}
+	}
      
 
 } //主函数

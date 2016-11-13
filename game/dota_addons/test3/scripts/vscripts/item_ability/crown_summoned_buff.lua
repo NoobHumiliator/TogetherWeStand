@@ -27,7 +27,7 @@ function AddSummonBuff(key)
    --体型
    local att_sum = owner:GetIntellect()+ owner:GetStrength()+ owner:GetAgility()        
    local scale=caster:GetModelScale()
-   caster:SetModelScale(scale*(1+att_sum*model_scale))
+   caster:SetModelScale(scale*math.log(2.7+att_sum*model_scale))
    --攻击力
    local initMinDamage=caster:GetBaseDamageMin()
    local initMaxDamage=caster:GetBaseDamageMax()
