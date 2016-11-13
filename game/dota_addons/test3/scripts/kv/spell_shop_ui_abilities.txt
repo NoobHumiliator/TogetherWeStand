@@ -54,7 +54,7 @@
   "1"    "drow_ranger_frost_arrows"
   "2"    "drow_ranger_wave_of_silence"
   "3"    "drow_ranger_trueshot"
-  "4"    "drow_ranger_marksmanship"
+  "4"    "drow_ranger_marksmanship_datadriven"
   }
   "juggernaut" {
   "1"    "juggernaut_blade_fury"
@@ -622,7 +622,7 @@
   "4"    "abyssal_underlord_dark_rift"
   }
   "medusa" {
-  "1"    "medusa_split_shot"
+  "1"    "medusa_split_shot_datadriven"
   "2"    "medusa_mystic_snake"
   "3"    "medusa_mana_shield"
   "4"    "medusa_stone_gaze"

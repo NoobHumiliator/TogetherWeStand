@@ -3985,9 +3985,9 @@
 			"WaitForTime"			"15"
 			
 			"NPCName"				"npc_dota_splitter_a"
-			"TotalUnitsToSpawn"		"2"
+			"TotalUnitsToSpawn"		"3"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"10"
 		}
 		
 		// Stage 3 ================================================
@@ -4011,6 +4011,38 @@
 			"TotalUnitsToSpawn"		"2"
 			"UnitsPerSpawn"			"1"
 			"SpawnInterval"			"20"
+		}
+		// Stage 4 ================================================
+		"UnitSplitter_4a"
+		{
+			"WaitForUnit"			"UnitSplitterSmall_3a"
+			"WaitForTime"			"20"
+			
+			"NPCName"				"npc_dota_splitter_a"
+			"TotalUnitsToSpawn"		"4"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"6"
+		}
+		
+		"UnitSplitter_4b"
+		{
+			"WaitForUnit"			"UnitSplitterSmall_3a"
+			"WaitForTime"			"30"
+			
+			"NPCName"				"npc_dota_splitter_a"
+			"TotalUnitsToSpawn"		"4"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"6"
+		}
+		"UnitSplitter_4c"
+		{
+			"WaitForUnit"			"UnitSplitterSmall_3a"
+			"WaitForTime"			"30"
+			
+			"NPCName"				"npc_dota_splitter_a"
+			"TotalUnitsToSpawn"		"4"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"6"
 		}
 	}
 

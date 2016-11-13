@@ -74,7 +74,7 @@
 		//----------------------------------------------------------------
 		"TeamName" "DOTA_TEAM_GOODGUYS" // Team name.
 		"CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 		// Vision
 		//----------------------------------------------------------------
@@ -436,7 +436,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
                 "vscripts"					"creature_ai/zombie_ai.lua"
 	
@@ -682,7 +682,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		        "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
                 "vscripts"				    "creature_ai/zombie_ai.lua"
 		
@@ -954,7 +954,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		        "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -1071,7 +1071,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
                 "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		        "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -3680,7 +3680,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -3791,7 +3791,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		        "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
                 "vscripts"					"creature_ai/zombie_ai.lua"
 		
@@ -3908,7 +3908,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -4025,7 +4025,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -4151,7 +4151,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -4317,7 +4317,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -4444,7 +4444,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -4585,7 +4585,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -4728,7 +4728,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	}	
 	
@@ -4805,7 +4805,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -4939,7 +4939,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_NEUTRALS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -5052,7 +5052,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -5162,7 +5162,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_NEUTRALS"
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
 
@@ -5266,7 +5266,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
 		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
@@ -5391,7 +5391,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_NEUTRALS"
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Creature Data
@@ -5515,7 +5515,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_NEUTRALS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -5638,7 +5638,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -5779,7 +5779,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	}	
 
@@ -5858,7 +5858,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	}
 
@@ -5935,7 +5935,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
 		// Creature Data
@@ -6038,7 +6038,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
 		//Precache
@@ -6186,7 +6186,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -6267,7 +6267,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -6353,7 +6353,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -6472,7 +6472,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -6565,7 +6565,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -6660,7 +6660,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -6756,7 +6756,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -6846,7 +6846,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -6937,7 +6937,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -7020,7 +7020,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -7151,7 +7151,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -7256,7 +7256,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 		
 		// Vision
@@ -7334,7 +7334,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 		
 		// Vision
@@ -7413,7 +7413,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 		
 		// Vision
@@ -7492,7 +7492,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 		
 		// Vision
@@ -7556,7 +7556,7 @@
 		"StatusHealthRegen"			"0"							// »ù´¡ÉúÃü»Ø¸´ËÙ¶È
                 "TeamName"				"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 	}
 
 
@@ -7994,7 +7994,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		        "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -8103,7 +8103,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		        "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -8212,7 +8212,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		        "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -8321,7 +8321,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		        "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -8560,8 +8560,8 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
-		"UnitRelationshipClass"		        "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		 "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
 		//----------------------------------------------------------------
@@ -8602,10 +8602,10 @@
 	}
 //////////////////////////////////////////////////// lod precache file
 "npc_dota_venomancer_scourge_ward_1"{
-"BaseClass" "npc_dota_venomancer_plagueward""Model" "models/heroes/venomancer/venomancer_ward.vmdl""SoundSet" "Hero_VenomancerWard""Level" "1""ModelScale" "1.2""SelectionGroup" "Venomancer_Wards_Scourge""Ability1" "holdout_scourge_venomous_gale""Ability2" """Ability3" """Ability4" """Ability5" """ArmorPhysical" "0""MagicalResistance" "0""AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK""AttackDamageMin" "19""AttackDamageMax" "21""AttackDamageType" "DAMAGE_TYPE_ArmorPhysical""AttackRate" "1.5""AttackAnimationPoint" "0.3""AttackAcquisitionRange" "600""AttackRange" "600""ProjectileModel" "venomancer_plague_ward_projectile""ProjectileSpeed" "1900""BoundsHullName" "DOTA_HULL_SIZE_REGULAR""HealthBarOffset" "170""MovementCapabilities" "DOTA_UNIT_CAP_MOVE_NONE""MovementSpeed" "0""MovementTurnRate" "0.5""BountyXP" "20""BountyGoldMin" "14""BountyGoldMax" "17""StatusHealth" "150""StatusHealthRegen" "0.25""StatusMana" "0""StatusManaRegen" "0""TeamName" "DOTA_TEAM_GOODGUYS""CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE""CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_STRONG""UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD""VisionDaytimeRange" "1200""VisionNighttimeRange" "800""HasInventory" "0"}"npc_dota_venomancer_scourge_ward_2"{
-"BaseClass" "npc_dota_venomancer_plagueward""Model" "models/heroes/venomancer/venomancer_ward.vmdl""SoundSet" "Hero_VenomancerWard""Level" "1""ModelScale" "1.2""SelectionGroup" "Venomancer_Wards_Scourge""Ability1" "holdout_scourge_venomous_gale""Ability2" """Ability3" """Ability4" """Ability5" """ArmorPhysical" "0""MagicalResistance" "0""AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK""AttackDamageMin" "27""AttackDamageMax" "31""AttackDamageType" "DAMAGE_TYPE_ArmorPhysical""AttackRate" "1.5""AttackAnimationPoint" "0.3""AttackAcquisitionRange" "600""AttackRange" "600""ProjectileModel" "venomancer_plague_ward_projectile""ProjectileSpeed" "1900""BoundsHullName" "DOTA_HULL_SIZE_REGULAR""HealthBarOffset" "170""MovementCapabilities" "DOTA_UNIT_CAP_MOVE_NONE""MovementSpeed" "0""MovementTurnRate" "0.5""BountyXP" "25""BountyGoldMin" "14""BountyGoldMax" "17""StatusHealth" "300""StatusHealthRegen" "0.25""StatusMana" "0""StatusManaRegen" "0""TeamName" "DOTA_TEAM_GOODGUYS""CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE""CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_STRONG""UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD""VisionDaytimeRange" "1200""VisionNighttimeRange" "800""HasInventory" "0"}"npc_dota_venomancer_scourge_ward_3"{
-"BaseClass" "npc_dota_venomancer_plagueward""Model" "models/heroes/venomancer/venomancer_ward.vmdl""SoundSet" "Hero_VenomancerWard""Level" "1""ModelScale" "1.2""SelectionGroup" "Venomancer_Wards_Scourge""Ability1" "holdout_scourge_venomous_gale""Ability2" """Ability3" """Ability4" """Ability5" """ArmorPhysical" "0""MagicalResistance" "0""AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK""AttackDamageMin" "36""AttackDamageMax" "42""AttackDamageType" "DAMAGE_TYPE_ArmorPhysical""AttackRate" "1.5""AttackAnimationPoint" "0.3""AttackAcquisitionRange" "600""AttackRange" "600""ProjectileModel" "venomancer_plague_ward_projectile""ProjectileSpeed" "1900""BoundsHullName" "DOTA_HULL_SIZE_REGULAR""HealthBarOffset" "170""MovementCapabilities" "DOTA_UNIT_CAP_MOVE_NONE""MovementSpeed" "0""MovementTurnRate" "0.5""BountyXP" "30""BountyGoldMin" "14""BountyGoldMax" "17""StatusHealth" "450""StatusHealthRegen" "0.25""StatusMana" "0""StatusManaRegen" "0""TeamName" "DOTA_TEAM_GOODGUYS""CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE""CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_STRONG""UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD""VisionDaytimeRange" "1200""VisionNighttimeRange" "800""HasInventory" "0"}"npc_dota_venomancer_scourge_ward_4"{
-"BaseClass" "npc_dota_venomancer_plagueward""Model" "models/heroes/venomancer/venomancer_ward.vmdl""SoundSet" "Hero_VenomancerWard""Level" "1""ModelScale" "1.2""SelectionGroup" "Venomancer_Wards_Scourge""Ability1" "holdout_scourge_venomous_gale""Ability2" """Ability3" """Ability4" """Ability5" """ArmorPhysical" "0""MagicalResistance" "0""AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK""AttackDamageMin" "44""AttackDamageMax" "52""AttackDamageType" "DAMAGE_TYPE_ArmorPhysical""AttackRate" "1.5""AttackAnimationPoint" "0.3""AttackAcquisitionRange" "600""AttackRange" "600""ProjectileModel" "venomancer_plague_ward_projectile""ProjectileSpeed" "1900""BoundsHullName" "DOTA_HULL_SIZE_REGULAR""HealthBarOffset" "170""MovementCapabilities" "DOTA_UNIT_CAP_MOVE_NONE""MovementSpeed" "0""MovementTurnRate" "0.5""BountyXP" "35""BountyGoldMin" "14""BountyGoldMax" "17""StatusHealth" "600""StatusHealthRegen" "0.25""StatusMana" "0""StatusManaRegen" "0""TeamName" "DOTA_TEAM_GOODGUYS""CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE""CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_STRONG""UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD""VisionDaytimeRange" "1200""VisionNighttimeRange" "800""HasInventory" "0"}"npc_multicast"{
+"BaseClass" "npc_dota_venomancer_plagueward""Model" "models/heroes/venomancer/venomancer_ward.vmdl""SoundSet" "Hero_VenomancerWard""Level" "1""ModelScale" "1.2""SelectionGroup" "Venomancer_Wards_Scourge""Ability1" "holdout_scourge_venomous_gale""Ability2" """Ability3" """Ability4" """Ability5" """ArmorPhysical" "0""MagicalResistance" "0""AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK""AttackDamageMin" "19""AttackDamageMax" "21""AttackDamageType" "DAMAGE_TYPE_ArmorPhysical""AttackRate" "1.5""AttackAnimationPoint" "0.3""AttackAcquisitionRange" "600""AttackRange" "600""ProjectileModel" "venomancer_plague_ward_projectile""ProjectileSpeed" "1900""BoundsHullName" "DOTA_HULL_SIZE_REGULAR""HealthBarOffset" "170""MovementCapabilities" "DOTA_UNIT_CAP_MOVE_NONE""MovementSpeed" "0""MovementTurnRate" "0.5""BountyXP" "20""BountyGoldMin" "14""BountyGoldMax" "17""StatusHealth" "150""StatusHealthRegen" "0.25""StatusMana" "0""StatusManaRegen" "0""TeamName" "DOTA_TEAM_GOODGUYS""CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE""CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC""UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD""VisionDaytimeRange" "1200""VisionNighttimeRange" "800""HasInventory" "0"}"npc_dota_venomancer_scourge_ward_2"{
+"BaseClass" "npc_dota_venomancer_plagueward""Model" "models/heroes/venomancer/venomancer_ward.vmdl""SoundSet" "Hero_VenomancerWard""Level" "1""ModelScale" "1.2""SelectionGroup" "Venomancer_Wards_Scourge""Ability1" "holdout_scourge_venomous_gale""Ability2" """Ability3" """Ability4" """Ability5" """ArmorPhysical" "0""MagicalResistance" "0""AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK""AttackDamageMin" "27""AttackDamageMax" "31""AttackDamageType" "DAMAGE_TYPE_ArmorPhysical""AttackRate" "1.5""AttackAnimationPoint" "0.3""AttackAcquisitionRange" "600""AttackRange" "600""ProjectileModel" "venomancer_plague_ward_projectile""ProjectileSpeed" "1900""BoundsHullName" "DOTA_HULL_SIZE_REGULAR""HealthBarOffset" "170""MovementCapabilities" "DOTA_UNIT_CAP_MOVE_NONE""MovementSpeed" "0""MovementTurnRate" "0.5""BountyXP" "25""BountyGoldMin" "14""BountyGoldMax" "17""StatusHealth" "300""StatusHealthRegen" "0.25""StatusMana" "0""StatusManaRegen" "0""TeamName" "DOTA_TEAM_GOODGUYS""CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE""CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC""UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD""VisionDaytimeRange" "1200""VisionNighttimeRange" "800""HasInventory" "0"}"npc_dota_venomancer_scourge_ward_3"{
+"BaseClass" "npc_dota_venomancer_plagueward""Model" "models/heroes/venomancer/venomancer_ward.vmdl""SoundSet" "Hero_VenomancerWard""Level" "1""ModelScale" "1.2""SelectionGroup" "Venomancer_Wards_Scourge""Ability1" "holdout_scourge_venomous_gale""Ability2" """Ability3" """Ability4" """Ability5" """ArmorPhysical" "0""MagicalResistance" "0""AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK""AttackDamageMin" "36""AttackDamageMax" "42""AttackDamageType" "DAMAGE_TYPE_ArmorPhysical""AttackRate" "1.5""AttackAnimationPoint" "0.3""AttackAcquisitionRange" "600""AttackRange" "600""ProjectileModel" "venomancer_plague_ward_projectile""ProjectileSpeed" "1900""BoundsHullName" "DOTA_HULL_SIZE_REGULAR""HealthBarOffset" "170""MovementCapabilities" "DOTA_UNIT_CAP_MOVE_NONE""MovementSpeed" "0""MovementTurnRate" "0.5""BountyXP" "30""BountyGoldMin" "14""BountyGoldMax" "17""StatusHealth" "450""StatusHealthRegen" "0.25""StatusMana" "0""StatusManaRegen" "0""TeamName" "DOTA_TEAM_GOODGUYS""CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE""CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC""UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD""VisionDaytimeRange" "1200""VisionNighttimeRange" "800""HasInventory" "0"}"npc_dota_venomancer_scourge_ward_4"{
+"BaseClass" "npc_dota_venomancer_plagueward""Model" "models/heroes/venomancer/venomancer_ward.vmdl""SoundSet" "Hero_VenomancerWard""Level" "1""ModelScale" "1.2""SelectionGroup" "Venomancer_Wards_Scourge""Ability1" "holdout_scourge_venomous_gale""Ability2" """Ability3" """Ability4" """Ability5" """ArmorPhysical" "0""MagicalResistance" "0""AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK""AttackDamageMin" "44""AttackDamageMax" "52""AttackDamageType" "DAMAGE_TYPE_ArmorPhysical""AttackRate" "1.5""AttackAnimationPoint" "0.3""AttackAcquisitionRange" "600""AttackRange" "600""ProjectileModel" "venomancer_plague_ward_projectile""ProjectileSpeed" "1900""BoundsHullName" "DOTA_HULL_SIZE_REGULAR""HealthBarOffset" "170""MovementCapabilities" "DOTA_UNIT_CAP_MOVE_NONE""MovementSpeed" "0""MovementTurnRate" "0.5""BountyXP" "35""BountyGoldMin" "14""BountyGoldMax" "17""StatusHealth" "600""StatusHealthRegen" "0.25""StatusMana" "0""StatusManaRegen" "0""TeamName" "DOTA_TEAM_GOODGUYS""CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE""CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC""UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD""VisionDaytimeRange" "1200""VisionNighttimeRange" "800""HasInventory" "0"}"npc_multicast"{
 "BaseClass" "npc_dota_creep_neutral""SoundSet" "n_creep_Melee""Level" "5""IsAncient" "1""ModelScale" "1""IsNeutralUnitType" "1""Ability1" "lod_dummy_unit""AttackCapabilities" "DOTA_UNIT_CAP_NO_ATTACK""MovementCapabilities" "DOTA_UNIT_CAP_MOVE_FLY""MovementSpeed" "500""StatusHealth" "800""StatusHealthRegen" "0.5""StatusMana" "5000""StatusManaRegen" "50""VisionDaytimeRange" "0""VisionNighttimeRange" "0""BoundsHullName" "DOTA_HULL_SIZE_SMALL""RingRadius" "0""HealthBarOffset" "10000"}"npc_dota_goodguys_tower_lod_top"{
 "BaseClass" "npc_dota_tower""Model" "models/props_structures/tower_good.vmdl""SoundSet" "Tower.Water""MinimapIcon" "minimap_tower90""MinimapIconSize" "320""Level" "2""Ability1" "backdoor_protection""Ability2" """Ability3" """Ability4" """Ability5" """Ability6" """Ability7" """Ability8" """ArmorPhysical" "25""MagicalResistance" "0""AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK""AttackDamageMin" "120""AttackDamageMax" "140""AttackDamageType" "DAMAGE_TYPE_ArmorPhysical""AttackRate" "0.95""AttackAnimationPoint" "0.6""AttackAcquisitionRange" "700""AttackRange" "700""ProjectileModel" "particles/base_attacks/particles/base_attacks/ranged_tower_good.vpcf.vpcf""ProjectileSpeed" "750""AttributePrimary" "DOTA_ATTRIBUTE_STRENGTH""AttributeBaseStrength" "0""AttributeStrengthGain" "0""AttributeBaseIntelligence" "0""AttributeIntelligenceGain" "0""AttributeBaseAgility" "0""AttributeAgilityGain" "0""BountyXP" "25""BountyGoldMin" "0""BountyGoldMax" "0""BoundsHullName" "DOTA_HULL_SIZE_TOWER""ProjectileCollisionSize" "50""RingRadius" "130""HealthBarOffset" "260""MovementCapabilities" "DOTA_UNIT_CAP_MOVE_NONE""MovementSpeed" "0""MovementTurnRate" "1.0""StatusHealth" "1600""StatusHealthRegen" "0""StatusMana" "0""StatusManaRegen" "0""TeamName" "DOTA_TEAM_GOODGUYS""CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_SIEGE""CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE""UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING""VisionDaytimeRange" "1900""VisionNighttimeRange" "800"}"npc_dota_goodguys_tower_lod_mid"{
 "BaseClass" "npc_dota_tower""Model" "models/props_structures/tower_good.vmdl""SoundSet" "Tower.Water""MinimapIcon" "minimap_tower45""MinimapIconSize" "320""Level" "2""Ability1" "backdoor_protection""Ability2" """Ability3" """Ability4" """Ability5" """Ability6" """Ability7" """Ability8" """ArmorPhysical" "25""MagicalResistance" "0""AttackCapabilities" "DOTA_UNIT_CAP_RANGED_ATTACK""AttackDamageMin" "120""AttackDamageMax" "140""AttackDamageType" "DAMAGE_TYPE_ArmorPhysical""AttackRate" "0.95""AttackAnimationPoint" "0.6""AttackAcquisitionRange" "700""AttackRange" "700""ProjectileModel" "particles/base_attacks/particles/base_attacks/ranged_tower_good.vpcf.vpcf""ProjectileSpeed" "750""AttributePrimary" "DOTA_ATTRIBUTE_STRENGTH""AttributeBaseStrength" "0""AttributeStrengthGain" "0""AttributeBaseIntelligence" "0""AttributeIntelligenceGain" "0""AttributeBaseAgility" "0""AttributeAgilityGain" "0""BountyXP" "25""BountyGoldMin" "0""BountyGoldMax" "0""BoundsHullName" "DOTA_HULL_SIZE_TOWER""ProjectileCollisionSize" "50""RingRadius" "130""HealthBarOffset" "260""MovementCapabilities" "DOTA_UNIT_CAP_MOVE_NONE""MovementSpeed" "0""MovementTurnRate" "1.0""StatusHealth" "1600""StatusHealthRegen" "0""StatusMana" "0""StatusManaRegen" "0""TeamName" "DOTA_TEAM_GOODGUYS""CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_SIEGE""CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE""UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING""VisionDaytimeRange" "1900""VisionNighttimeRange" "800"}"npc_dota_goodguys_tower_lod_bot"{
@@ -8853,11 +8853,6 @@
 "BaseClass" "npc_dota_creep"
 "Ability1"  "necrolyte_reapers_scythe_datadriven"
 }
-"npc_precache_terrorblade_reflection_datadriven"
-{
-"BaseClass" "npc_dota_creep"
-"Ability1"  "terrorblade_reflection_datadriven"
-}
 "npc_precache_terrorblade_sunder_datadriven"
 {
 "BaseClass" "npc_dota_creep"
@@ -8904,6 +8899,18 @@
 "BaseClass" "npc_dota_creep"
 "Ability1"  "mirana_arrow_datadriven"
 }
+"npc_precache_medusa_split_shot_datadriven"
+{
+"BaseClass" "npc_dota_creep"
+"Ability1"  "medusa_split_shot_datadriven"
+}
+"npc_precache_drow_ranger_marksmanship_datadriven"
+{
+"BaseClass" "npc_dota_creep"
+"Ability1"  "drow_ranger_marksmanship_datadriven"
+}
+
+
 
   "npc_dota_creature_bloodseeker"
 	{
@@ -8971,7 +8978,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		        "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -9085,8 +9092,8 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
-		"UnitRelationshipClass"		        "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
 		//----------------------------------------------------------------
@@ -9198,7 +9205,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		        "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -9546,7 +9553,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -9641,7 +9648,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -9736,7 +9743,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -10051,7 +10058,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -10141,7 +10148,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -11033,7 +11040,7 @@
 		"StatusHealthRegen"			"0"							
         "TeamName"		            "DOTA_TEAM_GOODGUYS"			
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 
         "VisionDaytimeRange"		"1000"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
@@ -11082,7 +11089,7 @@
 		"StatusHealthRegen"			"0"							
         "TeamName"		            "DOTA_TEAM_BADGUYS"			
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 
         "VisionDaytimeRange"		"0"		// Range of vision during day light.
 		"VisionNighttimeRange"		"0"		// Range of vision at night time.
@@ -11942,7 +11949,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
@@ -12028,7 +12035,7 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
-		"MovementSpeed"				"75"		// Speed
+		"MovementSpeed"				"200"		// Speed
 		"MovementTurnRate"			"0.2"		// Turning rate.
 
 		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_life_stealer.vsndevts"
@@ -12036,7 +12043,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"36000"		// Base health.
+		"StatusHealth"				"38000"		// Base health.
 		"StatusHealthRegen"			"1.0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -12045,7 +12052,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		"vscripts"					"creature_ai/zombie_ai.lua"
 		
@@ -12117,7 +12124,7 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
-		"MovementSpeed"				"230"		// Speed
+		"MovementSpeed"				"285"		// Speed
 		"MovementTurnRate"			"0.5"		// Turning rate.
 
 		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_life_stealer.vsndevts"
@@ -12125,7 +12132,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"18000"		// Base health.
+		"StatusHealth"				"20000"		// Base health.
 		"StatusHealthRegen"			"1.0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -12134,7 +12141,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		"vscripts"					"creature_ai/zombie_ai.lua"
 		
@@ -12207,7 +12214,7 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
-		"MovementSpeed"				"345"		// Speed
+		"MovementSpeed"				"385"		// Speed
 		"MovementTurnRate"			"1.0"		// Turning rate.
 
 		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_life_stealer.vsndevts"
@@ -12215,7 +12222,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"11500"		// Base health.
+		"StatusHealth"				"12500"		// Base health.
 		"StatusHealthRegen"			"1.0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -12224,7 +12231,7 @@
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		"vscripts"					"creature_ai/zombie_ai.lua"
 		
