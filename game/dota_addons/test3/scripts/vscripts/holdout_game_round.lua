@@ -219,7 +219,16 @@ function CHoldoutGameRound:End()
 			if unit:GetUnitName()==("npc_dota_warlock_boss_2") then
 				unit.die_in_peace=true
 				unit:RemoveAbility("warlock_gold_bag_fountain")
-			end             
+			end
+			if unit:GetUnitName()==("npc_dota_warlock_boss_2") then
+				unit:RemoveAbility("warlock_gold_bag_fountain")
+			end
+			if unit:GetUnitName()==("npc_dota_splitter_b") then
+				unit:RemoveAbility("creature_split_b")
+			end
+			if unit:GetUnitName()==("npc_dota_splitter_a") then
+				unit:RemoveAbility("creature_split_a")
+			end                      
 			unit:ForceKill(true)
 		end
 	end

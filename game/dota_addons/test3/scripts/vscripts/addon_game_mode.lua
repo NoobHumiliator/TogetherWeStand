@@ -13,7 +13,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
-testMode=true --减少刷兵间隔，增加初始金钱
+--testMode=true --减少刷兵间隔，增加初始金钱
 
 
 
@@ -292,7 +292,7 @@ function CHoldoutGameMode:OnThink()
 			self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
 			self.startflag=1
 		    end
-			self:_CheckForDefeat()
+			self:_CheckForDefeat() --无影拳CD的特殊修正
 			self:_ThinkLootExpiry()
 			if self._flPrepTimeEnd ~= nil then
 				self:_ThinkPrepTime()
@@ -337,7 +337,7 @@ function CHoldoutGameMode:_RefreshPlayers()
 end
 
 
-function CHoldoutGameMode:_CheckForDefeat()
+function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正
 	if GameRules:State_Get() ~= DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		return
 	end
@@ -348,6 +348,16 @@ function CHoldoutGameMode:_CheckForDefeat()
 			if  PlayerResource:HasSelectedHero( nPlayerID ) then
 				local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
 				if hero and hero:IsAlive() then
+					if hero:HasModifier("modifier_ember_spirit_sleight_of_fist_caster_invulnerability") then --无敌buff期间不走冷却
+						local modifier=hero:FindModifierByName("modifier_ember_spirit_sleight_of_fist_caster_invulnerability")
+						local ability=modifier:GetAbility()
+						ability:StartCooldown(ability:GetCooldown(ability:GetLevel()-1)+0.5)
+					end
+                    --local vModifier_table=hero:FindAllModifiers()
+                    --for k,v in pairs(vModifier_table) do
+                    	--print("Effect Name"..v:GetName().."")
+                    --end
+                    --PrintTable(vModifier_table,nil,nil)
 					bAllPlayersDead = false
 					self.loseflag=0
 				end

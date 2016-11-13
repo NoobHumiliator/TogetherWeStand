@@ -45,15 +45,15 @@ function LootController:SetItemProbability(roundNumber,hardLevel)
 	for k,v in pairs(self._itemCost) do
 		self._roundItemProbability[k]=NormalDistribution(v,average,stdDeviation)/denominator
 		--以下注释
-		table.insert(self._valuetable, self._roundItemProbability[k])
-		self._reverttable[self._roundItemProbability[k]]=v
+		--table.insert(self._valuetable, self._roundItemProbability[k])
+		--self._reverttable[self._roundItemProbability[k]]=v
 		--以上注释
 	end
     --以下注释
-	table.sort(self._valuetable)
-	for _,v in pairs(self._valuetable) do
-		print(self._reverttable[v].."  "..v)
-	end
+	--table.sort(self._valuetable)
+	--for _,v in pairs(self._valuetable) do
+		--print(self._reverttable[v].."  "..v)
+	--end
     --以上注释
 end
 

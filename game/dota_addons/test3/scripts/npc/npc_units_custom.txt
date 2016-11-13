@@ -11981,15 +11981,15 @@
 		//
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/creeps/neutral_creeps/n_creep_golem_b/n_creep_golem_b.vmdl"	// Model.
-		"ModelScale"				"1.6"
+		"ModelScale"				"1.8"
 		"Level"						"1"
 		"CanBeDominated"			"0"
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"creature_split_a"			// Ability 1.
-		"Ability2"					"splitter_slow_aura_datadriven"			// Ability 2.
-		"Ability3"					""			// Ability 3.
+		"Ability1"					"creature_split_a"			        // Ability 1.
+		"Ability2"					"splitter_slow_aura_datadriven"		// Ability 2.
+		"Ability3"					"splitter_attack_passive"			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.
@@ -12004,12 +12004,12 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"242"		// Damage range min.
-		"AttackDamageMax"			"262"		// Damage range max.
+		"AttackDamageMin"			"542"		// Damage range min.
+		"AttackDamageMax"			"562"		// Damage range max.
 		"AttackRate"				"1.8"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"800"		// Range within a target can be acquired.
-		"AttackRange"				"128"		// Range within a target can be attacked.
+		"AttackRange"				"140"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
 		"ProjectileSpeed"			""			// Speed of projectile.
 
@@ -12023,7 +12023,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"70"
 		"HealthBarOffset"			"160"
-		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"	
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"	
 
 		// Movement
 		//----------------------------------------------------------------
@@ -12036,7 +12036,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"30000"		// Base health.
+		"StatusHealth"				"36000"		// Base health.
 		"StatusHealthRegen"			"1.0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -12071,15 +12071,15 @@
 		//
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/creeps/neutral_creeps/n_creep_golem_b/n_creep_golem_b.vmdl"	// Model.
-		"ModelScale"				"1.2"
+		"ModelScale"				"1.4"
 		"Level"						"1"
 		
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"creature_split_b"			// Ability 1.
-		"Ability2"					"base_attack_immune_datadriven"	// Ability 2.
-		"Ability3"					"splitter_slow_aura_datadriven"			// Ability 3.
-		"Ability4"					""			// Ability 4.
+		"Ability1"					"creature_split_b"			        // Ability 1.
+		"Ability2"					"base_attack_immune_datadriven"	    // Ability 2.
+		"Ability3"					"splitter_slow_aura_datadriven"		// Ability 3.
+		"Ability4"					"splitter_attack_passive"			// Ability 4.
 		"Ability5"					""			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.
 		"Ability7"					""			// Ability 7 - Extra.
@@ -12093,12 +12093,12 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"242"		// Damage range min.
-		"AttackDamageMax"			"262"		// Damage range max.
+		"AttackDamageMin"			"342"		// Damage range min.
+		"AttackDamageMax"			"362"		// Damage range max.
 		"AttackRate"				"1.0"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
-		"AttackRange"				"60"		// Range within a target can be attacked.
+		"AttackRange"				"120"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
 		"ProjectileSpeed"			""			// Speed of projectile.
 
@@ -12112,7 +12112,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"50"
 		"HealthBarOffset"			"100"
-		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"	
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"	
 
 		// Movement
 		//----------------------------------------------------------------
@@ -12125,7 +12125,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"15000"		// Base health.
+		"StatusHealth"				"18000"		// Base health.
 		"StatusHealthRegen"			"1.0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -12161,7 +12161,7 @@
 		//
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/creeps/neutral_creeps/n_creep_golem_b/n_creep_golem_b.vmdl"	// Model.
-		"ModelScale"				"0.8"
+		"ModelScale"				"1.0"
 		"Level"						"1"
 		
 		// Abilities
@@ -12183,12 +12183,12 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"130"		// Damage range min.
-		"AttackDamageMax"			"142"		// Damage range max.
+		"AttackDamageMin"			"180"		// Damage range min.
+		"AttackDamageMax"			"200"		// Damage range max.
 		"AttackRate"				"0.4"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
-		"AttackRange"				"40"		// Range within a target can be attacked.
+		"AttackRange"				"100"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
 		"ProjectileSpeed"			""			// Speed of projectile.
 
@@ -12202,7 +12202,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"20"
 		"HealthBarOffset"			"50"
-		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"	
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"	
 
 		// Movement
 		//----------------------------------------------------------------
@@ -12215,7 +12215,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"7500"		// Base health.
+		"StatusHealth"				"11500"		// Base health.
 		"StatusHealthRegen"			"1.0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
