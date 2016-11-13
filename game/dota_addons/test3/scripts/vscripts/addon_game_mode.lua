@@ -573,7 +573,7 @@ function CHoldoutGameMode:OnNPCSpawned( event )
                 spawnedUnit:SetBaseDamageMin(minDamage)
                 spawnedUnit:SetBaseDamageMax(maxDamage)
                 local newMaxHealth=maxHealth*self.flDHPadjust
-                local healthRegen=math.max(newMaxHealth*0.0045, spawnedUnit:GetBaseHealthRegen())  --4.5%%的基础恢复
+                local healthRegen=math.max(newMaxHealth*0.0035, spawnedUnit:GetBaseHealthRegen())  --3.5%%的基础恢复
 
                 if newMaxHealth<1 then --避免出现0血单位
                 	newMaxHealth=1

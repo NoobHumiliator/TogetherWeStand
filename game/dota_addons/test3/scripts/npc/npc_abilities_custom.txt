@@ -17068,7 +17068,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow_movement_speed"	"-30"
+				"slow_movement_speed"	"-20"
 			}
 			"03"
 			{
@@ -17094,12 +17094,12 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.1"
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.2"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6"
+		"AbilityCooldown"				"9"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -17112,17 +17112,17 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"radius"					"300"
+				"radius"					"250"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"damage_percent"			"15"
+				"damage_percent"			"10"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"10"
+				"duration"					"8"
 			}
 		}
 	}
@@ -18278,7 +18278,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed_bonus"			"-2"
+				"speed_bonus"			"-3"
 			}
 			"02"
 			{
@@ -18321,4 +18321,250 @@
 			}
 		}
 	}
+  "medusa_split_shot_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"medusa_split_shot"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
+			"particle"			"particles/units/heroes/hero_medusa/medusa_bow_split_shot_cast.vpcf"
+			"particle"			"particles/units/heroes/hero_medusa/medusa_base_attack.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_modifier"		"-20"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_modifier_tooltip"		"80"
+			}
+			"03"
+			{	
+				"var_type"					"FIELD_INTEGER"
+				"arrow_count"				"1 2 3 4"
+			}
+			"04"
+			{	
+				"var_type"					"FIELD_INTEGER"
+				"total_arrow_count"				"2 3 4 5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"700"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"		"1200"
+			}
+		}
+
+		"OnToggleOn"
+		{
+			"FireEffect"
+			{
+				"EffectName"        "particles/units/heroes/hero_medusa/medusa_bow_split_shot_cast.vpcf"
+				"EffectAttachType"  "follow_origin"
+				"Target"            "CASTER"
+			}
+
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_split_shot_datadriven"
+				"Target" 		"CASTER"
+			}
+		}
+
+		"OnToggleOff"
+		{
+			"FireEffect"
+			{
+				"EffectName"        "particles/units/heroes/hero_medusa/medusa_bow_split_shot_cast.vpcf"
+				"EffectAttachType"  "follow_origin"
+				"Target"            "CASTER"
+			}
+
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_split_shot_datadriven"
+				"Target"
+				{
+					"Center"	"CASTER"
+					"Flags" 	"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+			}
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+
+			"FireSound"
+			{
+				"EffectName"	"Hero_Medusa.AttackSplit"
+				"Target" 		"TARGET"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_medusa/split_shot.lua"
+				"Function"		"SplitShotDamage"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_split_shot_datadriven"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+                "AllowIllusionDuplicate"	    "1"
+				"OnAttack"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	         "heroes/hero_medusa/split_shot.lua"
+						"Function"		         "SplitShotLaunch"
+						"split_shot_projectile"	 "particles/units/heroes/hero_medusa/medusa_base_attack.vpcf"
+					}
+				}
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "%damage_modifier" 
+				}
+			}
+		}
+	}
+"drow_ranger_marksmanship_datadriven"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"			         	"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+	"AbilityTextureName"			"drow_ranger_marksmanship"
+	"LevelsBetweenUpgrades"			"15"
+	"MaxLevel"                      "3"
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"						"FIELD_INTEGER"
+			"marksmanship_agility_bonus"	"40 60 80"
+		}
+		"02"
+		{
+			"var_type"						"FIELD_INTEGER"
+			"damage_modifier_tooltip"		"50"
+	    }
+	    "03"
+		{
+			"var_type"						"FIELD_INTEGER"
+			"split_count_scepter"			"2"
+		}
+		"04"
+		{
+			"var_type"						"FIELD_INTEGER"
+			"scepter_range"					"375"
+		}
+		"05"
+		{
+			"var_type"						"FIELD_INTEGER"
+			"damage_reduction_scepter"		"50"
+		}
+		"06"
+		{
+			"var_type"				       "FIELD_INTEGER"
+			"projectile_speed"		       "1000"
+		}
+	}
+	
+	// Data driven
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"particle"							"particles/units/heroes/hero_drow/drow_marksmanship.vpcf"
+		"particle"							"particles/units/heroes/hero_drow/drow_base_attack.vpcf"
+	}
+	"OnProjectileHitUnit"
+	{
+		"DeleteOnHit"	"1"
+
+		"FireSound"
+		{
+			"EffectName"	"Hero_DrowRanger.ProjectileImpact"
+			"Target" 		"TARGET"
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_marksmanship_passive_datadriven"
+		{
+			"Passive"						"1"
+			"IsHidden"						"1"
+			"IsPurgable"					"0"
+			"AllowIllusionDuplicate"	    "1"
+			"OnAttackLanded"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	         "heroes/hero_drow_ranger/marksmanship.lua"
+					"Function"		         "SplitShotLaunch"
+					"Target"			     "TARGET"
+					"split_shot_projectile"	 "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
+				}
+			}
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%marksmanship_agility_bonus"
+			}
+			"OnCreated"
+			{			
+				"AttachEffect"
+				{
+					"Target"				"CASTER"
+					"EffectName"			"particles/units/heroes/hero_drow/drow_marksmanship.vpcf"
+					"EffectAttachType"		"follow_origin"
+					"ControlPoints"
+					{
+						"02"				"150 150 150"
+					}
+				}
+			}
+		}
+	}
+}
+    
+
+
 } //主括号
