@@ -9,7 +9,7 @@ end
 function LootController:ReadConfigration()
 
   self._vHardLevelItemValue={
-	500,400,300
+	300,225,150
   }
   self._itemCost={}
   local itemListKV = LoadKeyValues("scripts/kv/items_precache.txt")
@@ -37,7 +37,7 @@ function LootController:SetItemProbability(roundNumber,hardLevel)
 	self._roundItemProbability={}
 	self._valuetable={}
 	self._reverttable={}
-	local average= self._vHardLevelItemValue[hardLevel]*roundNumber --基础的item value*关卡数
+	local average= self._vHardLevelItemValue[hardLevel]*math.pow(1.2,roundNumber) --item value*1.2^roundNumer
 	local stdDeviation= average*(4-hardLevel)*0.5
 	for k,v in pairs(self._itemCost) do
 		denominator=denominator+NormalDistribution(v,average,stdDeviation)

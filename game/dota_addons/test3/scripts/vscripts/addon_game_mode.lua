@@ -13,7 +13,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
---testMode=true --减少刷兵间隔，增加初始金钱
+testMode=true --减少刷兵间隔，增加初始金钱
 
 
 
@@ -351,7 +351,11 @@ function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正
 					if hero:HasModifier("modifier_ember_spirit_sleight_of_fist_caster_invulnerability") then --无敌buff期间不走冷却
 						local modifier=hero:FindModifierByName("modifier_ember_spirit_sleight_of_fist_caster_invulnerability")
 						local ability=modifier:GetAbility()
-						ability:StartCooldown(ability:GetCooldown(ability:GetLevel()-1)+0.5)
+						local octarine_adjust=1
+						if hero:HasItemInInventory("item_octarine_core") then
+						   octarine_adjust=0.75
+						end
+						ability:StartCooldown(ability:GetCooldown(ability:GetLevel()-1)*octarine_adjust)
 					end
                     --local vModifier_table=hero:FindAllModifiers()
                     --for k,v in pairs(vModifier_table) do

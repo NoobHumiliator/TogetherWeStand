@@ -74,11 +74,11 @@ function CHoldoutGameRound:Begin()
 		}
 	end
     --调节人数奖励
-    local playernumberbonus=0.6
+    local playernumberbonus=0.5
     for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
 		if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
 			if  PlayerResource:HasSelectedHero( nPlayerID ) then
-				playernumberbonus=playernumberbonus+0.6
+				playernumberbonus=playernumberbonus+0.5
 				self.Palyer_Number=self.Palyer_Number+1
 			end
 		end
