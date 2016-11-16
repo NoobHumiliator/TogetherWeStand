@@ -3625,9 +3625,9 @@
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					"melting_strike"			// Ability 1
-		"Ability2"					""			// Ability 2.
-		"Ability3"					""			// Ability 3.
+		"Ability1"					"melting_strike"		            	// Ability 1
+		"Ability2"					"warlock_golem_permanent_immolation"	// Ability 2.
+		"Ability3"					"warlock_golem_flaming_fists"			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.
@@ -3703,6 +3703,14 @@
 					"Aggression"		"100.0"
 					"Avoidance"			"0.0"
 					"Support"			"0.0"
+				}
+			}
+
+            "AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"446"
 				}
 			}
 
@@ -11854,7 +11862,7 @@
 			"XPGain"					"100"
 
 			"DefaultState"				"Invade"
-                        "AttachWearables"
+            "AttachWearables"
 			{
 				"Wearable1"
 				{

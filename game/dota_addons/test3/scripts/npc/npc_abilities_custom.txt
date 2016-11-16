@@ -2412,7 +2412,7 @@
 		"AbilityTextureName"                              "warlock_golem_flaming_fists"
 		"precache"
 		{
-			"particle"               "particles/units/heroes/hero_invoker/invoker_forge_spirit_ambient.vpcf"				
+			"particle"               "particles/units/heroes/hero_warlock/golem_ambient.vpcf"				
 		}
 		"Modifiers"
 		{
@@ -2434,8 +2434,14 @@
 						}                                        
 					}
 				}
-				"EffectName" 	   "particles/units/heroes/hero_invoker/invoker_forge_spirit_ambient.vpcf"
+				"EffectName" 	   "particles/units/heroes/hero_warlock/golem_ambient.vpcf"
 				"EffectAttachType" "follow_chest"
+				"AttachEffect"
+				{
+					"EffectName"		"particles/units/heroes/hero_warlock/golem_ambient.vpcf"
+					"EffectAttachType"	"follow_chest"
+					"Target"		    "CASTER"
+				}
 			}
 
 			"reduce_armor"
