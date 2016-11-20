@@ -203,13 +203,27 @@ function CHoldoutGameMode:OnHeroLevelUp(keys)
   local player = PlayerInstanceFromIndex( keys.player )
   local hero = player:GetAssignedHero()
   local level = hero:GetLevel()
-  -- 如果英雄的等级不是2的倍数，那么这个等级就不给技能点
-  local _,l = math.modf((level-1)/2)
-  if l ~= 0 then
-    local p = hero:GetAbilityPoints()
-    hero:SetAbilityPoints(p - 1)
-  end
   local _playerId=hero:GetPlayerID()
+  if keys.level== level then
+	if hero:HasAbility("arc_warden_tempest_double") then
+		local ability= hero:FindAbilityByName("arc_warden_tempest_double")
+		local octarine_adjust=1
+		if hero:HasItemInInventory("item_octarine_core") then
+		   octarine_adjust=0.75
+		end
+	    local cooldown=ability:GetCooldown(ability:GetLevel()-1)*octarine_adjust
+		if  ability:GetCooldownTimeRemaining()>cooldown*0.95 then  --如果风暴双雄刚刚释放完毕 不扣除
+			CustomGameEventManager:Send_ServerToPlayer(player,"UpdateAbilityList", {heroName=false,playerId=_playerId})
+			return
+		end
+	end
+	-- 如果英雄的等级不是2的倍数，那么这个等级就不给技能点
+	local _,l = math.modf((level-1)/2)
+	if l ~= 0 then
+	  local p = hero:GetAbilityPoints()
+	  hero:SetAbilityPoints(p - 1)
+	end
+  end
   CustomGameEventManager:Send_ServerToPlayer(player,"UpdateAbilityList", {heroName=false,playerId=_playerId})
 end
 
