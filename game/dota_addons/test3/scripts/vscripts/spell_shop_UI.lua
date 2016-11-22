@@ -2,8 +2,27 @@ alreadyCached = {}
 
 pairedAbility = {shredder_chakram="shredder_return_chakram", morphling_replicate="morphling_morph_replicate", elder_titan_ancestral_spirit="elder_titan_return_spirit" , 
 phoenix_icarus_dive="phoenix_icarus_dive_stop" , phoenix_sun_ray="phoenix_sun_ray_stop",phoenix_fire_spirits="phoenix_launch_fire_spirit",abyssal_underlord_dark_rift="abyssal_underlord_cancel_dark_rift"}
+brokenModifierCounts = {
+        modifier_shadow_demon_demonic_purge_charge_counter = 3,
+        modifier_bloodseeker_rupture_charge_counter = 2,
+        modifier_earth_spirit_stone_caller_charge_counter = 6,
+        modifier_ember_spirit_fire_remnant_charge_counter = 3
+    }
+brokenModifierAbilityMap = {
+        shadow_demon_demonic_purge = "modifier_shadow_demon_demonic_purge_charge_counter",
+        bloodseeker_rupture = "modifier_bloodseeker_rupture_charge_counter",
+        earth_spirit_stone_caller="modifier_earth_spirit_stone_caller_charge_counter",
+        ember_spirit_fire_remnant="modifier_ember_spirit_fire_remnant_charge_counter"
+    }
+
+
+
+
+
 
 local unitList = LoadKeyValues('scripts/npc/npc_units_custom.txt')
+
+
 
 
 
@@ -65,6 +84,13 @@ function CHoldoutGameMode:AddAbility(keys)
 		       ability:SetLevel(1)	
                CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId),"UpdateAbilityList", keys)
                EmitSoundOn("General.Buy",PlayerResource:GetPlayer(keys.playerId))
+               if brokenModifierAbilityMap[keys.abilityName]~=nil then
+	               local modifier = hero:FindModifierByName(brokenModifierAbilityMap[keys.abilityName])
+			       if modifier then
+			       	    local stack= brokenModifierCounts[brokenModifierAbilityMap[keys.abilityName]]
+			            modifier:SetStackCount(stack)
+			       end
+		       end
              else
                Notifications:Bottom(keys.playerId, {text="#not_enough_ability_points", duration=2, style={color="Red"}})
                EmitSoundOn("General.Cancel",PlayerResource:GetPlayer(keys.playerId))
