@@ -13,7 +13,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
---testMode=true --减少刷兵间隔，增加初始金钱
+testMode=true --减少刷兵间隔，增加初始金钱
 
 
 
@@ -212,7 +212,7 @@ function CHoldoutGameMode:OnHeroLevelUp(keys)
 		   octarine_adjust=0.75
 		end
 	    local cooldown=ability:GetCooldown(ability:GetLevel()-1)*octarine_adjust
-		if  ability:GetCooldownTimeRemaining()>cooldown*0.95 then  --如果风暴双雄刚刚释放完毕 不扣除
+		if  ability:GetCooldownTimeRemaining()>cooldown*0.9 then  --如果风暴双雄刚刚释放完毕 不扣除
 			CustomGameEventManager:Send_ServerToPlayer(player,"UpdateAbilityList", {heroName=false,playerId=_playerId})
 			return
 		end
@@ -335,13 +335,14 @@ function CHoldoutGameMode:_RefreshPlayers()
 				  end
 				  --重置买活时间与惩罚
 				  --PlayerResource:SetBuybackCooldownTime( nPlayerID, 0 )  
-
+                  hero.heal_absorb=nil
 			      PlayerResource:SetBuybackGoldLimitTime( nPlayerID, 0 )
 			      PlayerResource:ResetBuybackCostTime( nPlayerID )
 			      PlayerResource:SetCustomBuybackCooldown(nPlayerID,0)
 			      hero:RemoveModifierByName("modifier_overflow_show")
 			      hero:RemoveModifierByName("modifier_silence_permenant")
 			      hero:RemoveModifierByName("modifier_affixes_falling_rock")
+			      hero:RemoveModifierByName("modifier_overflow_stack")
 				  hero:SetHealth( hero:GetMaxHealth() )
 				  hero:SetMana( hero:GetMaxMana() )
 			    end
@@ -766,7 +767,6 @@ function CHoldoutGameMode:_TestRoundConsoleCommand( cmdName, roundNumber, delay 
 		Msg( string.format( "Cannot test invalid round %d", nRoundToTest ) )
 		return
 	end
-
 	for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
 		if PlayerResource:IsValidPlayer( nPlayerID ) then
 			PlayerResource:ModifyGold( nPlayerID, 999999, true, DOTA_ModifyGold_Unspecified )
@@ -776,6 +776,7 @@ function CHoldoutGameMode:_TestRoundConsoleCommand( cmdName, roundNumber, delay 
 			PlayerResource:ResetBuybackCostTime( nPlayerID )
 		end
 	end
+	self:_RefreshPlayers()
 	if self._entPrepTimeQuest then
 		UTIL_Remove( self._entPrepTimeQuest )
 		self._entPrepTimeQuest = nil
