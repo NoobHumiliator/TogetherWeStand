@@ -19,14 +19,15 @@ end
 
 
 
-function modifier_on_health_gain_lua:OnHealthGained( keys )  --非过量
+function modifier_on_health_gain_lua:OnHealthGained( keys )  --非过量 
 	if IsServer() then
-	     local parent = self:GetParent()
+	  local parent = self:GetParent()
+    if not parent:IsSummoned() then
        local healer=keys.unit
        local gain=keys.gain
        local necroticModifierName = "modifier_necrotic_stack"
        local actual_gain=gain
-       print("parent: "..parent:GetUnitName().." healer: "..healer:GetUnitName().." gain ".. gain)
+       --print("parent: "..parent:GetUnitName().." healer: "..healer:GetUnitName().." gain ".. gain)
 
        if parent:HasModifier( necroticModifierName ) then
           local necrotic_stack = parent:GetModifierStackCount( necroticModifierName, nil)
@@ -54,10 +55,6 @@ function modifier_on_health_gain_lua:OnHealthGained( keys )  --非过量
           if playerid==nil then
            print("healer"..healer:GetUnitName().."has no owner")
           end
-          local game_mode=GameRules:GetGameModeEntity().CHoldoutGameMode
-          if game_mode._currentRound and playerid then
-           game_mode._currentRound._vPlayerStats[playerid].nTotalHeal=game_mode._currentRound._vPlayerStats[playerid].nTotalHeal+gain
-          end
           local healerMultiple=0
           if healer:HasModifier("modifier_item_healer_3") then
             healerMultiple =1.5
@@ -83,6 +80,19 @@ function modifier_on_health_gain_lua:OnHealthGained( keys )  --非过量
             end
             actual_gain=actual_gain+bonus_heal
           end
+          --统计治疗量
+          local playerid=nil
+          if healer:GetOwner() then
+            playerid=healer:GetOwner():GetPlayerID()
+          end
+          if playerid==nil then
+           print("healer"..healer:GetUnitName().."has no owner")
+          end
+          local game_mode=GameRules:GetGameModeEntity().CHoldoutGameMode
+          if game_mode._currentRound and playerid then
+           game_mode._currentRound._vPlayerStats[playerid].nTotalHeal=game_mode._currentRound._vPlayerStats[playerid].nTotalHeal+actual_gain
+          end
+          --统计结束
        end
        if healer==nil then
         print("healer is null gain: "..gain)
@@ -91,7 +101,7 @@ function modifier_on_health_gain_lua:OnHealthGained( keys )  --非过量
       if parent.heal_absorb~=nil then
          local damage=math.min(parent.heal_absorb, actual_gain)
          print("damage: "..damage)
-         parent.heal_absorb=parent.heal_absorb-actual_gain
+         parent.heal_absorb=parent.heal_absorb-damage
 
          local damage_table = {}
           damage_table.attacker = self:GetCaster()
@@ -100,8 +110,10 @@ function modifier_on_health_gain_lua:OnHealthGained( keys )  --非过量
           damage_table.ability = self:GetAbility()
           damage_table.damage = damage
           damage_table.damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
-          ApplyDamage(damage_table)
-         if parent.heal_absorb<0 then
+          if parent:GetHealth()/parent:GetMaxHealth()<0.99 then
+             ApplyDamage(damage_table)  --满血不造成伤害
+          end
+         if parent.heal_absorb<=0 then
             parent:RemoveModifierByName("modifier_overflow_stack")
             parent.heal_absorb=nil
          else
@@ -109,8 +121,9 @@ function modifier_on_health_gain_lua:OnHealthGained( keys )  --非过量
             ability:ApplyDataDrivenModifier( parent, parent, "modifier_overflow_stack", {} )
             parent:SetModifierStackCount( "modifier_overflow_stack", ability, stack )
          end
-      end
-	end
+      end 
+    end --是否召唤生物
+	end --IsServer
 end
 
 
@@ -120,6 +133,7 @@ function modifier_on_health_gain_lua:OnHealReceived( keys ) --过量
      local healer=keys.unit
      local gain=keys.gain
      local ability=self:GetAbility()
+     --print("OnHealReceived parent: "..parent:GetUnitName().." healer: "..healer:GetUnitName().." gain ".. gain)
      local overflow=gain+parent:GetHealth()-parent:GetMaxHealth()
      if parent:HasModifier("modifier_overflow_show") and overflow>0 then
        if parent.heal_absorb==nil then

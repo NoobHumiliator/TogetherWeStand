@@ -13,7 +13,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
-testMode=true --减少刷兵间隔，增加初始金钱
+--testMode=true --减少刷兵间隔，增加初始金钱
 
 
 
@@ -711,6 +711,8 @@ function CHoldoutGameMode:OnEntityKilled( event )
 	end
 
 	if killedUnit and killedUnit:IsRealHero() then
+		killedUnit.heal_absorb=nil
+		killedUnit:RemoveModifierByName("modifier_overflow_stack") --死亡移除溢出效果
 		if self._currentRound  and  self._currentRound._alias=="skeleton"  and self._currentRound.achievement_flag then
 		         local playername=PlayerResource:GetPlayerName(killedUnit:GetPlayerOwnerID())
                  local hero_name=PlayerResource:GetSelectedHeroName(killedUnit:GetPlayerOwnerID())  

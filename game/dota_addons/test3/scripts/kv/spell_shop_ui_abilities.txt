@@ -285,10 +285,11 @@
   "3"    "legion_commander_duel"
   }
   "earth_spirit" {
-  "1"    "earth_spirit_boulder_smash"
-  "2"    "earth_spirit_rolling_boulder"
-  "3"    "earth_spirit_geomagnetic_grip"
-  "4"    "earth_spirit_magnetize"
+  "1"    "earth_spirit_stone_caller" 
+  "2"    "earth_spirit_boulder_smash"
+  "3"    "earth_spirit_rolling_boulder"
+  "4"    "earth_spirit_geomagnetic_grip"
+  "5"    "earth_spirit_magnetize"
   }
   "phoenix" {
   "1"    "phoenix_icarus_dive"
@@ -318,6 +319,8 @@
   "1"    "ember_spirit_searing_chains"
   "2"    "ember_spirit_sleight_of_fist"
   "3"    "ember_spirit_flame_guard"
+  "4"    "ember_spirit_fire_remnant"
+  "5"    "ember_spirit_activate_fire_remnant"
   }
   "arc_warden" {
   "1"     "arc_warden_flux"

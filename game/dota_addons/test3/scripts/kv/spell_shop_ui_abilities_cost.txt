@@ -83,4 +83,6 @@
     "templar_assassin_trap"                   "0"
     "beastmaster_call_of_the_wild"            "0"
     "abyssal_underlord_cancel_dark_rift"      "0"
+    "earth_spirit_stone_caller"               "0"
+    "ember_spirit_activate_fire_remnant"      "0"
 }

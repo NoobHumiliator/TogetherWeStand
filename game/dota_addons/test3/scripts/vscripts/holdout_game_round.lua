@@ -115,15 +115,15 @@ function CHoldoutGameRound:Begin()
 
     self.vAffixes=
     {
-        --necrotic=false,
-        --teeming=false,
-        --raging=false,
-        --fortify=false,
-        --bolstering=false,
+        necrotic=false,
+        teeming=false,
+        raging=false,
+        fortify=false,
+        bolstering=false,
         overflowing=false,
-        --sanguine=false,
-        --silence=false,
-        --falling_rock=false
+        sanguine=false,
+        silence=false,
+        falling_rock=false
     }
     local affixes_temp={}
     local affixes_number=math.floor( (self._gameMode.map_difficulty+2)/10 ) --从试炼5开始，每10层加一个词缀
