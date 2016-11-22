@@ -26,7 +26,7 @@ function modifier_on_health_gain_lua:OnHealthGained( keys )  --非过量
        local gain=keys.gain
        local necroticModifierName = "modifier_necrotic_stack"
        local actual_gain=gain
-       --print("parent: "..parent:GetUnitName().." healer: "..healer:GetUnitName().." gain ".. gain)
+       print("parent: "..parent:GetUnitName().." healer: "..healer:GetUnitName().." gain ".. gain)
 
        if parent:HasModifier( necroticModifierName ) then
           local necrotic_stack = parent:GetModifierStackCount( necroticModifierName, nil)
@@ -76,10 +76,12 @@ function modifier_on_health_gain_lua:OnHealthGained( keys )  --非过量
             local max_health=parent:GetMaxHealth()
             if (current_health+bonus_heal)>max_health then
                 bonus_heal=max_health-current_health
+                parent:SetHealth(parent:GetMaxHealth())
+            else
+                local set_health=current_health+bonus_heal
+                parent:SetHealth(set_health)
             end
             actual_gain=actual_gain+bonus_heal
-            local set_health=current_health+bonus_heal
-            parent:SetHealth(set_health)
           end
        end
        if healer==nil then
@@ -88,6 +90,7 @@ function modifier_on_health_gain_lua:OnHealthGained( keys )  --非过量
 
       if parent.heal_absorb~=nil then
          local damage=math.min(parent.heal_absorb, actual_gain)
+         print("damage: "..damage)
          parent.heal_absorb=parent.heal_absorb-actual_gain
 
          local damage_table = {}
