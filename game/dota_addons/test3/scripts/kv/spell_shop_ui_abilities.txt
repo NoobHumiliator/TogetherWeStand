@@ -63,10 +63,10 @@
   "4"    "juggernaut_omni_slash"
   }
   "mirana" {
-  //"1"    "mirana_starfall"
-  "1"    "mirana_arrow_datadriven"
-  "2"    "mirana_leap"
-  "3"    "mirana_invis"
+  "1"    "mirana_starfall_datadriven"
+  "2"    "mirana_arrow_datadriven"
+  "3"    "mirana_leap"
+  "4"    "mirana_invis"
   }
   "morphling" {
   "1"    "morphling_waveform"
@@ -300,7 +300,8 @@
   "lone_druid" {
   "1"    "lone_druid_spirit_bear"
   "2"    "lone_druid_rabid"
-  "3"    "lone_druid_savage_roar"
+  "3"    "lone_druid_true_form_battle_cry"
+  "4"    "lone_druid_true_form"
   }
   "naga_siren" {
   "1"    "naga_siren_mirror_image"
