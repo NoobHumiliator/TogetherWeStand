@@ -31,7 +31,12 @@ var hideAbility = {
 	"phoenix_icarus_dive_stop": true,
 	"phoenix_sun_ray_stop":  true,
 	"phoenix_launch_fire_spirit" : true,
-	"abyssal_underlord_cancel_dark_rift":  true
+	"abyssal_underlord_cancel_dark_rift":  true,
+	"alchemist_unstable_concoction_throw":  true,
+	"naga_siren_song_of_the_siren_cancel":  true,
+	"rubick_telekinesis_land":  true,
+	"bane_nightmare_end":  true,
+	"ancient_apparition_ice_blast_release":  true
 };
 
 
