@@ -38,28 +38,22 @@ function SplitShotLaunch( keys )
 				local time= (target_location-v:GetAbsOrigin()):Length() /projectile_speed
 				ProjectileManager:CreateTrackingProjectile(projectile_info)
 				max_targets = max_targets - 1
-				if not caster:IsRealHero() then
-			         Timers:CreateTimer(time, function()
-			            local damage_table = {}
-						damage_table.attacker = caster
-						damage_table.victim = v
-						damage_table.damage_type = DAMAGE_TYPE_PHYSICAL			
-						damage_table.damage = caster:GetAttackDamage()*0.8*0.7 --幻象 本体基础伤害0.7倍修正值
-						ApplyDamage(damage_table)
-			         end)
-		        else
-		        	 Timers:CreateTimer(time, function()
-			            local damage_table = {}
-						damage_table.attacker = caster
-						damage_table.victim = v
-						damage_table.damage_type = DAMAGE_TYPE_PHYSICAL			
-						damage_table.damage = caster:GetAverageTrueAttackDamage(caster)*0.8 --本体真实伤害
-						ApplyDamage(damage_table)
-			         end)
-		        end
 			end
 			-- If we reached the maximum amount of targets then break the loop
 			if max_targets == 0 then break end
 		end
 	end
+end
+
+
+function MarksmanshipHit( keys )
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	local modifier_dmg_penalty = keys.modifier_dmg_penalty
+
+	-- Attack the target
+	ability:ApplyDataDrivenModifier(caster, caster, modifier_dmg_penalty, {})
+	caster:PerformAttack(target, true, true, true, true, false)
+	caster:RemoveModifierByName(modifier_dmg_penalty)
 end

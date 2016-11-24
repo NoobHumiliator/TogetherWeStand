@@ -18505,7 +18505,7 @@
 		"05"
 		{
 			"var_type"						"FIELD_INTEGER"
-			"damage_reduction_scepter"		"50"
+			"damage_reduction_scepter"		"-50"
 		}
 		"06"
 		{
@@ -18524,11 +18524,16 @@
 	"OnProjectileHitUnit"
 	{
 		"DeleteOnHit"	"1"
-
 		"FireSound"
 		{
 			"EffectName"	"Hero_DrowRanger.ProjectileImpact"
 			"Target" 		"TARGET"
+		}		
+		"RunScript"
+		{
+			"ScriptFile"						"heroes/hero_drow_ranger/marksmanship.lua"
+			"Function"							"MarksmanshipHit"
+			"modifier_dmg_penalty"				"modifier_marksmanship_splinter_dmg_penalty"
 		}
 	}
 
@@ -18566,6 +18571,20 @@
 						"02"				"150 150 150"
 					}
 				}
+			}
+		}
+		"modifier_marksmanship_splinter_dmg_penalty"
+		{
+			"Passive"						"0"
+			"IsPurgable"					"0"
+			"IsHidden"						"1"
+			"IsDebuff"						"1"
+
+			"Duration"						"0.01"
+
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"%damage_reduction_scepter"
 			}
 		}
 	}
