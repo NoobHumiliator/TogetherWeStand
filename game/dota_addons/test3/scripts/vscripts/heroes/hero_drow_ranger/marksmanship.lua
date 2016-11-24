@@ -3,8 +3,13 @@ require("util")
 function SplitShotLaunch( keys )
 
 	local caster = keys.caster
-	if caster:HasScepter() or (caster:GetOwnerEntity() and caster:GetOwnerEntity():HasScepter() )  then
+	local modifier_dmg_penalty = keys.modifier_dmg_penalty
+	if caster:HasScepter() or (caster:GetOwnerEntity() and caster:GetOwnerEntity():HasScepter()) and not caster:HasModifier(modifier_dmg_penalty)  then
+
 		local target = keys.target
+        if target.marksmanshipMark2~=nil and target.marksmanshipMark2  then
+           return
+        end
 		local target_location = target:GetAbsOrigin()
 		local caster_location = caster:GetAbsOrigin()
 		local ability = keys.ability
@@ -35,6 +40,11 @@ function SplitShotLaunch( keys )
 					bReplaceExisting = false,
 					bProvidesVision = false
 				}
+				if target.marksmanshipMark1~=nil and target.marksmanshipMark1 then
+					v.marksmanshipMark2=true
+				else
+					v.marksmanshipMark2=false
+				end
 				local time= (target_location-v:GetAbsOrigin()):Length() /projectile_speed
 				ProjectileManager:CreateTrackingProjectile(projectile_info)
 				max_targets = max_targets - 1
@@ -54,6 +64,7 @@ function MarksmanshipHit( keys )
 
 	-- Attack the target
 	ability:ApplyDataDrivenModifier(caster, caster, modifier_dmg_penalty, {})
+	target.marksmanshipMark1=true
 	caster:PerformAttack(target, true, true, true, true, false)
 	caster:RemoveModifierByName(modifier_dmg_penalty)
 end
