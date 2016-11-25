@@ -7,9 +7,11 @@ function SplitShotLaunch( keys )
 	if caster:HasScepter() or (caster:GetOwnerEntity() and caster:GetOwnerEntity():HasScepter()) and not caster:HasModifier(modifier_dmg_penalty)  then
 
 		local target = keys.target
-        if target.marksmanshipMark2~=nil and target.marksmanshipMark2  then
+		--[[
+        if target.marksmanshipMarkB~=nil and target.marksmanshipMarkB  then
            return
         end
+        ]]
 		local target_location = target:GetAbsOrigin()
 		local caster_location = caster:GetAbsOrigin()
 		local ability = keys.ability
@@ -19,7 +21,6 @@ function SplitShotLaunch( keys )
 
 		-- Ability variables
 		local radius = ability:GetLevelSpecialValueFor("scepter_range", ability_level)
-		local max_targets = ability:GetLevelSpecialValueFor("split_count_scepter", ability_level)-1
 		local projectile_speed = ability:GetLevelSpecialValueFor("projectile_speed", ability_level)
 		local split_shot_projectile = keys.split_shot_projectile
 
@@ -40,17 +41,15 @@ function SplitShotLaunch( keys )
 					bReplaceExisting = false,
 					bProvidesVision = false
 				}
-				if target.marksmanshipMark1~=nil and target.marksmanshipMark1 then
-					v.marksmanshipMark2=true
+				--[[
+				if target.marksmanshipMarkA~=nil and target.marksmanshipMarkA then
+					v.marksmanshipMarkB=true
 				else
-					v.marksmanshipMark2=false
+					v.marksmanshipMarkB=nil
 				end
-				local time= (target_location-v:GetAbsOrigin()):Length() /projectile_speed
+				]]
 				ProjectileManager:CreateTrackingProjectile(projectile_info)
-				max_targets = max_targets - 1
 			end
-			-- If we reached the maximum amount of targets then break the loop
-			if max_targets == 0 then break end
 		end
 	end
 end
@@ -64,7 +63,7 @@ function MarksmanshipHit( keys )
 
 	-- Attack the target
 	ability:ApplyDataDrivenModifier(caster, caster, modifier_dmg_penalty, {})
-	target.marksmanshipMark1=true
+	--target.marksmanshipMarkA=true
 	caster:PerformAttack(target, true, true, true, true, false)
 	caster:RemoveModifierByName(modifier_dmg_penalty)
 end
