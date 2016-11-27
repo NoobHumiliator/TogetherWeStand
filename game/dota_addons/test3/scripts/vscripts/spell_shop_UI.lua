@@ -3,7 +3,7 @@ alreadyCached = {}
 pairedAbility = {shredder_chakram="shredder_return_chakram", morphling_replicate="morphling_morph_replicate", elder_titan_ancestral_spirit="elder_titan_return_spirit" , 
 phoenix_icarus_dive="phoenix_icarus_dive_stop" , phoenix_sun_ray="phoenix_sun_ray_stop",phoenix_fire_spirits="phoenix_launch_fire_spirit",abyssal_underlord_dark_rift="abyssal_underlord_cancel_dark_rift",
 alchemist_unstable_concoction="alchemist_unstable_concoction_throw",naga_siren_song_of_the_siren="naga_siren_song_of_the_siren_cancel",rubick_telekinesis="rubick_telekinesis_land",
-bane_nightmare="bane_nightmare_end",ancient_apparition_ice_blast="ancient_apparition_ice_blast_release",lone_druid_true_form="lone_druid_true_form_druid"}
+bane_nightmare="bane_nightmare_end",ancient_apparition_ice_blast="ancient_apparition_ice_blast_release",lone_druid_true_form="lone_druid_true_form_druid",shredder_chakram_2="shredder_return_chakram_2",nyx_assassin_burrow="nyx_assassin_unburrow"}
 brokenModifierCounts = {
         modifier_shadow_demon_demonic_purge_charge_counter = 3,
         modifier_bloodseeker_rupture_charge_counter = 2,
@@ -14,9 +14,13 @@ brokenModifierAbilityMap = {
         shadow_demon_demonic_purge = "modifier_shadow_demon_demonic_purge_charge_counter",
         bloodseeker_rupture = "modifier_bloodseeker_rupture_charge_counter",
         earth_spirit_stone_caller="modifier_earth_spirit_stone_caller_charge_counter",
-        ember_spirit_fire_remnant="modifier_ember_spirit_fire_remnant_charge_counter"
+        ember_spirit_fire_remnant="modifier_ember_spirit_fire_remnant_charge_counter"  
+   }
+noReturnAbility = {    --不退回升级点数的技能
+        troll_warlord_whirling_axes_ranged = true,
+        lone_druid_savage_roar_bear = true,
+        morphling_hybrid = true
     }
-
 
 
 
@@ -63,6 +67,9 @@ function CHoldoutGameMode:AddAbility(keys)
                hero:AddAbility(keys.abilityName)
                if pairedAbility[keys.abilityName]~=nil then
                   hero:AddAbility(pairedAbility[keys.abilityName])
+                  if pairedAbility[keys.abilityName]=="nyx_assassin_unburrow" then
+                  	hero:FindAbilityByName("nyx_assassin_unburrow"):SetLevel(1)  --默认升一级
+                  end
                end
                ------------------------------------------------
                if  CHoldoutGameMode._vHeroList[abilityName]~=nil then
@@ -83,7 +90,8 @@ function CHoldoutGameMode:AddAbility(keys)
                local p = hero:GetAbilityPoints()
                hero:SetAbilityPoints(p-keys.abilityCost)
                local ability = hero:FindAbilityByName(keys.abilityName)
-		       ability:SetLevel(1)	
+		       ability:SetLevel(1)
+		       ability:SetHidden(false)
                CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId),"UpdateAbilityList", keys)
                EmitSoundOn("General.Buy",PlayerResource:GetPlayer(keys.playerId))
                if brokenModifierAbilityMap[keys.abilityName]~=nil then
@@ -108,6 +116,9 @@ function CHoldoutGameMode:RemoveAbility(keys)
 		  	 local ability = hero:FindAbilityByName(keys.abilityName)
 		  	  if ability then
 		  	    local abilityLevel=ability:GetLevel()
+		  	    if noReturnAbility[ability:GetAbilityName()] ~= nil then  --同时升级的技能不退技能点
+                  abilityLevel=1
+                end
 		  	    local pointsReturn=keys.abilityCost+abilityLevel-1
                 local expense=PlayerResource:GetLevel(keys.playerId)*pointsReturn*30
 	             if(hero:GetGold() >= expense) then

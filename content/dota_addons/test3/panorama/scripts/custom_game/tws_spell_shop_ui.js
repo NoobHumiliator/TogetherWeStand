@@ -15,6 +15,8 @@ var unsellableAbility = {
 	"witch_doctor_death_ward" : true,
 	"meepo_divided_we_stand" : true,
 	"broodmother_spin_web" : true,
+	"shredder_chakram_2" : true,
+	"treant_eyes_in_the_forest" : true
 };
 
 //卖技能的面板中不显示这些技能
@@ -36,7 +38,10 @@ var hideAbility = {
 	"naga_siren_song_of_the_siren_cancel":  true,
 	"rubick_telekinesis_land":  true,
 	"bane_nightmare_end":  true,
-	"ancient_apparition_ice_blast_release":  true
+	"ancient_apparition_ice_blast_release":  true,
+	"lone_druid_true_form_druid" : true,
+	"shredder_return_chakram_2" : true,
+	"nyx_assassin_unburrow" : true
 };
 
 
