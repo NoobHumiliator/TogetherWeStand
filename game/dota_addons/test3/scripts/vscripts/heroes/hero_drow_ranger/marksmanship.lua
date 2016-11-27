@@ -7,17 +7,14 @@ function SplitShotLaunch( keys )
 	if caster:HasScepter() or (caster:GetOwnerEntity() and caster:GetOwnerEntity():HasScepter()) and not caster:HasModifier(modifier_dmg_penalty)  then
 
 		local target = keys.target
-		--[[
         if target.marksmanshipMarkB~=nil and target.marksmanshipMarkB  then
+           target.marksmanshipMarkB=nil
            return
         end
-        ]]
 		local target_location = target:GetAbsOrigin()
 		local caster_location = caster:GetAbsOrigin()
 		local ability = keys.ability
 		local ability_level = ability:GetLevel() - 1
-
-		local attack_target = caster:GetAttackTarget()
 
 		-- Ability variables
 		local radius = ability:GetLevelSpecialValueFor("scepter_range", ability_level)
@@ -28,7 +25,7 @@ function SplitShotLaunch( keys )
 
 		-- Create projectiles for units that are not the casters current attack target
 		for _,v in pairs(split_shot_targets) do
-			if v ~= attack_target then
+			if v ~= target then
 				local projectile_info = 
 				{
 					EffectName = split_shot_projectile,
@@ -41,14 +38,14 @@ function SplitShotLaunch( keys )
 					bReplaceExisting = false,
 					bProvidesVision = false
 				}
-				--[[
 				if target.marksmanshipMarkA~=nil and target.marksmanshipMarkA then
 					v.marksmanshipMarkB=true
+					target.marksmanshipMarkA=nil
 				else
 					v.marksmanshipMarkB=nil
 				end
-				]]
 				ProjectileManager:CreateTrackingProjectile(projectile_info)
+				break
 			end
 		end
 	end
@@ -63,7 +60,7 @@ function MarksmanshipHit( keys )
 
 	-- Attack the target
 	ability:ApplyDataDrivenModifier(caster, caster, modifier_dmg_penalty, {})
-	--target.marksmanshipMarkA=true
+	target.marksmanshipMarkA=true
 	caster:PerformAttack(target, true, true, true, true, false)
 	caster:RemoveModifierByName(modifier_dmg_penalty)
 end

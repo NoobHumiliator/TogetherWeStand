@@ -71,7 +71,8 @@
   "morphling" {
   "1"    "morphling_waveform"
   "2"    "morphling_adaptive_strike"
-  "3"    "morphling_replicate"
+  "3"    "morphling_hybrid"
+  "4"    "morphling_replicate"
   }
   "phantom_lancer" {
   "1"    "phantom_lancer_spirit_lance"
@@ -155,7 +156,8 @@
   "1"    "treant_natures_guise"
   "2"    "treant_leech_seed"
   "3"    "treant_living_armor"
-  "4"    "treant_overgrowth"
+  "4"    "treant_eyes_in_the_forest"
+  "5"    "treant_overgrowth"
   }
   "wisp" {
   "1"    "wisp_tether"
@@ -252,13 +254,15 @@
   "1"    "ogre_magi_fireblast"
   "2"    "ogre_magi_ignite"
   "3"    "ogre_magi_bloodlust"
-  "4"    "ogre_magi_multicast"
+  "4"    "ogre_magi_unrefined_fireblast"
+  "5"    "ogre_magi_multicast"
   }
   "shredder" {
   "1"    "shredder_whirling_death"
   "2"    "shredder_timber_chain"
   "3"    "shredder_reactive_armor"
   "4"    "shredder_chakram"
+  "5"    "shredder_chakram_2"
   }
   "bristleback" {
   "1"    "bristleback_viscous_nasal_goo"
@@ -289,7 +293,8 @@
   "2"    "earth_spirit_boulder_smash"
   "3"    "earth_spirit_rolling_boulder"
   "4"    "earth_spirit_geomagnetic_grip"
-  "5"    "earth_spirit_magnetize"
+  "5"    "earth_spirit_petrify"
+  "6"    "earth_spirit_magnetize"
   }
   "phoenix" {
   "1"    "phoenix_icarus_dive"
@@ -563,7 +568,8 @@
   "1"    "nyx_assassin_impale"
   "2"    "nyx_assassin_mana_burn"
   "3"    "nyx_assassin_spiked_carapace"
-  "4"    "nyx_assassin_vendetta"
+  "4"    "nyx_assassin_burrow"
+  "5"    "nyx_assassin_vendetta"
   }
   "slark" {
   "1"    "slark_dark_pact"
