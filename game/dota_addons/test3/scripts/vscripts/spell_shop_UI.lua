@@ -22,16 +22,34 @@ noReturnAbility = {    --不退回升级点数的技能
         morphling_hybrid = true
     }
 
-
+meleeMap = {
+    -- Remap troll ulty
+    troll_warlord_berserkers_rage = 'troll_warlord_berserkers_rage_melee'
+}
 
 
 
 local unitList = LoadKeyValues('scripts/npc/npc_units_custom.txt')
+-- Contains info on heroes
+local heroListKV = LoadKeyValues('scripts/npc/npc_heroes.txt')
 
+local meleeList = {}
+for heroName, values in pairs(heroListKV) do
+    if heroName ~= 'Version' and heroName ~= 'npc_dota_hero_base' then
+        if values.AttackCapabilities == 'DOTA_UNIT_CAP_MELEE_ATTACK' then
+            meleeList[heroName] = true
+        end
+    end
+end
 
+-- Tells you if a given heroName is melee or not
+local function isMeleeHero(heroName)
+    if meleeList[heroName] then
+        return true
+    end
 
-
-
+    return false
+end
 
 
 local function unitExists(unitName)
@@ -64,10 +82,15 @@ function CHoldoutGameMode:AddAbility(keys)
 		local abilityName=keys.abilityName
 		  if hero then
 		  	 if keys.enough==1 then
-               hero:AddAbility(keys.abilityName)
-               if pairedAbility[keys.abilityName]~=nil then
-                  hero:AddAbility(pairedAbility[keys.abilityName])
-                  if pairedAbility[keys.abilityName]=="nyx_assassin_unburrow" then
+
+	           if isMeleeHero(hero:GetUnitName()) and meleeMap[abilityName] then
+	               abilityName = meleeMap[abilityName]
+	           end
+               hero:AddAbility(abilityName)
+
+               if pairedAbility[abilityName]~=nil then
+                  hero:AddAbility(pairedAbility[abilityName])
+                  if pairedAbility[abilityName]=="nyx_assassin_unburrow" then
                   	hero:FindAbilityByName("nyx_assassin_unburrow"):SetLevel(1)  --默认升一级
                   end
                end
@@ -89,15 +112,15 @@ function CHoldoutGameMode:AddAbility(keys)
 	           ------------------------------------------------------ 
                local p = hero:GetAbilityPoints()
                hero:SetAbilityPoints(p-keys.abilityCost)
-               local ability = hero:FindAbilityByName(keys.abilityName)
+               local ability = hero:FindAbilityByName(abilityName)
 		       ability:SetLevel(1)
 		       ability:SetHidden(false)
                CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId),"UpdateAbilityList", keys)
                EmitSoundOn("General.Buy",PlayerResource:GetPlayer(keys.playerId))
-               if brokenModifierAbilityMap[keys.abilityName]~=nil then
-	               local modifier = hero:FindModifierByName(brokenModifierAbilityMap[keys.abilityName])
+               if brokenModifierAbilityMap[abilityName]~=nil then
+	               local modifier = hero:FindModifierByName(brokenModifierAbilityMap[abilityName])
 			       if modifier then
-			       	    local stack= brokenModifierCounts[brokenModifierAbilityMap[keys.abilityName]]
+			       	    local stack= brokenModifierCounts[brokenModifierAbilityMap[abilityName]]
 			            modifier:SetStackCount(stack)
 			       end
 		       end
