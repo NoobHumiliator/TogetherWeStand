@@ -18819,7 +18819,6 @@
 }
 
 
-
 "troll_warlord_berserkers_rage_melee"
 {
     "BaseClass"                     "troll_warlord_berserkers_rage"
@@ -18876,8 +18875,5 @@
         }
     }
 }
-
-
-
 
 } //主括号
