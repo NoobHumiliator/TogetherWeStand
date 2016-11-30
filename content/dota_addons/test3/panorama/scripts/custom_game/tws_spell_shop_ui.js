@@ -16,15 +16,14 @@ var unsellableAbility = {
 	"meepo_divided_we_stand" : true,
 	"broodmother_spin_web" : true,
 	"shredder_chakram_2" : true,
-	"treant_eyes_in_the_forest" : true
+	"treant_eyes_in_the_forest" : true,
+	"wisp_tether_break" : true
 };
 
 //卖技能的面板中不显示这些技能
 var hideAbility = {
 	"damage_counter" : true,
 	"attribute_bonus" : true,
-	"wisp_spirits_in" : true,
-	"wisp_spirits_out" : true,
 	"keeper_of_the_light_illuminate_end" : true,
 	"keeper_of_the_light_spirit_form_illuminate" : true,
 	"morphling_morph_replicate" : true,
