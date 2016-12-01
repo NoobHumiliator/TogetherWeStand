@@ -44,6 +44,15 @@ var hideAbility = {
 };
 
 
+var noReturnAbility = {    //不退回升级点数的技能
+    "troll_warlord_whirling_axes_ranged" : true,
+    "lone_druid_savage_roar_bear" : true,
+    "phoenix_sun_ray_toggle_move" : true,
+    "morphling_hybrid" : true
+}
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -520,6 +529,11 @@ function ResetSellAbilityList(abilityName,sellCostLabel,abPanel,playerId)
 	    var abilityIndex=Entities.GetAbilityByName(playerHeroIndex, abilityName );
     	var abilityCost=GetAbilityCost(abilityName);
     	var abilityLevel=Abilities.GetLevel(abilityIndex);
+
+        if (noReturnAbility[abilityName] == true)
+        {
+        	 abilityLevel=1
+        }         
     	var pointsReturn=abilityCost+abilityLevel-1;
     	var sellCost=Players.GetLevel(playerId)*pointsReturn*30;
         sellCostLabel.text="-"+sellCost;

@@ -242,8 +242,7 @@
   "chen" {
   "1"    "chen_penitence"
   "2"    "chen_test_of_faith"
-  "3"    "chen_test_of_faith_teleport"
-  "4"    "chen_hand_of_god"
+  "3"    "chen_hand_of_god"
   }
   "silencer" {
   "1"    "silencer_curse_of_the_silent"
@@ -301,7 +300,8 @@
   "1"    "phoenix_icarus_dive"
   "2"    "phoenix_fire_spirits"
   "3"    "phoenix_sun_ray"
-  "4"    "phoenix_supernova"
+  "4"    "phoenix_sun_ray_toggle_move"
+  "5"    "phoenix_supernova"
   }
   "lone_druid" {
   "1"    "lone_druid_spirit_bear"

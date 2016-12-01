@@ -20,6 +20,7 @@ brokenModifierAbilityMap = {
 noReturnAbility = {    --不退回升级点数的技能
         troll_warlord_whirling_axes_ranged = true,
         lone_druid_savage_roar_bear = true,
+        phoenix_sun_ray_toggle_move = true,
         morphling_hybrid = true
     }
 
@@ -142,9 +143,9 @@ function CHoldoutGameMode:RemoveAbility(keys)
 		  	    local abilityLevel=ability:GetLevel()
 		  	    if noReturnAbility[ability:GetAbilityName()] ~= nil then  --同时升级的技能不退技能点
                   abilityLevel=1
-                end
+            end
 		  	    local pointsReturn=keys.abilityCost+abilityLevel-1
-                local expense=PlayerResource:GetLevel(keys.playerId)*pointsReturn*30
+            local expense=PlayerResource:GetLevel(keys.playerId)*pointsReturn*30
 	             if(hero:GetGold() >= expense) then
 	               local abilityLevel=ability:GetLevel()
 	               local modifiers=hero:FindAllModifiers()
@@ -164,7 +165,7 @@ function CHoldoutGameMode:RemoveAbility(keys)
 	                CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId),"UpdateAbilityList", {heroName=false,playerId=keys.playerId})
 	                EmitSoundOn("compendium_points",PlayerResource:GetPlayer(keys.playerId))
 		          else
-		            Notifications:Bottom(keys.playerId, {text="#you_need", duration=3, style={color="Red"}})
+		                Notifications:Bottom(keys.playerId, {text="#you_need", duration=3, style={color="Red"}})
                     Notifications:Bottom(keys.playerId, {text=tostring(expense), duration=3, style={color="Red"}, continue=true})
                     Notifications:Bottom(keys.playerId, {text="#gold_to_sell_this_spell", duration=3, style={color="Red"}, continue=true})
                     EmitSoundOn("General.Cancel",PlayerResource:GetPlayer(keys.playerId))
