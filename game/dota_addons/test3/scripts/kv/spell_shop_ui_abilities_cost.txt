@@ -85,4 +85,5 @@
     "abyssal_underlord_cancel_dark_rift"      "0"
     "earth_spirit_stone_caller"               "0"
     "ember_spirit_activate_fire_remnant"      "0"
+    "phoenix_sun_ray_toggle_move"             "0"
 }
