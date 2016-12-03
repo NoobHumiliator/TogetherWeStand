@@ -122,7 +122,7 @@ function CHoldoutGameMode:InitGameMode()
     CustomGameEventManager:RegisterListener("RemoveAbility", Dynamic_Wrap(CHoldoutGameMode, 'RemoveAbility'))
     CustomGameEventManager:RegisterListener("SelectDifficulty",Dynamic_Wrap(CHoldoutGameMode, 'SelectDifficulty'))
     CustomGameEventManager:RegisterListener("SendTrialLeveltoServer",Dynamic_Wrap(CHoldoutGameMode, 'SendTrialLeveltoServer'))
-
+    
 
 	-- Hook into game events allowing reload of functions at run time
 	ListenToGameEvent( "npc_spawned", Dynamic_Wrap( CHoldoutGameMode, "OnNPCSpawned" ), self )
@@ -134,6 +134,7 @@ function CHoldoutGameMode:InitGameMode()
 	ListenToGameEvent( "dota_item_picked_up", Dynamic_Wrap( CHoldoutGameMode, "OnItemPickUp"), self )
 	ListenToGameEvent( "dota_player_gained_level", Dynamic_Wrap(CHoldoutGameMode, "OnHeroLevelUp"), self)
 	ListenToGameEvent( "dota_item_purchased", Dynamic_Wrap(CHoldoutGameMode, "OnItemPurchased"), self)
+	ListenToGameEvent( "dota_player_pick_hero", Dynamic_Wrap(CHoldoutGameMode, "OnPlayerPickHero"), self)
 
     --读取spell shop UI的kv内容
 	self.HeroesKV = LoadKeyValues("scripts/kv/spell_shop_ui_herolist.txt")
@@ -238,6 +239,15 @@ function CHoldoutGameMode:ModifyGoldFilter(keys)
   return true
 end
 
+
+function CHoldoutGameMode:OnPlayerPickHero(keys)
+  local player = PlayerInstanceFromIndex(keys.player)
+  local hero = player:GetAssignedHero()
+  print("112"..hero:GetUnitName())
+  if hero:HasAttribute("treant_eyes_in_the_forest") then
+  	hero:RemoveAbility("treant_eyes_in_the_forest")
+  end
+end
 
 
 
