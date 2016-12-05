@@ -36,6 +36,23 @@ function PrintTable(t, indent, done)
     end
 end
 
+function ListModifiers(hUnit)
+
+    if not hUnit then
+        print('Failed to find unit to  list modifiers.')
+        return
+    end
+
+    print('Modifiers for '..hUnit:GetUnitName())
+
+    local count = hUnit:GetModifierCount()
+    for i=0,count-1 do
+        print(hUnit:GetModifierNameByIndex(i))
+    end
+end
+
+
+
 -- Colors
 COLOR_NONE = '\x06'
 COLOR_GRAY = '\x06'
