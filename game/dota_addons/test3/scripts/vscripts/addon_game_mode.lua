@@ -244,7 +244,9 @@ function CHoldoutGameMode:OnPlayerPickHero(keys)
   local player = PlayerInstanceFromIndex(keys.player)
   local hero = player:GetAssignedHero()
   print("112"..hero:GetUnitName())
+  ListModifiers(hero)
   if hero:HasAttribute("treant_eyes_in_the_forest") then
+  	print("hahahsasadasd")
   	hero:RemoveAbility("treant_eyes_in_the_forest")
   end
 end
