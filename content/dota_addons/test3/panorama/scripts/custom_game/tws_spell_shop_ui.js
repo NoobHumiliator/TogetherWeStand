@@ -40,15 +40,19 @@ var hideAbility = {
 	"ancient_apparition_ice_blast_release":  true,
 	"lone_druid_true_form_druid" : true,
 	"shredder_return_chakram_2" : true,
-	"nyx_assassin_unburrow" : true
+	"nyx_assassn_unburrow" : true,
+	"morphling_morph" : true
 };
 
 
 var noReturnAbility = {    //不退回升级点数的技能
     "troll_warlord_whirling_axes_ranged" : true,
+    "troll_warlord_whirling_axes_melee" : true,
     "lone_druid_savage_roar_bear" : true,
     "phoenix_sun_ray_toggle_move" : true,
-    "morphling_hybrid" : true
+    "morphling_hybrid" : true,
+    "morphling_morph":true,
+    "morphling_morph_agi":true
 }
 
 

@@ -71,8 +71,10 @@
   "morphling" {
   "1"    "morphling_waveform"
   "2"    "morphling_adaptive_strike"
-  "3"    "morphling_hybrid"
-  "4"    "morphling_replicate"
+  "3"    "morphling_morph_agi"
+  "4"    "morphling_morph_str"
+  "5"    "morphling_hybrid"
+  "6"    "morphling_replicate"
   }
   "phantom_lancer" {
   "1"    "phantom_lancer_spirit_lance"
@@ -350,6 +352,8 @@
   "1"    "keeper_of_the_light_illuminate"
   "2"    "keeper_of_the_light_mana_leak"
   "3"    "keeper_of_the_light_chakra_magic"
+  "4"    "keeper_of_the_light_recall_tws"
+  "5"    "keeper_of_the_light_blinding_light_tws"
   }
   "skywrath_mage" {
   "1"    "skywrath_mage_arcane_bolt"
