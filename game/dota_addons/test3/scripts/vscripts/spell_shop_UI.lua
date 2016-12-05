@@ -4,7 +4,7 @@ pairedAbility = {shredder_chakram="shredder_return_chakram", morphling_replicate
 phoenix_icarus_dive="phoenix_icarus_dive_stop" , phoenix_sun_ray="phoenix_sun_ray_stop",phoenix_fire_spirits="phoenix_launch_fire_spirit",abyssal_underlord_dark_rift="abyssal_underlord_cancel_dark_rift",
 alchemist_unstable_concoction="alchemist_unstable_concoction_throw",naga_siren_song_of_the_siren="naga_siren_song_of_the_siren_cancel",rubick_telekinesis="rubick_telekinesis_land",
 bane_nightmare="bane_nightmare_end",ancient_apparition_ice_blast="ancient_apparition_ice_blast_release",lone_druid_true_form="lone_druid_true_form_druid",shredder_chakram_2="shredder_return_chakram_2",nyx_assassin_burrow="nyx_assassin_unburrow",
-wisp_tether="wisp_tether_break"}
+wisp_tether="wisp_tether_break",morphling_morph_agi="morphling_morph",morphling_morph_str="morphling_morph"}
 brokenModifierCounts = {
         modifier_shadow_demon_demonic_purge_charge_counter = 3,
         modifier_bloodseeker_rupture_charge_counter = 2,
@@ -19,9 +19,12 @@ brokenModifierAbilityMap = {
    }
 noReturnAbility = {    --不退回升级点数的技能
         troll_warlord_whirling_axes_ranged = true,
+        troll_warlord_whirling_axes_melee = true,
         lone_druid_savage_roar_bear = true,
         phoenix_sun_ray_toggle_move = true,
-        morphling_hybrid = true
+        morphling_hybrid = true,
+        morphling_morph_agi = true,
+        morphling_morph_str = true
     }
 
 meleeMap = {
@@ -29,7 +32,10 @@ meleeMap = {
     troll_warlord_berserkers_rage = 'troll_warlord_berserkers_rage_melee'
 }
 
-
+manualActivate = {
+    keeper_of_the_light_blinding_light_tws = true,
+    keeper_of_the_light_recall_tws = true
+}
 
 local unitList = LoadKeyValues('scripts/npc/npc_units_custom.txt')
 -- Contains info on heroes
@@ -43,6 +49,7 @@ for heroName, values in pairs(heroListKV) do
         end
     end
 end
+
 
 -- Tells you if a given heroName is melee or not
 local function isMeleeHero(heroName)
@@ -89,15 +96,22 @@ function CHoldoutGameMode:AddAbility(keys)
 	               abilityName = meleeMap[abilityName]
 	           end
                hero:AddAbility(abilityName)
-
                if pairedAbility[abilityName]~=nil then
                   hero:AddAbility(pairedAbility[abilityName])
                   if pairedAbility[abilityName]=="nyx_assassin_unburrow" then
                   	hero:FindAbilityByName("nyx_assassin_unburrow"):SetLevel(1)  --默认升一级
                   end
                end
+
+
+               if manualActivate[abilityName] then  --激活光法的两个技能
+                 local ab = hero:FindAbilityByName(abilityName)
+                 if ab then
+                    ab:SetActivated(true)
+                 end
+               end
                ------------------------------------------------
-               if  CHoldoutGameMode._vHeroList[abilityName]~=nil then
+              if  CHoldoutGameMode._vHeroList[abilityName]~=nil then
 		          if alreadyCached[ CHoldoutGameMode._vHeroList[abilityName]]==true then 
 			        else				
                       alreadyCached[ CHoldoutGameMode._vHeroList[abilityName]] = true
