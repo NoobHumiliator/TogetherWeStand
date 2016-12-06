@@ -660,6 +660,7 @@
   "4"    "invoker_alacrity_lod"
   "5"    "invoker_ice_wall_lod"
   "6"    "invoker_tornado_lod"
+  "7"    "invoker_emp_lod"
   }
   "obsidian_destroyer" {
   "1"    "obsidian_destroyer_arcane_orb"

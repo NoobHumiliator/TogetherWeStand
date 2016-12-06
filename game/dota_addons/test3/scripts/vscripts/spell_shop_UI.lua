@@ -72,7 +72,7 @@ function CHoldoutGameMode:HeroListRefill()
 	local heroListKV = LoadKeyValues("scripts/kv/npc_heroes_precache.txt")
 	for k, v in pairs( heroListKV ) do
 		if type( v ) == "table" and v.Ability1 then
-			for i = 1,7 do
+			for i = 1,17 do
 				local a = "Ability" .. tostring(i)
 				if v[a] ~= nil then
 					self._vHeroList[ v[a] ] = k
@@ -111,26 +111,28 @@ function CHoldoutGameMode:AddAbility(keys)
                  end
                end
                ------------------------------------------------
-              if  CHoldoutGameMode._vHeroList[abilityName]~=nil then
-		          if alreadyCached[ CHoldoutGameMode._vHeroList[abilityName]]==true then 
-			        else				
-                      alreadyCached[ CHoldoutGameMode._vHeroList[abilityName]] = true
-                      --print('Precaching unit: '.. CHoldoutGameMode._vHeroList[abilityName]) 
-                      if unitExists('npc_precache_'.. CHoldoutGameMode._vHeroList[abilityName]) then     
-                        PrecacheUnitByNameAsync('npc_precache_'.. CHoldoutGameMode._vHeroList[abilityName], function() end)
-                       else
-                        --print('Failed to precache unit: npc_precache_'.. CHoldoutGameMode._vHeroList[abilityName])
-                      end
-                   end
-                else
+               if  CHoldoutGameMode._vHeroList[abilityName]~=nil then
+                if alreadyCached[ CHoldoutGameMode._vHeroList[abilityName]]==true then
+                 print("ddddddd") 
+                else				
+                  alreadyCached[ CHoldoutGameMode._vHeroList[abilityName]] = true
+                  print('Precaching unit: '.. CHoldoutGameMode._vHeroList[abilityName]) 
+                  if unitExists('npc_precache_'.. CHoldoutGameMode._vHeroList[abilityName]) then     
+                    PrecacheUnitByNameAsync('npc_precache_'.. CHoldoutGameMode._vHeroList[abilityName], function() end)
+                  else
+                    print('Failed to precache unit: npc_precache_'.. CHoldoutGameMode._vHeroList[abilityName])
+                  end
+                end
+              else
+                print("asasasas")
                 PrecacheUnitByNameAsync('npc_precache_'..abilityName, function() end)    --自定义的技能需要单独加载         
-               end 
+              end 
 	           ------------------------------------------------------ 
                local p = hero:GetAbilityPoints()
                hero:SetAbilityPoints(p-keys.abilityCost)
                local ability = hero:FindAbilityByName(abilityName)
-		       ability:SetLevel(1)
-		       ability:SetHidden(false)
+		           ability:SetLevel(1)
+		           ability:SetHidden(false)
                CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId),"UpdateAbilityList", keys)
                EmitSoundOn("General.Buy",PlayerResource:GetPlayer(keys.playerId))
                if brokenModifierAbilityMap[abilityName]~=nil then
