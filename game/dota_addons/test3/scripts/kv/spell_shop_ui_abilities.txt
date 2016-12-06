@@ -440,9 +440,8 @@
   }
   "faceless_void" {
   "1"    "faceless_void_time_walk"
-  "2"    "faceless_void_time_dilation"
-  "3"    "faceless_void_time_lock"
-  "4"    "faceless_void_chronosphere"
+  "2"    "faceless_void_time_lock"
+  "3"    "faceless_void_chronosphere"
   }
   "phantom_assassin" {
   "1"    "phantom_assassin_stifling_dagger"
