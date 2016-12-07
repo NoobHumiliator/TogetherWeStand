@@ -18922,7 +18922,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "1000"
         "AbilityCastPoint"              "0"
-        "AbilityCooldown"               "20"
+        "AbilityCooldown"               "10"
         "AbilityManaCost"               "100"
 
         // Stats
@@ -18975,7 +18975,7 @@
 
         // Stats
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "35"
+        "AbilityCooldown"               "20"
         "AbilityManaCost"               "200"
 
         // Special
@@ -19027,7 +19027,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "2000"
         "AbilityCastPoint"              "0"
-        "AbilityCooldown"               "30"
+        "AbilityCooldown"               "15"
         "AbilityManaCost"               "150"
 
         // Special
@@ -19067,7 +19067,7 @@
             "07"
             {
                 "var_type"              "FIELD_FLOAT"
-                "base_damage"           "70"
+                "base_damage"           "100"
             }
             "08"
             {
@@ -19099,7 +19099,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "950"
         "AbilityCastPoint"              "0"
-        "AbilityCooldown"               "30"
+        "AbilityCooldown"               "15"
         "AbilityManaCost"               "125"
 
         // Special
@@ -19138,7 +19138,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "invoker_alacrity"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-        "MaxLevel"                      "4"
+        "MaxLevel"                      "6"
         "RequiredLevel"                 "1"
 
         // Unit Targeting
@@ -19161,12 +19161,12 @@
             "01"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "bonus_attack_speed"        "20 40 60 80"
+                "bonus_attack_speed"        "25 50 75 100"
             }
             "02"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "bonus_damage"              "20 40 60 80"
+                "bonus_damage"              "25 50 75 100"
             }
             "03"
             {
@@ -19193,7 +19193,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "700"
         "AbilityCastPoint"              "0"
-        "AbilityCooldown"               "55"
+        "AbilityCooldown"               "15"
         "AbilityManaCost"               "200"
 
         // Stats
@@ -19274,7 +19274,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "0"
         "AbilityCastPoint"              "0"
-        "AbilityCooldown"               "30"
+        "AbilityCooldown"               "12"
         "AbilityManaCost"               "175"
 
         // Special
@@ -19323,7 +19323,7 @@
 
         // Stats
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "30"
+        "AbilityCooldown"               "15"
         "AbilityManaCost"               "75"
 
         // Special
@@ -19378,7 +19378,7 @@
 
         // Stats
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "25"
+        "AbilityCooldown"               "10"
         "AbilityManaCost"               "175"
 
         // Special
@@ -19403,7 +19403,7 @@
             "04"
             {
                 "var_type"              "FIELD_FLOAT"
-                "damage_per_second"     "6 18 30 42"
+                "damage_per_second"     "12 24 36 48"
             }
             "05"
             {
@@ -19497,14 +19497,5 @@
             }
         }
     }
-
-
-
-
-
-
-
-
-
 
 } //主括号
