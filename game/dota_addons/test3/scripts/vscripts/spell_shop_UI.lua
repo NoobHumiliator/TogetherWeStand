@@ -113,7 +113,6 @@ function CHoldoutGameMode:AddAbility(keys)
                ------------------------------------------------
                if  CHoldoutGameMode._vHeroList[abilityName]~=nil then
                 if alreadyCached[ CHoldoutGameMode._vHeroList[abilityName]]==true then
-                 print("ddddddd") 
                 else				
                   alreadyCached[ CHoldoutGameMode._vHeroList[abilityName]] = true
                   print('Precaching unit: '.. CHoldoutGameMode._vHeroList[abilityName]) 
@@ -124,7 +123,6 @@ function CHoldoutGameMode:AddAbility(keys)
                   end
                 end
               else
-                print("asasasas")
                 PrecacheUnitByNameAsync('npc_precache_'..abilityName, function() end)    --自定义的技能需要单独加载         
               end 
 	           ------------------------------------------------------ 
