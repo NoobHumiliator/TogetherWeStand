@@ -163,9 +163,9 @@ function CHoldoutGameRound:Begin()
    	  if v then
    	  	print(vAffixes_Text[k])
    	  	 Notifications:BottomToAll({text=vAffixes_Text[k], duration=10, style = {color = "Red"},continue=true})
-   	  	 --Notifications:BottomToAll({text=" ", duration=5.5, style = {color = "Red"},continue=true})
    	  end
    end
+   --[[  绿字任务系统不再支持
 	self._entQuest = SpawnEntityFromTableSynchronous( "quest", {
 		name = self._szRoundTitle,
 		title =  self._szRoundQuestTitle
@@ -178,7 +178,7 @@ function CHoldoutGameRound:Begin()
 	} )
 	self._entQuest:AddSubquest( self._entKillCountSubquest )
 	self._entKillCountSubquest:SetTextReplaceValue( SUBQUEST_TEXT_REPLACE_VALUE_TARGET_VALUE, self._nCoreUnitsTotal )
-	
+	 ]]
 	local messageinfo = {
            message = self._szRoundTitle,
            duration=6
@@ -249,13 +249,13 @@ function CHoldoutGameRound:End()
 	    end 
     end
 
-
-
+    --[[
 	if self._entQuest then
 		UTIL_Remove( self._entQuest )
 		self._entQuest = nil
 		self._entKillCountSubquest = nil
 	end
+	]]
 	self:CheckAchievement()
 end
 

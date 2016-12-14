@@ -168,10 +168,12 @@ function CHoldoutGameMode:RemoveAbility(keys)
 		               modifier:Destroy()
 		              end
 		            end
+                print(hero:GetUnitName().." removing ability: ".. keys.abilityName)
 		            hero:RemoveAbility(keys.abilityName)
-		             if pairedAbility[keys.abilityName]~=nil then
+		             if pairedAbility[keys.abilityName]~=nil then                      
                       hero:RemoveAbility(pairedAbility[keys.abilityName])
-                     end
+                      print(hero:GetUnitName().." removing pairs ability: ".. keys.abilityName)
+                 end
 		            local p = hero:GetAbilityPoints()
                     hero:SetAbilityPoints(p + pointsReturn)
 	                hero:SpendGold(expense, DOTA_ModifyGold_Unspecified)
