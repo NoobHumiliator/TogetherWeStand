@@ -454,7 +454,7 @@ function PlayerAbilityListUpdate(playerId)
     {
        var ability=Entities.GetAbility(playerHeroIndex,i);
        var abilityName=Abilities.GetAbilityName(ability);
-       if(abilityName!="" && hideAbility[abilityName]!=true )
+       if(abilityName!="" && hideAbility[abilityName]!=true&&abilityName.substring(0,14)!="special_bonus_") //天赋技能默认隐藏
         {
            slotNumber=slotNumber+1;
            UpdatePlayerAbility(playerAbilityList,slotNumber,abilityName,playerId);
@@ -473,7 +473,7 @@ function GetPlayerAbilityNumber (playerId)
     for (var i = 0 ; i <= 10; i++) 
     {
        var abilityName=Abilities.GetAbilityName(Entities.GetAbility(playerHeroIndex,i));
-       if(abilityName!=""&& hideAbility[abilityName]!=true)
+       if(abilityName!=""&& hideAbility[abilityName]!=true&&abilityName.substring(0,14)!="special_bonus_")
         {
            abilityNumber=abilityNumber+1;
         }

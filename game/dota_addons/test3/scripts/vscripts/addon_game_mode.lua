@@ -431,11 +431,15 @@ end
 function CHoldoutGameMode:_ThinkPrepTime()
 	if GameRules:GetGameTime() >= self._flPrepTimeEnd then
 		self._flPrepTimeEnd = nil
+		--[[ 绿字任务
 		if self._entPrepTimeQuest then
 			UTIL_Remove( self._entPrepTimeQuest )
 			self._entPrepTimeQuest = nil
 		end
-
+        ]]
+        if self._precacheFlag then
+           self._precacheFlag=nil  --预载入标识
+        end
 		if self._nRoundNumber > #self._vRounds then
 			 if self.map_difficulty==3 and not GameRules:IsCheatMode()then 
 			   Rank:RecordGame(self._nRoundNumber-1,DOTA_TEAM_BADGUYS) --储存游戏game
@@ -450,13 +454,18 @@ function CHoldoutGameMode:_ThinkPrepTime()
 		self._currentRound:Begin()
 		return
 	end
-
+	if not self._precacheFlag then
+	    self._vRounds[ self._nRoundNumber ]:Precache()
+        self._precacheFlag=true
+	end
+    --[[ 绿字任务不再支持
 	if not self._entPrepTimeQuest then
 		self._entPrepTimeQuest = SpawnEntityFromTableSynchronous( "quest", { name = "PrepTime", title = "#DOTA_Quest_Holdout_PrepTime" } )
 		self._entPrepTimeQuest:SetTextReplaceValue( QUEST_TEXT_REPLACE_VALUE_ROUND, self._nRoundNumber )
 		self._vRounds[ self._nRoundNumber ]:Precache()
 	end
 	self._entPrepTimeQuest:SetTextReplaceValue( QUEST_TEXT_REPLACE_VALUE_CURRENT_VALUE, self._flPrepTimeEnd - GameRules:GetGameTime() )
+	]]
 end
 
 
@@ -790,10 +799,12 @@ function CHoldoutGameMode:_TestRoundConsoleCommand( cmdName, roundNumber, delay 
 		end
 	end
 	self:_RefreshPlayers()
+	--[[ 绿字任务不再支持
 	if self._entPrepTimeQuest then
 		UTIL_Remove( self._entPrepTimeQuest )
 		self._entPrepTimeQuest = nil
 	end
+	]]
 	if self._currentRound ~= nil then
 		self._currentRound:End()
 		self._currentRound = nil
