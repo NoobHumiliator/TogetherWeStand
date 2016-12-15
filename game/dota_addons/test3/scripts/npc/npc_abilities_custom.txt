@@ -19547,4 +19547,34 @@
         "BaseClass"					"ability_datadriven"
         "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
     }
+    "tws_ability_empty_11"
+    {
+        "BaseClass"					"ability_datadriven"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    }
+    "tws_ability_empty_12"
+    {
+        "BaseClass"					"ability_datadriven"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    }
+    "tws_ability_empty_13"
+    {
+        "BaseClass"					"ability_datadriven"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    }
+    "tws_ability_empty_14"
+    {
+        "BaseClass"					"ability_datadriven"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    }
+    "tws_ability_empty_15"
+    {
+        "BaseClass"					"ability_datadriven"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    }
+    "tws_ability_empty_16"
+    {
+        "BaseClass"					"ability_datadriven"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    }
 } //主括号
