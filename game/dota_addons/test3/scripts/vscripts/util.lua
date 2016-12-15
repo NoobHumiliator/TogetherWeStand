@@ -74,6 +74,23 @@ COLOR_GOLD = '\x1D'
 
 
 
+
+
+function ReportHeroAbilities(hHero)
+  if IsValidEntity(hHero) then
+    for i=1,20 do
+        local ability=hHero:GetAbilityByIndex(i-1)
+        if ability then
+            print("Abilities Report: "..hHero:GetUnitName().."ability["..i.."] is "..ability:GetAbilityName())
+        else
+            print("Abilities Report: "..hHero:GetUnitName().."ability["..i.."] is empty")
+        end
+    end
+  end
+end
+
+
+
 --============ Copyright (c) Valve Corporation, All rights reserved. ==========
 --
 --

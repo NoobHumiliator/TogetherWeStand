@@ -19496,5 +19496,55 @@
             }
         }
     }
-
+    ///////////////////////////
+    "tws_ability_empty_1"
+    {
+        "BaseClass"					"ability_datadriven"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    }
+    "tws_ability_empty_2"
+    {
+        "BaseClass"					"ability_datadriven"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    }
+    "tws_ability_empty_3"
+    {
+        "BaseClass"					"ability_datadriven"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    }
+    "tws_ability_empty_4"
+    {
+        "BaseClass"					"ability_datadriven"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    }
+    "tws_ability_empty_5"
+    {
+        "BaseClass"					"ability_datadriven"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    }
+    "tws_ability_empty_6"
+    {
+        "BaseClass"					"ability_datadriven"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    }
+   "tws_ability_empty_7"
+    {
+        "BaseClass"					"ability_datadriven"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    }
+   "tws_ability_empty_8"
+    {
+        "BaseClass"					"ability_datadriven"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    }
+   "tws_ability_empty_9"
+    {
+        "BaseClass"					"ability_datadriven"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    }
+    "tws_ability_empty_10"
+    {
+        "BaseClass"					"ability_datadriven"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    }
 } //主括号

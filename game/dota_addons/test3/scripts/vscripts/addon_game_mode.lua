@@ -241,13 +241,21 @@ end
 
 
 function CHoldoutGameMode:OnPlayerPickHero(keys)
-  local player = PlayerInstanceFromIndex(keys.player)
-  local hero = player:GetAssignedHero()
-  Timers:CreateTimer(function()
-                    if IsValidEntity(hero) then
-                        hero:SetPrimaryAttribute(0)
-                    end
-                end, DoUniqueString('primaryAttrFix'), 0.5)
+  local hero = EntIndexToHScript(keys.heroindex)
+  print(hero:GetUnitName())
+  if IsValidEntity(hero) then
+  	for i=1,20 do
+  		local ability=hero:GetAbilityByIndex(i-1)
+  		if ability then
+  			print("Abilities Report: "..hero:GetUnitName().."ability["..i.."] is "..ability:GetAbilityName())
+  			if string.find(ability:GetAbilityName(),"tws_ability_empty_") then
+  				hero:RemoveAbility(ability:GetAbilityName())
+  			end
+  		else
+  			print("Abilities Report: "..hero:GetUnitName().."ability["..i.."] is empty")
+  		end
+  	end
+  end
 end
 
 
