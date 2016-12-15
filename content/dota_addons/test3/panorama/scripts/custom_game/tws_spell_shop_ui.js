@@ -450,7 +450,7 @@ function PlayerAbilityListUpdate(playerId)
 		 InvisiblePlayerAbilityList(playerAbilityList,slot);
 	   }
 	}
-    for (var i = 0 ; i <= 10; i++) 
+    for (var i = 0 ; i <= 20; i++) 
     {
        var ability=Entities.GetAbility(playerHeroIndex,i);
        var abilityName=Abilities.GetAbilityName(ability);
@@ -470,7 +470,7 @@ function GetPlayerAbilityNumber (playerId)
 {
 	var abilityNumber=0;
 	var playerHeroIndex=Players.GetPlayerHeroEntityIndex(playerId) ;
-    for (var i = 0 ; i <= 10; i++) 
+    for (var i = 0 ; i <= 20; i++) 
     {
        var abilityName=Abilities.GetAbilityName(Entities.GetAbility(playerHeroIndex,i));
        if(abilityName!=""&& hideAbility[abilityName]!=true&&abilityName.substring(0,14)!="special_bonus_")

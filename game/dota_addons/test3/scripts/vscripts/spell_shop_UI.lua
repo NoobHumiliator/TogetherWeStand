@@ -145,6 +145,7 @@ function CHoldoutGameMode:AddAbility(keys)
                EmitSoundOn("General.Cancel",PlayerResource:GetPlayer(keys.playerId))
              end
 		  end
+    ReportHeroAbilities(hero)
 	end
 end
 
