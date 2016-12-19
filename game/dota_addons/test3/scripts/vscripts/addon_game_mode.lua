@@ -84,7 +84,7 @@ function CHoldoutGameMode:InitGameMode()
 	self.flDHPadjust=1  --保存难度产生的血量系数修正
 	GameRules:SetTimeOfDay( 0.75 )
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 0)
-	GameRules:SetHeroRespawnEnabled( true )
+	GameRules:SetHeroRespawnEnabled( false )
 	GameRules:SetUseUniversalShopMode( true )
 	GameRules:SetHeroSelectionTime( 35.0 )
     
@@ -752,10 +752,13 @@ function CHoldoutGameMode:OnEntityKilled( event )
 		local newItem = CreateItem( "item_tombstone", killedUnit, killedUnit )
 		newItem:SetPurchaseTime( 0 )
 		newItem:SetPurchaser( killedUnit )
-		 if killedUnit:FindAbilityByName("skeleton_king_reincarnation") ~=nil then
-		 	else
-		 	killedUnit:SetTimeUntilRespawn(killedUnit:GetRespawnTime() + 999)
-	     end
+		local reincarnation= killedUnit:FindAbilityByName("skeleton_king_reincarnation")
+		if reincarnation ~=nil then --如果有重生技能 并且有蓝CD
+            GameRules:SetHeroRespawnEnabled( true )
+            Timers:CreateTimer(4,function()
+				GameRules:SetHeroRespawnEnabled( false )
+			end)
+	    end
 		local tombstone = SpawnEntityFromTableSynchronous( "dota_item_tombstone_drop", {} )
 		tombstone:SetContainedItem( newItem )
 		tombstone:SetAngles( 0, RandomFloat( 0, 360 ), 0 )
