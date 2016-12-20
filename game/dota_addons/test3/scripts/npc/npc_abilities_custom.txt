@@ -4197,7 +4197,7 @@
 				}
 				"Center"	"CASTER"
 				"Duration"	"0.75"
-				"Distance"	"%radius + 25"
+				"Distance"	"275"
 				"Height"	"175"
 			}
 			
@@ -8086,7 +8086,7 @@
 		{
 			"target_telegraph_fx"
 			{
-				"Duration"				"%think_time + 0.5"
+				"Duration"				"2.5"
 
 				"OnCreated"
 				{
@@ -8109,7 +8109,7 @@
 			
 			"aoe_spike_thinker"
 			{
-				"Duration"					"%think_time + 0.5" // Should work without the added time but appears to have a off by one error so time added so it doesn't destroy itself before occuring
+				"Duration"					"2.5" // Should work without the added time but appears to have a off by one error so time added so it doesn't destroy itself before occuring
 				"ThinkInterval"				"%think_time"
 				
 				"OnIntervalThink"
@@ -8263,7 +8263,7 @@
 		{
 			"melee_impact_point"
 			{
-				"Duration"					"%think_time + 0.5" // Should work without the added time but appears to have a off by one error so time added so it doesn't destroy itself before occuring
+				"Duration"					"1.5"
 				"ThinkInterval"				"%think_time"
 				
 				"OnIntervalThink"
@@ -12232,7 +12232,7 @@
 				"pull_duration"			"0.50"
 			}
 		}
-	}//------------------------------ ¼¼ÄÜÀ¨ºÅ
+	}
 	"mag_melee_smash"
 	{
 		// General
@@ -12290,7 +12290,7 @@
 		{
 			"melee_impact_point"
 			{
-				"Duration"					"%think_time + 0.5" // Should work without the added time but appears to have a off by one error so time added so it doesn't destroy itself before occuring
+				"Duration"					"1.85" // Should work without the added time but appears to have a off by one error so time added so it doesn't destroy itself before occuring
 				"ThinkInterval"				"%think_time"
 				
 				"OnIntervalThink"
@@ -12361,7 +12361,7 @@
 			}
 			"melee_impact_froze"
 			{
-				"Duration"				"0.3" // Should work without the added time but appears to have a off by one error so time added so it doesn't destroy itself before occuring
+				"Duration"				    "0.3"
 				"ThinkInterval"				"0.25"
 				"OnIntervalThink"
 				{ 

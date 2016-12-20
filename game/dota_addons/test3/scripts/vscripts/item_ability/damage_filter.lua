@@ -55,7 +55,7 @@ function CHoldoutGameMode:DamageFilter(damageTable)
       if attacker:GetTeam()==DOTA_TEAM_BADGUYS then
         if damageTable.damagetype_const ~=1 and attacker.damageMultiple~=nil then  --Ability damage
           damageTable.damage=damageTable.damage*attacker.damageMultiple
-        end 
+        end
       	if attacker:HasModifier("modifier_night_damage_stack") then
       		local ability=attacker:FindAbilityByName("night_creature_increase_damage")
       		local magic_enhance_per_stack=ability:GetSpecialValueFor("magic_enhance_per_stack")
@@ -64,6 +64,18 @@ function CHoldoutGameMode:DamageFilter(damageTable)
       			damageTable.damage=damageTable.damage* (1+stacks_number*magic_enhance_per_stack)
       		end     	
       	end
+        -- 受伤害龙心进入CD
+        if victim:HasItemInInventory("item_heart") or victim:HasItemInInventory("item_heart_2")  then
+            for i=0,5 do
+              local itemAbility=victim:GetItemInSlot(i)
+              if itemAbility~=nil then
+                  if itemAbility:GetAbilityName()=="item_heart" or itemAbility:GetAbilityName()=="item_heart_2" then
+                     local heartCooldown=itemAbility:GetCooldown(1)
+                     itemAbility:StartCooldown(heartCooldown)
+                  end
+              end
+            end
+        end
       end
    end
    return true
