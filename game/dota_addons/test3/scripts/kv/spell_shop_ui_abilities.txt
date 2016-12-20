@@ -692,4 +692,9 @@
   "3"    "abyssal_underlord_atrophy_aura"
   "4"    "abyssal_underlord_dark_rift"
   }
+  "monkey_king" {
+  "1"    "monkey_king_boundless_strike"
+  "2"    "monkey_king_jingu_mastery"
+  "3"    "monkey_king_wukongs_command"
+  }
 }

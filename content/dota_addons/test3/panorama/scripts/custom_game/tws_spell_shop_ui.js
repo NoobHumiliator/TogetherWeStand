@@ -41,7 +41,8 @@ var hideAbility = {
 	"lone_druid_true_form_druid" : true,
 	"shredder_return_chakram_2" : true,
 	"nyx_assassn_unburrow" : true,
-	"morphling_morph" : true
+	"morphling_morph" : true,
+	"nyx_assassin_unburrow" :true
 };
 
 
