@@ -2398,17 +2398,17 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"health_regen_rate"		"5"
+				"health_regen_rate"		"7"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cooldown_melee"		"4"
+				"cooldown_melee"		"5"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cooldown_ranged_tooltip"		"5"
+				"cooldown_ranged_tooltip"		"7"
 			}
 		}
 	}
