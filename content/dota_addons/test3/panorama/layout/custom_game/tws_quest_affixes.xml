@@ -13,8 +13,8 @@
 					<Panel class="Progress_Left" style="margin-bottom: 0;"/>
 					<Panel class="Progress_Right" style="margin-bottom: 0;"/>
 				</Panel>
-				<Panel class="slider_lable">
-					<Label class="slider_info" text=""/>
+				<Panel class="SliderLable">
+					<Label class="SliderInfo" text=""/>
 				</Panel>
 			</Panel>
 		</snippet>

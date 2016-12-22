@@ -1,4 +1,4 @@
-#QuestExample{
+#QuestPanel{
   margin-left: 50px;
   margin-top: 110px;
   flow-children:down;
@@ -20,11 +20,11 @@
   border-radius:3px;
 }
 
-.slider_lable{
+.SliderLable{
   horizontal-align:right;
 }
 
-.slider_info{
+.SliderInfo{
     margin-top:20px;
  
     text-shadow :1px 1px 10px 5.0 #DC143C;
