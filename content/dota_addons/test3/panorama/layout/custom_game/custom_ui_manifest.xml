@@ -12,7 +12,7 @@
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_difficulty_announcement.xml" /> 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_new_rank_announcement.xml" /> 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_hud_base.xml" /> 
-    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_spell_shop_trigger_button.xml" /> 
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_spell_shop_trigger_button.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_difficulty_selection.xml" /> 
     <CustomUIElement type="GameInfo" layoutfile="file://{resources}/layout/custom_game/tws_rank_panel.xml" />
   </Panel>

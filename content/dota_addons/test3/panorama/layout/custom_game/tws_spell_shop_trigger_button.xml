@@ -10,7 +10,7 @@
     </scripts>
     
      <Panel class="triggerButtonPanel" >
-            <Button id="triggerButton" class="triggerButtonPic"   onactivate="ShowMainBlock()">
+            <Button id="triggerButton"  onactivate="ShowMainBlock()">
                    <Label text="#spell_shop_hotkey" />
             </Button>
      </Panel>

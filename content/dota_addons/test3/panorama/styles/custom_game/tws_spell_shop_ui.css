@@ -169,49 +169,46 @@
     flow-children: right;
 }
 
-
 .triggerButtonPanel {
-    position: 0 71.4% 0; 
-    width: 10%;
-    height: 6%;
+    position: 1500px 1020px 0; 
+    width: 160px;
+    height: 60px;
     border-top: 0px solid #333;
     border-bottom: 0px solid #333;
-    background-image: url("s2r://panorama/images/custom_game/shop_button_panel_background.png");
+    background-image: url("s2r://panorama/images/hud/reborn/courier_gold_bg_262_psd.vtex");
     background-size: 100% 100%;
 }
 
-.triggerButtonPanelLargeMap {
-    position: 0 67.2% 0; 
-}
-
-
 #triggerButton {
-    position: 10% 42% 0; 
-    width: 70%;
-    height: 50%;
-    border-top: 0px solid #333;
-    border-bottom: 0px solid #333;
+   height:36px;
+   width:120px;
+   background-image: url("s2r://panorama/images/hud/reborn/shop_launcher_button_inrange_psd.vtex");
+   brightness:1.0;
+   z-index:-1;
+   box-shadow:#000000aa 0px 0px 2px 2px;
+   margin-left:25px;
+   transition-property :background-image;
+   transition-duration:.18s;
+   transition-timing-function:ease-in-out;
+   tooltip-position:top;
+   margin-bottom:12px;
+   vertical-align:bottom;
 }
-#triggerButton  Label{
+
+#triggerButton Label{
 
     horizontal-align: center;
     vertical-align: center;
     text-align:center;
     color: white;
-    font-family: Times New Roman;
-    font-size: 16;
+    font-family: RadianceM,Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+    font-size: 17;
     font-weight: bold;
 }
-.triggerButtonPic
-{
-    background-image: url("s2r://panorama/images/custom_game/shop_button_background.png");
-    background-size: 100% 100%;
-}
-
 
 #triggerButton:hover
 {
-   brightness:4.0;
+   brightness:3.0;
 }
 
 

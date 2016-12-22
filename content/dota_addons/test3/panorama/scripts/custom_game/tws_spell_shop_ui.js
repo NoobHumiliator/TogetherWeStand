@@ -104,7 +104,7 @@ function First()
 {
 	var container = $( "#heroesTableStrAgi" );
 	var container_int= $("#heroesTableInt");
-	$.Msg(container);
+	//$.Msg(container);
 }
 
 
