@@ -16,10 +16,10 @@ function RefreshQuestData(data){
 
 function CreatQuest(data) {
         $.Msg("CreateQuest")
-        NewPanel = $.CreatePanel('Panel', $('#QuestPanel'),data.name);
-        NewPanel.BLoadLayoutSnippet("QuestLine");
-        NewPanel.AddClass("Panle_MarginStyle")
         $.Msg(data)
+        newPanel = $.CreatePanel('Panel', $('#QuestPanel'),data.name);
+        newPanel.BLoadLayoutSnippet("QuestLine");
+        newPanel.AddClass("Panle_MarginStyle")
 }
 
 function RemoveQuestPUI(data){
@@ -28,6 +28,11 @@ function RemoveQuestPUI(data){
     RemovePanle.DeleteAsync(0);
  
 }
-GameEvents.Subscribe( "createquest", CreatQuest);
-GameEvents.Subscribe( "refreshquestdata", RefreshQuestData);
-GameEvents.Subscribe( "removequestpui", RemoveQuestPUI);
+
+(function(){ 
+    GameEvents.Subscribe( "createquest", CreatQuest);
+    GameEvents.Subscribe( "refreshquestdata", RefreshQuestData);
+    GameEvents.Subscribe( "removequestpui", RemoveQuestPUI);
+})();
+
+

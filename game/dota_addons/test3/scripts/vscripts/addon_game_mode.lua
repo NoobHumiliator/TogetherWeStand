@@ -29,6 +29,7 @@ require( "game_functions")
 require( "utility_functions" )
 require( "libraries/notifications")
 require( "item_ability/damage_filter")
+require( "quest_system")
 require( "vip/extra_particles")
 require( "server/rank")
 
@@ -462,10 +463,15 @@ function CHoldoutGameMode:_ThinkPrepTime()
 		self._currentRound:Begin()
 		return
 	end
+
 	if not self._precacheFlag then
+		local text= "#quest_preptime_front"..self._nRoundNumber.."#quest_preptime_back"
+		QuestSystem:CreateQuest("PrepTime",text,self._flPrepTimeBetweenRounds,self._flPrepTimeBetweenRounds,nil)
 	    self._vRounds[ self._nRoundNumber ]:Precache()
         self._precacheFlag=true
 	end
+     QuestSystem:RefreshQuest("PrepTime", math.ceil(self._flPrepTimeEnd-GameRules:GetGameTime()),self._flPrepTimeBetweenRounds)
+
     --[[ 绿字任务不再支持
 	if not self._entPrepTimeQuest then
 		self._entPrepTimeQuest = SpawnEntityFromTableSynchronous( "quest", { name = "PrepTime", title = "#DOTA_Quest_Holdout_PrepTime" } )
@@ -474,6 +480,7 @@ function CHoldoutGameMode:_ThinkPrepTime()
 	end
 	self._entPrepTimeQuest:SetTextReplaceValue( QUEST_TEXT_REPLACE_VALUE_CURRENT_VALUE, self._flPrepTimeEnd - GameRules:GetGameTime() )
 	]]
+
 end
 
 
