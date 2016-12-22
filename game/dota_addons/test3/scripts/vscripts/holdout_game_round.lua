@@ -393,18 +393,13 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
 			end
 			})    
 	end
-
 	if self._alias=="rattletrap" then
 		GameRules:GetGameModeEntity():SetFogOfWarDisabled( false )
-		GameRules:SetTreeRegrowTime( 9999.0 )
 		PrecacheUnitByNameAsync('npc_maze_wall', function() end)
 		PrecacheUnitByNameAsync('bomber_bomb', function() end)
 		PrecacheUnitByNameAsync('stasis_trap', function() end)
 		PrecacheUnitByNameAsync('stasis_trap_precache',function()  end)
 	end	
-	if self._alias=="broodqueen" then
-		GameRules:SetTreeRegrowTime( 30.0 )
-	end
 	if self._alias=="tiny" then
 		self.achievement_flag=false
 		if alreadyCached["npc_dota_hero_razor"]==true then

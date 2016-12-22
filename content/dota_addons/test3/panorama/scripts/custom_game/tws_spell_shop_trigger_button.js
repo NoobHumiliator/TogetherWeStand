@@ -21,26 +21,9 @@ function ShowMainBlock()
 
 (function()
 {
-	$.Schedule(1.5, ajustTriggerButton);
+
 
 })();
-
-function ajustTriggerButton()
-{
-    var minimapBlock = GameUI.hub.FindChildTraverse("minimap_block");
-    $.Msg(minimapBlock.contentwidth)
-    var button = $("#triggerButton" );
-    button.y=minimapBlock.contentwidth;
-    if (minimapBlock.BHasClass ("MinimapExtraLarge"))
-    {
-    	$.Msg("mini map has extra large class.")
-    }
-    else
-    {
-    	$.Msg("mini map has no large class.")
-    }
-    $.Schedule(1.5, ajustTriggerButton);
-}
 
 
 function OnTestButtonPressed()
