@@ -90,7 +90,7 @@
 	
 	"Round1" // Kobolds
 	{
-		"round_quest_title"			"#DOTA_Holdout_Round_Kobolds_Quest_Title"
+		"round_quest_title"			"#TWS_Round_Skeleton_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Kobolds_Title"
 		"MaxGold"					"1900"
 		"BagCount"					"70"
@@ -238,7 +238,7 @@
 	
 	"Round2" // Undead
 	{
-		"round_quest_title"			"#DOTA_Holdout_Round_Zombies_Quest_Title"
+		"round_quest_title"			"#TWS_Round_Zombies_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Zombies_Title"
 		"MaxGold"					"1950"
 		"BagCount"					"50"
@@ -386,7 +386,7 @@
 	
 	"Round3" //SkywrathBoss
 	{
-		"round_quest_title"			"#DOTA_Holdout_Round_Ogre_Quest_Title"
+		"round_quest_title"			"#TWS_Round_Skywrath_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Ogre_Title"
 		"MaxGold"					"0" //600g from gold fountain ability
 		"BagCount"					"20"
@@ -404,7 +404,7 @@
 
 	"Round4" // Fireandblood
 	{
-		"round_quest_title"			"#DOTA_Holdout_Round_Fire_Blood_Quest_Title"
+		"round_quest_title"			"#TWS_Round_Bloodseeker_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Fire_Blood_Title"
 		"MaxGold"					"2600"
 		"BagCount"					"50"
@@ -804,7 +804,7 @@
 	}
 	"Round5" // satyr 
 	{
-		"round_quest_title"			"#DOTA_Holdout_Round_Satyr_Quest_Title"
+		"round_quest_title"			"#TWS_Round_Satyr_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Satyr_Title"
 		"MaxGold"					"2750"
 		"BagCount"					"55"
@@ -1056,7 +1056,7 @@
 	}
 	"Round6" // morphing
 	{
-		"round_quest_title"			"#DOTA_Holdout_Round_Slithereen_Quest_Title"
+		"round_quest_title"			"#TWS_Round_Morphing_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Slithereen_Title"
 		"MaxGold"					"0"
 		"BagCount"					"0"
@@ -1119,7 +1119,7 @@
 
 	"Round7" // rattletrap boss 1700 in gold bag
 	{
-		"round_quest_title"			"#DOTA_Holdout_Round_Rattletrap_Quest_Title"
+		"round_quest_title"			"#TWS_Round_Rattletrap_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Rattletrap_Title"
 		"MaxGold"					"0"
 		"BagCount"					"0"
@@ -1138,7 +1138,7 @@
 
 	"Round8" // Broodqueen
 	{
-		"round_quest_title"			"#DOTA_Holdout_Round_Broodking_Quest_Title"
+		"round_quest_title"			"#TWS_Round_Broodking_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Broodking_Title"
 		"MaxGold"					"0" // 8300 from gold fountain ability
 		"BagCount"					"0"
@@ -1847,7 +1847,7 @@
 	}
 	"Round10" //mammoth
 	{
-		"round_quest_title"			"#DOTA_Holdout_Round_Roshan_Quest_Title"
+		"round_quest_title"			"#TWS_Round_Mammoth_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Roshan_Title"
 		"MaxGold"					"0"
 		"BagCount"					"0"
@@ -1865,7 +1865,7 @@
 	}
 	"Round11" //tree
 	{
-		"round_quest_title"			"#DOTA_Holdout_Round_Tree_Quest_Title"
+		"round_quest_title"			"#TWS_Round_Tree_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Tree_Title"
 		"MaxGold"					"5350"
 		"BagCount"					"50"
@@ -2950,7 +2950,7 @@
 	}
 	"Round12" //dragon
 	{
-		"round_quest_title"			"#DOTA_Holdout_Round_Blue_Dragon_Quest_Title"
+		"round_quest_title"			"#TWS_Round_Blue_Dragon_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Blue_Dragon_Title"
 		"MaxGold"					"0"
 		"BagCount"					"0"
@@ -2969,7 +2969,7 @@
 	} 
 	"Round13" //Dark Citadel
 	{
-		"round_quest_title"			"#DOTA_Holdout_Round_Dark_Citadel_Quest_Title"
+		//"round_quest_title"			"#DOTA_Holdout_Round_Dark_Citadel_Quest_Title" 没有就不填
 		"round_title"				"#DOTA_Holdout_Round_Dark_Citadel_Title"
 		"MaxGold"					"7850"
 		"BagCount"					"50"
@@ -3320,7 +3320,7 @@
 	} 
 	"Round14" //twins
 	{
-		"round_quest_title"			"#DOTA_Holdout_Round_Twins_Quest_Title"
+		"round_quest_title"			"#TWS_Round_Twins_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Twins_Title"
 		"MaxGold"					"8350"
 		"BagCount"					"15"
@@ -3345,7 +3345,7 @@
 	} 
 	"Round15" // morphing again!
 	{
-		"round_quest_title"			"#DOTA_Holdout_Round_Again_Quest_Title"
+		"round_quest_title"			"#TWS_Round_Again_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Again_Title"
 		"MaxGold"					"0"
 		"BagCount"					"0"
@@ -3519,7 +3519,7 @@
 	}
 	"Round16" //party
 	{
-		"round_quest_title"			"#DOTA_Holdout_Round_BossParty_Quest_Title"
+		//"round_quest_title"			"#DOTA_Holdout_Round_BossParty_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_BossParty_Title"
 		"MaxGold"					"8350"
 		"BagCount"					"15"
@@ -3548,7 +3548,7 @@
 	}               
 	"Round17" //darkness
 	{
-		"round_quest_title"			"#DOTA_Holdout_Round_Darkness_Quest_Title"
+		//"round_quest_title"			"#DOTA_Holdout_Round_Darkness_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Darkness_Title"
 		"MaxGold"					"11350"
 		"BagCount"					"15"
@@ -3951,7 +3951,7 @@
 	}
 	"Round18" // Splitters
 	{
-		"round_quest_title"			"#DOTA_Holdout_Round_Splitter_Quest_Title"
+		//"round_quest_title"		"#DOTA_Holdout_Round_Splitter_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Splitter_Title"
 		"MaxGold"					"9350"
 		"BagCount"					"15"
