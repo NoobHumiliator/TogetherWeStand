@@ -16,8 +16,9 @@ end
 function CHoldoutGameRound:ReadConfiguration( kv, gameMode, roundNumber )
 	self._gameMode = gameMode
 	self._nRoundNumber = roundNumber
-	self._szRoundQuestTitle = kv.round_quest_title or "#DOTA_Quest_Holdout_Round"
+	self._szRoundQuestTitle = kv.round_quest_title --round_quest_title 如果kv里面了没填就是nil
 	self._szRoundTitle = kv.round_title or string.format( "Round%d", roundNumber )
+	self._nBonusLevel = tonumber(kv.bonus_level) or roundNumber
 	self._alias=kv.alias or string.format( "Round%d", roundNumber )   --设置一个别名，方便成就系统
     self._not_multiple=true
 	self._nMaxGold = tonumber( kv.MaxGold or 0 )
@@ -165,6 +166,17 @@ function CHoldoutGameRound:Begin()
    	  	 Notifications:BottomToAll({text=vAffixes_Text[k], duration=10, style = {color = "Red"},continue=true})
    	  end
    end
+   QuestSystem:CreateQuest("Progress","#tws_quest_progress_text",0,self._nCoreUnitsTotal,nil,self._nRoundNumber)
+   print(self._szRoundQuestTitle)
+   if self._szRoundQuestTitle ~=nil then
+   	   local bonusItemName ="";
+   	   if #bonusItems[self._nRoundNumber] ==1 then
+   	   	  bonusItemName=bonusItems[self._nRoundNumber][1]
+   	   else
+   	   	  bonusItemName="item_treasure_chest_"..self._nRoundNumber
+   	   end
+       QuestSystem:CreateAchQuest("Achievement",self._szRoundQuestTitle,1,1,nil,bonusItemName)
+   end
    --[[  绿字任务系统不再支持
 	self._entQuest = SpawnEntityFromTableSynchronous( "quest", {
 		name = self._szRoundTitle,
@@ -185,11 +197,6 @@ function CHoldoutGameRound:Begin()
             }
      FireGameEvent("show_center_message",messageinfo)  
 end
-
-
-
-
-
 
 
 function CHoldoutGameRound:End()  
@@ -256,50 +263,17 @@ function CHoldoutGameRound:End()
 		self._entKillCountSubquest = nil
 	end
 	]]
+	QuestSystem:DelQuest("Progress")
 	self:CheckAchievement()
 end
 
 
 function CHoldoutGameRound:CheckAchievement()
-	if self._alias=="skeleton" and self.achievement_flag then
-		self:Special_Reward(1)
-	end
-	if self._alias=="scourge" and self.achievement_flag then
-		self:Special_Reward(2)
-	end
-	if self._alias=="skywrath" and self.achievement_flag then
-		self:Special_Reward(3)
-	end
-	if self._alias=="bloodseeker" and self.achievement_flag then
-		self:Special_Reward(4)
-	end
-	if self._alias=="satyr" and self.achievement_flag then
-		self:Special_Reward(5)
-	end
-	if self._alias=="morphing" and self.achievement_flag then
-		self:Special_Reward(6)
-	end
-	if self._alias=="rattletrap" and self.achievement_flag then
-		self:Special_Reward(7)
-	end
-	if self._alias=="broodqueen" and self.achievement_flag then
-		self:Special_Reward(8)
-	end
-	if self._alias=="tiny" and self.achievement_flag then
-		self:Special_Reward(8)
-	end
-	if self._alias=="mammoth" and self.achievement_flag then
-		self:Special_Reward(8)
-	end
-	if self._alias=="tree" and self.achievement_flag then
-		self:Special_Reward(8)
+     
+    if self._szRoundQuestTitle and self.achievement_flag then      
+        self:Special_Reward(self._nBonusLevel)
     end
-	if self._alias=="blue_dragon" and self.achievement_flag then
-		self:Special_Reward(8)
-	end
-	if self._alias=="morphing_again" and self.achievement_flag then
-		self:Special_Reward(8)
-	end
+    
 end
 
 
@@ -458,16 +432,15 @@ end
 
 function CHoldoutGameRound:Special_Reward(round_number)
     Timers:CreateTimer(4.0, function()
-                local middle_dummy=Entities:FindByName( nil, "dummy_middle" )               
-	            local particle= ParticleManager:CreateParticle("particles/items_fx/aegis_respawn.vpcf",PATTACH_ABSORIGIN_FOLLOW,middle_dummy)
-                ParticleManager:ReleaseParticleIndex(particle)
-                local spawnPoint = middle_dummy:GetAbsOrigin()
-                local newItem = CreateItem( "item_treasure_chest_"..round_number, nil, nil )
-	            local drop = CreateItemOnPositionForLaunch( spawnPoint, newItem )
-	            newItem:LaunchLootInitialHeight( false, 0, 200, 0.25, spawnPoint )
-	            newItem.level=round_number
-	            EmitGlobalSound("Hero_LegionCommander.Duel.Victory")
-             end)
+        local middle_dummy=Entities:FindByName( nil, "dummy_middle" )               
+        local particle= ParticleManager:CreateParticle("particles/items_fx/aegis_respawn.vpcf",PATTACH_ABSORIGIN_FOLLOW,middle_dummy)
+        ParticleManager:ReleaseParticleIndex(particle)
+        local spawnPoint = middle_dummy:GetAbsOrigin()
+        local newItem = CreateItem( "item_treasure_chest_"..round_number, nil, nil )
+        local drop = CreateItemOnPositionForLaunch( spawnPoint, newItem )
+        newItem:LaunchLootInitialHeight( false, 0, 200, 0.25, spawnPoint )
+        EmitGlobalSound("Hero_LegionCommander.Duel.Victory")
+     end)
 end
 
 
@@ -554,9 +527,12 @@ function CHoldoutGameRound:OnEntityKilled( event )
 		self._nCoreUnitsKilled = self._nCoreUnitsKilled + 1
 		self:_CheckForGoldBagDrop( killedUnit )
 		LootController:CheckForLootItemDrop(self._nRoundNumber,self._nItemDropNum,self._totalCreatureNum,killedUnit )
+        QuestSystem:RefreshQuest("Progress", self._nCoreUnitsKilled,self._nCoreUnitsTotal)
+		--[[ 绿字任务系统不再支持
 		if self._entKillCountSubquest then
 			self._entKillCountSubquest:SetTextReplaceValue( QUEST_TEXT_REPLACE_VALUE_CURRENT_VALUE, self._nCoreUnitsKilled )
 		end
+		]]
 	end
 
 	local attackerUnit = EntIndexToHScript( event.entindex_attacker or -1 )

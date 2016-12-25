@@ -13,7 +13,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
---testMode=true --减少刷兵间隔，增加初始金钱
+testMode=true --减少刷兵间隔，增加初始金钱
 
 
 
@@ -162,7 +162,7 @@ function CHoldoutGameMode:_ReadGameConfiguration()
 
 	self._bUseReactiveDifficulty = kv.UseReactiveDifficulty or false
     if testMode then
-	  self._flPrepTimeBetweenRounds = 1
+	  self._flPrepTimeBetweenRounds = 4
     else
       self._flPrepTimeBetweenRounds = tonumber( kv.PrepTimeBetweenRounds or 0 )
     end
@@ -447,6 +447,7 @@ function CHoldoutGameMode:_ThinkPrepTime()
 		end
         ]]
         if self._precacheFlag then
+        	QuestSystem:DelQuest("PrepTime")
            self._precacheFlag=nil  --预载入标识
         end
 		if self._nRoundNumber > #self._vRounds then
@@ -465,12 +466,11 @@ function CHoldoutGameMode:_ThinkPrepTime()
 	end
 
 	if not self._precacheFlag then
-		local text= "#quest_preptime_front"..self._nRoundNumber.."#quest_preptime_back"
-		QuestSystem:CreateQuest("PrepTime",text,self._flPrepTimeBetweenRounds,self._flPrepTimeBetweenRounds,nil)
-	    self._vRounds[ self._nRoundNumber ]:Precache()
+		QuestSystem:CreateQuest("PrepTime","#tws_quest_prep_time",self._flPrepTimeBetweenRounds,self._flPrepTimeBetweenRounds,nil,self._nRoundNumber)
+	    self._vRounds[ self._nRoundNumber ]:Precache()	
         self._precacheFlag=true
 	end
-     QuestSystem:RefreshQuest("PrepTime", math.ceil(self._flPrepTimeEnd-GameRules:GetGameTime()),self._flPrepTimeBetweenRounds)
+    QuestSystem:RefreshQuest("PrepTime", math.ceil(self._flPrepTimeBetweenRounds-self._flPrepTimeEnd+GameRules:GetGameTime()),self._flPrepTimeBetweenRounds,self._nRoundNumber)
 
     --[[ 绿字任务不再支持
 	if not self._entPrepTimeQuest then
@@ -794,7 +794,7 @@ function CHoldoutGameMode:OnItemPickUp( event ,level )
 	   local owner = EntIndexToHScript( event.HeroEntityIndex )
 	   if string.sub(event.itemname,1,20)== "item_treasure_chest_" then
 		  SpecialItemAdd( event,  tonumber(string.sub(event.itemname,21,21)))
-		  UTIL_Remove( item )
+		  UTIL_Remove(item)
 	   end
     end
 end
