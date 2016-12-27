@@ -8,6 +8,7 @@ function HideItemTooltip (itemImage) {
 
 
 
+
 function RefreshQuestData(data){
 
      $.Msg(data)
@@ -44,27 +45,55 @@ function CreatQuest(data) {
 
 
 function CreatAchQuest(data) {  //成就特殊奖励UI
-        $.Msg("CreateAchQuest")
-        $.Msg(data)
-        var itemName=data.itemname
-        newPanel = $.CreatePanel('Panel', $('#QuestPanel'),data.name);
-        newPanel.BLoadLayoutSnippet("AchievementLine");
-        newPanel.AddClass("Panle_MarginStyle")
-        var itemImage= newPanel.GetChild(1).GetChild(1)
-        if (itemImage!=null&&itemName!=null)
-        {
-            $.Msg("itemName"+itemName)
-            itemImage.itemname=itemName;
-        }
-        //itemImage.SetPanelEvent( "onmouseover", ShowItemTooltip (itemImage) );
-        //itemImage.SetPanelEvent( "onmouseout",  HideItemTooltip (itemImage) );
+    //$.Msg("CreateAchQuest")
+    //$.Msg(data)
+    var itemName=data.itemname
+    var newPanel = $.CreatePanel('Panel', $('#QuestPanel'),data.name);
+    newPanel.BLoadLayoutSnippet("AchievementLine");
+    newPanel.AddClass("Panle_MarginStyle")
+    var itemImage= newPanel.GetChild(1).GetChild(1)
+    if (itemImage!=null&&itemName!=null)
+    {
+        $.Msg("itemName"+itemName)
+        itemImage.itemname=itemName;
+    }
+    //itemImage.SetPanelEvent( "onmouseover", ShowItemTooltip (itemImage) );
+    //itemImage.SetPanelEvent( "onmouseout",  HideItemTooltip (itemImage) );
 }
+
+
+function CreatAffixes(data) {  //词缀
+    //$.Msg("CreateAchQuest")
+    $.Msg(data)
+    var affixesList= data.list
+    $.Msg(affixesList)
+
+    $.Msg(affixesList.length)
+    var itemName=data.itemname
+    var newPanel = $.CreatePanel('Panel', $('#QuestPanel'),data.name);
+    newPanel.BLoadLayoutSnippet("AffixesLine");
+    newPanel.AddClass("Panle_MarginStyle")
+    
+    for (var i in affixesList ) { 
+        //$.Msg(i)
+        var affixAbilityName=affixesList[i];
+        var imageId="affix_id_"+i;
+        $.Msg(affixAbilityName)
+        var abilityImage=$.CreatePanel( "DOTAAbilityImage", newPanel, imageId );
+        abilityImage.abilityname=affixAbilityName;  //abilityname 全小写
+        abilityImage.SetHasClass( "AbilityImage", true );
+        abilityImage.SetPanelEvent( "onmouseover", ShowAbilityTooltip (abilityImage) );
+        abilityImage.SetPanelEvent( "onmouseout",  HideAbilityTooltip (abilityImage) );
+    }
+}
+
+
 
 
 function RefreshAchQuestData(data){
 
-    $.Msg("RefreshAchQuest")
-    $.Msg(data)
+    //$.Msg("RefreshAchQuest")
+    //$.Msg(data)
     var panleId=data.name
     var panleSvalue=data.svalue
     var panleEvalue=data.evalue
@@ -90,6 +119,7 @@ function RemoveQuestPUI(data){
 (function(){ 
     GameEvents.Subscribe( "createquest", CreatQuest);
     GameEvents.Subscribe( "createachquest", CreatAchQuest);
+    GameEvents.Subscribe( "createaffixes", CreatAffixes);
     GameEvents.Subscribe( "refreshquestdata", RefreshQuestData);
     GameEvents.Subscribe( "refreshachquestdata", RefreshAchQuestData);
     GameEvents.Subscribe( "removequestpui", RemoveQuestPUI);

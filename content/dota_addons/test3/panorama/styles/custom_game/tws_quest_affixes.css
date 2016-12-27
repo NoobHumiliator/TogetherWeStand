@@ -38,6 +38,16 @@
     font-family:Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
 }
 
+.AffixesLine{
+  flow-children:right;
+}
+
+.AbilityImage{
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+}
+
 .Panle_MarginStyle{
   margin-bottom:12px; 
 }

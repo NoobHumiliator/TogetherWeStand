@@ -113,6 +113,18 @@ function CHoldoutGameRound:Begin()
         silence="#affixes_silence",
         falling_rock="#affixes_falling_rock"
     }
+    local vAffixesTooltipAbility={
+      necrotic="affixes_ability_necrotic",
+      teeming="affixes_ability_tooltip_teeming",
+      raging="affixes_ability_raging",
+      fortify="affixes_ability_fortify",
+      bolstering="affixes_ability_bolstering",
+      overflowing="affixes_ability_tooltip_overflowing",
+      sanguine="affixes_ability_sanguine",
+      silence="affixes_ability_tooltip_silence",
+      falling_rock="affixes_ability_tooltip_falling_rock"
+    }
+    local affixesTooltipAbilityList={}
 
     self.vAffixes=
     {
@@ -162,10 +174,11 @@ function CHoldoutGameRound:Begin()
 	end	
    for k,v in pairs(self.vAffixes) do
    	  if v then
-   	  	print(vAffixes_Text[k])
+   	  	 print(vAffixes_Text[k])
+   	  	 table.insert(affixesTooltipAbilityList, vAffixesTooltipAbility[k])
    	  	 Notifications:BottomToAll({text=vAffixes_Text[k], duration=10, style = {color = "Red"},continue=true})
    	  end
-   end
+   end  
    QuestSystem:CreateQuest("Progress","#tws_quest_progress_text",0,self._nCoreUnitsTotal,nil,self._nRoundNumber)
    print(self._szRoundQuestTitle)
    if self._szRoundQuestTitle ~=nil then
@@ -182,6 +195,7 @@ function CHoldoutGameRound:Begin()
    	   end
        QuestSystem:CreateAchQuest("Achievement",self._szRoundQuestTitle,1,1,nil,bonusItemName)
    end
+   QuestSystem:CreatAffixesQuest("Affixes",affixesTooltipAbilityList)
    --[[  绿字任务系统不再支持
 	self._entQuest = SpawnEntityFromTableSynchronous( "quest", {
 		name = self._szRoundTitle,
