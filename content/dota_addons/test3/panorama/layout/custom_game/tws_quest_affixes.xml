@@ -26,7 +26,7 @@
 				</Panel>
 				<Panel class="AchievementQuestLable">
 					<Label class="SliderInfo" text="#tws_quest_achievement_front"/>  <!--特殊奖励：-->
-					<DOTAItemImage  itemname="" style="height:24px;width:32px; margin-top:20px;"  onmouseover="ShowItemTooltip()"
+					<DOTAItemImage  itemname="" style="height:24px;width:32px; margin-top:27px;"  onmouseover="ShowItemTooltip()"
 					   	  onmouseout="HideItemTooltip()"/> <!--图标：-->
 					<Label class="SliderInfo" text=""/>  <!--本轮没有任何英雄阵亡：-->
 				</Panel>

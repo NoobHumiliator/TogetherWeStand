@@ -589,9 +589,9 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"15001"
-		"AbilityName"					"item_treasure_chest"
-		"BaseClass"					"item_bag_of_gold"
+		"ID"						    "15001"
+		"AbilityTextureName"			"item_treasure_chest"
+		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -605,7 +605,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"99999"
+		"ItemCost"					    "5000"
 		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -620,8 +620,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"15002"
-		"AbilityName"					"item_treasure_chest"
+		"ID"						    "15002"
+		"AbilityTextureName"			"item_treasure_chest"
 		"BaseClass"						"item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -636,7 +636,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"99999"
+		"ItemCost"					   "10000"
 		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -652,7 +652,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"						"15003"
-		"AbilityName"					"item_treasure_chest"
+		"AbilityTextureName"		"item_treasure_chest"
 		"BaseClass"					"item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -667,7 +667,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"99999"
+		"ItemCost"					  "15000"
 		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -683,7 +683,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"						"15004"
-		"AbilityName"					"item_treasure_chest"
+		"AbilityTextureName"		"item_treasure_chest"
 		"BaseClass"					"item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -698,7 +698,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"99999"
+		"ItemCost"				      "20000"
 		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -714,7 +714,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"						"15005"
-		"AbilityName"					"item_treasure_chest"
+		"AbilityTextureName"		"item_treasure_chest"
 		"BaseClass"					"item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -729,7 +729,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"99999"
+		"ItemCost"					  "25000"
 		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -745,7 +745,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"						"15006"
-		"AbilityName"					"item_treasure_chest"
+		"AbilityTextureName"		"item_treasure_chest"
 		"BaseClass"					"item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -760,7 +760,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"99999"
+		"ItemCost"					  "30000"
 		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -775,13 +775,13 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"15007"
-		"AbilityName"					"item_treasure_chest"
-		"BaseClass"					"item_bag_of_gold"
+		"ID"						    "15007"
+		"AbilityTextureName"			"item_treasure_chest"
+		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"Model"					"models/props_gameplay/treasure_chest001.vmdl"
+		"Model"				        	"models/props_gameplay/treasure_chest001.vmdl"
 		"ItemKillable"					"0"
 		
 		// Stats
@@ -791,7 +791,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"99999"
+		"ItemCost"					  "35000"
 		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -806,9 +806,9 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"15008"
-		"AbilityName"					"item_treasure_chest"
-		"BaseClass"					"item_bag_of_gold"
+		"ID"						    "15008"
+		"AbilityTextureName"			"item_treasure_chest"
+		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -822,7 +822,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"99999"
+		"ItemCost"				   	  "40000"
 		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -833,6 +833,38 @@
 		"ItemKillable"					"0"
 		"ItemCastOnPickup"				"1"
 	}
+    "item_treasure_chest_9"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					    	"15009"
+		"AbilityTextureName"			"item_treasure_chest"
+		"BaseClass"					    "item_bag_of_gold"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"Model"				        	"models/props_gameplay/treasure_chest001.vmdl"
+		"ItemKillable"					"0"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"100"
+		"AbilityCastPoint"				"0.0"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"			         	"45000"
+		"ItemPurchasable"				"1"
+		"ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			        "0"
+		"ItemKillable"					"0"
+		"ItemCastOnPickup"				"1"
+	}
+
         "item_skysong_blade"
 	{
 		"ID"							"16001"

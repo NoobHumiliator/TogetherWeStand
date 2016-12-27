@@ -170,10 +170,15 @@ function CHoldoutGameRound:Begin()
    print(self._szRoundQuestTitle)
    if self._szRoundQuestTitle ~=nil then
    	   local bonusItemName ="";
-   	   if #bonusItems[self._nRoundNumber] ==1 then
-   	   	  bonusItemName=bonusItems[self._nRoundNumber][1]
+       local bonusLevel=self._nRoundNumber
+       if bonusLevel>#bonusItems then  --如果关卡数超过定义的数组 调整一下
+       	  bonusLevel=#bonusItems
+       end
+
+   	   if #bonusItems[bonusLevel] ==1 then
+   	   	  bonusItemName=bonusItems[bonusLevel][1]
    	   else
-   	   	  bonusItemName="item_treasure_chest_"..self._nRoundNumber
+   	   	  bonusItemName="item_treasure_chest_"..bonusLevel
    	   end
        QuestSystem:CreateAchQuest("Achievement",self._szRoundQuestTitle,1,1,nil,bonusItemName)
    end
@@ -264,6 +269,10 @@ function CHoldoutGameRound:End()
 	end
 	]]
 	QuestSystem:DelQuest("Progress")
+    if self._szRoundQuestTitle ~=nil then
+       QuestSystem:DelQuest("Achievement")
+   end
+    
 	self:CheckAchievement()
 end
 
