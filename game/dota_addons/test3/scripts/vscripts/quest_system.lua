@@ -56,6 +56,10 @@ function QuestSystem:CreateAchQuest(qusetName,qusetText,questValueStart,questVal
     return true
 end
 
+function QuestSystem:CreatAffixesQuest(qusetName,list)
+    CustomGameEventManager:Send_ServerToAllClients( "createaffixes", {name=qusetName,list = list})
+    return true
+end
 
 
 

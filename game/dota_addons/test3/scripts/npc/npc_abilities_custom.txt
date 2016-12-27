@@ -17859,6 +17859,42 @@
 			}
 		}
 	}
+    "affixes_ability_tooltip_teeming"  //UI显示用 无实际效果
+	{
+
+		"AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                       "ability_datadriven"
+		"AbilityTextureName"                              "teeming"
+		"MaxLevel"                                        "1"
+	}
+    "affixes_ability_tooltip_overflowing" //UI显示用 无实际效果
+    {
+
+		"AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                       "ability_datadriven"
+		"AbilityTextureName"                              "overflowing"
+		"MaxLevel"                                        "1"
+	}
+   "affixes_ability_tooltip_silence" //UI显示用 无实际效果
+    {
+
+		"AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                       "ability_datadriven"
+		"AbilityTextureName"                              "silence"
+		"MaxLevel"                                        "1"
+	}
+    
+    "affixes_ability_tooltip_falling_rock" //UI显示用 无实际效果
+    {
+
+		"AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                       "ability_datadriven"
+		"AbilityTextureName"                              "earth_spirit_rolling_boulder"
+		"MaxLevel"                                        "1"
+	} 
+    
+
+
     "affixes_ability_raging"
 	{
 

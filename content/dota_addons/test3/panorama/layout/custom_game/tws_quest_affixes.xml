@@ -5,6 +5,7 @@
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/tws_quest_affixes.js"/>
+		<include src="file://{resources}/scripts/custom_game/util.js" />
 	</scripts>
 	<snippets>
 		<snippet name="QuestLine">
@@ -32,7 +33,10 @@
 				</Panel>
 			</Panel>
 		</snippet>
-
+        <snippet name="AffixesLine">
+			 <Panel class="AffixesLine">
+		     </Panel>
+		</snippet>
 
 	</snippets>
 	<Panel hittest="false">
