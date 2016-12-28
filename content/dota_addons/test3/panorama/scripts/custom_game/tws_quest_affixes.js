@@ -7,18 +7,13 @@ function HideItemTooltip (itemImage) {
 }
 
 
-
-
 function RefreshQuestData(data){
 
-     $.Msg(data)
     var panleId=data.name
     var panleSvalue=data.svalue
     var panleEvalue=data.evalue
     var remark=data.remark
     
-    //var panleText=$.Localize(data.text)+"("+panleSvalue+"/"+panleEvalue+")"
-    //$.Msg($.Localize("#tws_quest_prep_time"))
     var questPanle=$('#QuestPanel').FindChild(panleId)
     var valuePercent=parseInt(panleSvalue)/parseInt(panleEvalue)*100;
     if(questPanle!=null){
@@ -36,8 +31,6 @@ function RefreshQuestData(data){
 }
 
 function CreatQuest(data) {
-        //$.Msg("CreateQuest")
-        //$.Msg(data)
         newPanel = $.CreatePanel('Panel', $('#QuestPanel'),data.name);
         newPanel.BLoadLayoutSnippet("QuestLine");
         newPanel.AddClass("Panle_MarginStyle")
@@ -45,8 +38,6 @@ function CreatQuest(data) {
 
 
 function CreatAchQuest(data) {  //成就特殊奖励UI
-    //$.Msg("CreateAchQuest")
-    //$.Msg(data)
     var itemName=data.itemname
     var newPanel = $.CreatePanel('Panel', $('#QuestPanel'),data.name);
     newPanel.BLoadLayoutSnippet("AchievementLine");
@@ -54,46 +45,39 @@ function CreatAchQuest(data) {  //成就特殊奖励UI
     var itemImage= newPanel.GetChild(1).GetChild(1)
     if (itemImage!=null&&itemName!=null)
     {
-        $.Msg("itemName"+itemName)
         itemImage.itemname=itemName;
     }
-    //itemImage.SetPanelEvent( "onmouseover", ShowItemTooltip (itemImage) );
-    //itemImage.SetPanelEvent( "onmouseout",  HideItemTooltip (itemImage) );
 }
 
+var index=1;  //全局计数器
 
 function CreatAffixes(data) {  //词缀
-    //$.Msg("CreateAchQuest")
-    $.Msg(data)
-    var affixesList= data.list
-    $.Msg(affixesList)
 
-    $.Msg(affixesList.length)
-    var itemName=data.itemname
+    var affixesList= data.list
     var newPanel = $.CreatePanel('Panel', $('#QuestPanel'),data.name);
     newPanel.BLoadLayoutSnippet("AffixesLine");
     newPanel.AddClass("Panle_MarginStyle")
-    
+    index=1;
+
     for (var i in affixesList ) { 
-        //$.Msg(i)
-        var affixAbilityName=affixesList[i];
-        var imageId="affix_id_"+i;
-        $.Msg(affixAbilityName)
-        var abilityImage=$.CreatePanel( "DOTAAbilityImage", newPanel, imageId );
-        abilityImage.abilityname=affixAbilityName;  //abilityname 全小写
-        abilityImage.SetHasClass( "AbilityImage", true );
-        abilityImage.SetPanelEvent( "onmouseover", ShowAbilityTooltip (abilityImage) );
-        abilityImage.SetPanelEvent( "onmouseout",  HideAbilityTooltip (abilityImage) );
+        $.Schedule( (i-1)*1.5,function(){  
+               var affixAbilityName=affixesList[index];
+               var imageId="affix_id_"+index;
+               var offset = 310 - index*50;  //调整横向位置  
+               var abilityImage=$.CreatePanel( "DOTAAbilityImage", newPanel, imageId );
+               abilityImage.abilityname=affixAbilityName;  //abilityname 全小写
+               abilityImage.SetHasClass( "AbilityImage", true );
+               abilityImage.style.position = offset+"px 0 0 0";
+               abilityImage.SetPanelEvent( "onmouseover", ShowAbilityTooltip (abilityImage) );
+               abilityImage.SetPanelEvent( "onmouseout",  HideAbilityTooltip (abilityImage) );
+               index++;
+        })
     }
 }
-
-
 
 
 function RefreshAchQuestData(data){
 
-    //$.Msg("RefreshAchQuest")
-    //$.Msg(data)
     var panleId=data.name
     var panleSvalue=data.svalue
     var panleEvalue=data.evalue
@@ -111,6 +95,7 @@ function RefreshAchQuestData(data){
 
 
 function RemoveQuestPUI(data){
+    $.Msg(data.name+"data name")
     var RemovePanle=$('#QuestPanel').FindChild(data.name)
     RemovePanle.deleted = true;
     RemovePanle.DeleteAsync(0);

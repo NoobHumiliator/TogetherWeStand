@@ -83,6 +83,7 @@ function CHoldoutGameMode:InitGameMode()
 	self.flProgressTime=0 --记录progress阶段开始时间
 	self.flDDadjust=1  --保存难度产生的伤害系数修正
 	self.flDHPadjust=1  --保存难度产生的血量系数修正
+	self.nTrialSetTime=12
 	GameRules:SetTimeOfDay( 0.75 )
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 0)
 	GameRules:SetHeroRespawnEnabled( false )
@@ -94,6 +95,7 @@ function CHoldoutGameMode:InitGameMode()
 	  GameRules:SetPreGameTime( 3.0 )
 	  GameRules:SetGoldTickTime( 0.5 )
 	  GameRules:SetGoldPerTick( 10000 )
+	  self.nTrialSetTime=2
 	  else
 	  GameRules:SetPreGameTime( 15.0 )
 	  GameRules:SetGoldTickTime( 60.0 )
@@ -317,7 +319,7 @@ function CHoldoutGameMode:OnThink()
 	end
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then  
 	   if self.map_difficulty==nil then  --难度未定，不能开始
-          if  GameRules:GetGameTime()>self.flProgressTime+12 then
+          if  GameRules:GetGameTime()>self.flProgressTime + self.nTrialSetTime then
           	self:SetTrialMapDifficulty()
           end
 	   else

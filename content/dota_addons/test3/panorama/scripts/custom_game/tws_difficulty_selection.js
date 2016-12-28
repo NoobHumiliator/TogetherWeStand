@@ -2,6 +2,7 @@
 
 var initTime=null;
 var levelInitTime=null;
+var setupTime=null;
 var levelChoose=1;
 
 
@@ -216,12 +217,13 @@ function HideAnnouncemnet()
     }
 }
 
-function ShowTrialLevelPanel()
+function ShowTrialLevelPanel(data)
 {
     var trailLevelPanel=$("#TrailLevelPanel");
     if (trailLevelPanel)
     {
 		trailLevelPanel.SetHasClass("Opacity", false);
+        setupTime=data.setupTime;
 		UpdateTrialLevelTimer();
 		var trailLevelContainer=trailLevelPanel.FindChildInLayoutFile("TrialLevelContainer");
 		for (var i=1; i<=50;i++){
@@ -262,7 +264,7 @@ function UpdateTrialLevelTimer()
 	{
 		levelInitTime=gameTime
 	}
-	var time = 10-Math.max(0, Math.floor( gameTime-levelInitTime));
+	var time = setupTime-Math.max(0, Math.floor( gameTime-levelInitTime));
 	var timeStr = time.toString();
 	if ($("#RemainingTrialLevelTime"))
 	{

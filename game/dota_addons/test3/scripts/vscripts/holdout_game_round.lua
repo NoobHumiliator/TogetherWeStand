@@ -125,7 +125,7 @@ function CHoldoutGameRound:Begin()
       falling_rock="affixes_ability_tooltip_falling_rock"
     }
     local affixesTooltipAbilityList={}
-
+    self.bAffixFlag=false   --是否初始化过词缀
     self.vAffixes=
     {
         necrotic=false,
@@ -195,21 +195,10 @@ function CHoldoutGameRound:Begin()
    	   end
        QuestSystem:CreateAchQuest("Achievement",self._szRoundQuestTitle,1,1,nil,bonusItemName)
    end
-   QuestSystem:CreatAffixesQuest("Affixes",affixesTooltipAbilityList)
-   --[[  绿字任务系统不再支持
-	self._entQuest = SpawnEntityFromTableSynchronous( "quest", {
-		name = self._szRoundTitle,
-		title =  self._szRoundQuestTitle
-	})
-	self._entQuest:SetTextReplaceValue( QUEST_TEXT_REPLACE_VALUE_ROUND, self._nRoundNumber )
-
-	self._entKillCountSubquest = SpawnEntityFromTableSynchronous( "subquest_base", {
-		show_progress_bar = true,
-		progress_bar_hue_shift = -119
-	} )
-	self._entQuest:AddSubquest( self._entKillCountSubquest )
-	self._entKillCountSubquest:SetTextReplaceValue( SUBQUEST_TEXT_REPLACE_VALUE_TARGET_VALUE, self._nCoreUnitsTotal )
-	 ]]
+   if #affixesTooltipAbilityList>0 then
+   	  QuestSystem:CreatAffixesQuest("Affixes",affixesTooltipAbilityList)
+      self.bAffixFlag=true
+   end
 	local messageinfo = {
            message = self._szRoundTitle,
            duration=6
@@ -274,19 +263,14 @@ function CHoldoutGameRound:End()
 			end
 	    end 
     end
-
-    --[[
-	if self._entQuest then
-		UTIL_Remove( self._entQuest )
-		self._entQuest = nil
-		self._entKillCountSubquest = nil
-	end
-	]]
+    --删除本轮的UI 
 	QuestSystem:DelQuest("Progress")
     if self._szRoundQuestTitle ~=nil then
        QuestSystem:DelQuest("Achievement")
-   end
-    
+    end
+    if self.bAffixFlag then
+       QuestSystem:DelAffixQuest()
+    end
 	self:CheckAchievement()
 end
 

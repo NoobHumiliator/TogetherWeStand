@@ -80,6 +80,15 @@ function QuestSystem:DelQuest(qusetName)
     end 
 end
 
+--删除词缀任务
+function QuestSystem:DelAffixQuest()
+   
+    CustomGameEventManager:Send_ServerToAllClients( "removequestpui", {name="Affixes"})
+
+end
+
+
+
 
 
 

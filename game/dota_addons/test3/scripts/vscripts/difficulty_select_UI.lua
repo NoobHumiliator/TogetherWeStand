@@ -75,7 +75,7 @@ function CHoldoutGameMode:SetBaseDifficulty()  --设定四种基本难度
 			    CustomGameEventManager:Send_ServerToAllClients("AnnounceDifficulty",{difficulty="easy"})
 			    self:AddHeroDifficultyModifier()
 				  elseif max == difficulty.trial then
-				   CustomGameEventManager:Send_ServerToAllClients("ShowTrialLevelPanel",{})
+				   CustomGameEventManager:Send_ServerToAllClients("ShowTrialLevelPanel",{setupTime=self.nTrialSetTime})
 				   --具体难度未定
 	end
 end
@@ -123,7 +123,11 @@ function CHoldoutGameMode:SetTrialMapDifficulty ()
 			sum=sum+PlayerSelectTrialLevel[i]
 	    end
 	end
-	local average=math.floor(sum/choosedPlayerNumber)
+	local average=1 
+	if choosedPlayerNumber ~= 0 then
+	   average=math.floor(sum/choosedPlayerNumber)
+	end
+
 	self.map_difficulty=3+math.floor(average)
 
     self.flDDadjust=1.5*(1+(self.map_difficulty-3)*0.05)
