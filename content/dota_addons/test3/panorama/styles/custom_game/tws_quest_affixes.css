@@ -39,12 +39,14 @@
 }
 
 .AffixesLine{
+  margin-top: 10px;
   flow-children:right;
+  horizontal-align: right;
 }
 
 .AbilityImage{
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   margin: 5px;
 }
 
