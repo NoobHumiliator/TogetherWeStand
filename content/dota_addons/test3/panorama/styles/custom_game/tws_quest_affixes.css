@@ -25,7 +25,7 @@
 }
 
 .AchievementQuestLable{
-  horizontal-align:right;
+  horizontal-align:left;
   flow-children:right;
 }
 
@@ -40,14 +40,14 @@
 
 .AffixesLine{
   margin-top: 10px;
-  flow-children:right;
-  horizontal-align: right;
+  width: 300px;
+  height: 40px;
 }
 
 .AbilityImage{
   width: 40px;
   height: 40px;
-  margin: 5px;
+  transition: position 1.2s ease-in-out 0s, perspective-origin 1.2s ease-in-out 0.8s;
 }
 
 .Panle_MarginStyle{
