@@ -18015,7 +18015,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE"
 		"SpellImmunityType"			    "SPELL_IMMUNITY_ENEMIES_YES"
 	    "AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"AbilityTextureName"			"alchemist_acid_spray"
+		"AbilityTextureName"			"bloodseeker_blood_bath"
        
         "AbilitySpecial"
 	    {
