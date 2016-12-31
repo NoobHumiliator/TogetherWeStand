@@ -1,4 +1,5 @@
 require('libraries/notifications')
+require('quest_system')
 function CheckCaveLord( event )
 	local caster = event.caster
 	local ability = event.ability
@@ -15,6 +16,7 @@ function CheckCaveLord( event )
       if GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag==true then
        Notifications:BottomToTeam(DOTA_TEAM_GOODGUYS, {text="#round2_acheivement_fail_note", duration=4, style = {color = "Orange"}})
       end
+     QuestSystem:RefreshAchQuest("Achievement",0,1) 
      GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag=false
 	end
   
@@ -23,6 +25,7 @@ function CheckCaveLord( event )
 	   if GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag==true then
          Notifications:BottomToTeam(DOTA_TEAM_GOODGUYS, {text="#round2_acheivement_fail_note", duration=4, style = {color = "Orange"}})
      end
+     QuestSystem:RefreshAchQuest("Achievement",0,1)
 	   GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag=false
 	  end
 	end

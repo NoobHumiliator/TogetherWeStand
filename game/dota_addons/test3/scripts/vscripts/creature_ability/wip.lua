@@ -1,5 +1,6 @@
 -- Used to keep track of projectiles after creation
 require('libraries/notifications')
+require('quest_system')
 ProjectileHolder = {} 
 --This function will create the 7 projectiles to volly, in a 57.5 degree cone
 function volly(args)
@@ -87,6 +88,7 @@ function big_blow_dot_over( keys )
        if GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag==true then
         Notifications:BottomToTeam(DOTA_TEAM_GOODGUYS, {text="#round3_acheivement_fail_note", duration=4, style = {color = "Orange"}})
        end
+      QuestSystem:RefreshAchQuest("Achievement",0,1)
       GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag=false
     end
 end
