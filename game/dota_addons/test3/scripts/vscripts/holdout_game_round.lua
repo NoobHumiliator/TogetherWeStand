@@ -61,7 +61,7 @@ function CHoldoutGameRound:Begin()
 		ListenToGameEvent( "dota_holdout_revive_complete", Dynamic_Wrap( CHoldoutGameRound, 'OnHoldoutReviveComplete' ), self )
 	}
 	self.Begin_Time=GameRules:GetGameTime()
-    self:InitialAcheivementSystem()  --初始化成就系统
+    --self:InitialAcheivementSystem()  --初始化成就系统
 	self._vPlayerStats = {}
 	self.Palyer_Number=0;
 	for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
@@ -180,7 +180,6 @@ function CHoldoutGameRound:Begin()
    	  end
    end  
    QuestSystem:CreateQuest("Progress","#tws_quest_progress_text",0,self._nCoreUnitsTotal,nil,self._nRoundNumber)
-   print(self._szRoundQuestTitle)
    if self._szRoundQuestTitle ~=nil then
    	   local bonusItemName ="";
        local bonusLevel=self._nRoundNumber
@@ -195,6 +194,7 @@ function CHoldoutGameRound:Begin()
    	   end
        QuestSystem:CreateAchQuest("Achievement",self._szRoundQuestTitle,1,1,nil,bonusItemName)
    end
+   self:InitialAcheivementSystem()  --初始化成就系统
    if #affixesTooltipAbilityList>0 then
    	  QuestSystem:CreatAffixesQuest("Affixes",affixesTooltipAbilityList)
       self.bAffixFlag=true
@@ -305,7 +305,8 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
 						local hero_name=PlayerResource:GetPlayer(playerid):GetAssignedHero():GetName()                    
 						Notifications:BottomToAll({hero = hero_name, duration = 4})
 						Notifications:BottomToAll({text = playername.." ", duration = 4, continue = true})
-						Notifications:BottomToAll({text = "#round4_acheivement_fail_note", duration = 4, style = {color = "Orange"}, continue = true})
+						Notifications:BottomToAll({text = "#round4_acheivement_fail_note", duration = 4, style = {color = "Orange"}, continue = true})                       
+                        QuestSystem:RefreshAchQuest("Achievement",0,1)
 						CHoldoutGameMode._currentRound.achievement_flag=false
 						return nil
 					end
@@ -331,6 +332,7 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
 						Notifications:BottomToAll({hero = hero_name, duration = 4})
 						Notifications:BottomToAll({text = playername.." ", duration = 4, continue = true})
 						Notifications:BottomToAll({text = "#round5_acheivement_fail_note", duration = 4, style = {color = "Orange"}, continue = true})
+						QuestSystem:RefreshAchQuest("Achievement",0,1)
 						CHoldoutGameMode._currentRound.achievement_flag=false
 						return nil
 					end
@@ -347,7 +349,9 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
 	if self._alias=="morphing" then
 		GameRules:GetGameModeEntity():SetFogOfWarDisabled( true )
 		GameRules:SendCustomMessage("#waterblowfog", 0, 0)
+		QuestSystem:RefreshAchQuest("Achievement",0,5)
 		self.achievement_flag=false
+		local maxReaperNumber=0
 		Timers:CreateTimer({
 			endTime = 1,
 			callback = function()
@@ -360,7 +364,12 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
 						reapernumber=reapernumber+1
 					end  
 				end
-			end			 
+			end
+			if reapernumber>maxReaperNumber and reapernumber<6  then
+				print("maxReaperNumber"..maxReaperNumber)
+				maxReaperNumber=reapernumber
+				QuestSystem:RefreshAchQuest("Achievement",maxReaperNumber,5)
+			end
 			if reapernumber>=5 then 
 				Notifications:BottomToTeam(DOTA_TEAM_GOODGUYS, {text="#round6_acheivement_fail_note", duration=4, style = {color = "Chartreuse"}})
 				CHoldoutGameMode._currentRound.achievement_flag=true

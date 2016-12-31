@@ -120,6 +120,8 @@ function CHoldoutGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesVisible( false )
 	-- Custom console commands
 	Convars:RegisterCommand( "holdout_test_round", function(...) return self:_TestRoundConsoleCommand( ... ) end, "Test a round of holdout.", FCVAR_CHEAT )
+	Convars:RegisterCommand( "holdout_status_report", function(...) return self:_StatusReportConsoleCommand( ... ) end, "Report the status of the current holdout game.", FCVAR_CHEAT )
+	Convars:RegisterCommand( "holdout_list_modifiers", function(...) return self:_ListModifiers( ... ) end, "List modifiers of all hero.", FCVAR_CHEAT )
     --UI交互
     CustomGameEventManager:RegisterListener("AddAbility", Dynamic_Wrap(CHoldoutGameMode, 'AddAbility'))
     CustomGameEventManager:RegisterListener("RemoveAbility", Dynamic_Wrap(CHoldoutGameMode, 'RemoveAbility'))
@@ -751,12 +753,13 @@ function CHoldoutGameMode:OnEntityKilled( event )
 		killedUnit.heal_absorb=nil
 		killedUnit:RemoveModifierByName("modifier_overflow_stack") --死亡移除溢出效果
 		if self._currentRound  and  self._currentRound._alias=="skeleton"  and self._currentRound.achievement_flag then
-		         local playername=PlayerResource:GetPlayerName(killedUnit:GetPlayerOwnerID())
-                 local hero_name=PlayerResource:GetSelectedHeroName(killedUnit:GetPlayerOwnerID())  
-                 Notifications:BottomToAll({hero = hero_name, duration = 4})
-		         Notifications:BottomToAll({text = playername.." ", duration = 4, continue = true})
-		         Notifications:BottomToAll({text = "#round1_acheivement_fail_note", duration = 4, style = {color = "Orange"}, continue = true})
-		   self._currentRound.achievement_flag=false
+		     local playername=PlayerResource:GetPlayerName(killedUnit:GetPlayerOwnerID())
+		     local hero_name=PlayerResource:GetSelectedHeroName(killedUnit:GetPlayerOwnerID())  
+		     Notifications:BottomToAll({hero = hero_name, duration = 4})
+		     Notifications:BottomToAll({text = playername.." ", duration = 4, continue = true})
+		     Notifications:BottomToAll({text = "#round1_acheivement_fail_note", duration = 4, style = {color = "Orange"}, continue = true})
+		     QuestSystem:RefreshAchQuest("Achievement",0,1)
+		     self._currentRound.achievement_flag=false
 		end	
 		local newItem = CreateItem( "item_tombstone", killedUnit, killedUnit )
 		newItem:SetPurchaseTime( 0 )
@@ -819,12 +822,6 @@ function CHoldoutGameMode:_TestRoundConsoleCommand( cmdName, roundNumber, delay 
 		end
 	end
 	self:_RefreshPlayers()
-	--[[ 绿字任务不再支持
-	if self._entPrepTimeQuest then
-		UTIL_Remove( self._entPrepTimeQuest )
-		self._entPrepTimeQuest = nil
-	end
-	]]
 	if self._currentRound ~= nil then
 		self._currentRound:End()
 		self._currentRound = nil
@@ -852,6 +849,29 @@ function CHoldoutGameMode:_StatusReportConsoleCommand( cmdName )
 	end
 	print( "*** Holdout Status Report End *** ")
 end
+
+
+
+-- Custom game specific console command "holdout_list_modifiers"
+function CHoldoutGameMode:_ListModifiers(cmdName)
+	for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
+		if PlayerResource:IsValidPlayer( nPlayerID ) then
+			if PlayerResource:HasSelectedHero( nPlayerID ) then
+				local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
+				if hero then
+				  if hero:IsAlive() then
+				     ListModifiers(hero)
+				  end
+				end
+	        end 	
+		end
+	end
+end
+
+
+
+
+
 
 
 function CHoldoutGameMode:CreateNetTablesSettings()
