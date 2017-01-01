@@ -26,16 +26,16 @@ function AddStack( keys )
 
          if  bullets_count>9  and GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag==true then
               if target:IsRealHero() then
-              GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag=false
-              local hero_name=target:GetName()
-              local playerid= target:GetPlayerID()
-              local playername=PlayerResource:GetPlayerName(playerid)
-              Notifications:BottomToAll({hero = hero_name, duration = 4})
-              Notifications:BottomToAll({text = playername.." ", duration = 4, continue = true})
-              Notifications:BottomToAll({text = "#round_dragon_acheivement_fail_note", duration = 4, style = {color = "Orange"}, continue = true})
+                QuestSystem:RefreshAchQuest("Achievement",0,1) 
+                GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag=false
+                local hero_name=target:GetName()
+                local playerid= target:GetPlayerID()
+                local playername=PlayerResource:GetPlayerName(playerid)
+                Notifications:BottomToAll({hero = hero_name, duration = 4})
+                Notifications:BottomToAll({text = playername.." ", duration = 4, continue = true})
+                Notifications:BottomToAll({text = "#round_dragon_acheivement_fail_note", duration = 4, style = {color = "Orange"}, continue = true})
               end
          end
-
 
          target.safe_to_remove_curse_debuff=true
          target:RemoveModifierByName("modifier_arcane_curse_debuff_stack")
@@ -50,7 +50,6 @@ function AddStack( keys )
          end
          target.arcane_stack_particle= particle
          target.arcane_stacks=target:GetModifierStackCount("modifier_arcane_curse_debuff_stack",keys.ability)
-         print("stack_count new"..target:GetModifierStackCount("modifier_arcane_curse_debuff_stack",keys.ability))
     end   
 end
 
@@ -63,9 +62,7 @@ function StackOverDamage( keys )
      ParticleManager:DestroyParticle(target.arcane_stack_particle,true)
      ParticleManager:ReleaseParticleIndex(target.arcane_stack_particle)
      if target.safe_to_remove_curse_debuff and target.safe_to_remove_curse_debuff==true then
-        print("safe to remove") 
        else
-        print("not safe to remove")
         target:RemoveModifierByName("modifier_item_blade_mail_reflect")
        local damageTable = {victim=target,
                            attacker=caster,

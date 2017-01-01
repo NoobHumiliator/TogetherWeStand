@@ -1,4 +1,5 @@
 require('libraries/notifications')
+require('quest_system')
 elf_index={}   --储存全部特效的的Index
 function cut_elf(variable)
     local caster = variable.caster
@@ -77,6 +78,11 @@ function announce_my_die(variable)
         end
     end
     GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.treeElderDieNumber=GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.treeElderDieNumber+1
+
+    
+    local achTreeNumber= math.min(GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.treeElderDieNumber, 10)
+    QuestSystem:RefreshAchQuest("Achievement",achTreeNumber,10) 
+
     if GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.treeElderDieNumber==10 then
       GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag=true
       Notifications:BottomToTeam(DOTA_TEAM_GOODGUYS, {text="#round10_acheivement_fail_note", duration=4, style = {color = "Chartreuse"}})
