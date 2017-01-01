@@ -406,11 +406,19 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
 		local entUnit = CreateUnitByName( "npc_dota_tiny_1", wp:GetOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS)
 		GameRules:SendCustomMessage("#tinycapture_dbm", 0, 0)
 	end	
+	if self._alias=="mammoth"  then
+		QuestSystem:RefreshAchQuest("Achievement",1,1)
+	end
+	if self._alias=="blue_dragon"  then
+		QuestSystem:RefreshAchQuest("Achievement",1,1)
+	end
 	if self._alias=="tree"  then
 		self.treeElderDieNumber=0
+		QuestSystem:RefreshAchQuest("Achievement",0,10)
 		self.achievement_flag=false
 	end
 	if self._alias=="morphing_again" then
+		QuestSystem:RefreshAchQuest("Achievement",0,20)
 		self.achievement_flag=false
 		Timers:CreateTimer({
 			endTime = 1,

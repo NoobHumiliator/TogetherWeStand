@@ -1,5 +1,5 @@
 require("abilities/ability_generic")
-
+require('quest_system')
 
 function fly_point( keys )
         local caster = keys.caster
@@ -351,6 +351,7 @@ function charge_dot_damage( keys )
           else
               Notifications:BottomToAll({text = "#round9_acheivement_fail_note", duration = 4, style = {color = "Orange"}})
           end
+          QuestSystem:RefreshAchQuest("Achievement",0,1) 
           GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag=false
         end
    end
