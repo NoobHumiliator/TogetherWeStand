@@ -8,40 +8,40 @@
 		<include src="file://{resources}/scripts/custom_game/util.js" />
 	</scripts>
 	<snippets>
-		<snippet name="QuestLine">
-			<Panel>
-				<Panel direction="horizontal" class="Progress">
-					<Panel class="Progress_Left" style="margin-bottom: 0;"/>
-					<Panel class="Progress_Right" style="margin-bottom: 0;"/>
+		<snippet hittest="false" name="QuestLine">
+			<Panel hittest="false">
+				<Panel  hittest="false" direction="horizontal" class="Progress">
+					<Panel  hittest="false" class="Progress_Left" style="margin-bottom: 0;"/>
+					<Panel  hittest="false" class="Progress_Right" style="margin-bottom: 0;"/>
 				</Panel>
-				<Panel class="SliderLable">
-					<Label class="SliderInfo" text=""/>
+				<Panel  hittest="false" class="SliderLable">
+					<Label hittest="false" class="SliderInfo" text=""/>
 				</Panel>
 			</Panel>
 		</snippet>
-        <snippet name="AchievementLine">
-			<Panel>
-				<Panel direction="horizontal" class="Progress">
-					<Panel class="Progress_Left" style="margin-bottom: 0;"/>
-					<Panel class="Progress_Right" style="margin-bottom: 0;"/>
+        <snippet hittest="false" name="AchievementLine">
+			<Panel hittest="false">
+				<Panel  hittest="false" direction="horizontal" class="Progress">
+					<Panel  hittest="false" class="Progress_Left" style="margin-bottom: 0;"/>
+					<Panel  hittest="false" class="Progress_Right" style="margin-bottom: 0;"/>
 				</Panel>
-				<Panel class="AchievementQuestLable">
-					<Label class="SliderInfo" text="#tws_quest_achievement_front"/>  <!--特殊奖励：-->
+				<Panel hittest="false" class="AchievementQuestLable">
+					<Label  hittest="false" class="SliderInfo" text="#tws_quest_achievement_front"/>  <!--特殊奖励：-->
 					<DOTAItemImage  itemname="" style="height:24px;width:32px; margin-top:27px;"  onmouseover="ShowItemTooltip()"
 					   	  onmouseout="HideItemTooltip()"/> <!--图标：-->
-					<Label class="SliderInfo" text=""/>  <!--本轮没有任何英雄阵亡：-->
+					<Label hittest="false" class="SliderInfo" text=""/>  <!--本轮没有任何英雄阵亡：-->
 				</Panel>
 			</Panel>
 		</snippet>
         <snippet name="AffixesLine">
-			 <Panel class="AffixesLine">
+			 <Panel hittest="false" class="AffixesLine">
 		     </Panel>
 		</snippet>
 
 	</snippets>
 	<Panel hittest="false">
 		<Panel hittest="false" id="QuestMain">
-			<Panel id="QuestPanel"> </Panel>
+			<Panel hittest="false" id="QuestPanel"> </Panel>
 		</Panel>
 	</Panel>
 </root>
