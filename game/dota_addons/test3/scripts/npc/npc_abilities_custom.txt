@@ -19705,7 +19705,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"necrolyte_old_sadist"
 		"MaxLevel"					    "8"
-		
+
 		"AbilitySpecial"
 		{
 			"01"
@@ -19803,14 +19803,16 @@
 {
 	// General
 	//-------------------------------------------------------------------------------------------------------------
-	"BaseClass"				"ability_datadriven"
+	"BaseClass"				        "ability_datadriven"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
 	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
 	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-	"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 	"FightRecapLevel"				"1"
-	"AbilityTextureName"			"techies_suicide"
+	"AbilityTextureName"			"techies_old_suicide"
+	"LevelsBetweenUpgrades"			"5"
+	"MaxLevel"                      "8"
 
 	// Precache
 	//-------------------------------------------------------------------------------------------------------------
@@ -19827,11 +19829,11 @@
 
 	// Time		
 	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCooldown"				"180.0 170.0 160.0 150.0"
+	"AbilityCooldown"				"160 140 120 100 80 60 40 20"
 
 	// Cost
 	//-------------------------------------------------------------------------------------------------------------
-	"AbilityManaCost"				"100 125 150 175"
+	"AbilityManaCost"				"100 125 150 175 200 225 250 275"
 
 	// Special
 	//-------------------------------------------------------------------------------------------------------------
@@ -19850,33 +19852,17 @@
 		"03"
 		{
 			"var_type"					"FIELD_INTEGER"
-			"damage"					"500 650 850 1150 1550 2"
+			"damage"					"240 350 510 770 1130 1790 2750 4010"
 		}
 		"04"
 		{
 			"var_type"					"FIELD_INTEGER"
-			"partial_damage"			"260 300 340 380"
+			"partial_damage"			"260 300 340 380 420 460 500 540"
 		}
 		"05"
 		{
-			"var_type"				"FIELD_FLOAT"
-			"respawn_time_percentage"		"0.5"
-		}
-		"06"
-		{
-			"var_type"				"FIELD_INTEGER"
-			"respawn_time_percentage_tooltip"		"50"
-		}
-		// Extra
-		"07"
-		{
-			"var_type"					"FIELD_FLOAT"
-			"vision_radius"				"400"
-		}
-		"08"
-		{
-			"var_type"					"FIELD_FLOAT"
-			"vision_duration"			"2.0"
+			"var_type"					"FIELD_INTEGER"
+			"damage_tooltip"			"500 650 850 1150 1550 2250 3250 4550"
 		}
 	}
 
@@ -19921,8 +19907,8 @@
 						"Center"	"TARGET"
 						"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 					}
-					"Type"			"DAMAGE_TYPE_PHYSICAL"
-					"Damage"		"%damage - %partial_damage"
+					"Type"			"DAMAGE_TYPE_MAGICAL"
+					"Damage"		"%damage"
 				}
 			}
 		}
@@ -19947,7 +19933,7 @@
 						"Center"	"TARGET"
 						"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 					}
-					"Type"			"DAMAGE_TYPE_PHYSICAL"
+					"Type"			"DAMAGE_TYPE_MAGICAL"
 					"Damage"		"%partial_damage"
 				}
 			}
