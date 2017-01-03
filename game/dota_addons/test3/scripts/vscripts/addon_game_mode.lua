@@ -222,7 +222,11 @@ function CHoldoutGameMode:OnHeroLevelUp(keys)
 			CustomGameEventManager:Send_ServerToPlayer(player,"UpdateAbilityList", {heroName=false,playerId=_playerId})
 			return
 		end
-	end
+	end 
+    if keys.level==17 or keys.level==19 or keys.level==21 or keys.level==22 or keys.level==23 or keys.level==24 then --7.0以后不给技能点
+       local p = hero:GetAbilityPoints()
+       hero:SetAbilityPoints(p+1)   --不给技能点的这几级 先加回来
+    end
 	-- 如果英雄的等级不是2的倍数，那么这个等级就不给技能点
 	local _,l = math.modf((level-1)/2)
 	if l ~= 0 then
