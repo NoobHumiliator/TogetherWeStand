@@ -489,7 +489,8 @@
   "1"    "necrolyte_death_pulse"
   "2"    "necrolyte_heartstopper_aura_datadriven"
   "3"    "necrolyte_sadist"
-  "4"    "necrolyte_reapers_scythe_datadriven"
+  "4"    "necrolyte_sadist_datadriven"
+  "5"    "necrolyte_reapers_scythe_datadriven"
   }
   "warlock" {
   "1"    "warlock_fatal_bonds"
