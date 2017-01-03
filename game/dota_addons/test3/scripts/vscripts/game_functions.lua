@@ -99,9 +99,8 @@ function SpecialItemAdd( event, level )
 	local hero = owner:GetClassname()
 	local ownerTeam = owner:GetTeamNumber()
 	local possibleItems= bonusItems[level]
-	local spawnedItemName = PickRandom(possibleItems)
 	
-	owner:AddItemByName( spawnedItem )
+	owner:AddItemByName( PickRandom(possibleItems) )
 	local particle= ParticleManager:CreateParticle("particles/neutral_fx/roshan_spawn.vpcf",PATTACH_ABSORIGIN_FOLLOW,owner)
     ParticleManager:ReleaseParticleIndex(particle)
 	EmitGlobalSound("powerup_04")
