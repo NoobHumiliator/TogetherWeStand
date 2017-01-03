@@ -371,8 +371,9 @@
   "1"    "techies_land_mines"
   "2"    "techies_stasis_trap"
   "3"    "techies_suicide"
-  "4"    "techies_remote_mines"
-  "5"    "techies_focused_detonate"
+  "4"    "techies_suicide_datadriven"
+  "5"    "techies_remote_mines"
+  "6"    "techies_focused_detonate"
   }
   "axe" {
   "1"    "axe_berserkers_call"
