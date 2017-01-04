@@ -13,6 +13,7 @@ sp_exempt_table["elder_titan_earth_splitter"]=true
 sp_exempt_table["winter_wyvern_arctic_burn"]=true
 sp_exempt_table["doom_bringer_infernal_blade"]=true
 sp_exempt_table["phoenix_sun_ray"]=true
+sp_exempt_table["abyssal_underlord_firestorm"]=true
 
 
 function CHoldoutGameMode:DamageFilter(damageTable)
@@ -24,6 +25,9 @@ function CHoldoutGameMode:DamageFilter(damageTable)
 	  if attacker:GetTeam()==DOTA_TEAM_GOODGUYS then
 	        if damageTable.entindex_inflictor_const ~=nil then
 	           local ability=EntIndexToHScript(damageTable.entindex_inflictor_const)
+
+             --print("Ability Name: "..ability:GetAbilityName().." Attacker: "..attacker:GetUnitName() )
+
 	           if attacker.sp~=nil and  damageTable.damagetype_const==2  and  not sp_exempt_table[ability:GetAbilityName()]  then
 	           	 if ability:IsToggle() or ability:IsPassive() then
 	              damageTable.damage=damageTable.damage*(1+attacker.sp*0.3*attacker:GetIntellect()/100)

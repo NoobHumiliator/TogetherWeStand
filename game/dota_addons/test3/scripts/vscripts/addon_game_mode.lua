@@ -166,7 +166,7 @@ function CHoldoutGameMode:_ReadGameConfiguration()
 
 	self._bUseReactiveDifficulty = kv.UseReactiveDifficulty or false
     if testMode then
-	  self._flPrepTimeBetweenRounds = 4
+	  self._flPrepTimeBetweenRounds = 2
     else
       self._flPrepTimeBetweenRounds = tonumber( kv.PrepTimeBetweenRounds or 0 )
     end
