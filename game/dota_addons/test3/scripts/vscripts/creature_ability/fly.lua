@@ -166,8 +166,6 @@ function water_fuse( keys )
                 unit:ForceKill(true)
                 end
         end
-        Notifications:TopToAll({ability= "water_fuse"})
-        Notifications:TopToAll({text="#fuse_dbm_simple", duration=1.5, style = {color = "Azure"},continue=true})
 end
 
 function water_remove_self( keys )
