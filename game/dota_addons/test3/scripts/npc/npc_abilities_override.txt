@@ -49,6 +49,24 @@
 		}
 	}
 
+
+   "special_bonus_unique_invoker_3"
+   {
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				        "4"
+			}
+		}
+	}
+
+
+
+
+
     "item_iron_talon"
 	{
 		"AbilitySpecial"
