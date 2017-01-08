@@ -2982,7 +2982,7 @@
 			"NPCName"				"npc_dota_creature_abomination"
 			"TotalUnitsToSpawn"		"48"
 			"UnitsPerSpawn"			"6"
-			"SpawnInterval"			"10"
+			"SpawnInterval"			"13"
 		}
 		
 		"UnitAbomination_1b" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
@@ -2990,7 +2990,7 @@
 			"NPCName"				"npc_dota_creature_abomination"
 			"TotalUnitsToSpawn"		"48"
 			"UnitsPerSpawn"			"6"
-			"SpawnInterval"			"10"
+			"SpawnInterval"			"13"
 		}
 		"UnitDeathKnight_1" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
 		{
@@ -3006,86 +3006,86 @@
 		}
 		"UnitAbomination_1c"   //120
 		{
-			"WaitForTime"			"30"
+			"WaitForTime"			"40"
 			"NPCName"				"npc_dota_creature_abomination"
 			"TotalUnitsToSpawn"		"36"
 			"UnitsPerSpawn"			"4"
-			"SpawnInterval"			"10"
+			"SpawnInterval"			"13"
 		}
 		
 		"UnitRanged_1a" // Duration 60s + 30s
 		{
-			"WaitForTime"			"30"
+			"WaitForTime"			"40"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"20"
 		}
 		"UnitRanged_1b" // Duration 60s + 30s
 		{
-			"WaitForTime"			"30"
+			"WaitForTime"			"40"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"20"
 		}
 		"UnitRanged_1c" // Duration 60s + 30s
 		{
-			"WaitForTime"			"30"
+			"WaitForTime"			"40"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"20"
 		}
 		"UnitRanged_1d" // Duration 60s + 30s
 		{
-			"WaitForTime"			"30"
+			"WaitForTime"			"40"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"20"
 		}
 		"UnitRanged_1e" // Duration 60s + 30s
 		{
-			"WaitForTime"			"30"
+			"WaitForTime"			"40"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"20"
 		}
 		"UnitRanged_1f" // Duration 60s + 30s
 		{
-			"WaitForTime"			"30"
+			"WaitForTime"			"40"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"20"
 		}
 		
 		// Stage 2 ================================================
 		"UnitAbomination_2a" // Duration 80s - Continues with UnitFodderGrouped_2a & 3a to 120s total
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"1"
+			"WaitForTime"			"2"
 			"NPCName"				"npc_dota_creature_abomination"
 			"TotalUnitsToSpawn"		"64"
 			"UnitsPerSpawn"			"8"
-			"SpawnInterval"			"10"
+			"SpawnInterval"			"14"
 		}
 		
 		"UnitAbomination_2b" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"1"
+			"WaitForTime"			"2"
 			"NPCName"				"npc_dota_creature_abomination"
 			"TotalUnitsToSpawn"		"64"
 			"UnitsPerSpawn"			"8"
-			"SpawnInterval"			"10"
+			"SpawnInterval"			"14"
 		}
 		"UnitCryptLord_2" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"1"
+			"WaitForTime"			"2"
 			"NPCName"				"npc_dota_crypt_lord_boss"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
@@ -3093,7 +3093,7 @@
 		"UnitLich_2" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"1"
+			"WaitForTime"			"2"
 			"NPCName"				"npc_dota_lich_boss"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
@@ -3101,66 +3101,66 @@
 		"UnitAbomination_2c"   //120
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"30"
+			"WaitForTime"			"42"
 			"NPCName"				"npc_dota_creature_abomination"
 			"TotalUnitsToSpawn"		"45"
 			"UnitsPerSpawn"			"5"
-			"SpawnInterval"			"10"
+			"SpawnInterval"			"14"
 		}
 		
 		"UnitRanged_2a" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"31"
+			"WaitForTime"			"43"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"21"
 		}
 		"UnitRanged_2b" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"31"
+			"WaitForTime"			"43"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"21"
 		}
 		"UnitRanged_2c" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"31"
+			"WaitForTime"			"43"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"21"
 		}
 		"UnitRanged_2d" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"31"
+			"WaitForTime"			"43"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"21"
 		}
 		"UnitRanged_2e" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"31"
+			"WaitForTime"			"43"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"21"
 		}
 		"UnitRanged_2f" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"31"
+			"WaitForTime"			"43"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"21"
 		}
 		
 		
@@ -3168,26 +3168,26 @@
 		"UnitAbomination_3a" // Duration 80s - Continues with UnitFodderGrouped_2a & 3a to 120s total
 		{
 			"WaitForUnit"			"UnitAbomination_2a"
-			"WaitForTime"			"1"
+			"WaitForTime"			"3"
 			"NPCName"				"npc_dota_creature_abomination"
 			"TotalUnitsToSpawn"		"64"
 			"UnitsPerSpawn"			"8"
-			"SpawnInterval"			"10"
+			"SpawnInterval"			"15"
 		}
 		
 		"UnitAbomination_3b" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
 		{
 			"WaitForUnit"			"UnitAbomination_2a"
-			"WaitForTime"			"1"
+			"WaitForTime"			"3"
 			"NPCName"				"npc_dota_creature_abomination"
 			"TotalUnitsToSpawn"		"64"
 			"UnitsPerSpawn"			"8"
-			"SpawnInterval"			"10"
+			"SpawnInterval"			"15"
 		}
 		"UnitDeathKnight_3" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
 		{
 			"WaitForUnit"			"UnitAbomination_2a"
-			"WaitForTime"			"1"
+			"WaitForTime"			"3"
 			"NPCName"				"npc_dota_death_knight_boss"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
@@ -3195,7 +3195,7 @@
 		"UnitCryptLord_3" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"16"
+			"WaitForTime"			"24"
 			"NPCName"				"npc_dota_crypt_lord_boss"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
@@ -3203,7 +3203,7 @@
 		"UnitLich_3" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
 		{
 			"WaitForUnit"			"UnitAbomination_2a"
-			"WaitForTime"			"31"
+			"WaitForTime"			"46"
 			"NPCName"				"npc_dota_lich_boss"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
@@ -3211,73 +3211,73 @@
 		"UnitAbomination_3c"   //120
 		{
 			"WaitForUnit"			"UnitAbomination_2a"
-			"WaitForTime"			"31"
+			"WaitForTime"			"47"
 			"NPCName"				"npc_dota_creature_abomination"
 			"TotalUnitsToSpawn"		"45"
 			"UnitsPerSpawn"			"5"
-			"SpawnInterval"			"10"
+			"SpawnInterval"			"15"
 		}
 		
 		"UnitRanged_3a" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_2a"
-			"WaitForTime"			"31"
+			"WaitForTime"			"47"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"23"
 		}
 		"UnitRanged_3b" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_2a"
-			"WaitForTime"			"31"
+			"WaitForTime"			"47"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"23"
 		}
 		"UnitRanged_3c" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_2a"
-			"WaitForTime"			"31"
+			"WaitForTime"			"47"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"23"
 		}
 		"UnitRanged_3d" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_2a"
-			"WaitForTime"			"31"
+			"WaitForTime"			"47"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"23"
 		}
 		"UnitRanged_3e" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_2a"
-			"WaitForTime"			"31"
+			"WaitForTime"			"47"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"23"
 		}
 		"UnitRanged_3f" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_2a"
-			"WaitForTime"			"31"
+			"WaitForTime"			"47"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"23"
 		}
 		// Stage 4 ================================================ 6个Boss
 		"UnitDeathKnight_4a" 
 		{
 			"WaitForUnit"			"UnitAbomination_3a"
-			"WaitForTime"			"15"	
-			"NPCName"		        "npc_dota_boss_nec"
+			"WaitForTime"			"23"	
+			"NPCName"		        "npc_dota_death_knight_boss"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
 		}		
@@ -3298,7 +3298,7 @@
 		"UnitDeathKnight_4b" 
 		{
 			"WaitForUnit"			"UnitAbomination_3a"
-			"WaitForTime"			"15"	
+			"WaitForTime"			"23"	
 			"NPCName"		        "npc_dota_boss_nec"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"

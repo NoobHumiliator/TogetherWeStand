@@ -24,6 +24,7 @@ var unsellableAbility = {
 var hideAbility = {
 	"damage_counter" : true,
 	"attribute_bonus" : true,
+	"attribute_bonus_lua" : true,
 	"keeper_of_the_light_illuminate_end" : true,
 	"keeper_of_the_light_spirit_form_illuminate" : true,
 	"morphling_morph_replicate" : true,
@@ -367,6 +368,43 @@ function ResetPanelData(abPanel,abCostLabel,abilityName,heroName,playerId)
 }
 
 
+function GetAttributeBonusLevel(playerId)
+{
+	 var playerHeroIndex=Players.GetPlayerHeroEntityIndex(playerId);
+	 var abilityIndex=Entities.GetAbilityByName(playerHeroIndex, "attribute_bonus_lua") 
+	 var level=Abilities.GetLevel(abilityIndex);
+	 if (level<0)
+	 {
+	 	level=0;
+	 }
+	 return  level;
+}
+
+
+function UpdateAttributeButtons()
+{
+    var attrbutton= $("#attributeButton")
+    var pointToGoldButton= $("#pointToGoldButton")
+
+    var playerId = Game.GetLocalPlayerInfo().player_id; 
+
+    if (!AbilityPointEnough(1,playerId))
+    {
+       attrbutton.SetHasClass( "notEnoughDark", true );
+       attrbutton.enough=0;
+       pointToGoldButton.SetHasClass( "notEnoughDark", true );
+       pointToGoldButton.enough=0;
+    }
+    else
+    {
+       attrbutton.SetHasClass( "notEnoughDark", false );
+       attrbutton.enough=1;
+       pointToGoldButton.SetHasClass( "notEnoughDark", false );
+       pointToGoldButton.enough=1;
+    }
+
+     attrbutton.GetChild(1).text=GetAttributeBonusLevel(playerId);  //设置黄点技能与卖黄点技能两个按钮状态
+}
 
 
 function GetAbilityCost (abilityName)
@@ -389,10 +427,10 @@ function AbilityPointEnough(abilityCost,playerId)
        var playerHeroIndex=Players.GetPlayerHeroEntityIndex(playerId) ;
        if (abilityCost<=Entities.GetAbilityPoints( playerHeroIndex ))
        {
-       	return true;
+       	  return true;
        }
        {
-       	return false;
+       	  return false;
        }
 }
 
@@ -571,9 +609,12 @@ function ChangeToBuyPanel(isButtonEvent)
     buyPanel.SetHasClass( "hidden", false);
     var sellPanel= $("#sellPanel")
     sellPanel.SetHasClass( "hidden", true );
+    var attrPanel= $("#attrPanel")
+    attrPanel.SetHasClass( "hidden", true);
+
     if (isButtonEvent) 
     {
-    Game.EmitSound("ui.switchview");
+       Game.EmitSound("ui.switchview");
     }
 }
 
@@ -581,12 +622,31 @@ function ChangeToSellPanel()
 {
     var buyPanel= $("#buyPanel")
     buyPanel.SetHasClass( "hidden", true);
+    var attrPanel= $("#attrPanel")
+    attrPanel.SetHasClass( "hidden", true);
+
     var sellPanel= $("#sellPanel")
     sellPanel.SetHasClass( "hidden", false );
     var  playerId = Game.GetLocalPlayerInfo().player_id;
     PlayerAbilityListUpdate(playerId);
     Game.EmitSound("ui.switchview");
 }
+
+
+
+function ChangeToAttrPanel()
+{
+    var buyPanel= $("#buyPanel")
+    buyPanel.SetHasClass( "hidden", true);
+    var sellPanel= $("#sellPanel")
+    sellPanel.SetHasClass( "hidden", true );
+    var attrPanel= $("#attrPanel")
+    attrPanel.SetHasClass( "hidden", false );
+    Game.EmitSound("ui.switchview");
+    UpdateAttributeButtons()
+}
+
+
 
 function SetAllAbilityUnabled(abPanel)
 {
@@ -601,9 +661,6 @@ function SetAllAbilityUnabled(abPanel)
 	}
 }
 
-
-
-
 var PreviewHero = ( function( heroInfo )
 {
 	return function()
@@ -617,6 +674,7 @@ var PreviewHero = ( function( heroInfo )
 
 var AddAbility = ( function(abPanel )
 {
+	$.Msg(abPanel.data)
 	return function()
 	{
 		if (abPanel.data.reachFive && abPanel.data.enough)
@@ -641,8 +699,20 @@ var RemoveAbility = ( function(abPanel)
 
 
 
+function  attributeButton ()
+{
+   var attrbutton= $("#attributeButton")
+   var playerId = Game.GetLocalPlayerInfo().player_id;
 
+   GameEvents.SendCustomGameEventToServer( "LevelUpAttribute", {playerId: playerId,enough:attrbutton.enough } );
+}
 
+function  pointToGoldButton ()
+{
+   var pointToGoldButton= $("#pointToGoldButton")
+   var playerId = Game.GetLocalPlayerInfo().player_id; 
+   GameEvents.SendCustomGameEventToServer( "PointToGold",  {playerId: playerId,enough:pointToGoldButton.enough } );
+}
 
 function UpdateAbilityList(keys)
 {
@@ -653,6 +723,7 @@ function UpdateAbilityList(keys)
         isButtonEvent=false;
 	}
 	Hero_Ability_List_Update(keys.heroName,keys.playerId,isButtonEvent);    //技能更新完毕，Lua通知UI更新英雄技能列表
+	UpdateAttributeButtons();
 }
 
 
@@ -670,6 +741,19 @@ function HideMainBlock()
     mainBlock.SetHasClass("Hidden", true);
 }
 
+function InitTooltips()
+{
+    var attributeButton= $("#attributeButton")
+    attributeButton.abilityname="attribute_bonus_lua";
+    attributeButton.SetPanelEvent( "onmouseover", ShowAbilityTooltip( attributeButton ) );
+    attributeButton.SetPanelEvent( "onmouseout", HideAbilityTooltip( attributeButton ) );
+	var pointToGoldButton= $("#pointToGoldButton")
+    pointToGoldButton.abilityname="skill_point_for_gold_tooltip";
+    pointToGoldButton.SetPanelEvent( "onmouseover", ShowAbilityTooltip( pointToGoldButton ) );
+    pointToGoldButton.SetPanelEvent( "onmouseout", HideAbilityTooltip( pointToGoldButton ) );
+
+}
+
 
 
 (function()
@@ -678,5 +762,6 @@ function HideMainBlock()
 	HideMainBlock();
 	GameEvents.Subscribe( "UpdateAbilityList", UpdateAbilityList );
 	GameEvents.Subscribe( "UpdatePlayerAbilityList", UpdatePlayerAbilityList );
+    InitTooltips();
 })();
 

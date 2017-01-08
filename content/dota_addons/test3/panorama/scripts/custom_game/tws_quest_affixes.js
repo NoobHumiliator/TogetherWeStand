@@ -1,12 +1,3 @@
-function ShowItemTooltip (itemImage) {
-    $.DispatchEvent("DOTAShowAbilityTooltip",itemImage,itemImage.itemname)
-}
-
-function HideItemTooltip (itemImage) {
-     $.DispatchEvent("DOTAHideAbilityTooltip",itemImage);
-}
-
-
 function RefreshQuestData(data){
 
     var panleId=data.name

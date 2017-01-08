@@ -49,7 +49,7 @@ function CHoldoutGameMode:DamageFilter(damageTable)
                end
           	end
           	if playerid==nil then
-          		 print(attacker:GetUnitName().."has no owner")
+          		 --print(attacker:GetUnitName().."has no owner")
           	end
           	if self._currentRound and playerid then
           		self._currentRound._vPlayerStats[playerid].nTotalDamage=self._currentRound._vPlayerStats[playerid].nTotalDamage+damageTable.damage

@@ -2,7 +2,7 @@
 "DOTAAbilities"
 {
 	"Version"		"1"
-        "ability_dummy"
+    "ability_dummy"
 	{
 		"BaseClass"					"ability_datadriven"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -19098,7 +19098,7 @@
             "06"
             {
                 "var_type"              "FIELD_FLOAT"
-                "lift_duration"         "0.8 1.4 2.0 2.5 3.1 3.7 4.3 4.9"
+                "lift_duration"         "0.5 0.7 0.9 1.1 1.3 1.5 1.7 1.9"
             }
             "07"
             {
@@ -19954,9 +19954,44 @@
 	}
 }
 
-
-
-    
+"attribute_bonus_lua"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"			         	"ability_lua"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	"AbilityTextureName"			"spell_shop_ui_point"
+	"ScriptFile"					"abilities/attribute_bonus_lua"
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"						"FIELD_FLOAT"
+			"bonus_attribute"		        "2.0"
+		}
+	}
+}
+"skill_point_for_gold_tooltip"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"			         	"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	"AbilityTextureName"			"alchemist_goblins_greed"
+	
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"						"FIELD_FLOAT"
+			"bonus_gold"		            "1200"
+		}
+	}
+}
 
 
 } //主括号

@@ -86,12 +86,12 @@ end
 
 
 function CHoldoutGameMode:AddAbility(keys)
+  PrintTable(keys)
 	if PlayerResource:HasSelectedHero( keys.playerId ) then
 		local hero = PlayerResource:GetSelectedHeroEntity( keys.playerId )
 		local abilityName=keys.abilityName
 		  if hero then
 		  	 if keys.enough==1 then
-
 	           if isMeleeHero(hero:GetUnitName()) and meleeMap[abilityName] then
 	               abilityName = meleeMap[abilityName]
 	           end
@@ -102,7 +102,6 @@ function CHoldoutGameMode:AddAbility(keys)
                   	hero:FindAbilityByName("nyx_assassin_unburrow"):SetLevel(1)  --默认升一级
                   end
                end
-
 
                if manualActivate[abilityName] then  --激活光法的两个技能
                  local ab = hero:FindAbilityByName(abilityName)
@@ -149,6 +148,56 @@ function CHoldoutGameMode:AddAbility(keys)
 	end
 end
 
+
+
+function CHoldoutGameMode:LevelUpAttribute(keys)
+  if PlayerResource:HasSelectedHero( keys.playerId ) then
+    local hero = PlayerResource:GetSelectedHeroEntity( keys.playerId )
+    keys.heroName=false
+      if hero then
+         if keys.enough==1 then           
+             if hero:HasAbility("attribute_bonus_lua")  then
+                local level=hero:FindAbilityByName("attribute_bonus_lua"):GetLevel()
+                level=level+1
+                hero:FindAbilityByName("attribute_bonus_lua"):SetLevel(level)
+             else
+                hero:AddAbility("attribute_bonus_lua")
+                hero:FindAbilityByName("attribute_bonus_lua"):SetLevel(1)  --默认升一级
+             end       
+             ------------------------------------------------------ 
+             local p = hero:GetAbilityPoints()
+             hero:SetAbilityPoints(p-1)
+             CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId),"UpdateAbilityList", keys)
+             EmitSoundOn("General.Buy",PlayerResource:GetPlayer(keys.playerId))       
+         else
+           Notifications:Bottom(keys.playerId, {text="#not_enough_ability_points", duration=2, style={color="Red"}})
+           EmitSoundOn("General.Cancel",PlayerResource:GetPlayer(keys.playerId))
+         end
+      end
+  end
+end
+
+
+function CHoldoutGameMode:PointToGold(keys)
+  if PlayerResource:HasSelectedHero( keys.playerId ) then
+    local hero = PlayerResource:GetSelectedHeroEntity( keys.playerId )
+    keys.heroName=false
+      if hero then
+         if keys.enough==1 then
+             hero:ModifyGold(1200,true, 0)
+             local p = hero:GetAbilityPoints()
+             hero:SetAbilityPoints(p-1)
+             CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId),"UpdateAbilityList", keys)                
+             --EmitSoundOn("General.Buy",PlayerResource:GetPlayer(keys.playerId))       
+         else
+           Notifications:Bottom(keys.playerId, {text="#not_enough_ability_points", duration=2, style={color="Red"}})
+           EmitSoundOn("General.Cancel",PlayerResource:GetPlayer(keys.playerId))
+         end
+      end
+  end
+end
+
+
 function CHoldoutGameMode:RemoveAbility(keys)
 	if PlayerResource:HasSelectedHero( keys.playerId ) then
 		local hero = PlayerResource:GetSelectedHeroEntity( keys.playerId )
@@ -183,7 +232,7 @@ function CHoldoutGameMode:RemoveAbility(keys)
 	                EmitSoundOn("compendium_points",PlayerResource:GetPlayer(keys.playerId))
 		          else
 		                Notifications:Bottom(keys.playerId, {text="#you_need", duration=3, style={color="Red"}})
-                    Notifications:Bottom(keys.playerId, {text=tostring(expense), duration=3, style={color="Red"}, continue=true})
+                    Notifications:Bottom(keys.playerId, {text=tostring(expense).." ", duration=3, style={color="Red"}, continue=true})
                     Notifications:Bottom(keys.playerId, {text="#gold_to_sell_this_spell", duration=3, style={color="Red"}, continue=true})
                     EmitSoundOn("General.Cancel",PlayerResource:GetPlayer(keys.playerId))
 	              end
