@@ -2490,12 +2490,12 @@
 			"05"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_bonus_per_str"		"0.02 0.035 0.05 0.06 0.07"		
+				"hp_bonus_per_str"		"0.02 0.025 0.03 0.035 0.04"		
 			}
 			"06"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"damage_bonus_per_int"	"0.03 0.045 0.06 0.07 0.08"
+				"damage_bonus_per_int"	"0.02 0.03 0.04 0.05 0.06"
 			}
 			"07"
 			{
@@ -2506,6 +2506,16 @@
 			{
 				"var_type"			    "FIELD_FLOAT"
 				"armor_bonus_per_agi"	"0.2 0.28 0.36 0.41 0.46"
+			}
+			"09"
+			{
+				"var_type"			            "FIELD_FLOAT"
+				"hp_bonus_per_str_tooltip"		"2 2.5 3 3.5 4"		
+			}
+			"10"
+			{
+				"var_type"			            "FIELD_FLOAT"
+				"damage_bonus_per_int_tooltip"  "2 3 4 5 6"
 			}
 		}
 		"Modifiers"
@@ -2593,12 +2603,12 @@
 			"05"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_bonus_per_str"		"0.02 0.035 0.05 0.06 0.07"	
+				"hp_bonus_per_str"		"0.02 0.025 0.03 0.035 0.04"		
 			}
 			"06"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"damage_bonus_per_int"	"0.03 0.045 0.06 0.07 0.08"
+				"damage_bonus_per_int"	"0.02 0.03 0.04 0.05 0.06"
 			}
 			"07"
 			{
@@ -2609,6 +2619,16 @@
 			{
 				"var_type"			    "FIELD_FLOAT"
 				"armor_bonus_per_agi"	"0.2 0.28 0.36 0.41 0.46"
+			}
+			"09"
+			{
+				"var_type"			            "FIELD_FLOAT"
+				"hp_bonus_per_str_tooltip"		"2 2.5 3 3.5 4"		
+			}
+			"10"
+			{
+				"var_type"			            "FIELD_FLOAT"
+				"damage_bonus_per_int_tooltip"  "2 3 4 5 6"
 			}
 		}
 		"Modifiers"
@@ -2696,12 +2716,12 @@
 			"05"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_bonus_per_str"		"0.02 0.035 0.05 0.06 0.07"	
+				"hp_bonus_per_str"		"0.02 0.025 0.03 0.035 0.04"		
 			}
 			"06"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"damage_bonus_per_int"	"0.03 0.045 0.06 0.07 0.08"
+				"damage_bonus_per_int"	"0.02 0.03 0.04 0.05 0.06"
 			}
 			"07"
 			{
@@ -2712,6 +2732,16 @@
 			{
 				"var_type"			    "FIELD_FLOAT"
 				"armor_bonus_per_agi"	"0.2 0.28 0.36 0.41 0.46"
+			}
+			"09"
+			{
+				"var_type"			            "FIELD_FLOAT"
+				"hp_bonus_per_str_tooltip"		"2 2.5 3 3.5 4"		
+			}
+			"10"
+			{
+				"var_type"			            "FIELD_FLOAT"
+				"damage_bonus_per_int_tooltip"  "2 3 4 5 6"
 			}
 		}
 		"Modifiers"
@@ -2799,12 +2829,12 @@
 			"05"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_bonus_per_str"		"0.02 0.035 0.05 0.06 0.07"	
+				"hp_bonus_per_str"		"0.02 0.025 0.03 0.035 0.04"		
 			}
 			"06"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"damage_bonus_per_int"	"0.03 0.045 0.06 0.07 0.08"
+				"damage_bonus_per_int"	"0.02 0.03 0.04 0.05 0.06"
 			}
 			"07"
 			{
@@ -2815,6 +2845,16 @@
 			{
 				"var_type"			    "FIELD_FLOAT"
 				"armor_bonus_per_agi"	"0.2 0.28 0.36 0.41 0.46"
+			}
+			"09"
+			{
+				"var_type"			            "FIELD_FLOAT"
+				"hp_bonus_per_str_tooltip"		"2 2.5 3 3.5 4"		
+			}
+			"10"
+			{
+				"var_type"			            "FIELD_FLOAT"
+				"damage_bonus_per_int_tooltip"  "2 3 4 5 6"
 			}
 		}
 		"Modifiers"
@@ -2902,12 +2942,12 @@
 			"05"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_bonus_per_str"		"0.02 0.035 0.05 0.06 0.07"	
+				"hp_bonus_per_str"		"0.02 0.025 0.03 0.035 0.04"		
 			}
 			"06"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"damage_bonus_per_int"	"0.03 0.045 0.06 0.07 0.08"
+				"damage_bonus_per_int"	"0.02 0.03 0.04 0.05 0.06"
 			}
 			"07"
 			{
@@ -2938,6 +2978,16 @@
 			{
 				"var_type"			    "FIELD_FLOAT"
 				"bonus_attack_speed"	"30"
+			}        
+			"12"
+			{
+				"var_type"			            "FIELD_FLOAT"
+				"hp_bonus_per_str_tooltip"		"2 2.5 3 3.5 4"		
+			}
+			"13"
+			{
+				"var_type"			            "FIELD_FLOAT"
+				"damage_bonus_per_int_tooltip"  "2 3 4 5 6"
 			}
 		}
 		"Modifiers"

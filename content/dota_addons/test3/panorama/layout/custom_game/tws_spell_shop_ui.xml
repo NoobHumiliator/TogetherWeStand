@@ -25,10 +25,22 @@
                      <Button id="sellButton" onactivate="ChangeToSellPanel()">
                         <Label text="#sell" />
                      </Button>
+                     <Button id="attributesButton" onactivate="ChangeToAttrPanel()">
+                        <Label text="#attributes" />
+                     </Button>
                 </Panel>
                 <Panel id="spellShopPanel"  class="vBlock hBlock"  >
                   <Panel id="buyPanel"  class="vBlock hBlock"  />
                   <Panel id="sellPanel"  class="vBlock hBlock" />
+                  <Panel id="attrPanel"  class="vBlock hBlock hidden">
+                        <Button id="attributeButton"  onactivate="attributeButton()" >
+                            <DOTAAbilityImage abilityname="attribute_bonus_lua" class="vBlock hBlock"/>
+                            <Label text="0" class="attributeButtonLabel" />
+                        </Button>
+                        <Button id="pointToGoldButton" onactivate="pointToGoldButton()">
+                            <DOTAAbilityImage abilityname="skill_point_for_gold_tooltip" class="vBlock hBlock"/>
+                        </Button>
+                  </Panel>    
                 </Panel>
             </Panel>
          </Panel>

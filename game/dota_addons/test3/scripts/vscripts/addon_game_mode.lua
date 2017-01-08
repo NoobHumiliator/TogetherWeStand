@@ -125,6 +125,10 @@ function CHoldoutGameMode:InitGameMode()
     --UI交互
     CustomGameEventManager:RegisterListener("AddAbility", Dynamic_Wrap(CHoldoutGameMode, 'AddAbility'))
     CustomGameEventManager:RegisterListener("RemoveAbility", Dynamic_Wrap(CHoldoutGameMode, 'RemoveAbility'))
+    CustomGameEventManager:RegisterListener("LevelUpAttribute", Dynamic_Wrap(CHoldoutGameMode, 'LevelUpAttribute'))
+    CustomGameEventManager:RegisterListener("PointToGold", Dynamic_Wrap(CHoldoutGameMode, 'PointToGold'))
+
+
     CustomGameEventManager:RegisterListener("SelectDifficulty",Dynamic_Wrap(CHoldoutGameMode, 'SelectDifficulty'))
     CustomGameEventManager:RegisterListener("SendTrialLeveltoServer",Dynamic_Wrap(CHoldoutGameMode, 'SendTrialLeveltoServer'))
     
@@ -608,9 +612,12 @@ function CHoldoutGameMode:OnNPCSpawned( event )
 			if spawnedUnit:GetTeam()==DOTA_TEAM_GOODGUYS and string.sub(spawnedUnit:GetUnitName(),1,14)~="npc_dota_tiny_"then
 				if spawnedUnit:HasAbility("damage_counter") then
 				else
-					spawnedUnit:AddAbility("damage_counter")
+					spawnedUnit:AddAbility("damage_counter")  --伤害计数器
 					local ability=spawnedUnit:FindAbilityByName("damage_counter")
 					ability:SetLevel(1)
+                    spawnedUnit:AddAbility("attribute_bonus_datadriven")  --属性附加
+					ability=spawnedUnit:FindAbilityByName("attribute_bonus_datadriven")
+					ability:SetLevel(0)                   
 					if self.map_difficulty and self.map_difficulty==1 then
 						ability:ApplyDataDrivenModifier(spawnedUnit, spawnedUnit, "modifier_map_easy_show", {})
 					end

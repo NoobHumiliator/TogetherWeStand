@@ -20,3 +20,12 @@ var HideAbilityTooltip = ( function( ability )
 		$.DispatchEvent( "DOTAHideAbilityTooltip", ability );
 	}
 });
+
+
+function ShowItemTooltip (itemImage) {
+    $.DispatchEvent("DOTAShowAbilityTooltip",itemImage,itemImage.itemname)
+}
+
+function HideItemTooltip (itemImage) {
+     $.DispatchEvent("DOTAHideAbilityTooltip",itemImage);
+}
