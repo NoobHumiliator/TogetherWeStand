@@ -3965,6 +3965,7 @@
 			"TotalUnitsToSpawn"		"2"
 			"UnitsPerSpawn"			"1"
 			"SpawnInterval"			"25"
+			"SpawnerName"			"spawner4"
 		}
 		
 		// Stage 2 ================================================
@@ -3977,6 +3978,7 @@
 			"TotalUnitsToSpawn"		"2"
 			"UnitsPerSpawn"			"1"
 			"SpawnInterval"			"15"
+			"SpawnerName"			"spawner1"
 		}
 		
 		"UnitSplitterSmall_2b"
@@ -3988,6 +3990,7 @@
 			"TotalUnitsToSpawn"		"3"
 			"UnitsPerSpawn"			"1"
 			"SpawnInterval"			"10"
+			"SpawnerName"			"spawner3"
 		}
 		
 		// Stage 3 ================================================
@@ -4000,6 +4003,7 @@
 			"TotalUnitsToSpawn"		"2"
 			"UnitsPerSpawn"			"1"
 			"SpawnInterval"			"20"
+			"SpawnerName"			"spawner1"
 		}
 		
 		"UnitSplitter_3b"
@@ -4011,6 +4015,7 @@
 			"TotalUnitsToSpawn"		"2"
 			"UnitsPerSpawn"			"1"
 			"SpawnInterval"			"20"
+			"SpawnerName"			"spawner3"
 		}
 		// Stage 4 ================================================
 		"UnitSplitter_4a"
@@ -4022,8 +4027,8 @@
 			"TotalUnitsToSpawn"		"4"
 			"UnitsPerSpawn"			"1"
 			"SpawnInterval"			"6"
-		}
-		
+			"SpawnerName"			"spawner1"
+		}		
 		"UnitSplitter_4b"
 		{
 			"WaitForUnit"			"UnitSplitterSmall_3a"
@@ -4033,6 +4038,7 @@
 			"TotalUnitsToSpawn"		"4"
 			"UnitsPerSpawn"			"1"
 			"SpawnInterval"			"6"
+			"SpawnerName"			"spawner3"
 		}
 		"UnitSplitter_4c"
 		{
@@ -4043,6 +4049,7 @@
 			"TotalUnitsToSpawn"		"4"
 			"UnitsPerSpawn"			"1"
 			"SpawnInterval"			"6"
+			"SpawnerName"			"spawner4"
 		}
 	}
 
