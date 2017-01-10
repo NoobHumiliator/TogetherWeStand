@@ -9288,8 +9288,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"92"		// Damage range min.
-		"AttackDamageMax"			"128"		// Damage range max.
+		"AttackDamageMin"			"32"		// Damage range min.
+		"AttackDamageMax"			"48"		// Damage range max.
 		"AttackRate"				"0.8"		// Speed of attack.
 		"AttackAnimationPoint"		        "0.2"		// Normalized time in animation cycle to attack.
 		"AttackRange"				"155"		// Range within a target can be attacked.
@@ -9359,7 +9359,7 @@
 			"DefaultState"				"Invade"                    
 		}
 	}
-         "npc_dota_boss_dark_twin"
+   "npc_dota_boss_dark_twin"
 	{
 		// General
 		//----------------------------------------------------------------
@@ -9385,8 +9385,8 @@
 		"Ability1"					"twins_bloodlink_datadriven"
 		"Ability2"					"dark_twin_dark_debuff_datadriven"	
 		"Ability3"					"dark_twin_spell_immune_datadriven"
-                "Ability4"					""
-                "Ability5"					""
+        "Ability4"					""
+        "Ability5"					""
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"25"			// Physical protection.
@@ -9395,8 +9395,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"92"		// Damage range min.
-		"AttackDamageMax"			"128"		// Damage range max.
+		"AttackDamageMin"			"32"		// Damage range min.
+		"AttackDamageMax"			"48"		// Damage range max.
 		"AttackRate"				"0.8"		// Speed of attack.
 		"AttackAnimationPoint"		        "0.2"		// Normalized time in animation cycle to attack.
 		"AttackRange"				"155"		// Range within a target can be attacked.          
