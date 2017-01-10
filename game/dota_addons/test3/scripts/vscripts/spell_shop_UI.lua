@@ -184,11 +184,11 @@ function CHoldoutGameMode:PointToGold(keys)
     keys.heroName=false
       if hero then
          if keys.enough==1 then
-             hero:ModifyGold(1200,true, 0)
+             hero:ModifyGold(1500,true, 0)
              local p = hero:GetAbilityPoints()
              hero:SetAbilityPoints(p-1)
              CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId),"UpdateAbilityList", keys)                
-             --EmitSoundOn("General.Buy",PlayerResource:GetPlayer(keys.playerId))       
+             EmitSoundOn("General.CoinsBig",PlayerResource:GetPlayer(keys.playerId))       
          else
            Notifications:Bottom(keys.playerId, {text="#not_enough_ability_points", duration=2, style={color="Red"}})
            EmitSoundOn("General.Cancel",PlayerResource:GetPlayer(keys.playerId))
