@@ -6,6 +6,12 @@ function modifier_attribute_bonus_lua:IsHidden()
 end
 --------------------------------------------------------------------------------
 
+function modifier_attribute_bonus_lua:AllowIllusionDuplicate()
+	return true
+end
+
+--------------------------------------------------------------------------------
+
 function modifier_attribute_bonus_lua:OnCreated( kv )
 	self.bonus_attribute = self:GetAbility():GetSpecialValueFor( "bonus_attribute" )
 end

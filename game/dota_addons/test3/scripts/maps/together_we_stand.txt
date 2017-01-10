@@ -1191,7 +1191,7 @@
 	
 	"Round9" // tiny
 	{
-		"round_quest_title"			"#DOTA_Holdout_Round_Warlock_Quest_Title"
+		"round_quest_title"			"#TWS_Round_Warlock_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Warlock_Title"
 		"MaxGold"					"8350"
 		"BagCount"					"50"
