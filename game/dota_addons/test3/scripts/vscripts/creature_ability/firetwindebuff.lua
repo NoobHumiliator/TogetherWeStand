@@ -33,7 +33,7 @@ function IsNearDarkCheck( event )
 		   if mana-target.fire_twin_debuff_damage*0.2<0 then
 			  target:SetMana(0)
 		   else
-			  target:SetMana(mana-target.fire_twin_debuff_damage*0.2)
+			  target:SetMana(mana-target.fire_twin_debuff_damage*0.1)
 		   end
 		   local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/emberspirit_flame_shield_aoe_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, freind)
 	        --ability:ApplyDataDrivenModifier(target, freind, "modifier_fire_twin_debuff_aura_particle", {})

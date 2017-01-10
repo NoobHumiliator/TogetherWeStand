@@ -218,12 +218,12 @@
 		"02"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"initial_damage"			"10"
+			"initial_damage"		   "8"
 		}
 		"03"
 		{
 			"var_type"				"FIELD_FLOAT"
-			"damage_increase"		    "1.3"
+			"damage_increase"		  "1.2"
 		}
 		"04"
 		{
@@ -233,7 +233,7 @@
 		"05"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"radius_increase"		  "50"
+			"radius_increase"		  "35"
 		}
 		"06"
 		{
@@ -306,7 +306,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"	        "creature_ability/firetwindebuff.lua"
+					"ScriptFile"	"creature_ability/firetwindebuff.lua"
 					"Function"		"StopSound"
 					"sound"			"Hero_DoomBringer.Doom"
 					"Target"		"TARGET"
@@ -318,7 +318,7 @@
 			{				                     
 				"RunScript"
 				{
-					"ScriptFile"	        "creature_ability/firetwindebuff.lua"
+					"ScriptFile"	"creature_ability/firetwindebuff.lua"
 					"Function"		"IsNearDarkCheck"
 					"Target"		"TARGET"
 				}
@@ -401,11 +401,11 @@
 	{
 		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
 		"particle"			"particles/units/heroes/hero_bane/bane_fiendsgrip_ground.vpcf"
-                "particle"                      "particles/units/heroes/hero_bane/bane_fiendsgrip_ground_rubble.vpcf"
-                "particle"			"particles/units/heroes/hero_bane/bane_fiends_grip_drip.vpcf"
-                "particle"                      "particles/units/heroes/hero_night_stalker/nightstalker_crippling_fear_smoke.vpcf"
-                "particle"                      "particles/units/heroes/hero_bane/bane_fiendsgrip_ropehigh.vpcf"
-                "particle"                      "particles/units/heroes/hero_dark_seer/dark_seer_ion_shell_damage.vpcf"
+        "particle"                      "particles/units/heroes/hero_bane/bane_fiendsgrip_ground_rubble.vpcf"
+        "particle"			"particles/units/heroes/hero_bane/bane_fiends_grip_drip.vpcf"
+        "particle"                      "particles/units/heroes/hero_night_stalker/nightstalker_crippling_fear_smoke.vpcf"
+        "particle"                      "particles/units/heroes/hero_bane/bane_fiendsgrip_ropehigh.vpcf"
+        "particle"                      "particles/units/heroes/hero_dark_seer/dark_seer_ion_shell_damage.vpcf"
 	}
 	
 	// Casting
@@ -433,12 +433,12 @@
 		"02"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"initial_damage"			"10"
+			"initial_damage"			"8"
 		}
 		"03"
 		{
 			"var_type"				"FIELD_FLOAT"
-			"damage_increase"		    "1.3"
+			"damage_increase"		    "1.2"
 		}
                 "04"
 		{
@@ -448,7 +448,7 @@
                  "05"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"radius_increase"		    "50"
+			"radius_increase"		    "35"
 		}
                  "06"
 		{

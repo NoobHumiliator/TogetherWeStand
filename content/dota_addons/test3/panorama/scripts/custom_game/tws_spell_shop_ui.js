@@ -703,8 +703,8 @@ function  attributeButton ()
 {
    var attrbutton= $("#attributeButton")
    var playerId = Game.GetLocalPlayerInfo().player_id;
-
    GameEvents.SendCustomGameEventToServer( "LevelUpAttribute", {playerId: playerId,enough:attrbutton.enough } );
+   attrbutton.enough=0; //发完以后立即锁死 等待LUA回传结果 再判断是否解锁
 }
 
 function  pointToGoldButton ()
@@ -712,6 +712,7 @@ function  pointToGoldButton ()
    var pointToGoldButton= $("#pointToGoldButton")
    var playerId = Game.GetLocalPlayerInfo().player_id; 
    GameEvents.SendCustomGameEventToServer( "PointToGold",  {playerId: playerId,enough:pointToGoldButton.enough } );
+   pointToGoldButton.enough=0;  //发完以后立即锁死 等待LUA回传结果 再判断是否解锁 
 }
 
 function UpdateAbilityList(keys)
