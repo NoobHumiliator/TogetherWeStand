@@ -111,7 +111,8 @@ function CHoldoutGameRound:Begin()
         overflowing="#affixes_overflowing",
         sanguine="#affixes_sanguine",
         silence="#affixes_silence",
-        falling_rock="#affixes_falling_rock"
+        falling_rock="#affixes_falling_rock",
+        spike="#affixes_spike"
     }
     local vAffixesTooltipAbility={
       necrotic="affixes_ability_necrotic",
@@ -122,12 +123,13 @@ function CHoldoutGameRound:Begin()
       overflowing="affixes_ability_tooltip_overflowing",
       sanguine="affixes_ability_sanguine",
       silence="affixes_ability_tooltip_silence",
-      falling_rock="affixes_ability_tooltip_falling_rock"
+      falling_rock="affixes_ability_tooltip_falling_rock",
+      spike="affixes_ability_spike"
     }
     local affixesTooltipAbilityList={}
     self.bAffixFlag=false   --是否初始化过词缀
     self.vAffixes=
-    {
+    {   --[[
         necrotic=false,
         teeming=false,
         raging=false,
@@ -136,7 +138,8 @@ function CHoldoutGameRound:Begin()
         overflowing=false,
         sanguine=false,
         silence=false,
-        falling_rock=false
+        falling_rock=false,]]
+        spike=false
     }
     local affixes_temp={}
     local affixes_number=math.floor( (self._gameMode.map_difficulty+2)/10 ) --从试炼5开始，每10层加一个词缀
