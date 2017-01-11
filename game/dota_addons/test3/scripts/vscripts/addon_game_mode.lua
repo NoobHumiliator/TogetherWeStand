@@ -13,7 +13,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
---testMode=true --减少刷兵间隔，增加初始金钱
+testMode=true --减少刷兵间隔，增加初始金钱
 
 
 
@@ -681,6 +681,10 @@ function CHoldoutGameMode:OnNPCSpawned( event )
                 if self._currentRound~=nil and self._currentRound.vAffixes.sanguine then
                     spawnedUnit:AddAbility("affixes_ability_sanguine")
                     spawnedUnit:FindAbilityByName("affixes_ability_sanguine"):SetLevel(1)
+                end
+                if self._currentRound~=nil and self._currentRound.vAffixes.spike then
+                	spawnedUnit:AddAbility("affixes_ability_spike")
+                    spawnedUnit:FindAbilityByName("affixes_ability_spike"):SetLevel(1)               
                 end
 			end
 		end

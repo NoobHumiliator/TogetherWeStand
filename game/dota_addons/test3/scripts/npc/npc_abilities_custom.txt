@@ -19993,5 +19993,72 @@
 	}
 }
 
+"affixes_ability_spike"
+{
+
+	"AbilityBehavior"                                "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"BaseClass"                                       "ability_datadriven"
+	"AbilityTextureName"                              "nyx_assassin_spiked_carapace"
+	"MaxLevel"                                        "1"
+    "AbilitySpecial"
+    {
+    	"01"
+	    {
+			"var_type"					           	 "FIELD_INTEGER"
+			"active_interval"	                     "20"
+	    }
+	    "02"
+	    {
+			"var_type"					           	 "FIELD_INTEGER"
+			"spike_duration"	                     "4"
+	    }
+    }
+	"precache"
+	{
+	     "particle"               "particles/items_fx/blademail.vpcf"				
+	}
+	"Modifiers"
+	{
+		"modifier_affixes_spike_permanent"
+		{
+			"Passive"			"1"
+			"IsHidden"			"1"
+			"ThinkInterval"     "%active_interval"
+
+			"OnIntervalThink"
+			{
+				"ApplyModifier"
+				{
+					"ModifierName"	"modifier_affixes_spike"
+					"Target"        "CASTER"						
+				}
+			}
+		}
+		"modifier_affixes_spike"
+		{
+			"Duration"                             "%debuff_duration"
+            "IsBuff"                               "1"
+            "TextureName"	                       "nyx_assassin_spiked_carapace" 
+            "EffectName"		                   "particles/items_fx/blademail.vpcf"
+			"EffectAttachType"	                   "follow_origin"    
+            "OnTakeDamage"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"creature_ability/spike.lua"
+					"Function"		"ReflectDamage"
+					"Damage"		"%attack_damage"
+				}
+				"FireSound"
+				{
+					"EffectName"	"Ability.ReflectDamage"
+					"Target"		"UNIT"
+				}
+			}
+		}
+	}
+}
+
+
 
 } //主括号
