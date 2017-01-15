@@ -20012,10 +20012,16 @@
 			"var_type"					           	 "FIELD_INTEGER"
 			"spike_duration"	                     "4"
 	    }
+	    "03"
+	    {
+			"var_type"					           	 "FIELD_FLOAT"
+			"warning_duration"	                     "1.5"
+	    }
     }
 	"precache"
 	{
-	     "particle"               "particles/items_fx/blademail.vpcf"				
+	     "particle"               "particles/items_fx/blademail.vpcf"
+	     "particle"               "particles/econ/courier/courier_greevil_blue/courier_greevil_blue_ambient_1.vpcf"			
 	}
 	"Modifiers"
 	{
@@ -20023,21 +20029,35 @@
 		{
 			"Passive"			"1"
 			"IsHidden"			"1"
-			"ThinkInterval"     "%active_interval"
-
+			"ThinkInterval"     "0.5"
 			"OnIntervalThink"
 			{
-				"ApplyModifier"
+				"RunScript"
 				{
-					"ModifierName"	"modifier_affixes_spike"
-					"Target"        "CASTER"						
+					"ScriptFile"	"creature_ability/spike.lua"
+					"Function"		"ApplySpike"
+					"Damage"		"%attack_damage"
 				}
 			}
 		}
+        "modifier_affixes_spike_warning"
+		{
+            "IsHidden"		                       "1"
+            "EffectName"		                   "particles/econ/courier/courier_greevil_blue/courier_greevil_blue_ambient_1.vpcf"
+			"EffectAttachType"	                   "follow_origin"    
+            "OnDestroy"
+			{
+				"ApplyModifier"
+				{
+					"ModifierName"	               "modifier_affixes_spike"
+					"Target" 		               "CASTER"
+				}
+			}
+		}		
 		"modifier_affixes_spike"
 		{
-			"Duration"                             "%debuff_duration"
             "IsBuff"                               "1"
+            "Duration"                             "%spike_duration"
             "TextureName"	                       "nyx_assassin_spiked_carapace" 
             "EffectName"		                   "particles/items_fx/blademail.vpcf"
 			"EffectAttachType"	                   "follow_origin"    
