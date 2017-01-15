@@ -129,7 +129,7 @@ function CHoldoutGameRound:Begin()
     local affixesTooltipAbilityList={}
     self.bAffixFlag=false   --是否初始化过词缀
     self.vAffixes=
-    {   --[[
+    {
         necrotic=false,
         teeming=false,
         raging=false,
@@ -138,11 +138,12 @@ function CHoldoutGameRound:Begin()
         overflowing=false,
         sanguine=false,
         silence=false,
-        falling_rock=false,]]
+        falling_rock=false,
         spike=false
     }
     local affixes_temp={}
-    local affixes_number=math.floor( (self._gameMode.map_difficulty+2)/10 ) --从试炼5开始，每10层加一个词缀
+    local affixes_number=math.floor( Quadric(2.5,-2.5,self._gameMode.map_difficulty-3) ) --2.5*n(n-1)+5=level  n为词缀数目
+    print("Affixes Number:"..affixes_number)
     for k,v in pairs(self.vAffixes) do
         table.insert(affixes_temp, k)
     end

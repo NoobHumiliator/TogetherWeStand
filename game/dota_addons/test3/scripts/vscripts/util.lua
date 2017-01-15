@@ -51,6 +51,18 @@ function ListModifiers(hUnit)
     end
 end
 
+function Quadric (a,b,c)  --解一元二次方程 输出最大值
+   local a2 = 2*a
+   local d = math.sqrt(b^2 - 4*a*c)
+   x1 = (-b + d)/a2
+   x2 = (-b - d)/a2
+   if x1>x2 then
+     return x1
+   else
+     return x2
+   end
+end
+
 
 
 -- Colors

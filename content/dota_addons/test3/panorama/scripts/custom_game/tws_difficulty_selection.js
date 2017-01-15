@@ -226,7 +226,7 @@ function ShowTrialLevelPanel(data)
         setupTime=data.setupTime;
 		UpdateTrialLevelTimer();
 		var trailLevelContainer=trailLevelPanel.FindChildInLayoutFile("TrialLevelContainer");
-		for (var i=1; i<=50;i++){
+		for (var i=1; i<=100;i++){
 			 var level_line = $.CreatePanel("RadioButton", trailLevelContainer, "LevelLine_"+i);
 		     level_line.BLoadLayout("file://{resources}/layout/custom_game/tws_trial_level_line.xml", false, false);
 		     level_line.SetPanelEvent( "onselect",  ChangeLevelChoose(i));
