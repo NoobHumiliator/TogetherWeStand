@@ -615,9 +615,7 @@ function CHoldoutGameMode:OnNPCSpawned( event )
 					spawnedUnit:AddAbility("damage_counter")  --伤害计数器
 					local ability=spawnedUnit:FindAbilityByName("damage_counter")
 					ability:SetLevel(1)
-                    spawnedUnit:AddAbility("attribute_bonus_datadriven")  --属性附加
-					ability=spawnedUnit:FindAbilityByName("attribute_bonus_datadriven")
-					ability:SetLevel(0)                   
+                    spawnedUnit:AddAbility("attribute_bonus_datadriven")  --属性附加                
 					if self.map_difficulty and self.map_difficulty==1 then
 						ability:ApplyDataDrivenModifier(spawnedUnit, spawnedUnit, "modifier_map_easy_show", {})
 					end
