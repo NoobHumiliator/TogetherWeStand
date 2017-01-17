@@ -20079,6 +20079,110 @@
 	}
 }
 
+"tws_tusk_snowball"
+{
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"BaseClass"                                       "ability_datadriven"
+	"AbilityTextureName"                              "tusk_snowball"
+	"AbilityUnitDamageType"			                  "DAMAGE_TYPE_PURE"
+    "MaxLevel"                                        "5"
 
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastPoint"                                "0.2"
+
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"                                 "50.0 45.0 40.0 35.0 30.0"
+
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"                                 "25"
+	"precache"
+	{
+		"particle"          	        "particles/units/heroes/hero_tusk/tusk_snowball.vpcf"	
+		"soundfile"			            "soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
+	}
+
+	"OnSpellStart"
+	{
+		"FireSound"
+		{
+			"EffectName"                    "Hero_Tusk.Snowball.Cast"
+		}
+		"RunScript"
+		{
+			"ScriptFile"               "scripts/vscripts/creature_ability/snowball.lua"
+			"Function"                 "SnowballStart"  
+		}
+        "Random"
+		{
+			"Chance"			"25"
+			"OnSuccess"
+			{
+				"FireSound"
+				{
+					"Target"			"CASTER"
+					"EffectName"		"magnataur_magn_skewer_01"
+				}
+			}	
+			"OnFailure"
+			{
+			   "Random"
+			   {
+			   	"Chance"			"50"
+				   	"OnSuccess"
+				   	{
+				   		"FireSound"
+						{
+							"Target"			"CASTER"
+							"EffectName"		"magnataur_magn_skewer_01"
+						}
+				   	}
+				   	"OnFailure"
+				   	{
+		   				"FireSound"
+						{
+							"Target"			"CASTER"
+							"EffectName"		"magnataur_magn_skewer_09"
+						}
+				   	}
+			   }
+			}
+		}
+
+		"ApplyModifier"
+		{
+			"ModifierName"         "modifier_charge_act"
+			"Target"                        "CASTER"
+		}
+
+		"ApplyModifier"
+		{
+			"ModifierName"                "modifier_phased"
+			"Target"                        "CASTER"
+		}                
+
+	}
+
+	"Modifiers"
+	{      
+		"dummy_snowball"
+		{
+			"Passive"		"1"
+			"IsHidden"		"1"
+		
+			"States"
+			{
+				"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
+				"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				"MODIFIER_STATE_NO_TEAM_MOVE_TO"	"MODIFIER_STATE_VALUE_ENABLED"
+				"MODIFIER_STATE_NO_TEAM_SELECT"		"MODIFIER_STATE_VALUE_ENABLED"
+                "MODIFIER_STATE_OUT_OF_GAME"		"MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
+	}
+} 
 
 } //主括号
