@@ -20,15 +20,16 @@ function SnowballStart(keys)
         snowball:SetAutoUnstuck(false)
 		snowball:SetNavCollisionType(PHYSICS_NAV_NOTHING)
 		snowball:FollowNavMesh(false)
-
+      
         snowball:SetPhysicsVelocity(  (snowball.targetPosition-snowball:GetAbsOrigin())/50  )
         snowball.stopTime=0   --中途几次改变方向
+
         snowball:OnPhysicsFrame(
 			function(unit)
 				-- 计算旋转角度
-				local vAngles = Vector2D(snowball:GetPhysicsVelocity()) / (2 * 3.1415926 * 80)*12  --角速度
-				vAngles = QAngle(vAngles.x, 0, -1 * vAngles.y)
-			
+				local vAngles = Vector2D(snowball:GetPhysicsVelocity()) / (2 * 3.1415926 * 80)*360/30  --每帧转动角度
+				vAngles = QAngle(vAngles.x,vAngles.y,0)
+			    snowball.vAngles=vAngles
 				-- 旋转
 				local angles = RotateOrientation(vAngles, snowball:GetAngles())
 				snowball:SetAngles(angles.x, angles.y, angles.z)
@@ -43,12 +44,17 @@ function SnowballStart(keys)
 	                if snowball.stopTime>=6 then  --6次后停止
 	                	snowball:SetPhysicsVelocity(Vector(0,0,0))
 	                	snowball:OnPhysicsFrame(nil)	                
-	                else		                      
-		                snowball.targetPosition=RandomLocation(1500)
-		                print("snowball.targetPosition: "..Vector2Str(snowball.targetPosition).."snowball:GetAbsOrigin(): "..Vector2Str(snowball:GetAbsOrigin()) )    
-		                snowball:SetPhysicsVelocity( (snowball.targetPosition-snowball:GetAbsOrigin())/50   )
-		                print("velocity"..Vector2Str( snowball.targetPosition-snowball:GetAbsOrigin() ) )
-		                snowball.stopTime=snowball.stopTime+1
+	                else
+	                	snowball:SetPhysicsVelocity(Vector(0,0,0))   --到达某个点 停止0.7秒
+	                    Timers:CreateTimer({
+						   endTime = 0.7, 
+						   callback = function()
+						       snowball.stopTime=snowball.stopTime+1
+						       snowball.targetPosition=RandomLocation(1500)
+                               snowball:SetPhysicsVelocity( (snowball.targetPosition-snowball:GetAbsOrigin())/50 )
+	                       end
+	                       
+                        })
 	                end
 	            end
 	           
@@ -56,7 +62,6 @@ function SnowballStart(keys)
 		)
 
     end
-
 end
 
 function RandomLocation(waypoint_radius)

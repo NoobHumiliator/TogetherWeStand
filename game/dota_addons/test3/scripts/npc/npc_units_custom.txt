@@ -12261,7 +12261,7 @@
 		// General
 		//
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
-		"Model"						"models/particle/snowball.vmdl"	// Model.
+		"Model"						"maps/journey_assets/characters/journey_crane/crane.vmdl"	// Model.
 		"ModelScale"				"1.0"
 		"Level"						"1"
 		
