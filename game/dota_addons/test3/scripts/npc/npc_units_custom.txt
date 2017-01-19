@@ -12315,4 +12315,89 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
 	}
+    "npc_dota_tusk_boss"
+	{
+
+		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
+		"Model"						"models/creeps/neutral_creeps/n_creep_golem_b/n_creep_golem_b.vmdl"	// Model.
+		"ModelScale"				"1.8"
+		"Level"						"1"
+		"CanBeDominated"			"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"tws_tusk_snowball"			        // Ability 1.
+		"Ability2"					""		    // Ability 2.
+		"Ability3"					""			// Ability 3.
+		"Ability4"					""			// Ability 4.
+		"Ability5"					""			// Ability 5.
+		"Ability6"					""			// Ability 6 - Extra.
+		"Ability7"					""			// Ability 7 - Extra.
+		"Ability8"					""			// Ability 8 - Extra.
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"45"		// Physical protection.
+		"MagicalResistance"			"45"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"842"		// Damage range min.
+		"AttackDamageMax"			"962"		// Damage range max.
+		"AttackRate"				"1.5"		// Speed of attack.
+		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"800"		// Range within a target can be acquired.
+		"AttackRange"				"140"		// Range within a target can be attacked.
+		"ProjectileModel"			""			// Particle system model for projectile.
+		"ProjectileSpeed"			""			// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"87"		// Experience earn.
+		"BountyGoldMin"				"0"			// Gold earned min.
+		"BountyGoldMax"				"0"			// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"160"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"	
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"250"		// Speed
+		"MovementTurnRate"			"0.2"		// Turning rate.
+
+		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_life_stealer.vsndevts"
+		"GameSoundsFile"		"soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"58000"		// Base health.
+		"StatusHealthRegen"			"1.0"		// Health regeneration rate.
+		"StatusMana"				"0"			// Base mana.
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		"vscripts"					"creature_ai/zombie_ai.lua"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"
+		}
+	}
 }  //主括号
