@@ -12261,13 +12261,13 @@
 		// General
 		//
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
-		"Model"						"maps/journey_assets/characters/journey_crane/crane.vmdl"	// Model.
+		"Model"						"models/particle/snowball.vmdl"	// Model.
 		"ModelScale"				"1.0"
 		"Level"						"1"
 		
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"snowball_died"    // Ability 1.
+		"Ability1"					"snowball_passive"    // Ability 1.
 
 		// Armor
 		//----------------------------------------------------------------
@@ -12276,7 +12276,7 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
 		"AttackDamageMin"			"0"		// Damage range min.
 		"AttackDamageMax"			"0"		// Damage range max.
 		"AttackRate"				"0.3"		// Speed of attack.
@@ -12292,7 +12292,7 @@
 
 		// Movement
 		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"			// Type of locomotion - ground, air
 		"MovementSpeed"				"425"		// Speed
 		"MovementTurnRate"			"1.0"		// Turning rate.
 
