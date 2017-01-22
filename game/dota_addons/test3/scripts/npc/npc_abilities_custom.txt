@@ -20178,7 +20178,28 @@
 }
 
 
+"share_damage_passive"  //共享血量
+{
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"BaseClass"                                       "ability_datadriven"
+	"AbilityTextureName"                              "bloodseeker_thirst"
 
-
+	"Modifiers"
+	{      		
+		"modifier_share_damage_passive"
+		{
+            "Passive"		"1"
+			"OnTakeDamage"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"creature_ability/share_damage.lua"
+					"Function"		"TakeDamage"
+				}
+			}
+		}
+	}
+}
 
 } //主括号

@@ -2,7 +2,7 @@ require( "util" )
 
 function ReflectDamage(event)
 
-    PrintTable(event)
+    --PrintTable(event)
     local caster = event.caster
     local attacker = event.attacker
 	local ability = event.ability

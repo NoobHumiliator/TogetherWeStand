@@ -12,7 +12,7 @@ function SnowballStart(keys)
     	tusk:FindAbilityByName(ability:GetAbilityName()):StartCooldown(ability:GetCooldown(ability:GetLevel()-1))  --雪球技能进入CD
     	ability:ApplyDataDrivenModifier(tusk,tusk,"modifier_dummy_snowball",{}) --全员进入马甲状态
     	local snowball = CreateUnitByName("tusk_snowball",tusk:GetAbsOrigin(),true, nil, nil, DOTA_TEAM_BADGUYS)
-    	snowball.snowballOwner=tusk --记录下雪球的召唤方
+    	snowball.snowballOwner=tusk --记录雪球的召唤者
         local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_earth_spirit/espirit_rollingboulder.vpcf", PATTACH_ABSORIGIN_FOLLOW, snowball)
         snowball:FindAbilityByName("snowball_passive"):ApplyDataDrivenModifier(snowball,snowball,"modifier_snowball_invulnerable",{}) --雪球进入马甲状态
         Physics:Unit(snowball)
@@ -66,7 +66,6 @@ function SnowballStart(keys)
 	           
 			 end
 		)
-
     end
 end
 
