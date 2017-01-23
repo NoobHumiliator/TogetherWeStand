@@ -142,7 +142,10 @@ function CHoldoutGameRound:Begin()
         spike=false
     }
     local affixes_temp={}
-    local affixes_number=math.floor( Quadric(2.5,-2.5,self._gameMode.map_difficulty-3) ) --2.5*n(n-1)+5=level  n为词缀数目
+    local affixes_number=0;
+    if self._gameMode.map_difficulty<8 then  --五层以下试炼没有词缀 
+       local affixes_number=math.floor( Quadric(2.5,-2.5,8-self._gameMode.map_difficulty) ) --2.5*n(n-1)+5=level  n为词缀数目
+    end
     print("Affixes Number:"..affixes_number)
     for k,v in pairs(self.vAffixes) do
         table.insert(affixes_temp, k)

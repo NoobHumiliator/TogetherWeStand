@@ -20091,13 +20091,14 @@
 	"AbilityCastPoint"                                "0.2"
 
 	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCooldown"                                 "50.0 45.0 40.0 35.0 30.0"
+	"AbilityCooldown"                                 "50.0 45.0 40.0 35.0 30.0 25.0"
 
 	//-------------------------------------------------------------------------------------------------------------
 	"AbilityManaCost"                                 "25"
 	"precache"
 	{
 		"particle"          	        "particles/units/heroes/hero_tusk/tusk_snowball.vpcf"	
+		"particle"                      "particles/units/heroes/hero_earth_spirit/earthspirit_petrify_debuff_stoned.vpcf"
 		"soundfile"			            "soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
 	}
 
@@ -20114,6 +20115,7 @@
 		}
 	}
 
+
 	"Modifiers"
 	{      
 		"modifier_dummy_snowball"
@@ -20126,10 +20128,10 @@
 				"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
 				"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
 				"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
-				"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 				"MODIFIER_STATE_NO_TEAM_MOVE_TO"	"MODIFIER_STATE_VALUE_ENABLED"
 				"MODIFIER_STATE_NO_TEAM_SELECT"		"MODIFIER_STATE_VALUE_ENABLED"
                 "MODIFIER_STATE_OUT_OF_GAME"		"MODIFIER_STATE_VALUE_ENABLED"
+                "MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED" // Don't use these state for a channeling ability.
 			}
 		}
 	}
@@ -20201,5 +20203,92 @@
 		}
 	}
 }
+"tws_tusk_walrus_punch"
+{	
+        "BaseClass"				        "tusk_walrus_punch"
+		"AbilityCooldown"				"20 18 16 14 12 10"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_multiplier"			"350"
+				"LinkedSpecialBonus"		"special_bonus_unique_tusk"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"air_time"					"1.0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"slow_duration"				"2.0"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"move_slow"					"40"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"push_length"				"1000"
+			}
+		}
+}
+
+"tws_tusk_walrus_kick"
+{
+	"BaseClass"				        "tusk_walrus_kick"
+
+	"AbilityCooldown"				"20"
+
+	"AbilityManaCost"				"100"
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"crit_multiplier"			"0.0"
+		}
+		"02"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"air_time"					"1.0"
+		}
+		"03"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"push_length"				"1400"
+		}			
+		"04"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"move_slow"					"40"
+		}
+		"05"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"slow_duration"				"4"
+		}			
+		"06"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"cooldown_scepter"			"8"
+		}
+		"07"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"damage"					"350 700 1050 1400 1750 2100"
+		}
+	}
+}
+
+
+
+
 
 } //主括号

@@ -3,7 +3,7 @@ function TakeDamage( event )
     local ability = event.ability
 	local damage = event.Damage 
 
-	local allies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, caster:GetOrigin(), nil, nil, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+	local allies = FindUnitsInRadius(DOTA_TEAM_BADGUYS, caster:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
     for _,ally in pairs(allies) do  --共享血量 共享伤害        
         if ally:HasAbility(ability:GetAbilityName()) then
 	        local damage_table = {}

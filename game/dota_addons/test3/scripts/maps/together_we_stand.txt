@@ -4052,5 +4052,50 @@
 			"SpawnerName"			"spawner4"
 		}
 	}
-
+    "Round19" // tusk
+	{
+		//"round_quest_title"		"#DOTA_Holdout_Round_Splitter_Quest_Title"
+		"round_title"				"#DOTA_Holdout_Round_Tusk_Title"
+		"MaxGold"					"11350"
+		"BagCount"					"15"
+		"BagVariance"				"40"
+		"FixedXP"					"5500"
+		// Stage 1 ================================================
+		"Unit_tusk_1"
+		{
+			"NPCName"				"npc_dota_tusk_boss"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"Unit_tusk_2"
+		{
+			"NPCName"				"npc_dota_tusk_boss"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"Unit_tusk_3"
+		{
+			"NPCName"				"npc_dota_tusk_boss"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"Unit_tusk_4"
+		{
+			"NPCName"				"npc_dota_tusk_boss"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"Unit_tusk_5"
+		{
+			"NPCName"				"npc_dota_tusk_boss"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+	    "Unit_earth_1"
+		{
+			"NPCName"				"npc_dota_earth_spirit_boss"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+	}
 }
