@@ -1,6 +1,7 @@
 require( "libraries/physics")
 require( "util")
 
+
 function SnowballStart(keys)
 
     local ability=keys.ability 
@@ -14,8 +15,10 @@ function SnowballStart(keys)
            table.insert(tusks, ally) --将有这个技能的单位加入此表
         end
     end
-
+    local caster_snowball=nil --主施法者的雪球
     print("tusks size"..#tusks)
+     
+    GameRules.snowballDamaging=true --是否正在造成Dot伤害
 
     for _,tusk in pairs(tusks) do
     	tusk:FindAbilityByName(ability:GetAbilityName()):StartCooldown(ability:GetCooldown(ability:GetLevel()-1))  --雪球技能进入CD
@@ -23,7 +26,7 @@ function SnowballStart(keys)
     	tusk:AddNoDraw() --隐藏施法者
     	local snowball = CreateUnitByName("tusk_snowball",tusk:GetAbsOrigin(),true, nil, nil, DOTA_TEAM_BADGUYS)
     	snowball.snowballOwner=tusk --记录雪球的召唤者
-
+        
         local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_earth_spirit/espirit_rollingboulder.vpcf", PATTACH_ABSORIGIN_FOLLOW, snowball)
         snowball:FindAbilityByName("snowball_passive"):ApplyDataDrivenModifier(snowball,snowball,"modifier_snowball_invulnerable",{}) --雪球进入马甲状态
         Physics:Unit(snowball)
@@ -96,13 +99,22 @@ function SnowballStart(keys)
               	 ParticleManager:DestroyParticle(enemy.snowballDamageParticleIndex,true)
               	 ParticleManager:ReleaseParticleIndex(enemy.snowballDamageParticleIndex)
               end
-              local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_earth_spirit/earthspirit_petrify_debuff_stoned.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
+              local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_earth_spirit/earthspirit_petrify_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
               enemy.snowballDamageParticleIndex=particle
-			end
-			if snowball==nil or snowball:IsNull() or snowball:IsAlive() then
-				return nil
-			else
+			end			
+			if GameRules.snowballDamaging  and  GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound ~=nil  then
 				return 0.5
+			else
+				local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, 0, false )  --全地图所有英雄	
+				for _,enemy in pairs(allEnemies) do
+			      enemy.snowballDotDamage=0  --Dot叠加器清零
+			      if enemy.snowballDamageParticleIndex~=nil  then--清除粒子特效
+			      	 ParticleManager:DestroyParticle(enemy.snowballDamageParticleIndex,true)
+			      	 ParticleManager:ReleaseParticleIndex(enemy.snowballDamageParticleIndex)
+			      	 enemy.snowballDamageParticleIndex=nil
+			      end
+				end
+				return nil
 			end
 		end
 		})
@@ -112,13 +124,20 @@ end
 function SnowballDied(event)
 
    local caster = event.caster  --caster是雪球
-   local snowballs= Entities:FindAllByName("tusk_snowball")
+   local snowballs = {}  --全部的雪球
+   local allies= FindUnitsInRadius( caster:GetTeam(), Vector(0,0,0), nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+   for _,ally in pairs(allies) do
+   	  if ally:GetUnitName()=="tusk_snowball" then
+   	    table.insert(snowballs, ally)
+   	  end
+   end
+
    for _,snowball in pairs(snowballs) do
    	  if not snowball:IsNull() then
          --显示雪球施法者,将其移动到雪球死亡的位置
 	    snowball.snowballOwner:RemoveNoDraw()
 	    snowball.snowballOwner:RemoveModifierByName("modifier_dummy_snowball")
-	    snowball.snowballOwner:SetOrigin(caster:GetOrigin())
+	    snowball.snowballOwner:SetOrigin(snowball:GetOrigin())
         if  snowball:IsAlive() then      
 		    snowball:RemoveAbility("snowball_passive")  --杀死雪球
 		    snowball:ForceKill(true)
@@ -139,17 +158,7 @@ function SnowballDied(event)
                            damage=caster.snowballOwner:GetMaxHealth()*0.15} 
       ApplyDamage(damageTable)
    end
-    
-   local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, 0, false )  --全地图所有英雄	
-   for _,enemy in pairs(allEnemies) do
-      enemy.snowballDotDamage=0  --Dot叠加器清零
-      if enemy.snowballDamageParticleIndex~=nil  then--清楚粒子特效
-      	 ParticleManager:DestroyParticle(enemy.snowballDamageParticleIndex,true)
-      	 ParticleManager:ReleaseParticleIndex(enemy.snowballDamageParticleIndex)
-      	 enemy.snowballDamageParticleIndex=nil
-      end
-   end
-   
+   GameRules.snowballDamaging=false --停止全屏Dot伤害
 end
 
 

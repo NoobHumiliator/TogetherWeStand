@@ -20098,7 +20098,7 @@
 	"precache"
 	{
 		"particle"          	        "particles/units/heroes/hero_tusk/tusk_snowball.vpcf"	
-		"particle"                      "particles/units/heroes/hero_earth_spirit/earthspirit_petrify_debuff_stoned.vpcf"
+		"particle"                      "particles/units/heroes/hero_earth_spirit/earthspirit_petrify_impact.vpcf"
 		"soundfile"			            "soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
 	}
 
