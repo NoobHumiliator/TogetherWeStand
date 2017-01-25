@@ -20114,8 +20114,14 @@
 			"Function"                 "SnowballStart"  
 		}
 	}
-
-
+    "AbilitySpecial"
+    {
+    	"01"
+	    {
+			"var_type"					           	 "FIELD_INTEGER"
+			"allies_damage"	                         "15"
+	    }
+    }
 	"Modifiers"
 	{      
 		"modifier_dummy_snowball"
@@ -20145,7 +20151,6 @@
 	"AbilityTextureName"                              "tusk_snowball"
 
 	//-------------------------------------------------------------------------------------------------------------
-	"AbilityManaCost"                                 "25"
 	"precache"
 	{
 		"particle"          	        "particles/units/heroes/hero_tusk/tusk_snowball.vpcf"			

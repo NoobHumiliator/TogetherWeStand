@@ -137,7 +137,7 @@ function SnowballDied(event)
          --显示雪球施法者,将其移动到雪球死亡的位置
 	    snowball.snowballOwner:RemoveNoDraw()
 	    snowball.snowballOwner:RemoveModifierByName("modifier_dummy_snowball")
-	    snowball.snowballOwner:SetOrigin(snowball:GetOrigin())
+	    FindClearSpaceForUnit( snowball.snowballOwner, snowball:GetOrigin(), false )
         if  snowball:IsAlive() then      
 		    snowball:RemoveAbility("snowball_passive")  --杀死雪球
 		    snowball:ForceKill(true)
