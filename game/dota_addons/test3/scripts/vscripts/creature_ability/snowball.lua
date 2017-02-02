@@ -137,6 +137,7 @@ function SnowballDied(event)
         snowball.snowballOwner:RemoveModifierByName("modifier_dummy_snowball")
 	    snowball.snowballOwner:SetOrigin(snowball:GetOrigin())
 	    snowball.snowballOwner:FindAbilityByName("tws_tusk_snowball"):ApplyDataDrivenModifier(snowball.snowballOwner,snowball.snowballOwner,"modifier_snowball_fly",{duration = 1}) --落地进入短暂飞行状态
+
         if  snowball:IsAlive() then      
 		    snowball:RemoveAbility("snowball_passive")  --杀死雪球
 		    snowball:ForceKill(true)
