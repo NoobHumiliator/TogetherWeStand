@@ -16,7 +16,6 @@ function SnowballStart(keys)
         end
     end
     local caster_snowball=nil --主施法者的雪球
-    print("tusks size"..#tusks)
      
     GameRules.snowballDamaging=true --是否正在造成Dot伤害
 
@@ -38,7 +37,7 @@ function SnowballStart(keys)
 		snowball:SetNavCollisionType(PHYSICS_NAV_NOTHING)
 		snowball:FollowNavMesh(false)
       
-        snowball:SetPhysicsVelocity(  (snowball.targetPosition-snowball:GetAbsOrigin())/2)
+        snowball:SetPhysicsVelocity((snowball.targetPosition-snowball:GetAbsOrigin())/1.5)
         snowball.stopTime=0   --中途几次改变方向
 
         snowball:OnPhysicsFrame(
@@ -55,7 +54,7 @@ function SnowballStart(keys)
 				snowball:SetAbsOrigin(GetGroundPosition(snowball:GetAbsOrigin(), snowball) + Vector(0, 0, 90))
 	            
 	            if (snowball.targetPosition-snowball:GetAbsOrigin()):Length()<100 then        
-	                if snowball.stopTime>=6 then  --6次后停止
+	                if snowball.stopTime>=2 then  --6次后停止
 	                	snowball:RemoveModifierByName("modifier_snowball_invulnerable")
 	                	snowball:SetPhysicsVelocity(Vector(0,0,0))
 	                	snowball:SetAbsOrigin(GetGroundPosition(snowball:GetAbsOrigin(), snowball) + Vector(0, 0, 90))	                	
@@ -66,7 +65,7 @@ function SnowballStart(keys)
 	                    Timers:CreateTimer(
 						       0.3, function()
 							       snowball.stopTime=snowball.stopTime+1
-	                               snowball:SetPhysicsVelocity( (snowball.targetPosition-snowball:GetAbsOrigin())/2)
+	                               snowball:SetPhysicsVelocity( (snowball.targetPosition-snowball:GetAbsOrigin())/1.5)
 	                           end)
 	                end
 	            end
@@ -93,7 +92,7 @@ function SnowballStart(keys)
 	                damage_type=DAMAGE_TYPE_PURE,
 	                damage=enemy.snowballDotDamage
                 }
-              PrintTable(damageTable)
+              --PrintTable(damageTable)
               ApplyDamage(damageTable)
               if enemy.snowballDamageParticleIndex~=nil then--覆盖之前的例子特效
               	 ParticleManager:DestroyParticle(enemy.snowballDamageParticleIndex,true)
@@ -135,15 +134,21 @@ function SnowballDied(event)
    for _,snowball in pairs(snowballs) do
    	  if not snowball:IsNull() then
          --显示雪球施法者,将其移动到雪球死亡的位置
-	    snowball.snowballOwner:RemoveNoDraw()
-	    snowball.snowballOwner:RemoveModifierByName("modifier_dummy_snowball")
+        snowball.snowballOwner:RemoveModifierByName("modifier_dummy_snowball")
 	    snowball.snowballOwner:SetOrigin(snowball:GetOrigin())
+	    snowball.snowballOwner:FindAbilityByName("tws_tusk_snowball"):ApplyDataDrivenModifier(snowball.snowballOwner,snowball.snowballOwner,"modifier_snowball_fly",{duration = 1}) --落地进入短暂飞行状态
         if  snowball:IsAlive() then      
 		    snowball:RemoveAbility("snowball_passive")  --杀死雪球
 		    snowball:ForceKill(true)
    	    end
+   	    snowball.snowballOwner:RemoveNoDraw()
       end
    end
+   caster.snowballOwner:RemoveModifierByName("modifier_dummy_snowball")  --特殊处理施法者
+   caster.snowballOwner:SetOrigin(caster:GetOrigin())
+   caster.snowballOwner:FindAbilityByName("tws_tusk_snowball"):ApplyDataDrivenModifier(caster.snowballOwner,caster.snowballOwner,"modifier_snowball_fly",{duration = 1}) --落地进入短暂飞行状态
+   caster.snowballOwner:RemoveNoDraw()
+
    if caster.snowballOwner:GetUnitName()=="npc_dota_tusk_boss" then --如果打错了雪球
    	  local allies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
    	  for _,ally in pairs(allies) do --治疗全部友军

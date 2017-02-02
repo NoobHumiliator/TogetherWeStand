@@ -20134,6 +20134,14 @@
                 "MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED" // Don't use these state for a channeling ability.
 			}
 		}
+		"modifier_snowball_fly"
+		{
+			"Passive"		"0"	
+			"States"
+			{
+				"MODIFIER_STATE_FLYING"	            "MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
 	}
 }
 
@@ -20160,8 +20168,7 @@
 		}        
 	}        
 	"Modifiers"
-	{      
-		
+	{      		
 		"modifier_snowball_invulnerable"
 		{
 			"States"
@@ -20173,7 +20180,7 @@
 				"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 				"MODIFIER_STATE_NO_TEAM_MOVE_TO"	"MODIFIER_STATE_VALUE_ENABLED"
 				"MODIFIER_STATE_NO_TEAM_SELECT"		"MODIFIER_STATE_VALUE_ENABLED"
-                "MODIFIER_STATE_OUT_OF_GAME"		"MODIFIER_STATE_VALUE_ENABLED"
+                "MODIFIER_STATE_OUT_OF_GAME"		"MODIFIER_STATE_VALUE_ENABLED"              
 			}
 		}
 	}
@@ -20197,98 +20204,172 @@
 				"RunScript"
 				{
 					"ScriptFile"	"creature_ability/share_damage.lua"
+					"Damage"		"%attack_damage"
 					"Function"		"TakeDamage"
 				}
 			}
 		}
 	}
 }
-"tws_tusk_walrus_punch"
-{	
-        "BaseClass"				        "tusk_walrus_punch"
-		"AbilityCooldown"				"20 18 16 14 12 10"
+"tws_tusk_ice_shards"
+{
+		"BaseClass"				        "tusk_ice_shards"
+		
+		"AbilityCooldown"				"19.0 16.0 13.0 10.0"
 
+		"AbilityManaCost"				"50"
+
+		"AbilityCastRange"				"3000"
+
+		"MaxLevel"                        "8"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_multiplier"			"350"
-				"LinkedSpecialBonus"		"special_bonus_unique_tusk"
+				"shard_width"				"200"
 			}
+			
 			"02"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"air_time"					"1.0"
+				"var_type"					"FIELD_INTEGER"
+				"shard_damage"				"300 600 1000 1500 2100 2800 3600 4500"
 			}
 			"03"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"slow_duration"				"2.0"
+				"var_type"					"FIELD_INTEGER"
+				"shard_count"				"7"
 			}
 			"04"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"move_slow"					"40"
+				"var_type"					"FIELD_FLOAT"
+				"shard_speed"				"1100.0"
 			}
 			"05"
 			{
+				"var_type"					"FIELD_FLOAT"
+				"shard_duration"			"7.0"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"shard_angle_step"			"40.0"
+			}
+			"07"
+			{
 				"var_type"					"FIELD_INTEGER"
-				"push_length"				"1000"
+				"shard_distance"			"200"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"cast_range_tooltip"			"1800"
 			}
 		}
 }
 
-"tws_tusk_walrus_kick"
+"tws_tusk_frozen_sigil"
 {
-	"BaseClass"				        "tusk_walrus_kick"
+	"BaseClass"				        "tusk_frozen_sigil"
 
-	"AbilityCooldown"				"20"
+	"AbilityCooldown"				"50.0 50.0 50.0 50.0"
 
-	"AbilityManaCost"				"100"
+	"AbilityManaCost"				"75"
+
+	"MaxLevel"                        "8"
 
 	"AbilitySpecial"
 	{
 		"01"
 		{
 			"var_type"					"FIELD_INTEGER"
-			"crit_multiplier"			"0.0"
+			"sigil_radius"				"600"
 		}
 		"02"
 		{
 			"var_type"					"FIELD_FLOAT"
-			"air_time"					"1.0"
+			"sigil_duration"			"50.0"
 		}
 		"03"
 		{
 			"var_type"					"FIELD_INTEGER"
-			"push_length"				"1400"
-		}			
+			"move_slow"					"15 25 35 45 55 65 75 85"
+		}
 		"04"
 		{
 			"var_type"					"FIELD_INTEGER"
-			"move_slow"					"40"
+			"attack_slow"				"50 100 200 350 550 800 1100 1450"
 		}
-		"05"
-		{
-			"var_type"					"FIELD_INTEGER"
-			"slow_duration"				"4"
-		}			
-		"06"
-		{
-			"var_type"					"FIELD_FLOAT"
-			"cooldown_scepter"			"8"
-		}
-		"07"
-		{
-			"var_type"					"FIELD_INTEGER"
-			"damage"					"350 700 1050 1400 1750 2100"
-		}
+
 	}
 }
 
 
+"tws_boulder_smash"
+{
+		"BaseClass"				        "earth_spirit_boulder_smash"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"150"
+		"AbilityCastPoint"				"0.01"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"22.0 18.0 14.0 10.0 10.0 10.0 10.0 10.0"
 
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"160"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"rock_search_aoe"		"200"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"rock_damage"			"300 600 1000 1500 2100 2800 3600 4500"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.75 1.25 1.75 2.25"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"900"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"unit_distance"			"500.0 600.0 700.0 800.0 900.0 1000.0 1100.0 1200.0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"rock_distance"			"2000.0"
+			}			
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"remnant_smash_radius_tooltip"			"200"
+			}			
+		}
+}
 
 
 } //主括号

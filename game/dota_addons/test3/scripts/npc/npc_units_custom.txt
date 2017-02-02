@@ -12321,7 +12321,7 @@
 
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/heroes/tuskarr/tuskarr.vmdl"	// Model.
-		"ModelScale"				"1.8"
+		"ModelScale"				"1.2"
 		"Level"						"1"
 		"CanBeDominated"			"0"
 
@@ -12330,7 +12330,7 @@
 		"Ability1"					"tws_tusk_snowball"			        // Ability 1.
 		"Ability2"					"share_damage_passive"		    // Ability 2.
 		"Ability3"					"tws_tusk_walrus_punch"			// Ability 3.
-		"Ability4"					"tws_tusk_walrus_kick"			// Ability 4.
+		"Ability4"					"tws_boulder_smash"			// Ability 4.
 		"Ability5"					""			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.
 		"Ability7"					""			// Ability 7 - Extra.
@@ -12434,15 +12434,15 @@
 
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/heroes/earth_spirit/earth_spirit.vmdl"	// Model.
-		"ModelScale"				"1.8"
+		"ModelScale"				"1.2"
 		"Level"						"1"
 		"CanBeDominated"			"0"
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"tws_tusk_snowball"	// Ability 1.
+		"Ability1"					"tws_tusk_snowball"         	// Ability 1.
 		"Ability2"					"share_damage_passive"		    // Ability 2.
-		"Ability3"					""			// Ability 3.
+		"Ability3"					"tws_tusk_frozen_sigil"			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.

@@ -8,7 +8,7 @@ behaviorSystem = {} -- create the global so we can assign to it
 
 function Spawn( entityKeyValues )
 	thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
-    behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone,BehaviorSnowBall} ) 
+    behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone,BehaviorSnowBall,BehaviorSigil} ) 
 end
 
 function AIThink() -- For some reason AddThinkToEnt doesn't accept member functions
@@ -80,5 +80,31 @@ end
 
 BehaviorSnowBall.Continue = BehaviorSnowBall.Begin
 --------------------------------------------------------------------------------------------------------
-AICore.possibleBehaviors = { BehaviorNone , BehaviorSnowBall}
+BehaviorSigil = {}     --冰封魔印
+
+function BehaviorSigil:Evaluate() 
+	local desire = 1
+
+	if currentBehavior == self then return desire end
+	self.sigilAbility = thisEntity:FindAbilityByName( "tws_tusk_frozen_sigil" )
+
+	if self.sigilAbility and self.sigilAbility:IsFullyCastable() then
+	   desire = 5
+	end	
+	return desire
+end
+
+function BehaviorSigil:Begin()
+	self.endTime = GameRules:GetGameTime() + 1.0	
+	self.order =
+	{
+		UnitIndex = thisEntity:entindex(),
+		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+		AbilityIndex = self.sigilAbility:entindex()
+	}
+end
+
+BehaviorSigil.Continue = BehaviorSigil.Begin
+--------------------------------------------------------------------------------------------------------
+AICore.possibleBehaviors = { BehaviorNone , BehaviorSnowBall, BehaviorSigil}
 

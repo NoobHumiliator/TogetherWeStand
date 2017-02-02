@@ -1,14 +1,10 @@
---[[
-DK BOSS的AI
-]]
-
 require( "ai_core" )
 
 behaviorSystem = {} -- create the global so we can assign to it
 
 function Spawn( entityKeyValues )
 	thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
-    behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone,BehaviorPunch,BehaviorKick} ) 
+    behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone,BehaviorIceShards,BehaviorKick} ) 
 end
 
 function AIThink() -- For some reason AddThinkToEnt doesn't accept member functions
@@ -54,18 +50,18 @@ end
 
  BehaviorNone.Continue=BehaviorNone.Begin
 --------------------------------------------------------------------------------------------------------
-BehaviorPunch = {}  --海象神拳
+BehaviorIceShards = {}  --冰片
 
-function BehaviorPunch:Evaluate()
-	self.punchAbility = thisEntity:FindAbilityByName("tws_tusk_walrus_punch")    
+function BehaviorIceShards:Evaluate()
+	self.shardsAbility = thisEntity:FindAbilityByName("tws_tusk_ice_shards")    
 	local target =nil
 	local desire = 0
 
 	-- let's not choose this twice in a row
 	if AICore.currentBehavior == self then return desire end
 
-	if self.punchAbility and self.punchAbility:IsFullyCastable() then   
-		local range = self.punchAbility:GetCastRange()
+	if self.shardsAbility and self.shardsAbility:IsFullyCastable() then   
+		local range = self.shardsAbility:GetCastRange()
 		target = AICore:RandomEnemyHeroInRangeNotIllusionIgnoreImmnue( thisEntity, range )
 	end
 
@@ -74,10 +70,10 @@ function BehaviorPunch:Evaluate()
 		self.target = target
         self.order =
 		{
-			OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+			OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
 			UnitIndex = thisEntity:entindex(),
-			TargetIndex = target:entindex(),
-			AbilityIndex = self.punchAbility:entindex()
+			Position = target:GetOrigin() + RandomVector(25),
+			AbilityIndex = self.shardsAbility:entindex()
 		}
 	else
 		desire = 1
@@ -86,16 +82,16 @@ function BehaviorPunch:Evaluate()
 	return desire
 end
 
-function BehaviorPunch:Begin()
+function BehaviorIceShards:Begin()
 	self.endTime = GameRules:GetGameTime() + 1
 end 
 
-BehaviorPunch.Continue = BehaviorPunch.Begin
+BehaviorIceShards.Continue = BehaviorIceShards.Begin
 --------------------------------------------------------------------------------------------------------
 BehaviorKick = {}  --海象飞踢
 
 function BehaviorKick:Evaluate()
-	self.kickAbility = thisEntity:FindAbilityByName("tws_tusk_walrus_kick")    
+	self.kickAbility = thisEntity:FindAbilityByName("tws_boulder_smash")    
 	local target =nil
 	local desire = 0
 
@@ -107,7 +103,7 @@ function BehaviorKick:Evaluate()
 	end
 
 	if target then
-		desire = 7
+		desire = 6
 		self.target = target
         self.order =
 		{
@@ -129,5 +125,5 @@ end
 
 BehaviorKick.Continue = BehaviorKick.Begin
 --------------------------------------------------------------------------------------------------------
-AICore.possibleBehaviors = { BehaviorNone,BehaviorPunch,BehaviorKick}
+AICore.possibleBehaviors = { BehaviorNone,BehaviorIceShards,BehaviorKick}
 

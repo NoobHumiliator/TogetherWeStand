@@ -250,10 +250,18 @@ function CHoldoutGameRound:End()
 			end
 			if unit:GetUnitName()==("npc_dota_splitter_a") then
 				unit:RemoveAbility("creature_split_a")
-			end                      
+			end                    
 			unit:ForceKill(true)
 		end
 	end
+
+
+    for _,unit in pairs( FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector( 0, 0, 0 ), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )) do
+		if unit:IsAlive() then                   
+		  unit:ForceKill(true)
+		end
+	end  
+
 
 	if self._alias=="tiny" then
 		KillTiny()  --小小关杀掉小小
