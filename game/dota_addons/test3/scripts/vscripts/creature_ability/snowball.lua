@@ -7,6 +7,8 @@ function SnowballStart(keys)
     local ability=keys.ability 
     local caster=keys.caster  --只有土猫能能放这个技能caster 一般是土猫
     
+    local damage_increasement = ability:GetLevelSpecialValueFor("damage_increasement", ability:GetLevel() - 1)
+
     local tusks= {}
     local allies = FindUnitsInRadius( caster:GetTeam(), caster:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
      
@@ -37,7 +39,7 @@ function SnowballStart(keys)
 		snowball:SetNavCollisionType(PHYSICS_NAV_NOTHING)
 		snowball:FollowNavMesh(false)
       
-        snowball:SetPhysicsVelocity((snowball.targetPosition-snowball:GetAbsOrigin())/1.5)
+        snowball:SetPhysicsVelocity((snowball.targetPosition-snowball:GetAbsOrigin())/1)
         snowball.stopTime=0   --中途几次改变方向
 
         snowball:OnPhysicsFrame(
@@ -60,12 +62,12 @@ function SnowballStart(keys)
 	                	snowball:SetAbsOrigin(GetGroundPosition(snowball:GetAbsOrigin(), snowball) + Vector(0, 0, 90))	                	
 	                	snowball:OnPhysicsFrame(nil)	                
 	                else
-	                	snowball:SetPhysicsVelocity(Vector(0,0,0))   --到达某个点 停止0.7秒
+	                	snowball:SetPhysicsVelocity(Vector(0,0,0))   --到达某个点 停止0.3秒
 	                	snowball.targetPosition=RandomLocation(1200)
 	                    Timers:CreateTimer(
 						       0.3, function()
 							       snowball.stopTime=snowball.stopTime+1
-	                               snowball:SetPhysicsVelocity( (snowball.targetPosition-snowball:GetAbsOrigin())/1.5)
+	                               snowball:SetPhysicsVelocity( (snowball.targetPosition-snowball:GetAbsOrigin())/1)
 	                           end)
 	                end
 	            end
@@ -83,7 +85,7 @@ function SnowballStart(keys)
               if enemy.snowballDotDamage==nil then
               	 enemy.snowballDotDamage=0
               else
-              	 enemy.snowballDotDamage=enemy.snowballDotDamage+5 --每次dot增加5点伤害
+              	 enemy.snowballDotDamage=enemy.snowballDotDamage+damage_increasement --每次dot增加一定伤害
               end                  
               local damageTable = 
                 {
@@ -135,8 +137,8 @@ function SnowballDied(event)
    	  if not snowball:IsNull() then
          --显示雪球施法者,将其移动到雪球死亡的位置
         snowball.snowballOwner:RemoveModifierByName("modifier_dummy_snowball")
-	    snowball.snowballOwner:SetOrigin(snowball:GetOrigin())
-	    snowball.snowballOwner:FindAbilityByName("tws_tusk_snowball"):ApplyDataDrivenModifier(snowball.snowballOwner,snowball.snowballOwner,"modifier_snowball_fly",{duration = 1}) --落地进入短暂飞行状态
+	      snowball.snowballOwner:SetOrigin(snowball:GetOrigin())
+	      snowball.snowballOwner:FindAbilityByName("tws_tusk_snowball"):ApplyDataDrivenModifier(snowball.snowballOwner,snowball.snowballOwner,"modifier_snowball_fly",{duration = 1}) --落地进入短暂飞行状态
 
         if  snowball:IsAlive() then      
 		    snowball:RemoveAbility("snowball_passive")  --杀死雪球
@@ -145,7 +147,7 @@ function SnowballDied(event)
    	    snowball.snowballOwner:RemoveNoDraw()
       end
    end
-   caster.snowballOwner:RemoveModifierByName("modifier_dummy_snowball")  --特殊处理施法者
+   caster.snowballOwner:RemoveModifierByName("modifier_dummy_snowball")  --单独处理施法者
    caster.snowballOwner:SetOrigin(caster:GetOrigin())
    caster.snowballOwner:FindAbilityByName("tws_tusk_snowball"):ApplyDataDrivenModifier(caster.snowballOwner,caster.snowballOwner,"modifier_snowball_fly",{duration = 1}) --落地进入短暂飞行状态
    caster.snowballOwner:RemoveNoDraw()
@@ -154,7 +156,7 @@ function SnowballDied(event)
    	  local allies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
    	  for _,ally in pairs(allies) do --治疗全部友军
 		local particle = ParticleManager:CreateParticle("particles/items_fx/aegis_respawn_timer.vpcf", PATTACH_ABSORIGIN_FOLLOW, ally)
-		ally:Heal(999999, ally)
+		ally:Heal(99999999, ally)
 		ParticleManager:ReleaseParticleIndex(particle)
 	  end 
    else   --如果打对了雪球 所有敌人造成15%伤害
