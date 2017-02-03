@@ -20119,7 +20119,7 @@
     	"01"
 	    {
 			"var_type"					           	 "FIELD_INTEGER"
-			"allies_damage"	                         "15"
+			"damage_increasement"	                 "2 4 6 8 10 12 14 16"
 	    }
     }
 	"Modifiers"

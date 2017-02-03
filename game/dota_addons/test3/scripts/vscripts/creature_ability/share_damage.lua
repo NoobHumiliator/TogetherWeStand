@@ -1,7 +1,7 @@
 require( "util")
 
 function TakeDamage( event )
-	local caster=event.caster
+	local caster = event.caster
     local ability = event.ability
 	local damage = event.Damage 
 	local attacker = event.attacker
