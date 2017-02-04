@@ -4060,6 +4060,7 @@
 		"BagCount"					"15"
 		"BagVariance"				"40"
 		"FixedXP"					"5500"
+		"alias"                     "tusk"
 		// Stage 1 ================================================
 		"Unit_tusk_1"
 		{

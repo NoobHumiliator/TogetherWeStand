@@ -22,6 +22,11 @@ function CHoldoutGameSpawner:ReadConfiguration( name, kv, gameRound )
 	self._nChampionMax = tonumber( kv.ChampionMax or 1 )
 	self._nCreatureLevel = tonumber( kv.CreatureLevel or 1 )
 	self._nTotalUnitsToSpawn = tonumber( kv.TotalUnitsToSpawn or 0 )
+    
+    if self._gameRound.vAffixes.teeming then  --繁盛词缀，数量乘以2
+         self._nTotalUnitsToSpawn= self._nTotalUnitsToSpawn*2 
+    end
+
 	self._nUnitsPerSpawn = tonumber( kv.UnitsPerSpawn or 0 )
 	self._nUnitsPerSpawn = tonumber( kv.UnitsPerSpawn or 1 )
 
@@ -189,9 +194,7 @@ end
 
 function CHoldoutGameSpawner:_DoSpawn()
 	local nUnitsToSpawn = math.min( self._nUnitsPerSpawn, self._nTotalUnitsToSpawn - self._nUnitsSpawnedThisRound )
-    if self._gameRound.vAffixes.teeming then  --繁盛词缀，数量乘以2
-         nUnitsToSpawn= nUnitsToSpawn*2 
-    end
+
 	if nUnitsToSpawn <= 0 then
 		return
 	elseif self._nUnitsSpawnedThisRound == 0 then
@@ -229,7 +232,7 @@ function CHoldoutGameSpawner:_DoSpawn()
 					entUnit:SetChampion( true )
 					local nParticle = ParticleManager:CreateParticle( "heavens_halberd", PATTACH_ABSORIGIN_FOLLOW, entUnit )
 					ParticleManager:ReleaseParticleIndex( nParticle )
-					entUnit:SetModelScale( 1.1, 0 )
+					entUnit:SetModelScale(1.1)  --根据2017 Dark Moon 跟换了写法 
 				else
 					entUnit:CreatureLevelUp( self._nCreatureLevel - 1 )
 				end
@@ -243,6 +246,12 @@ function CHoldoutGameSpawner:_DoSpawn()
 			self._nUnitsCurrentlyAlive = self._nUnitsCurrentlyAlive + 1
 			entUnit.Holdout_IsCore = true
 			entUnit:SetDeathXP( self._gameRound:GetXPPerCoreUnit() )
+			local nBounty =entUnit:GetGoldBounty()
+			if nBounty==nil or nBounty <=0 then --如果此单位没有定义击杀奖励,为其分配一个基础的击杀奖励
+               nBounty= self._gameRound:GetBasicBountyPerCoreUnit()
+               entUnit:SetMaximumGoldBounty( nBounty )
+			   entUnit:SetMinimumGoldBounty( nBounty )
+			end
 		end
 	end
 end

@@ -117,6 +117,7 @@
   "1"    "zuus_arc_lightning"
   "2"    "zuus_lightning_bolt"
   "3"    "zuus_static_field"
+  "4"    "zuus_thundergods_vengeance"
   }
   "lina" {
   "1"    "lina_dragon_slave"

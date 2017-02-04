@@ -20136,7 +20136,8 @@
 				"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
 				"MODIFIER_STATE_NO_TEAM_MOVE_TO"	"MODIFIER_STATE_VALUE_ENABLED"
 				"MODIFIER_STATE_NO_TEAM_SELECT"		"MODIFIER_STATE_VALUE_ENABLED"
-                "MODIFIER_STATE_OUT_OF_GAME"		"MODIFIER_STATE_VALUE_ENABLED"
+                "MODIFIER_STATE_OUT_OF_GAME"		"MODIFIER_STATE_VALUE_ENABLED" 
+                "MODIFIER_STATE_STUNNED"		    "MODIFIER_STATE_VALUE_ENABLED" // 进入雪球以后禁止攻击禁止施法
                 "MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED" // Don't use these state for a channeling ability.
 			}
 		}
@@ -20226,13 +20227,13 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		
-		"AbilityCooldown"				"19.0 16.0 13.0 10.0"
+		"AbilityCooldown"				"19.0 16.0 13.0 10.0 10.0 10.0 10.0 10.0"
 
 		"AbilityManaCost"				"50"
 
 		"AbilityCastRange"				"3000"
 
-		"MaxLevel"                        "8"
+		"MaxLevel"                       "8"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -20381,5 +20382,72 @@
 	}
 }
 
+"zuus_thundergods_vengeance"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"AbilityTextureName"			"zuus_thundergods_wrath"
+
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastPoint"				"0.4 0.4 0.4"
+
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"30.0"
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"225 325 450"
+	
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"true_sight_radius"		"900 900 900"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"sight_radius_day"		"1000 1000 1000 1000"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"sight_radius_night"	"1000 1000 1000 1000"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"sight_duration"		"3.0 3.0 3.0 3.0"
+		}
+		"05"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"damage"				"200 300 400"
+		}
+		"06"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"damage_scepter"		"400 500 600"
+		}
+		"07"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"num_targets"			"10"
+		}
+		"08"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"range"					"1500"
+		}
+	}
+}
 
 } //主括号

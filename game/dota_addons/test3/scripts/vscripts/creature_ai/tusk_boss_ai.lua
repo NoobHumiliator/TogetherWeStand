@@ -91,7 +91,7 @@ BehaviorIceShards.Continue = BehaviorIceShards.Begin
 BehaviorKick = {}  --海象飞踢
 
 function BehaviorKick:Evaluate()
-	self.kickAbility = thisEntity:FindAbilityByName("tws_boulder_smash")    
+	self.kickAbility = thisEntity:FindAbilityByName("tws_tusk_walrus_punch")    
 	local target =nil
 	local desire = 0
 

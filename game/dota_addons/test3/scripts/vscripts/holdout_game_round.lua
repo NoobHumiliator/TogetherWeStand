@@ -86,7 +86,8 @@ function CHoldoutGameRound:Begin()
 	end
 	if self._not_multiple then
 	  self._nFixedXP=self._nFixedXP*playernumberbonus
-	  self._nGoldRemainingInRound = self._nMaxGold*playernumberbonus
+	  self._nMaxGold=self._nMaxGold*playernumberbonus
+	  self._nGoldRemainingInRound = self._nMaxGold
 	  self._nItemDropNum=self._nItemDropNum*playernumberbonus
 	  self._nItemDropNum=math.ceil(self._nItemDropNum* hardLevelItemDropBonus[self._gameMode.map_difficulty])
 	  self._not_multiple=false
@@ -465,6 +466,13 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
 		self._environmentcontroller:ApplyBlindModifier()
 		self._environmentcontroller:SpawnLightBall()
 	end
+    if self._alias=="tusk" then
+		if alreadyCached["npc_dota_hero_tusk"]==true then
+		else
+			PrecacheUnitByNameAsync('npc_dota_hero_tusk', function() end)
+			alreadyCached["npc_dota_hero_tusk"]=true
+		end
+	end
 end
 
 
@@ -531,6 +539,15 @@ function CHoldoutGameRound:GetXPPerCoreUnit()
 end
 
 
+function CHoldoutGameRound:GetBasicBountyPerCoreUnit()
+	if self._nCoreUnitsTotal == 0 then
+		return 0
+	else
+		return math.floor( self._nMaxGold *0.25 / self._nCoreUnitsTotal ) --金币的1/4作为怪的基础金币奖励
+	end
+end
+
+
 function CHoldoutGameRound:OnNPCSpawned( event )
 	local spawnedUnit = EntIndexToHScript( event.entindex )
 	if not spawnedUnit or spawnedUnit:IsPhantom() or spawnedUnit:GetUnitName()=="npc_majia_water_1" or spawnedUnit:GetUnitName()=="npc_dummy_blank" or spawnedUnit:GetClassname() == "npc_dota_thinker" or spawnedUnit:GetUnitName() == "" or spawnedUnit:IsSummoned() then
@@ -567,11 +584,6 @@ function CHoldoutGameRound:OnEntityKilled( event )
 		self:_CheckForGoldBagDrop( killedUnit )
 		LootController:CheckForLootItemDrop(self._nRoundNumber,self._nItemDropNum,self._totalCreatureNum,killedUnit )
         QuestSystem:RefreshQuest("Progress", self._nCoreUnitsKilled,self._nCoreUnitsTotal)
-		--[[ 绿字任务系统不再支持
-		if self._entKillCountSubquest then
-			self._entKillCountSubquest:SetTextReplaceValue( QUEST_TEXT_REPLACE_VALUE_CURRENT_VALUE, self._nCoreUnitsKilled )
-		end
-		]]
 	end
 
 	local attackerUnit = EntIndexToHScript( event.entindex_attacker or -1 )
