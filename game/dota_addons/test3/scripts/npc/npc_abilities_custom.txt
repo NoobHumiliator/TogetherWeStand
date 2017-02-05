@@ -20111,6 +20111,42 @@
 		{
 			"EffectName"                    "Hero_Tusk.Snowball.Cast"
 		}
+
+		"Random"
+		{
+			"Chance"			"33"
+			"OnSuccess"
+			{
+				"FireSound"
+				{
+					"EffectName"	"tusk_snowball_03"
+					"Target"		"CASTER"
+				}
+			}
+			"OnFailure"
+			{
+				"Random"
+				{
+					"Chance"			"50"
+					"OnSuccess"
+					{
+						"FireSound"
+						{
+							"EffectName"	"tusk_snowball_05"
+							"Target"		"CASTER"
+						}
+					}
+					"OnFailure"
+					{
+						"FireSound"
+						{
+							"EffectName"	"tusk_snowball_12"
+							"Target"		"CASTER"
+						}
+					}
+				}
+			}
+		}
 		"RunScript"
 		{
 			"ScriptFile"               "scripts/vscripts/creature_ability/snowball.lua"
