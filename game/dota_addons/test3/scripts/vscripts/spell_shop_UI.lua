@@ -86,7 +86,7 @@ end
 
 
 function CHoldoutGameMode:AddAbility(keys)
-  PrintTable(keys)
+  --PrintTable(keys)
 	if PlayerResource:HasSelectedHero( keys.playerId ) then
 		local hero = PlayerResource:GetSelectedHeroEntity( keys.playerId )
 		local abilityName=keys.abilityName

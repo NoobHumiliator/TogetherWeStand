@@ -6,7 +6,7 @@ function Regeneration( event )
 
 	for _,v in pairs(targets) do
 			local effect = ParticleManager:CreateParticle("particles/items_fx/aegis_respawn_timer.vpcf", PATTACH_ABSORIGIN_FOLLOW, v)
-			v:Heal(9999, caster)	
-			v:GiveMana(9999)
+			v:Heal(99999, caster)	
+			v:GiveMana(99999)
 	end
 end

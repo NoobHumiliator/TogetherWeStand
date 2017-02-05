@@ -179,6 +179,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"1"			// Physical protection.
+		"MagicalResistance"			"0"		    // Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -8917,10 +8918,18 @@
 "BaseClass" "npc_dota_creep"
 "Ability1"  "drow_ranger_marksmanship_datadriven"
 }
+"npc_precache_dark_seer_wall_of_replica_nb2017"
+{
+"BaseClass" "npc_dota_creep"
+"Ability1"  "dark_seer_wall_of_replica_nb2017"
+}
+"npc_precache_phantom_assassin_stifling_dagger_nb2017"
+{
+	"BaseClass" "npc_dota_creep"
+    "Ability1"  "phantom_assassin_stifling_dagger_nb2017"
+}
 
-
-
-  "npc_dota_creature_bloodseeker"
+"npc_dota_creature_bloodseeker"
 	{
 		"BaseClass"				"npc_dota_creature"	// Class of entity of link to.
 		"Model"					"models/heroes/blood_seeker/blood_seeker.vmdl"	// Model.
@@ -12019,8 +12028,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"842"		// Damage range min.
-		"AttackDamageMax"			"962"		// Damage range max.
+		"AttackDamageMin"			"1960"		// Damage range min.
+		"AttackDamageMax"			"2250"		// Damage range max.
 		"AttackRate"				"1.5"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"800"		// Range within a target can be acquired.
@@ -12108,8 +12117,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"642"		// Damage range min.
-		"AttackDamageMax"			"562"		// Damage range max.
+		"AttackDamageMin"			"942"		// Damage range min.
+		"AttackDamageMax"			"762"		// Damage range max.
 		"AttackRate"				"0.8"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
@@ -12198,8 +12207,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"380"		// Damage range min.
-		"AttackDamageMax"			"460"		// Damage range max.
+		"AttackDamageMin"			"580"		// Damage range min.
+		"AttackDamageMax"			"660"		// Damage range max.
 		"AttackRate"				"0.3"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
@@ -12264,6 +12273,7 @@
 		"Model"						"models/particle/snowball.vmdl"	// Model.
 		"ModelScale"				"1.0"
 		"Level"						"1"
+		"ConsideredHero"			"1"
 		
 		// Abilities
 		//----------------------------------------------------------------
@@ -12324,13 +12334,14 @@
 		"ModelScale"				"1.2"
 		"Level"						"1"
 		"CanBeDominated"			"0"
+		"ConsideredHero"			"1"
 
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"tws_tusk_snowball"			        // Ability 1.
 		"Ability2"					"share_damage_passive"		    // Ability 2.
-		"Ability3"					"tws_tusk_walrus_punch"			// Ability 3.
-		"Ability4"					"tws_boulder_smash"			// Ability 4.
+		"Ability3"					"tws_tusk_ice_shards"			// Ability 3.
+		"Ability4"					"tws_tusk_walrus_punch"			// Ability 4.
 		"Ability5"					""			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.
 		"Ability7"					""			// Ability 7 - Extra.
@@ -12344,12 +12355,12 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"842"		// Damage range min.
-		"AttackDamageMax"			"962"		// Damage range max.
+		"AttackDamageMin"			"1842"		// Damage range min.
+		"AttackDamageMax"			"1962"		// Damage range max.
 		"AttackRate"				"1.5"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"800"		// Range within a target can be acquired.
-		"AttackRange"				"140"		// Range within a target can be attacked.
+		"AttackRange"				"280"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
 		"ProjectileSpeed"			""			// Speed of projectile.
 
@@ -12376,7 +12387,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"58000"		// Base health.
+		"StatusHealth"				"480000"		// Base health.
 		"StatusHealthRegen"			"1.0"		// Health regeneration rate.
 		"StatusMana"				"5000"	    // Base mana.
 		"StatusManaRegen"			"35"		// Mana regeneration rate.
@@ -12437,6 +12448,7 @@
 		"ModelScale"				"1.2"
 		"Level"						"1"
 		"CanBeDominated"			"0"
+		"ConsideredHero"			"1"
 
 		// Abilities
 		//----------------------------------------------------------------
@@ -12457,12 +12469,12 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"842"		// Damage range min.
-		"AttackDamageMax"			"962"		// Damage range max.
+		"AttackDamageMin"			"1842"		// Damage range min.
+		"AttackDamageMax"			"1962"		// Damage range max.
 		"AttackRate"				"1.5"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"800"		// Range within a target can be acquired.
-		"AttackRange"				"140"		// Range within a target can be attacked.
+		"AttackRange"				"280"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
 		"ProjectileSpeed"			""			// Speed of projectile.
 
@@ -12489,7 +12501,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"58000"		// Base health.
+		"StatusHealth"				"480000"    // Base health.
 		"StatusHealthRegen"			"1.0"		// Health regeneration rate.
 		"StatusMana"				"5000"	    // Base mana.
 		"StatusManaRegen"			"50"		// Mana regeneration rate.
@@ -12534,6 +12546,161 @@
                 "Wearable5"
 				{
 					"ItemDef"			"6006"
+				}
+			}
+		}
+	}
+	
+    "npc_dota_creature_alchemist"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/alchemist/alchemist.vmdl"
+		"SoundSet"					"Hero_Alchemist"
+		"Level"						"1"
+		"ModelScale" 				"1.4"
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
+		"ConsideredHero"			"1"
+		"IsAncient"					"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"alchemist_acid_spray"
+		"Ability2"					"alchemist_unstable_concoction"
+		"Ability3"					"alchemist_chemical_rage"
+		"Ability4"					"alchemist_unstable_concoction_throw"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"30"
+		"MagicalResistance"			"35"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"800"
+		"AttackDamageMax"			"900"
+		"AttackRate"				"1.2"
+		"AttackAnimationPoint"		"0.35"
+		"AttackAcquisitionRange"	"1200"
+		"AttackRange"				"170"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"210"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"380"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"10000"
+		"StatusHealthRegen"			"50.0"
+		"StatusMana"				"2000"
+		"StatusManaRegen"			"30.0"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		//Inventory
+		"HasInventory"				"1"
+
+		"vscripts"					"creature_ai/alchemist_ai.lua"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{	
+			//Basic AI State
+			//-----------------------------------------------------------------
+			"DefaultState"			"Invade"
+			"States"
+			{
+				"Invade"
+				{
+					"Name"			"Invade"
+					"Aggression"	"70.0"
+					"Avoidance"		"0.0"
+					"Support"		"0.0"
+				}
+			}
+
+			"EquippedItems"
+			{
+				"ShivasGuard"
+				{
+					"Item"					"item_shivas_guard"
+				}
+				"PhaseBoots"
+				{
+					"Item"					"item_phase_boots"
+				}
+			}
+
+			//Level Up Parameters
+			//-----------------------------------------------------------------
+			"HPGain"					"300"
+			"DamageGain"				"30"
+			"ArmorGain"					"0.25"
+			"MagicResistGain"			"0.1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"13"
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"117"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"118"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"119"
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"120"
+				}
+				"Wearable5"
+				{
+					"ItemDef"			"121"
+				}
+				"Wearable6"
+				{
+					"ItemDef"			"122"
+				}
+				"Wearable7"
+				{
+					"ItemDef"			"123"
+				}
+				"Wearable8"
+				{
+					"ItemDef"			"124"
 				}
 			}
 		}

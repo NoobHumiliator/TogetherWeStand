@@ -20085,13 +20085,13 @@
 	"BaseClass"                                       "ability_datadriven"
 	"AbilityTextureName"                              "tusk_snowball"
 	"AbilityUnitDamageType"			                  "DAMAGE_TYPE_PURE"
-    "MaxLevel"                                        "5"
+    "MaxLevel"                                        "8"
 
 	//-------------------------------------------------------------------------------------------------------------
 	"AbilityCastPoint"                                "0.2"
 
 	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCooldown"                                 "50.0 45.0 40.0 35.0 30.0 25.0"
+	"AbilityCooldown"                                 "50.0 45.0 40.0 35.0 30.0 25.0 20.0 15.0"
 
 	//-------------------------------------------------------------------------------------------------------------
 	"AbilityManaCost"                                 "25"
@@ -20099,7 +20099,10 @@
 	{
 		"particle"          	        "particles/units/heroes/hero_tusk/tusk_snowball.vpcf"	
 		"particle"                      "particles/units/heroes/hero_earth_spirit/earthspirit_petrify_impact.vpcf"
-		"soundfile"			            "soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
+		"particle"                      "particles/units/heroes/hero_life_stealer/life_stealer_infest_emerge_bloody_mid.vpcf"
+		"particle"                      "particles/units/heroes/hero_chen/chen_hand_of_god.vpcf"
+		"soundfile"			            "soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts"
+		"soundfile"	                    "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
 	}
 
 	"OnSpellStart"
@@ -20119,7 +20122,7 @@
     	"01"
 	    {
 			"var_type"					           	 "FIELD_INTEGER"
-			"damage_increasement"	                 "2 4 6 8 10 12 14 16"
+			"damage_increasement"	                 "4 6 8 10 12 14 16 20"
 	    }
     }
 	"Modifiers"
@@ -20248,7 +20251,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"shard_damage"				"300 600 1000 1500 2100 2800 3600 4500"
+				"shard_damage"				"300 600 1000 1500 2100 2800 3600 5000"
 			}
 			"03"
 			{
@@ -20258,7 +20261,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"shard_speed"				"1100.0"
+				"shard_speed"				"600.0"
 			}
 			"05"
 			{
@@ -20285,15 +20288,15 @@
 
 "tws_tusk_frozen_sigil"
 {
-	"BaseClass"				        "tusk_frozen_sigil"
+	"BaseClass"				          "tusk_frozen_sigil"
 
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"AbilityBehavior"				  "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
-	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"SpellImmunityType"				  "SPELL_IMMUNITY_ENEMIES_NO"
 
-	"AbilityCooldown"				"50.0 50.0 50.0 50.0"
+	"AbilityCooldown"				  "50.0 50.0 50.0 50.0"
 
-	"AbilityManaCost"				"75"
+	"AbilityManaCost"				  "75"
 
 	"MaxLevel"                        "8"
 
@@ -20302,7 +20305,7 @@
 		"01"
 		{
 			"var_type"					"FIELD_INTEGER"
-			"sigil_radius"				"600"
+			"sigil_radius"				"600 700 800 900 1000 1100 1200 1300"
 		}
 		"02"
 		{
@@ -20356,7 +20359,7 @@
 		"01"
 		{
 			"var_type"					"FIELD_INTEGER"
-			"crit_multiplier"			"350 450 550 650 750 850 950 1050"
+			"crit_multiplier"			"350 450 550 650 750 850 950 1550"
 			"LinkedSpecialBonus"		"special_bonus_unique_tusk"
 		}
 		"02"
@@ -20386,7 +20389,7 @@
 {
 	// General
 	//-------------------------------------------------------------------------------------------------------------
-	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+	"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 	"AbilityTextureName"			"zuus_thundergods_wrath"
@@ -20450,4 +20453,243 @@
 	}
 }
 
+"zeus_thundergods_wrath_nb2017"
+ {
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"zuus_thundergods_wrath"
+		"ScriptFile"					"heroes/hero_zeus/zeus_thundergods_wrath_nb2017"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"90.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"225 325 450"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"cloud_duration"				"15"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"cloud_bolt_interval"			"3.0 2.5 2.0"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"cloud_radius"					"300"
+			}
+		}
+  }
+    //=================================================================================================================
+ 	// Dark Seer: Wall of Replica NB2017
+	//=================================================================================================================
+	"dark_seer_wall_of_replica_nb2017"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"dark_seer_wall_of_replica"
+		"ScriptFile"					"heroes/hero_dark_seer/dark_seer_wall_of_replica_nb2017"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"2"
+
+		"HasScepterUpgrade"			"1"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500 900 1300"
+		"AbilityCastPoint"				"0.4 0.4 0.4"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"100.0 100.0 100.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"125 250 375"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"45.0"
+			}			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"replica_damage_outgoing"	"0 25 50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_outgoing"	"100 125 150"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"replica_damage_incoming"	"0 -25 -50"
+			}	
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_replica_total_damage_incoming"	"100 75 50"
+				"CalculateSpellDamageTooltip"	"0"
+			}				
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"width"					"1000 1000 1000"
+			}			
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"replica_scale"			"0 10 20"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range_tooltip"			"500 900 1300"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"replica_damage_outgoing_scepter"	"25 50 75"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_outgoing_scepter"	"125 150 175"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_slow"					"75"
+			}
+			"12"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"				"1.0"
+			}	
+		}
+	}
+     
+    "phantom_assassin_stifling_dagger_nb2017"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"phantom_assassin_stifling_dagger"
+		"ScriptFile"					"heroes/hero_phantom_assassin/phantom_assassin_stifling_dagger_nb2017"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"10000"
+		"AbilityCastPoint"				"0.3"
+		"AbilityChannelTime"			"0.45 0.6 0.75 0.9"
+
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
+			"particle"				"particles/phantom_assassin_linear_dagger.vpcf"
+		}
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDuration"				"1 2 3 4"
+		"AbilityCooldown"				"12"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"30 40 50 60"
+
+         
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"move_slow"					"-50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dagger_speed"			"1200"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"1 2 3 4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_damage"			"65"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_factor"			"-75 -60 -45 -30"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_factor_tooltip"	"25 40 55 70"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dagger_count"			"3 4 5 6"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dagger_offset"			"100"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"dagger_rate"			"0.14"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dagger_range"			"525 750 975 1200"
+			}
+		}
+	}
 } //主括号

@@ -7,8 +7,10 @@ require( "ai_core" )
 behaviorSystem = {} -- create the global so we can assign to it
 
 function Spawn( entityKeyValues )
-	thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
-    behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone ,  BehaviorIce_Armor} ) 
+	if  thisEntity:GetTeam()==DOTA_TEAM_BADGUYS then
+	  thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
+      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone ,  BehaviorIce_Armor} ) 
+    end
 end
 
 function AIThink() -- For some reason AddThinkToEnt doesn't accept member functions

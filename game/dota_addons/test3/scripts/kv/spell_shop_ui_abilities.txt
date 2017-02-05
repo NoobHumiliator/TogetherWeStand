@@ -118,6 +118,7 @@
   "2"    "zuus_lightning_bolt"
   "3"    "zuus_static_field"
   "4"    "zuus_thundergods_vengeance"
+  "5"    "zeus_thundergods_wrath_nb2017"
   }
   "lina" {
   "1"    "lina_dragon_slave"
@@ -355,6 +356,7 @@
   "3"    "keeper_of_the_light_chakra_magic"
   "4"    "keeper_of_the_light_recall_tws"
   "5"    "keeper_of_the_light_blinding_light_tws"
+  "6"    "keeper_of_the_light_light_elemental"
   }
   "skywrath_mage" {
   "1"    "skywrath_mage_arcane_bolt"
@@ -447,9 +449,10 @@
   }
   "phantom_assassin" {
   "1"    "phantom_assassin_stifling_dagger"
-  "2"    "phantom_assassin_phantom_strike"
-  "3"    "phantom_assassin_blur"
-  "4"    "phantom_assassin_coup_de_grace"
+  "2"    "phantom_assassin_stifling_dagger_nb2017"
+  "3"    "phantom_assassin_phantom_strike"
+  "4"    "phantom_assassin_blur"
+  "5"    "phantom_assassin_coup_de_grace"
   }
   "viper" {
   "1"    "viper_poison_attack"
@@ -619,6 +622,7 @@
   "1"    "dark_seer_vacuum"
   "2"    "dark_seer_ion_shell"
   "3"    "dark_seer_surge"
+  "4"    "dark_seer_wall_of_replica_nb2017"
   }
   "batrider" {
   "1"    "batrider_sticky_napalm"

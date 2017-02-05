@@ -23,24 +23,34 @@ function CHoldoutGameMode:DamageFilter(damageTable)
 	  local attacker = EntIndexToHScript(damageTable.entindex_attacker_const)
 	  local victim = EntIndexToHScript(damageTable.entindex_victim_const)
 	  if attacker:GetTeam()==DOTA_TEAM_GOODGUYS then
-	        if damageTable.entindex_inflictor_const ~=nil then
+          local additionalMagicalDamage=0 --魔法伤害的增幅伤害
+	        if damageTable.entindex_inflictor_const ~=nil then --有明确来源技能
 	           local ability=EntIndexToHScript(damageTable.entindex_inflictor_const)
-
              --print("Ability Name: "..ability:GetAbilityName().." Attacker: "..attacker:GetUnitName() )
-
 	           if attacker.sp~=nil and  damageTable.damagetype_const==2  and  not sp_exempt_table[ability:GetAbilityName()]  then
 	           	 if ability:IsToggle() or ability:IsPassive() then
-	              damageTable.damage=damageTable.damage*(1+attacker.sp*0.3*attacker:GetIntellect()/100)
-	              --print("toggle or passive ability name is"..ability:GetAbilityName())
+	              --damageTable.damage=damageTable.damage*(1+attacker.sp*0.3*attacker:GetIntellect()/100)
+                additionalMagicalDamage=damageTable.damage*( attacker.sp*0.3*attacker:GetIntellect()/100 )      
 	             else
-	              damageTable.damage=damageTable.damage*(1+attacker.sp*attacker:GetIntellect()/100)
+	              --damageTable.damage=damageTable.damage*(1+attacker.sp*attacker:GetIntellect()/100)
+                additionalMagicalDamage=damageTable.damage*( attacker.sp*attacker:GetIntellect()/100 )      
 	             end
 	           end
 	        else
-	           if attacker.sp~=nil and  damageTable.damagetype_const==2 then
-	             damageTable.damage=damageTable.damage*(1+attacker.sp*attacker:GetIntellect()/100)
+	           if attacker.sp~=nil and  damageTable.damagetype_const==2 then --无明确来源技能
+	             --damageTable.damage=damageTable.damage*(1+attacker.sp*attacker:GetIntellect()/100)
+               additionalMagicalDamage=damageTable.damage*( attacker.sp*attacker:GetIntellect()/100 )    
 	           end
 	        end
+          if additionalMagicalDamage> 0 then
+              local damageTable = {
+                                    victim=victim,
+                                    attacker=attacker,
+                                    damage_type=DAMAGE_TYPE_PURE,
+                                    damage=additionalMagicalDamage
+                                  } 
+              ApplyDamage(damageTable) --造成增幅伤害(纯粹) 
+          end
           if attacker then
           	local playerid=nil
           	if attacker:GetOwner() then

@@ -337,3 +337,31 @@ NHLog = function( ... )
     end  
     print(tv)  
 end  
+
+
+function LevelUpAbility(unit,sAbilityName)
+    print("sAbilityName "..sAbilityName)
+    local ability=unit:FindAbilityByName(sAbilityName)
+    if ability~=nil then
+        local currentLevel=ability:GetLevel()
+        print("currentLevel "..currentLevel)
+        local maxLevel=ability:GetMaxLevel()
+        print("maxLevel "..maxLevel)
+        if currentLevel<maxLevel then
+           ability:SetLevel(currentLevel+1)
+           print("LevelUpAbility "..sAbilityName.." Success")
+        end
+    end
+end
+
+
+function RemoveAllAbilities(hHero)
+  if IsValidEntity(hHero) then
+    for i=1,24 do
+        local ability=hHero:GetAbilityByIndex(i-1)
+        if ability then
+            hHero:RemoveAbility(ability:GetAbilityName())
+        end
+    end
+  end
+end

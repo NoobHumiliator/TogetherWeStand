@@ -97,11 +97,6 @@ function CHoldoutGameRound:Begin()
 	self._nGoldBagsExpired = 0
 	self._nCoreUnitsTotal = 0
 	LootController:SetItemProbability(self._nRoundNumber,self._gameMode.map_difficulty)
-	for _, spawner in pairs( self._vSpawners ) do
-		spawner:Begin()
-		self._nCoreUnitsTotal = self._nCoreUnitsTotal + spawner:GetTotalUnitsToSpawn()
-	end
-	self._nCoreUnitsKilled = 0
  
    local vAffixes_Text={
 	    necrotic="#affixes_necrotic",
@@ -144,8 +139,9 @@ function CHoldoutGameRound:Begin()
     }
     local affixes_temp={}
     local affixes_number=0;
-    if self._gameMode.map_difficulty<8 then  --五层以下试炼没有词缀 
-       local affixes_number=math.floor( Quadric(2.5,-2.5,8-self._gameMode.map_difficulty) ) --2.5*n(n-1)+5=level  n为词缀数目
+    --print("self._gameMode.map_difficulty"..self._gameMode.map_difficulty)
+    if self._gameMode.map_difficulty>8 then  --五层以下试炼没有词缀 
+       affixes_number=math.floor( Quadric(2.5,-2.5,8-self._gameMode.map_difficulty) ) --2.5*n(n-1)+5=level  n为词缀数目
     end
     print("Affixes Number:"..affixes_number)
     for k,v in pairs(self.vAffixes) do
@@ -187,6 +183,13 @@ function CHoldoutGameRound:Begin()
    	  	 Notifications:BottomToAll({text=vAffixes_Text[k], duration=10, style = {color = "Red"},continue=true})
    	  end
    end  
+   
+   for _, spawner in pairs( self._vSpawners ) do
+		spawner:Begin()
+		self._nCoreUnitsTotal = self._nCoreUnitsTotal + spawner:GetTotalUnitsToSpawn()
+   end
+   self._nCoreUnitsKilled = 0
+
    QuestSystem:CreateQuest("Progress","#tws_quest_progress_text",0,self._nCoreUnitsTotal,nil,self._nRoundNumber)
    if self._szRoundQuestTitle ~=nil then
    	   local bonusItemName ="";
@@ -471,6 +474,11 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
 		else
 			PrecacheUnitByNameAsync('npc_dota_hero_tusk', function() end)
 			alreadyCached["npc_dota_hero_tusk"]=true
+		end
+		if alreadyCached["npc_dota_hero_earth_spirit"]==true then
+		else
+			PrecacheUnitByNameAsync('npc_dota_hero_earth_spirit', function() end)
+			alreadyCached["npc_dota_hero_earth_spirit"]=true
 		end
 	end
 end

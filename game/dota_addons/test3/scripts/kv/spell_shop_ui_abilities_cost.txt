@@ -86,4 +86,5 @@
     "earth_spirit_stone_caller"               "0"
     "ember_spirit_activate_fire_remnant"      "0"
     "phoenix_sun_ray_toggle_move"             "0"
+    "dark_seer_wall_of_replica_nb2017"        "2"
 }

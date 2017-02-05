@@ -3,27 +3,28 @@ Broodmother Egg Hatching Logic
 ]]
 
 function Spawn( entityKeyValues )
-
+  if  thisEntity:GetTeam()==DOTA_TEAM_BADGUYS then
     local argets = FindUnitsInRadius(DOTA_TEAM_BADGUYS, Vector( 0, 0, 0 ) , nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, 0, false)
-        for i,nit in pairs(argets) do
-                if nit:GetUnitName()==("npc_dota_creature_broodking") then
-                hbroodmother=nit
-                end
-        end
-        
-    if  hbroodmother then
-    	--print("mother found")
-    	if hbroodmother:GetContext("mothernumber")==nil then
-        hbroodmother:SetContextNum("mothernumber", 0, 0) 
-        hbroodmother:SetContextNum("warriornumber", 0, 0) 
-        --print("mothernumber first")
-        end
+    for i,nit in pairs(argets) do
+      if nit:GetUnitName()==("npc_dota_creature_broodking") then
+        hbroodmother=nit
+      end
     end
-	ABILITY_hatch_broodmother = thisEntity:FindAbilityByName( "creature_hatch_broodmother")
-	ABILITY_hatch_warrior = thisEntity:FindAbilityByName( "creature_hatch_warrior")
-	TIME_TO_HATCH = GameRules:GetGameTime() + ABILITY_hatch_broodmother:GetCooldown( 0 )
-	thisEntity:SetContextThink( "WaitToHatch", WaitToHatch, 0.25 )
-end
+    
+    if  hbroodmother then
+      	--print("mother found")
+      	if hbroodmother:GetContext("mothernumber")==nil then
+          hbroodmother:SetContextNum("mothernumber", 0, 0) 
+          hbroodmother:SetContextNum("warriornumber", 0, 0) 
+          --print("mothernumber first")
+        end
+      end
+      ABILITY_hatch_broodmother = thisEntity:FindAbilityByName( "creature_hatch_broodmother")
+      ABILITY_hatch_warrior = thisEntity:FindAbilityByName( "creature_hatch_warrior")
+      TIME_TO_HATCH = GameRules:GetGameTime() + ABILITY_hatch_broodmother:GetCooldown( 0 )
+      thisEntity:SetContextThink( "WaitToHatch", WaitToHatch, 0.25 )
+    end
+  end
 
 
 function WaitToHatch()

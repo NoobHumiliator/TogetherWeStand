@@ -6,6 +6,7 @@
 		"v"		Table
 		"b"		Boolean
 		"h"     Handle
+		"s"     String
 ]]
 
 if CHoldoutGameMode == nil then

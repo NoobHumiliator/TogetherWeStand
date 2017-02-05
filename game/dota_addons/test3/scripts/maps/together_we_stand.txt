@@ -1869,7 +1869,7 @@
 		"round_title"				"#DOTA_Holdout_Round_Tree_Title"
 		"MaxGold"					"5350"
 		"BagCount"					"50"
-		"BagVariance"				        "10"
+		"BagVariance"				"10"
 		"FixedXP"					"35700"
 		"alias"                     "tree"	
 		// Stage 1 ================================================Ã¿¸öË¢Ò»Ö» 
@@ -2948,7 +2948,44 @@
 			"SpawnInterval"	                "10"
 		}                             						
 	}
-	"Round12" //dragon
+
+    "Round12"
+	{
+		"round_name"				"#DOTA_Holdout_Round_Alchemist"
+		"MaxGold"					"9500"
+		"BagCount"					"40"
+		"BagVariance"				"100"
+		"FixedXP"					"14000"
+		"PointReward"				"236"
+
+		"Unit1"
+		{
+			"NPCName"				"npc_dota_creature_alchemist"
+			"TotalUnitsToSpawn"		"6"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"15"
+		}
+		"Unit2"
+		{
+			"WaitForUnit"		    "Unit1"
+			"WaitForTime"		    "13"	
+			"NPCName"				"npc_dota_creature_alchemist"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"13"
+		}
+		"Unit3"
+		{
+			"WaitForUnit"		    "Unit2"
+			"WaitForTime"		    "11"
+			"NPCName"				"npc_dota_creature_alchemist"
+			"TotalUnitsToSpawn"		"10"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"11"
+		}
+	}
+
+    "Round13" //dragon
 	{
 		"round_quest_title"			"#TWS_Round_Blue_Dragon_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Blue_Dragon_Title"
@@ -2967,7 +3004,7 @@
 			"SpawnerName"			"spawner4"
 		} 														
 	} 
-	"Round13" //Dark Citadel
+	"Round14" //Dark Citadel
 	{
 		//"round_quest_title"			"#DOTA_Holdout_Round_Dark_Citadel_Quest_Title" 没有就不填
 		"round_title"				"#DOTA_Holdout_Round_Dark_Citadel_Title"
@@ -3318,7 +3355,7 @@
 			"UnitsPerSpawn"			"1"
 		}									
 	} 
-	"Round14" //twins
+	"Round15" //twins
 	{
 		"round_quest_title"			"#TWS_Round_Twins_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Twins_Title"
@@ -3343,7 +3380,7 @@
 			"SpawnerName"			"spawner3"
 		}  														
 	} 
-	"Round15" // morphing again!
+	"Round16" // morphing again!
 	{
 		"round_quest_title"			"#TWS_Round_Again_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Again_Title"
@@ -3517,7 +3554,7 @@
 			"SpawnerName"			        "spawner4"
 		}
 	}
-	"Round16" //party
+	"Round17" //party
 	{
 		//"round_quest_title"			"#DOTA_Holdout_Round_BossParty_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_BossParty_Title"
@@ -3546,7 +3583,7 @@
 			"UnitsPerSpawn"			"1"
 		}        														
 	}               
-	"Round17" //darkness
+	"Round18" //darkness
 	{
 		//"round_quest_title"			"#DOTA_Holdout_Round_Darkness_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Darkness_Title"
@@ -3949,7 +3986,7 @@
 			"SpawnerName"			"spawner4"
 		}									
 	}
-	"Round18" // Splitters
+	"Round19" // Splitters
 	{
 		//"round_quest_title"		"#DOTA_Holdout_Round_Splitter_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Splitter_Title"
@@ -4052,7 +4089,7 @@
 			"SpawnerName"			"spawner4"
 		}
 	}
-    "Round19" // tusk
+    "Round20" // tusk
 	{
 		//"round_quest_title"		"#DOTA_Holdout_Round_Splitter_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Tusk_Title"

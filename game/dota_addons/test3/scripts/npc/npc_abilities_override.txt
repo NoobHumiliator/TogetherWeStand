@@ -390,7 +390,7 @@
 			}
 		}
 	}
-
+	
     "zuus_static_field"
 	{						
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -414,10 +414,12 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"damage_health_pct"         "0.5 1.0 1.5 2.0"
+				"damage_health_pct"			"0.5 1.0 1.5 2.0"
+				"LinkedSpecialBonus"		"special_bonus_unique_zeus"
 			}
 		}
 	}
+
     "disruptor_glimpse"
 	{	
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NONE"
@@ -431,51 +433,11 @@
     }
     "witch_doctor_death_ward"
 	{	
-	       "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+	       "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+	       "AbilityUnitTargetFlags"		    "DOTA_UNIT_TARGET_FLAG_NONE"
 	       "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		   "LevelsBetweenUpgrades"			"15"
 		   "MaxLevel"                       "3"
-	}
-    "undying_tombstone"
-	{
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tombstone_health"				"6 8 10 14"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hits_to_destroy_tooltip"	"3 4 5 7"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"13.0 17.0 21.0 25.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"600 800 1000 1200"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_threshold"		"100 200 300 400"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_threshold_pct_tooltip"		"20 25 30 35"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"zombie_interval"		"3.5"
-			}
-		}
 	}
 
    "shadow_shaman_mass_serpent_ward"
@@ -1563,7 +1525,7 @@
 	}
 	"alchemist_unstable_concoction_throw"
 	{
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 	    "AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NONE"
 	}
 	"naga_siren_song_of_the_siren_cancel"
@@ -1580,6 +1542,12 @@
 	}
 	"ogre_magi_multicast"
 	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"LevelsBetweenUpgrades"			"15"
+		"MaxLevel"                      "3"
+	}
+	"chen_hand_of_god"
+    {
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"

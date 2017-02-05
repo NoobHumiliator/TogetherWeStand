@@ -44,6 +44,15 @@ function AICore:RandomNormalFriendCreepInRange( entity, range )  --选一个范�
 	end
 end
 
+function AICore:ClosestEnemyHeroInRange( entity, range )
+	local enemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, entity:GetOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+	if #enemies > 0 then
+		local index = RandomInt( 1, #enemies )
+		return enemies[index]
+	else
+		return nil
+	end
+end
 
 
 function AICore:RandomEnemyHeroInRange( entity, range )

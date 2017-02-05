@@ -23,10 +23,6 @@ function CHoldoutGameSpawner:ReadConfiguration( name, kv, gameRound )
 	self._nCreatureLevel = tonumber( kv.CreatureLevel or 1 )
 	self._nTotalUnitsToSpawn = tonumber( kv.TotalUnitsToSpawn or 0 )
     
-    if self._gameRound.vAffixes.teeming then  --繁盛词缀，数量乘以2
-         self._nTotalUnitsToSpawn= self._nTotalUnitsToSpawn*2 
-    end
-
 	self._nUnitsPerSpawn = tonumber( kv.UnitsPerSpawn or 0 )
 	self._nUnitsPerSpawn = tonumber( kv.UnitsPerSpawn or 1 )
 
@@ -69,6 +65,10 @@ function CHoldoutGameSpawner:Begin()
 	self._nChampionsSpawnedThisRound = 0
 	self._nUnitsCurrentlyAlive = 0
 	
+    if self._gameRound.vAffixes.teeming then  --繁盛词缀，数量乘以2
+         self._nTotalUnitsToSpawn= self._nTotalUnitsToSpawn*2 
+    end
+
 	self._vecSpawnLocation = nil
 	if self._szSpawnerName ~= "" then
 		local entSpawner = Entities:FindByName( nil, self._szSpawnerName )

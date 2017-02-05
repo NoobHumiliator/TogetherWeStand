@@ -3,20 +3,23 @@ Broodking AI
 ]]
 
 function Spawn( entityKeyValues )
-	POSITIONS_retreat = Entities:FindAllByName( "waypoint_*" )
-	for i = 1, #POSITIONS_retreat do
-		POSITIONS_retreat[i] = POSITIONS_retreat[i]:GetOrigin()
-	end
 
-	ABILITY_spin_web = thisEntity:FindAbilityByName( "creature_spin_web" )
-	ABILITY_spawn_broodmother = thisEntity:FindAbilityByName( "creature_spawn_broodmother" )
-	if ABILITY_spawn_broodmother == nil then
-		ABILITY_spawn_broodmother = thisEntity:FindAbilityByName( "creature_spawn_broodmother_eggs" )
-	end
+	if  thisEntity:GetTeam()==DOTA_TEAM_BADGUYS then
+		POSITIONS_retreat = Entities:FindAllByName( "waypoint_*" )
+		for i = 1, #POSITIONS_retreat do
+			POSITIONS_retreat[i] = POSITIONS_retreat[i]:GetOrigin()
+		end
 
-	thisEntity:SetContextThink( "BroodkingThink", BroodkingThink, 0.25 )
+		ABILITY_spin_web = thisEntity:FindAbilityByName( "creature_spin_web" )
+		ABILITY_spawn_broodmother = thisEntity:FindAbilityByName( "creature_spawn_broodmother" )
+		if ABILITY_spawn_broodmother == nil then
+			ABILITY_spawn_broodmother = thisEntity:FindAbilityByName( "creature_spawn_broodmother_eggs" )
+		end
 
-	thisEntity:AddNewModifier(nil,nil,"modifier_kill",{duration=500})  --设置强制死亡时间
+		thisEntity:SetContextThink( "BroodkingThink", BroodkingThink, 0.25 )
+
+		thisEntity:AddNewModifier(nil,nil,"modifier_kill",{duration=500})  --设置强制死亡时间
+    end
 
 end
 
