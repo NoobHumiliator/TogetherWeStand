@@ -12060,7 +12060,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"58000"		// Base health.
+		"StatusHealth"				"68000"		// Base health.
 		"StatusHealthRegen"			"1.0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -12149,7 +12149,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"32500"		// Base health.
+		"StatusHealth"				"38500"		// Base health.
 		"StatusHealthRegen"			"1.0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -12239,7 +12239,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"18500"		// Base health.
+		"StatusHealth"				"25500"		// Base health.
 		"StatusHealthRegen"			"1.0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -12566,10 +12566,10 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"alchemist_acid_spray"
-		"Ability2"					"alchemist_unstable_concoction"
-		"Ability3"					"alchemist_chemical_rage"
-		"Ability4"					"alchemist_unstable_concoction_throw"
+		"Ability1"					"tws_alchemist_acid_spray"
+		"Ability2"					"tws_alchemist_unstable_concoction"
+		"Ability3"					"tws_alchemist_chemical_rage"
+		"Ability4"					"tws_alchemist_unstable_concoction_throw"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -12579,8 +12579,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"800"
-		"AttackDamageMax"			"900"
+		"AttackDamageMin"			"3800"
+		"AttackDamageMax"			"4200"
 		"AttackRate"				"1.2"
 		"AttackAnimationPoint"		"0.35"
 		"AttackAcquisitionRange"	"1200"
@@ -12606,7 +12606,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"10000"
+		"StatusHealth"				"100000"
 		"StatusHealthRegen"			"50.0"
 		"StatusMana"				"2000"
 		"StatusManaRegen"			"30.0"

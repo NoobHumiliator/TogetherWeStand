@@ -481,6 +481,13 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
 			alreadyCached["npc_dota_hero_earth_spirit"]=true
 		end
 	end
+	if self._alias=="alchemist" then
+		if alreadyCached["npc_dota_hero_alchemist"] ==true then
+		else
+			PrecacheUnitByNameAsync('npc_dota_hero_alchemist', function() end)
+			alreadyCached["npc_dota_hero_alchemist"]=true
+		end
+	end
 end
 
 

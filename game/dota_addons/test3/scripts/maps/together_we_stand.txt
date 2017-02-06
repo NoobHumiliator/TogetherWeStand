@@ -3956,7 +3956,7 @@
 		"MaxGold"					"9350"
 		"BagCount"					"15"
 		"BagVariance"				"40"
-		"FixedXP"					"5500"
+		"FixedXP"					"60000"
 
 		// Stage 1 ================================================
 		"UnitSplitter_1"
@@ -4059,7 +4059,7 @@
 		"MaxGold"					"11350"
 		"BagCount"					"15"
 		"BagVariance"				"40"
-		"FixedXP"					"5500"
+		"FixedXP"					"65000"
 		"alias"                     "tusk"
 		// Stage 1 ================================================
 		"Unit_tusk_1"
@@ -4101,37 +4101,38 @@
 	}
 	"Round20"
 	{
-		"round_name"				"#DOTA_Holdout_Round_Alchemist"
-		"MaxGold"					"9500"
+		"round_title"				"#DOTA_Holdout_Round_Alchemist"
+		"MaxGold"					"13500"
 		"BagCount"					"40"
 		"BagVariance"				"100"
-		"FixedXP"					"14000"
+		"FixedXP"					"70000"
 		"PointReward"				"236"
+		"alias"                     "alchemist"
 
 		"Unit1"
 		{
 			"NPCName"				"npc_dota_creature_alchemist"
-			"TotalUnitsToSpawn"		"6"
+			"TotalUnitsToSpawn"		"10"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"10"
 		}
 		"Unit2"
 		{
 			"WaitForUnit"		    "Unit1"
-			"WaitForTime"		    "13"	
+			"WaitForTime"		    "10"	
 			"NPCName"				"npc_dota_creature_alchemist"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"13"
+			"SpawnInterval"			"15"
 		}
 		"Unit3"
 		{
-			"WaitForUnit"		    "Unit2"
-			"WaitForTime"		    "11"
+			"WaitForUnit"		    "Unit1"
+			"WaitForTime"		    "10"
 			"NPCName"				"npc_dota_creature_alchemist"
-			"TotalUnitsToSpawn"		"10"
+			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"11"
+			"SpawnInterval"			"15"
 		}
 	}
 }

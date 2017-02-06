@@ -17,6 +17,7 @@ end
 
 BehaviorNone = {}
 function BehaviorNone:Evaluate()
+	print("4")
 	return 2 -- must return a value > 0, so we have a default 控制大方向，往一个最近的英雄处靠近
 end
 
@@ -52,9 +53,7 @@ function BehaviorNone:Begin()
 	end
 end
 
-function BehaviorNone:Continue()
-	self.endTime = GameRules:GetGameTime() + 1
-end
+BehaviorNone.Continue=BehaviorNone.Begin
 
 --------------------------------------------------------------------------------------------------------
 
@@ -63,13 +62,12 @@ BehaviorConcoction = {}
 function BehaviorConcoction:Evaluate()
 	--print( "BehaviorConcoction:Evaluate()" )
 	local desire = 0
-	
 	-- let's not choose this twice in a row
 	if currentBehavior == self then return desire end
 
-	self.concoctionAbility = thisEntity:FindAbilityByName( "alchemist_unstable_concoction" )
-	self.concoctionThrowAbility = thisEntity:FindAbilityByName( "alchemist_unstable_concoction_throw" )
-	self.chemicalRageAbility = thisEntity:FindAbilityByName( "alchemist_chemical_rage" )
+	self.concoctionAbility = thisEntity:FindAbilityByName( "tws_alchemist_unstable_concoction" )
+	self.concoctionThrowAbility = thisEntity:FindAbilityByName( "tws_alchemist_unstable_concoction_throw" )
+	self.chemicalRageAbility = thisEntity:FindAbilityByName( "tws_alchemist_chemical_rage" )
 
 	for i = 0, DOTA_ITEM_MAX - 1 do
 		local item = thisEntity:GetItemInSlot( i )
@@ -119,7 +117,7 @@ function BehaviorConcoction:Think( dt )
 		end
 
 		if GameRules:GetGameTime() >= ( self.startConcoctionTime + 2 ) then
-			print( "it's time to throw Concoction" )
+			--print( "it's time to throw Concoction" )
 			if self.concoctionThrowAbility and self.concoctionThrowAbility:IsFullyCastable() then
 				self.order =
 				{
@@ -135,7 +133,7 @@ function BehaviorConcoction:Think( dt )
 		else
 			-- cast chemical rage
 			if self.chemicalRageAbility and self.chemicalRageAbility:IsFullyCastable() then
-				print( "casting Chemical Rage while doing Concoction stuff" )
+				--print( "casting Chemical Rage while doing Concoction stuff" )
 				self.order =
 				{
 					UnitIndex = thisEntity:entindex(),
@@ -158,6 +156,7 @@ function BehaviorConcoction:Think( dt )
 		self.startConcoctionTime = nil
 		return
 	end
+
 end
 
 function BehaviorConcoction:Begin()
@@ -195,11 +194,10 @@ BehaviorAcidSpray = {}
 function BehaviorAcidSpray:Evaluate()
 	--print( "BehaviorAcidSpray:Evaluate()" )
 	local desire = 0
-	
 	-- let's not choose this twice in a row
 	if currentBehavior == self then return desire end
 
-	self.acidSprayAbility = thisEntity:FindAbilityByName( "alchemist_acid_spray" )
+	self.acidSprayAbility = thisEntity:FindAbilityByName( "tws_alchemist_acid_spray" )
 	
 	if self.acidSprayAbility and self.acidSprayAbility:IsFullyCastable() then
 		self.target = AICore:RandomEnemyHeroInRange( thisEntity, self.acidSprayAbility:GetCastRange() )
@@ -220,9 +218,9 @@ function BehaviorAcidSpray:Begin()
 	self.endTime = GameRules:GetGameTime() + 1
 
 	if self.acidSprayAbility and self.acidSprayAbility:IsFullyCastable() then
-		self.target = AICore:RandomEnemyHeroInRange( thisEntity, self.acidSprayAbility:GetCastRange() )
+		--self.target = AICore:RandomEnemyHeroInRange( thisEntity, self.acidSprayAbility:GetCastRange() )
 		if self.target and self.target:IsAlive() then
-			print( "casting Acid Spray" )
+			--print( "casting Acid Spray" )
 			local targetPoint = self.target:GetOrigin() + RandomVector( 100 )
 			self.order =
 			{
