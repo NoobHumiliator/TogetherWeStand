@@ -175,7 +175,7 @@ function SnowballDied(event)
         local damageTable = {victim=ally,
                            attacker=ally,
                            damage_type=DAMAGE_TYPE_PURE,
-                           damage=caster.snowballOwner:GetMaxHealth()*0.15} 
+                           damage=caster.snowballOwner:GetMaxHealth()*0.20} 
         ApplyDamage(damageTable)
       end
       EmitGlobalSound("Hero_LifeStealer.OpenWounds")

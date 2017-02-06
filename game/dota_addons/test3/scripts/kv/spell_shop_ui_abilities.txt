@@ -61,6 +61,7 @@
   "2"    "juggernaut_healing_ward"
   "3"    "juggernaut_blade_dance_datadriven"
   "4"    "juggernaut_omni_slash"
+  "5"    "holdout_omnislash"
   }
   "mirana" {
   "1"    "mirana_starfall_datadriven"
