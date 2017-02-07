@@ -180,16 +180,21 @@ function AICore:CreateBehaviorSystem( behaviors )
 		end
 
 		if self.currentBehavior.order and self.currentBehavior.order.OrderType ~= DOTA_UNIT_ORDER_NONE  then
-			if (self.repeatedlyIssueOrders and  self.currentBehavior.order.OrderType ~= DOTA_UNIT_ORDER_ATTACK_MOVE ) or  --为了避免重置攻击动作，不重置下达攻击指令
-				self.previousOrderType ~= self.currentBehavior.order.OrderType or
+			if  self.repeatedlyIssueOrders or self.previousOrderType ~= self.currentBehavior.order.OrderType or
 				self.previousOrderTarget ~= self.currentBehavior.order.TargetIndex or
 				self.previousOrderPosition ~= self.currentBehavior.order.Position then
 
-				-- Keep sending the order repeatedly, in case we forgot >.<
-				ExecuteOrderFromTable( self.currentBehavior.order )
-				self.previousOrderType = self.currentBehavior.order.OrderType
-				self.previousOrderTarget = self.currentBehavior.order.TargetIndex
-				self.previousOrderPosition = self.currentBehavior.order.Position
+	                if self.previousOrderType == DOTA_UNIT_ORDER_ATTACK_MOVE and   --如果新旧两次均为攻击指令,并且相距位置不超过200，则无需发送新指令，避免指令频繁打断上次的动作
+	                   self.currentBehavior.order.OrderType == DOTA_UNIT_ORDER_ATTACK_MOVE and
+	                   (self.previousOrderPosition-self.currentBehavior.order.Position):Length2D()<200 then
+	                else
+						-- Keep sending the order repeatedly, in case we forgot >.<
+						ExecuteOrderFromTable( self.currentBehavior.order )
+						self.previousOrderType = self.currentBehavior.order.OrderType
+						self.previousOrderTarget = self.currentBehavior.order.TargetIndex
+						self.previousOrderPosition = self.currentBehavior.order.Position
+				    end
+
 			end
 		end
 

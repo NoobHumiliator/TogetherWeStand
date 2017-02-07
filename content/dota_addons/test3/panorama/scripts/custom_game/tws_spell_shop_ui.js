@@ -674,7 +674,7 @@ var PreviewHero = ( function( heroInfo )
 
 var AddAbility = ( function(abPanel )
 {
-	$.Msg(abPanel.data)
+	//$.Msg(abPanel.data)
 	return function()
 	{
 		if (abPanel.data.reachFive && abPanel.data.enough)

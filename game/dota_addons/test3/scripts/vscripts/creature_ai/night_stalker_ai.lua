@@ -76,7 +76,7 @@ function BehaviorStatic_Link:Evaluate()
 	if target then
 		desire = 7
 		self.target = target
-        print(self.staticlinkAbility:entindex())
+		
         self.order =
 		{
 			OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
