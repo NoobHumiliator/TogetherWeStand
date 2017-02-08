@@ -4383,5 +4383,263 @@
 		}
 	}
      
+    "item_extra_slot_7"
+	{
 
+		"ID"							"12050"
+		"BaseClass"					    "item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityTextureName" 		    "item_extra_slot_7"
+
+		"ItemPurchasable"				"1"
+		"ItemCost"				     	"109145"
+		"ItemQuality"					"artifact"
+		"ItemShareability"		    	"ITEM_FULLY_SHAREABLE"
+		"ItemAliases"					"orchid malevolence"
+		"ItemDeclarations"			    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        
+        "ItemStackable"					"0"
+	    "ItemPermanent"					"0"
+	    "ItemInitialCharges"			"1"
+
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_int"	                    "200"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_mana_regen"	            "400"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_agi"	                    "200"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_str"	                    "200"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_health"	                 "2000"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_damage"	                 "300"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_int_modifier"	         "100"
+			}
+			"08"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_mana_regen_modifier"	    "200"
+			}
+			"09"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_agi_modifier"	         "100"
+			}
+			"10"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_str_modifier"	         "100"
+			}
+			"11"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_health_modifier"	        "1000"
+			}
+			"12"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_damage_modifier"	        "150"
+			}
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"       "CASTER"
+				"ModifierName" "modifier_extra_slot_7"
+			}
+			"FireSound"
+			{
+				"Target"     "CASTER"
+				"EffectName" "DOTA_Item.ClarityPotion.Activate"
+			}
+			"SpendCharge"
+			{}
+		}
+
+		"Modifiers"
+		{ 
+            "modifier_extra_slot_7"
+			{
+				"Passive"             "1"
+				"IsHidden"            "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage"
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
+  
+				}
+			}
+			"modifier_extra_slot_7_consume"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int_consume"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi_consume"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str_consume"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health_consume"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage_consume"
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen_consume"
+				}
+			}
+		}
+	}
+	"item_extra_slot_8"
+	{
+
+		"ID"							"12053"
+		"BaseClass"					    "item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityTextureName" 		    "item_extra_slot_8"
+
+		"ItemPurchasable"				"1"
+		"ItemCost"				     	"109145"
+		"ItemQuality"					"artifact"
+		"ItemShareability"			    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"			    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        "ItemStackable"					"0"
+	    "ItemPermanent"					"0"
+	    "ItemInitialCharges"			"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_int"	                    "500"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_mana_regen"	            "1000"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_agi"	                    "500"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_str"	                    "500"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_health"	                "5000"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_damage"	                 "750"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_int_modifier"	         "250"
+			}
+			"08"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_mana_regen_modifier"	    "500"
+			}
+			"09"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_agi_modifier"	        "250"
+			}
+			"10"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_str_modifier"	        "250"
+			}
+			"11"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_health_modifier"	        "2500"
+			}
+			"12"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_damage_modifier"	        "375"
+			}
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"       "CASTER"
+				"ModifierName" "modifier_extra_slot_7"
+			}
+			"FireSound"
+			{
+				"Target"       "CASTER"
+				"EffectName"   "DOTA_Item.ClarityPotion.Activate"
+			}
+			"SpendCharge"
+			{}
+		}
+
+		"Modifiers"
+		{ 
+            "modifier_extra_slot_8"
+			{
+				"Passive"             "1"
+				"IsHidden"            "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage"
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
+  
+				}
+			}
+			"modifier_extra_slot_8_consume"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int_consume"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi_consume"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str_consume"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health_consume"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage_consume"
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen_consume"
+				}
+			}
+		}
+	}
 } //主函数

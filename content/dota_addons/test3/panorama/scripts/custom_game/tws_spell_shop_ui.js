@@ -57,7 +57,7 @@ var noReturnAbility = {    //不退回升级点数的技能
     "morphling_morph_agi":true
 }
 
-
+var maxAbilitySlotNo=6;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -326,8 +326,7 @@ function UpdateAbility(abilityList,heroName,slot,playerId)
 			position: slot,
 			playerId: playerId,
 			abilityCost: 1,
-			enough: false,
-			reachFive:false
+			enough: false
 		}
 
 		abButton.SetPanelEvent( "onmouseover", ShowAbilityTooltip( abPanel ) );
@@ -677,13 +676,13 @@ var AddAbility = ( function(abPanel )
 	//$.Msg(abPanel.data)
 	return function()
 	{
-		if (abPanel.data.reachFive && abPanel.data.enough)
-		{
-           SetAllAbilityUnabled(abPanel);
-		}
 		if (abPanel.data.enough)
 		{
 			abPanel.GetParent().enabled=false;
+			if (GetPlayerAbilityNumber(playerId)=maxAbilitySlotNo-1) //如果即将到达最大技能数目
+			{
+				SetAllAbilityUnabled(abPanel);
+			}
 		}
 		GameEvents.SendCustomGameEventToServer( "AddAbility", abPanel.data );
 	}
@@ -754,7 +753,6 @@ function InitTooltips()
     pointToGoldButton.SetPanelEvent( "onmouseout", HideAbilityTooltip( pointToGoldButton ) );
 
 }
-
 
 
 (function()
