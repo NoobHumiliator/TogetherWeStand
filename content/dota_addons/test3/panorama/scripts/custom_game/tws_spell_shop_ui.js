@@ -57,7 +57,7 @@ var noReturnAbility = {    //不退回升级点数的技能
     "morphling_morph_agi":true
 }
 
-var maxAbilitySlotNo=6;
+var maxAbilitySlotNo=6;  //最大的技能个数
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -721,6 +721,10 @@ function UpdateAbilityList(keys)
 	{
         keys.heroName=CurrentHero[keys.playerId];  
         isButtonEvent=false;
+	}
+	if (keys.maxSlotNumber!=null && keys.maxSlotNumber> maxAbilitySlotNo)
+	{
+		maxAbilitySlotNo=keys.maxSlotNumber  //更新最大技能数目
 	}
 	Hero_Ability_List_Update(keys.heroName,keys.playerId,isButtonEvent);    //技能更新完毕，Lua通知UI更新英雄技能列表
 	UpdateAttributeButtons();
