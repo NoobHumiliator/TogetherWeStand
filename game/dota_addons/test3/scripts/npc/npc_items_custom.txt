@@ -4392,7 +4392,7 @@
 		"AbilityTextureName" 		    "item_extra_slot_7"
 
 		"ItemPurchasable"				"1"
-		"ItemCost"				     	"109145"
+		"ItemCost"				     	"92550"
 		"ItemQuality"					"artifact"
 		"ItemShareability"		    	"ITEM_FULLY_SHAREABLE"
 		"ItemAliases"					"orchid malevolence"
@@ -4403,13 +4403,12 @@
 	    "ItemPermanent"					"0"
 	    "ItemInitialCharges"			"1"
 
-
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_int"	                    "200"
+				"bonus_all"	                    "200"
 			}
 			"02"
 			{
@@ -4419,52 +4418,32 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_agi"	                    "200"
+				"bonus_health"	                 "2000"
 			}
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_str"	                    "200"
+				"bonus_damage"	                 "300"
 			}
 			"05"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_health"	                 "2000"
+				"bonus_all_consume"	            "100"
 			}
 			"06"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_damage"	                 "300"
+				"bonus_mana_regen_consume"	    "200"
 			}
 			"07"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_int_modifier"	         "100"
+				"bonus_health_consume"	        "1000"
 			}
 			"08"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen_modifier"	    "200"
-			}
-			"09"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_agi_modifier"	         "100"
-			}
-			"10"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_str_modifier"	         "100"
-			}
-			"11"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_health_modifier"	        "1000"
-			}
-			"12"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_damage_modifier"	        "150"
+				"bonus_damage_consume"	        "150"
 			}
 		}
 		"OnSpellStart"
@@ -4472,7 +4451,7 @@
 			"ApplyModifier"
 			{
 				"Target"       "CASTER"
-				"ModifierName" "modifier_extra_slot_7"
+				"ModifierName" "modifier_extra_slot_7_consume"
 			}
 			"FireSound"
 			{
@@ -4481,6 +4460,12 @@
 			}
 			"SpendCharge"
 			{}
+			"RunScript"
+			{
+				"Target"				"CASTER"
+				"ScriptFile"			"item_ability/extra_slot.lua"
+				"Function"			    "SendExtraSlotToClient"
+			}
 		}
 
 		"Modifiers"
@@ -4491,9 +4476,9 @@
 				"IsHidden"            "1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_all"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_all"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_all"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage"
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
@@ -4504,9 +4489,9 @@
 			{
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int_consume"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi_consume"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str_consume"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_all_consume"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_all_consume"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_all_consume"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health_consume"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage_consume"
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen_consume"
@@ -4514,6 +4499,29 @@
 			}
 		}
 	}
+
+
+    "item_recipe_extra_slot_7"
+	{
+		"ID"							"12051"		
+		"BaseClass"						"item_datadriven"							
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"22000"	
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_extra_slot_7"
+		"ItemRequirements"
+		{
+			"01"						"item_ultimate_orb_3;item_mystic_staff_2;item_butterfly_2;item_heart_2"
+		}
+	}
+
 	"item_extra_slot_8"
 	{
 
@@ -4523,7 +4531,7 @@
 		"AbilityTextureName" 		    "item_extra_slot_8"
 
 		"ItemPurchasable"				"1"
-		"ItemCost"				     	"109145"
+		"ItemCost"				     	"321650"
 		"ItemQuality"					"artifact"
 		"ItemShareability"			    "ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"			    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -4537,7 +4545,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_int"	                    "500"
+				"bonus_all"	                    "500"
 			}
 			"02"
 			{
@@ -4547,52 +4555,32 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_agi"	                    "500"
+				"bonus_health"	                "5000"
 			}
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_str"	                    "500"
+				"bonus_damage"	                 "750"
 			}
 			"05"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_health"	                "5000"
+				"bonus_all_consume"	            "250"
 			}
 			"06"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_damage"	                 "750"
+				"bonus_mana_regen_consume"	    "500"
 			}
 			"07"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_int_modifier"	         "250"
+				"bonus_health_consume"	        "2500"
 			}
 			"08"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen_modifier"	    "500"
-			}
-			"09"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_agi_modifier"	        "250"
-			}
-			"10"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_str_modifier"	        "250"
-			}
-			"11"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_health_modifier"	        "2500"
-			}
-			"12"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_damage_modifier"	        "375"
+				"bonus_damage_consume"	        "375"
 			}
 		}
 		"OnSpellStart"
@@ -4600,7 +4588,7 @@
 			"ApplyModifier"
 			{
 				"Target"       "CASTER"
-				"ModifierName" "modifier_extra_slot_7"
+				"ModifierName" "modifier_extra_slot_8_consume"
 			}
 			"FireSound"
 			{
@@ -4609,6 +4597,12 @@
 			}
 			"SpendCharge"
 			{}
+			"RunScript"
+			{
+				"Target"				"CASTER"
+				"ScriptFile"			"item_ability/extra_slot.lua"
+				"Function"			    "SendExtraSlotToClient"
+			}    
 		}
 
 		"Modifiers"
@@ -4619,9 +4613,9 @@
 				"IsHidden"            "1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_all"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_all"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_all"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage"
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
@@ -4632,14 +4626,221 @@
 			{
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int_consume"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi_consume"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str_consume"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_all_consume"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_all_consume"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_all_consume"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health_consume"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage_consume"
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen_consume"
 				}
 			}
+		}
+	}
+
+   "item_recipe_extra_slot_8"
+	{
+		"ID"							"12054"		
+		"BaseClass"						"item_datadriven"							
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"35000"	
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_extra_slot_8"
+		"ItemRequirements"
+		{
+			"01"						"item_ultimate_orb_4;item_mystic_staff_3;item_butterfly_3;item_extra_slot_7"
+		}
+	}
+
+
+
+   "item_extra_slot_9"
+	{
+
+		"ID"							"12056"
+		"BaseClass"					    "item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityTextureName" 		    "item_extra_slot_9"
+
+		"ItemPurchasable"				"1"
+		"ItemCost"				     	"1097650"
+		"ItemQuality"					"artifact"
+		"ItemShareability"			    "ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"			    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+        "ItemStackable"					"0"
+	    "ItemPermanent"					"0"
+	    "ItemInitialCharges"			"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_all"	                    "1500"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_mana_regen"	            "3000"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_health"	                "150000"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_damage"	                 "2250"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_all_consume"	            "750"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_mana_regen_consume"	    "1500"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_health_consume"	        "7500"
+			}
+			"08"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_damage_consume"	        "1125"
+			}
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"       "CASTER"
+				"ModifierName" "modifier_extra_slot_9_consume"
+			}
+			"FireSound"
+			{
+				"Target"       "CASTER"
+				"EffectName"   "DOTA_Item.ClarityPotion.Activate"
+			}
+			"SpendCharge"
+			{}
+			"RunScript"
+			{
+				"Target"				"CASTER"
+				"ScriptFile"			"item_ability/extra_slot.lua"
+				"Function"			    "SendExtraSlotToClient"
+			}    
+		}
+
+		"Modifiers"
+		{ 
+            "modifier_extra_slot_9"
+			{
+				"Passive"             "1"
+				"IsHidden"            "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_all"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_all"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_all"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage"
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
+  
+				}
+			}
+			"modifier_extra_slot_9_consume"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_all_consume"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_all_consume"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_all_consume"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health_consume"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage_consume"
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen_consume"
+				}
+			}
+		}
+	}
+
+	"item_recipe_extra_slot_9"
+	{
+		"ID"							"12057"		
+		"BaseClass"						"item_datadriven"							
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						""	
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_extra_slot_9"
+		"ItemRequirements"
+		{
+			"01"						"item_ultimate_orb_5;item_ultimate_orb_5;item_extra_slot_8"
+		}
+	}
+	"item_ultimate_orb_5"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"12060"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "BaseClass"						"item_ultimate_orb"
+        "AbilityTextureName" 			"item_ultimate_orb_5"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"388000"
+		"ItemShopTags"					"agi;int;str"
+		"ItemQuality"					"secret_shop"
+		"ItemAliases"					"ultimate orb"
+		"SecretShop"					"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_all_stats"		"3000"
+			}
+		}
+    }
+    "item_recipe_ultimate_orb_5"
+	{
+		"ID"							"12063"		
+		"BaseClass"						"item_datadriven"							
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_ultimate_orb_5"
+		"ItemRequirements"
+		{
+			"01"						"item_ultimate_orb_4;item_ultimate_orb_4;item_ultimate_orb_4;item_ultimate_orb_4"
 		}
 	}
 } //主函数
