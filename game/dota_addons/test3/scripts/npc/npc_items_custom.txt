@@ -3037,7 +3037,7 @@
 
 	"item_small_purple_potion"
 	{
-		"ID"							"16210"
+		"ID"							"12002"
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
@@ -3130,7 +3130,7 @@
 	}
 	"item_greater_purple_potion"
 	{
-		"ID"							"16260"
+		"ID"							"12001"
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
@@ -4392,7 +4392,7 @@
 		"AbilityTextureName" 		    "item_extra_slot_7"
 
 		"ItemPurchasable"				"1"
-		"ItemCost"				     	"92550"
+		"ItemCost"				     	"91850"
 		"ItemQuality"					"artifact"
 		"ItemShareability"		    	"ITEM_FULLY_SHAREABLE"
 		"ItemAliases"					"orchid malevolence"
@@ -4531,7 +4531,7 @@
 		"AbilityTextureName" 		    "item_extra_slot_8"
 
 		"ItemPurchasable"				"1"
-		"ItemCost"				     	"321650"
+		"ItemCost"				     	"319950"
 		"ItemQuality"					"artifact"
 		"ItemShareability"			    "ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"			    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -4669,7 +4669,7 @@
 		"AbilityTextureName" 		    "item_extra_slot_9"
 
 		"ItemPurchasable"				"1"
-		"ItemCost"				     	"1097650"
+		"ItemCost"				     	"1095950"
 		"ItemQuality"					"artifact"
 		"ItemShareability"			    "ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"			    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -4783,7 +4783,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						""	
+		"ItemCost"						"0"	
 		"ItemShopTags"					""
 
 		// Recipe

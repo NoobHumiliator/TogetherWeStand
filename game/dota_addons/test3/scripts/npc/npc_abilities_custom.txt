@@ -20061,14 +20061,8 @@
             "TextureName"	                       "nyx_assassin_spiked_carapace" 
             "EffectName"		                   "particles/items_fx/blademail.vpcf"
 			"EffectAttachType"	                   "follow_origin"    
-            "OnTakeDamage"
+            "OnTakeDamage" //具体反伤逻辑放在damage_filter处理
 			{
-				"RunScript"
-				{
-					"ScriptFile"	"creature_ability/spike.lua"
-					"Function"		"ReflectDamage"
-					"Damage"		"%attack_damage"
-				}
 				"FireSound"
 				{
 					"EffectName"	"Ability.ReflectDamage"

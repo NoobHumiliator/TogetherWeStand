@@ -15,6 +15,6 @@ function SendExtraSlotToClient( keys )
     if caster:HasModifier("modifier_extra_slot_9_consume") then
 	    maxSlotNumber=9
     end
-
+    print("maxSlotNumber"..maxSlotNumber)
 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerId),"UpdateAbilityList", {heroName=false,playerId=playerId,maxSlotNumber=maxSlotNumber})
 end

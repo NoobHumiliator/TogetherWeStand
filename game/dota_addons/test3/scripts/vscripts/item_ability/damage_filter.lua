@@ -22,51 +22,47 @@ function CHoldoutGameMode:DamageFilter(damageTable)
    if damageTable and damageTable.entindex_attacker_const then
 	  local attacker = EntIndexToHScript(damageTable.entindex_attacker_const)
 	  local victim = EntIndexToHScript(damageTable.entindex_victim_const)
-	  if attacker:GetTeam()==DOTA_TEAM_GOODGUYS then
-          local additionalMagicalDamage=0 --魔法伤害的增幅伤害
+	  if  attacker and attacker:GetTeam()==DOTA_TEAM_GOODGUYS then
 	        if damageTable.entindex_inflictor_const ~=nil then --有明确来源技能
 	           local ability=EntIndexToHScript(damageTable.entindex_inflictor_const)
              --print("Ability Name: "..ability:GetAbilityName().." Attacker: "..attacker:GetUnitName() )
 	           if attacker.sp~=nil and  damageTable.damagetype_const==2  and  not sp_exempt_table[ability:GetAbilityName()]  then
 	           	 if ability:IsToggle() or ability:IsPassive() then
-	              --damageTable.damage=damageTable.damage*(1+attacker.sp*0.3*attacker:GetIntellect()/100)
-                additionalMagicalDamage=damageTable.damage*( attacker.sp*0.3*attacker:GetIntellect()/100 )      
+	              damageTable.damage=damageTable.damage*(1+attacker.sp*0.3*attacker:GetIntellect()/100)  
 	             else
-	              --damageTable.damage=damageTable.damage*(1+attacker.sp*attacker:GetIntellect()/100)
-                additionalMagicalDamage=damageTable.damage*( attacker.sp*attacker:GetIntellect()/100 )      
+	              damageTable.damage=damageTable.damage*(1+attacker.sp*attacker:GetIntellect()/100)
 	             end
 	           end
 	        else
 	           if attacker.sp~=nil and  damageTable.damagetype_const==2 then --无明确来源技能
-	             --damageTable.damage=damageTable.damage*(1+attacker.sp*attacker:GetIntellect()/100)
-               additionalMagicalDamage=damageTable.damage*( attacker.sp*attacker:GetIntellect()/100 )    
+	             damageTable.damage=damageTable.damage*(1+attacker.sp*attacker:GetIntellect()/100) 
 	           end
 	        end
-          if additionalMagicalDamage> 0 then
-              local damageTable = {
-                                    victim=victim,
-                                    attacker=attacker,
-                                    damage_type=DAMAGE_TYPE_PURE,
-                                    damage=additionalMagicalDamage
-                                  } 
-              ApplyDamage(damageTable) --造成增幅伤害(纯粹) 
+
+        	local playerid=nil
+        	if attacker:GetOwner() then
+             if attacker:GetOwner():IsPlayer() then
+        		   playerid=attacker:GetOwner():GetPlayerID()
+             end
+        	end
+        	if playerid==nil then
+        		 --print(attacker:GetUnitName().."has no owner")
+        	end
+        	if self._currentRound and playerid then
+        		self._currentRound._vPlayerStats[playerid].nTotalDamage=self._currentRound._vPlayerStats[playerid].nTotalDamage+damageTable.damage
+        	end
+          if victim and victim:HasModifier("modifier_affixes_spike") then  --处理尖刺技能
+               local damage_table = {}
+               damage_table.attacker = victim
+               damage_table.victim = attacker
+               damage_table.damage_type = DAMAGE_TYPE_PURE
+               damage_table.ability = victim:FindAbilityByName("affixes_ability_spike")
+               damage_table.damage = damageTable.damage
+               damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
+               ApplyDamage(damage_table)
           end
-          if attacker then
-          	local playerid=nil
-          	if attacker:GetOwner() then
-               if attacker:GetOwner():IsPlayer() then
-          		   playerid=attacker:GetOwner():GetPlayerID()
-               end
-          	end
-          	if playerid==nil then
-          		 --print(attacker:GetUnitName().."has no owner")
-          	end
-          	if self._currentRound and playerid then
-          		self._currentRound._vPlayerStats[playerid].nTotalDamage=self._currentRound._vPlayerStats[playerid].nTotalDamage+damageTable.damage
-          	end
-          end
-      end
-      if attacker:GetTeam()==DOTA_TEAM_BADGUYS then
+    end
+    if attacker:GetTeam()==DOTA_TEAM_BADGUYS then
         if damageTable.damagetype_const ~=1 and attacker.damageMultiple~=nil then  --Ability damage
           damageTable.damage=damageTable.damage*attacker.damageMultiple
         end
@@ -90,7 +86,7 @@ function CHoldoutGameMode:DamageFilter(damageTable)
               end
             end
         end
-      end
+     end
    end
    return true
 end

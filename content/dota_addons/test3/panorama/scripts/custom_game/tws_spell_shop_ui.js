@@ -679,8 +679,10 @@ var AddAbility = ( function(abPanel )
 		if (abPanel.data.enough)
 		{
 			abPanel.GetParent().enabled=false;
-			if (GetPlayerAbilityNumber(playerId)=maxAbilitySlotNo-1) //如果即将到达最大技能数目
-			{
+			$.Msg("GetPlayerAbilityNumber(abPanel.data.playerId)"+GetPlayerAbilityNumber(abPanel.data.playerId))
+			$.Msg("maxAbilitySlotNo"+maxAbilitySlotNo)
+			if (GetPlayerAbilityNumber(abPanel.data.playerId)==maxAbilitySlotNo-1) //如果即将到达最大技能数目
+			{			
 				SetAllAbilityUnabled(abPanel);
 			}
 		}
@@ -723,7 +725,7 @@ function UpdateAbilityList(keys)
         isButtonEvent=false;
 	}
 	if (keys.maxSlotNumber!=null && keys.maxSlotNumber> maxAbilitySlotNo)
-	{
+	{   
 		maxAbilitySlotNo=keys.maxSlotNumber  //更新最大技能数目
 	}
 	Hero_Ability_List_Update(keys.heroName,keys.playerId,isButtonEvent);    //技能更新完毕，Lua通知UI更新英雄技能列表
