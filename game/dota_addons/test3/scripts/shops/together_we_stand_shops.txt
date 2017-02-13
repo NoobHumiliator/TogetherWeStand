@@ -85,7 +85,8 @@
 		"item"		"item_pers"
 		"item"		"item_hand_of_midas"
 		"item"      "item_mage_staff_2"
-		"item"      "item_summon_crown_2"		
+		"item"      "item_summon_crown_2"
+		"item"      "item_extra_slot_7"		
 	}
 
 	// Level 2 - Blue Recipes
@@ -105,6 +106,7 @@
 	    "item"      "item_vladimir2"
 	    "item"      "item_slippers_of_halcyon_2"
 	    "item"		"item_golden_mekansm"
+	    "item"      "item_extra_slot_8"
 	}
 				
 	"magics"			
@@ -123,6 +125,7 @@
 	    "item"      "item_mage_staff_4"
 		"item"      "item_mage_staff_5"
 		"item"      "item_mage_staff_6"
+		"item"      "item_extra_slot_9"
 	}
 		
 	// Level 3 - Purple Recipes	

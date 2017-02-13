@@ -349,10 +349,6 @@ function ResetPanelData(abPanel,abCostLabel,abilityName,heroName,playerId)
     var abilityCost=GetAbilityCost(abilityName);
     abCostLabel.text=abilityCost;
     abPanel.data.abilityCost=abilityCost;
-    if (GetPlayerAbilityNumber(playerId)==5)
-    {
-       abPanel.data.reachFive=true;
-    }
     if (!AbilityPointEnough(abilityCost,playerId))      //技能点不够
     {
         abPanel.data.enough=false;
@@ -446,7 +442,7 @@ function CheckAbilityButtonAvailable (Button,abilityName,playerId)
      {
          Button.enabled = false;         
      }
-     if (GetPlayerAbilityNumber(playerId)>=6)
+     if (GetPlayerAbilityNumber(playerId)>=maxAbilitySlotNo)
      {
          Button.enabled = false; 
      }
@@ -458,7 +454,19 @@ function InvisiblePlayerAbilityList(abilityList,slot)
      var abButton = abilityList.FindChild( abButtonId );
      if ( abButton )
 	 {
-		abButton.SetHasClass( "hidden", true );
+		abButton.SetHasClass( "hidden", true );		
+		if (maxAbilitySlotNo==7)
+		{
+            abButton.style.maxWidth="75px"
+		}
+		if (maxAbilitySlotNo==8)
+		{
+		    abButton.style.maxWidth="70px"
+		}
+		if (maxAbilitySlotNo==9)
+		{
+		    abButton.style.maxWidth="65px"
+		}
 	 }
 }
 

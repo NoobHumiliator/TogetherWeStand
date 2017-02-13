@@ -4487,6 +4487,7 @@
 			}
 			"modifier_extra_slot_7_consume"
 			{
+				"TextureName"	                "item_extra_slot_7"	
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_all_consume"
@@ -4511,6 +4512,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"22000"	
 		"ItemShopTags"					""
+		"AbilityTextureName"			"item_recipe"
 
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -4624,6 +4626,7 @@
 			}
 			"modifier_extra_slot_8_consume"
 			{
+				"TextureName"	                "item_extra_slot_8"	
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_all_consume"
@@ -4647,7 +4650,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"35000"	
 		"ItemShopTags"					""
-
+        "AbilityTextureName"			"item_recipe"
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -4762,6 +4765,7 @@
 			}
 			"modifier_extra_slot_9_consume"
 			{
+				"TextureName"	                "item_extra_slot_9"	
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_all_consume"
@@ -4785,7 +4789,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
-
+        "AbilityTextureName"			"item_recipe"
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -4833,7 +4837,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
 		"ItemShopTags"					""
-
+        "AbilityTextureName"			"item_recipe"
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
