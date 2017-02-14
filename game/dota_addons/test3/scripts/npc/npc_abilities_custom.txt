@@ -1,4 +1,3 @@
-
 "DOTAAbilities"
 {
 	"Version"		"1"
@@ -20238,15 +20237,7 @@
 		"modifier_share_damage_passive"
 		{
             "Passive"		"1"
-			"OnTakeDamage"
-			{
-				"RunScript"
-				{
-					"ScriptFile"	"creature_ability/share_damage.lua"
-					"Damage"		"%attack_damage"
-					"Function"		"TakeDamage"
-				}
-			}
+            //具体逻辑在damage_filter处理		
 		}
 	}
 }
@@ -21043,4 +21034,202 @@
 		}
 	}
 
+    "boss_greate_gush"
+	{
+        "BaseClass"             "ability_datadriven"
+        "AbilityTextureName"    "tidehunter_gush"
+
+        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+
+        "AbilityType"            "DOTA_ABILITY_TYPE_BASIC"
+	    "MaxLevel"               "1"
+	    "RequiredLevel"          "0"
+	    "LevelsBetweenUpgrades"  "2"
+
+	    "AbilityCastPoint"       "0.2"
+	    "AbilityCastAnimation"   "ACT_DOTA_ATTACK"
+	    "AnimationPlaybackRate"  "1.0"
+	    "AnimationIgnoresModelScale" "1"
+
+	    // Stats
+	    //----------------------------------------------------------------------------------------
+	    "AbilityDamage"           "0"
+	    "AbilityManaCost"         "0"
+	    "AbilityCooldown"         "40"
+	    "AbilityCastRange"        "2500"
+	    "AbilityCastRangeBuffer"  "250"
+	    "AbilityDuration"         "0.0 0.0 0.0 0.0"
+	    //"AbilityChannelTime"      "0.0"
+	    "AoERadius"               "2500"
+
+	    "AbilitySpecial"
+	    {
+		    "01"
+		    { 
+		        "var_type"  "FIELD_FLOAT"
+		        "radius"      "2500"
+		    }
+		    "02"
+		    { 
+		        "var_type"         "FIELD_FLOAT"
+		        "acting_duration"  "5.1"
+		    }
+	    }
+
+        "OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+
+	        "Damage"
+			{
+				"Target"		"UNIT"
+				"Type"			"DAMAGE_TYPE_PURE"
+				"Damage"		"8000"
+			}
+
+			"FireSound"
+			{
+				"EffectName"		"Ability.GushCast"
+				"Target"			"CASTER"
+			}
+		}
+		
+		
+        "OnSpellStart"
+        {
+        		"ApplyModifier"
+        		{
+        			"ModifierName"	"modifier_gush_start_delay"
+        			"Duration"		"%acting_duration"
+        			"Target"	    "CASTER"
+        		}
+
+				"FireSound"
+				{
+					"EffectName"		"DOTA_Item.HeavensHalberd.Activate"
+					"Target"			"CASTER"
+				}
+				"FireEffect"
+				{
+					"EffectName"        "particles/units/heroes/hero_morphling/morphling_adaptive_strike.vpcf"
+					"EffectAttachType"  "follow_origin"
+					"Target"            "CASTER"
+					"ControlPointEntities"
+					{
+						"CASTER"	"attach_origin"
+						"CASTER"	"attach_origin"
+					}
+				}
+        }
+
+        "Modifiers"
+        {	
+        	"modifier_gush_start_delay"
+        	{
+        		"Duration"			"2.5"
+        		"Passive"			"0"
+        		"IsHidden"			"0"
+        		"IsDebuff"			"0"
+        		"States"
+        		{
+        			"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+        		}
+        		"OnCreated"
+        		{
+        			"FireEffect"
+        			{
+        				"EffectName"        "particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_skills/kunkka_spell_torrent_bubbles_swirl_fxset.vpcf"
+        				"EffectAttachType"  "follow_origin"
+        				"Target"            "TARGET"
+        			}
+        			"FireEffect"
+        			{
+        				"EffectName"        "particles/econ/items/kunkka/kunkka_torrent_base/kunkka_spell_torrent_splash_econ.vpcf"
+        				"EffectAttachType"  "follow_origin"
+        				"Target"            "TARGET"
+        			}
+        		}
+        		"OnDestroy"
+        		{
+        			"ApplyModifier"
+	        		{
+	        			"ModifierName"	"modifier_gush_acting"
+	        			"Duration"		"%acting_duration"
+	        			"Target"	    "CASTER"
+	        		}
+        		}
+        	}
+        	"modifier_gush_acting"
+        	{
+        		"Passive"			"0"
+        		"IsHidden"			"1"
+        		"IsPurgable"		"0"
+        		"IsBuff"			"1"
+        		"IsDebuff"			"0"
+        		"IsStunDebuff"		"0"
+
+        		"States"
+        		{
+        			"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+        		}
+        		
+        		"ThinkInterval"  "1.0"
+        		"OnIntervalThink"
+        		{	
+        			"FireSound"
+					{
+						"EffectName"		"Ability.GushCast"
+						"Target"			"CASTER"
+					}
+        			"FireEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_morphling/morphling_adaptive_strike.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+						}
+					}
+        			"ActOnTargets"
+        			{
+        				"Target"
+        				{
+        					"Center"  	"TARGET"
+        					"Radius" 	"%radius"
+        					"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        					"Types" 	"DOTA_UNIT_TARGET_HERO"
+        					"MaxTargets" "4"
+        					"Random"     "3"
+        				}
+        			
+        				"Action"    
+        				{
+        					"LinearProjectile"
+							{
+							    "Target"        "TARGET"
+							    "EffectName"     "particles/units/heroes/hero_morphling/morphling_waveform.vpcf"
+							    "MoveSpeed"      "600"
+							    "StartPosition"  "attach_attack1"
+							    "StartRadius"    "110"
+							    "EndRadius"      "110"
+							    "FixedDistance"  "3000"
+							    "TargetTeams"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+							    "TargetTypes"    "DOTA_UNIT_TARGET_HERO"
+							    "TargetFlags"    "DOTA_UNIT_TARGET_FLAG_NONE"
+							    "HasFrontalCone" "0"
+							    "ProvidesVision" "1"
+							    "VisionRadius"   "650"
+							    "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+							}
+        				}
+        			}
+        		}
+        	}
+        }
+	}
 } //主括号
