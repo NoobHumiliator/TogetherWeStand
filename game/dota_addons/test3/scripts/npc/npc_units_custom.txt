@@ -12705,4 +12705,131 @@
 			}
 		}
 	}
+
+
+	"npc_dota_boss_tidehunter"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/heroes/tidehunter/tidehunter.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"ModelScale"			    "2.0"
+		"Level"						"18"
+		"ConsideredHero"		    "1"
+		
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"350"
+		
+		"SoundSet"				    "Hero_RattleTrap"								// Name of sound set.
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_tidehunter.vsndevts"
+		"VoiceFile"				    "soundevents/voscripts/game_sounds_vo_tidehunter.vsndevts"
+
+		// Inventory
+		//----------------------------------------------------------------
+		"HasInventory"				"1"
+		
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"			    "4"
+		"Ability1"					"boss_current_storm"	            // Ability 1.
+		"Ability2"					"boss_greate_gush"		           // Ability 2.
+		"Ability3"					""			    // Ability 3.
+		"Ability4"					""			    // Ability 4.
+        "Ability5"				    "rattletrap_gold_bag_fountain"			// Ability 4.
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"32"			// Physical protection.
+		"MagicalResistance"			"35"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"	    "DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"152"		// Damage range min.
+		"AttackDamageMax"			"168"		// Damage range max.
+		"AttackRate"				"1.25"		// Speed of attack.
+		"AttackAnimationPoint"		"0.2"		// Normalized time in animation cycle to attack.
+		"AttackRange"				"180"		// Range within a target can be attacked.
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"				    "0"		// Experience earn.
+		"BountyGoldMin"				"150"		// Gold earned min.
+		"BountyGoldMax"				"150"		// Gold earned max.
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"300"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"	
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"	    "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"320"		// Speed
+		"MovementTurnRate"			"0.4"		// Turning rate.
+
+		
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"48000"		// Base health.
+		"StatusHealthRegen"			"50.0"		// Health regeneration rate.
+		"StatusMana"				"1500"		// Base mana.
+		"StatusManaRegen"			"30.0"		// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"15000"		// Range of vision during day light.
+		"VisionNighttimeRange"		"15000"		// Range of vision at night time.
+
+		"vscripts"					"creature_ai/tidehunter.lua"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"
+		
+			"EquippedItems"
+			{
+			}
+                        		
+			"DisableResistance"			"100"
+
+			//Level Up Parameters
+			//-----------------------------------------------------------------
+			"HPGain"				   "500"
+			"DamageGain"				"25"
+			"ArmorGain"				    "1"
+			"MagicResistGain"			"1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"100"
+
+			"DefaultState"				"Invade"
+            "AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"34"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"35"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"36"
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"37"
+				}
+			}
+			
+		}
+	}
 }  //主括号

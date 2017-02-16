@@ -4135,4 +4135,20 @@
 			"SpawnInterval"			"15"
 		}
 	}
+	"Round21"
+	{
+		//"round_quest_title"			"#TWS_Round_Skywrath_Quest_Title"
+		"round_title"				"#DOTA_Holdout_Round_Tidehunter"
+		"MaxGold"					"0" //600g from gold fountain ability
+		"BagCount"					"0"
+		"BagVariance"			    "0"
+		"FixedXP"					"80000"
+		"alias"                     "tidehunter"
+		"UnitBoss"  
+		{
+			"NPCName"			    "npc_dota_boss_tidehunter"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}		
+	}
 }

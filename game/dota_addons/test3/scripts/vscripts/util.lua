@@ -365,3 +365,46 @@ function RemoveAllAbilities(hHero)
     end
   end
 end
+
+
+
+function RandomPosition(event)
+    local caster = event.caster
+    local target = event.target
+    local range = event.range
+    local min = 200
+    if event.min then
+        min = event.min
+    end
+    local vec = RandomVector(1.0)
+    local vec2 = Vector(vec[1],vec[2],0):Normalized()*math.random(min,range)
+
+    if event.circledynamic and event.circledynamic > 0 and caster then
+        local i = 1
+        if event.clockwise and caster:GetHealth() / caster:GetMaxHealth() < 0.75 and caster:GetHealth() / caster:GetMaxHealth() > 0.25 then
+            i = -1
+        end
+        if caster.circle_array then
+            caster.circle_array = caster.circle_array + i
+        else
+            caster.circle_array = 1
+        end
+        if caster.circle_array > event.circledynamic then
+            caster.circle_array = 1
+        end
+        if caster.circle_array < 1 then
+            caster.circle_array = event.circledynamic
+        end
+        local vecs = {}
+        local offset_degree = 360 / event.circledynamic
+        local offset_start = 0
+        if event.degreeoffset then
+            offset_start = event.degreeoffset
+        end
+       
+
+        vec2 = Vector(range*math.cos(math.rad(offset_start+offset_degree*caster.circle_array)), range*math.sin(math.rad(offset_start+offset_degree*caster.circle_array)), 0)
+
+    end
+    target:SetAbsOrigin(caster:GetAbsOrigin()+vec2)
+end
