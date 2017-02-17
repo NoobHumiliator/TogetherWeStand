@@ -4,12 +4,11 @@
 
 
 require( "ai_core" )
-require("addon_game_mode")
 
 behaviorSystem = {} -- create the global so we can assign to it
 
 function Spawn( entityKeyValues )
-	if  thisEntity:GetTeam()==DOTA_TEAM_BADGUYS then
+	if IsServer() and thisEntity:GetTeam()==DOTA_TEAM_BADGUYS then
 	  thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
       behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone , BehaviorGreat_Gush , BehaviorCurrent_Storm} ) 
     end
@@ -120,5 +119,5 @@ function BehaviorCurrent_Storm:Begin()
 end
 BehaviorCurrent_Storm.Continue = BehaviorCurrent_Storm.Begin
 --------------------------------------------------------------------------------------------------------
-AICore.possibleBehaviors = {BehaviorNone ,BehaviorGreat_Gush ,BehaviorCurrent_Storm}
+AICore.possibleBehaviors = {BehaviorNone, BehaviorGreat_Gush, BehaviorCurrent_Storm}
 

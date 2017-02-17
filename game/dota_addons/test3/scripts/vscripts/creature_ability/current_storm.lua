@@ -1,3 +1,5 @@
+require( "libraries/physics")
+
 function KnockBack ( event )
 	local npc = event.target
 	local dir = 1

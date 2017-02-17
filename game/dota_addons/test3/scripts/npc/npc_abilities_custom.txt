@@ -21059,7 +21059,7 @@
 	    //----------------------------------------------------------------------------------------
 	    "AbilityDamage"           "0"
 	    "AbilityManaCost"         "0"
-	    "AbilityCooldown"         "40"
+	    "AbilityCooldown"         "15"
 	    "AbilityCastRange"        "2500"
 	    "AbilityCastRangeBuffer"  "250"
 	    "AbilityDuration"         "0.0 0.0 0.0 0.0"
@@ -21272,20 +21272,17 @@
 	    //----------------------------------------------------------------------------------------
 	    "AbilityDamage"           "0"
 	    "AbilityManaCost"         "0"
-	    "AbilityCooldown"         "15"
+	    "AbilityCooldown"         "12"
 	    "AbilityCastRange"        "2500"
 	    "AbilityCastRangeBuffer"  "250"
 	    "AbilityDuration"         "0.0"
 	    "AoERadius"               "2500"
 
-
-
         "precache"
 		{
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
-			"particle"				"particles/units/heroes/hero_tinker/tinker_rearm.vpcf"
+			"particle"				"particles/temple/water_torrent_2.vpcf"
+			"particle"	            "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture_nuke.vpcf"
 		}
-
 
 
 	    "AbilitySpecial"
@@ -21308,7 +21305,7 @@
 	    	"01"
 	    	{
 	    		"var_type"			"FIELD_INTEGER"
-	    		"count"		    	"6 7 8"
+	    		"count"		    	"7"
 	    	}
 	    }
 			
@@ -21321,7 +21318,7 @@
         	}
         	"SpawnUnit"
 			{
-				"UnitName"			"npc_dummy"
+				"UnitName"			"npc_falling_rock_dummy"
 				"Target"			"CASTER"
 				"UnitCount"			"%count"
 				"Duration"			"%duration"
@@ -21357,7 +21354,7 @@
 					}
 					"RunScript"
 					{
-					    "ScriptFile"    "util.lua"
+					    "ScriptFile"    "creature_ability/current_storm.lua"
 					    "Function"      "KnockBack"
 					    "fixedforce"		"75"
 					    "random"		    "1"
@@ -21371,7 +21368,6 @@
 				"EffectName"		"Hero_Lich.preAttack"
 				"Target"			"CASTER"
 			}
-
         }
 
         "Modifiers"
@@ -21387,7 +21383,7 @@
         		{
         			"RunScript"
 					{
-					    "ScriptFile"    "util.lua"
+					    "ScriptFile"    "creature_ability/current_storm.lua"
 					    "Function"      "KnockBack"
 					    "fixedforce"	   "75"
 					    "random"		   "1"
@@ -21409,7 +21405,7 @@
         		{
         			"AttachEffect"
         			{
-        				"EffectName"        "particles/water_torrent_2.vpcf"
+        				"EffectName"        "particles/temple/water_torrent_2.vpcf"
         				"EffectAttachType"  "follow_origin"
         				"Target"            "TARGET"
         			}
@@ -21427,14 +21423,14 @@
         		"IsHidden"			"1"
         		"IsDebuff"			"0"
         	
-        		"ThinkInterval"  "1.75"
+        		"ThinkInterval"     "0.5"
         		"OnIntervalThink"
         		{	
         			 "Damage"
 					{
-						"Target"		"UNIT"
+						"Target"		"TARGET"
 						"Type"			"DAMAGE_TYPE_PURE"
-						"Damage"		"8000"
+						"Damage"		"4000"
 					}
 					"FireEffect"
 				    {
@@ -21446,6 +21442,78 @@
         	}
         }
 	}
+    
 
+    "boss_suffocating_bubble"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"					        "ability_datadriven"
+        "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityTextureName"                "medusa_mana_shield"
+        "AbilityUnitTargetType"             "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitDamageType"             "DAMAGE_TYPE_PURE"        
+        "AbilityUnitTargetTeam"             "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetFlags"		    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	    "SpellImmunityType"				    "SPELL_IMMUNITY_ENEMIES_YES"
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"                  "0.0"
+        "AbilityCastRange"				    "1000"
+
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                   "10"
+
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                                "0"
+        "precache"
+        {
+	       "particle"          	 "particles/units/heroes/hero_oracle/oracle_fortune_purge.vpcf"
+        }
+        "OnSpellStart"
+        {
+        	"ApplyModifier"
+        	{
+        		"ModifierName"	        "modifier_suffocating_bubble"
+        		"Target"		        "TARGET"
+        	}
+        }
+        "Modifiers"
+        {
+        	"modifier_suffocating_bubble"
+        	{
+        		"IsDebuff"		"1"
+        		"EffectName"		"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+			    "EffectAttachType"	"follow_origin"
+        		"OnCreated"
+        		{
+                    "RunScript"
+                    {
+                    	"ScriptFile"	"creature_ability/suffocating_bubble.lua"
+                    	"Function"		"BubbleCreate"
+                        "Target"		"TARGET"
+                    }                             
+        		}
+        		"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{				                     
+					"RunScript"
+					{
+                        "ScriptFile"	"creature_ability/suffocating_bubble.lua"
+                    	"Function"		"BubbleDamage"
+						"Target"		"TARGET"
+					}
+				}	
+        		"OnDestroy"
+        		{
+        			"RunScript"
+                    {
+                    	"ScriptFile"	"creature_ability/suffocating_bubble.lua"
+                    	"Function"		"BubbleDestroy"
+                    	"Target"		"TARGET"
+                    }     
+        		}     
+        	}
+        }
+	}		
 
 } //主括号
