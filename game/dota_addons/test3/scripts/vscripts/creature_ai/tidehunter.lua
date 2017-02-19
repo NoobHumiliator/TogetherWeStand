@@ -10,7 +10,7 @@ behaviorSystem = {} -- create the global so we can assign to it
 function Spawn( entityKeyValues )
 	if IsServer() and thisEntity:GetTeam()==DOTA_TEAM_BADGUYS then
 	  thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
-      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone , BehaviorGreat_Gush , BehaviorCurrent_Storm} ) 
+      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone , BehaviorGreat_Gush , BehaviorCurrent_Storm  , BehaviorStatic_Link } ) 
     end
 end
 
@@ -119,5 +119,41 @@ function BehaviorCurrent_Storm:Begin()
 end
 BehaviorCurrent_Storm.Continue = BehaviorCurrent_Storm.Begin
 --------------------------------------------------------------------------------------------------------
-AICore.possibleBehaviors = {BehaviorNone, BehaviorGreat_Gush, BehaviorCurrent_Storm}
+BehaviorStatic_Link = {}
+
+function BehaviorStatic_Link:Evaluate()
+
+	self.staticlinkAbility = thisEntity:FindAbilityByName("boss_suffocating_bubble")
+	local target=nil
+	local desire = 0
+	-- let's not choose this twice in a row
+	if AICore.currentBehavior == self then return desire end
+
+	if self.staticlinkAbility and self.staticlinkAbility:IsFullyCastable() then 
+		local range = self.staticlinkAbility:GetCastRange()
+		target = AICore:RandomEnemyHeroInRange( thisEntity, range )
+	end
+
+	if target then
+		desire = 8
+		self.target = target	
+        self.order =
+		{
+			OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+			UnitIndex = thisEntity:entindex(),
+			TargetIndex = target:entindex(),
+			AbilityIndex = self.staticlinkAbility:entindex()
+		}
+	else
+		desire = 1
+	end
+
+	return desire
+end
+
+function BehaviorStatic_Link:Begin()
+	self.endTime = GameRules:GetGameTime() + 1
+end 
+--------------------------------------------------------------------------------------------------------
+AICore.possibleBehaviors = {BehaviorNone, BehaviorGreat_Gush, BehaviorCurrent_Storm,BehaviorStatic_Link}
 

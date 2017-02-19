@@ -21443,7 +21443,6 @@
         }
 	}
     
-
     "boss_suffocating_bubble"
 	{
 		// General
@@ -21467,8 +21466,26 @@
         "AbilityManaCost"                                "0"
         "precache"
         {
-	       "particle"          	 "particles/units/heroes/hero_oracle/oracle_fortune_purge.vpcf"
+	       "particle"          	 "particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
         }
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"init_damage"		    "350"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"take_damage"			"12000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"increase_damage"		"50"
+			}
+		}
         "OnSpellStart"
         {
         	"ApplyModifier"

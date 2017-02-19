@@ -12731,11 +12731,11 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"AbilityLayout"			    "4"
-		"Ability1"					"boss_current_storm"	            // Ability 1.
+		"Ability1"					"boss_current_storm"	           // Ability 1.
 		"Ability2"					"boss_greate_gush"		           // Ability 2.
-		"Ability3"					""			    // Ability 3.
-		"Ability4"					""			    // Ability 4.
-        "Ability5"				    "rattletrap_gold_bag_fountain"			// Ability 4.
+		"Ability3"					"boss_suffocating_bubble"		   // Ability 3.
+		"Ability4"					""			                       // Ability 4.
+        "Ability5"				    "rattletrap_gold_bag_fountain"	   // Ability 4.
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"32"			// Physical protection.

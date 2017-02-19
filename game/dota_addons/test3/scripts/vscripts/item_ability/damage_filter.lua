@@ -78,6 +78,22 @@ function CHoldoutGameMode:DamageFilter(damageTable)
           end
     end
     if attacker:GetTeam()==DOTA_TEAM_BADGUYS then
+
+        --处理窒息气泡 原始伤害
+        if victim:HasModifier("modifier_share_damage_passive")  then      
+            if damageTable.entindex_inflictor_const ~=nil then --有明确技能伤害来源
+              local ability=EntIndexToHScript(damageTable.entindex_inflictor_const) --如果技能为潮汐的两个伤害技能
+              if (ability:GetAbilityName()=="boss_current_storm" or ability:GetAbilityName()=="boss_greate_gush") and victim.suffocating_bubble_take~=nil and victim.suffocating_bubble_take >0 then
+                  victim.suffocating_bubble_take=victim.suffocating_bubble_take-damageTable.damage 
+                  if victim.suffocating_bubble_take <0 then
+                     victim.RemoveModifierByName("modifier_share_damage_passive")
+                     victim.suffocating_bubble_take=nil                    
+                  end
+                  return false
+              end
+            end
+        end
+
         if damageTable.damagetype_const ~=1 and attacker.damageMultiple~=nil then  --Ability damage
           damageTable.damage=damageTable.damage*attacker.damageMultiple
         end

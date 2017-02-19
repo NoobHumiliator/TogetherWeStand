@@ -1,3 +1,8 @@
+--[[
+具体承受伤害的逻辑
+统一放在damage filter中处理
+]]
+
 function BubbleCreate( keys )
 	local caster = keys.caster
 	local ability = keys.ability
@@ -22,8 +27,7 @@ function BubbleDamage( keys )
 	local ability = keys.ability
 	local target= keys.target
 
-    if target.suffocating_bubble_damage==nil or target.suffocating_bubble_damage>0 then
-
+    if target.suffocating_bubble_damage~=nil and target.suffocating_bubble_damage>0 then
     	local increaseDamage = ability:GetLevelSpecialValueFor("increase_damage", ability:GetLevel()-1)
     	local damageTable = 
         {
@@ -44,5 +48,5 @@ function BubbleDestroy( keys )
 	local ability = keys.ability
 	local target= keys.target
 
-    target.suffocating_bubble_damage==nil
+    target.suffocating_bubble_damage=nil
 end
