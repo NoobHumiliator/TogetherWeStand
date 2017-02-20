@@ -12732,10 +12732,10 @@
 		//----------------------------------------------------------------
 		"AbilityLayout"			    "4"
 		"Ability1"					"boss_current_storm"	           // Ability 1.
-		"Ability2"					"boss_greate_gush"		           // Ability 2.
+		"Ability2"					"boss_great_gush"		           // Ability 2.
 		"Ability3"					"boss_suffocating_bubble"		   // Ability 3.
 		"Ability4"					""			                       // Ability 4.
-        "Ability5"				    "rattletrap_gold_bag_fountain"	   // Ability 4.
+        "Ability5"				    "tidehunter_gold_bag_fountain"	   // Ability 4.
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"32"			// Physical protection.
@@ -12744,8 +12744,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"	    "DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"152"		// Damage range min.
-		"AttackDamageMax"			"168"		// Damage range max.
+		"AttackDamageMin"			"4900"		// Damage range min.
+		"AttackDamageMax"			"6000"		// Damage range max.
 		"AttackRate"				"1.25"		// Speed of attack.
 		"AttackAnimationPoint"		"0.2"		// Normalized time in animation cycle to attack.
 		"AttackRange"				"180"		// Range within a target can be attacked.
@@ -12768,10 +12768,10 @@
 		
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"48000"		// Base health.
-		"StatusHealthRegen"			"50.0"		// Health regeneration rate.
-		"StatusMana"				"1500"		// Base mana.
-		"StatusManaRegen"			"30.0"		// Mana regeneration rate.
+		"StatusHealth"				"500000"		// Base health.
+		"StatusHealthRegen"			"500.0"		// Health regeneration rate.
+		"StatusMana"				"15000"		// Base mana.
+		"StatusManaRegen"			"300.0"		// Mana regeneration rate.
 
 		// Team
 		//----------------------------------------------------------------

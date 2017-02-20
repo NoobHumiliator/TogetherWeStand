@@ -27,7 +27,7 @@ function BubbleDamage( keys )
 	local ability = keys.ability
 	local target= keys.target
 
-    if target.suffocating_bubble_damage~=nil and target.suffocating_bubble_damage>0 then
+    if target~=nil and target.suffocating_bubble_damage~=nil and target.suffocating_bubble_damage>0 then
     	local increaseDamage = ability:GetLevelSpecialValueFor("increase_damage", ability:GetLevel()-1)
     	local damageTable = 
         {
@@ -37,7 +37,9 @@ function BubbleDamage( keys )
             damage=target.suffocating_bubble_damage
         }
         ApplyDamage(damageTable)
-        target.suffocating_bubble_damage=target.suffocating_bubble_damage+increaseDamage
+        if target.suffocating_bubble_damage~=nil then
+           target.suffocating_bubble_damage=target.suffocating_bubble_damage+increaseDamage
+        end
     end
     
 end

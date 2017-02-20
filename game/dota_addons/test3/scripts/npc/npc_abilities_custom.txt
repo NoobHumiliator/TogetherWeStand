@@ -15308,6 +15308,55 @@
 		}
 	}
 
+    "tidehunter_gold_bag_fountain"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"					    "ability_datadriven"
+		"AbilityTextureName"			"item_hand_of_midas"
+        "precache"
+		{			
+             "particle" 	"particles/units/heroes/hero_magnataur/magnataur_reverse_polarity.vpcf"
+		}   
+		"OnOwnerDied"
+		{
+			"CreateItem"
+			{
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}			
+				"ItemName"			"item_bag_of_gold"
+				"ItemCount"			"%bag_count"
+				"SpawnRadius"		"25"
+				"ItemChargeCount"	"%gold_value"
+				"AutoUse"			"1"
+				"LaunchHeight"		"300"
+				"LaunchDistance"	"?50 1050"
+				"LaunchDuration"	"0.75"
+			}
+		}
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			   "FIELD_INTEGER"
+				"gold_value"		   "360"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bag_count"				"50"
+			}
+		}
+	}
+
+
     "rattletrap_remove_gears"
 	{
 		// General
@@ -17521,116 +17570,133 @@
 			}
 		}
 	}
-  "water_adaptive_strike"  //Interrupt rearm
-  {
-	// General
-	//-------------------------------------------------------------------------------------------------------------
-	"BaseClass"				        "ability_datadriven"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-	"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-	"FightRecapLevel"				"1"
-	"AbilityTextureName"			"morphling_adaptive_strike"
-
-	// Casting
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCastRange"				"600"
-	"AbilityCastPoint"				"0.25"
-	"AbilityDamage"                 "100"
-
-	// Time		
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCooldown"				"10"
-
-	// Cost
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityManaCost"				"500"		
-
-	// Stats
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityModifierSupportValue"	"0.3"	// Primarily about the damage
-    "precache"
+	"water_adaptive_strike"  //Interrupt rearm
 	{
-		"soundfile"				"soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
-		"particle"				"particles/units/heroes/hero_morphling/morphling_adaptive_strike.vpcf"
-	}
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				        "ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"morphling_adaptive_strike"
 
-	// Special
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilitySpecial"
-	{
-		"01"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.25"
+		"AbilityDamage"                 "100"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"500"		
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.3"	// Primarily about the damage
+		"precache"
 		{
-			"var_type"						"FIELD_FLOAT"
-			"stun_duration"					"0.2"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
+			"particle"				"particles/units/heroes/hero_morphling/morphling_adaptive_strike.vpcf"
 		}
-		"02"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
 		{
-			"var_type"						"FIELD_FLOAT"
-			"strike_speed"			        "1800"
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"stun_duration"					"0.2"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"strike_speed"			        "1800"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"knockback_distance"			"200"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"knockback_duration"			"0.15"
+			}
 		}
-		"03"
+		"OnSpellStart"
 		{
-			"var_type"						"FIELD_FLOAT"
-			"knockback_distance"			"200"
+			"FireSound"
+			{
+				"EffectName"	"Hero_Morphling.AdaptiveStrike.Cast"
+				"Target" 		"CASTER"
+			}
+			
+			"TrackingProjectile"
+			{
+				"Target"           	"TARGET"
+				"EffectName"		"particles/units/heroes/hero_morphling/morphling_adaptive_strike.vpcf"
+				"Dodgeable"			"1"
+				"ProvidesVision"	"0"
+				"MoveSpeed"        	"%strike_speed"
+				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}		
 		}
-		"04"
+		"OnProjectileHitUnit"
 		{
-			"var_type"						"FIELD_FLOAT"
-			"knockback_duration"			"0.15"
-		}
-	}
-	"OnSpellStart"
-	{
-		"FireSound"
-		{
-			"EffectName"	"Hero_Morphling.AdaptiveStrike.Cast"
-			"Target" 		"CASTER"
-		}
-		
-		"TrackingProjectile"
-		{
-			"Target"           	"TARGET"
-			"EffectName"		"particles/units/heroes/hero_morphling/morphling_adaptive_strike.vpcf"
-			"Dodgeable"			"1"
-			"ProvidesVision"	"0"
-			"MoveSpeed"        	"%strike_speed"
-			"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
-		}		
-	}
-	"OnProjectileHitUnit"
-	{
-		"DeleteOnHit"	"1"
-		"FireSound"
-		{
-			"EffectName"	"Hero_Morphling.AdaptiveStrike"
-			"Target" 		"TARGET"
-		}
-		
-		"Stun"
-		{
-			"Duration"      "%stun_duration"
-			"Target" 	    "TARGET"
-		}
-		"Damage"
-		{
-			"Target"		"TARGET"
-			"Type"			"DAMAGE_TYPE_PURE"
-			"Damage"		"%AbilityDamage"
-		}
-		"Knockback"
-		{
+			"DeleteOnHit"	"1"
+			"FireSound"
+			{
+				"EffectName"	"Hero_Morphling.AdaptiveStrike"
+				"Target" 		"TARGET"
+			}
+			
+			"Stun"
+			{
+				"Duration"      "%stun_duration"
+				"Target" 	    "TARGET"
+			}
+			"Damage"
+			{
+				"Target"		"TARGET"
+				"Type"			"DAMAGE_TYPE_PURE"
+				"Damage"		"%AbilityDamage"
+			}
+			"Knockback"
+			{
 				"Target"				"TARGET"
 				"Center"				"CASTER"
 				"Distance"				"%knockback_distance"
 				"Height"				"50"  
 				"Duration"				"%knockback_duration"
-		}					
-	 }	
-   }
+			}					
+		}
+		"Modifiers"
+		{
+			"modifier_true_sight_1"
+			{
+				"Passive"            "1"
+				"IsHidden"           "1"
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_tower_truesight_aura"
+						"Target" 		"CASTER"
+					}
+				}		    
+			}
+		}
+
+	}
 
    "particle_test_ability"
    {
@@ -21034,7 +21100,7 @@
 		}
 	}
 
-    "boss_greate_gush"
+    "boss_great_gush"
 	{
         "BaseClass"             "ability_datadriven"
         "AbilityTextureName"    "tidehunter_gush"
@@ -21142,9 +21208,23 @@
 
         "Modifiers"
         {	
+            "modifier_true_sight_1"
+		    {
+		           "Passive"            "1"
+		           "IsHidden"           "1"
+		           "OnCreated"
+		         {
+		           "ApplyModifier"
+		            {
+		                 "ModifierName"	"modifier_tower_truesight_aura"
+		                 "Target" 		"CASTER"
+		            }
+		        }		    
+		    }
+
         	"modifier_gush_start_delay"
         	{
-        		"Duration"			"2.5"
+        		"Duration"			"1.2"
         		"Passive"			"0"
         		"IsHidden"			"0"
         		"IsDebuff"			"0"
@@ -21272,7 +21352,7 @@
 	    //----------------------------------------------------------------------------------------
 	    "AbilityDamage"           "0"
 	    "AbilityManaCost"         "0"
-	    "AbilityCooldown"         "12"
+	    "AbilityCooldown"         "9"
 	    "AbilityCastRange"        "2500"
 	    "AbilityCastRangeBuffer"  "250"
 	    "AbilityDuration"         "0.0"
@@ -21290,7 +21370,7 @@
 	    	"01"
 	    	{
 	    		"var_type"			"FIELD_INTEGER"
-	    		"duration"			"30"
+	    		"duration"			"20"
 	    	}
 	    	"01"
 	    	{
@@ -21463,7 +21543,7 @@
         "AbilityCooldown"                   "10"
 
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"                                "0"
+        "AbilityManaCost"                    "0"
         "precache"
         {
 	       "particle"          	 "particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"

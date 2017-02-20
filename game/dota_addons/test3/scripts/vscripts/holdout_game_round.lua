@@ -254,7 +254,11 @@ function CHoldoutGameRound:End()
 			end
 			if unit:GetUnitName()==("npc_dota_splitter_a") then
 				unit:RemoveAbility("creature_split_a")
-			end                    
+			end
+			if unit:GetUnitName()==("npc_dota_boss_tidehunter") then
+			    unit:RemoveAbility("tidehunter_gold_bag_fountain")
+			end
+
 			unit:ForceKill(true)
 		end
 	end

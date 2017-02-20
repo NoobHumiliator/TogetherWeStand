@@ -65,7 +65,7 @@ function BehaviorGreat_Gush:Evaluate()
 	-- let's not choose this twice in a row
 	if currentBehavior == self then return desire end
 
-	self.gushAbility = thisEntity:FindAbilityByName( "boss_greate_gush" )
+	self.gushAbility = thisEntity:FindAbilityByName( "boss_great_gush" )
 	
 	if self.gushAbility and self.gushAbility:IsFullyCastable() then
 		self.target = AICore:RandomEnemyHeroInRange( thisEntity, 550)
