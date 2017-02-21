@@ -408,3 +408,19 @@ function RandomPosition(event)
     end
     target:SetAbsOrigin(caster:GetAbsOrigin()+vec2)
 end
+
+
+
+function RemoveAllDebuffs(hUnit)  --移除全部的debuff
+
+    if not hUnit then
+        return
+    end
+
+    local count = hUnit:GetModifierCount()
+    for i=0,count-1 do
+        local modifierName=hUnit:GetModifierNameByIndex(i)
+        local modifier= hUnit:FindModifierByName(modifierName)
+        print("modifierName: "..modifierName.."IsDebuff: "..modifier:IsDebuff())
+    end
+end
