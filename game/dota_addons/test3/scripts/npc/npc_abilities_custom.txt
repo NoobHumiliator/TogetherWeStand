@@ -391,8 +391,8 @@
 	"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_YES"
 	"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 	"AbilityTextureName"			"shadow_demon_disruption"
-        "OverrideAnimation"                     "ACT_DOTA_CAST_ABILITY_4"
-        "MaxLevel"                               "1"
+	"OverrideAnimation"                     "ACT_DOTA_CAST_ABILITY_4"
+	"MaxLevel"                               "1"
 
 	// Precache
 	//-------------------------------------------------------------------------------------------------------------
@@ -400,11 +400,11 @@
 	{
 		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
 		"particle"			"particles/units/heroes/hero_bane/bane_fiendsgrip_ground.vpcf"
-        "particle"                      "particles/units/heroes/hero_bane/bane_fiendsgrip_ground_rubble.vpcf"
-        "particle"			"particles/units/heroes/hero_bane/bane_fiends_grip_drip.vpcf"
-        "particle"                      "particles/units/heroes/hero_night_stalker/nightstalker_crippling_fear_smoke.vpcf"
-        "particle"                      "particles/units/heroes/hero_bane/bane_fiendsgrip_ropehigh.vpcf"
-        "particle"                      "particles/units/heroes/hero_dark_seer/dark_seer_ion_shell_damage.vpcf"
+		"particle"                      "particles/units/heroes/hero_bane/bane_fiendsgrip_ground_rubble.vpcf"
+		"particle"			"particles/units/heroes/hero_bane/bane_fiends_grip_drip.vpcf"
+		"particle"                      "particles/units/heroes/hero_night_stalker/nightstalker_crippling_fear_smoke.vpcf"
+		"particle"                      "particles/units/heroes/hero_bane/bane_fiendsgrip_ropehigh.vpcf"
+		"particle"                      "particles/units/heroes/hero_dark_seer/dark_seer_ion_shell_damage.vpcf"
 	}
 	
 	// Casting
@@ -439,17 +439,17 @@
 			"var_type"				"FIELD_FLOAT"
 			"damage_increase"		    "1.2"
 		}
-                "04"
+		"04"
 		{
 			"var_type"				"FIELD_INTEGER"
 			"initial_radius"		    "50"
 		}
-                 "05"
+		"05"
 		{
 			"var_type"				"FIELD_INTEGER"
 			"radius_increase"		    "35"
 		}
-                 "06"
+		"06"
 		{
 			"var_type"				"FIELD_INTEGER"
 			"cancel_range"		       "350"
@@ -467,7 +467,7 @@
 				"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 			}
 		}
-	    "FireSound"
+		"FireSound"
 		{
 			"EffectName"	"terrorblade_terr_morph_demonattack_03"
 			"Target" 		"CASTER"
@@ -486,54 +486,54 @@
 
 	"Modifiers"
 	{
-		  "modifier_true_sight_1"
-                {
-                       "Passive"            "1"
-                       "IsHidden"           "1"
-                       "OnCreated"
-                        {
-                        	"ApplyModifier"
-                        	{
-                        		"ModifierName"	"modifier_tower_truesight_aura"
-                        		"Target" 		"CASTER"
-                        	}
-                        }
-				    
+		"modifier_true_sight_1"
+		{
+			"Passive"            "1"
+			"IsHidden"           "1"
+			"OnCreated"
+			{
+				"ApplyModifier"
+				{
+					"ModifierName"	"modifier_tower_truesight_aura"
+					"Target" 		"CASTER"
 				}
+			}
+			
+		}
 		"modifier_dark_twin_debuff"
 		{
 			"IsDebuff"			"1"
 			"IsPurgable"		        "0"
-	
+			
 			"EffectName"        "particles/units/heroes/hero_night_stalker/nightstalker_crippling_fear_smoke.vpcf"
 			"EffectAttachType"  "follow_overhead"
-                        "OnCreated"
+			"OnCreated"
 			{
-                         "AttachEffect"
-			   {
-				 "Target"		"TARGET"
-				 "EffectName"		"particles/units/heroes/hero_bane/bane_fiendsgrip_ground.vpcf"
-			         "EffectAttachType"	"follow_overhead"
-			   }
-                          "AttachEffect"
-			   {
-				 "Target"		"TARGET"
-				 "EffectName"		"particles/units/heroes/hero_bane/bane_fiendsgrip_ground_rubble.vpcf"
-			         "EffectAttachType"	"follow_overhead"
-			   }
-                           "AttachEffect"
-			   {
-				 "Target"		"TARGET"
-				 "EffectName"		"particles/units/heroes/hero_bane/bane_fiends_grip_drip.vpcf"
-			         "EffectAttachType"	"follow_overhead"
-			   }
-                           "AttachEffect"
-			   {
-				 "Target"		"TARGET"
-				 "EffectName"		"particles/units/heroes/hero_bane/bane_fiendsgrip_ropehigh.vpcf"
-			         "EffectAttachType"	"follow_overhead"
-			   }
-                        }
+				"AttachEffect"
+				{
+					"Target"		"TARGET"
+					"EffectName"		"particles/units/heroes/hero_bane/bane_fiendsgrip_ground.vpcf"
+					"EffectAttachType"	"follow_overhead"
+				}
+				"AttachEffect"
+				{
+					"Target"		"TARGET"
+					"EffectName"		"particles/units/heroes/hero_bane/bane_fiendsgrip_ground_rubble.vpcf"
+					"EffectAttachType"	"follow_overhead"
+				}
+				"AttachEffect"
+				{
+					"Target"		"TARGET"
+					"EffectName"		"particles/units/heroes/hero_bane/bane_fiends_grip_drip.vpcf"
+					"EffectAttachType"	"follow_overhead"
+				}
+				"AttachEffect"
+				{
+					"Target"		"TARGET"
+					"EffectName"		"particles/units/heroes/hero_bane/bane_fiendsgrip_ropehigh.vpcf"
+					"EffectAttachType"	"follow_overhead"
+				}
+			}
 			"OnDestroy"
 			{
 				"RunScript"
@@ -541,7 +541,7 @@
 					"ScriptFile"	        "creature_ability/darktwindebuff.lua"
 					"Function"		"StopSound"
 					"sound"			"Hero_DoomBringer.Doom"
-                                        "Target"		"TARGET"
+					"Target"		"TARGET"
 				}
 			}
 
@@ -552,11 +552,11 @@
 				{
 					"ScriptFile"	        "creature_ability/darktwindebuff.lua"
 					"Function"		"IsNearFireCheck"
-                                        "Target"		"TARGET"
+					"Target"		"TARGET"
 				}
 			}	
 		}             
-	 }	
+	}	
 }
 "dark_twin_spell_immune_datadriven"
 {	

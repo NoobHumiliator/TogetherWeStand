@@ -8,14 +8,50 @@ end
 
 function LootController:ReadConfigration()
 
+  self._bonusItems={
+
+	{
+		"item_unholy"    --1
+	},
+	{
+	   "item_fallen_sword"  --2
+	},
+	{
+	   "item_skysong_blade"  --3
+	},
+    {
+		"item_bloodsipper"   --4
+	}, 
+	{   
+		--5
+	},
+    {
+		"item_water_sword"  --6
+	},
+	{
+		--7
+	},
+	{
+		--8
+	},
+	{
+		--9
+	}
+}
+
   self._vHardLevelItemValue={
 	300,225,150
   }
   self._itemCost={}
+  self._itemCostSort={} --排序版
   local itemListKV = LoadKeyValues("scripts/kv/items_precache.txt")
   for k, v in pairs( itemListKV ) do
     if type( v ) == "table" and v.ItemCost and tonumber(v.ItemCost)~=0 then
        self._itemCost[k] = v.ItemCost
+       if tonumber(v.ItemCost)>1500 then --1500以下的装备不参与
+         local sortItem={itemName=k,itemCost=v.ItemCost}
+         table.insert(self._itemCostSort, sortItem)
+       end
     end
   end
   local itemCsmListKV = LoadKeyValues("scripts/npc/npc_items_custom.txt")
@@ -23,7 +59,15 @@ function LootController:ReadConfigration()
     if type( v ) == "table" and v.ItemCost and tonumber(v.ItemCost)~=0  and  (v.ItemPurchasable==nil or  (v.ItemPurchasable and v.ItemPurchasable==1) )  then  --必须是有价钱并且能买到的物品
        --print("costom item"..k)
        self._itemCost[k] = v.ItemCost
+       if tonumber(v.ItemCost)>1500 then --1500以下的装备不参与
+	       local sortItem={itemName=k,itemCost=v.ItemCost}
+	       table.insert(self._itemCostSort, sortItem)
+       end
     end
+  end
+  table.sort(self._itemCostSort,function(a,b) return tonumber(a.itemCost)<tonumber(b.itemCost) end) --对物品价格进行排序
+  for k,v in pairs(self._itemCostSort) do
+	  print("index: "..k.." itemName: "..v.itemName.."  itemCost: "..v.itemCost)
   end
 end
 
@@ -35,8 +79,8 @@ function LootController:SetItemProbability(roundNumber,hardLevel)
 	   hardLevel=3
     end
 	self._roundItemProbability={}
-	self._valuetable={}
-	self._reverttable={}
+	--self._valuetable={}
+	--self._reverttable={}
 	local average= self._vHardLevelItemValue[hardLevel]*math.pow(1.2,roundNumber) --item value*1.2^roundNumer
 	local stdDeviation= average*(4-hardLevel)*0.5
 	for k,v in pairs(self._itemCost) do
@@ -56,8 +100,6 @@ function LootController:SetItemProbability(roundNumber,hardLevel)
 	--end
     --以上注释
 end
-
-
 
 
 function LootController:CheckForLootItemDrop( roundNumber,dropNum,creatureNum,killedUnit)
@@ -117,4 +159,26 @@ end
 
 function NormalDistribution (x,average,stdDeviation)
 	return math.exp( math.pow(x-average,2)/ (-2*math.pow(stdDeviation,2)) ) / (math.sqrt(2*math.pi)*stdDeviation)
+end
+
+
+
+function LootController:SpecialItemAdd( event, level, nMaxRoundLevel )
+	local item = EntIndexToHScript( event.ItemEntityIndex )
+	local owner = EntIndexToHScript( event.HeroEntityIndex )
+	local hero = owner:GetClassname()
+	local ownerTeam = owner:GetTeamNumber()
+	local addItemName=nil
+
+    if self._bonusItems[level] ==nil or #self._bonusItems[level]==0 then  --如果奖励没定义 就从level/关卡数的分段里面取一个
+       local index=RandomInt( (level-1)/nMaxRoundLevel*(#self._itemCostSort), level/nMaxRoundLevel*(#self._itemCostSort) )
+       addItemName=self._itemCostSort[index].itemName
+    else
+	  local possibleItems= self._bonusItems[level]	
+	  addItemName= PickRandom(possibleItems) 
+    end
+    owner:AddItemByName( addItemName )
+	local particle= ParticleManager:CreateParticle("particles/neutral_fx/roshan_spawn.vpcf",PATTACH_ABSORIGIN_FOLLOW,owner)
+    ParticleManager:ReleaseParticleIndex(particle)
+	EmitGlobalSound("powerup_04")
 end

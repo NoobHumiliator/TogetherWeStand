@@ -14,7 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
---testMode=true --减少刷兵间隔，增加初始金钱
+testMode=true --减少刷兵间隔，增加初始金钱
 
 
 
@@ -120,9 +120,9 @@ function CHoldoutGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesOverride( true )
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesVisible( false )
 	-- Custom console commands
-	Convars:RegisterCommand( "holdout_test_round", function(...) return self:_TestRoundConsoleCommand( ... ) end, "Test a round of holdout.", FCVAR_CHEAT )
-	Convars:RegisterCommand( "holdout_status_report", function(...) return self:_StatusReportConsoleCommand( ... ) end, "Report the status of the current holdout game.", FCVAR_CHEAT )
-	Convars:RegisterCommand( "holdout_list_modifiers", function(...) return self:_ListModifiers( ... ) end, "List modifiers of all hero.", FCVAR_CHEAT )
+	Convars:RegisterCommand( "test_round", function(...) return self:_TestRoundConsoleCommand( ... ) end, "Test a round of holdout.", FCVAR_CHEAT )
+	Convars:RegisterCommand( "status_report", function(...) return self:_StatusReportConsoleCommand( ... ) end, "Report the status of the current holdout game.", FCVAR_CHEAT )
+	Convars:RegisterCommand( "list_modifiers", function(...) return self:_ListModifiers( ... ) end, "List modifiers of all hero.", FCVAR_CHEAT )
     --UI交互
     CustomGameEventManager:RegisterListener("AddAbility", Dynamic_Wrap(CHoldoutGameMode, 'AddAbility'))
     CustomGameEventManager:RegisterListener("RemoveAbility", Dynamic_Wrap(CHoldoutGameMode, 'RemoveAbility'))
@@ -372,6 +372,9 @@ function CHoldoutGameMode:_RefreshPlayers()
 			      PlayerResource:SetBuybackGoldLimitTime( nPlayerID, 0 )
 			      PlayerResource:ResetBuybackCostTime( nPlayerID )
 			      PlayerResource:SetCustomBuybackCooldown(nPlayerID,0)
+                  hero:RemoveModifierByName("modifier_fire_twin_debuff")
+                  hero:RemoveModifierByName("modifier_dark_twin_debuff")
+                  hero:RemoveModifierByName("modifier_suffocating_bubble")
 			      hero:RemoveModifierByName("modifier_overflow_show")
 			      hero:RemoveModifierByName("modifier_silence_permenant")
 			      hero:RemoveModifierByName("modifier_affixes_falling_rock")
@@ -813,7 +816,7 @@ function CHoldoutGameMode:OnItemPickUp( event ,level )
 	if event.HeroEntityIndex then
 	   local owner = EntIndexToHScript( event.HeroEntityIndex )
 	   if string.sub(event.itemname,1,20)== "item_treasure_chest_" then
-		  SpecialItemAdd( event,  tonumber(string.sub(event.itemname,21,21)))
+		  LootController:SpecialItemAdd( event,  tonumber(string.sub(event.itemname,21,21)), #self._vRounds )
 		  UTIL_Remove(item)
 	   end
     end
@@ -867,7 +870,7 @@ end
 
 
 
--- Custom game specific console command "holdout_list_modifiers"
+-- Custom game specific console command "list_modifiers"
 function CHoldoutGameMode:_ListModifiers(cmdName)
 	for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
 		if PlayerResource:IsValidPlayer( nPlayerID ) then
@@ -875,7 +878,7 @@ function CHoldoutGameMode:_ListModifiers(cmdName)
 				local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
 				if hero then
 				  if hero:IsAlive() then
-				     ListModifiers(hero)
+				     ListModifiers(hero)			    
 				  end
 				end
 	        end 	
