@@ -815,7 +815,7 @@ function CHoldoutGameMode:OnItemPickUp( event ,level )
 	if event.HeroEntityIndex then
 	   local owner = EntIndexToHScript( event.HeroEntityIndex )
 	   if string.sub(event.itemname,1,20)== "item_treasure_chest_" then
-		  LootController:SpecialItemAdd( event,  tonumber(string.sub(event.itemname,21,21)), #self._vRounds )
+		  LootController:SpecialItemAdd(event, tonumber(string.sub(event.itemname,21,string.len(event.itemname))), #self._vRounds )
 		  UTIL_Remove(item)
 	   end
     end

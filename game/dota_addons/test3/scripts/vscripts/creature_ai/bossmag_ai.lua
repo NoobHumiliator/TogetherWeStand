@@ -176,8 +176,6 @@ end
 
 function BehaviorStrike:Begin()
 	self.endTime = GameRules:GetGameTime() + 1
-	Notifications:TopToAll({ability="mag_melee_smash"})
-	Notifications:TopToTeam(DOTA_TEAM_GOODGUYS, {text="#mag_melee_smash_dbm_simple", duration=1.5, style = {color = "Azure"},continue=true})
 	self.point= thisEntity:GetOrigin()+thisEntity:GetForwardVector()*(self.strikeAbility:GetCastRange()-10)   --目标方向
     self.order =
 	{

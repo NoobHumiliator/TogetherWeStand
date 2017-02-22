@@ -5,10 +5,7 @@ if LootController == nil then
 end
 
 
-
-function LootController:ReadConfigration()
-
-  self._bonusItems={
+bonusItems={
 
 	{
 		"item_unholy"    --1
@@ -38,6 +35,10 @@ function LootController:ReadConfigration()
 		--9
 	}
 }
+
+
+
+function LootController:ReadConfigration()
 
   self._vHardLevelItemValue={
 	300,225,150
@@ -170,11 +171,11 @@ function LootController:SpecialItemAdd( event, level, nMaxRoundLevel )
 	local ownerTeam = owner:GetTeamNumber()
 	local addItemName=nil
 
-    if self._bonusItems[level] ==nil or #self._bonusItems[level]==0 then  --如果奖励没定义 就从level/关卡数的分段里面取一个
+    if bonusItems[level] ==nil or #bonusItems[level]==0 then  --如果奖励没定义 就从level/关卡数的分段里面取一个
        local index=RandomInt( (level-1)/nMaxRoundLevel*(#self._itemCostSort), level/nMaxRoundLevel*(#self._itemCostSort) )
        addItemName=self._itemCostSort[index].itemName
     else
-	  local possibleItems= self._bonusItems[level]	
+	  local possibleItems= bonusItems[level]	
 	  addItemName= PickRandom(possibleItems) 
     end
     owner:AddItemByName( addItemName )

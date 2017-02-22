@@ -194,11 +194,8 @@ function CHoldoutGameRound:Begin()
    if self._szRoundQuestTitle ~=nil then
    	   local bonusItemName ="";
        local bonusLevel=self._nRoundNumber
-       if bonusLevel>#bonusItems then  --如果关卡数超过定义的数组 调整一下
-       	  bonusLevel=#bonusItems
-       end
 
-   	   if #bonusItems[bonusLevel] ==1 then
+   	   if bonusItems[bonusLevel]~=nil and #bonusItems[bonusLevel] ==1 then
    	   	  bonusItemName=bonusItems[bonusLevel][1]
    	   else
    	   	  bonusItemName="item_treasure_chest_"..bonusLevel
