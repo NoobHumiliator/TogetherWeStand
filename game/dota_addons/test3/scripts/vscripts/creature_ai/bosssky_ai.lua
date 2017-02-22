@@ -163,16 +163,6 @@ end
 
 function BehaviorStatic_Link:Begin()
 	self.endTime = GameRules:GetGameTime() + 1
-	Notifications:TopToAll({ability="skywrath_mage_mystic_flare_datadriven"})
-	Notifications:TopToTeam(DOTA_TEAM_GOODGUYS, {text="#flare_dbm_simple", duration=1.5, style = {color = "Azure"},continue=true})
-	--[[self.order =
-	{
-		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-		UnitIndex = thisEntity:entindex(),
-        TargetIndex = self.target:entindex(),
-		AbilityIndex = self.staticlinkAbility:entindex()
-	}
-    --]]
 end 
 
 BehaviorStatic_Link.Continue = BehaviorStatic_Link.Begin --if we re-enter this ability, we might have a different target; might as well do a full reset
@@ -225,9 +215,6 @@ end
 
 function BehaviorFreeze:Begin()
 	self.endTime = GameRules:GetGameTime() + 15	
-	GameRules:SendCustomMessage("#wind_dbm", 0, 0)
-	Notifications:TopToAll({ability="big_wind"})
-	Notifications:TopToTeam(DOTA_TEAM_GOODGUYS, {text="#wind_dbm_simple", duration=2.0, style = {color = "Azure"},continue=true})
 	self.order =
 	{
 		UnitIndex = thisEntity:entindex(),
@@ -267,9 +254,6 @@ end
 
 function BehaviorLaguna_Blade:Begin()
 	self.endTime = GameRules:GetGameTime() + 1
-    GameRules:SendCustomMessage("#concussive_dbm", 0, 0)
-    Notifications:TopToAll({ability="super_concussive"})
-	Notifications:TopToTeam(DOTA_TEAM_GOODGUYS, {text="#concussive_dbm_simple", duration=1.5, style = {color = "Azure"},continue=true})
         self.order =
 		{
 			OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
@@ -319,7 +303,6 @@ function BehaviorLink:Begin()
 	  if self.target:IsHero() then
 	    local playerid= self.target:GetPlayerID()
 	    local playername=PlayerResource:GetPlayerName(playerid)
-	    GameRules:SendCustomMessage(string.format( "%s is silenced", playername) , 0, 0)
 	    Notifications:TopToAll({ability="skywrath_mage_ancient_seal_datadriven"})
 	    Notifications:TopToTeam(DOTA_TEAM_GOODGUYS, {text="#ancient_seal_simple", duration=1.5, style = {color = "Azure"},continue=true})
       end

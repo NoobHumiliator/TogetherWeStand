@@ -250,3 +250,11 @@ function Notifications:BossAbilityDBM(abilityName)
 	self:TopToAll({ability= abilityName})
     self:TopToAll({text="#DOTA_Tooltip_ability_"..abilityName, duration=1.5, style = {color = "Azure"},continue=true}) 
 end
+
+
+
+
+function BossAbilityDBM(keys)
+	local ability=keys.ability
+	Notifications:BossAbilityDBM(ability:GetAbilityName())
+end

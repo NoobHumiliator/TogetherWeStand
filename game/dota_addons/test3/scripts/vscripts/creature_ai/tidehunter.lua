@@ -68,7 +68,7 @@ function BehaviorGreat_Gush:Evaluate()
 	self.gushAbility = thisEntity:FindAbilityByName( "boss_great_gush" )
 	
 	if self.gushAbility and self.gushAbility:IsFullyCastable() then
-		self.target = AICore:RandomEnemyHeroInRange( thisEntity, 550)
+		self.target = AICore:RandomEnemyHeroInRangeIgnoreImmnue( thisEntity, 550)
 		if self.target then
 			desire = 6
 		end
@@ -99,7 +99,7 @@ function BehaviorCurrent_Storm:Evaluate()
 	self.stormAbility = thisEntity:FindAbilityByName( "boss_current_storm" )
 	
 	if self.stormAbility and self.stormAbility:IsFullyCastable() then
-		self.target = AICore:RandomEnemyHeroInRange( thisEntity, 550)
+		self.target = AICore:RandomEnemyHeroInRangeIgnoreImmnue( thisEntity, 550)
 		if self.target then
 			desire = 7
 		end
@@ -131,7 +131,7 @@ function BehaviorStatic_Link:Evaluate()
 
 	if self.staticlinkAbility and self.staticlinkAbility:IsFullyCastable() then 
 		local range = self.staticlinkAbility:GetCastRange()
-		target = AICore:RandomEnemyHeroInRange( thisEntity, range )
+		target = AICore:RandomEnemyHeroInRangeIgnoreImmnue( thisEntity, range )
 	end
 
 	if target then

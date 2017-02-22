@@ -266,7 +266,12 @@
 				"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 			}
 			"Duration"		"%duration"
-		}	
+		}
+		"RunScript"
+        {
+             "ScriptFile"    "notifications.lua"
+		     "Function"      "BossAbilityDBM"
+        }
 	}
 
 	"Modifiers"
@@ -481,7 +486,12 @@
 				"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 			}
 			"Duration"		"%duration"
-		}	
+		}
+		"RunScript"
+        {
+             "ScriptFile"    "notifications.lua"
+		     "Function"      "BossAbilityDBM"
+        }
 	}
 
 	"Modifiers"
@@ -1869,6 +1879,11 @@
 			"Function"			"mystic_flare_start"
 			"Target"			"POINT"
 		}
+	    "RunScript"
+        {
+               "ScriptFile"    "notifications.lua"
+			   "Function"      "BossAbilityDBM"
+        }
 		"Random"
 		{
 			"Chance"			"50"
@@ -8737,7 +8752,7 @@
     
 
 
-        "enpower_summon_familiars"
+   "enpower_summon_familiars"
 	{
 
 		"BaseClass"					"visage_summon_familiars"
@@ -8798,10 +8813,10 @@
 
 		}
 	}
-        "self_weaver_geminate_attack"
+   "self_weaver_geminate_attack"
 	{
-		"BaseClass"					"weaver_geminate_attack"
-                "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"					    "weaver_geminate_attack"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"		
 		"AbilityCooldown"				"4.0 3.0 2.0 1.0"
 	}
@@ -8834,7 +8849,7 @@
 			}
 		}
 	}
-        "self_spell_shield"
+    "self_spell_shield"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -8850,119 +8865,6 @@
 			{
 				"var_type"						"FIELD_INTEGER"
 				"spell_shield_resistance"		"36 44 62 80"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Holdout: Arc Lightning
-	//=================================================================================================================
-	"holdout_arc_lightning"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"BaseClass"						"zuus_arc_lightning"	
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"85 100 115 145"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1.75 1.50 1.25 1.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50 60 70 80"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"500 500 500 500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"jump_count"			"5 7 9 15"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"jump_delay"			"0.25 0.25 0.25 0.25"
-			}
-		}
-	}
-	
-	//=================================================================================================================
-	// Holdout: Lightning Bolt
-	//=================================================================================================================
-	"holdout_lightning_bolt"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"BaseClass"						"zuus_lightning_bolt"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"100 225 350 475"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6.0 5.0 4.0 3.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75 95 115 135"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.1"	// just a ministun
-
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"true_sight_radius"		"900 900 900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"sight_radius_day"		"1000 1000 1000 1000"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"sight_radius_night"	"1000 1000 1000 1000"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"sight_duration"		"3.0 3.0 3.0 3.0"
 			}
 		}
 	}
@@ -11592,6 +11494,11 @@
 				"EffectName"		"skywrath_mage_drag_attack_11"
 				"Target"			"CASTER"
 			}
+			"RunScript"
+            {
+                   "ScriptFile"    "notifications.lua"
+				   "Function"      "BossAbilityDBM"
+            }
 		}
 		"OnChannelFinish"
 		{
@@ -11728,11 +11635,10 @@
 		"AbilityCastRange"				"1800"
 		"AbilityCastAnimation"			   "ACT_DOTA_CAST_ABILITY_2"
 
-		// ¼¼ÄÜCD	
+		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"12.0"
 
-		// ¼¼ÄÜÊ©·¨ËùÐèÄ§·¨Öµ
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"180"	
 		"precache"
@@ -11778,8 +11684,11 @@
 					}
 				}
 			}
-
-
+            "RunScript"
+            {
+                   "ScriptFile"    "notifications.lua"
+				   "Function"      "BossAbilityDBM"
+            }
 			"TrackingProjectile"
 			{
 				"Target"			"TARGET"
@@ -12032,7 +11941,11 @@
 			"Function"           "charge_unit"
 			"Target"             "TARGET"
 		}
-
+	    "RunScript"
+        {
+               "ScriptFile"    "notifications.lua"
+			   "Function"      "BossAbilityDBM"
+        }
         "Random"
 		{
 			"Chance"			"25"
@@ -12281,6 +12194,11 @@
 				"ModifierName"	"melee_impact_froze"
 				"Target"		"CASTER"
 			}
+			"RunScript"
+	        {
+	               "ScriptFile"    "notifications.lua"
+				   "Function"      "BossAbilityDBM"
+	        }
 		}
 		
 		// Modifiers
@@ -21204,6 +21122,11 @@
 						"CASTER"	"attach_origin"
 					}
 				}
+				"RunScript"
+                {
+                   "ScriptFile"    "notifications.lua"
+				   "Function"      "BossAbilityDBM"
+                }
         }
 
         "Modifiers"
@@ -21448,6 +21371,11 @@
 				"EffectName"		"Hero_Lich.preAttack"
 				"Target"			"CASTER"
 			}
+            "RunScript"
+            {
+                   "ScriptFile"    "notifications.lua"
+				   "Function"      "BossAbilityDBM"
+            }
         }
 
         "Modifiers"
@@ -21509,8 +21437,8 @@
         			 "Damage"
 					{
 						"Target"		"TARGET"
-						"Type"			"DAMAGE_TYPE_PURE"
-						"Damage"		"4000"
+						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Damage"		"5333"
 					}
 					"FireEffect"
 				    {
@@ -21573,6 +21501,11 @@
         		"ModifierName"	        "modifier_suffocating_bubble"
         		"Target"		        "TARGET"
         	}
+        	"RunScript"
+            {
+                   "ScriptFile"    "notifications.lua"
+				   "Function"      "BossAbilityDBM"
+            }
         }
         "Modifiers"
         {

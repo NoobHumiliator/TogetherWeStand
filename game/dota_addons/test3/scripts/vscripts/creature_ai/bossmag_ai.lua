@@ -59,8 +59,6 @@ end
 function BehaviorThrowHook:Begin()
 	if self.target then 
 	 self.endTime = GameRules:GetGameTime() + 2
-     Notifications:TopToAll({ability="charge_to_unit"})
-	 Notifications:TopToTeam(DOTA_TEAM_GOODGUYS, {text="#charge_to_unit_dbm_simple", duration=1.5, style = {color = "Azure"},continue=true})
      self.order =
 	 {
 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,

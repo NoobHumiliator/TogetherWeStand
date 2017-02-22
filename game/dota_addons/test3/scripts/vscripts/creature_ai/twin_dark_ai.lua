@@ -90,8 +90,7 @@ function BehaviorStatic_Link:Evaluate()
 
 	if target then
 		desire = 7
-		self.target = target
-        print(self.staticlinkAbility:entindex())
+		self.target = target     
         self.order =
 		{
 			OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
@@ -108,9 +107,6 @@ end
 
 function BehaviorStatic_Link:Begin()
 	self.endTime = GameRules:GetGameTime() + 1
-    if thisEntity:IsAlive() then
-		Notifications:BossAbilityDBM("dark_twin_dark_debuff_datadriven")
-	end
 	--[[self.order =
 	{
 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
@@ -122,8 +118,6 @@ function BehaviorStatic_Link:Begin()
 end 
 
 BehaviorStatic_Link.Continue = BehaviorStatic_Link.Begin --if we re-enter this ability, we might have a different target; might as well do a full reset
---------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
 
 AICore.possibleBehaviors = { BehaviorNone, BehaviorStatic_Link}
