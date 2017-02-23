@@ -37,11 +37,10 @@ bonusItems={
 }
 
 
-
 function LootController:ReadConfigration()
 
   self._vHardLevelItemValue={
-	300,225,150
+	285,225,150
   }
   self._itemCost={}
   self._itemCostSort={} --排序版
@@ -60,7 +59,7 @@ function LootController:ReadConfigration()
     if type( v ) == "table" and v.ItemCost and tonumber(v.ItemCost)~=0  and  (v.ItemPurchasable==nil or  (v.ItemPurchasable and v.ItemPurchasable==1) )  then  --必须是有价钱并且能买到的物品
        --print("costom item"..k)
        self._itemCost[k] = v.ItemCost
-       if tonumber(v.ItemCost)>2000 then --2000以下的装备不参与
+       if tonumber(v.ItemCost)>2500 then --2000以下的装备不参与
 	       local sortItem={itemName=k,itemCost=v.ItemCost}
 	       table.insert(self._itemCostSort, sortItem)
        end

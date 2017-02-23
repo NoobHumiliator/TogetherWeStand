@@ -211,7 +211,7 @@ function BehaviorDismember:Think(dt)
 end
 
 --------------------------------------------------------------------------------------------------------
-BehaviorFreeze = {}         ----------------------------------------------------------消失
+BehaviorFreeze = {} 
 
 function BehaviorFreeze:Evaluate()
 	local desire = 1
@@ -236,7 +236,6 @@ function BehaviorFreeze:Begin()
 end
 
 BehaviorFreeze.Continue = BehaviorFreeze.Begin
---------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------
 AICore.possibleBehaviors = { BehaviorNone , BehaviorThrowHook , BehaviorLight_Strike ,BehaviorDismember,BehaviorFreeze}
 

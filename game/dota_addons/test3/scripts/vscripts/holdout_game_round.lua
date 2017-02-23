@@ -424,7 +424,6 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
 		GameRules:GetGameModeEntity():SetFogOfWarDisabled( false )
 		local  wp = Entities:FindByName( nil, "waypoint_tiny1" )
 		local entUnit = CreateUnitByName( "npc_dota_tiny_1", wp:GetOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS)
-		GameRules:SendCustomMessage("#tinycapture_dbm", 0, 0)
 	end	
 	if self._alias=="mammoth"  then
 		QuestSystem:RefreshAchQuest("Achievement",1,1)

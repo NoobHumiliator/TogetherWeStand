@@ -3366,127 +3366,131 @@
 		}
 } 
 
-        "warlock_disappear"
+"warlock_disappear"
 {
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityBehavior"                                "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-        "BaseClass"                                       "ability_datadriven"
-        "AbilityTextureName"                              "invoker_emp"
-        "AbilityCastAnimation"			          "ACT_DOTA_DIE"
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityBehavior"                                "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"BaseClass"                                       "ability_datadriven"
+	"AbilityTextureName"                              "invoker_emp"
+	"AbilityCastAnimation"			                  "ACT_DOTA_DIE"
 
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastPoint"                                "0.0"
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastPoint"                                "0.0"
 
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"                                 "0.0"
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"                                 "0.0"
 
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"                                 "0"
-        "precache"
-         {
-        "particle"          	"particles/units/heroes/hero_clinkz/clinkz_windwalk.vpcf"
-        "particle"          	"particles/units/heroes/hero_warlock/warlock_rain_of_chaos_start.vpcf"
-        "particle"          	"particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant.vpcf"				
-          }
-         
-        "OnSpellStart"
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"                                 "0"
+	"precache"
+	{
+		"particle"          	"particles/units/heroes/hero_clinkz/clinkz_windwalk.vpcf"
+		"particle"          	"particles/units/heroes/hero_warlock/warlock_rain_of_chaos_start.vpcf"
+		"particle"          	"particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant.vpcf"				
+	}
+
+	"OnSpellStart"
+	{
+		"FireSound"
+		{
+			"EffectName"                    "Hero_Clinkz.WindWalk"
+		}
+
+		"ApplyModifier"
+		{
+			"ModifierName"         "modifier_fly_act"
+			"Target"                     "CASTER"
+		}
+		"ApplyModifier"
+		{
+			"ModifierName"                "modifier_phased"
+			"Target"                        "CASTER"
+		}
+		"ApplyModifier"  
+		{
+			"Target"            "CASTER"
+			"ModifierName"      "modifier_fly_particle"
+		}
+		"CreateThinker"
+		{
+			"ModifierName"	"aoe_blast_thinker"
+			"Target"		"CASTER"
+		}
+		"RunScript"
         {
-                "FireSound"
-		{
-		"EffectName"                    "Hero_Clinkz.WindWalk"
-		}
-
-                "ApplyModifier"
-                {
-                        "ModifierName"         "modifier_fly_act"
-                        "Target"                     "CASTER"
-                }
-
-                "ApplyModifier"
-                {
-                        "ModifierName"                "modifier_phased"
-                        "Target"                        "CASTER"
-                }
-                "ApplyModifier"  
-                {
-                "Target"            "CASTER"
-                "ModifierName"      "modifier_fly_particle"
-                }
-                 "CreateThinker"
-		{
-				"ModifierName"	"aoe_blast_thinker"
-				"Target"		"CASTER"
-		}
-                                             
+               "ScriptFile"    "notifications.lua"
+			   "Function"      "BossAbilityDBM"
         }
 
-        "Modifiers"
-        {
-                 "aoe_blast_thinker"
+	}
+
+	"Modifiers"
+	{
+		"aoe_blast_thinker"
+		{
+			"Duration"				"1.7"
+			"ThinkInterval"				"1.5"
+			"OnIntervalThink"
 			{
-				"Duration"				"1.7"
-				"ThinkInterval"				"1.5"
-                                "OnIntervalThink"
+				"RunScript"
 				{
-                                              "RunScript"
-                                                {
-                        "ScriptFile"         "scripts/vscripts/creature_ability/fly.lua"
-                        "Function"           "warlock_disappear"
-                        "Target"                "CASTER"
-                                                }
-                                 }
-                        }
+					"ScriptFile"         "scripts/vscripts/creature_ability/fly.lua"
+					"Function"           "warlock_disappear"
+					"Target"                "CASTER"
+				}
+			}
+		}
 
-              
-                "modifier_fly_act"
-                {
-                        "Duration"                "1.1"
-                        "OverrideAnimation"       "ACT_DOTA_DIE"
-                }
-                "modifier_fly_particle"
-               {
-                 "Duration"				"1.1"
-                 "OnCreated"
+
+		"modifier_fly_act"
+		{
+			"Duration"                "1.1"
+			"OverrideAnimation"       "ACT_DOTA_DIE"
+		}
+		"modifier_fly_particle"
+		{
+			"Duration"				"1.1"
+			"OnCreated"
+			{
+				"AttachEffect"
 				{
-                                            "AttachEffect"
-					{
-						"EffectName"		"particles/units/heroes/hero_clinkz/clinkz_windwalk.vpcf"
-						"EffectAttachType"	"follow_chest"
-						"Target"		"CASTER"
-						
-						"ControlPoints"
-						{
-							"00"		"0 0 0"
-							"01"		"750 0 0"
-							"02"		"0 0 0"
-						}
-					}
-                                         "AttachEffect"
-					{
-						"EffectName"		"particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant.vpcf"
-						"EffectAttachType"	"follow_chest"
-						"Target"		"CASTER"
-						
-						"ControlPoints"
-						{
-							"00"		"0 0 0"
-							"01"		"750 0 0"
-							"02"		"0 0 0"
-						}
-					}
-                                 }        
-               }
+					"EffectName"		"particles/units/heroes/hero_clinkz/clinkz_windwalk.vpcf"
+					"EffectAttachType"	"follow_chest"
+					"Target"		    "CASTER"
 
-           }
+					"ControlPoints"
+					{
+						"00"		"0 0 0"
+						"01"		"750 0 0"
+						"02"		"0 0 0"
+					}
+				}
+				"AttachEffect"
+				{
+					"EffectName"		"particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant.vpcf"
+					"EffectAttachType"	"follow_chest"
+					"Target"		"CASTER"
 
-        "AbilitySpecial"
-        {
-                "01"
-                {
-                        "var_type"        "FIELD_INTEGER"
-                        "radius"                "650"
-                }
-        }
+					"ControlPoints"
+					{
+						"00"		"0 0 0"
+						"01"		"750 0 0"
+						"02"		"0 0 0"
+					}
+				}
+			}        
+		}
+
+	}
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"        "FIELD_INTEGER"
+			"radius"                "650"
+		}
+	}
 } 
 
 
