@@ -4,7 +4,6 @@ require( "util")
 
 function SnowballStart(keys)
     
-    Notifications:BossAbilityDBM("tws_tusk_snowball")
     local ability=keys.ability 
     local caster=keys.caster  --只有土猫能能放这个技能caster 一般是土猫
     local damage_increasement = ability:GetLevelSpecialValueFor("damage_increasement", ability:GetLevel() - 1)

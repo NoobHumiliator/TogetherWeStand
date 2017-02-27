@@ -134,9 +134,6 @@ function BehaviorIce_Armor:Evaluate()
 			TargetIndex = target:entindex(),
 			AbilityIndex = self.icearmorAbility:entindex()
 		}
-	    if thisEntity:IsAlive() then
-		  Notifications:BossAbilityDBM("lich_creature_frost_armor")
-		end
 	else
 		desire = 1
 	end

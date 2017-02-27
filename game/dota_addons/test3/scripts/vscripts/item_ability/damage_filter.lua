@@ -61,6 +61,18 @@ function CHoldoutGameMode:DamageFilter(damageTable)
                damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
                ApplyDamage(damage_table)
           end
+
+          if victim and victim:HasModifier("modifier_nxy_spike") then  --处理小强的尖刺
+               local damage_table = {}
+               damage_table.attacker = victim
+               damage_table.victim = attacker
+               damage_table.damage_type = DAMAGE_TYPE_PURE
+               damage_table.ability = victim:FindAbilityByName("nyx_boss_spike")
+               damage_table.damage = damageTable.damage
+               damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
+               ApplyDamage(damage_table)
+          end
+
           if victim and victim:HasModifier("modifier_share_damage_passive") then  --处理伤害共享技能
               local allies = FindUnitsInRadius(DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
               for _,ally in pairs(allies) do  --共享伤害 不再伤害本体 

@@ -14,7 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
-testMode=true --减少刷兵间隔，增加初始金钱
+--testMode=true --减少刷兵间隔，增加初始金钱
 
 
 
@@ -32,6 +32,7 @@ require( "item_ability/damage_filter")
 require( "quest_system")
 require( "vip/extra_particles")
 require( "server/rank")
+require( "server/detail")
 
 -- Precache resources
 -- Actually make the game mode when we activate
@@ -373,6 +374,7 @@ function CHoldoutGameMode:_RefreshPlayers()
 			      PlayerResource:SetCustomBuybackCooldown(nPlayerID,0)
                   hero:RemoveModifierByName("modifier_fire_twin_debuff")
                   hero:RemoveModifierByName("modifier_dark_twin_debuff")
+                  hero:RemoveModifierByName("modifier_charge_dot")
                   hero:RemoveModifierByName("modifier_suffocating_bubble")
 			      hero:RemoveModifierByName("modifier_overflow_show")
 			      hero:RemoveModifierByName("modifier_silence_permenant")
@@ -423,18 +425,22 @@ function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正
 		self.loseflag=self.loseflag+1
 	end
 	if self.loseflag>6 then
-		self.last_live=self.last_live-1
+		 self.last_live=self.last_live-1
+		 table.insert(vFailedRound, self._nRoundNumber) --记录下折在第几关了
 		 if self.last_live==0 then
+		 	 if self._nRoundNumber > 2 then  --如果通过了条件，记录细节
+                 Detail:RecordDetail(self._nRoundNumber-1,self.map_difficulty) 
+	         end
 		 	 if self.map_difficulty==3 and not GameRules:IsCheatMode()then 
 			   Rank:RecordGame(self._nRoundNumber-1,DOTA_TEAM_GOODGUYS) --储存并结束游戏
 			   return
 			 else
-			   GameRules:MakeTeamLose( DOTA_TEAM_GOODGUYS )
+               GameRules:MakeTeamLose(DOTA_TEAM_GOODGUYS)
 			   return
 			 end
 	     elseif self.last_live<0 then
 	         return
-	     else   
+	     else
 	       	 Notifications:BottomToAll( {text="#round_fail", duration=3, style={color="Fuchsia"}})
              Notifications:BottomToAll( {text=tostring(self.last_live), duration=3, style={color="Red"}, continue=true})
              Notifications:BottomToAll( {text="#chance_left", duration=3, style={color="Fuchsia"}, continue=true})
@@ -467,10 +473,10 @@ function CHoldoutGameMode:_ThinkPrepTime()
         end
 		if self._nRoundNumber > #self._vRounds then
 			 if self.map_difficulty==3 and not GameRules:IsCheatMode()then 
-			   Rank:RecordGame(self._nRoundNumber-1,DOTA_TEAM_BADGUYS) --储存游戏game
+			   Rank:RecordGame(self._nRoundNumber-1,DOTA_TEAM_BADGUYS) --储存游戏成绩
 			   return false
 			 else
-			   GameRules:MakeTeamLose( DOTA_TEAM_BADGUYS ) --作弊或者难度不对，直接结束比赛
+               GameRules:MakeTeamLose(DOTA_TEAM_BADGUYS)
 			   return false
 			 end
 		end
@@ -740,8 +746,11 @@ function CHoldoutGameMode:RoundEnd()
 	self:_RefreshPlayers()
 	self._nRoundNumber = self._nRoundNumber + 1
 	if self._nRoundNumber > #self._vRounds then
+        if self._nRoundNumber > 2 then  --如果通过了条件，记录细节
+           Detail:RecordDetail(self._nRoundNumber-1,self.map_difficulty) 
+	    end
 		if self.map_difficulty==3 and not GameRules:IsCheatMode()then 
-		   Rank:RecordGame(self._nRoundNumber-1,DOTA_TEAM_BADGUYS) --储存游戏
+		   Rank:RecordGame(self._nRoundNumber-1,DOTA_TEAM_BADGUYS) --储存游戏	  
 		   return false
 		 else
 		   GameRules:MakeTeamLose( DOTA_TEAM_BADGUYS ) --作弊或者难度不对，直接结束比赛

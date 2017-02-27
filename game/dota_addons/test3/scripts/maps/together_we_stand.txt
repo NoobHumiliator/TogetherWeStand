@@ -4106,7 +4106,6 @@
 		"BagCount"					"40"
 		"BagVariance"				"100"
 		"FixedXP"					"70000"
-		"PointReward"				"236"
 		"alias"                     "alchemist"
 
 		"Unit1"
@@ -4138,7 +4137,7 @@
 	"Round21"
 	{
 		//"round_quest_title"			"#TWS_Round_Skywrath_Quest_Title"
-		"round_title"				"#DOTA_Holdout_Round_Tidehunter"
+		"round_title"				"#DOTA_Holdout_Round_Tidehunter_Title"
 		"MaxGold"					"0" //600g from gold fountain ability
 		"BagCount"					"0"
 		"BagVariance"			    "0"
@@ -4152,4 +4151,38 @@
 			"SpawnerName"			"spawner4"
 		}		
 	}
+	"Round22"
+	{
+		"round_title"				"#DOTA_Holdout_Round_Nyx_Title"
+		"MaxGold"					"16000"
+		"BagCount"					"40"
+		"BagVariance"				"75"
+		"FixedXP"					"7000"
+		"alias"                     "nxy"
+		"Unit1"
+		{
+			"NPCName"				"npc_dota_creature_nyx_assassin"
+			"TotalUnitsToSpawn"		"6"
+			"UnitsPerSpawn"			"1"
+			"CreatureLevel"			"3"
+			"SpawnInterval"			"18"
+		}
+		"Unit2"
+		{
+			"NPCName"				"npc_dota_creature_nyx_assassin"
+			"TotalUnitsToSpawn"		"6"
+			"UnitsPerSpawn"			"1"
+			"CreatureLevel"			"3"
+			"SpawnInterval"			"14"
+		}
+		"Unit3"
+		{
+			"NPCName"				"npc_dota_creature_nyx_assassin"
+			"TotalUnitsToSpawn"		"6"
+			"UnitsPerSpawn"			"1"
+			"CreatureLevel"			"3"
+			"SpawnInterval"			"10"
+		}
+    }
+
 }

@@ -221,6 +221,11 @@ function CHoldoutGameRound:End()
 	end
 	self._vEventHandles = {}
 
+    for i=0,self.Palyer_Number-1 do  --统计伤害 放在这 可以统计到失败的关卡的伤害
+		vTotalDamageTable[i]=vTotalDamageTable[i]+self._vPlayerStats[i].nTotalDamage
+		vTotalHealTable[i]=vTotalHealTable[i]+self._vPlayerStats[i].nTotalHeal
+	end
+
 	for _,unit in pairs( FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector( 0, 0, 0 ), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )) do
 		if unit:IsAlive() then 
 			if unit:GetUnitName()==("npc_dota_boss_rattletrap") then
@@ -486,6 +491,13 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
 		else
 			PrecacheUnitByNameAsync('npc_dota_hero_alchemist', function() end)
 			alreadyCached["npc_dota_hero_alchemist"]=true
+		end
+	end
+    if self._alias=="nxy" then
+		if alreadyCached["npc_dota_hero_nyx_assassin"] ==true then
+		else
+			PrecacheUnitByNameAsync('npc_dota_hero_nyx_assassin', function() end)
+			alreadyCached["npc_dota_hero_nyx_assassin"]=true
 		end
 	end
 end

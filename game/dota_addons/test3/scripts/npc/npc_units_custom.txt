@@ -12832,4 +12832,117 @@
 			
 		}
 	}
+
+	"npc_dota_creature_nyx_assassin"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/nerubian_assassin/nerubian_assassin.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"1"
+		"ModelScale" 				"1.4"
+		"IsNeutralUnitType"			"1"
+		"ConsideredHero"			"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"creature_nyx_assassin_impale"
+		"Ability2"					"creature_nyx_spike"
+		"Ability3"					"creature_nyx_assassin_invisible"
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"3"
+		"MagicalResistance"			"15"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"4500"
+		"AttackDamageMax"			"5300"
+		"AttackRate"				"1.15"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"168"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"220"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"76"
+		"BountyGoldMax"				"88"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"380"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"180000"
+		"StatusHealthRegen"			"1"
+		"StatusMana"				"6000"
+		"StatusManaRegen"			"50.0"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"2000"
+		"VisionNighttimeRange"		"2000"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"vscripts"					"creature_ai/nyx_assassin.lua"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{	
+			//Basic AI State
+			//-----------------------------------------------------------------
+			"DefaultState"			"Invade"
+
+			//Level Up Parameters
+			//-----------------------------------------------------------------
+			"HPGain"					"75"
+			"DamageGain"				"5"
+			"ArmorGain"					"0.25"
+			"MagicResistGain"			"0.1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"13"
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"8005" // weapon: Latticean Shards
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"196" // back: default
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"197" // head: default
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"578" // misc: default
+				}
+			}
+		}
+	}
 }  //主括号
