@@ -2904,7 +2904,7 @@
 		"AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName" 		    "item_summon_crown_1"
 
-		"MaxUpgradeLevel"				"5"
+		"MaxUpgradeLevel"				"6"
 		"ItemBaseLevel"					"1"
 		"ItemCost"					    "500"
 		"ItemQuality"					"common"
@@ -2941,32 +2941,32 @@
 			"05"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_bonus_per_str"		"0.02 0.025 0.03 0.035 0.04"		
+				"hp_bonus_per_str"		"0.02 0.024 0.028 0.032 0.036 0.04"		
 			}
 			"06"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"damage_bonus_per_int"	"0.02 0.03 0.04 0.05 0.06"
+				"damage_bonus_per_int"	"0.03 0.036 0.042 0.48 0.054 0.06"
 			}
 			"07"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"speed_bonus_per_agi"   "0.2 0.3 0.4 0.5 0.6"
+				"speed_bonus_per_agi"   "0.1 0.2 0.3 0.4 0.5 0.6"
 			}
 			"08"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"armor_bonus_per_agi"	"0.2 0.28 0.36 0.41 0.46"
+				"armor_bonus_per_agi"	"0.2 0.24 0.28 0.32 0.36 0.4"
 			}
 			"09"
 			{
 				"var_type"			            "FIELD_FLOAT"
-				"hp_bonus_per_str_tooltip"		"2 2.5 3 3.5 4"		
+				"hp_bonus_per_str_tooltip"		"2 2.4 2.8 3.2 3.6 4"		
 			}
 			"10"
 			{
 				"var_type"			            "FIELD_FLOAT"
-				"damage_bonus_per_int_tooltip"  "2 3 4 5 6"
+				"damage_bonus_per_int_tooltip"  "3 3.6 4.2 4.8 5.4 6"
 			}
 		}
 		"Modifiers"
@@ -3017,7 +3017,7 @@
 		"AbilityBehavior"              "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName" 		    "item_summon_crown_2"
 
-		"MaxUpgradeLevel"				"5"
+		"MaxUpgradeLevel"				"6"
 		"ItemBaseLevel"					"2"
 		"ItemCost"					    "1850"
 		"ItemQuality"					"rare"
@@ -3054,32 +3054,32 @@
 			"05"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_bonus_per_str"		"0.02 0.025 0.03 0.035 0.04"		
+				"hp_bonus_per_str"		"0.02 0.024 0.028 0.032 0.036 0.04"		
 			}
 			"06"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"damage_bonus_per_int"	"0.02 0.03 0.04 0.05 0.06"
+				"damage_bonus_per_int"	"0.03 0.036 0.042 0.48 0.054 0.06"
 			}
 			"07"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"speed_bonus_per_agi"   "0.2 0.3 0.4 0.5 0.6"
+				"speed_bonus_per_agi"   "0.1 0.2 0.3 0.4 0.5 0.6"
 			}
 			"08"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"armor_bonus_per_agi"	"0.2 0.28 0.36 0.41 0.46"
+				"armor_bonus_per_agi"	"0.2 0.24 0.28 0.32 0.36 0.4"
 			}
 			"09"
 			{
 				"var_type"			            "FIELD_FLOAT"
-				"hp_bonus_per_str_tooltip"		"2 2.5 3 3.5 4"		
+				"hp_bonus_per_str_tooltip"		"2 2.4 2.8 3.2 3.6 4"		
 			}
 			"10"
 			{
 				"var_type"			            "FIELD_FLOAT"
-				"damage_bonus_per_int_tooltip"  "2 3 4 5 6"
+				"damage_bonus_per_int_tooltip"  "3 3.6 4.2 4.8 5.4 6"
 			}
 		}
 		"Modifiers"
@@ -3130,9 +3130,9 @@
 		"AbilityBehavior"              "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName" 		    "item_summon_crown_3"
 
-		"MaxUpgradeLevel"				"5"
+		"MaxUpgradeLevel"				"6"
 		"ItemBaseLevel"					"3"
-		"ItemCost"					    "5700"
+		"ItemCost"					    "7800"
 		"ItemQuality"					"epic"
 		"ItemShareability"			    "ITEM_NOT_SHAREABLE"
 		"ItemDeclarations"			    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -3167,32 +3167,32 @@
 			"05"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_bonus_per_str"		"0.02 0.025 0.03 0.035 0.04"		
+				"hp_bonus_per_str"		"0.02 0.024 0.028 0.032 0.036 0.04"		
 			}
 			"06"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"damage_bonus_per_int"	"0.02 0.03 0.04 0.05 0.06"
+				"damage_bonus_per_int"	"0.03 0.036 0.042 0.48 0.054 0.06"
 			}
 			"07"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"speed_bonus_per_agi"   "0.2 0.3 0.4 0.5 0.6"
+				"speed_bonus_per_agi"   "0.1 0.2 0.3 0.4 0.5 0.6"
 			}
 			"08"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"armor_bonus_per_agi"	"0.2 0.28 0.36 0.41 0.46"
+				"armor_bonus_per_agi"	"0.2 0.24 0.28 0.32 0.36 0.4"
 			}
 			"09"
 			{
 				"var_type"			            "FIELD_FLOAT"
-				"hp_bonus_per_str_tooltip"		"2 2.5 3 3.5 4"		
+				"hp_bonus_per_str_tooltip"		"2 2.4 2.8 3.2 3.6 4"		
 			}
 			"10"
 			{
 				"var_type"			            "FIELD_FLOAT"
-				"damage_bonus_per_int_tooltip"  "2 3 4 5 6"
+				"damage_bonus_per_int_tooltip"  "3 3.6 4.2 4.8 5.4 6"
 			}
 		}
 		"Modifiers"
@@ -3232,7 +3232,7 @@
 		"ItemResult"					"item_summon_crown_3"
 		"ItemRequirements"
 		{
-			"01"						"item_summon_crown_2;item_necronomicon_2"
+			"01"						"item_summon_crown_2;item_necronomicon_2;item_ultimate_orb"
 		}
     }
     "item_summon_crown_4"
@@ -3243,9 +3243,9 @@
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName" 		    "item_summon_crown_4"
 
-		"MaxUpgradeLevel"				"5"
+		"MaxUpgradeLevel"				"6"
 		"ItemBaseLevel"					"4"
-		"ItemCost"					    "16450"
+		"ItemCost"					    "26025"
 		"ItemQuality"					"epic"
 		"ItemShareability"			    "ITEM_NOT_SHAREABLE"
 		"ItemDeclarations"			    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -3280,32 +3280,32 @@
 			"05"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_bonus_per_str"		"0.02 0.025 0.03 0.035 0.04"		
+				"hp_bonus_per_str"		"0.02 0.024 0.028 0.032 0.036 0.04"			
 			}
 			"06"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"damage_bonus_per_int"	"0.02 0.03 0.04 0.05 0.06"
+				"damage_bonus_per_int"	"0.03 0.036 0.042 0.48 0.054 0.06"
 			}
 			"07"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"speed_bonus_per_agi"   "0.2 0.3 0.4 0.5 0.6"
+				"speed_bonus_per_agi"   "0.1 0.2 0.3 0.4 0.5 0.6"
 			}
 			"08"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"armor_bonus_per_agi"	"0.2 0.28 0.36 0.41 0.46"
+				"armor_bonus_per_agi"	"0.2 0.24 0.28 0.32 0.36 0.4"
 			}
 			"09"
 			{
 				"var_type"			            "FIELD_FLOAT"
-				"hp_bonus_per_str_tooltip"		"2 2.5 3 3.5 4"		
+				"hp_bonus_per_str_tooltip"		"2 2.4 2.8 3.2 3.6 4"	
 			}
 			"10"
 			{
 				"var_type"			            "FIELD_FLOAT"
-				"damage_bonus_per_int_tooltip"  "2 3 4 5 6"
+				"damage_bonus_per_int_tooltip"  "3 3.6 4.2 4.8 5.4 6"
 			}
 		}
 		"Modifiers"
@@ -3345,7 +3345,7 @@
 		"ItemResult"					"item_summon_crown_4"
 		"ItemRequirements"
 		{
-			"01"						"item_summon_crown_3;item_summon_crown_3;item_necronomicon_3"
+			"01"						"item_summon_crown_3;item_necronomicon_3;item_ultimate_orb_2;item_skadi"
 		}
     }
     "item_summon_crown_5"
@@ -3356,9 +3356,9 @@
 		"AbilityBehavior"              "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName" 		    "item_summon_crown_5"
 
-		"MaxUpgradeLevel"				"5"
+		"MaxUpgradeLevel"				"6"
 		"ItemBaseLevel"					"5"
-		"ItemCost"					    "32525"
+		"ItemCost"					    "66275"
 		"ItemQuality"					"artifact"
 		"ItemShareability"			    "ITEM_NOT_SHAREABLE"
 		"ItemDeclarations"			    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -3393,22 +3393,22 @@
 			"05"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_bonus_per_str"		"0.02 0.025 0.03 0.035 0.04"		
+				"hp_bonus_per_str"		"0.02 0.024 0.028 0.032 0.036 0.04"			
 			}
 			"06"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"damage_bonus_per_int"	"0.02 0.03 0.04 0.05 0.06"
+				"damage_bonus_per_int"	"0.03 0.036 0.042 0.48 0.054 0.06"
 			}
 			"07"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"speed_bonus_per_agi"   "0.2 0.3 0.4 0.5 0.6"
+				"speed_bonus_per_agi"   "0.1 0.2 0.3 0.4 0.5 0.6"
 			}
 			"08"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"armor_bonus_per_agi"	"0.2 0.28 0.36 0.41 0.46"
+				"armor_bonus_per_agi"	"0.2 0.24 0.28 0.32 0.36 0.4"
 			}
 			"09"
 			{
@@ -3425,20 +3425,20 @@
 				"var_type"			    "FIELD_FLOAT"
 				"bonus_damage"	        "30"
 			}
-			"11"
+			"12"
 			{
 				"var_type"			    "FIELD_FLOAT"
 				"bonus_attack_speed"	"30"
 			}        
-			"12"
-			{
-				"var_type"			            "FIELD_FLOAT"
-				"hp_bonus_per_str_tooltip"		"2 2.5 3 3.5 4"		
-			}
 			"13"
 			{
 				"var_type"			            "FIELD_FLOAT"
-				"damage_bonus_per_int_tooltip"  "2 3 4 5 6"
+				"hp_bonus_per_str_tooltip"		"2 2.4 2.8 3.2 3.6 4"		
+			}
+			"14"
+			{
+				"var_type"			            "FIELD_FLOAT"
+				"damage_bonus_per_int_tooltip"  "3 3.6 4.2 4.8 5.4 6"
 			}
 		}
 		"Modifiers"
@@ -3482,9 +3482,150 @@
 		"ItemResult"					"item_summon_crown_5"
 		"ItemRequirements"
 		{
-			"01"						"item_summon_crown_4;item_heart;item_butterfly;item_shivas_guard"
+			"01"						"item_summon_crown_4;item_heart_2;item_butterfly_2;"
 		}
 	}
+
+
+    "item_summon_crown_6"
+	{
+
+		"ID"							"16193"
+		"BaseClass"				     	"item_datadriven"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 		    "item_summon_crown_6"
+
+		"MaxUpgradeLevel"				"6"
+		"ItemBaseLevel"					"6"
+		"ItemCost"					    "190275"
+		"ItemQuality"					"common"
+		"ItemShareability"			"ITEM_NOT_SHAREABLE"
+		"ItemDeclarations"			"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		"precache"
+		{
+			"particle" "particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_int"	                    "245"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_mana_regen"	            "15"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_agi"	                    "215"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_str"	                    "195"
+			}
+			"05"
+			{
+				"var_type"			    "FIELD_FLOAT"
+				"hp_bonus_per_str"		"0.02 0.024 0.028 0.032 0.036 0.04"			
+			}
+			"06"
+			{
+				"var_type"			    "FIELD_FLOAT"
+				"damage_bonus_per_int"	"0.03 0.036 0.042 0.48 0.054 0.06"
+			}
+			"07"
+			{
+				"var_type"			    "FIELD_FLOAT"
+				"speed_bonus_per_agi"   "0.1 0.2 0.3 0.4 0.5 0.6"
+			}
+			"08"
+			{
+				"var_type"			    "FIELD_FLOAT"
+				"armor_bonus_per_agi"	"0.2 0.24 0.28 0.32 0.36 0.4"
+			}
+			"09"
+			{
+				"var_type"			    "FIELD_FLOAT"
+				"bonus_health"	        "300"
+			}
+			"10"
+			{
+				"var_type"			    "FIELD_FLOAT"
+				"bonus_armor"	        "15"
+			}
+			"11"
+			{
+				"var_type"			    "FIELD_FLOAT"
+				"bonus_damage"	        "30"
+			}
+			"12"
+			{
+				"var_type"			    "FIELD_FLOAT"
+				"bonus_attack_speed"	"30"
+			}        
+			"13"
+			{
+				"var_type"			            "FIELD_FLOAT"
+				"hp_bonus_per_str_tooltip"		"2 2.4 2.8 3.2 3.6 4"		
+			}
+			"14"
+			{
+				"var_type"			            "FIELD_FLOAT"
+				"damage_bonus_per_int_tooltip"  "3 3.6 4.2 4.8 5.4 6"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_crown_6_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_str"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_agi"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"  "%bonus_armor"  
+				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"			"%bonus_damage"
+				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"  	    
+				}
+			}
+		}
+	}
+	"item_recipe_summon_crown_6"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"16196"
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"BaseClass"						"item_datadriven"
+        "AbilityTextureName" 			"item_summon_crown_1"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_summon_crown_6"
+		"ItemRequirements"
+		{
+			"01"						"item_summon_crown_5;item_ultimate_orb_2;item_ultimate_orb_3;"
+		}
+    }
+
+
 
 	"item_small_purple_potion"
 	{
@@ -5298,4 +5439,6 @@
 			"01"						"item_ultimate_orb_4;item_ultimate_orb_4;item_ultimate_orb_4;item_ultimate_orb_4"
 		}
 	}
+    
+
 } //主函数
