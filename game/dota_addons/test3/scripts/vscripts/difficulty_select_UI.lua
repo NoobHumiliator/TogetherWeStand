@@ -70,8 +70,8 @@ function CHoldoutGameMode:SetBaseDifficulty()  --设定四种基本难度
 			self:AddHeroDifficultyModifier()
 			elseif max == difficulty.easy then
 				self.map_difficulty=1
-			    self.flDDadjust=0.5
-	            self.flDHPadjust=0.7 
+			    self.flDDadjust=0.55
+	            self.flDHPadjust=0.75
 			    CustomGameEventManager:Send_ServerToAllClients("AnnounceDifficulty",{difficulty="easy"})
 			    self:AddHeroDifficultyModifier()
 				  elseif max == difficulty.trial then

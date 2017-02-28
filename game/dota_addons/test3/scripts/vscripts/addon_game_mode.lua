@@ -428,7 +428,7 @@ function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正
 		 self.last_live=self.last_live-1
 		 table.insert(vFailedRound, self._nRoundNumber) --记录下折在第几关了
 		 if self.last_live==0 then
-		 	 if self._nRoundNumber > 2 then  --如果通过了条件，记录细节
+		 	 if self._nRoundNumber > 2 and not GameRules:IsCheatMode() then  --如果通过了条件，记录细节
                  Detail:RecordDetail(self._nRoundNumber-1,self.map_difficulty) 
 	         end
 		 	 if self.map_difficulty==3 and not GameRules:IsCheatMode()then 
@@ -746,7 +746,7 @@ function CHoldoutGameMode:RoundEnd()
 	self:_RefreshPlayers()
 	self._nRoundNumber = self._nRoundNumber + 1
 	if self._nRoundNumber > #self._vRounds then
-        if self._nRoundNumber > 2 then  --如果通过了条件，记录细节
+        if self._nRoundNumber > 2 and not GameRules:IsCheatMode() then  --如果通过了条件，记录细节
            Detail:RecordDetail(self._nRoundNumber-1,self.map_difficulty) 
 	    end
 		if self.map_difficulty==3 and not GameRules:IsCheatMode()then 

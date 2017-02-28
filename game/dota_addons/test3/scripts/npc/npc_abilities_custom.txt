@@ -21522,6 +21522,20 @@
         }
         "Modifiers"
         {
+            "modifier_true_sight_1"
+		    {
+		           "Passive"            "1"
+		           "IsHidden"           "1"
+		           "OnCreated"
+		         {
+		           "ApplyModifier"
+		            {
+		                 "ModifierName"	"modifier_tower_truesight_aura"
+		                 "Target" 		"CASTER"
+		            }
+		        }		    
+		    }
+
         	"modifier_suffocating_bubble"
         	{
         		"IsDebuff"		"1"
@@ -21590,6 +21604,19 @@
 		}
 		"Modifiers"
 		{
+            "modifier_true_sight_1"
+		    {
+		           "Passive"            "1"
+		           "IsHidden"           "1"
+		           "OnCreated"
+		         {
+		           "ApplyModifier"
+		            {
+		                 "ModifierName"	"modifier_tower_truesight_aura"
+		                 "Target" 		"CASTER"
+		            }
+		        }		    
+		    }		    
 			"modifier_nxy_spike_permanent"
 			{
 				"Passive"			"1"
