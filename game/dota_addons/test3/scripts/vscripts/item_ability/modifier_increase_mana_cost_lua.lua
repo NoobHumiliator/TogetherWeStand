@@ -5,7 +5,7 @@ modifier_increase_mana_cost_lua = class({})
 
 function modifier_increase_mana_cost_lua:DeclareFunctions()
 	local funcs = {
-		MODIFIER_EVENT_ON_MANA_GAINED,
+		--MODIFIER_EVENT_ON_MANA_GAINED,
 		MODIFIER_PROPERTY_MANACOST_PERCENTAGE,
 	}
 	return funcs
@@ -13,7 +13,7 @@ end
 
 function modifier_increase_mana_cost_lua:OnCreated( kv )
     if IsServer() then
-	    self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_rune_arcane",{})
+	    --self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_rune_arcane",{})
 	    --print(self:GetCaster():FindModifierByName("modifier_rune_arcane"):GetClass())
 	    if  self:GetCaster().sp==nil then
 			self.percentageManacost=100
@@ -29,7 +29,7 @@ function modifier_increase_mana_cost_lua:AllowIllusionDuplicate()
 end
 
 
-
+--[[
 
 function modifier_increase_mana_cost_lua:OnRefresh( kv )
 	if  self:GetCaster().sp==nil then
@@ -54,9 +54,10 @@ function modifier_increase_mana_cost_lua:OnManaGained( params )
 	    end
     end
 end
+]]
 -----------------------------------------------------------------------------------
 function modifier_increase_mana_cost_lua:GetModifierPercentageManacost()
-	print("hahahahahahahahah")
+	return -100
 end
 -----------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------

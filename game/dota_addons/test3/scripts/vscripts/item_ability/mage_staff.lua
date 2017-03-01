@@ -22,6 +22,8 @@ function ApplySpValue( keys )
     else
       print(caster:GetUnitName().. "'sp: nil")
     end
+
+    --caster:AddNewModifier( caster, self, "modifier_increase_mana_cost_lua", {} )
 end
 
 

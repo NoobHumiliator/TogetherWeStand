@@ -1963,7 +1963,7 @@
 "item_recipe_mage_staff_1"
 {
 		
-		"ID"							"16019"					
+		"ID"							"16022"					
 		"BaseClass"						"item_recipe_arcane_boots"						
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		
@@ -1986,7 +1986,7 @@
 "item_mage_staff_1"
  {
 
-  "ID"							"16020"
+  "ID"							"16024"
   "BaseClass"					"item_datadriven"
   "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "AbilityTextureName" 		    "item_mage_staff_1"
@@ -2044,7 +2044,7 @@
 "item_recipe_mage_staff_2"
 {
 		
-		"ID"							"16024"			
+		"ID"							"16026"			
 		"BaseClass"						"item_recipe_arcane_boots"								
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		
@@ -2066,7 +2066,7 @@
  "item_mage_staff_2"
  {
 
-  "ID"							"16025"
+  "ID"							"16028"
   "BaseClass"					"item_datadriven"
   "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "AbilityTextureName" 		    "item_mage_staff_2"
@@ -2132,7 +2132,7 @@
 "item_recipe_mage_staff_3"
 {
 		
-		"ID"							"16029"		
+		"ID"							"16030"		
 		"BaseClass"						"item_recipe_arcane_boots"									
 		"Model"							"models/props_gameplay/recipe.vmdl"
 
@@ -2159,7 +2159,7 @@
    "item_mage_staff_3"
  {
 
-  "ID"							"16030"
+  "ID"							"16032"
   "BaseClass"					"item_datadriven"
   "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
   "AbilityTextureName" 		    "item_mage_staff_3"
@@ -2187,11 +2187,6 @@
 		    {
 			"var_type"						"FIELD_INTEGER"
 			"bonus_mana_regen"	            "50"
-		    }
-		    "03"
-		    {
-			"var_type"						"FIELD_INTEGER"
-			"manacost_percentage"	        "120"
 		    }
 	    }
   "Modifiers"
@@ -2221,7 +2216,6 @@
 		   {
 		      "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
 		      "MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
-		      "MODIFIER_PROPERTY_MANACOST_PERCENTAGE"   "%manacost_percentage"
 		   }
 		}
    }
@@ -2294,12 +2288,6 @@
 			"var_type"						"FIELD_INTEGER"
 			"bonus_str"	                    "10"
 		    }
-		    "05"
-		    {
-			"var_type"						"FIELD_INTEGER"
-			"manacost_percentage"	        "160"
-		    }
-
 	    }
   "Modifiers"
 	{
@@ -2330,7 +2318,6 @@
 		      "MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
 		      "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
 		      "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"
-		       "MODIFIER_PROPERTY_MANACOST_PERCENTAGE"   "%manacost_percentage"
 		   }
 		}
    }
@@ -2413,11 +2400,6 @@
 			"var_type"						"FIELD_INTEGER"
 			"bonus_damage"	                 "80"
 		    }
-		    "07"
-		    {
-			"var_type"						"FIELD_INTEGER"
-			"manacost_percentage"	         "240"
-		    }
 	    }
   "Modifiers"
 	{
@@ -2450,8 +2432,7 @@
 		      "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
 		      "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"
 		      "MODIFIER_PROPERTY_HEALTH_BONUS"		    "%bonus_health"
-		      "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage"
-		      "MODIFIER_PROPERTY_MANACOST_PERCENTAGE"   "%manacost_percentage"	    
+		      "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage"    
 		   }
 		}
    }
