@@ -4912,11 +4912,6 @@
 				"var_type"						"FIELD_INTEGER"
 				"bonus_damage"	                 "160"
 			}
-			"07"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"manacost_percentage"	         "240"
-			}
 		}
 		"Modifiers"
 		{
@@ -4949,8 +4944,7 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"		    "%bonus_health"
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage"
-					"MODIFIER_PROPERTY_MANACOST_PERCENTAGE"   "%manacost_percentage"	    
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage"    
 				}
 			}
 		}

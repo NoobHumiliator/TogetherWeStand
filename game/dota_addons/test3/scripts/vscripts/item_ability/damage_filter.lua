@@ -146,13 +146,13 @@ function CHoldoutGameMode:OrderFilter(orderTable)
   local caster = EntIndexToHScript(orderTable.units["0"])
   if orderTable.entindex_ability ~=0 and orderTable.entindex_ability ~=-1  and  orderTable.order_type~=11 then  --order_type=11 为技能升级指令
       local ability=EntIndexToHScript(orderTable.entindex_ability)
-      if  ability  and  ability.IsInAbilityPhase  and  caster.sp~=nil  and  not ability:IsInAbilityPhase()  and  not ability:IsInAbilityPhase()  and  not ability: IsChanneling()   then  -- 有法强
+      if  ability  and  ability.IsInAbilityPhase  and  caster.sp~=nil  and  not ability:IsInAbilityPhase()  and  not ability: IsChanneling()   then  -- 有法强
           local current_mana=caster:GetMana()
           local mana_cost=ability:GetManaCost(-1) --获取技能耗蓝
-          caster:SpendMana(mana_cost*(1+caster.sp*0.4*caster:GetIntellect()/100),nil)
+          caster:SpendMana(mana_cost*(1+caster.sp*0.25*caster:GetIntellect()/100),nil)
           if caster:GetMana()< mana_cost then  --如果扣完蓝不够了
               Timers:CreateTimer({
-                      endTime = 0.005,  --再把蓝退回回去
+                      endTime = 0.0001,  --再把蓝退回回去
                         callback = function()
                         caster:SetMana(current_mana)
                       end})

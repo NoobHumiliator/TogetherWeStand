@@ -14546,7 +14546,7 @@
 	    	"05"
     		{
  		    	"var_type"			    "FIELD_INTEGER"
-		        "restore_chance_real"	"33"
+		        "restore_chance_real"	"40"
 	    	}
 		}
 
