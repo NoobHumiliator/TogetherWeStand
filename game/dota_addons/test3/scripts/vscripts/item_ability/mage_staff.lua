@@ -2,20 +2,28 @@ LinkLuaModifier( "modifier_increase_mana_cost_lua","item_ability/modifier_increa
 
 function ApplySpValue( keys )
     local caster = keys.caster
+    local ability= keys.ability
     if caster:HasModifier("modifier_mage_staff_6_datadriven") then
       caster.sp=2.0
+      caster.manaCostIns=0.5
     elseif caster:HasModifier("modifier_mage_staff_5_datadriven") then
       caster.sp=1.8
+      caster.manaCostIns=0.4
       elseif caster:HasModifier("modifier_mage_staff_4_datadriven") then
-        caster.sp=1.6
+         caster.sp=1.6
+         caster.manaCostIns=0.3
         elseif caster:HasModifier("modifier_mage_staff_3_datadriven") then
-           caster.sp=1.3
+             caster.sp=1.3
+             caster.manaCostIns=0.2
            elseif caster:HasModifier("modifier_mage_staff_2_datadriven") then 
-             caster.sp=1.0
+               caster.sp=1.0
+               caster.manaCostIns=0.1
              elseif caster:HasModifier("modifier_mage_staff_1_datadriven") then
                caster.sp=0.6
+               caster.manaCostIns=0 
               else
-               caster.sp=nil   
+                caster.sp=nil
+                caster.manaCostIns=nil
     end
     if caster.sp~=nil then
       print(caster:GetUnitName().. "'sp: " ..caster.sp)
@@ -31,20 +39,27 @@ end
 function RemoveSpValue( keys )
     local caster = keys.caster
     if caster:HasModifier("modifier_mage_staff_6_datadriven") then
-      caster.sp=2.0
+       caster.sp=2.0
+       caster.manaCostIns=0.5
     elseif caster:HasModifier("modifier_mage_staff_5_datadriven") then
-      caster.sp=1.8
+       caster.sp=1.8
+       caster.manaCostIns=0.4
       elseif caster:HasModifier("modifier_mage_staff_4_datadriven") then
-        caster.sp=1.6
+         caster.sp=1.6
+         caster.manaCostIns=0.3
         elseif caster:HasModifier("modifier_mage_staff_3_datadriven") then
-           caster.sp=1.3
+            caster.sp=1.3
+            caster.manaCostIns=0.2
            elseif caster:HasModifier("modifier_mage_staff_2_datadriven") then 
-       	     caster.sp=1.0
+       	      caster.sp=1.0
+              caster.manaCostIns=0.1
              elseif caster:HasModifier("modifier_mage_staff_1_datadriven") then
                caster.sp=0.6
+               caster.manaCostIns=0 
               else
-               caster.sp=nil   
-    end
+               caster.sp=nil
+               caster.manaCostIns=nil 
+    end            
     if caster.sp~=nil then
       print(caster:GetUnitName().. "'sp: " ..caster.sp)
     else

@@ -26,7 +26,16 @@ function RestoreMana( keys )
 		local essence_fx = ParticleManager:CreateParticle(essence_particle, PATTACH_ABSORIGIN_FOLLOW, target)
 		target:EmitSound("essence_sound")
 	end
-	if cast_ability and cast_ability:GetAbilityName()=="obsidian_destroyer_arcane_orb"  then
+
+    local checkFlag=true  --高法强降低奥法天球触发率
+
+    if target.sp~=nil then
+       if RandomInt(0,100)< target.sp*40 then  --满级法强 只有0.4*0.2概率触发
+          checkFlag=false
+       end
+    end
+
+	if cast_ability and cast_ability:GetAbilityName()=="obsidian_destroyer_arcane_orb"  and checkFlag  then
 		-- Restores mana
 		target:GiveMana(mana_restore)
 		-- Plays sound and effect
