@@ -573,24 +573,28 @@ function CHoldoutGameMode:OnNPCSpawned( event )
              --print(spawnedUnit:GetUnitName().."has owner, ID"..playerid)
              local owner=spawnedUnit:GetOwner()
              local crownLevel=0
-             if owner:HasModifier("modifier_crown_5_datadriven") then
-             	crownLevel=5
+             if owner:HasModifier("modifier_crown_6_datadriven") then
+             	crownLevel=6
              else
-             	if owner:HasModifier("modifier_crown_4_datadriven") then
-             		crownLevel=4
-             	else
-             		if owner:HasModifier("modifier_crown_3_datadriven") then
-             			crownLevel =3
-             		else
-             			if owner:HasModifier("modifier_crown_2_datadriven") then
-             				crownLevel =2 
-             			else
-             				if owner:HasModifier("modifier_crown_1_datadriven") then
-             					crownLevel=1
-             				end
-             			end
-             		end
-             	end
+	             if owner:HasModifier("modifier_crown_5_datadriven") then
+	             	crownLevel=5
+	             else
+	             	if owner:HasModifier("modifier_crown_4_datadriven") then
+	             		crownLevel=4
+	             	else
+	             		if owner:HasModifier("modifier_crown_3_datadriven") then
+	             			crownLevel =3
+	             		else
+	             			if owner:HasModifier("modifier_crown_2_datadriven") then
+	             				crownLevel =2 
+	             			else
+	             				if owner:HasModifier("modifier_crown_1_datadriven") then
+	             					crownLevel=1
+	             				end
+	             			end
+	             		end
+	             	end
+	            end
              end
 
              if crownLevel>0 then

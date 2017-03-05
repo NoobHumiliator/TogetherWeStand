@@ -14,13 +14,15 @@ function Mekansm( keys )
 		
 	--Restore health and play a particle effect for every found ally.
 	for i, nearby_ally in ipairs(nearby_allied_units) do
-		nearby_ally:Heal(heal_amount, caster)
-		nearby_ally:EmitSound("DOTA_Item.Mekansm.Target")
-		local mekansm_target_pfx = ParticleManager:CreateParticle("particles/items2_fx/mekanism_recipient.vpcf", PATTACH_ABSORIGIN_FOLLOW, nearby_ally)
-		ParticleManager:SetParticleControl(mekansm_target_pfx, 0, caster:GetAbsOrigin())
-		ParticleManager:SetParticleControl(mekansm_target_pfx, 1, nearby_ally:GetAbsOrigin())
+		if not nearby_ally:HasModifier("modifier_item_golden_mekansm_heal_armor") then
+			nearby_ally:Heal(heal_amount, caster)
+			nearby_ally:EmitSound("DOTA_Item.Mekansm.Target")
+			local mekansm_target_pfx = ParticleManager:CreateParticle("particles/items2_fx/mekanism_recipient.vpcf", PATTACH_ABSORIGIN_FOLLOW, nearby_ally)
+			ParticleManager:SetParticleControl(mekansm_target_pfx, 0, caster:GetAbsOrigin())
+			ParticleManager:SetParticleControl(mekansm_target_pfx, 1, nearby_ally:GetAbsOrigin())
 
-		ability:ApplyDataDrivenModifier(caster, nearby_ally, modifier_hot, nil)
-		ability:ApplyDataDrivenModifier(caster, nearby_ally, modifier_armor, nil)
+			ability:ApplyDataDrivenModifier(caster, nearby_ally, modifier_hot, nil)
+			ability:ApplyDataDrivenModifier(caster, nearby_ally, modifier_armor, nil)
+	    end
 	end
 end

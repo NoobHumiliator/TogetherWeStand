@@ -809,7 +809,7 @@
 		"MaxGold"					"2750"
 		"BagCount"					"55"
 		"BagVariance"			    "50"
-		"FixedXP"					"13000"
+		"FixedXP"					"12000"
 		"alias"                     "satyr"
 		// Stage 1 ================================================
 		"UnitFodder_1a" // Duration 80s - Continues with UnitFodderGrouped_2a & 3a to 120s total
@@ -1061,7 +1061,7 @@
 		"MaxGold"					"0"
 		"BagCount"					"0"
 		"BagVariance"			    "0"
-		"FixedXP"					"14600"
+		"FixedXP"					"16600"
 		"alias"                     "morphing"
 		// Stage 1 ================================================
 		"Unitwater_1"
@@ -1849,28 +1849,28 @@
 	{
 		"round_quest_title"			"#TWS_Round_Mammoth_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Roshan_Title"
-		"MaxGold"					"0"
+		"MaxGold"					"0"    //BOSS掉落6300
 		"BagCount"					"0"
 		"BagVariance"		        "0"
-		"FixedXP"					"32100"
+		"FixedXP"					"25100"
 		"alias"                     "mammoth"
 		// Stage 1 ================================================
 		"Unit_1"
 		{
-			"NPCName"			"npc_dota_boss_mag"
+			"NPCName"			    "npc_dota_boss_mag"  
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
-			"SpawnerName"		        "spawner1"
+			"SpawnerName"		    "spawner1"
 		}													
 	}
 	"Round11" //tree
 	{
 		"round_quest_title"			"#TWS_Round_Tree_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Tree_Title"
-		"MaxGold"					"5350"
-		"BagCount"					"50"
+		"MaxGold"					"7850"    //Boss掉落3000 共10850 (小兵掉的钱拿不全)
+		"BagCount"					"100"
 		"BagVariance"				"10"
-		"FixedXP"					"35700"
+		"FixedXP"					"48700"
 		"alias"                     "tree"	
 		// Stage 1 ================================================Ã¿¸öË¢Ò»Ö» 
 		"Unit_1"
@@ -1882,9 +1882,9 @@
 		"UnitTreeElder"
 		{			
 			"NPCName"			"npc_dota_tree_elder"
-			"TotalUnitsToSpawn"		        "1"
+			"TotalUnitsToSpawn"		    "1"
 			"UnitsPerSpawn"		        "1"
-			"SpawnerName"	              "spawner1"
+			"SpawnerName"	            "spawner1"
 		}       
 		"UnitTreeRange"
 		{			
@@ -1919,12 +1919,12 @@
 		// stage2 ÓëÉÏÒ»²¨¼ä¸ô25Ãë ±¾ÂÖ15ÃëË¢Íê
 		"UnitTreeElder_2"
 		{	
-			"WaitForUnit"		"Unit_1"
+			"WaitForUnit"		        "Unit_1"
 			"WaitForTime"		        "35"		
-			"NPCName"			 "npc_dota_tree_elder"
-			"TotalUnitsToSpawn"		        "1"
+			"NPCName"			    "npc_dota_tree_elder"
+			"TotalUnitsToSpawn"	        "1"
 			"UnitsPerSpawn"		        "1"
-			"SpawnerName"	              "spawner3"
+			"SpawnerName"	           "spawner3"
 		}       
 		"UnitTreeRange_2_1"
 		{			
@@ -2025,11 +2025,11 @@
 		"UnitTreeRange_3_2"
 		{			
 			"WaitForUnit"		"UnitTreeFast_2_1"
-			"WaitForTime"		        "5"	
+			"WaitForTime"		    "5"	
 			"NPCName"			"npc_dota_creature_tree_range"
 			"TotalUnitsToSpawn"		"6"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"	                "5"
+			"SpawnInterval"	        "5"
 		}
 		"UnitTreeRange_3_2"
 		{			
@@ -3553,7 +3553,7 @@
 		"MaxGold"					"11350"
 		"BagCount"					"15"
 		"BagVariance"				"40"
-		"FixedXP"					"50000"
+		"FixedXP"					"40000"
 		"alias"                     "darkness"
 		"Unit_stalker_1a" // Duration 80s - Continues with UnitFodderGrouped_2a & 3a to 120s total
 		{
@@ -3956,7 +3956,7 @@
 		"MaxGold"					"9350"
 		"BagCount"					"15"
 		"BagVariance"				"40"
-		"FixedXP"					"60000"
+		"FixedXP"					"70000"
 
 		// Stage 1 ================================================
 		"UnitSplitter_1"

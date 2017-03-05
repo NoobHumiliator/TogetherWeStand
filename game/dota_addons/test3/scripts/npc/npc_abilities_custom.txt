@@ -269,7 +269,7 @@
 		}
 		"RunScript"
         {
-             "ScriptFile"    "notifications.lua"
+             "ScriptFile"    "libraries/notifications.lua"
 		     "Function"      "BossAbilityDBM"
         }
 	}
@@ -489,7 +489,7 @@
 		}
 		"RunScript"
         {
-             "ScriptFile"    "notifications.lua"
+             "ScriptFile"    "libraries/notifications.lua"
 		     "Function"      "BossAbilityDBM"
         }
 	}
@@ -1881,7 +1881,7 @@
 		}
 	    "RunScript"
         {
-               "ScriptFile"    "notifications.lua"
+               "ScriptFile"    "libraries/notifications.lua"
 			   "Function"      "BossAbilityDBM"
         }
 		"Random"
@@ -3418,7 +3418,7 @@
 		}
 		"RunScript"
         {
-               "ScriptFile"    "notifications.lua"
+               "ScriptFile"    "libraries/notifications.lua"
 			   "Function"      "BossAbilityDBM"
         }
 
@@ -7700,7 +7700,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"gold_value"			        "166"
+				"gold_value"			"126"
 			}
 			"02"
 			{
@@ -11500,7 +11500,7 @@
 			}
 			"RunScript"
             {
-                   "ScriptFile"    "notifications.lua"
+                   "ScriptFile"    "libraries/notifications.lua"
 				   "Function"      "BossAbilityDBM"
             }
 		}
@@ -11690,7 +11690,7 @@
 			}
             "RunScript"
             {
-                   "ScriptFile"    "notifications.lua"
+                   "ScriptFile"    "libraries/notifications.lua"
 				   "Function"      "BossAbilityDBM"
             }
 			"TrackingProjectile"
@@ -11947,7 +11947,7 @@
 		}
 	    "RunScript"
         {
-               "ScriptFile"    "notifications.lua"
+               "ScriptFile"    "libraries/notifications.lua"
 			   "Function"      "BossAbilityDBM"
         }
         "Random"
@@ -12200,7 +12200,7 @@
 			}
 			"RunScript"
 	        {
-	               "ScriptFile"    "notifications.lua"
+	               "ScriptFile"    "libraries/notifications.lua"
 				   "Function"      "BossAbilityDBM"
 	        }
 		}
@@ -13000,7 +13000,7 @@
 			}
 		}
 	}
-        "boss_untouchable"
+   "boss_untouchable"
 	{
                 
 		"BaseClass"					"enchantress_untouchable"	
@@ -13016,7 +13016,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow_attack_speed"		"-10 -20 -35 -55 -70 -100 -135 -175 -220 -270 -325 -385 -450 -520 -600"
+				"slow_attack_speed"		"-20 -35 -55 -70 -100 -135 -175 -220 -270 -325 -385 -450 -520 -600 -690"
 			}
 			"02"
 			{
@@ -13084,69 +13084,69 @@
 			}
 		}
 	}
-     "boss_enchantress_heal"
-  {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-           "BaseClass"                     "ability_datadriven"
-           "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"  
-           "AbilityTextureName"            "enchantress_natures_attendants"
-           "MaxLevel"		               "15"
-           "precache"
-             {
-             "particle"          	"particles/units/heroes/hero_enchantress/enchantress_natures_attendants_heal_wispb.vpcf"
-             }
-        // Modifiers
-        //-------------------------------------------------------------------------------------------------------------    
-           "OnOwnerSpawned"
-        {       
-            "ApplyModifier"
-            {
-                "ModifierName" "add_damage"
-                "Target"       "CASTER" 
-            }
-        } 
-         "Modifiers"
-         {
-         	  "modifier_true_sight_1"
-                {
-                       "Passive"            "1"
-                       "IsHidden"           "1"
-                       "OnCreated"
-                        {
-                        	"ApplyModifier"
-                        	{
-                        		"ModifierName"	"modifier_tower_truesight_aura"
-                        		"Target" 		"CASTER"
-                        	}
-                        }
-				    
+	"boss_enchantress_heal"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                     "ability_datadriven"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"  
+		"AbilityTextureName"            "enchantress_natures_attendants"
+		"MaxLevel"		               "15"
+		"precache"
+		{
+			"particle"          	"particles/units/heroes/hero_enchantress/enchantress_natures_attendants_heal_wispb.vpcf"
+		}
+		// Modifiers
+		//-------------------------------------------------------------------------------------------------------------    
+		"OnOwnerSpawned"
+		{       
+			"ApplyModifier"
+			{
+				"ModifierName" "add_damage"
+				"Target"       "CASTER" 
+			}
+		} 
+		"Modifiers"
+		{
+			"modifier_true_sight_1"
+			{
+				"Passive"            "1"
+				"IsHidden"           "1"
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_tower_truesight_aura"
+						"Target" 		"CASTER"
+					}
 				}
-           "add_damage"
-            {
-            "Passive"    "1"
-            "IsHidden"   "1"
-            "Properties"
-	      {
-		"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%health_regen"
-		"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%bonus_armor"
-	       }
-             }              
-           }
-        "AbilitySpecial"
-       {
-         "01"
-         {
-             "var_type"				"FIELD_INTEGER"
-             "health_regen"			"8 16 32 64 128 256 512 1024 2048 4086 8192 16384 32768 65536 131072"
-         }
-         "02"
-         {
-             "var_type"				"FIELD_INTEGER"
-             "bonus_armor"			"1 2 3 4 5 7 10 14 20 28 40 56 79 111 155"
-         }
-       }
-   }
+
+			}
+			"add_damage"
+			{
+				"Passive"    "1"
+				"IsHidden"   "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%health_regen"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%bonus_armor"
+				}
+			}              
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_regen"			"32 64 128 256 512 1024 2048 4086 8192 16384 32768 65536 131072 262144 524288"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"3 4 5 7 10 14 20 28 40 56 79 111 155 211 279"
+			}
+		}
+	}
     "boss_enchantress_spawn_elf"
   {
         // General
@@ -14140,7 +14140,7 @@
 
 			"RunScript"
             {
-                   "ScriptFile"    "notifications.lua"
+                   "ScriptFile"    "libraries/notifications.lua"
 				   "Function"      "BossAbilityDBM"
             }
 		}	
@@ -16506,7 +16506,7 @@
  }
 
 
- "crown_summoned_buff_lua"
+ "crown_summoned_buff_lua"  //没用到
    {
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -16515,7 +16515,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE "
 		"ScriptFile"					"item_ability/crown_summoned_buff_lua"
 		"AbilityTextureName"			"summon_buff"
-		"MaxLevel"                      "5"
+		"MaxLevel"                      "6"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -16524,22 +16524,22 @@
 			"01"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_bonus_per_str"		"0.02 0.04 0.06 0.08 0.10"		
+				"hp_bonus_per_str"		"0.02 0.024 0.028 0.032 0.036 0.04"			
 			}
 			"02"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"damage_bonus_per_int"	"0.04 0.06 0.08 0.10 0.12"
+				"damage_bonus_per_int"	"0.03 0.036 0.042 0.048 0.054 0.06"
 			}
 			"03"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"speed_bonus_per_agi"   "0.4 0.6 0.8 1.0 1.2"
+				"speed_bonus_per_agi"   "0.1 0.2 0.3 0.4 0.5 0.6"
 			}
 			"04"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"armor_bonus_per_agi"	"0.2 0.3 0.4 0.5 0.6"
+				"armor_bonus_per_agi"	"0.025 0.03 0.035 0.04 0.045 0.05"
 			}
 		   "05"
 			{
@@ -16549,7 +16549,7 @@
 		}
 	}
 
-   "crown_summoned_buff"
+   "crown_summoned_buff"  //召唤生物的加成技能
    {
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -16557,7 +16557,7 @@
 		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE "
 		"AbilityTextureName"			"summon_buff"
-		"MaxLevel"                      "5"
+		"MaxLevel"                      "6"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -16566,27 +16566,27 @@
 			"01"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_bonus_per_str"		"0.02 0.04 0.06 0.08 0.10"		
+				"hp_bonus_per_str"		"0.02 0.024 0.028 0.032 0.036 0.04"				
 			}
 			"02"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"damage_bonus_per_int"	"0.04 0.06 0.08 0.10 0.12"
+				"damage_bonus_per_int"	"0.03 0.036 0.042 0.048 0.054 0.06"
 			}
 			"03"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"speed_bonus_per_agi"   "0.4 0.6 0.8 1.0 1.2"
+				"speed_bonus_per_agi"   "0.1 0.2 0.3 0.4 0.5 0.6"
 			}
 			"04"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"armor_bonus_per_agi"	"0.2 0.3 0.4 0.5 0.6"
+				"armor_bonus_per_agi"	"0.025 0.03 0.035 0.04 0.045 0.05"
 			}
 		   "05"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"model_scale_per_att"	"0.001 0.001 0.001 0.001 0.001"
+				"var_type"			    "FIELD_FLOAT"
+				"model_scale_per_att"	"0.0005"
 			}
 		}
 		"Modifiers"
@@ -18234,7 +18234,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed_bonus"			"-3"
+				"speed_bonus"			"-4"
 			}
 			"02"
 			{
@@ -20099,7 +20099,7 @@
 		}
         "RunScript"
         {
-               "ScriptFile"    "notifications.lua"
+               "ScriptFile"    "libraries/notifications.lua"
 			   "Function"      "BossAbilityDBM"
         }
 		"Random"
@@ -20148,7 +20148,7 @@
     	"01"
 	    {
 			"var_type"					           	 "FIELD_INTEGER"
-			"damage_increasement"	                 "4 6 9 13 18 24 31 39"
+			"damage_increasement"	                 "6 9 13 18 24 31 39 48"
 	    }
     }
 	"Modifiers"
@@ -20221,7 +20221,6 @@
 	}
 }
 
-
 "share_damage_passive"  //共享血量
 {
 	//-------------------------------------------------------------------------------------------------------------
@@ -20248,7 +20247,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		
-		"AbilityCooldown"				"19.0 16.0 13.0 10.0 10.0 10.0 10.0 10.0"
+		"AbilityCooldown"				"13.0 12.0 11.0 10.0 9.0 8.0 8.0 8.0"
 
 		"AbilityManaCost"				"50"
 
@@ -20269,7 +20268,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"shard_damage"				"300 600 1000 1500 2100 2800 3600 5000"
+				"shard_damage"				"600 1000 1500 2100 2800 3600 5000 7000"
 			}
 			"03"
 			{
@@ -20338,7 +20337,7 @@
 		"04"
 		{
 			"var_type"					"FIELD_INTEGER"
-			"attack_slow"				"50 100 200 350 550 800 1100 1450"
+			"attack_slow"				"100 200 350 550 800 1100 1450 1850"
 		}
 
 	}
@@ -20377,7 +20376,7 @@
 		"01"
 		{
 			"var_type"					"FIELD_INTEGER"
-			"crit_multiplier"			"350 450 550 650 750 850 950 1550"
+			"crit_multiplier"			"250 350 500 750 1000 1300 1650 2050"
 			"LinkedSpecialBonus"		"special_bonus_unique_tusk"
 		}
 		"02"
@@ -21137,7 +21136,7 @@
 				}
 				"RunScript"
                 {
-                   "ScriptFile"    "notifications.lua"
+                   "ScriptFile"    "libraries/notifications.lua"
 				   "Function"      "BossAbilityDBM"
                 }
         }
@@ -21250,7 +21249,7 @@
 							    "EndRadius"      "110"
 							    "FixedDistance"  "3000"
 							    "TargetTeams"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
-							    "TargetTypes"    "DOTA_UNIT_TARGET_HERO"
+							    "TargetTypes"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 							    "TargetFlags"    "DOTA_UNIT_TARGET_FLAG_NONE"
 							    "HasFrontalCone" "0"
 							    "ProvidesVision" "1"
@@ -21271,7 +21270,7 @@
 
         "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
-        "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
         "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
 
         "AbilityType"            "DOTA_ABILITY_TYPE_BASIC"
@@ -21386,7 +21385,7 @@
 			}
             "RunScript"
             {
-                   "ScriptFile"    "notifications.lua"
+                   "ScriptFile"    "libraries/notifications.lua"
 				   "Function"      "BossAbilityDBM"
             }
         }
@@ -21516,7 +21515,7 @@
         	}
         	"RunScript"
             {
-                   "ScriptFile"    "notifications.lua"
+                   "ScriptFile"    "libraries/notifications.lua"
 				   "Function"      "BossAbilityDBM"
             }
         }

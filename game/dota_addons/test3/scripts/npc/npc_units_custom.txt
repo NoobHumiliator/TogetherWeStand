@@ -7726,9 +7726,9 @@
 		"Ability1"					"boss_untouchable"
 		"Ability2"					"boss_enchantress_heal"	
 		"Ability3"					"boss_nature_wrath"
-                "Ability4"					"boss_enchantress_spawn_elf"
-                "Ability5"					"boss_enchantress_elder_killed"
-                "Ability6"                                      "enchantress_gold_bag_fountain"
+        "Ability4"					"boss_enchantress_spawn_elf"
+        "Ability5"					"boss_enchantress_elder_killed"
+        "Ability6"                  "enchantress_gold_bag_fountain"
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"60"			// Physical protection.
@@ -7740,13 +7740,13 @@
 		"AttackDamageMin"			"52"		// Damage range min.
 		"AttackDamageMax"			"128"		// Damage range max.
 		"AttackRate"				"1.05"		// Speed of attack.
-		"AttackAnimationPoint"		        "0.3"		// Normalized time in animation cycle to attack.
+		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackRange"				"750"		// Range within a target can be attacked.
-                "ProjectileModel"			"particles/units/heroes/hero_enchantress/enchantress_base_attack.vpcf"			// Particle system model for projectile.
+        "ProjectileModel"			"particles/units/heroes/hero_enchantress/enchantress_base_attack.vpcf"			// Particle system model for projectile.
 		"ProjectileSpeed"			"800"			// Speed of projectile.
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"				"100"		// Experience earn.
+		"BountyXP"				    "100"		// Experience earn.
 		"BountyGoldMin"				"200"		// Gold earned min.
 		"BountyGoldMax"				"200"		// Gold earned max.
 		// Bounds
@@ -7764,7 +7764,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"18000"		// Base health.
+		"StatusHealth"				"26000"		// Base health.
 		"StatusHealthRegen"			"6.0"		// Health regeneration rate.
 		"StatusMana"				"1500"		// Base mana.
 		"StatusManaRegen"			"30.0"		// Mana regeneration rate.
@@ -7824,7 +7824,7 @@
 				{
 					"ItemDef"			"5747"
 				}
-                                "Wearable5"
+                "Wearable5"
 				{
 					"ItemDef"			"5748"
 				}
@@ -9082,7 +9082,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"				"30"		// Experience earn.
+		"BountyXP"				    "30"	// Experience earn.
 		"BountyGoldMin"				"5"		// Gold earned min.
 		"BountyGoldMax"				"7"		// Gold earned max.
 
@@ -9531,8 +9531,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"35"		// Damage range min.
-		"AttackDamageMax"			"55"		// Damage range max.
+		"AttackDamageMin"			"42"		// Damage range min.
+		"AttackDamageMax"			"62"		// Damage range max.
 		"AttackRate"				"1.2"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
@@ -9561,7 +9561,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"650"		// Base health.
+		"StatusHealth"				"800"		// Base health.
 		"StatusHealthRegen"			"3.0"		// Health regeneration rate.
 		"StatusMana"				"500"		// Base mana.
 		"StatusManaRegen"			"10"		// Mana regeneration rate.
@@ -9626,8 +9626,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"45"		// Damage range min.
-		"AttackDamageMax"			"65"		// Damage range max.
+		"AttackDamageMin"			"62"		// Damage range min.
+		"AttackDamageMax"			"72"		// Damage range max.
 		"AttackRate"				"1.2"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
@@ -9656,7 +9656,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1050"		// Base health.
+		"StatusHealth"				"1295"		// Base health.
 		"StatusHealthRegen"			"3.0"		// Health regeneration rate.
 		"StatusMana"				"500"		// Base mana.
 		"StatusManaRegen"			"10"		// Mana regeneration rate.
@@ -9721,8 +9721,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"30"		// Damage range min.
-		"AttackDamageMax"			"44"		// Damage range max.
+		"AttackDamageMin"			"34"		// Damage range min.
+		"AttackDamageMax"			"48"		// Damage range max.
 		"AttackRate"				"1.2"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
@@ -9751,7 +9751,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"700"		// Base health.
+		"StatusHealth"				"860"		// Base health.
 		"StatusHealthRegen"			"3.0"		// Health regeneration rate.
 		"StatusMana"				"500"		// Base mana.
 		"StatusManaRegen"			"10"		// Mana regeneration rate.
@@ -12028,8 +12028,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"1960"		// Damage range min.
-		"AttackDamageMax"			"2250"		// Damage range max.
+		"AttackDamageMin"			"2750"		// Damage range min.
+		"AttackDamageMax"			"3250"		// Damage range max.
 		"AttackRate"				"1.5"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"800"		// Range within a target can be acquired.
@@ -12060,7 +12060,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"68000"		// Base health.
+		"StatusHealth"				"118000"		// Base health.
 		"StatusHealthRegen"			"1.0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -12117,8 +12117,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"942"		// Damage range min.
-		"AttackDamageMax"			"762"		// Damage range max.
+		"AttackDamageMin"			"1220"		// Damage range min.
+		"AttackDamageMax"			"1562"		// Damage range max.
 		"AttackRate"				"0.8"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
@@ -12149,7 +12149,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"38500"		// Base health.
+		"StatusHealth"				"58500"		// Base health.
 		"StatusHealthRegen"			"1.0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -12207,8 +12207,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"580"		// Damage range min.
-		"AttackDamageMax"			"660"		// Damage range max.
+		"AttackDamageMin"			"650"		// Damage range min.
+		"AttackDamageMax"			"750"		// Damage range max.
 		"AttackRate"				"0.3"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
@@ -12239,7 +12239,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"25500"		// Base health.
+		"StatusHealth"				"35500"		// Base health.
 		"StatusHealthRegen"			"1.0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -12387,7 +12387,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"480000"		// Base health.
+		"StatusHealth"				"880000"		// Base health.
 		"StatusHealthRegen"			"1.0"		// Health regeneration rate.
 		"StatusMana"				"5000"	    // Base mana.
 		"StatusManaRegen"			"35"		// Mana regeneration rate.
@@ -12501,7 +12501,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"480000"    // Base health.
+		"StatusHealth"				"880000"    // Base health.
 		"StatusHealthRegen"			"1.0"		// Health regeneration rate.
 		"StatusMana"				"5000"	    // Base mana.
 		"StatusManaRegen"			"50"		// Mana regeneration rate.

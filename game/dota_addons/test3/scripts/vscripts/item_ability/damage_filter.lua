@@ -23,54 +23,52 @@ function CHoldoutGameMode:DamageFilter(damageTable)
 	  local attacker = EntIndexToHScript(damageTable.entindex_attacker_const)
 	  local victim = EntIndexToHScript(damageTable.entindex_victim_const)
 	  if  attacker and attacker:GetTeam()==DOTA_TEAM_GOODGUYS then
+          local playerid=attacker:GetPlayerOwnerID()             
+          local hero = PlayerResource:GetSelectedHeroEntity( playerid )
 	        if damageTable.entindex_inflictor_const ~=nil then --有明确来源技能
 	           local ability=EntIndexToHScript(damageTable.entindex_inflictor_const)
+             --print("attacker:GetPlayerOwnerID()"..attacker:GetPlayerOwnerID())
              --print("Ability Name: "..ability:GetAbilityName().." Attacker: "..attacker:GetUnitName() )
-	           if attacker.sp~=nil and  damageTable.damagetype_const==2  and  not sp_exempt_table[ability:GetAbilityName()]  then
+	           if hero.sp~=nil and  damageTable.damagetype_const==2  and  not sp_exempt_table[ability:GetAbilityName()]  then
 	           	 if ability:IsToggle() or ability:IsPassive() then
-	              damageTable.damage=damageTable.damage*(1+attacker.sp*0.3*attacker:GetIntellect()/100)  
+	              damageTable.damage=damageTable.damage*(1+hero.sp*0.3*hero:GetIntellect()/100)  
 	             else
-	              damageTable.damage=damageTable.damage*(1+attacker.sp*attacker:GetIntellect()/100)
+	              damageTable.damage=damageTable.damage*(1+hero.sp*hero:GetIntellect()/100)
 	             end
 	           end
 	        else
-	           if attacker.sp~=nil and  damageTable.damagetype_const==2 then --无明确来源技能
-	             damageTable.damage=damageTable.damage*(1+attacker.sp*attacker:GetIntellect()/100) 
+	           if hero.sp~=nil and  damageTable.damagetype_const==2 then --无明确来源技能
+	             damageTable.damage=damageTable.damage*(1+hero.sp*hero:GetIntellect()/100) 
 	           end
 	        end
 
-        	local playerid=nil
-        	if attacker:GetOwner() then
-             if attacker:GetOwner():IsPlayer() then
-        		   playerid=attacker:GetOwner():GetPlayerID()
-             end
-        	end
-        	if playerid==nil then
-        		 --print(attacker:GetUnitName().."has no owner")
-        	end
+
         	if self._currentRound and playerid then
         		self._currentRound._vPlayerStats[playerid].nTotalDamage=self._currentRound._vPlayerStats[playerid].nTotalDamage+damageTable.damage
         	end
-          if victim and victim:HasModifier("modifier_affixes_spike") then  --处理尖刺技能
-               local damage_table = {}
-               damage_table.attacker = victim
-               damage_table.victim = attacker
-               damage_table.damage_type = DAMAGE_TYPE_PURE
-               damage_table.ability = victim:FindAbilityByName("affixes_ability_spike")
-               damage_table.damage = damageTable.damage
-               damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
-               ApplyDamage(damage_table)
-          end
-
-          if victim and victim:HasModifier("modifier_nxy_spike") then  --处理小强的尖刺
-               local damage_table = {}
-               damage_table.attacker = victim
-               damage_table.victim = attacker
-               damage_table.damage_type = DAMAGE_TYPE_PURE
-               damage_table.ability = victim:FindAbilityByName("nyx_boss_spike")
-               damage_table.damage = damageTable.damage
-               damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
-               ApplyDamage(damage_table)
+         
+          if damageTable.entindex_inflictor_const~=nil and  EntIndexToHScript(damageTable.entindex_inflictor_const)  and  EntIndexToHScript(damageTable.entindex_inflictor_const).GetAbilityName  and  (EntIndexToHScript(damageTable.entindex_inflictor_const):GetAbilityName()=="spectre_dispersion" or EntIndexToHScript(damageTable.entindex_inflictor_const):GetAbilityName()=="item_blade_mail" ) then  --不能反射反伤类的技能        
+          else
+            if victim and victim:HasModifier("modifier_affixes_spike") then  --处理尖刺技能
+                 local damage_table = {}
+                 damage_table.attacker = victim
+                 damage_table.victim = attacker
+                 damage_table.damage_type = DAMAGE_TYPE_PURE
+                 damage_table.ability = victim:FindAbilityByName("affixes_ability_spike")
+                 damage_table.damage = damageTable.damage
+                 damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
+                 ApplyDamage(damage_table)
+            end
+            if victim and victim:HasModifier("modifier_nxy_spike") then  --处理小强的尖刺
+                 local damage_table = {}
+                 damage_table.attacker = victim
+                 damage_table.victim = attacker
+                 damage_table.damage_type = DAMAGE_TYPE_PURE
+                 damage_table.ability = victim:FindAbilityByName("nyx_boss_spike")
+                 damage_table.damage = damageTable.damage
+                 damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
+                 ApplyDamage(damage_table)
+            end    
           end
 
           if victim and victim:HasModifier("modifier_share_damage_passive") then  --处理伤害共享技能
@@ -96,8 +94,8 @@ function CHoldoutGameMode:DamageFilter(damageTable)
             --DeepPrint( damageTable )   
             if damageTable.entindex_inflictor_const ~=nil then --有明确技能伤害来源
               local ability=EntIndexToHScript(damageTable.entindex_inflictor_const) --如果技能为潮汐的两个伤害技能
-              print(ability:GetAbilityName())
-              print(victim.suffocating_bubble_take.."victim.suffocating_bubble_take")
+              --print(ability:GetAbilityName())
+              --print(victim.suffocating_bubble_take.."victim.suffocating_bubble_take")
               if (ability:GetAbilityName()=="boss_current_storm" or ability:GetAbilityName()=="boss_greate_gush") and victim.suffocating_bubble_take~=nil and victim.suffocating_bubble_take >0 then
                   --print(ability:GetAbilityName())
                   victim.suffocating_bubble_take=victim.suffocating_bubble_take-damageTable.damage 
@@ -149,7 +147,7 @@ function CHoldoutGameMode:OrderFilter(orderTable)
       if  ability and   ability.GetAbilityName   and  ability:GetAbilityName()~="storm_spirit_ball_lightning"  and  ability:GetAbilityName()~="ogre_magi_unrefined_fireblast"   and  ability.IsInAbilityPhase  and  caster.manaCostIns~=nil  and  not ability:IsInAbilityPhase()  and  not ability:IsChanneling()   then  -- 有法强
           local current_mana=caster:GetMana()
           local mana_cost=ability:GetManaCost(-1) --获取技能耗蓝
-          print("caster.manaCostIns"..caster.manaCostIns)
+          --print("caster.manaCostIns"..caster.manaCostIns)
           caster:SpendMana(mana_cost*(caster.manaCostIns*caster:GetIntellect()/100),ability)
           if caster:GetMana()< mana_cost then  --如果扣完蓝不够了
               Timers:CreateTimer({

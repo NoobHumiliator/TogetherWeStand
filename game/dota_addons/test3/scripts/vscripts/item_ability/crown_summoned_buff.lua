@@ -27,7 +27,7 @@ function AddSummonBuff(key)
    --体型
    local att_sum = owner:GetIntellect()+ owner:GetStrength()+ owner:GetAgility()        
    local scale=caster:GetModelScale()
-   caster:SetModelScale(scale*math.log(2.7+att_sum*model_scale))
+   caster:SetModelScale(scale*math.log(3.0+att_sum*model_scale))
    --攻击力
    local initMinDamage=caster:GetBaseDamageMin()
    local initMaxDamage=caster:GetBaseDamageMax()
@@ -40,7 +40,7 @@ function AddSummonBuff(key)
    local armor_bonus=owner:GetAgility() * bonus_armor 
    caster:SetPhysicalArmorBaseValue(armor+armor_bonus)
    --攻速
-   local speed=caster:GetPhysicalArmorBaseValue()*2
+   local speed=bonus_speed*owner:GetAgility()
    AddModifier(caster, caster, ability, "modifier_speed_bonus", nil)
    caster:SetModifierStackCount("modifier_speed_bonus",ability,speed)
    --血量
