@@ -2895,7 +2895,7 @@
 
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5.0"
+		"AbilityCooldown"				"6.0"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2927,12 +2927,12 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cooldown_melee"		"5"
+				"cooldown_melee"		"6"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cooldown_ranged_tooltip"		"7"
+				"cooldown_ranged_tooltip"		"6"
 			}
 		}
 	}
@@ -5499,6 +5499,145 @@
 			"01"						"item_ultimate_orb_4;item_ultimate_orb_4;item_ultimate_orb_4;item_ultimate_orb_4"
 		}
 	}
+
+    "item_recipe_item_reaver_2"
+	{
+		"ID"							"12066"		
+		"BaseClass"						"item_datadriven"							
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+        "AbilityTextureName"			"item_recipe"
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_reaver_2"
+		"ItemRequirements"
+		{
+			"01"						"item_reaver;item_reaver;item_reaver;item_reaver"
+		}
+	}
     
+    "item_reaver_2"
+    {
+        "ID"							"12069"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "BaseClass"						"item_reaver"
+        "AbilityTextureName" 			"item_reaver_2"
+
+        "ItemCost"						"12000"  
+		"ItemShopTags"					"str"
+		"ItemQuality"					"secret_shop"
+		"ItemAliases"					"reaver"
+		"SecretShop"					"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"		"120"
+			}
+		}
+    }
+     
+    "item_recipe_item_reaver_3"
+	{
+		"ID"							"12072"		
+		"BaseClass"						"item_datadriven"							
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+        "AbilityTextureName"			"item_recipe"
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_reaver_3"
+		"ItemRequirements"
+		{
+			"01"						"item_reaver_2;item_reaver_2;item_reaver_2;item_reaver_2"
+		}
+	}
+    
+    "item_reaver_3"
+    {
+        "ID"							"12075"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "BaseClass"						"item_reaver"
+        "AbilityTextureName" 			"item_reaver_3"
+
+        "ItemCost"						"48000"
+		"ItemShopTags"					"str"
+		"ItemQuality"					"secret_shop"
+		"ItemAliases"					"reaver"
+		"SecretShop"					"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"		"580"
+			}
+		}
+    }
+
+    "item_recipe_skeleton_shield"
+    {
+        "ID"							"12078"
+		"BaseClass"						"item_datadriven"							
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"3500"
+		"ItemShopTags"					""
+        "AbilityTextureName"			"item_recipe"
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_skeleton_shield" 
+		"ItemRequirements"
+		{
+			"01"						"item_reaver_2;item_crimson_guard;item_vanguard"    //先锋盾 赤红甲 2级掠夺者斧
+		}
+    }
+
+    "item_skeleton_shield"
+    {
+        "ID"							"12081"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "BaseClass"						"item_reaver"
+        "AbilityTextureName" 			"item_skeleton_shield"   
+
+        "ItemCost"						"21200"  //12000+3550+2150+3500
+		"ItemShopTags"					"str"
+		"ItemQuality"					"secret_shop"
+		"ItemAliases"					"reaver"
+		"SecretShop"					"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"		"580"
+			}
+		}
+    }
+
+
 
 } //主函数
