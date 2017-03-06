@@ -5500,7 +5500,7 @@
 		}
 	}
 
-    "item_recipe_item_reaver_2"
+    "item_recipe_reaver_2"
 	{
 		"ID"							"12066"		
 		"BaseClass"						"item_datadriven"							
@@ -5546,7 +5546,7 @@
 		}
     }
      
-    "item_recipe_item_reaver_3"
+    "item_recipe_reaver_3"
 	{
 		"ID"							"12072"		
 		"BaseClass"						"item_datadriven"							
@@ -5616,28 +5616,148 @@
     "item_skeleton_shield"
     {
         "ID"							"12081"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "BaseClass"						"item_reaver"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "BaseClass"						"item_crimson_guard"
         "AbilityTextureName" 			"item_skeleton_shield"   
 
-        "ItemCost"						"21200"  //12000+3550+2150+3500
-		"ItemShopTags"					"str"
-		"ItemQuality"					"secret_shop"
-		"ItemAliases"					"reaver"
-		"SecretShop"					"1"
+        "AbilityCooldown"				"46.0"
+		"AbilityCastRange"				"900"
 
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
+        "ItemCost"						"21200"  //12000+3550+2150+3500
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"580"
+				"bonus_health"			"3500"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health_regen"	"60"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_all_stats"		"50"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"30"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"block_damage_melee"	"420"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"block_damage_ranged"	"210"
+			}			
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"block_chance"			"50"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_aoe_armor"		"16"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"	              "10"
+			}		
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_aoe_radius"		"900"
+			}		
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"block_damage_melee_active"	"600"
+			}
+			"12"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"block_damage_ranged_active"	"600"
+			}		
+			"13"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"block_chance_active"	"100"
+			}	
 		}
     }
 
+    "item_recipe_redblade_armor"
+    {
+        "ID"							"12084"
+		"BaseClass"						"item_datadriven"							
+		"Model"							"models/props_gameplay/recipe.vmdl"
 
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"4500"
+		"ItemShopTags"					""
+        "AbilityTextureName"			"item_recipe"
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_redblade_armor" 
+		"ItemRequirements"
+		{
+			"01"						"item_shivas_guard;item_blade_mail;item_assault"    //希瓦 强袭 刃甲
+		}
+    }
+
+    "item_recipe_redblade_armor"
+    {
+        "ID"							"12084"
+		"BaseClass"						"item_datadriven"							
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "Model"							"models/props_gameplay/red_box.vmdl" 
+        "AbilityTextureName"			"item_redblade_armor"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"16650"  //2200+4700+5250+4500
+
+		"ItemShopTags"					"attack_speed;armor;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"ac;assault cuirass"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"70"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"52"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_int"			    "45"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health"			"2600"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"30"
+			}
+		}
+    }
 
 } //主函数
