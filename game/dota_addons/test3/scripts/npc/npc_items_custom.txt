@@ -5541,7 +5541,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"120"
+				"bonus_strength"		"115"
 			}
 		}
     }
@@ -5587,7 +5587,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"580"
+				"bonus_strength"		"510"
 			}
 		}
     }
@@ -5715,16 +5715,18 @@
 		}
     }
 
-    "item_recipe_redblade_armor"
+    "item_redblade_armor"
     {
-        "ID"							"12084"
+        "ID"							"12087"
 		"BaseClass"						"item_datadriven"							
-        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "Model"							"models/props_gameplay/red_box.vmdl" 
         "AbilityTextureName"			"item_redblade_armor"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"16650"  //2200+4700+5250+4500
+        "AbilityCooldown"				"8.0"
+        "AbilityManaCost"				"100"
 
 		"ItemShopTags"					"attack_speed;armor;hard_to_tag"
 		"ItemQuality"					"epic"
@@ -5757,7 +5759,259 @@
 				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"			"30"
 			}
+			"06"
+			{
+				"var_type"				 "FIELD_FLOAT"
+				"invulnerable_duration"	 "1.5"
+			}
+		}
+        "OnSpellStart"
+        {
+        	"ApplyModifier"
+			{
+				"Target"       "CASTER"
+				"ModifierName" "modifier_item_greater_clarity"
+			}
+			"FireSound"
+			{
+				"Target"     "CASTER"
+				"EffectName" "Hero_Oracle.FalsePromise.Target"
+			}
+        }
+		"Modifiers"
+		{
+			"modifier_item_redblade_armor"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%bonus_armor"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"			"%bonus_int"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			        "%bonus_health"
+					"MODIFIER_PROPERTY_PREATTACK_BONUSDAMAGE"			"%bonus_damage"
+				}
+			}
+			"modifier_item_redblade_armor_invulnerable"
+			{
+				
+				"Duration"          "%invulnerable_duration"
+                "EffectName"		"particles/dire_fx/tower_bad_face.vpcf"
+			    "EffectAttachType"	"follow_origin"
+				
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+        }
+
+    }
+    
+    "item_recipe_tank_armor_1"
+    {
+        "ID"							"12090"
+		"BaseClass"						"item_datadriven"							
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"5000"
+		"ItemShopTags"					""
+        "AbilityTextureName"			"item_recipe"
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_tank_armor_1" 
+		"ItemRequirements"
+		{
+			"01"						"item_skeleton_shield;item_redblade_armor"    //骷髅盾 
 		}
     }
+
+    "item_tank_armor_1"
+    {
+        "ID"							"12093"
+		"BaseClass"						"item_datadriven"							
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "Model"							"models/props_gameplay/red_box.vmdl" 
+        "AbilityTextureName"			"item_tank_armor_1"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"42850"  //21200+16650+5000
+
+		"ItemShopTags"					"attack_speed;armor;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"ac;assault cuirass"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"70"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"95"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_int"			    "50"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health"			"7200"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"45"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_all_stats"		"75"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health_regen"    "70"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_tank_armor_1"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%bonus_armor"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"			"%bonus_int"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			        "%bonus_health"
+					"MODIFIER_PROPERTY_PREATTACK_BONUSDAMAGE"			"%bonus_damage"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		     	"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		    "%bonus_all_stats"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		    "%bonus_health_regen"
+				}
+			}
+        }
+    }
+    
+    "item_recipe_tank_armor_2"
+    {
+        "ID"							"12096"
+		"BaseClass"						"item_datadriven"							
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"5000"
+		"ItemShopTags"					""
+        "AbilityTextureName"			"item_recipe"
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_tank_armor_2" 
+		"ItemRequirements"
+		{
+			"01"						"item_tank_armor_1;reaver_3;item_ultimate_orb_3"    //骷髅盾 
+		}
+    }
+     
+
+    "item_tank_armor_2"
+    {
+        "ID"							"12099"
+		"BaseClass"						"item_datadriven"							
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "Model"							"models/props_gameplay/red_box.vmdl" 
+        "AbilityTextureName"			"item_tank_armor_1"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"117850"  //42850+48000+27000
+
+		"ItemShopTags"					"attack_speed;armor;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"ac;assault cuirass"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"105"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"145"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_int"			    "250"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health"			"8200"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"65"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_agi"		        "200"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health_regen"    "70"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_str"             "790"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_tank_armor_2"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%bonus_armor"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"			"%bonus_int"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			        "%bonus_health"
+					"MODIFIER_PROPERTY_PREATTACK_BONUSDAMAGE"			"%bonus_damage"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		     	"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		    "%bonus_all_stats"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		    "%bonus_health_regen"
+				}
+			}
+        }
+    }
+
 
 } //主函数
