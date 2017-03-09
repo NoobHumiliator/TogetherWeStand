@@ -5527,7 +5527,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "BaseClass"						"item_reaver"
         "AbilityTextureName" 			"item_reaver_2"
-
+         "ItemBaseLevel"			    "2"
         "ItemCost"						"12000"  
 		"ItemShopTags"					"str"
 		"ItemQuality"					"secret_shop"
@@ -5541,7 +5541,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"115"
+				"bonus_strength"		"25 115 510"
 			}
 		}
     }
@@ -5573,7 +5573,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "BaseClass"						"item_reaver"
         "AbilityTextureName" 			"item_reaver_3"
-
+        "ItemBaseLevel"					"3"
         "ItemCost"						"48000"
 		"ItemShopTags"					"str"
 		"ItemQuality"					"secret_shop"
@@ -5587,12 +5587,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"510"
+				"bonus_strength"		"25 115 510"
 			}
 		}
     }
 
-    "item_recipe_skeleton_shield"
+    "item_recipe_crimson_guard_2"
     {
         "ID"							"12078"
 		"BaseClass"						"item_datadriven"							
@@ -5606,90 +5606,89 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_skeleton_shield" 
+		"ItemResult"					"item_crimson_guard_2" 
 		"ItemRequirements"
 		{
 			"01"						"item_reaver_2;item_crimson_guard;item_vanguard"    //先锋盾 赤红甲 2级掠夺者斧
 		}
     }
 
-    "item_skeleton_shield"
+    "item_crimson_guard_2"
     {
         "ID"							"12081"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "BaseClass"						"item_crimson_guard"
-        "AbilityTextureName" 			"item_skeleton_shield"   
-
+        "AbilityTextureName" 			"item_crimson_guard_2"   
+        "ItemBaseLevel"					"2"
         "AbilityCooldown"				"46.0"
 		"AbilityCastRange"				"900"
-
         "ItemCost"						"21200"  //12000+3550+2150+3500
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"3500"
+				"bonus_health"			"250 3500"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"60"
+				"bonus_health_regen"	"8 60"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"50"
+				"bonus_all_stats"		"2 50"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"30"
+				"bonus_armor"			"5 30"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"block_damage_melee"	"420"
+				"block_damage_melee"	"32 420"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"block_damage_ranged"	"210"
+				"block_damage_ranged"	"16 210"
 			}			
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"block_chance"			"50"
+				"block_chance"			"50 50"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_aoe_armor"		"16"
+				"bonus_aoe_armor"		"2 16"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration"	              "10"
+				"duration"	            "10 10"
 			}		
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_aoe_radius"		"900"
+				"bonus_aoe_radius"		"900 900"
 			}		
 			"11"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"block_damage_melee_active"	"600"
+				"var_type"				    "FIELD_INTEGER"
+				"block_damage_melee_active"	"55 600"
 			}
 			"12"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"block_damage_ranged_active"	"600"
+				"var_type"				        "FIELD_INTEGER"
+				"block_damage_ranged_active"	"55 600"
 			}		
 			"13"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"block_chance_active"	"100"
+				"block_chance_active"	"100 100"
 			}	
 		}
     }
@@ -5765,6 +5764,10 @@
 				"invulnerable_duration"	 "1.5"
 			}
 		}
+		"precache"
+        {
+	          "particle"         "particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard_column.vpcf"
+        }
         "OnSpellStart"
         {
         	"ApplyModifier"
@@ -5799,7 +5802,7 @@
 			{
 				
 				"Duration"          "%invulnerable_duration"
-                "EffectName"		"particles/dire_fx/tower_bad_face.vpcf"
+                "EffectName"		"particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard_column.vpcf"
 			    "EffectAttachType"	"follow_origin"
 				
 				"States"
@@ -5808,7 +5811,6 @@
 				}
 			}
         }
-
     }
     
     "item_recipe_tank_armor_1"
