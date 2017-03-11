@@ -16,6 +16,16 @@ sp_exempt_table["phoenix_sun_ray"]=true
 sp_exempt_table["abyssal_underlord_firestorm"]=true
 
 
+re_table={} --反伤类技能
+re_table["tiny_craggy_exterior"]=true
+re_table["bristleback_bristleback"]=true
+re_table["centaur_return"]=true
+re_table["spectre_dispersion"]=true
+re_table["viper_corrosive_skin"]=true
+re_table["item_blade_mail"]=true
+
+
+
 function CHoldoutGameMode:DamageFilter(damageTable)
 
    --DeepPrint( damageTable )
@@ -28,7 +38,7 @@ function CHoldoutGameMode:DamageFilter(damageTable)
 	        if damageTable.entindex_inflictor_const ~=nil then --有明确来源技能
 	           local ability=EntIndexToHScript(damageTable.entindex_inflictor_const)
              --print("attacker:GetPlayerOwnerID()"..attacker:GetPlayerOwnerID())
-             --print("Ability Name: "..ability:GetAbilityName().." Attacker: "..attacker:GetUnitName() )
+             print("Ability Name: "..ability:GetAbilityName().." Attacker: "..attacker:GetUnitName() )
 	           if hero.sp~=nil and  damageTable.damagetype_const==2  and  not sp_exempt_table[ability:GetAbilityName()]  then
 	           	 if ability:IsToggle() or ability:IsPassive() then
 	              damageTable.damage=damageTable.damage*(1+hero.sp*0.3*hero:GetIntellect()/100)  
@@ -36,6 +46,9 @@ function CHoldoutGameMode:DamageFilter(damageTable)
 	              damageTable.damage=damageTable.damage*(1+hero.sp*hero:GetIntellect()/100)
 	             end
 	           end
+             if hero.re~=nil and  re_table[ability:GetAbilityName()]~=nil and re_table[ability:GetAbilityName()] then
+                damageTable.damage=damageTable.damage*(1+hero.re*hero:GetStrength()/100)
+             end
 	        else
 	           if hero.sp~=nil and  damageTable.damagetype_const==2 then --无明确来源技能
 	             damageTable.damage=damageTable.damage*(1+hero.sp*hero:GetIntellect()/100) 

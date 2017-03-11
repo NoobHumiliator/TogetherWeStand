@@ -4184,5 +4184,21 @@
 			"SpawnInterval"			"10"
 		}
     }
+    "Round23"
+	{
+		"round_title"				"#DOTA_Holdout_Round_Baneling_Title"
+		"MaxGold"					"16000"
+		"BagCount"					"40"
+		"BagVariance"				"75"
+		"FixedXP"					"7000"
+		"alias"                     "baneling"
+		"Unit1"
+		{
+			"NPCName"				"npc_dota_expansion_baneling"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"20"
+		}
+    }
 
 }

@@ -5895,7 +5895,25 @@
 				"Passive"			"1"
 				"IsHidden"			"1"
 				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-				
+				 
+                "OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"item_ability/tank_armor.lua"
+						"Function"		"ApplyReValue"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"item_ability/tank_armor.lua"
+						"Function"		"RemoveReValue"
+					}
+				}
+               
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
@@ -6000,6 +6018,25 @@
 				"IsHidden"			"1"
 				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				
+
+                "OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"item_ability/tank_armor.lua"
+						"Function"		"ApplyReValue"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"item_ability/tank_armor.lua"
+						"Function"		"RemoveReValue"
+					}
+				}
+                
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
