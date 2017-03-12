@@ -9,16 +9,16 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_explode_expansion_thinker_aura_effect:OnCreated( kv )
-	self.armor_reduce = self:GetAbility():GetSpecialValueFor( "armor_reduce" )
-	self.damage_per_tick = self:GetAbility():GetSpecialValueFor( "damage_per_sec" ) / 10
+	self.armor_reduce = -100   --怪物死了 技能获取不到 写死
+	self.damage_per_tick = 100
 	self:StartIntervalThink(0.1)
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_explode_expansion_thinker_aura_effect:OnRefresh( kv )
-	self.armor_reduce = self:GetAbility():GetSpecialValueFor( "armor_reduce" )
-	self.damage_per_tick = self:GetAbility():GetSpecialValueFor( "damage_per_sec" ) / 10
+	self.armor_reduce = -100
+	self.damage_per_tick = 100
 end
 
 --------------------------------------------------------------------------------
