@@ -6,8 +6,11 @@ function modifier_explode_expansion_thinker_aura:OnCreated( kv )
 	self.init_radius = self:GetAbility():GetSpecialValueFor( "init_radius" )
 	self.radius_increase = self:GetAbility():GetSpecialValueFor( "radius_increase" )
 	if IsServer() then
-		self:StartIntervalThink( 0.1 )
+		self:StartIntervalThink( 1  )
 		self.radius=self.init_radius
+		local nFXIndex = ParticleManager:CreateParticle( "particles/dire_fx/dire_lava_gloops_child_13sec_2.vpcf", PATTACH_ABSORIGIN, self:GetParent() )
+		ParticleManager:SetParticleControl(nFXIndex, 0, self:GetParent():GetAbsOrigin()+Vector(0,0,20))
+		ParticleManager:SetParticleControl(nFXIndex, 1, Vector(self.init_radius,0,0))
 	end
 end
 
@@ -16,7 +19,10 @@ end
 function modifier_explode_expansion_thinker_aura:OnIntervalThink()   --扩大范围
 	if IsServer() then
 		self.radius=self.radius+self.radius_increase
-		ParticleManager:SetParticleControl(self.nFXIndex, 1, Vector(self.radius,1,1))
+	    local nFXIndex = ParticleManager:CreateParticle( "particles/dire_fx/dire_lava_gloops_child_13sec_2.vpcf", PATTACH_ABSORIGIN, self:GetParent() )
+		ParticleManager:SetParticleControl(nFXIndex, 0, self:GetParent():GetAbsOrigin()+Vector(0,0,20))
+		ParticleManager:SetParticleControl(nFXIndex, 1, Vector(self.radius,0,0))
+		--ParticleManager:SetParticleControl(self.nFXIndex, 1, Vector(self.radius,1,1))
 	end
 end
 --------------------------------------------------------------------------------
