@@ -10,12 +10,4 @@ function ThinkerCreate( event )
     local dummy = CreateUnitByName("npc_falling_rock_dummy", caster:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS)
     dummy:AddNewModifier(dummy,ability,"modifier_explode_expansion_thinker_aura",{})
     
-   --[[
-    local nFXIndex = ParticleManager:CreateParticle( "particles/dire_fx/dire_lava_gloops_child_13sec_2.vpcf", PATTACH_ABSORIGIN, dummy )
-	ParticleManager:SetParticleControl(nFXIndex, 0, dummy:GetAbsOrigin())
-	ParticleManager:SetParticleControl(nFXIndex, 1, Vector(init_radius,0,0))
- 
-	local modifier=dummy:FindModifierByName("modifier_explode_expansion_thinker_aura")
-	modifier.nFXIndex=nFXIndex
-	]]
 end

@@ -21775,29 +21775,12 @@
 		"AbilityCastPoint"				"0.2"
 		"AbilityCastRange"				"900"
         "precache"
-		{
-                "particle"		    "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
-                "particle"			"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
-		        "particle"			"particles/econ/generic/generic_buff_1/generic_buff_1.vpcf"
-		        "particle"          "particles/dire_fx/dire_lava_gloops_child_13sec_2.vpcf"
+		{    
+		     "particle"          "particles/econ/items/faceless_void/faceless_void_mace_of_aeons/fv_chronosphere_aeons.vpcf"
+		     "particle"          "particles/units/heroes/hero_arc_warden/arc_warden_magnetic_ring.vpcf"
 		}
 		"OnOwnerDied"
 		{
-			"FireEffect"
-			{
-				"Target"
-				{
-					"Center" 	"CASTER"
-					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
-				}			
-				"EffectName"			"particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
-				"EffectAttachType"		"follow_origin"
-				"EffectRadius"			  "%radius"
-				"EffectDurationScale"	  "1"
-				"EffectLifeDurationScale" "1"
-				"EffectColorA"			"25 150 25"
-				"EffectColorB"			"25 150 25"
-			}
 
 			"FireSound"
 			{
@@ -21827,7 +21810,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius_increase"		"5"
+				"radius_increase"		"50"
 			}
 			"03"
 			{

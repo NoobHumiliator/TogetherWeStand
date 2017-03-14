@@ -12946,7 +12946,7 @@
 		}
 	}
 
-    "npc_dota_expansion_baneling"    //22关扩散自爆虫
+    "npc_dota_creature_geodesic"
 	{
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/items/broodmother/spiderling/virulent_matriarchs_spiderling/virulent_matriarchs_spiderling.vmdl"	// Model.
@@ -12983,7 +12983,7 @@
 		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
 		"AttackRange"				"100"		// Range within a target can be attacked.
-		"ProjectileModel"			""			// Particle system model for projectile.
+		"ProjectileModel"			"particles/econ/items/enigma/enigma_geodesic/enigma_base_attack_eidolon_geodesic.vpcf"			// Particle system model for projectile.
 		"ProjectileSpeed"			""			// Speed of projectile.
 
 		// Bounty

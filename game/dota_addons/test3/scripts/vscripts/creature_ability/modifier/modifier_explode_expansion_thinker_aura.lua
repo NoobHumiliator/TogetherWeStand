@@ -6,11 +6,15 @@ function modifier_explode_expansion_thinker_aura:OnCreated( kv )
 	self.init_radius = self:GetAbility():GetSpecialValueFor( "init_radius" )
 	self.radius_increase = self:GetAbility():GetSpecialValueFor( "radius_increase" )
 	if IsServer() then
-		self:StartIntervalThink( 1  )
+		self:StartIntervalThink( 0.5 )
 		self.radius=self.init_radius
-		local nFXIndex = ParticleManager:CreateParticle( "particles/dire_fx/dire_lava_gloops_child_13sec_2.vpcf", PATTACH_ABSORIGIN, self:GetParent() )
-		ParticleManager:SetParticleControl(nFXIndex, 0, self:GetParent():GetAbsOrigin()+Vector(0,0,20))
-		ParticleManager:SetParticleControl(nFXIndex, 1, Vector(self.init_radius,0,0))
+		local nFXIndex = ParticleManager:CreateParticle( "particles/econ/items/faceless_void/faceless_void_mace_of_aeons/fv_chronosphere_aeons.vpcf", PATTACH_ABSORIGIN, self:GetParent() )
+		ParticleManager:SetParticleControl( nFXIndex, 0, self:GetParent():GetOrigin() )
+		ParticleManager:SetParticleControl( nFXIndex, 1, Vector( self.init_radius, self.init_radius, self.init_radius) )
+		ParticleManager:SetParticleControl( nFXIndex, 4, self:GetParent():GetOrigin() )
+		ParticleManager:SetParticleControl( nFXIndex, 6, self:GetParent():GetOrigin() )
+		ParticleManager:SetParticleControl( nFXIndex, 10, self:GetParent():GetOrigin() )
+		self.nFXIndex=nFXIndex
 	end
 end
 
@@ -19,10 +23,17 @@ end
 function modifier_explode_expansion_thinker_aura:OnIntervalThink()   --扩大范围
 	if IsServer() then
 		self.radius=self.radius+self.radius_increase
-	    local nFXIndex = ParticleManager:CreateParticle( "particles/dire_fx/dire_lava_gloops_child_13sec_2.vpcf", PATTACH_ABSORIGIN, self:GetParent() )
-		ParticleManager:SetParticleControl(nFXIndex, 0, self:GetParent():GetAbsOrigin()+Vector(0,0,20))
-		ParticleManager:SetParticleControl(nFXIndex, 1, Vector(self.radius,0,0))
-		--ParticleManager:SetParticleControl(self.nFXIndex, 1, Vector(self.radius,1,1))
+
+	    local nFXIndex = ParticleManager:CreateParticle( "particles/econ/items/faceless_void/faceless_void_mace_of_aeons/fv_chronosphere_aeons.vpcf", PATTACH_ABSORIGIN, self:GetParent() )
+		ParticleManager:SetParticleControl( nFXIndex, 0, self:GetParent():GetOrigin() )
+		ParticleManager:SetParticleControl( nFXIndex, 1, Vector( self.radius, self.radius, self.radius) )
+		ParticleManager:SetParticleControl( nFXIndex, 4, self:GetParent():GetOrigin() )
+		ParticleManager:SetParticleControl( nFXIndex, 6, self:GetParent():GetOrigin() )
+		ParticleManager:SetParticleControl( nFXIndex, 10, self:GetParent():GetOrigin() )
+        ParticleManager:DestroyParticle(self.nFXIndex,false)
+        ParticleManager:ReleaseParticleIndex(self.nFXIndex)
+        self.nFXIndex=nFXIndex
+
 	end
 end
 --------------------------------------------------------------------------------
