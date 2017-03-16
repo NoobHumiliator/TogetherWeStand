@@ -12949,9 +12949,9 @@
     "npc_dota_creature_geodesic"
 	{
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
-		"Model"						"models/items/broodmother/spiderling/virulent_matriarchs_spiderling/virulent_matriarchs_spiderling.vmdl"	// Model.
+		"Model"						"models/items/enigma/eidolon/geodesic/geodesic.vmdl"	// Model.
 		"SoundSet"					"0"					// Name of sound set.
-		"ModelScale"				".6"								// old 1.0
+		"ModelScale"				"1.3"								// old 1.0
 		"Level"						"1"
 		"CanBeDominated"			"0"
 		"SelectionGroup"			"Spiders"
@@ -12959,7 +12959,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					"baneling_explode_expansion"			// Ability 1.
+		"Ability1"					"geodesic_explode_expansion"			// Ability 1.
 		"Ability2"					""		    // Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
@@ -12975,14 +12975,14 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageMin"			"60"		// Damage range min.
 		"AttackDamageMax"			"77"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.35"		// Speed of attack.
 		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
-		"AttackRange"				"100"		// Range within a target can be attacked.
+		"AttackRange"				"75"		// Range within a target can be attacked.
 		"ProjectileModel"			"particles/econ/items/enigma/enigma_geodesic/enigma_base_attack_eidolon_geodesic.vpcf"			// Particle system model for projectile.
 		"ProjectileSpeed"			""			// Speed of projectile.
 

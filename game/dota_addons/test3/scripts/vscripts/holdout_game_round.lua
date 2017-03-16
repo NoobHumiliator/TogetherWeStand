@@ -13,6 +13,17 @@ if CHoldoutGameRound == nil then
 end
 
 
+exceptionSpawnedUnit ={   --不计入游戏进度的单位名字
+   npc_majia_water_1=true,
+   npc_dummy_blank=true,
+   npc_dota_thinker=true,
+   npc_falling_rock_dummy=true
+}
+
+
+
+
+
 function CHoldoutGameRound:ReadConfiguration( kv, gameMode, roundNumber )
 	self._gameMode = gameMode
 	self._nRoundNumber = roundNumber
@@ -577,7 +588,7 @@ end
 
 function CHoldoutGameRound:OnNPCSpawned( event )
 	local spawnedUnit = EntIndexToHScript( event.entindex )
-	if not spawnedUnit or spawnedUnit:IsPhantom() or spawnedUnit:GetUnitName()=="npc_majia_water_1" or spawnedUnit:GetUnitName()=="npc_dummy_blank" or spawnedUnit:GetClassname() == "npc_dota_thinker" or spawnedUnit:GetUnitName() == "" or spawnedUnit:IsSummoned() then
+	if not spawnedUnit or spawnedUnit:IsPhantom() or exceptionSpawnedUnit[spawnedUnit:GetUnitName()]  or spawnedUnit:GetUnitName() == "" or spawnedUnit:IsSummoned() then
 		return
 	end
 

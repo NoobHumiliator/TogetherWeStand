@@ -21760,7 +21760,7 @@
 		}
 	}
 
-    "baneling_explode_expansion"  //23关 扩散毒液
+    "geodesic_explode_expansion"  //23关  扩散爆炸
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -21777,11 +21777,11 @@
         "precache"
 		{    
 		     "particle"          "particles/econ/items/faceless_void/faceless_void_mace_of_aeons/fv_chronosphere_aeons.vpcf"
-		     "particle"          "particles/units/heroes/hero_arc_warden/arc_warden_magnetic_ring.vpcf"
+		     "particle"          "particles/hw_fx/candy_carrying_stack.vpcf"
 		}
 		"OnOwnerDied"
 		{
-
+            
 			"FireSound"
 			{
 				"EffectName"		"Hero_Broodmother.SpawnSpiderlings"
@@ -21797,7 +21797,33 @@
 				"Function"			"ThinkerCreate"
 			}
 		}
-
+        
+       "Modifiers"
+	   {
+			"modifier_geodesic_explode_think"
+			{
+				"IsHidden"           "1"
+				"Passive"            "1"
+				"IsPurgable"		 "0"			
+				"ThinkInterval"		 "1.0"
+                "OnCreated"
+                {
+					"RunScript"
+					{
+						"ScriptFile"	 "creature_ability/explode_expansion.lua"
+						"Function"		 "InitCountDown"
+					}
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	 "creature_ability/explode_expansion.lua"
+						"Function"		 "Onthink"
+					}
+				}
+			}
+	    }
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -21810,7 +21836,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius_increase"		"50"
+				"radius_increase"		"10"
 			}
 			"03"
 			{

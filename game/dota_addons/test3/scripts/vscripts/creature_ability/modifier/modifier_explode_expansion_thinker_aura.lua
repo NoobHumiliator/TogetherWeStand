@@ -39,7 +39,7 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_explode_expansion_thinker_aura:GetAuraRadius()
-	print("self.radius"..self.radius)
+	--print("self.radius"..self.radius)
 	return self.radius
 end
 

@@ -4186,7 +4186,7 @@
     }
     "Round23"
 	{
-		"round_title"				"#DOTA_Holdout_Round_Baneling_Title"
+		"round_title"				"#DOTA_Holdout_Round_Geodesic_Title"
 		"MaxGold"					"16000"
 		"BagCount"					"40"
 		"BagVariance"				"75"
@@ -4194,10 +4194,63 @@
 		"alias"                     "baneling"
 		"Unit1"
 		{
-			"NPCName"				"npc_dota_expansion_baneling"
+			"NPCName"				"npc_dota_creature_geodesic"
 			"TotalUnitsToSpawn"		"5"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"20"
+			"SpawnInterval"			"5"
+		}
+		"Unit2"
+		{
+			"NPCName"				"npc_dota_creature_geodesic"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"5"
+		}
+		"Unit3"
+		{
+			"NPCName"				"npc_dota_creature_geodesic"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"5"
+		}
+		"Unit4"
+		{
+			"NPCName"				"npc_dota_creature_geodesic"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"5"
+		}
+		"Unit5"
+		{
+			"WaitForUnit"		    "Unit1"
+			"NPCName"				"npc_dota_creature_geodesic"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"5"
+		}
+		"Unit6"
+		{
+			"WaitForUnit"		    "Unit1"
+			"NPCName"				"npc_dota_creature_geodesic"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"5"
+		}
+		"Unit7"
+		{
+			"WaitForUnit"		    "Unit1"
+			"NPCName"				"npc_dota_creature_geodesic"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"5"
+		}
+		"Unit8"
+		{
+			"WaitForUnit"		    "Unit1"
+			"NPCName"				"npc_dota_creature_geodesic"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"5"
 		}
     }
 
