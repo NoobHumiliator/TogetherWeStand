@@ -81,8 +81,8 @@ function LootController:SetItemProbability(roundNumber,hardLevel)
 	self._roundItemProbability={}
 	--self._valuetable={}
 	--self._reverttable={}
-	local average= self._vHardLevelItemValue[hardLevel]*math.pow(1.2,roundNumber) --item value*1.2^roundNumer
-	local stdDeviation= average*(4-hardLevel)*0.5
+	local average= self._vHardLevelItemValue[hardLevel]*math.pow(1.19,roundNumber) --item value*1.2^roundNumer
+	local stdDeviation= average*(4-hardLevel)*0.7
 	for k,v in pairs(self._itemCost) do
 		denominator=denominator+NormalDistribution(v,average,stdDeviation)
 	end

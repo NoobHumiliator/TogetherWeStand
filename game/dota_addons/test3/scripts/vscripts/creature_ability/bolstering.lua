@@ -15,16 +15,12 @@ function AddBolsteringBuff( keys )
 			current_stack=current_stack+1
 			ability:ApplyDataDrivenModifier( caster, target, modifierName, {} )
 			target:SetModifierStackCount( modifierName, ability, current_stack )
-            local minDamage=(1+0.2*current_stack)* target.base_minDamage
-            local maxDamage=(1+0.2*current_stack)* target.base_maxDamage
             local rate=target:GetHealth()/target:GetMaxHealth()
             local newMaxHealth=target.base_maxHealth*(1+0.2*current_stack)
             local newCurrentHealth=math.ceil(newMaxHealth*rate)
             if target.damageMultiple~=nil then
 		     target.damageMultiple=target.base_damageMultiple*(1+0.2*current_stack)
 		    end
-		    target:SetBaseDamageMin(minDamage)
-		    target:SetBaseDamageMax(maxDamage)
 		    target:SetBaseMaxHealth(newMaxHealth)
 		    target:SetMaxHealth(newMaxHealth)
 		    target:SetHealth(newCurrentHealth)
@@ -36,20 +32,11 @@ function AddBolsteringBuff( keys )
             target.base_maxHealth=maxHealth
 			local rate=target:GetHealth()/target:GetMaxHealth()
 
-			local minDamage=target:GetBaseDamageMin()
-            target.base_minDamage=minDamage
-            minDamage=minDamage*1.2
-
-		    local maxDamage=target:GetBaseDamageMax()
-		    target.base_maxDamage=maxDamage
-		    maxDamage=maxDamage*1.2
-
 		    if target.damageMultiple~=nil then
 		     target.base_damageMultiple=target.damageMultiple
 		     target.damageMultiple=target.damageMultiple*1.2
 		    end
-		    target:SetBaseDamageMin(minDamage)
-		    target:SetBaseDamageMax(maxDamage)
+		    
 		    local newMaxHealth=maxHealth*1.2
 		    local newCurrentHealth=math.ceil(newMaxHealth*rate)
 		    if newCurrentHealth<1 then

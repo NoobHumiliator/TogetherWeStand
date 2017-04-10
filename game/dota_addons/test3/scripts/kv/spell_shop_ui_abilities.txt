@@ -54,7 +54,7 @@
   "1"    "drow_ranger_frost_arrows"
   "2"    "drow_ranger_wave_of_silence"
   "3"    "drow_ranger_trueshot"
-  "4"    "drow_ranger_marksmanship"
+  "4"    "drow_ranger_marksmanship_datadriven"
   }
   "juggernaut" {
   "1"    "juggernaut_blade_fury"
@@ -567,7 +567,7 @@
   "spectre" {
   "1"    "spectre_spectral_dagger"
   "2"    "spectre_desolate"
-  "3"    "spectre_dispersion"
+  "3"    "spectre_dispersion_datadriven"
   }
   "meepo" {
   "1"    "meepo_earthbind"

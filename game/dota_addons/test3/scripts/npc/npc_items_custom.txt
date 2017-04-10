@@ -854,7 +854,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"			         	"45000"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -886,7 +886,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"			         	"45000"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -918,7 +918,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"			         	"45000"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -949,7 +949,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"			         	"45000"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -981,7 +981,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"			         	"45000"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -1013,7 +1013,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"			         	"45000"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -1045,7 +1045,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"			         	"45000"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -1077,7 +1077,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"			         	"45000"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -1109,7 +1109,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"			         	"45000"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -1141,7 +1141,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"			         	"45000"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -1175,7 +1175,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"			         	"45000"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -1207,7 +1207,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"			         	"45000"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -1239,7 +1239,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"			         	"45000"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -1271,7 +1271,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"			         	"45000"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -1303,7 +1303,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"			         	"45000"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -2019,7 +2019,7 @@
 		   "03"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"mana_increase"	                "0.00 0.1 0.2 0.3 0.4 0.5"
+				"mana_increase"	                "0.00 0.15 0.19 0.24 0.27 0.3"
 			}
 	    }
   "Modifiers"
@@ -2117,7 +2117,7 @@
 	    "04"
 		{
 			"var_type"						"FIELD_FLOAT"
-			"mana_increase"	                "0.00 0.1 0.2 0.3 0.4 0.5"
+			"mana_increase"	                "0.00 0.15 0.19 0.24 0.27 0.3"
 		}
     }
   "Modifiers"
@@ -2222,7 +2222,7 @@
 		    "04"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"mana_increase"	                "0.00 0.1 0.2 0.3 0.4 0.5"
+				"mana_increase"	                "0.00 0.15 0.19 0.24 0.27 0.3"
 			}
 	    }
   "Modifiers"
@@ -2334,7 +2334,7 @@
 		    "06"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"mana_increase"	                "0.00 0.1 0.2 0.3 0.4 0.5"
+				"mana_increase"	                "0.00 0.15 0.19 0.24 0.27 0.3"
 			}
 	    }
   "Modifiers"
@@ -2458,7 +2458,7 @@
 		    "08"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"mana_increase"	                "0.00 0.1 0.2 0.3 0.4 0.5"
+				"mana_increase"	                "0.00 0.15 0.19 0.24 0.27 0.3"
 			}
 	    }
   "Modifiers"
@@ -4268,7 +4268,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"45"
+				"bonus_all_stats"		"40"
 			}
 		}
     }
@@ -4296,7 +4296,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"200"
+				"bonus_all_stats"		"160"
 			}
 		}
     }
@@ -4324,7 +4324,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"900"
+				"bonus_all_stats"		"600"
 			}
 		}
     }
@@ -4995,7 +4995,7 @@
 		    "08"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"mana_increase"	                "0.00 0.1 0.2 0.3 0.4 0.5"
+				"mana_increase"	                "0.00 0.15 0.19 0.24 0.27 0.3"
 			}
 		}
 		"Modifiers"
@@ -5139,6 +5139,7 @@
 			}
 			"modifier_extra_slot_7_consume"
 			{
+				"Attributes"	                "MODIFIER_ATTRIBUTE_PERMANENT"
 				"TextureName"	                "item_extra_slot_7"	
 				"Properties"
 				{
@@ -5278,7 +5279,8 @@
 			}
 			"modifier_extra_slot_8_consume"
 			{
-				"TextureName"	                "item_extra_slot_8"	
+				"Attributes"	                "MODIFIER_ATTRIBUTE_PERMANENT"
+				"TextureName"	                "item_extra_slot_8"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_all_consume"
@@ -5417,6 +5419,7 @@
 			}
 			"modifier_extra_slot_9_consume"
 			{
+				"Attributes"	                "MODIFIER_ATTRIBUTE_PERMANENT"
 				"TextureName"	                "item_extra_slot_9"	
 				"Properties"
 				{
@@ -5475,7 +5478,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"3000"
+				"bonus_all_stats"		"2400"
 			}
 		}
     }
@@ -5773,7 +5776,7 @@
         	"ApplyModifier"
 			{
 				"Target"       "CASTER"
-				"ModifierName" "modifier_item_greater_clarity"
+				"ModifierName" "modifier_item_redblade_armor_invulnerable"
 			}
 			"FireSound"
 			{
@@ -5805,9 +5808,9 @@
                 "EffectName"		"particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard_column.vpcf"
 			    "EffectAttachType"	"follow_origin"
 				
-				"States"
+				"Properties"
 				{
-					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-100"
 				}
 			}
         }
@@ -5830,7 +5833,7 @@
 		"ItemResult"					"item_tank_armor_1" 
 		"ItemRequirements"
 		{
-			"01"						"item_skeleton_shield;item_redblade_armor"    //骷髅盾 
+			"01"						"item_crimson_guard_2;item_redblade_armor"    //骷髅盾 
 		}
     }
 
@@ -5841,6 +5844,7 @@
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"							"models/props_gameplay/red_box.vmdl" 
         "AbilityTextureName"			"item_tank_armor_1"
+        "ItemBaseLevel"					"1"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"42850"  //21200+16650+5000
@@ -5851,40 +5855,61 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"AbilitySpecial"
 		{
+
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"70"
+				"var_type"				"FIELD_FLOAT"
+				"physical_bonus_damage_per_str"  "1.2 1.8"
 			}
-			"02"
+           "02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"95"
-			}
-			"03"
+				"var_type"				"FIELD_FLOAT"
+				"magical_bonus_damage_per_str"  "1.0 1.5"
+			}          
+           "03"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_int"			    "50"
+				"var_type"				"FIELD_FLOAT"
+				"pure_bonus_damage_per_str"     "0.13 0.2"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"7200"
+				"bonus_attack_speed"	"70 105"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"45"
+				"bonus_armor"			"95 145"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"75"
+				"bonus_int"			    "50 250"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"    "70"
+				"bonus_health"			"4600 8200"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"45 65"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_agi"		        "75 200"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_str"		        "300 790"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health_regen"    "30 70"
 			}
 		}
 
@@ -5921,8 +5946,8 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"			"%bonus_int"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"			        "%bonus_health"
 					"MODIFIER_PROPERTY_PREATTACK_BONUSDAMAGE"			"%bonus_damage"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		     	"%bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		    "%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		     	"%bonus_agi"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		    "%bonus_str"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		    "%bonus_health_regen"
 				}
 			}
@@ -5946,7 +5971,7 @@
 		"ItemResult"					"item_tank_armor_2" 
 		"ItemRequirements"
 		{
-			"01"						"item_tank_armor_1;reaver_3;item_ultimate_orb_3"    //骷髅盾 
+			"01"						"item_tank_armor_1;item_reaver_3;item_ultimate_orb_3" 
 		}
     }
      
@@ -5957,7 +5982,8 @@
 		"BaseClass"						"item_datadriven"							
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"							"models/props_gameplay/red_box.vmdl" 
-        "AbilityTextureName"			"item_tank_armor_1"
+        "AbilityTextureName"			"item_tank_armor_2"
+        "ItemBaseLevel"					"2"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"117850"  //42850+48000+27000
@@ -5968,45 +5994,61 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"AbilitySpecial"
 		{
+
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"105"
+				"var_type"				"FIELD_FLOAT"
+				"physical_bonus_damage_per_str"  "1.2 1.8"
 			}
-			"02"
+           "02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"145"
-			}
-			"03"
+				"var_type"				"FIELD_FLOAT"
+				"magical_bonus_damage_per_str"  "1.0 1.5"
+			}          
+           "03"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_int"			    "250"
+				"var_type"				"FIELD_FLOAT"
+				"pure_bonus_damage_per_str"     "0.13 0.2"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"8200"
+				"bonus_attack_speed"	"70 105"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"65"
+				"bonus_armor"			"95 145"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_agi"		        "200"
+				"bonus_int"			    "50 250"
 			}
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"    "70"
+				"bonus_health"			"4600 8200"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_str"             "790"
+				"bonus_damage"			"45 65"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_agi"		        "75 200"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_str"             "300 790"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health_regen"    "30 70"
 			}
 		}
 
@@ -6036,7 +6078,6 @@
 					}
 				}
                 
-
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
@@ -6044,8 +6085,8 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"			"%bonus_int"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"			        "%bonus_health"
 					"MODIFIER_PROPERTY_PREATTACK_BONUSDAMAGE"			"%bonus_damage"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		     	"%bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		    "%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		     	"%bonus_agi"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		    "%bonus_str"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		    "%bonus_health_regen"
 				}
 			}

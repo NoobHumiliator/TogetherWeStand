@@ -19,7 +19,16 @@ function SplitShotLaunch( keys )
 		-- Ability variables
 		local radius = ability:GetLevelSpecialValueFor("scepter_range", ability_level)
 		local projectile_speed = ability:GetLevelSpecialValueFor("projectile_speed", ability_level)
+		local split_count_scepter = ability:GetLevelSpecialValueFor("split_count_scepter", ability_level) --分裂数量
+
 		local split_shot_projectile = keys.split_shot_projectile
+
+		if caster:IsRangedAttacker() then
+		  split_shot_projectile = caster:GetRangedProjectileName()  --获取英雄的攻击例子特效
+		end
+        
+        local count=0;
+		--print("split_shot_projectile"..split_shot_projectile)
 
 		local split_shot_targets = FindUnitsInRadius(caster:GetTeam(), target_location, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
 
@@ -38,14 +47,11 @@ function SplitShotLaunch( keys )
 					bReplaceExisting = false,
 					bProvidesVision = false
 				}
-				if target.marksmanshipMarkA~=nil and target.marksmanshipMarkA then
-					v.marksmanshipMarkB=true
-					target.marksmanshipMarkA=nil
-				else
-					v.marksmanshipMarkB=nil
-				end
 				ProjectileManager:CreateTrackingProjectile(projectile_info)
-				break
+                count=count+1
+                if count>=split_count_scepter then --如果达到上限
+                	break
+                end
 			end
 		end
 	end
@@ -59,8 +65,11 @@ function MarksmanshipHit( keys )
 	local modifier_dmg_penalty = keys.modifier_dmg_penalty
 
 	-- Attack the target
-	ability:ApplyDataDrivenModifier(caster, caster, modifier_dmg_penalty, {})
-	target.marksmanshipMarkA=true
-	caster:PerformAttack(target, true, true, true, true, false)
-	caster:RemoveModifierByName(modifier_dmg_penalty)
+	ability:ApplyDataDrivenModifier(caster, caster, modifier_dmg_penalty, {})  --减攻击力
+	caster:RemoveModifierByName("modifier_marksmanship_passive_datadriven")  --移除分裂
+
+	caster:PerformAttack(target, true, true, true, true, false,false,false)
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_marksmanship_passive_datadriven", {}) --添加回分裂
+	
+	caster:RemoveModifierByName(modifier_dmg_penalty)  --恢复攻击力
 end

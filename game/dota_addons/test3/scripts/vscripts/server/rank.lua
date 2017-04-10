@@ -27,7 +27,7 @@ function Rank:GetRankDataFromServer(nPlayerNumber)
     if self.rankTable[nPlayerNumber]==nil then  --数据集中没有对应数据
         local playerNumberTable={}   --新建一个数据表      
         local player_number=tostring(nPlayerNumber)
-        local request = CreateHTTPRequest("GET", server_address .. "getrankdata")
+        local request = CreateHTTPRequestScriptVM("GET", server_address .. "getrankdata")
         request:SetHTTPRequestGetOrPostParameter("player_number",player_number);
         request:Send(function(result)
             print("Rank data arrived: "..result.Body)
@@ -71,7 +71,7 @@ function Rank:RecordGame(nRoundNumber,nLoser)
     if string.sub(playerSteamIDs,string.len(playerSteamIDs))==";" then   --去掉最后一个;
         playerSteamIDs=string.sub(playerSteamIDs,0,string.len(playerSteamIDs)-1)
     end
-    local request = CreateHTTPRequest("GET", server_address .. "recordgame")
+    local request = CreateHTTPRequestScriptVM("GET", server_address .. "recordgame")
     request:SetHTTPRequestGetOrPostParameter("steam_game_id",tostring(steamGameId));
     request:SetHTTPRequestGetOrPostParameter("max_round",tostring(nRoundNumber));
     request:SetHTTPRequestGetOrPostParameter("player_steam_ids",playerSteamIDs);

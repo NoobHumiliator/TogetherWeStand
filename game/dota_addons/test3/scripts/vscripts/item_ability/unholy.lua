@@ -21,7 +21,6 @@ function Unholy( event )
 
 	      local damage=unit:GetMaxHealth()*rate*0.01
 	      local mana=unit:GetMaxMana()*rate*0.01
-	      local isDouble= unit:HasModifier("modifier_arc_warden_tempest_double")
 
           local damageTable = {victim=unit,
                         attacker=caster,
@@ -29,11 +28,7 @@ function Unholy( event )
                         damage=damage}
           ApplyDamage(damageTable)
           if not unit:IsNull() and unit:IsAlive() then
-          	 unit:SpendMana(mana, ability)
-          else
-          	 if isDouble then
-                PlayerResource:SpendGold(caster:GetPlayerOwnerID(),180,DOTA_ModifyGold_Unspecified)  --如果杀死风暴双雄 扣除多的180G
-          	 end                                     
+          	 unit:SpendMana(mana, ability)                                  
           end
           friend_unit_number=friend_unit_number+1
 	    end

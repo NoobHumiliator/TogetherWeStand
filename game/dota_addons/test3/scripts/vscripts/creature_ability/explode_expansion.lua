@@ -7,7 +7,7 @@ function ThinkerCreate( event )
 	local ability = event.ability
     local init_radius = ability:GetSpecialValueFor( "init_radius" )
 
-    local dummy = CreateUnitByName("npc_falling_rock_dummy", caster:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS)
+    local dummy = CreateUnitByName("npc_geodesic_dummy", caster:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_BADGUYS)
     dummy:AddNewModifier(dummy,ability,"modifier_explode_expansion_thinker_aura",{})
     
 end
@@ -19,9 +19,9 @@ function InitCountDown( event )
 	local ability = event.ability
 	local countDownParticle= ParticleManager:CreateParticle("particles/hw_fx/candy_carrying_stack.vpcf",PATTACH_OVERHEAD_FOLLOW,caster)
     caster.countDownParticle=countDownParticle
-    caster.life_time=15
+    caster.life_time=99
     caster.modelScale=caster:GetModelScale()
-    ParticleManager:SetParticleControl(caster.countDownParticle,2, Vector(5,1,0))
+    ParticleManager:SetParticleControl(caster.countDownParticle,2, Vector(9,9,0))  --这里要改时间
 end
 
 function Onthink( event )
@@ -35,7 +35,7 @@ function Onthink( event )
         return
     end
        
-    caster:SetModelScale(caster.modelScale*(1+0.05* (15-caster.life_time) ))
+    caster:SetModelScale(caster.modelScale*(1+0.03* (99-caster.life_time) ))  --这里要改时间
 
 	if caster.life_time<10 and caster.life_time>=0 then
 	  ParticleManager:SetParticleControl(caster.countDownParticle, 2, Vector(0,caster.life_time,0))

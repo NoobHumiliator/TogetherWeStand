@@ -55,7 +55,7 @@ function Detail:RecordDetail(nRoundNumber,nDifficulty)
     if string.sub(playerSteamIDs,string.len(playerSteamIDs))==";" then   --去掉最后一个;
         playerSteamIDs=string.sub(playerSteamIDs,0,string.len(playerSteamIDs)-1)
     end
-    local request = CreateHTTPRequest("GET", server_address .. "recorddetail")
+    local request = CreateHTTPRequestScriptVM("GET", server_address .. "recorddetail")
     request:SetHTTPRequestGetOrPostParameter("steam_game_id",tostring(steamGameId))
     request:SetHTTPRequestGetOrPostParameter("max_round",tostring(nRoundNumber))
     request:SetHTTPRequestGetOrPostParameter("player_steam_ids",playerSteamIDs)

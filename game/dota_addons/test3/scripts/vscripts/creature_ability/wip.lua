@@ -35,12 +35,11 @@ function vollyHit(args)
 	local target = args.target
 	local caster = args.caster
 	local totalDamage = args.BonusDamage 
-  local flDDadjust=GameRules:GetGameModeEntity().CHoldoutGameMode.flDDadjust --物理技能的难度修正
 	
-		local damageTable = {
+	local damageTable = {
 			victim = target,
 			attacker = caster,
-			damage = totalDamage*flDDadjust,
+			damage = totalDamage,
 			damage_type = DAMAGE_TYPE_PHYSICAL,}
 			--PrintTable(damageTable)
 		ApplyDamage(damageTable)	
@@ -51,7 +50,6 @@ function big_blow_dot( keys )
     local caster = keys.caster
     local target = nil
     local c_team = caster:GetTeam()
-    local flDDadjust=GameRules:GetGameModeEntity().CHoldoutGameMode.flDDadjust --物理技能的难度修正
     local allEnemies = FindUnitsInRadius( c_team, caster:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, 0, false )  --全地图所有英雄
 		if #allEnemies > 0 then
 			for _,enemy in pairs(allEnemies) do
@@ -64,7 +62,7 @@ function big_blow_dot( keys )
                         {victim=target,
                         attacker=caster,
                         damage_type=DAMAGE_TYPE_PHYSICAL,
-                        damage=target:GetContext("big_blow_dot")*flDDadjust}
+                        damage=target:GetContext("big_blow_dot")}
                         ApplyDamage(damageTable)
 			end
 		end

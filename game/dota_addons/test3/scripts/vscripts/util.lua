@@ -85,7 +85,9 @@ COLOR_LRED = '\x1C'
 COLOR_GOLD = '\x1D'
 
 
-
+function string.trim(s)
+    return s:match "^%s*(.-)%s*$"
+end
 
 
 function ReportHeroAbilities(hHero)

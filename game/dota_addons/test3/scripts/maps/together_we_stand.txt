@@ -4191,34 +4191,38 @@
 		"BagCount"					"40"
 		"BagVariance"				"75"
 		"FixedXP"					"7000"
-		"alias"                     "baneling"
+		"alias"                     "geodesic"
 		"Unit1"
 		{
 			"NPCName"				"npc_dota_creature_geodesic"
 			"TotalUnitsToSpawn"		"5"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"5"
+			"SpawnInterval"			"15"
+			"SpawnerName"			"spawner1"
 		}
 		"Unit2"
 		{
 			"NPCName"				"npc_dota_creature_geodesic"
 			"TotalUnitsToSpawn"		"5"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"5"
+			"SpawnInterval"			"15"
+			"SpawnerName"			"spawner2"
 		}
 		"Unit3"
 		{
 			"NPCName"				"npc_dota_creature_geodesic"
 			"TotalUnitsToSpawn"		"5"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"5"
+			"SpawnInterval"			"15"
+			"SpawnerName"			"spawner3"
 		}
 		"Unit4"
 		{
 			"NPCName"				"npc_dota_creature_geodesic"
 			"TotalUnitsToSpawn"		"5"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"5"
+			"SpawnInterval"			"15"
+			"SpawnerName"			"spawner4"
 		}
 		"Unit5"
 		{
@@ -4226,7 +4230,8 @@
 			"NPCName"				"npc_dota_creature_geodesic"
 			"TotalUnitsToSpawn"		"5"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"5"
+			"SpawnInterval"			"14"
+			"SpawnerName"			"spawner1"
 		}
 		"Unit6"
 		{
@@ -4234,7 +4239,8 @@
 			"NPCName"				"npc_dota_creature_geodesic"
 			"TotalUnitsToSpawn"		"5"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"5"
+			"SpawnInterval"			"14"
+			"SpawnerName"			"spawner2"
 		}
 		"Unit7"
 		{
@@ -4242,7 +4248,8 @@
 			"NPCName"				"npc_dota_creature_geodesic"
 			"TotalUnitsToSpawn"		"5"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"5"
+			"SpawnInterval"			"14"
+			"SpawnerName"			"spawner3"
 		}
 		"Unit8"
 		{
@@ -4250,7 +4257,116 @@
 			"NPCName"				"npc_dota_creature_geodesic"
 			"TotalUnitsToSpawn"		"5"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"5"
+			"SpawnInterval"			"14"
+			"SpawnerName"			"spawner4"
+		}
+		"Unit9"
+		{
+			"WaitForUnit"		    "Unit5"
+			"NPCName"				"npc_dota_creature_geodesic"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"13"
+			"SpawnerName"			"spawner1"
+		}
+		"Unit10"
+		{
+			"WaitForUnit"		    "Unit5"
+			"NPCName"				"npc_dota_creature_geodesic"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"13"
+			"SpawnerName"			"spawner2"
+		}
+		"Unit11"
+		{
+			"WaitForUnit"		    "Unit5"
+			"NPCName"				"npc_dota_creature_geodesic"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"13"
+			"SpawnerName"			"spawner3"
+		}
+		"Unit12"
+		{
+			"WaitForUnit"		    "Unit5"
+			"NPCName"				"npc_dota_creature_geodesic"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"13"
+			"SpawnerName"			"spawner4"
+		}
+		"Unit13"
+		{
+			"WaitForUnit"		    "Unit9"
+			"NPCName"				"npc_dota_creature_geodesic"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"12"
+			"SpawnerName"			"spawner1"
+		}
+		"Unit14"
+		{
+			"WaitForUnit"		    "Unit9"
+			"NPCName"				"npc_dota_creature_geodesic"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"12"
+			"SpawnerName"			"spawner2"
+		}
+		"Unit15"
+		{
+			"WaitForUnit"		    "Unit9"
+			"NPCName"				"npc_dota_creature_geodesic"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"12"
+			"SpawnerName"			"spawner3"
+		}
+		"Unit16"
+		{
+			"WaitForUnit"		    "Unit9"
+			"NPCName"				"npc_dota_creature_geodesic"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"12"
+			"SpawnerName"			"spawner4"
+		}
+		"Unit17"
+		{
+			"WaitForUnit"		    "Unit13"
+			"NPCName"				"npc_dota_creature_geodesic"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"11"
+			"SpawnerName"			"spawner1"
+		}
+		"Unit18"
+		{
+			"WaitForUnit"		    "Unit13"
+			"NPCName"				"npc_dota_creature_geodesic"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"11"
+			"SpawnerName"			"spawner2"
+		}
+		"Unit19"
+		{
+			"WaitForUnit"		    "Unit13"
+			"NPCName"				"npc_dota_creature_geodesic"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"11"
+			"SpawnerName"			"spawner3"
+		}
+		"Unit20"
+		{
+			"WaitForUnit"		    "Unit13"
+			"NPCName"				"npc_dota_creature_geodesic"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"11"
+			"SpawnerName"			"spawner4"
 		}
     }
 

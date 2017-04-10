@@ -16,41 +16,55 @@ sp_exempt_table["phoenix_sun_ray"]=true
 sp_exempt_table["abyssal_underlord_firestorm"]=true
 
 
-re_table={} --反伤类技能
+re_table={} --反伤类技能  折射直接扣生命 单独处理
 re_table["tiny_craggy_exterior"]=true
+re_table["bristleback_quill_spray"]=true
 re_table["bristleback_bristleback"]=true
 re_table["centaur_return"]=true
 re_table["spectre_dispersion"]=true
 re_table["viper_corrosive_skin"]=true
+re_table["razor_unstable_current"]=true
 re_table["item_blade_mail"]=true
-
+re_table["axe_counter_helix_datadriven"]=true
+re_table["axe_counter_helix"]=true
 
 
 function CHoldoutGameMode:DamageFilter(damageTable)
-
+  
    --DeepPrint( damageTable )
    if damageTable and damageTable.entindex_attacker_const then
 	  local attacker = EntIndexToHScript(damageTable.entindex_attacker_const)
 	  local victim = EntIndexToHScript(damageTable.entindex_victim_const)
 	  if  attacker and attacker:GetTeam()==DOTA_TEAM_GOODGUYS then
+          if attacker:HasModifier("modifier_explode_expansion_thinker_aura_effect")  then   --如果身上有虚空罩子的debuff无法造成伤害
+             return
+          end
           local playerid=attacker:GetPlayerOwnerID()             
           local hero = PlayerResource:GetSelectedHeroEntity( playerid )
 	        if damageTable.entindex_inflictor_const ~=nil then --有明确来源技能
 	           local ability=EntIndexToHScript(damageTable.entindex_inflictor_const)
              --print("attacker:GetPlayerOwnerID()"..attacker:GetPlayerOwnerID())
-             print("Ability Name: "..ability:GetAbilityName().." Attacker: "..attacker:GetUnitName() )
-	           if hero.sp~=nil and  damageTable.damagetype_const==2  and  not sp_exempt_table[ability:GetAbilityName()]  then
+             --print("Ability Name: "..ability:GetAbilityName().." Attacker: "..attacker:GetUnitName() )
+	           if ability and hero and hero.sp~=nil and  damageTable.damagetype_const==2  and  not sp_exempt_table[ability:GetAbilityName()]  then
 	           	 if ability:IsToggle() or ability:IsPassive() then
 	              damageTable.damage=damageTable.damage*(1+hero.sp*0.3*hero:GetIntellect()/100)  
 	             else
 	              damageTable.damage=damageTable.damage*(1+hero.sp*hero:GetIntellect()/100)
 	             end
 	           end
-             if hero.re~=nil and  re_table[ability:GetAbilityName()]~=nil and re_table[ability:GetAbilityName()] then
-                damageTable.damage=damageTable.damage*(1+hero.re*hero:GetStrength()/100)
+             if  ability and ability.GetAbilityName and hero and re_table[ability:GetAbilityName()]~=nil and re_table[ability:GetAbilityName()] then
+                if hero.pysical_return~=nil and damageTable.damagetype_const==1 then --物理类反伤处理技能
+                  damageTable.damage=damageTable.damage*(1+hero.pysical_return*hero:GetStrength()/100)
+                end
+                if hero.magical_return~=nil and damageTable.damagetype_const==2 then --魔法类反伤处理技能
+                  damageTable.damage=damageTable.damage*(1+hero.magical_return*hero:GetStrength()/100)
+                end
+                if hero.pure_return~=nil and damageTable.damagetype_const==4 then --神圣类反伤处理技能
+                  damageTable.damage=damageTable.damage*(1+hero.pure_return*hero:GetStrength()/100)
+                end
              end
 	        else
-	           if hero.sp~=nil and  damageTable.damagetype_const==2 then --无明确来源技能
+	           if hero and hero.sp~=nil and  damageTable.damagetype_const==2 then --无明确来源技能
 	             damageTable.damage=damageTable.damage*(1+hero.sp*hero:GetIntellect()/100) 
 	           end
 	        end
@@ -121,9 +135,6 @@ function CHoldoutGameMode:DamageFilter(damageTable)
             end
         end
 
-        if damageTable.damagetype_const ~=1 and attacker.damageMultiple~=nil then  --Ability damage
-          damageTable.damage=damageTable.damage*attacker.damageMultiple
-        end
       	if attacker:HasModifier("modifier_night_damage_stack") then
       		local ability=attacker:FindAbilityByName("night_creature_increase_damage")
       		local magic_enhance_per_stack=ability:GetSpecialValueFor("magic_enhance_per_stack")
@@ -146,6 +157,7 @@ function CHoldoutGameMode:DamageFilter(damageTable)
         end
      end
    end
+
    return true
 end
 

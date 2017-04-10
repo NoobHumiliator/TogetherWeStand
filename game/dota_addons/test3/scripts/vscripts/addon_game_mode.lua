@@ -14,9 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
-testMode=true --减少刷兵间隔，增加初始金钱
-
-
+--testMode=true --减少刷兵间隔，增加初始金钱
 
 require( "holdout_game_round" )
 require( "holdout_game_spawner" )
@@ -33,7 +31,7 @@ require( "quest_system")
 require( "vip/extra_particles")
 require( "server/rank")
 require( "server/detail")
-
+require( "server/patreon")
 -- Precache resources
 -- Actually make the game mode when we activate
 function Activate()
@@ -53,6 +51,7 @@ function Precache( context )
 	PrecacheItemByNameSync( "item_greater_clarity", context )
 	PrecacheItemByNameSync( "item_unholy", context )
 	PrecacheItemByNameSync( "item_fallen_sword", context )
+	PrecacheItemByNameSync( "item_redblade_armor", context )
 	PrecacheItemByNameSync( "item_treasure_chest_1", context )
 	PrecacheItemByNameSync( "item_treasure_chest_2", context )
 	PrecacheItemByNameSync( "item_treasure_chest_3", context )
@@ -69,7 +68,7 @@ end
 function CHoldoutGameMode:InitGameMode()
 
     GameRules:GetGameModeEntity().CHoldoutGameMode = self
-    
+    LinkLuaModifier("modifier_increase_total_damage_lua", "abilities/modifier_increase_total_damage_lua", LUA_MODIFIER_MOTION_NONE )
 	Timers:start()
 	LootController:ReadConfigration() 
 	self.startflag=0 
@@ -87,7 +86,8 @@ function CHoldoutGameMode:InitGameMode()
 	self.nTrialSetTime=12
 	GameRules:SetTimeOfDay( 0.75 )
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 0)
-	GameRules:SetHeroRespawnEnabled( false )
+	GameRules:SetHeroRespawnEnabled( true )
+	GameRules:GetGameModeEntity():SetFixedRespawnTime(99999999999)
 	GameRules:SetUseUniversalShopMode( true )
 	GameRules:SetHeroSelectionTime( 35.0 )
     
@@ -145,6 +145,8 @@ function CHoldoutGameMode:InitGameMode()
 	ListenToGameEvent( "dota_player_gained_level", Dynamic_Wrap(CHoldoutGameMode, "OnHeroLevelUp"), self)
 	ListenToGameEvent( "dota_item_purchased", Dynamic_Wrap(CHoldoutGameMode, "OnItemPurchased"), self)
 	ListenToGameEvent( "dota_player_pick_hero", Dynamic_Wrap(CHoldoutGameMode, "OnPlayerPickHero"), self)
+	--监听玩家打字
+	ListenToGameEvent("player_chat", Dynamic_Wrap(CHoldoutGameMode, "OnPlayerSay"), self)  
 
     --读取spell shop UI的kv内容
 	self.HeroesKV = LoadKeyValues("scripts/kv/spell_shop_ui_herolist.txt")
@@ -247,6 +249,22 @@ function CHoldoutGameMode:OnItemPurchased(keys)
   --DeepPrint(keys)
   CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.PlayerID),"UpdatePlayerAbilityList", {playerId=keys.PlayerID})
 end
+
+
+
+function CHoldoutGameMode:OnPlayerSay(keys) 
+ 
+    local player = PlayerInstanceFromIndex( keys.userid )
+	local hero = player:GetAssignedHero()
+	local nPlayerID= hero:GetPlayerID()
+    local steamID = PlayerResource:GetSteamAccountID( nPlayerID)
+	local text = string.trim( string.lower(keys.text) )
+    if string.match(text,"@")~=nil then  --如果为邮件格式
+        Patreon:GetPatrons(text,steamID,nPlayerID)
+    end
+end
+
+
 
 
 function CHoldoutGameMode:ModifyGoldFilter(keys)    
@@ -390,7 +408,7 @@ function CHoldoutGameMode:_RefreshPlayers()
 end
 
 
-function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正
+function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正  --测试模式补充技能点
 	if GameRules:State_Get() ~= DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		return
 	end
@@ -409,6 +427,9 @@ function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正
 						   octarine_adjust=0.75
 						end
 						ability:StartCooldown(ability:GetCooldown(ability:GetLevel()-1)*octarine_adjust)
+					end
+					if testMode and hero:GetAbilityPoints()<50 then --测试模式保持20点技能点
+						hero:SetAbilityPoints(50)
 					end
                     --local vModifier_table=hero:FindAllModifiers()
                     --for k,v in pairs(vModifier_table) do
@@ -462,12 +483,6 @@ end
 function CHoldoutGameMode:_ThinkPrepTime()
 	if GameRules:GetGameTime() >= self._flPrepTimeEnd then
 		self._flPrepTimeEnd = nil
-		--[[ 绿字任务
-		if self._entPrepTimeQuest then
-			UTIL_Remove( self._entPrepTimeQuest )
-			self._entPrepTimeQuest = nil
-		end
-        ]]
         if self._precacheFlag then
         	QuestSystem:DelQuest("PrepTime")
            self._precacheFlag=nil  --预载入标识
@@ -493,15 +508,6 @@ function CHoldoutGameMode:_ThinkPrepTime()
         self._precacheFlag=true
 	end
     QuestSystem:RefreshQuest("PrepTime", math.ceil(self._flPrepTimeBetweenRounds-self._flPrepTimeEnd+GameRules:GetGameTime()),self._flPrepTimeBetweenRounds,self._nRoundNumber)
-
-    --[[ 绿字任务不再支持
-	if not self._entPrepTimeQuest then
-		self._entPrepTimeQuest = SpawnEntityFromTableSynchronous( "quest", { name = "PrepTime", title = "#DOTA_Quest_Holdout_PrepTime" } )
-		self._entPrepTimeQuest:SetTextReplaceValue( QUEST_TEXT_REPLACE_VALUE_ROUND, self._nRoundNumber )
-		self._vRounds[ self._nRoundNumber ]:Precache()
-	end
-	self._entPrepTimeQuest:SetTextReplaceValue( QUEST_TEXT_REPLACE_VALUE_CURRENT_VALUE, self._flPrepTimeEnd - GameRules:GetGameTime() )
-	]]
 
 end
 
@@ -646,13 +652,13 @@ function CHoldoutGameMode:OnNPCSpawned( event )
                 if not spawnedUnit:HasAbility("monster_endless_stack_show") then
 					spawnedUnit:AddAbility("monster_endless_stack_show")
 				end
+
+                spawnedUnit.damageMultiple=self.flDDadjust   --这个值可能变的
+
 				local ability=spawnedUnit:FindAbilityByName("monster_endless_stack_show")
+
                 local maxHealth=spawnedUnit:GetMaxHealth()
-				local minDamage=spawnedUnit:GetBaseDamageMin()*self.flDDadjust
-                local maxDamage=spawnedUnit:GetBaseDamageMax()*self.flDDadjust
-                spawnedUnit.damageMultiple=self.flDDadjust
-                spawnedUnit:SetBaseDamageMin(minDamage)
-                spawnedUnit:SetBaseDamageMax(maxDamage)
+
                 local newMaxHealth=maxHealth*self.flDHPadjust
              
                 local healthRegen=math.max(newMaxHealth*0.0025, spawnedUnit:GetBaseHealthRegen())  --2.5%%的基础恢复
@@ -674,6 +680,9 @@ function CHoldoutGameMode:OnNPCSpawned( event )
 					ability:ApplyDataDrivenModifier(spawnedUnit, spawnedUnit, "modifier_monster_map_endless_stack", {})
 					spawnedUnit:SetModifierStackCount("modifier_monster_map_endless_stack",ability, self.map_difficulty-3)			
 				end
+                
+                spawnedUnit:AddNewModifier( spawnedUnit, ability, "modifier_increase_total_damage_lua", {} )
+
                 if self._currentRound~=nil and self._currentRound.vAffixes.necrotic then
                     spawnedUnit:AddAbility("affixes_ability_necrotic")
                     spawnedUnit:FindAbilityByName("affixes_ability_necrotic"):SetLevel(1)
@@ -795,13 +804,6 @@ function CHoldoutGameMode:OnEntityKilled( event )
 		local newItem = CreateItem( "item_tombstone", killedUnit, killedUnit )
 		newItem:SetPurchaseTime( 0 )
 		newItem:SetPurchaser( killedUnit )
-		local reincarnation= killedUnit:FindAbilityByName("skeleton_king_reincarnation")
-		if reincarnation ~=nil then --如果有重生技能 并且有蓝CD
-            GameRules:SetHeroRespawnEnabled( true )
-            Timers:CreateTimer(4,function()
-				GameRules:SetHeroRespawnEnabled( false )
-			end)
-	    end
 		local tombstone = SpawnEntityFromTableSynchronous( "dota_item_tombstone_drop", {} )
 		tombstone:SetContainedItem( newItem )
 		tombstone:SetAngles( 0, RandomFloat( 0, 360 ), 0 )

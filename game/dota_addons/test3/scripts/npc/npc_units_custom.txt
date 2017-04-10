@@ -10837,8 +10837,8 @@
 	"Level"						"4"
 	"HealthBarOffset"			"140"
 	"HasInventory"				"1"
-	"SoundSet"                  "Hero_Pudge"
-    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts"
+	"SoundSet"                  "Hero_NightStalker"
+    "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_nightstalker.vsndevts"
 
 	
 	// Abilities
@@ -11115,6 +11115,62 @@
 			"DisableResistance"			"100.0"
 		}
  }
+
+ "npc_geodesic_dummy"  //无尽虚空马甲
+ {
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models\development\invisiblebox.vmdl" 
+		"SoundSet"					""								        
+		"ModelScale" 				"0.8"							       
+	
+		"Ability1"					"dummy_normal"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"  	
+		"AttackDamageMin"			"0"							
+		"AttackDamageMax"			"0"							
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1"							
+		"AttackAcquisitionRange"	"0"						
+		"AttackRange"				"0"							
+
+
+		//----------------------------------------------------------------
+		"BountyXP"				    "0"		
+		"BountyGoldMin"				"0"		
+		"BountyGoldMax"				"0"		
+
+
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		
+		"RingRadius"				"0"							
+		"HealthBarOffset"			"0"							
+
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"				"0"							
+		"MovementTurnRate"			"3"							
+
+		//----------------------------------------------------------------
+		"StatusHealth"				"100000"					
+		"StatusHealthRegen"			"0"							
+        "TeamName"		            "DOTA_TEAM_BADGUYS"			
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+
+        "VisionDaytimeRange"		"3"		// Range of vision during day light.
+		"VisionNighttimeRange"		"3"		// Range of vision at night time.
+		"Creature"
+		{                    		
+			"DisableResistance"			"100.0"
+		}
+ }
+
+
 
  "npc_dota_night_bane"   
  {
@@ -12768,7 +12824,7 @@
 		
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"500000"		// Base health.
+		"StatusHealth"				"680000"		// Base health.
 		"StatusHealthRegen"			"500.0"		// Health regeneration rate.
 		"StatusMana"				"15000"		// Base mana.
 		"StatusManaRegen"			"300.0"		// Mana regeneration rate.
@@ -12951,7 +13007,7 @@
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/items/enigma/eidolon/geodesic/geodesic.vmdl"	// Model.
 		"SoundSet"					"0"					// Name of sound set.
-		"ModelScale"				"1.3"								// old 1.0
+		"ModelScale"				"0.5"								// old 1.0
 		"Level"						"1"
 		"CanBeDominated"			"0"
 		"SelectionGroup"			"Spiders"
@@ -13005,7 +13061,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"430"		// Base health.
+		"StatusHealth"				"5000"		// Base health.
 		"StatusHealthRegen"			"3.5"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.

@@ -16,6 +16,7 @@
         "item"      "item_ultimate_orb_2"
         "item"      "item_ultimate_orb_3"
         "item"      "item_ultimate_orb_4"
+        "item"      "item_ultimate_orb_5"
 	}
 
 	"attributes"
@@ -33,6 +34,7 @@
 		"item"		"item_staff_of_wizardry"
 		"item"		"item_ultimate_orb"
 		"item"		"item_mystic_staff"
+		"item"		"item_mystic_staff_2"
 	}
 
 	"weapons_armor"
@@ -50,6 +52,7 @@
 		"item"		"item_platemail"
 		"item"		"item_mithril_hammer"	
 	    "item"		"item_demon_edge"
+	    "item"		"item_relic"
 	}
 			
 	"misc"
@@ -144,7 +147,8 @@
 		"item"		"item_bloodstone"
 		"item"		"item_sphere"
 		"item"		"item_assault"
-		"item"		"item_heart"				
+		"item"		"item_heart"
+		"item"      "item_redblade_armor"				
 	}
 			
 	"weapons"
@@ -162,7 +166,8 @@
 		"item"		"item_greater_crit"
 		"item"		"item_butterfly"
 		"item"		"item_rapier1_datadriven"
-		"item"		"item_abyssal_blade"					
+		"item"		"item_abyssal_blade"
+		"item"      "item_healer_3"			
 	}
 		
 	// Level 4 - Orange / Orb / Artifacts				
@@ -181,7 +186,8 @@
  		"item"		"item_mjollnir"
  		"item"		"item_skadi" 
  		"item"		"item_satanic"
- 		"item"		"item_heart_2"		
+ 		"item"		"item_heart_2"
+ 		"item"      "item_tank_armor_2"
 	}
 
 	"sideshop1"
@@ -198,6 +204,7 @@
 		"item"		"item_lifesteal"
 		"item"		"item_helm_of_iron_will"
 		"item"		"item_energy_booster"
+
 	}
 
 	"sideshop2"
@@ -229,6 +236,7 @@
 		"item"		"item_mystic_staff"
 		"item"		"item_reaver"
 		"item"		"item_eagle"
-		"item"		"item_relic"
+		"item"		"item_reaver_2"
+		"item"		"item_reaver_3"
 	}	
 }

@@ -17,7 +17,8 @@ exceptionSpawnedUnit ={   --不计入游戏进度的单位名字
    npc_majia_water_1=true,
    npc_dummy_blank=true,
    npc_dota_thinker=true,
-   npc_falling_rock_dummy=true
+   npc_falling_rock_dummy=true,
+   npc_geodesic_dummy=true
 }
 
 
@@ -36,7 +37,7 @@ function CHoldoutGameRound:ReadConfiguration( kv, gameMode, roundNumber )
 	self._nBagCount = tonumber( kv.BagCount or 0 )
 	self._nBagVariance = tonumber( kv.BagVariance or 0 )
 	self._nFixedXP = tonumber( kv.FixedXP or 0 )
-	self._nItemDropNum = tonumber( kv.ItemDropNum or 6 )  --单人玩家一关默认掉落6件物品 ，5人18件
+	self._nItemDropNum = tonumber( kv.ItemDropNum or 5 )  --单人玩家一关默认掉落5件物品 ，5人18件
  	self._vSpawners = {}
 	self._totalCreatureNum=0
 	self._environmentcontroller= EnvironmentController()

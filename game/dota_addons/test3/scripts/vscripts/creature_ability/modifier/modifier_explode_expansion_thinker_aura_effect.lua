@@ -9,16 +9,14 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_explode_expansion_thinker_aura_effect:OnCreated( kv )
-	self.armor_reduce = -100   --怪物死了 技能获取不到 写死
-	self.damage_per_tick = 100
+	self.damage_per_tick = 50
 	self:StartIntervalThink(0.1)
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_explode_expansion_thinker_aura_effect:OnRefresh( kv )
-	self.armor_reduce = -100
-	self.damage_per_tick = 100
+	self.damage_per_tick = 50
 end
 
 --------------------------------------------------------------------------------
@@ -39,7 +37,6 @@ end
 --------------------------------------------------------------------------------
 function modifier_explode_expansion_thinker_aura_effect:DeclareFunctions()
 	local funcs = {
-		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 		MODIFIER_PROPERTY_DISABLE_HEALING
 	}
 	return funcs
@@ -47,20 +44,13 @@ end
 --------------------------------------------------------------------------------
 function modifier_explode_expansion_thinker_aura_effect:CheckState()
 	local state = {
-		[MODIFIER_STATE_SILENCED] = true,
-		[MODIFIER_STATE_DISARMED] = true,
+		--[MODIFIER_STATE_SILENCED] = true,
+		--[MODIFIER_STATE_DISARMED] = true,
 		[MODIFIER_STATE_INVISIBLE] = false,
 	}
 
 	return state
 end
-
---------------------------------------------------------------------------------
-
-function modifier_explode_expansion_thinker_aura_effect:GetModifierPhysicalArmorBonus( params )
-	return self.armor_reduce
-end
-
 ------------------------------------------------------------------------------------
 
 function modifier_explode_expansion_thinker_aura_effect:GetDisableHealing( params )

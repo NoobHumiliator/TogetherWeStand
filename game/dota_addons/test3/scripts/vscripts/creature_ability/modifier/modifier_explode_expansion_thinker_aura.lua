@@ -17,7 +17,13 @@ function modifier_explode_expansion_thinker_aura:OnCreated( kv )
 		self.nFXIndex=nFXIndex
 	end
 end
-
+--------------------------------------------------------------------------------
+function modifier_explode_expansion_thinker_aura:CheckState()
+	local state = {
+		[MODIFIER_STATE_PROVIDES_VISION] = true
+	}
+	return state
+end
 --------------------------------------------------------------------------------
 
 function modifier_explode_expansion_thinker_aura:OnIntervalThink()   --扩大范围
@@ -63,7 +69,7 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_explode_expansion_thinker_aura:GetAuraSearchType()   --影响所有单位
-	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC+ DOTA_UNIT_TARGET_CREEP
+	return DOTA_UNIT_TARGET_ALL
 end
 
 -------------------------------------------------------------------------------

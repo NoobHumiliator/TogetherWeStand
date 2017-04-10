@@ -57,13 +57,13 @@ function modifier_on_health_gain_lua:OnHealthGained( keys )  --非过量
           end
           local healerMultiple=0
           if healer:HasModifier("modifier_item_healer_3") then
-            healerMultiple =1.5
+            healerMultiple =1.2
           else
             if healer:HasModifier("modifier_item_healer_2") then
-              healerMultiple =1
+              healerMultiple =0.8
             else
               if healer:HasModifier("modifier_item_healer_1") then
-                healerMultiple=0.5
+                healerMultiple=0.4
               end
             end
           end

@@ -353,15 +353,14 @@ function charge_dot_damage( keys )
           GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag=false
         end
    end
-  local flDDadjust=GameRules:GetGameModeEntity().CHoldoutGameMode.flDDadjust
-  local dot_damage = 100*stacks*stacks*flDDadjust --物理伤害的难度修正
-  local damageTable = {victim=target,
-  attacker=caster,
-  damage_type=DAMAGE_TYPE_PURE,
-  damage=dot_damage}
-    --造成伤害
+  local dot_damage = 100*stacks*stacks
+  local damageTable = {
+         victim=target,
+         attacker=caster,
+         damage_type=DAMAGE_TYPE_PURE,
+         damage=dot_damage
+        }
     ApplyDamage(damageTable)
-    --print("damage is"..dot_damage)
 end
 
 function remove_wake_ability(keys)

@@ -4237,7 +4237,7 @@
 				"Aura"					"create_acid_spray_armor_reduction_aura"
 				"Aura_Radius"			"%radius"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP "
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 				"Duration"				"%duration"
 
@@ -5006,7 +5006,7 @@
 				"Aura"					"health_regen"
 				"Aura_Radius"			"%health_radius"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP "
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Aura_ApplyToCaster"	"0"
 			}
 			
@@ -6105,7 +6105,7 @@
 				"Aura"					"health_regen"
 				"Aura_Radius"			"%health_radius"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP "
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 			}
 			
 			"health_regen"
@@ -6332,47 +6332,6 @@
 		}
 	}
 	
-	//=================================================================================================================
-	// Ability: Holdout Axe Counter Helix
-	//=================================================================================================================
-	"holdout_axe_counter_helix"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"BaseClass"						"axe_counter_helix"
-		"AbilityTextureName"			"axe_counter_helix"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.75 0.7 0.65 0.60"
-		
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"50 80 110 140"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"275"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"trigger_chance"			"17 17 17 17"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"cooldown"					"0.75 0.7 0.65 0.60"
-			}
-		}
-	}
 	
 	//=================================================================================================================
 	// Ability: Holdout Axe Berserker's Call
@@ -8021,7 +7980,7 @@
 				"Aura"					"aura_modifier"
 				"Aura_Radius"			"%radius_rot"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP "	
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"	
 			}
 			
 			"aura_modifier"
@@ -14489,7 +14448,7 @@
 				"IsHidden"						"0"
                 "IsDebuff"						"1"
                 "IsPurgable"			     	"0"		
-                 "TextureName"	                "map_easy_show"			
+                "TextureName"	                "map_easy_show"
 		    }
 		    "modifier_monster_map_endless_stack"
 			{
@@ -15131,7 +15090,7 @@
 			"Aura"					"modifier_boss_battery_assault_aura_effect_datadriven"
 			"Aura_Radius"			"%global_radius"
 			"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-			"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_OTHER"
+			"Aura_Types"			"DOTA_UNIT_TARGET_ALL"
 			"Aura_Flags"	        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		}
 	   "modifier_true_sight_1"
@@ -16358,7 +16317,7 @@
 	//-------------------------------------------------------------------------------------------------------------
 	"BaseClass"				        "ability_datadriven"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 	"AbilityTextureName"			"axe_counter_helix"
 	"AOERadius"						"%radius"
@@ -16416,7 +16375,7 @@
 			"Aura" 			"modifier_counter_helix_enemy_datadriven"
 			"Aura_Radius" 	"%trigger_radius"
 			"Aura_Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-			"Aura_Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC "
+			"Aura_Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		}
 
 		"modifier_counter_helix_enemy_datadriven"
@@ -16428,7 +16387,6 @@
 				"Random"
 				{
 					"Chance"			"%trigger_chance"
-					"PseudoRandom" 		"DOTA_PSEUDO_RANDOM_JUGG_CRIT"
 					"OnSuccess"
 					{
 						"RunScript"
@@ -16465,7 +16423,7 @@
 						"Center"  	"CASTER"
 						"Radius" 	"%radius"
 						"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-						"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC "
+						"Types" 	"DOTA_UNIT_TARGET_ALL"
 					}
 				
 					"Action"    
@@ -16473,7 +16431,7 @@
 						"Damage"
 						{
 							"Target"		"TARGET"
-							"Type"			"DAMAGE_TYPE_PURE"
+							"Type"			"DAMAGE_TYPE_MAGICAL"
 							"Damage"		"%AbilityDamage"
 						}
 					}
@@ -16833,7 +16791,7 @@
 				"Aura" 				"modifier_unholy_aura_buff"
 				"Aura_Radius" 		"%radius"
 				"Aura_Teams" 		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Types" 		"DOTA_UNIT_TARGET_ALL"
 			}
 	
 			"modifier_unholy_aura_buff"
@@ -16860,7 +16818,7 @@
 		"01"
 		{
 			"var_type"			"FIELD_INTEGER"
-			"radius"			"200"
+			"radius"			"150"
 		}
 		"02"
 		{
@@ -16904,7 +16862,7 @@
 			"Aura"          	"modifier_disease_cloud_debuff"
 			"Aura_Radius"   	"%radius"
 			"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-			"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 			"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		}
 
@@ -17091,7 +17049,7 @@
 		"BaseClass"					    "abaddon_death_coil"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"	        "DOTA_UNIT_TARGET_TEAM_BOTH"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP "
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"FightRecapLevel"				"1"
@@ -17226,6 +17184,19 @@
 
 		"Modifiers"
 		{
+           "modifier_light_ball_dummy_provide_vision"
+	        {
+	        	"Passive"			"1"
+	        	"IsHidden"			"0"
+	        	"IsDebuff"			"0"  
+	            "States"
+			     {
+					"MODIFIER_STATE_PROVIDES_VISION"	"MODIFIER_STATE_VALUE_ENABLED"
+			     }      
+	        }
+
+
+
 			"modifier_light_ball_dummy_aura_good"
 			{
 				"Passive"					"1"
@@ -17234,7 +17205,7 @@
 
 				"Aura"						"modifier_light_ball_dummy_aura_good_effect"
 				"Aura_Radius"				"%radius"
-				"Aura_Teams"				"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"				"DOTA_UNIT_TARGET_ALL"
                 "Aura_ApplyToCaster"	    "0"
                 "OnCreated"
@@ -17273,7 +17244,7 @@
 
 				"Aura"						"modifier_light_ball_dummy_aura_bad_effect"
 				"Aura_Radius"				"%radius"
-				"Aura_Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Teams"				"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"Aura_Types"				"DOTA_UNIT_TARGET_ALL"
 				"Aura_Flags"			    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 			}
@@ -17321,7 +17292,7 @@
 				"magic_enhance_per_stack_tooltip"  "20"
 			}
 		}
-
+        
 		"Modifiers"
 		{
 			"modifier_night_damage_think"
@@ -17456,13 +17427,26 @@
 			}
 		}
 	}
-	"night_midnight_pulse"
+
+   "night_midnight_pulse"
 	{
-		"BaseClass"			        	"enigma_midnight_pulse"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				        "ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AoERadius" 					"200"
 		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"enigma_midnight_pulse"
+		
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_enigma/enigma_midnight_pulse.vpcf"
+			"soundfile"		"sounds/weapons/hero/enigma/midnight_pulse.vsnd"
+		}
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -17489,15 +17473,84 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"damage_percent"			"5.0"
+				"damage_percent"			"5"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
 				"duration"					"30"
 			}
+			"04"
+			{
+				"var_type"				    "FIELD_FLOAT"
+				"tick_rate"				    "1.0"
+			}
+		}
+		
+		"OnSpellStart"
+		{
+		 	"CreateThinker"
+		 	{
+		 		"ModifierName"	"modifier_midnight_pulse_datadriven"
+		 		"Target" 		"POINT"
+		 	}
+		} 
+
+		"Modifiers"
+		{
+			"modifier_midnight_pulse_datadriven"
+			{
+				"Aura"					"modifier_midnight_pulse_debuff"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_ALL"
+				"Duration"				"%duration"
+
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_Enigma.Midnight_Pulse"
+						"Target"		"TARGET"
+					}
+
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_enigma/enigma_midnight_pulse.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%radius %radius %radius"
+						}
+					}
+					
+					"DestroyTrees"
+					{
+						"Target"	"TARGET"
+						"Radius"	"%radius"
+					}
+				}
+			}
+
+			"modifier_midnight_pulse_debuff"
+			{
+				"IsDebuff"		"1"
+				
+				"ThinkInterval"	"%tick_rate"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"creature_ability/midnight_pulse.lua"
+						"Function"	    "ApplyDPS"
+					}
+				}
+			}
 		}
 	}
+
 	"water_adaptive_strike"  //Interrupt rearm
 	{
 		// General
@@ -18056,7 +18109,7 @@
 				"Aura"					"affixes_ability_sanguine_aura"
 				"Aura_Radius"			"%radius"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP "
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 				"Duration"				"%duration"
 
@@ -18259,7 +18312,7 @@
 				"Aura" 				"modifier_slow_aura_effect"
 				"Aura_Radius" 		"%radius"
 				"Aura_Teams" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC "
+				"Aura_Types" 		"DOTA_UNIT_TARGET_ALL"
 				"Aura_Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 			}
 
@@ -19173,7 +19226,7 @@
         // Unit Targeting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP "
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
         "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
 
         // Stats
@@ -19650,7 +19703,7 @@
 				"Aura" 			"modifier_heartstopper_debuff_datadriven"
 				"Aura_Radius" 	"%aura_radius"
 				"Aura_Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 			}
 
@@ -21433,7 +21486,7 @@
         		"Aura"          	"modifier_current_storm_damage_aura"
         		"Aura_Radius"   	"%radius_aoe"
         		"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-        		"Aura_Types"    	"DOTA_UNIT_TARGET_HERO"
+        		"Aura_Types"    	"DOTA_UNIT_TARGET_ALL"
         		"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
         		"Aura_ApplyToCaster" "0"
         	}
@@ -21768,7 +21821,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE"
 		"SpellImmunityType"			   "SPELL_IMMUNITY_ENEMIES_YES"
 	    "AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"AbilityTextureName"			"alchemist_acid_spray"
+		"AbilityTextureName"			"faceless_void_chronosphere"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -21836,7 +21889,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius_increase"		"10"
+				"radius_increase"		"20"
 			}
 			"03"
 			{
@@ -21851,6 +21904,51 @@
 		}
 	}
 
+	"spectre_dispersion_datadriven"   //折射卡掉队友 重写
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityTextureName"			"spectre_dispersion"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
 
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"min_radius"			"300 300 300 300"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_radius"			"1000 1000 1000 1000"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_reflection_pct"		"10 14 18 22"
+			}
+		}
+
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_spectre/spectre_dispersion.vpcf"
+			"particle"	"particles/units/heroes/hero_spectre/spectre_dispersion_fallback_mid.vpcf"
+			"particle"	"particles/units/heroes/hero_spectre/spectre_dispersion_b_fallback_low.vpcf"
+		}
+
+		"OnCreated"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_spectre/dispersion.lua"
+				"Function"		"ApplyModifier"
+			}
+		}
+	}
 
 } //主括号
