@@ -32,6 +32,7 @@ require( "vip/extra_particles")
 require( "server/rank")
 require( "server/detail")
 require( "server/patreon")
+require( "server/vip")
 -- Precache resources
 -- Actually make the game mode when we activate
 function Activate()
@@ -84,6 +85,8 @@ function CHoldoutGameMode:InitGameMode()
 	self.flDDadjust=1  --保存难度产生的伤害系数修正
 	self.flDHPadjust=1  --保存难度产生的血量系数修正
 	self.nTrialSetTime=12
+	self.vipMap={}  --key是steamID vlaue是vip等级初始化是0
+	self.steamIdMap={}  --key是steamID vlaue是nPlayerNumber
 	GameRules:SetTimeOfDay( 0.75 )
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 0)
 	GameRules:SetHeroRespawnEnabled( true )
@@ -259,9 +262,15 @@ function CHoldoutGameMode:OnPlayerSay(keys)
 	local nPlayerID= hero:GetPlayerID()
     local steamID = PlayerResource:GetSteamAccountID( nPlayerID)
 	local text = string.trim( string.lower(keys.text) )
-    if string.match(text,"@")~=nil then  --如果为邮件格式
+    if string.match(text,"@")~=nil then  --如果为邮件
         Patreon:GetPatrons(text,steamID,nPlayerID)
     end
+    if string.match(text,"^[r|R][o|O][u|U][n|N][d|D]%d+")~=nil and GameRules:IsCheatMode() then  --如果为跳关码
+        local round= string.match(text,"%d+")
+        print("round"..round)
+        self:TestRound(round,nil)
+    end
+
 end
 
 
@@ -332,16 +341,44 @@ function CHoldoutGameMode:OnGameRulesStateChange()
 			Rank:GetRankDataFromServer(i) --从服务器获取天梯数据
 		end
 	end
+
 	if nNewState ==  DOTA_GAMERULES_STATE_HERO_SELECTION then
 		PrecacheUnitByNameAsync('npc_precache_always', function() end) 
 		ShowGenericPopup( "#holdout_instructions_title", "#holdout_instructions_body", "", "", DOTA_SHOWGENERICPOPUP_TINT_SCREEN )
 	end
+
 	if nNewState ==  DOTA_GAMERULES_STATE_GAME_IN_PROGRESS   then
-		 self.flProgressTime=GameRules:GetGameTime()
-		 CustomGameEventManager:Send_ServerToAllClients( "UpdateCmHud", {} )
-		 self:SetBaseDifficulty()
+		self.flProgressTime=GameRules:GetGameTime()
+		CustomGameEventManager:Send_ServerToAllClients( "UpdateCmHud", {} )
+		self:SetBaseDifficulty()
+        self:InitVipReward() --设置vip奖励
 	end
 end
+
+
+
+function CHoldoutGameMode:InitVipReward() --设置初始Vip奖励
+	local steamIDs
+    for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+		 local steamID = PlayerResource:GetSteamAccountID(nPlayerID)
+		 if steamID~=0 and steamID~="0" then
+		   self.vipMap[steamID]=0
+		   self.steamIdMap[steamID]=nPlayerID
+		    if steamIDs==nil then
+		 	  steamIDs=steamID
+			else
+			  steamIDs=steamIDs..","..steamID
+			end
+		 end
+	end
+	Vip:GetVipDataFromServer(steamIDs) --从服务器获取这些玩家哪个是vip
+end
+
+
+
+
+
+
 
 -- Evaluate the state of the game 
 function CHoldoutGameMode:OnThink()
@@ -839,13 +876,21 @@ end
 
 -- Custom game specific console command "holdout_test_round"
 function CHoldoutGameMode:_TestRoundConsoleCommand( cmdName, roundNumber, delay )
-	local nRoundToTest = tonumber( roundNumber )
-	print (string.format( "Testing round %d", nRoundToTest ) )
-	if nRoundToTest <= 0 or nRoundToTest > #self._vRounds then
-		Msg( string.format( "Cannot test invalid round %d", nRoundToTest ) )
+    self:TestRound(roundNumber,delay)
+end
+
+
+
+
+function CHoldoutGameMode:TestRound(roundNumber, delay)
+  
+   local nRoundToTest = tonumber( roundNumber )
+
+   if nRoundToTest <= 0 or nRoundToTest > #self._vRounds then
 		return
-	end
-	for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
+   end
+
+   for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
 		if PlayerResource:IsValidPlayer( nPlayerID ) then
 			PlayerResource:ModifyGold( nPlayerID, 999999, true, DOTA_ModifyGold_Unspecified )
 			PlayerResource:GetPlayer(nPlayerID):GetAssignedHero():SetAbilityPoints(50)
@@ -871,7 +916,12 @@ function CHoldoutGameMode:_TestRoundConsoleCommand( cmdName, roundNumber, delay 
 	if delay ~= nil then
 		self._flPrepTimeEnd = GameRules:GetGameTime() + tonumber( delay )
 	end
+
 end
+
+
+
+
 
 
 function CHoldoutGameMode:_StatusReportConsoleCommand( cmdName )

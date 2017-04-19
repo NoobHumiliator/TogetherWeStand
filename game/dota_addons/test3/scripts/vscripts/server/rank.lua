@@ -41,7 +41,7 @@ function Rank:GetRankDataFromServer(nPlayerNumber)
                     table.insert(playerNumberTable[page],v)
                 end
                 Rank.rankTable[nPlayerNumber]=playerNumberTable
-                PrintTable(Rank.rankTable,nil,nil)
+                --PrintTable(Rank.rankTable,nil,nil)
                 if playerNumberTable[1]~=nil then --如果第一页数据不为空,显示第一页数据
                   CustomGameEventManager:Send_ServerToAllClients("show_page", {player_number=player_number,page_number=1,table=playerNumberTable[1]})
                 end

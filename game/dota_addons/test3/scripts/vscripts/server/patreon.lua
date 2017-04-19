@@ -4,7 +4,7 @@ require('libraries/json')
 require('util')
 require('vip/vip_reward')
 
-local server_address="http://54.68.31.237:8007/"
+local server_address="http://54.68.31.237:8005/"
 
 
 rewardLevelTable={ [1557280]=1 }   --Reward与Vip等级的关系
@@ -37,6 +37,7 @@ function Patreon:GetPatrons(emailCode,steamID,nPlayerID)
                       request:SetHTTPRequestGetOrPostParameter("code",tostring(emailCode))
                       request:SetHTTPRequestGetOrPostParameter("steam_id",tostring(steamID))
                       request:SetHTTPRequestGetOrPostParameter("vip_level",tostring(rewardLevel))
+                      request:SetHTTPRequestGetOrPostParameter("auth","K4gN+u422RN2X4DubcLylw==");
                             request:Send(function(result)   --向服务器请求注册VIP
                                 print("Register result arrived: "..result.Body)
                                 if result.StatusCode == 200 then

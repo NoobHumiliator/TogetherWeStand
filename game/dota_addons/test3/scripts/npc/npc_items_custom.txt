@@ -11,8 +11,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"Model"					"models/particle/tiny_simrocks.vmdl"
-		"AbilityTextureName"			"tiny_toss"
+		"Model"					        "models/particle/tiny_simrocks.vmdl"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -84,7 +83,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"Model"							"models/props_gameplay/salve_blue.vmdl"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName"			"item_pineapple"
+		"AbilityTextureName"			"custom_items/pineapple"
 		"ItemKillable"					"0"
 
 		// Stats
@@ -133,7 +132,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"Model"							"models/props_gameplay/salve_blue.vmdl"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName"			"item_greater_clarity"
+		"AbilityTextureName"			"custom_items/greater_clarity"
 		"ItemKillable"					"0"
         
 		// Stats
@@ -173,7 +172,8 @@
 		{
 			"modifier_item_greater_clarity"
 			{
-				"TextureName" "item_greater_clarity"
+				//"TextureName" "item_greater_clarity"
+				"TextureName" "custom_items/greater_clarity"
 				"EffectName" "particles/items_fx/healing_clarity.vpcf"
 				"EffectAttachType" "follow_origin"
 				"Duration" "%buff_duration"
@@ -266,7 +266,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"Model"							"models/props_gameplay/salve_red.vmdl"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName"			"item_greater_salve"
+		"AbilityTextureName"			"custom_items/greater_salve"
 		"ItemKillable"					"0"
 
 		// Stats
@@ -356,7 +356,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"1002"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_recipe_tranquil_boots"
-		
+		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -383,7 +383,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName"			"item_slippers_of_halcyon"
+		"AbilityTextureName"			"custom_items/slippers_of_halcyon"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 
 		// Stats		
@@ -550,7 +550,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"BaseClass"						"item_flask"
-		"AbilityTextureName"			"item_flask2"
+		"AbilityTextureName"			"custom_items/flask2"
 		"Model"							"models/props_gameplay/salve.vmdl"
 		
 		// Stats
@@ -590,7 +590,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"						    "15001"
-		"AbilityTextureName"			"item_treasure_chest"
+		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -621,7 +621,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"						    "15002"
-		"AbilityTextureName"			"item_treasure_chest"
+		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"						"item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -652,7 +652,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"						"15003"
-		"AbilityTextureName"		"item_treasure_chest"
+		"AbilityTextureName"		"custom_items/treasure_chest"
 		"BaseClass"					"item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -683,7 +683,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"						"15004"
-		"AbilityTextureName"		"item_treasure_chest"
+		"AbilityTextureName"		"custom_items/treasure_chest"
 		"BaseClass"					"item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -714,7 +714,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"						"15005"
-		"AbilityTextureName"		"item_treasure_chest"
+		"AbilityTextureName"		"custom_items/treasure_chest"
 		"BaseClass"					"item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -745,7 +745,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"						"15006"
-		"AbilityTextureName"		"item_treasure_chest"
+		"AbilityTextureName"		"custom_items/treasure_chest"
 		"BaseClass"					"item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -776,7 +776,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"						    "15007"
-		"AbilityTextureName"			"item_treasure_chest"
+		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -807,7 +807,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"						    "15008"
-		"AbilityTextureName"			"item_treasure_chest"
+		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -838,7 +838,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					    	"15009"
-		"AbilityTextureName"			"item_treasure_chest"
+		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -870,7 +870,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					    	"15010"
-		"AbilityTextureName"			"item_treasure_chest"
+		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -902,7 +902,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					    	"15011"
-		"AbilityTextureName"			"item_treasure_chest"
+		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -933,7 +933,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					    	"15012"
-		"AbilityTextureName"			"item_treasure_chest"
+		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -965,7 +965,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					    	"15013"
-		"AbilityTextureName"			"item_treasure_chest"
+		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -997,7 +997,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					    	"15014"
-		"AbilityTextureName"			"item_treasure_chest"
+		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -1029,7 +1029,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					    	"15015"
-		"AbilityTextureName"			"item_treasure_chest"
+		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -1061,7 +1061,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					    	"15016"
-		"AbilityTextureName"			"item_treasure_chest"
+		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -1093,7 +1093,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					    	"15017"
-		"AbilityTextureName"			"item_treasure_chest"
+		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -1125,7 +1125,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					    	"15018"
-		"AbilityTextureName"			"item_treasure_chest"
+		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -1159,7 +1159,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					    	"15019"
-		"AbilityTextureName"			"item_treasure_chest"
+		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -1191,7 +1191,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					    	"15020"
-		"AbilityTextureName"			"item_treasure_chest"
+		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -1223,7 +1223,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					    	"15021"
-		"AbilityTextureName"			"item_treasure_chest"
+		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -1255,7 +1255,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					    	"15021"
-		"AbilityTextureName"			"item_treasure_chest"
+		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -1287,7 +1287,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					    	"15021"
-		"AbilityTextureName"			"item_treasure_chest"
+		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -1325,7 +1325,7 @@
 	        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
                 "ItemQuality"					"artifact"
 		"AbilityCastAnimation"                          "ACT_DOTA_TELEPORT"
-                "AbilityTextureName"			         "item_lia_ghost_blade"
+                "AbilityTextureName"			         "custom_items/lia_ghost_blade"
                 "ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"MaxLevel"                                       "1"
                 "ItemPurchasable"				 "0"
@@ -1498,7 +1498,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"16005"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName" 			                "item_lia_alanith_spear"
+		"AbilityTextureName" 			                "custom_items/lia_alanith_spear"
 		"Model"							"models/props_gameplay/red_box.vmdl" 
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
 		"FightRecapLevel"				        "1"
@@ -1589,7 +1589,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"16010"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName" 		    "item_unholy"
+		"AbilityTextureName" 		    "custom_items/unholy"
 		"Model"							"models/props_gameplay/red_box.vmdl" 
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
 		"FightRecapLevel"			     "1"
@@ -1682,6 +1682,7 @@
 		"modifier_unholy_stack_datadriven"
 		{
 			"IsBuff"	"1"
+			"TextureName"       "item_unholy"
 			"Duration"	"%buff_duration"
 		}
 
@@ -1729,7 +1730,7 @@
   "ID"							"16015"
   "BaseClass"					"item_datadriven"
   "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-  "AbilityTextureName" 		    "item_fallen_sword"
+  "AbilityTextureName" 		    "custom_items/fallen_sword"
 
   "ItemPurchasable"				"0"
   "AbilityCooldown"				"240"
@@ -1804,7 +1805,7 @@
   "ID"							"16020"
   "BaseClass"					"item_datadriven"
   "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-  "AbilityTextureName" 		    "item_water_sword"
+  "AbilityTextureName" 		    "custom_items/water_sword"
 
   "ItemPurchasable"				"0"
   "ItemCost"					"2850"
@@ -1863,6 +1864,7 @@
 		{
 			"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
 			"IsBuff"	"1"
+			"TextureName"       "item_water_sword"
 		}
 		"modifier_water_sword_datadriven"
 		{
@@ -1944,7 +1946,7 @@
 		"ID"							"1005"
 
 		"BaseClass"						"item_recipe_arcane_boots"
-
+        "AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -1966,7 +1968,7 @@
 		"ID"							"16022"					
 		"BaseClass"						"item_recipe_arcane_boots"						
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		
+		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"150"	
@@ -1989,7 +1991,7 @@
   "ID"							"16024"
   "BaseClass"					"item_datadriven"
   "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-  "AbilityTextureName" 		    "item_mage_staff_1"
+  "AbilityTextureName" 		    "custom_items/mage_staff_1"
   "ItemPurchasable"				"1"
   "ItemCost"					"750"
   "ItemQuality"					"common"
@@ -2059,7 +2061,7 @@
 		"ID"							"16026"			
 		"BaseClass"						"item_recipe_arcane_boots"								
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		
+		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"100"	
@@ -2081,7 +2083,7 @@
   "ID"							"16028"
   "BaseClass"					"item_datadriven"
   "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-  "AbilityTextureName" 		    "item_mage_staff_2"
+  "AbilityTextureName" 		    "custom_items/mage_staff_2"
 
   "ItemPurchasable"				"1"
   "ItemCost"					"2600"
@@ -2159,7 +2161,7 @@
 		"ID"							"16030"		
 		"BaseClass"						"item_recipe_arcane_boots"									
 		"Model"							"models/props_gameplay/recipe.vmdl"
-
+        "AbilityTextureName"			"item_recipe"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2186,7 +2188,7 @@
   "ID"							"16032"
   "BaseClass"					"item_datadriven"
   "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-  "AbilityTextureName" 		    "item_mage_staff_3"
+  "AbilityTextureName" 		    "custom_items/mage_staff_3"
 
   "ItemPurchasable"				"1"
   "ItemCost"					"5800"
@@ -2263,7 +2265,7 @@
 		"ID"							"16034"			
 		"BaseClass"						"item_recipe_arcane_boots"								
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		
+		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"1200"	
@@ -2288,7 +2290,7 @@
   "ID"							"16035"
   "BaseClass"					"item_datadriven"
   "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-  "AbilityTextureName" 		    "item_mage_staff_4"
+  "AbilityTextureName" 		    "custom_items/mage_staff_4"
 
   "ItemPurchasable"				"1"
   "ItemCost"					"12250"
@@ -2377,7 +2379,7 @@
 		"ID"							"16039"		
 		"BaseClass"						"item_recipe_arcane_boots"									
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		
+		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"4525"	
@@ -2402,7 +2404,7 @@
   "ID"							"16040"
   "BaseClass"					"item_datadriven"
   "AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-  "AbilityTextureName" 		    "item_mage_staff_5"
+  "AbilityTextureName" 		    "custom_items/mage_staff_5"
 
   "ItemPurchasable"				"1"
   "ItemCost"					"34145"
@@ -2507,7 +2509,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
 		"ID"							"16045"  //Valve's version of this item uses the ID "81".
-		"AbilityTextureName"			"item_vladimir2"
+		"AbilityTextureName"			"item_recipe"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2539,7 +2541,7 @@
 		"UIDropSound" 					"Item.DropRecipeShop" //Sound when dropping the item manually
 		"WorldDropSound" 				"Item.DropGemWorld"
 		"Effect" 						"particles/generic_gameplay/dropped_item.vpcf"
-		"AbilityTextureName"			"item_vladimir2"
+		"AbilityTextureName"			"custom_items/vladimir2"
 	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2671,7 +2673,7 @@
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
-			
+			    "TextureName"       "item_vladimir2"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"			"%damage_aura_percent"
@@ -2714,7 +2716,7 @@
 				"Duration"			"%berserk_duration"
 				"Passive"			"0"
 				"IsHidden"			"0"
-			
+			    "TextureName"       "item_vladimir2"
 				"EffectName"			"particles/items2_fx/mask_of_madness.vpcf"
 				"EffectAttachType"		"follow_origin"
 				
@@ -2734,8 +2736,7 @@
 		"ID"							"16055"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"BaseClass"						"item_datadriven"
-        "AbilityTextureName" 			"item_desolator_2"
-
+        "AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"2000"	
@@ -2761,7 +2762,7 @@
 		"ID"							"16060"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "BaseClass"						"item_desolator"
-        "AbilityTextureName" 			"item_desolator_2"
+        "AbilityTextureName" 			"custom_items/desolator_2"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2799,8 +2800,7 @@
 		"ID"							"16065"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"BaseClass"						"item_datadriven"
-        "AbilityTextureName" 			"item_desolator_3"
-
+        "AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"2000"	
@@ -2826,7 +2826,7 @@
 		"ID"							"16070"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "BaseClass"						"item_desolator"
-        "AbilityTextureName" 			"item_desolator_3"
+        "AbilityTextureName" 			"custom_items/desolator_3"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2865,7 +2865,7 @@
 		"ID"							"16075"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"BaseClass"						"item_datadriven"
-		
+		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"1000"	
@@ -2891,7 +2891,7 @@
 		"ID"						    "16080"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	    "BaseClass"						"item_heart"
-        "AbilityTextureName" 			"item_heart_2"
+        "AbilityTextureName" 			"custom_items/heart_2"
 
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
@@ -2943,7 +2943,7 @@
 		"ID"							"16100"
 		"BaseClass"					"item_datadriven"
 		"AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 		    "item_summon_crown_1"
+		"AbilityTextureName" 		    "custom_items/summon_crown_1"
 
 		"MaxUpgradeLevel"				"6"
 		"ItemBaseLevel"					"1"
@@ -3034,8 +3034,7 @@
 		"ID"							"16110"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"BaseClass"						"item_datadriven"
-        "AbilityTextureName" 			"item_summon_crown_1"
-
+        "AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -3056,7 +3055,7 @@
 		"ID"							"16120"
 		"BaseClass"					   "item_datadriven"
 		"AbilityBehavior"              "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 		    "item_summon_crown_2"
+		"AbilityTextureName" 		    "custom_items/summon_crown_2"
 
 		"MaxUpgradeLevel"				"6"
 		"ItemBaseLevel"					"2"
@@ -3147,8 +3146,7 @@
 		"ID"							"16130"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"BaseClass"						"item_datadriven"
-        "AbilityTextureName" 			"item_summon_crown_2"
-
+        "AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -3169,7 +3167,7 @@
 		"ID"							"16140"
 		"BaseClass"					   "item_datadriven"
 		"AbilityBehavior"              "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 		    "item_summon_crown_3"
+		"AbilityTextureName" 		    "custom_items/summon_crown_3"
 
 		"MaxUpgradeLevel"				"6"
 		"ItemBaseLevel"					"3"
@@ -3260,8 +3258,7 @@
 		"ID"							"16150"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"BaseClass"						"item_datadriven"
-        "AbilityTextureName" 			"item_summon_crown_3"
-
+        "AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -3282,7 +3279,7 @@
 		"ID"							"16160"
 		"BaseClass"					    "item_datadriven"
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 		    "item_summon_crown_4"
+		"AbilityTextureName" 		    "custom_items/summon_crown_4"
 
 		"MaxUpgradeLevel"				"6"
 		"ItemBaseLevel"					"4"
@@ -3373,7 +3370,8 @@
 		"ID"							"16170"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"BaseClass"						"item_datadriven"
-        "AbilityTextureName" 			"item_summon_crown_4"
+        "AbilityTextureName"			"item_recipe"
+
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3395,7 +3393,7 @@
 		"ID"							"16180"
 		"BaseClass"					   "item_datadriven"
 		"AbilityBehavior"              "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 		    "item_summon_crown_5"
+		"AbilityTextureName" 		    "custom_items/summon_crown_5"
 
 		"MaxUpgradeLevel"				"6"
 		"ItemBaseLevel"					"5"
@@ -3505,8 +3503,7 @@
 		"ID"							"16190"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"BaseClass"						"item_datadriven"
-        "AbilityTextureName" 			"item_summon_crown_5"
-
+        "AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -3529,7 +3526,7 @@
 		"ID"							"16193"
 		"BaseClass"				     	"item_datadriven"
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 		    "item_summon_crown_6"
+		"AbilityTextureName" 		    "custom_items/summon_crown_6"
 
 		"MaxUpgradeLevel"				"6"
 		"ItemBaseLevel"					"6"
@@ -3638,8 +3635,7 @@
 		"ID"							"16196"
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"BaseClass"						"item_datadriven"
-        "AbilityTextureName" 			"item_summon_crown_1"
-
+        "AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -3667,7 +3663,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"Model"							"models/props_gameplay/rune_arcane.vmdl"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName"			"item_small_purple_potion"
+		"AbilityTextureName"			"custom_items/small_purple_potion"
 		"ItemKillable"					"0"
 
 		// Stats
@@ -3760,7 +3756,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"Model"							"models/props_gameplay/smoke.vmdl"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName"			"item_greater_purple_potion"
+		"AbilityTextureName"			"custom_items/greater_purple_potion"
 		"ItemKillable"					"0"
 
 		// Stats
@@ -3851,7 +3847,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"item_rapier1_datadriven"
+		"AbilityTextureName"			"custom_items/rapier1_datadriven"
 
 		"ItemCost"						"6200"
 		"ItemShopTags"					"damage"
@@ -3898,7 +3894,7 @@
 
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"BaseClass"						"item_datadriven"
-
+        "AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -3919,7 +3915,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"item_rapier2_datadriven"
+		"AbilityTextureName"			"custom_items/rapier2_datadriven"
 
 		"ItemCost"						"18600"
 		"ItemShopTags"					"damage"
@@ -3966,7 +3962,7 @@
 
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"BaseClass"						"item_datadriven"
-
+        "AbilityTextureName"			"item_recipe"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3990,7 +3986,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"AbilityTextureName"			"item_rapier3_datadriven"
+		"AbilityTextureName"			"custom_items/rapier3_datadriven"
 
 		"ItemCost"						"74400"
 		"ItemShopTags"					"damage"
@@ -4037,7 +4033,7 @@
 
 		"Model"							"models/props_gameplay/recipe.mdl"
 		"BaseClass"						"item_datadriven"
-
+        "AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -4059,7 +4055,7 @@
 		"ID"							"2014"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		
+		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -4085,7 +4081,7 @@
 		"FightRecapLevel"				"2"
 		"Model"							"models/props_gameplay/red_box.vmdl" 
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"AbilityTextureName" 			"item_golden_mekansm"
+		"AbilityTextureName" 			"custom_items/golden_mekansm"
 		
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
@@ -4208,7 +4204,8 @@
 			{
 				"Passive"				"0"
 				"IsHidden"				"0"
-				
+				"TextureName"           "item_golden_mekansm"
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%aura_health_regen"
@@ -4222,6 +4219,7 @@
 				"IsHidden"				"0"
 				"IsBuff"				"1"
 				"IsPurgable"			"1"
+                "TextureName"           "item_golden_mekansm"
 
 				"Properties"
 				{
@@ -4236,7 +4234,7 @@
 				"IsHidden"				"0"
 				"IsBuff"				"1"
 				"IsPurgable"			"1"
-				
+				 "TextureName"          "item_golden_mekansm"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE_ACTIVE"		"%heal_bonus_armor"
@@ -4251,7 +4249,7 @@
 		"ID"							"12027"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "BaseClass"						"item_ultimate_orb"
-        "AbilityTextureName" 			"item_ultimate_orb_2"
+        "AbilityTextureName" 			"custom_items/ultimate_orb_2"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4279,7 +4277,7 @@
 		"ID"							"12028"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "BaseClass"						"item_ultimate_orb"
-        "AbilityTextureName" 			"item_ultimate_orb_3"
+        "AbilityTextureName" 			"custom_items/ultimate_orb_3"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4307,7 +4305,7 @@
 		"ID"							"12029"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "BaseClass"						"item_ultimate_orb"
-        "AbilityTextureName" 			"item_ultimate_orb_4"
+        "AbilityTextureName" 			"custom_items/ultimate_orb_4"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4336,12 +4334,11 @@
 		"ID"							"12062"											
 		"BaseClass"						"item_datadriven"							
 		"Model"							"models/props_gameplay/recipe.vmdl"
-
+        "AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"16000"	
 		"ItemShopTags"					""
-        "AbilityTextureName"			"item_recipe"
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -4359,7 +4356,7 @@
 		"ID"							"12030"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"				        "item_mystic_staff"
-        "AbilityTextureName" 			"item_mystic_staff_2"
+        "AbilityTextureName" 			"custom_items/mystic_staff_2"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4387,7 +4384,7 @@
 		"ID"							"12041"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"				        "item_mystic_staff"
-        "AbilityTextureName" 			"item_mystic_staff_3"
+        "AbilityTextureName" 			"custom_items/mystic_staff_3"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4417,7 +4414,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName"			"item_slippers_of_halcyon_2"
+		"AbilityTextureName"			"custom_items/slippers_of_halcyon_2"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 
 		// Stats		
@@ -4484,6 +4481,7 @@
 			"modifier_slippers_of_halcyon_caster_2"
 			{
 				"ThinkInterval"		"%tick_rate"
+				"TextureName"       "item_slippers_of_halcyon_2"
 				"OnIntervalThink"
 				{
 					"Heal"
@@ -4588,7 +4586,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"12032"// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_recipe_tranquil_boots"
-		
+		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -4612,9 +4610,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName"			"item_healer_2"
+		"AbilityTextureName"			"custom_items/healer_2"
 
-		"ItemCost"						"21500"
+		"ItemCost"						"26800"
 		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
 		"ItemQuality"					"epic"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
@@ -4665,10 +4663,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"12034"// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_recipe_tranquil_boots"
-		
+		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3200"	
+		"ItemCost"						"8500"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -4689,9 +4687,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName"			"item_healer_3"
+		"AbilityTextureName"			"custom_items/healer_3"
 
-		"ItemCost"						"64500"
+		"ItemCost"						"80800"
 		"ItemShopTags"					"agi;int;str;"
 		"ItemQuality"					"artifact"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
@@ -4743,10 +4741,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"12036"// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_recipe_tranquil_boots"
-		
+		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3200"	
+		"ItemCost"						"11000"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -4766,7 +4764,7 @@
 		"ID"							"12037"		
 
 		"BaseClass"						"item_recipe_butterfly"										
-		
+		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"6000"	
@@ -4787,7 +4785,7 @@
 		"ID"							"12038"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"BaseClass"						"item_butterfly"
-		"AbilityTextureName"			"item_butterfly_2"		
+		"AbilityTextureName"			"custom_items/butterfly_2"		
 
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
@@ -4845,7 +4843,7 @@
 		"ID"							"12039"		
 
 		"BaseClass"						"item_recipe_butterfly"										
-		
+		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"19000"	
@@ -4866,7 +4864,7 @@
 		"ID"							"12040"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"BaseClass"						"item_butterfly"
-		"AbilityTextureName"			"item_butterfly_3"		
+		"AbilityTextureName"			"custom_items/butterfly_3"		
 
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
@@ -4922,7 +4920,7 @@
 		"ID"							"12045"		
 		"BaseClass"						"item_recipe_arcane_boots"									
 		"Model"							"models/props_gameplay/recipe.vmdl"
-
+        "AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"5000"	
@@ -4944,7 +4942,7 @@
 		"ID"							"12047"
 		"BaseClass"					"item_datadriven"
 		"AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName" 		    "item_mage_staff_6"
+		"AbilityTextureName" 		    "custom_items/mage_staff_6"
         "MaxUpgradeLevel"				"6"
 		"ItemBaseLevel"					"6"
 
@@ -5041,7 +5039,7 @@
 		"ID"							"12050"
 		"BaseClass"					    "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityTextureName" 		    "item_extra_slot_7"
+		"AbilityTextureName" 		    "custom_items/extra_slot_7"
 
 		"ItemPurchasable"				"1"
 		"ItemCost"				     	"91850"
@@ -5160,7 +5158,7 @@
 		"ID"							"12051"		
 		"BaseClass"						"item_datadriven"							
 		"Model"							"models/props_gameplay/recipe.vmdl"
-
+     
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"22000"	
@@ -5183,7 +5181,7 @@
 		"ID"							"12053"
 		"BaseClass"					    "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityTextureName" 		    "item_extra_slot_8"
+		"AbilityTextureName" 		    "custom_items/extra_slot_8"
 
 		"ItemPurchasable"				"1"
 		"ItemCost"				     	"319950"
@@ -5323,7 +5321,7 @@
 		"ID"							"12056"
 		"BaseClass"					    "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityTextureName" 		    "item_extra_slot_9"
+		"AbilityTextureName" 		    "custom_items/extra_slot_9"
 
 		"ItemPurchasable"				"1"
 		"ItemCost"				     	"1095950"
@@ -5461,7 +5459,7 @@
 		"ID"							"12060"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "BaseClass"						"item_ultimate_orb"
-        "AbilityTextureName" 			"item_ultimate_orb_5"
+        "AbilityTextureName" 			"custom_items/ultimate_orb_5"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -5529,7 +5527,7 @@
         "ID"							"12069"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "BaseClass"						"item_reaver"
-        "AbilityTextureName" 			"item_reaver_2"
+        "AbilityTextureName" 			"custom_items/reaver_2"
          "ItemBaseLevel"			    "2"
         "ItemCost"						"12000"  
 		"ItemShopTags"					"str"
@@ -5575,7 +5573,7 @@
         "ID"							"12075"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "BaseClass"						"item_reaver"
-        "AbilityTextureName" 			"item_reaver_3"
+        "AbilityTextureName" 			"custom_items/reaver_3"
         "ItemBaseLevel"					"3"
         "ItemCost"						"48000"
 		"ItemShopTags"					"str"
@@ -5621,7 +5619,7 @@
         "ID"							"12081"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "BaseClass"						"item_crimson_guard"
-        "AbilityTextureName" 			"item_crimson_guard_2"   
+        "AbilityTextureName" 			"custom_items/crimson_guard_2"   
         "ItemBaseLevel"					"2"
         "AbilityCooldown"				"46.0"
 		"AbilityCastRange"				"900"
@@ -5723,7 +5721,7 @@
 		"BaseClass"						"item_datadriven"							
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "Model"							"models/props_gameplay/red_box.vmdl" 
-        "AbilityTextureName"			"item_redblade_armor"
+        "AbilityTextureName"			"custom_items/redblade_armor"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"16650"  //2200+4700+5250+4500
@@ -5807,7 +5805,8 @@
 				"Duration"          "%invulnerable_duration"
                 "EffectName"		"particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard_column.vpcf"
 			    "EffectAttachType"	"follow_origin"
-				
+				"TextureName"       "item_redblade_armor"
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-100"
@@ -5843,7 +5842,7 @@
 		"BaseClass"						"item_datadriven"							
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"							"models/props_gameplay/red_box.vmdl" 
-        "AbilityTextureName"			"item_tank_armor_1"
+        "AbilityTextureName"			"custom_items/tank_armor_1"
         "ItemBaseLevel"					"1"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -5869,7 +5868,7 @@
            "03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"pure_bonus_damage_per_str"     "0.13 0.2"
+				"pure_bonus_damage_per_str"     "0.04 0.08"
 			}
 			"04"
 			{
@@ -5982,7 +5981,7 @@
 		"BaseClass"						"item_datadriven"							
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "Model"							"models/props_gameplay/red_box.vmdl" 
-        "AbilityTextureName"			"item_tank_armor_2"
+        "AbilityTextureName"			"custom_items/tank_armor_2"
         "ItemBaseLevel"					"2"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -6008,7 +6007,7 @@
            "03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"pure_bonus_damage_per_str"     "0.13 0.2"
+				"pure_bonus_damage_per_str"     "0.04 0.08"
 			}
 			"04"
 			{

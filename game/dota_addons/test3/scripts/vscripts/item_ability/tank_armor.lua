@@ -3,23 +3,13 @@ function ApplyReValue( keys )
     local ability= keys.ability
 
     if caster:HasModifier("modifier_item_tank_armor_2") then
-      --[[
-      caster.pysical_return=ability:GetLevelSpecialValueFor("physical_bonus_damage_per_str", 1)
-      caster.magical_return=ability:GetLevelSpecialValueFor("magical_bonus_damage_per_str", 1)
-      caster.pure_return=ability:GetLevelSpecialValueFor("pure_bonus_damage_per_str", 1)
-      ]]
       caster.pysical_return=1.8
       caster.magical_return=1.5
-      caster.pure_return=0.2
+      caster.pure_return=0.08
     elseif caster:HasModifier("modifier_item_tank_armor_1") then
-      --[[
-        caster.pysical_return=ability:GetLevelSpecialValueFor("physical_bonus_damage_per_str", 0)
-        caster.magical_return=ability:GetLevelSpecialValueFor("magical_bonus_damage_per_str", 0)
-        caster.pure_return=ability:GetLevelSpecialValueFor("pure_bonus_damage_per_str", 0)
-        ]]
           caster.pysical_return=1.2
           caster.magical_return=1.0
-          caster.pure_return=0.13
+          caster.pure_return=0.04
       else
         caster.pysical_return=nil
         caster.magical_return=nil
@@ -41,11 +31,11 @@ function RemoveReValue( keys )
     if caster:HasModifier("modifier_item_tank_armor_2") then
        caster.pysical_return=1.8
        caster.magical_return=1.5
-       caster.pure_return=0.2
+       caster.pure_return=0.08
     elseif caster:HasModifier("modifier_item_tank_armor_1") then
           caster.pysical_return=1.2
           caster.magical_return=1.0
-          caster.pure_return=0.13
+          caster.pure_return=0.04
        else
          caster.pysical_return=nil
          caster.magical_return=nil

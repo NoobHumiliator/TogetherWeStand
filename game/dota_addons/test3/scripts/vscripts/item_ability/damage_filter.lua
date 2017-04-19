@@ -173,7 +173,7 @@ function CHoldoutGameMode:OrderFilter(orderTable)
           local current_mana=caster:GetMana()
           local mana_cost=ability:GetManaCost(-1) --获取技能耗蓝
           --print("caster.manaCostIns"..caster.manaCostIns)
-          caster:SpendMana(mana_cost*(caster.manaCostIns*caster:GetIntellect()/100),ability)
+          caster:ReduceMana(mana_cost*(caster.manaCostIns*caster:GetIntellect()/100))
           if caster:GetMana()< mana_cost then  --如果扣完蓝不够了
               Timers:CreateTimer({
                       endTime = 0.0001,  --再把蓝退回回去

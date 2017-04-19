@@ -16942,21 +16942,32 @@
 				"aoe_damage"		    "1000"
 			}
 		}
-	}	//////¼¼ÄÜÀ¨ºÅ	
+	}
 
 	"lich_boss_death_and_dacay"
-	{
-	
-	    "BaseClass"					    "enigma_midnight_pulse"
+	{	
+       	// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				        "ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AoERadius" 					"200"
 		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"enigma_midnight_pulse"
+		
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_enigma/enigma_midnight_pulse.vpcf"
+			"soundfile"		"sounds/weapons/hero/enigma/midnight_pulse.vsnd"
+		}
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"500"
-		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.1"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -16978,15 +16989,97 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"damage_percent"			"10"
+				"damage_percent"			"12"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
 				"duration"					"8"
 			}
+			"04"
+			{
+				"var_type"				    "FIELD_FLOAT"
+				"tick_rate"				    "1.0"
+			}
+		}
+		
+		"OnSpellStart"
+		{
+		 	"CreateThinker"
+		 	{
+		 		"ModifierName"	"modifier_midnight_pulse_datadriven"
+		 		"Target" 		"POINT"
+		 	}
+		} 
+
+		"Modifiers"
+		{
+			"modifier_midnight_pulse_datadriven"
+			{
+				"Aura"					"modifier_midnight_pulse_debuff"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_ALL"
+				"Duration"				"%duration"
+
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_Enigma.Midnight_Pulse"
+						"Target"		"TARGET"
+					}
+
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_enigma/enigma_midnight_pulse.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%radius %radius %radius"
+						}
+					}
+					
+					"DestroyTrees"
+					{
+						"Target"	"TARGET"
+						"Radius"	"%radius"
+					}
+				}
+			}
+
+			"modifier_midnight_pulse_debuff"
+			{
+				"IsDebuff"		"1"
+				
+				"ThinkInterval"	"%tick_rate"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"creature_ability/midnight_pulse.lua"
+						"Function"	    "ApplyDPS"
+					}
+				}
+			}
+			"modifier_true_sight_1" //给予LICH与DK BOSS真视
+			{
+				"Passive"            "1"
+				"IsHidden"           "1"
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_tower_truesight_aura"
+						"Target" 		"CASTER"
+					}
+				}		    
+			}
 		}
 	}
+
     "crypt_lord_boss_impale"
 	{
 		// General
@@ -17857,6 +17950,19 @@
 						"Function"		"SetCurrentHealth"
 					}
 				}
+			}
+			"modifier_true_sight_1"
+			{
+				"Passive"            "1"
+				"IsHidden"           "1"
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_tower_truesight_aura"
+						"Target" 		"CASTER"
+					}
+				}		    
 			}
 		}
 	}

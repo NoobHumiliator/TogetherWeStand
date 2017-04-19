@@ -75,7 +75,7 @@ end
 -------------------------------------------------------------------------------
 
 function modifier_explode_expansion_thinker_aura:GetAuraSearchFlags()  --影响魔免单位
-	return DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES          
+	return DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES+DOTA_UNIT_TARGET_FLAG_INVULNERABLE        
 end
 
 --------------------------------------------------------------------------------

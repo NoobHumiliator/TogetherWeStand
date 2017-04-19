@@ -769,6 +769,7 @@ function InitTooltips()
 }
 
 
+
 (function()
 {
 	Update_Heroes_Table();
@@ -776,5 +777,6 @@ function InitTooltips()
 	GameEvents.Subscribe( "UpdateAbilityList", UpdateAbilityList );
 	GameEvents.Subscribe( "UpdatePlayerAbilityList", UpdatePlayerAbilityList );
     InitTooltips();
+
 })();
 

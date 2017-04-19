@@ -66,9 +66,9 @@ function LootController:ReadConfigration()
     end
   end
   table.sort(self._itemCostSort,function(a,b) return tonumber(a.itemCost)<tonumber(b.itemCost) end) --对物品价格进行排序
-  for k,v in pairs(self._itemCostSort) do
-	  print("index: "..k.." itemName: "..v.itemName.."  itemCost: "..v.itemCost)
-  end
+  --for k,v in pairs(self._itemCostSort) do
+	  --print("index: "..k.." itemName: "..v.itemName.."  itemCost: "..v.itemCost)
+  --end
 end
 
 

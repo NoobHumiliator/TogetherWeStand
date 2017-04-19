@@ -49,33 +49,45 @@ function modifier_spectre_dispersion_lua:OnTakeDamage (event)
 				local vUnit = unit:GetAbsOrigin()
 
 				local reflect_damage = 0.0
-				local particle_name = ""
-
+				--local particle_name = ""
+                
+                reflect_damage = original_damage * damage_reflect_pct
+                    
 				local distance = (vUnit - vCaster):Length2D()
 				
+                --取消掉全部的效果粒子特效
 				--Within 300 radius		
 				if distance <= min_radius then
 					reflect_damage = original_damage * damage_reflect_pct
-					particle_name = "particles/units/heroes/hero_spectre/spectre_dispersion.vpcf"
+					--particle_name = "particles/units/heroes/hero_spectre/spectre_dispersion.vpcf"
 				--Between 301 and 475 radius
 				elseif distance <= (min_radius+175) then
 					reflect_damage = original_damage * ( damage_reflect_pct * (1- (distance-300) * 0.00142857 ) )
-					particle_name = "particles/units/heroes/hero_spectre/spectre_dispersion_fallback_mid.vpcf"
+					--particle_name = "particles/units/heroes/hero_spectre/spectre_dispersion_fallback_mid.vpcf"
 				--Same formula as previous statement but different particle
 				else
-					reflect_damage = original_damage * ( damage_reflect_pct * (1- (distance-300) * 0.00142857 ) )
-					particle_name = "particles/units/heroes/hero_spectre/spectre_dispersion_b_fallback_low.vpcf"
+					reflect_damage = original_damage * ( damage_reflect_pct * (1- (distance-300) * 0.00142857 ) )				
+					--particle_name = "particles/units/heroes/hero_spectre/spectre_dispersion_b_fallback_low.vpcf"
 				end
-                
+
                 if caster.pure_return~=nil then
                 	reflect_damage=reflect_damage*(1+caster.pure_return*caster:GetStrength()/100)
                 end
-
+                
+                --particle_name = "particles/units/heroes/hero_spectre/spectre_dispersion.vpcf"
 				--Create particle
+				--[[
 				local particle = ParticleManager:CreateParticle( particle_name, PATTACH_POINT_FOLLOW, caster )
 				ParticleManager:SetParticleControl(particle, 0, vCaster)
 				ParticleManager:SetParticleControl(particle, 1, vUnit)
 				ParticleManager:SetParticleControl(particle, 2, vCaster)
+				]]
+				
+
+                if caster.pure_return~=nil then
+                	reflect_damage=reflect_damage*(1+caster.pure_return*caster:GetStrength()/100)
+                end
+
 
 				local old_hp = unit:GetHealth()
 				local new_hp = old_hp - reflect_damage

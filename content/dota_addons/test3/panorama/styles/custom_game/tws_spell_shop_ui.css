@@ -212,6 +212,12 @@
     flow-children: right;
 }
 
+.TriggerButtonPanelHud{
+    width: 100%;
+    height: 100%;
+}
+
+
 .triggerButtonPanel {
     position: 1500px 1020px 0; 
     width: 160px;

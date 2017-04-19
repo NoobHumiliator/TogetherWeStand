@@ -8,10 +8,11 @@
         <include src="file://{resources}/scripts/custom_game/util.js" />
         <include src="file://{resources}/scripts/custom_game/tws_spell_shop_trigger_button.js" />
     </scripts>
-    
-     <Panel class="triggerButtonPanel" >
-            <Button id="triggerButton"  onactivate="ShowMainBlock()">
-                   <Label text="#spell_shop_hotkey" />
-            </Button>
-     </Panel>
+    <Panel hittest="false" class="TriggerButtonPanelHud">
+       <Panel class="triggerButtonPanel" id="triggerButtonPanel">
+              <Button id="triggerButton"  onactivate="ShowMainBlock()">
+                     <Label text="#spell_shop_hotkey" />
+              </Button>
+       </Panel>
+    </Panel>
 </root>

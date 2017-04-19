@@ -9,14 +9,20 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_explode_expansion_thinker_aura_effect:OnCreated( kv )
-	self.damage_per_tick = 50
+	if self:GetParent() and self:GetParent():IsAlive() then
+	  self.damage_per_tick = self:GetParent():GetMaxHealth()*0.004  
+    end
 	self:StartIntervalThink(0.1)
 end
 
 --------------------------------------------------------------------------------
 
 function modifier_explode_expansion_thinker_aura_effect:OnRefresh( kv )
-	self.damage_per_tick = 50
+	
+	if self:GetParent() and self:GetParent():IsAlive() then
+	  self.damage_per_tick = self:GetParent():GetMaxHealth()*0.004   
+    end
+
 end
 
 --------------------------------------------------------------------------------
@@ -30,7 +36,10 @@ function modifier_explode_expansion_thinker_aura_effect:OnIntervalThink()
             damage=self.damage_per_tick,
             ability = self:GetAbility()
         }
+        
         ApplyDamage(damageTable)
+        self:GetParent():ReduceMana(35)
+
         EmitSoundOn( "Hero_Alchemist.AcidSpray.Damage", self:GetParent() )
 	end
 end
