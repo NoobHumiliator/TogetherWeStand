@@ -45,6 +45,7 @@ function modifier_on_health_gain_lua:OnHealReceived( keys )
        overflow=0
       end
       local effective=gain-overflow --有效治疗量
+      local effective_for_statistics=effective  --有效治疗负责统计
 
       if unit:HasModifier( "modifier_necrotic_stack" ) then  --先处理死疽
           local necrotic_stack = unit:GetModifierStackCount( "modifier_necrotic_stack", nil)
@@ -56,6 +57,7 @@ function modifier_on_health_gain_lua:OnHealReceived( keys )
           local old_hp = unit:GetHealth()
           local new_hp = old_hp - damage
           effective=effective-damage --有效治疗量扣除死疽伤害
+          effective_for_statistics=effective_for_statistics-damage
 
           if unit:IsAlive() then
             if new_hp < 1.000000 then
@@ -65,8 +67,7 @@ function modifier_on_health_gain_lua:OnHealReceived( keys )
             end
           end     
       end
-
-
+      
       if keys.inflictor then  --处理治疗增益
              local healer
              if keys.inflictor.GetCaster then
@@ -77,17 +78,17 @@ function modifier_on_health_gain_lua:OnHealReceived( keys )
 
              local healerMultiple=0
              if healer:HasModifier("modifier_item_healer_3") then
-                healerMultiple =1.8
+                healerMultiple =2.6
               else
                 if healer:HasModifier("modifier_item_healer_2") then
-                  healerMultiple =1.2
+                  healerMultiple =1.8
                 else
                   if healer:HasModifier("modifier_item_healer_1") then
                     healerMultiple=0.4
                   end
                 end
              end
-             if healerMultiple>0  and not hp_exempt_table[keys.inflictor:GetClassname()] then   --防止二次死疽，直接修改生命值
+             if healerMultiple>0  and not hp_exempt_table[keys.inflictor:GetClassname()] then   
                 local bonus_heal=math.ceil(effective*healerMultiple*healer:GetIntellect()/100)
                 local current_health=unit:GetHealth()
                 local max_health=unit:GetMaxHealth()
@@ -96,19 +97,22 @@ function modifier_on_health_gain_lua:OnHealReceived( keys )
                   unit:SetHealth(unit:GetMaxHealth())
                 else
                   local set_health=current_health+bonus_heal
-                  unit:SetHealth(set_health)
+                  --unit:SetHealth(set_health)
+                  unit:Heal(bonus_heal,nil)
                 end
-                effective=effective+bonus_heal
-                 --[[
-                 print("inflictor class"..keys.inflictor:GetClassname())
-                 print(keys.inflictor:GetClassname())
-                 print("healer"..healer:GetUnitName())
-                 print("receiver"..unit:GetUnitName())
-                 print("total gain: "..gain)
-                 print("overflow: "..overflow)
-                 print("effective: "..(gain-overflow) )
-                 print("bonus_heal: "..bonus_heal )
-                 print("-------------------------------------------------------------")
+                effective_for_statistics=effective_for_statistics+bonus_heal --下一次治疗找不到治疗者，拿直接统计在这里
+                --[[
+                 if gain>50 then
+                   print("inflictor class"..keys.inflictor:GetClassname())
+                   print(keys.inflictor:GetClassname())
+                   print("healer"..healer:GetUnitName())
+                   print("receiver"..unit:GetUnitName())
+                   print("total gain: "..gain)
+                   print("overflow: "..overflow)
+                   print("effective_for_statistics: "..(gain-overflow) )
+                   print("bonus_heal: "..bonus_heal )
+                   print("-------------------------------------------------------------")
+                 end
                  ]]
              end
             --统计治疗量
@@ -121,7 +125,7 @@ function modifier_on_health_gain_lua:OnHealReceived( keys )
             end
             local game_mode=GameRules:GetGameModeEntity().CHoldoutGameMode
             if game_mode._currentRound and playerid then
-             game_mode._currentRound._vPlayerStats[playerid].nTotalHeal=game_mode._currentRound._vPlayerStats[playerid].nTotalHeal+effective
+             game_mode._currentRound._vPlayerStats[playerid].nTotalHeal=game_mode._currentRound._vPlayerStats[playerid].nTotalHeal+effective_for_statistics
             end
             --统计结束
 
@@ -130,9 +134,9 @@ function modifier_on_health_gain_lua:OnHealReceived( keys )
 
       if unit:HasModifier("modifier_overflow_show") and overflow>0 then  --处理溢出
            if unit.heal_absorb==nil then
-             unit.heal_absorb=gain
+             unit.heal_absorb=overflow
            else
-             unit.heal_absorb=unit.heal_absorb+gain
+             unit.heal_absorb=unit.heal_absorb+overflow
              local stack=math.floor(unit.heal_absorb/100)
              ability:ApplyDataDrivenModifier( unit, unit, "modifier_overflow_stack", {} )
              unit:SetModifierStackCount( "modifier_overflow_stack", ability, stack )
@@ -149,7 +153,7 @@ function modifier_on_health_gain_lua:OnHealReceived( keys )
           damage_table.ability = self:GetAbility()
           damage_table.damage = damage
           damage_table.damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
-          if unit:GetHealth()/unit:GetMaxHealth()<0.99 then
+          if unit:GetHealth()/unit:GetMaxHealth()<0.999 then
              ApplyDamage(damage_table)  --满血不造成伤害
           end
          if unit.heal_absorb<=0 then

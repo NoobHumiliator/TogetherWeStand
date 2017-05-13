@@ -3618,11 +3618,11 @@
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/heroes/warlock/warlock_demon.vmdl"	// Model.
 		"GameSoundsFile"			"soundevents/voscripts/game_sounds_vo_warlock_golem.vsndevts"
-                "VoiceFile"					"soundevents/voscripts/game_sounds_vo_warlock_golem.vsndevts"
+        "VoiceFile"					"soundevents/voscripts/game_sounds_vo_warlock_golem.vsndevts"
 		"ModelScale"				"1.4"
 		"Level"						"1"
-		"CanBeDominated"			 "0"
-		
+		"CanBeDominated"			"0"
+		"wearable"				    "8362"
 		// Abilities
 		//----------------------------------------------------------------
 		
@@ -8897,7 +8897,6 @@
 "BaseClass" "npc_dota_creep"
 "Ability1"  "obsidian_destroyer_essence_aura_datadriven"
 }
-
 "npc_precache_earthshaker_aftershock_datadriven"
 {
 "BaseClass" "npc_dota_creep"
@@ -8928,6 +8927,27 @@
 	"BaseClass" "npc_dota_creep"
     "Ability1"  "phantom_assassin_stifling_dagger_nb2017"
 }
+"npc_precache_zuus_static_field_datadriven"
+{
+	"BaseClass" "npc_dota_creep"
+    "Ability1"  "zuus_static_field_datadriven"
+}
+"npc_precache_courier_hook_datadriven"
+{
+	"BaseClass" "npc_dota_creep"
+    "Ability1"  "courier_hook_datadriven"
+}
+"npc_precache_courier_shield_datadriven"
+{
+	"BaseClass" "npc_dota_creep"
+    "Ability1"  "courier_shield_datadriven"
+}
+"npc_precache_courier_blink_datadriven"
+{
+	"BaseClass" "npc_dota_creep"
+    "Ability1"  "courier_blink_datadriven"
+}
+
 
 "npc_dota_creature_bloodseeker"
 	{
@@ -10277,7 +10297,8 @@
 	// Abilities
 	//----------------------------------------------------------------
 	"AbilityLayout"				"4"
-	"Ability1"					"abomination_disease_cloud"
+	//"Ability1"					"abomination_disease_cloud"
+	"Ability1"					"particle_model_passive"
 
 	// Armor
 	//----------------------------------------------------------------
@@ -11156,7 +11177,7 @@
 		"MovementTurnRate"			"3"							
 
 		//----------------------------------------------------------------
-		"StatusHealth"				"100000"					
+		"StatusHealth"				"1000000"					
 		"StatusHealthRegen"			"0"							
         "TeamName"		            "DOTA_TEAM_BADGUYS"			
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
@@ -12824,7 +12845,7 @@
 		
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"680000"		// Base health.
+		"StatusHealth"				"1800000"		// Base health.
 		"StatusHealthRegen"			"500.0"		// Health regeneration rate.
 		"StatusMana"				"15000"		// Base mana.
 		"StatusManaRegen"			"300.0"		// Mana regeneration rate.
@@ -13084,4 +13105,124 @@
 		"GameSoundsFile"		"soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 	    "vscripts"				"creature_ai/zombie_ai.lua"
 	}
+
+
+
+    "npc_dota_boss_lion"
+	{
+		// General
+		//
+		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
+		"Model"						"models/heroes/lion/lion.vmdl"	// Model.
+	    "ModelScale"			    "2.3"
+		"Level"						"25"
+		"ConsideredHero"		    "1"
+		
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"350"
+		
+		"SoundSet"		            "Hero_Winter_Wyvern"
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_winter_wyvern.vsndevts"
+		"VoiceFile"				    "soundevents/voscripts/game_sounds_vo_winter_wyvern.vsndevts"
+
+		// Inventory
+		//----------------------------------------------------------------
+		"HasInventory"				"1"
+		
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"			    "4"
+		"Ability1"					"lion_boss_impale_circular"         	// Ability 1.
+		"Ability2"					"lion_boss_hex"		                    // Ability 2.
+		"Ability3"					"lion_boss_finger_of_death"			    // Ability 3.
+		"Ability4"					""			    // Ability 4.
+        "Ability5"				    "lion_gold_bag_fountain"			// Ability 4.
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"55"			// Physical protection.
+		"MagicalResistance"			"25"		    // Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"	    "DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"152"		// Damage range min.
+		"AttackDamageMax"			"168"		// Damage range max.
+		"AttackRate"				"1.25"		// Speed of attack.
+		"AttackAnimationPoint"	    "0.2"		// Normalized time in animation cycle to attack.
+		"AttackRange"				"625"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_lion/lion_base_attack.vpcf" // Particle system model for projectile.
+		"ProjectileSpeed"			"1700"		// Speed of projectile.	
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"				    "0"		// Experience earn.
+		"BountyGoldMin"				"150"		// Gold earned min.
+		"BountyGoldMax"				"150"		// Gold earned max.
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"300"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"	
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"	    "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"320"		// Speed
+		"MovementTurnRate"			"0.4"		// Turning rate.
+
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"9000000"		// Base health.
+		"StatusHealthRegen"			"20.0"		// Health regeneration rate.
+		"StatusMana"				"5000"			// Base mana.
+		"StatusManaRegen"			"150"			// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
+
+        "vscripts"					"creature_ai/lion_ai.lua"
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"		
+			"DisableResistance"			"100"
+	        "AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"6141"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"6142"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"6143"
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"6144"
+				}
+				"Wearable5"
+				{
+					"ItemDef"			"6144"
+				}
+				"Wearable6"
+				{
+					"ItemDef"			"6024"
+				}
+			}	
+		}
+	}
+
 }  //主括号

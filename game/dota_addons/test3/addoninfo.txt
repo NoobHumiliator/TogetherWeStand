@@ -14,5 +14,11 @@
 			"Command"	"+CustomGameTestButton"
 			"Name"		"Example"
 		}
+		"02"
+		{
+			"Key"		"F7"
+			"Command"	"+CustomGameParticleButton"
+			"Name"		"ParticleButton"
+		}
 	}
 }

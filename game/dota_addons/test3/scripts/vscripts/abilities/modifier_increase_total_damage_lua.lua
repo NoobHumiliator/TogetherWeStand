@@ -9,6 +9,11 @@ function modifier_increase_total_damage_lua:DeclareFunctions()
 end
 
 
+function modifier_increase_total_damage_lua:IsHidden()
+	return true
+end
+
+
 function modifier_increase_total_damage_lua:OnCreated( kv )
     if IsServer() then
 		local caster = self:GetParent()

@@ -54,12 +54,25 @@
 			"SpawnerName"			"spawner4"
 			"Waypoint"				"path_invader4_1"
 		}
-		
-		// Alternate path spawn
-		"9"
+
+	}
+   
+    "RandomSpawnsBig"  //大型单位的出生点
+	{
+		"1"
 		{
-			"SpawnerName"			"spawner3_alternate"
-			"Waypoint"				"path_invader3alt_1"
+			"SpawnerName"			"spawner1"
+			"Waypoint"				"path_invader1_1"
+		}
+		"2"
+		{
+			"SpawnerName"			"spawner2"
+			"Waypoint"				"path_invader2_1"
+		}
+		"3"
+		{
+			"SpawnerName"			"spawner3"
+			"Waypoint"				"path_invader3_1"
 		}
 	}
 
@@ -393,6 +406,7 @@
 		"BagVariance"			    "75"
 		"FixedXP"					"14100"
 		"alias"                     "skywrath"
+		"type"                      "boss"
 		// Stage 1 ================================================
 		"UnitBoss"  
 		{
@@ -1126,13 +1140,13 @@
 		"BagVariance"			    "0"
 		"FixedXP"					"16200"
 		"alias"                     "rattletrap"
+		"type"                      "boss"
 		// Stage 1 ================================================
 		"UnitRattle_Boss"
 		{
 			"NPCName"				"npc_dota_boss_rattletrap"
 			"TotalUnitsToSpawn"		        "1"
 			"UnitsPerSpawn"			        "1"
-			"SpawnerName"			       "spawner4"
 		}
 	}
 
@@ -1145,6 +1159,7 @@
 		"BagVariance"				"0"
 		"FixedXP"					"17800"
 		"alias"                     "broodqueen"
+		"type"                      "boss"
 		// Stage 1 ================================================
 		"UnitMelee_1"
 		{
@@ -1854,13 +1869,13 @@
 		"BagVariance"		        "0"
 		"FixedXP"					"25100"
 		"alias"                     "mammoth"
+		"type"                      "boss"
 		// Stage 1 ================================================
 		"Unit_1"
 		{
 			"NPCName"			    "npc_dota_boss_mag"  
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
-			"SpawnerName"		    "spawner1"
 		}													
 	}
 	"Round11" //tree
@@ -1871,7 +1886,7 @@
 		"BagCount"					"100"
 		"BagVariance"				"10"
 		"FixedXP"					"48700"
-		"alias"                     "tree"	
+		"alias"                     "tree"
 		// Stage 1 ================================================Ã¿¸öË¢Ò»Ö» 
 		"Unit_1"
 		{
@@ -2957,6 +2972,7 @@
 		"BagVariance"		        "0"
 		"FixedXP"					"35700"
 		"alias"                     "blue_dragon"
+		"type"                      "boss"
 
 		// Stage 1 ================================================
 		"Unit_1"
@@ -2964,7 +2980,6 @@
 			"NPCName"			"npc_dota_boss_blue_dragon"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
-			"SpawnerName"			"spawner4"
 		} 														
 	} 
 	"Round13" //Dark Citadel
@@ -3327,20 +3342,19 @@
 		"BagVariance"			    "40"
 		"FixedXP"					"35700"
 		"alias"                     "twins"
+		"type"                      "boss"
 		// Stage 1 ================================================
 		"Unit_1"
 		{
 			"NPCName"			"npc_dota_boss_fire_twin"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
-			"SpawnerName"			"spawner4"
 		}
 		"Unit_2"
 		{
 			"NPCName"			"npc_dota_boss_dark_twin"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
-			"SpawnerName"			"spawner3"
 		}  														
 	} 
 	"Round15" // morphing again!
@@ -3526,6 +3540,7 @@
 		"BagVariance"				"40"
 		"FixedXP"					"50000"
 		"alias"                     "party"
+		"type"                      "boss"
 		// Stage 1 ================================================
 		"Unit_1"
 		{
@@ -4061,6 +4076,7 @@
 		"BagVariance"				"40"
 		"FixedXP"					"65000"
 		"alias"                     "tusk"
+		"type"                      "boss"
 		// Stage 1 ================================================
 		"Unit_tusk_1"
 		{
@@ -4143,12 +4159,12 @@
 		"BagVariance"			    "0"
 		"FixedXP"					"80000"
 		"alias"                     "tidehunter"
+		"type"                      "boss"
 		"UnitBoss"  
 		{
 			"NPCName"			    "npc_dota_boss_tidehunter"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
-			"SpawnerName"			"spawner4"
 		}		
 	}
 	"Round22"
@@ -4369,5 +4385,20 @@
 			"SpawnerName"			"spawner4"
 		}
     }
-
+    "Round24"
+	{
+		"round_title"				"#DOTA_Holdout_Round_Lion_Title"
+		"MaxGold"					"0"  //金币在金币泉技能里面
+		"BagCount"					"0"
+		"BagVariance"				"0"
+		"FixedXP"					"8000"
+		"alias"                     "lion"
+		"type"                      "boss"
+		"Unit1"
+		{
+			"NPCName"				"npc_dota_boss_lion"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"		
+		}
+	}
 }

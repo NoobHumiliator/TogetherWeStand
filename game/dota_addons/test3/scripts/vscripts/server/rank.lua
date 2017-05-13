@@ -53,7 +53,8 @@ function Rank:GetRankDataFromServer(nPlayerNumber)
 end
 
 function Rank:RecordGame(nRoundNumber,nLoser)
-    local playerSteamIDs="";
+    local playerSteamIDs=""   --玩家SteamId串（排序后）
+    local vPlayerSteamIDs={}  --玩家SteamId表
     local player_number=0;
     local steamGameId=GameRules:GetMatchID()
     if tostring(steamGameId)=="0" then
@@ -62,12 +63,17 @@ function Rank:RecordGame(nRoundNumber,nLoser)
     local nTimeCost=math.floor(GameRules:GetGameTime())
     for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
         if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
-            if  PlayerResource:HasSelectedHero( nPlayerID ) then
-              playerSteamIDs=playerSteamIDs..PlayerResource:GetSteamAccountID(nPlayerID)..";"
+            if  PlayerResource:HasSelectedHero( nPlayerID ) then           
+              table.insert(vPlayerSteamIDs,PlayerResource:GetSteamAccountID(nPlayerID))  --压入表
               player_number=player_number+1
             end
         end
     end
+    table.sort(vPlayerSteamIDs)  --排序
+    for i=1,#vPlayerSteamIDs do
+        playerSteamIDs=playerSteamIDs..vPlayerSteamIDs[i]..";"
+    end
+
     if string.sub(playerSteamIDs,string.len(playerSteamIDs))==";" then   --去掉最后一个;
         playerSteamIDs=string.sub(playerSteamIDs,0,string.len(playerSteamIDs)-1)
     end

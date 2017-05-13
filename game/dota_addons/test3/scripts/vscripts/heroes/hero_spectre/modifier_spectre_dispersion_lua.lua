@@ -1,3 +1,4 @@
+require( "util" )
 --[[Author: Nightborn
 	Date: August 27, 2016
 ]]
@@ -14,6 +15,8 @@ end
 function modifier_spectre_dispersion_lua:OnTakeDamage (event)
 
 	if event.unit == self:GetParent() then
+        
+        --PrintTable(event)
 
 		local caster = self:GetParent()
 		local post_damage = event.damage
@@ -57,6 +60,7 @@ function modifier_spectre_dispersion_lua:OnTakeDamage (event)
 				
                 --取消掉全部的效果粒子特效
 				--Within 300 radius		
+								
 				if distance <= min_radius then
 					reflect_damage = original_damage * damage_reflect_pct
 					--particle_name = "particles/units/heroes/hero_spectre/spectre_dispersion.vpcf"
@@ -88,17 +92,7 @@ function modifier_spectre_dispersion_lua:OnTakeDamage (event)
                 	reflect_damage=reflect_damage*(1+caster.pure_return*caster:GetStrength()/100)
                 end
 
-
-				local old_hp = unit:GetHealth()
-				local new_hp = old_hp - reflect_damage
-
-				if unit:IsAlive() then
-					if new_hp < 1.000000 then
-						unit:Kill(ability, caster)
-					else
-						unit:SetHealth(new_hp)
-					end
-				end
+                ApplyDamage({ victim = unit, attacker = caster, ability=ability, damage = reflect_damage, damage_type = event.damage_type })
 
 			end
 

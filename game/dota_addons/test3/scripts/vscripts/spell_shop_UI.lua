@@ -144,7 +144,7 @@ function CHoldoutGameMode:AddAbility(keys)
                EmitSoundOn("General.Cancel",PlayerResource:GetPlayer(keys.playerId))
              end
 		  end
-    ReportHeroAbilities(hero)
+    --ReportHeroAbilities(hero)
 	end
 end
 
@@ -184,7 +184,7 @@ function CHoldoutGameMode:PointToGold(keys)
     keys.heroName=false
       if hero then
          if keys.enough==1 then
-             hero:ModifyGold(1500,true, 0)
+             hero:ModifyGold(1400,true, 0)
              local p = hero:GetAbilityPoints()
              hero:SetAbilityPoints(p-1)
              CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId),"UpdateAbilityList", keys)                
@@ -210,35 +210,62 @@ function CHoldoutGameMode:RemoveAbility(keys)
             end
 		  	    local pointsReturn=keys.abilityCost+abilityLevel-1
             local expense=PlayerResource:GetLevel(keys.playerId)*pointsReturn*30
-	             if(hero:GetGold() >= expense) then
-	               local abilityLevel=ability:GetLevel()
-	               local modifiers=hero:FindAllModifiers()
-	                for _,modifier in pairs(modifiers) do
-		              if modifier:GetAbility()==ability then
-		               modifier:Destroy()
-		              end
-		            end
-                print(hero:GetUnitName().." removing ability: ".. keys.abilityName)
-		            hero:RemoveAbility(keys.abilityName)
-		             if pairedAbility[keys.abilityName]~=nil then                      
-                      hero:RemoveAbility(pairedAbility[keys.abilityName])
-                      print(hero:GetUnitName().." removing pairs ability: ".. keys.abilityName)
-                 end
-		            local p = hero:GetAbilityPoints()
-                    hero:SetAbilityPoints(p + pointsReturn)
-	                hero:SpendGold(expense, DOTA_ModifyGold_Unspecified)
-	                CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId),"UpdatePlayerAbilityList",keys)
-	                CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId),"UpdateAbilityList", {heroName=false,playerId=keys.playerId})
-	                EmitSoundOn("compendium_points",PlayerResource:GetPlayer(keys.playerId))
-		          else
-		                Notifications:Bottom(keys.playerId, {text="#you_need", duration=3, style={color="Red"}})
-                    Notifications:Bottom(keys.playerId, {text=tostring(expense).." ", duration=3, style={color="Red"}, continue=true})
-                    Notifications:Bottom(keys.playerId, {text="#gold_to_sell_this_spell", duration=3, style={color="Red"}, continue=true})
-                    EmitSoundOn("General.Cancel",PlayerResource:GetPlayer(keys.playerId))
-	              end
+            if hero:HasModifier("modifier_item_mulberry") then  --如果有桑葚效果
+              RemoveModifierOneStack(hero,"modifier_item_mulberry",hero.mulberryAbility) --移除一层桑葚效果
+              if not hero:HasModifier("modifier_item_mulberry") then --若果没有桑葚效果,通知前台
+                CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId),"UpdateFreeToSell", {free=false,playerId=keys.playerId})
+              end
+              expense=0  --卖技能不要钱
+            end
+             if(hero:GetGold() >= expense) then
+               local abilityLevel=ability:GetLevel()
+               local modifiers=hero:FindAllModifiers()
+                for _,modifier in pairs(modifiers) do
+                if modifier:GetAbility()==ability then
+                 modifier:Destroy()
+                end
+              end
+              print(hero:GetUnitName().." removing ability: ".. keys.abilityName)
+              hero:RemoveAbility(keys.abilityName)
+               if pairedAbility[keys.abilityName]~=nil then                      
+                    hero:RemoveAbility(pairedAbility[keys.abilityName])
+                    print(hero:GetUnitName().." removing pairs ability: ".. keys.abilityName)
+               end
+              local p = hero:GetAbilityPoints()
+                  hero:SetAbilityPoints(p + pointsReturn)
+                hero:SpendGold(expense, DOTA_ModifyGold_Unspecified)
+                CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId),"UpdatePlayerAbilityList",keys)
+                CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId),"UpdateAbilityList", {heroName=false,playerId=keys.playerId})
+                EmitSoundOn("compendium_points",PlayerResource:GetPlayer(keys.playerId))
+            else
+                  Notifications:Bottom(keys.playerId, {text="#you_need", duration=3, style={color="Red"}})
+                  Notifications:Bottom(keys.playerId, {text=tostring(expense).." ", duration=3, style={color="Red"}, continue=true})
+                  Notifications:Bottom(keys.playerId, {text="#gold_to_sell_this_spell", duration=3, style={color="Red"}, continue=true})
+                  EmitSoundOn("General.Cancel",PlayerResource:GetPlayer(keys.playerId))
+              end
 		      end
 		   end
 	 end
 end
 
 
+function CHoldoutGameMode:GrantCourierAbility(keys)
+  PrintTable(keys)
+  if PlayerResource:HasSelectedHero( keys.playerId ) then
+    local hero = PlayerResource:GetSelectedHeroEntity( keys.playerId )
+    keys.heroName=false
+      if hero then
+         if keys.enough==1 then
+             local item = CreateItem (keys.item,hero,hero)
+             item:SetPurchaser(hero)
+             hero:AddItem(item)
+             local p = hero:GetAbilityPoints()
+             hero:SetAbilityPoints(p-1)
+             CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId),"UpdateAbilityList", keys)                      
+         else
+           Notifications:Bottom(keys.playerId, {text="#not_enough_ability_points", duration=2, style={color="Red"}})
+           EmitSoundOn("General.Cancel",PlayerResource:GetPlayer(keys.playerId))
+         end
+      end
+  end
+end

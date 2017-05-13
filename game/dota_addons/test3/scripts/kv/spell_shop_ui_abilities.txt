@@ -117,7 +117,7 @@
   "zuus" {
   "1"    "zuus_arc_lightning"
   "2"    "zuus_lightning_bolt"
-  "3"    "zuus_static_field"
+  "3"    "zuus_static_field_datadriven"
   "4"    "zuus_thundergods_vengeance"
   "5"    "zeus_thundergods_wrath_nb2017"
   }

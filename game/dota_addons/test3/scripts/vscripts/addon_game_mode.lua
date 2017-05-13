@@ -14,7 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
---testMode=true --减少刷兵间隔，增加初始金钱
+testMode=true --减少刷兵间隔，增加初始金钱
 
 require( "holdout_game_round" )
 require( "holdout_game_spawner" )
@@ -33,6 +33,10 @@ require( "server/rank")
 require( "server/detail")
 require( "server/patreon")
 require( "server/vip")
+require( "server/taobao")
+require( "vip/econ_manager")
+require( 'vip/vip_reward')
+
 -- Precache resources
 -- Actually make the game mode when we activate
 function Activate()
@@ -45,6 +49,20 @@ function Precache( context )
 	PrecacheResource( "particle", "particles/items2_fx/veil_of_discord.vpcf", context )
 	PrecacheResource( "particle_folder", "particles/frostivus_gameplay", context )
 	PrecacheResource( "sound_folder", "sounds/weapons/creep/neutral", context )
+    --Vip特效
+    PrecacheResource( 'particle', 'particles/econ/courier/courier_trail_lava/courier_trail_lava.vpcf', context)
+	PrecacheResource( 'particle', 'particles/econ/paltinum_baby_roshan/paltinum_baby_roshan.vpcf', context)
+	PrecacheResource( 'particle', 'particles/econ/legion_wings/legion_wings.vpcf', context)
+	PrecacheResource( 'particle', 'particles/econ/courier/courier_roshan_darkmoon/courier_roshan_darkmoon.vpcf', context)
+	PrecacheResource( 'particle', 'particles/econ/courier/courier_roshan_darkmoon/courier_roshan_darkmoon_ground.vpcf', context)
+    PrecacheResource( 'particle', 'particles/econ/courier/courier_roshan_frost/courier_roshan_frost_ambient.vpcf.vpcf', context)
+    PrecacheResource( 'particle', 'particles/econ/courier/courier_greevil_green/courier_greevil_green_ambient_3.vpcf', context)
+    PrecacheResource( 'particle', 'particles/econ/courier/courier_roshan_frost/courier_roshan_frost_ambient.vpcf', context)
+    PrecacheResource( 'particle', 'particles/econ/courier/courier_sappling/courier_sappling_ambient_fly_lvl1.vpcf', context)
+    PrecacheResource( 'particle', 'particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_3.vpcf', context)
+    PrecacheResource( 'particle', 'particles/econ/courier/courier_trail_orbit/courier_trail_orbit.vpcf', context)
+
+
 	PrecacheItemByNameSync( "item_tombstone", context )
 	PrecacheItemByNameSync( "item_bag_of_gold", context )
 	PrecacheItemByNameSync( "item_skysong_blade", context )
@@ -87,12 +105,17 @@ function CHoldoutGameMode:InitGameMode()
 	self.nTrialSetTime=12
 	self.vipMap={}  --key是steamID vlaue是vip等级初始化是0
 	self.steamIdMap={}  --key是steamID vlaue是nPlayerNumber
+    
+
+
 	GameRules:SetTimeOfDay( 0.75 )
 	GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 0)
 	GameRules:SetHeroRespawnEnabled( true )
 	GameRules:GetGameModeEntity():SetFixedRespawnTime(99999999999)
 	GameRules:SetUseUniversalShopMode( true )
 	GameRules:SetHeroSelectionTime( 35.0 )
+	GameRules:SetStrategyTime(0.0)
+	GameRules:SetShowcaseTime(0.0)
     
 
 	if testMode then
@@ -131,6 +154,9 @@ function CHoldoutGameMode:InitGameMode()
     CustomGameEventManager:RegisterListener("RemoveAbility", Dynamic_Wrap(CHoldoutGameMode, 'RemoveAbility'))
     CustomGameEventManager:RegisterListener("LevelUpAttribute", Dynamic_Wrap(CHoldoutGameMode, 'LevelUpAttribute'))
     CustomGameEventManager:RegisterListener("PointToGold", Dynamic_Wrap(CHoldoutGameMode, 'PointToGold'))
+    CustomGameEventManager:RegisterListener("ConfirmParticle", Dynamic_Wrap(CHoldoutGameMode, 'ConfirmParticle'))
+    CustomGameEventManager:RegisterListener("CancleParticle", Dynamic_Wrap(CHoldoutGameMode, 'CancleParticle'))
+    CustomGameEventManager:RegisterListener("GrantCourierAbility", Dynamic_Wrap(CHoldoutGameMode, 'GrantCourierAbility'))
 
 
     CustomGameEventManager:RegisterListener("SelectDifficulty",Dynamic_Wrap(CHoldoutGameMode, 'SelectDifficulty'))
@@ -155,10 +181,13 @@ function CHoldoutGameMode:InitGameMode()
 	self.HeroesKV = LoadKeyValues("scripts/kv/spell_shop_ui_herolist.txt")
     self.AbilitiesKV = LoadKeyValues("scripts/kv/spell_shop_ui_abilities.txt")
     self.AbilitiesCostKV = LoadKeyValues("scripts/kv/spell_shop_ui_abilities_cost.txt")
-    
+    --读取NPC配置文件的细节
+    self.vNpcDetailKV = LoadKeyValues("scripts/npc/npc_units_custom.txt")
+
 	GameRules:GetGameModeEntity():SetDamageFilter(Dynamic_Wrap(CHoldoutGameMode, "DamageFilter"), self)
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CHoldoutGameMode, "OrderFilter"), self)
 	GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(CHoldoutGameMode, "ModifyGoldFilter"), self)
+	GameRules:GetGameModeEntity():SetLoseGoldOnDeath(false) --死亡不扣除金钱
 	GameRules:GetGameModeEntity():SetContextThink( "globalthink0",function() return self:OnThink() end , 1.0)
 	--self._vHeroList={}
     self:CreateNetTablesSettings()
@@ -183,7 +212,7 @@ function CHoldoutGameMode:_ReadGameConfiguration()
     end
 	self._flItemExpireTime = tonumber( kv.ItemExpireTime or 10.0 )
 
-	self:_ReadRandomSpawnsConfiguration( kv["RandomSpawns"] )
+	self:_ReadRandomSpawnsConfiguration( kv["RandomSpawns"],kv["RandomSpawnsBig"] )
 	self:_ReadLootItemDropsConfiguration( kv["ItemDrops"] )
 	self:_ReadRoundConfigurations( kv )
 end
@@ -198,9 +227,19 @@ function CHoldoutGameMode:ChooseRandomSpawnInfo()
 	return self._vRandomSpawnsList[ RandomInt( 1, #self._vRandomSpawnsList ) ]
 end
 
+-- 为体型大的单位设置的刷新点
+function CHoldoutGameMode:ChooseRandomSpawnInfoForBigGuy()
+	if #self._vRandomSpawnsListBig == 0 then
+		error( "Attempt to choose a random spawn for big, but no random spawns are specified in the data." )
+		return nil
+	end
+	return self._vRandomSpawnsList[ RandomInt( 1, #self._vRandomSpawnsListBig ) ]
+end
+
+
 
 -- Verify valid spawns are defined and build a table with them from the keyvalues file
-function CHoldoutGameMode:_ReadRandomSpawnsConfiguration( kvSpawns )
+function CHoldoutGameMode:_ReadRandomSpawnsConfiguration( kvSpawns,kvSpawnsBig )
 	self._vRandomSpawnsList = {}
 	if type( kvSpawns ) ~= "table" then
 		return
@@ -211,7 +250,19 @@ function CHoldoutGameMode:_ReadRandomSpawnsConfiguration( kvSpawns )
 			szFirstWaypoint = sp.Waypoint or ""
 		} )
 	end
+
+	self._vRandomSpawnsListBig = {}
+	if type( kvSpawnsBig ) ~= "table" then
+		return
+	end
+	for _,sp in pairs( kvSpawnsBig ) do 
+		table.insert( self._vRandomSpawnsListBig, {
+			szSpawnerName = sp.SpawnerName or "",
+			szFirstWaypoint = sp.Waypoint or ""
+		} )
+	end
 end
+
 
 
 
@@ -265,6 +316,9 @@ function CHoldoutGameMode:OnPlayerSay(keys)
     if string.match(text,"@")~=nil then  --如果为邮件
         Patreon:GetPatrons(text,steamID,nPlayerID)
     end
+    if string.match(text,"%w%w%w%w%-%w%w%w%w%-%w%w%w%w%-%w%w%w%w")~=nil then  --如果为淘宝Code
+        Taobao:RegisterVip(text,steamID,nPlayerID)
+    end
     if string.match(text,"^[r|R][o|O][u|U][n|N][d|D]%d+")~=nil and GameRules:IsCheatMode() then  --如果为跳关码
         local round= string.match(text,"%d+")
         print("round"..round)
@@ -283,18 +337,21 @@ end
 
 
 function CHoldoutGameMode:OnPlayerPickHero(keys)
+  
   local hero = EntIndexToHScript(keys.heroindex)
-  print(hero:GetUnitName())
+  local playerId=keys.player
+  PlayerResource:SetBuybackGoldLimitTime(playerId, 0.0)
+
   if IsValidEntity(hero) then
   	for i=1,20 do
   		local ability=hero:GetAbilityByIndex(i-1)
   		if ability then
-  			print("Abilities Report: "..hero:GetUnitName().."ability["..i.."] is "..ability:GetAbilityName())
+  			--print("Abilities Report: "..hero:GetUnitName().."ability["..i.."] is "..ability:GetAbilityName())
   			if string.find(ability:GetAbilityName(),"tws_ability_empty_") then
   				hero:RemoveAbility(ability:GetAbilityName())
   			end
   		else
-  			print("Abilities Report: "..hero:GetUnitName().."ability["..i.."] is empty")
+  			--print("Abilities Report: "..hero:GetUnitName().."ability["..i.."] is empty")
   		end
   	end
   end
@@ -340,24 +397,26 @@ function CHoldoutGameMode:OnGameRulesStateChange()
 		for i=1,5 do  
 			Rank:GetRankDataFromServer(i) --从服务器获取天梯数据
 		end
+		self:GetVipDataFromServer() --从服务器读取vip数据
 	end
 
 	if nNewState ==  DOTA_GAMERULES_STATE_HERO_SELECTION then
 		PrecacheUnitByNameAsync('npc_precache_always', function() end) 
 		ShowGenericPopup( "#holdout_instructions_title", "#holdout_instructions_body", "", "", DOTA_SHOWGENERICPOPUP_TINT_SCREEN )
 	end
-
+    
+    
 	if nNewState ==  DOTA_GAMERULES_STATE_GAME_IN_PROGRESS   then
 		self.flProgressTime=GameRules:GetGameTime()
 		CustomGameEventManager:Send_ServerToAllClients( "UpdateCmHud", {} )
 		self:SetBaseDifficulty()
-        self:InitVipReward() --设置vip奖励
+		InitVipReward()  --初始化VIP奖励
 	end
 end
 
 
 
-function CHoldoutGameMode:InitVipReward() --设置初始Vip奖励
+function CHoldoutGameMode:GetVipDataFromServer()  --从服务器读取vip数据
 	local steamIDs
     for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
 		 local steamID = PlayerResource:GetSteamAccountID(nPlayerID)
@@ -371,6 +430,7 @@ function CHoldoutGameMode:InitVipReward() --设置初始Vip奖励
 			end
 		 end
 	end
+	--print("***********"..steamIDs)
 	Vip:GetVipDataFromServer(steamIDs) --从服务器获取这些玩家哪个是vip
 end
 
@@ -444,6 +504,21 @@ function CHoldoutGameMode:_RefreshPlayers()
 	end
 end
 
+function CHoldoutGameMode:_GrantMulberry()  --给予桑葚
+	for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+		if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
+			if PlayerResource:HasSelectedHero( nPlayerID ) then
+				local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
+				if hero then
+				   hero:AddItemByName("item_mulberry")
+			    end
+			end
+		end
+	end
+end
+
+
+
 
 function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正  --测试模式补充技能点
 	if GameRules:State_Get() ~= DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
@@ -503,13 +578,14 @@ function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正  --测
 	       	 Notifications:BottomToAll( {text="#round_fail", duration=3, style={color="Fuchsia"}})
              Notifications:BottomToAll( {text=tostring(self.last_live), duration=3, style={color="Red"}, continue=true})
              Notifications:BottomToAll( {text="#chance_left", duration=3, style={color="Fuchsia"}, continue=true})
-		        if self._currentRound then
-		          self._currentRound.achievement_flag=false
-		    	  self._currentRound:End()
-		        end
-				self._currentRound = nil
-				self:_RefreshPlayers()
-				self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
+		     if self._currentRound then
+		        self:_GrantMulberry() --给予桑葚
+		        self._currentRound.achievement_flag=false
+		    	self._currentRound:End()
+		     end
+		     self._currentRound = nil
+			 self:_RefreshPlayers()
+			 self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
 		 end
 	end	
 end
@@ -578,12 +654,12 @@ function CHoldoutGameMode:_ProcessItemForLootExpiry( item, flCutoffTime )
 	end
 
 	local containedItem = item:GetContainedItem()
+
 	if containedItem and containedItem:GetAbilityName() == "item_bag_of_gold" then
 		if self._currentRound and self._currentRound.OnGoldBagExpired then
 			self._currentRound:OnGoldBagExpired()
 		end
 	end
-
 	local nFXIndex = ParticleManager:CreateParticle( "particles/items2_fx/veil_of_discord.vpcf", PATTACH_CUSTOMORIGIN, item )
 	ParticleManager:SetParticleControl( nFXIndex, 0, item:GetOrigin() )
 	ParticleManager:SetParticleControl( nFXIndex, 1, Vector( 35, 35, 25 ) )
@@ -592,6 +668,7 @@ function CHoldoutGameMode:_ProcessItemForLootExpiry( item, flCutoffTime )
 	if inventoryItem then
 		--print("Removing item "..inventoryItem:GetName()) 
 		--有时候移除特殊物品会导致游戏崩溃（各类飞鞋）
+		--print("inventoryItem:GetClassname()"..inventoryItem:GetClassname())
 		UTIL_Remove( inventoryItem )
 	end
 	UTIL_Remove( item )
@@ -657,16 +734,7 @@ function CHoldoutGameMode:OnNPCSpawned( event )
              end
          end
 
-	-- Attach client side hero effects on spawning players 配置Vip的粒子效果
-	if spawnedUnit:IsRealHero() then
-		local hPlayerHero = spawnedUnit
-		local nPlayerID= hPlayerHero:GetPlayerID()
-				local nSteamID = PlayerResource:GetSteamAccountID(nPlayerID)    --获取steam ID 
-			    if TableFindKey(vipSteamIDTable, nSteamID) then                       --steam ID 符合VIP表
-			    	CreateVipParticle(hPlayerHero)
-			    end
-			end
-			if spawnedUnit:GetTeam()==DOTA_TEAM_GOODGUYS and string.sub(spawnedUnit:GetUnitName(),1,14)~="npc_dota_tiny_"then
+		    if spawnedUnit:GetTeam()==DOTA_TEAM_GOODGUYS and string.sub(spawnedUnit:GetUnitName(),1,14)~="npc_dota_tiny_"then
 				if spawnedUnit:HasAbility("damage_counter") then
 				else
 					spawnedUnit:AddAbility("damage_counter")  --伤害计数器
@@ -864,7 +932,21 @@ function CHoldoutGameMode:CheckForLootItemDrop( killedUnit )
 end
 
 function CHoldoutGameMode:OnItemPickUp( event ,level )
+	--PrintTable(event)
 	local item = EntIndexToHScript( event.ItemEntityIndex )
+    if event.UnitEntityIndex then 
+    	local unit=EntIndexToHScript( event.UnitEntityIndex )
+    	if unit:GetUnitName()=="npc_dota_courier" then --如果是信使捡起的物品，则物品属于操作信使的人
+    	   if item:GetPurchaser()==nil then
+	          local playerId=unit.nControlledPickPlayerId
+	          local hero = PlayerResource:GetSelectedHeroEntity( playerId )
+	          --print(hero:GetUnitName())
+	          item:SetPurchaser(hero)
+           end
+    	end      
+    end
+
+
 	if event.HeroEntityIndex then
 	   local owner = EntIndexToHScript( event.HeroEntityIndex )
 	   if string.sub(event.itemname,1,20)== "item_treasure_chest_" then

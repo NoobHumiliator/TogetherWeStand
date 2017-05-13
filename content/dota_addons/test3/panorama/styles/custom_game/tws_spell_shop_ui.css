@@ -81,9 +81,10 @@
     horizontal-align: center;
     vertical-align: top;
     flow-children: right;
-    width: 80%;
+    width: 98%;
     height: 25%;
     border: 0px solid #999;
+    margin-left:5px;
 }
 
 
@@ -100,7 +101,7 @@
 #buyButton {
     horizontal-align: left;
     vertical-align: center;
-    width: 200px;
+    width: 190px;
     height: 50px;
     border: 1px solid #000;
     background-color: gradient( linear, 0% 0%, 0% 100%, from(#a50a04), to(#670303) );
@@ -109,9 +110,10 @@
 
 #buyButton:active {
     background-color: gradient( linear, 0% 0%, 0% 100%, from(#880303), to(#b80803) );
-    width: 192px;
+    width: 182px;
     height: 48px;
-    margin-left: 8px;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 
@@ -125,7 +127,7 @@
 #sellButton {
     horizontal-align: left;
     vertical-align: center;
-    width: 200px;
+    width: 190px;
     height: 50px;
     margin-left: 50px;
     border: 1px solid #000;
@@ -134,9 +136,10 @@
 }
 #sellButton:active {
     background-color: gradient( linear, 0% 0%, 0% 100%, from(#880303), to(#b80803) );
-    width: 192px;
+    width: 182px;
     height: 48px;
-    margin-left: 58px;
+     margin-left: 54px;
+     margin-right: 4px;
 }
 #sellButton Label {
     horizontal-align: center;
@@ -149,7 +152,7 @@
 #attributesButton {
     horizontal-align: left;
     vertical-align: center;
-    width: 200px;
+    width: 190px;
     height: 50px;
     margin-left: 50px;
     border: 1px solid #000;
@@ -159,9 +162,10 @@
 
 #attributesButton:active {
     background-color: gradient( linear, 0% 0%, 0% 100%, from(#880303), to(#b80803) );
-    width: 192px;
+    width: 182px;
     height: 48px;
-    margin-left: 58px;
+    margin-left: 54px;
+    margin-right: 4px;
 }
 
 #attributesButton Label {
@@ -172,9 +176,53 @@
     text-transform: uppercase;
 }
 
+
+
+#courierButton {
+    horizontal-align: left;
+    vertical-align: center;
+    width: 190px;
+    height: 50px;
+    margin-left: 50px;
+    border: 1px solid #000;
+    background-color: gradient( linear, 0% 0%, 0% 100%, from(#a50a04), to(#670303) );
+    box-shadow: inset #ffffff50 1px 1px 2px 2px;
+}
+
+#courierButton:active {
+    background-color: gradient( linear, 0% 0%, 0% 100%, from(#880303), to(#b80803) );
+    width: 182px;
+    height: 48px;
+    margin-left: 54px;
+    margin-right: 4px;
+}
+
+#courierButton Label {
+    horizontal-align: center;
+    vertical-align: center;
+    font-size: 20;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+
+
 #attrPanel {
     flow-children: right;
 }
+
+#courierPanel {
+    flow-children: right;
+}
+
+
 
 .attributeButtonLabel{
     vertical-align: bottom;
@@ -304,4 +352,23 @@ Button:enabled DOTAAbilityImage:hover
 {
     wash-color :#ffb3a7;
     brightness: 0.2;
+}
+
+
+.courierAbilityButton
+{
+   height:75px;
+   width:75px; 
+   margin-left:50px;
+}
+
+
+.courierAbilityButton:active
+{
+     padding: 5px;
+}
+
+
+.courierAbilityButton:disabled DOTAAbilityImage {
+    saturation: 0;
 }

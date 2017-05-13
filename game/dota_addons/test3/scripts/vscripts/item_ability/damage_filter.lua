@@ -1,4 +1,4 @@
---damageTable.damagetype_const
+ --damageTable.damagetype_const
 --1 physical
 --2 magical
 --4 pure
@@ -14,6 +14,9 @@ sp_exempt_table["winter_wyvern_arctic_burn"]=true
 sp_exempt_table["doom_bringer_infernal_blade"]=true
 sp_exempt_table["phoenix_sun_ray"]=true
 sp_exempt_table["abyssal_underlord_firestorm"]=true
+sp_exempt_table["zuus_static_field_datadriven"]=true
+sp_exempt_table["spectre_dispersion_datadriven"]=true
+sp_exempt_table["item_blade_mail"]=true
 
 
 re_table={} --反伤类技能  折射直接扣生命 单独处理
@@ -36,9 +39,6 @@ function CHoldoutGameMode:DamageFilter(damageTable)
 	  local attacker = EntIndexToHScript(damageTable.entindex_attacker_const)
 	  local victim = EntIndexToHScript(damageTable.entindex_victim_const)
 	  if  attacker and attacker:GetTeam()==DOTA_TEAM_GOODGUYS then
-          if attacker:HasModifier("modifier_explode_expansion_thinker_aura_effect")  then   --如果身上有虚空罩子的debuff无法造成伤害
-             return
-          end
           local playerid=attacker:GetPlayerOwnerID()             
           local hero = PlayerResource:GetSelectedHeroEntity( playerid )
 	        if damageTable.entindex_inflictor_const ~=nil then --有明确来源技能
@@ -74,7 +74,7 @@ function CHoldoutGameMode:DamageFilter(damageTable)
         		self._currentRound._vPlayerStats[playerid].nTotalDamage=self._currentRound._vPlayerStats[playerid].nTotalDamage+damageTable.damage
         	end
          
-          if damageTable.entindex_inflictor_const~=nil and  EntIndexToHScript(damageTable.entindex_inflictor_const)  and  EntIndexToHScript(damageTable.entindex_inflictor_const).GetAbilityName  and  (EntIndexToHScript(damageTable.entindex_inflictor_const):GetAbilityName()=="spectre_dispersion" or EntIndexToHScript(damageTable.entindex_inflictor_const):GetAbilityName()=="item_blade_mail" ) then  --不能反射反伤类的技能        
+          if damageTable.entindex_inflictor_const~=nil and  EntIndexToHScript(damageTable.entindex_inflictor_const)  and  EntIndexToHScript(damageTable.entindex_inflictor_const).GetAbilityName  and  (EntIndexToHScript(damageTable.entindex_inflictor_const):GetAbilityName()=="spectre_dispersion_datadriven" or EntIndexToHScript(damageTable.entindex_inflictor_const):GetAbilityName()=="item_blade_mail" ) then  --不能反射反伤类的技能        
           else
             if victim and victim:HasModifier("modifier_affixes_spike") then  --处理尖刺技能
                  local damage_table = {}
@@ -83,7 +83,7 @@ function CHoldoutGameMode:DamageFilter(damageTable)
                  damage_table.damage_type = DAMAGE_TYPE_PURE
                  damage_table.ability = victim:FindAbilityByName("affixes_ability_spike")
                  damage_table.damage = damageTable.damage
-                 damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
+                 damage_table.damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
                  ApplyDamage(damage_table)
             end
             if victim and victim:HasModifier("modifier_nxy_spike") then  --处理小强的尖刺
@@ -93,7 +93,7 @@ function CHoldoutGameMode:DamageFilter(damageTable)
                  damage_table.damage_type = DAMAGE_TYPE_PURE
                  damage_table.ability = victim:FindAbilityByName("nyx_boss_spike")
                  damage_table.damage = damageTable.damage
-                 damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
+                 damage_table.damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
                  ApplyDamage(damage_table)
             end    
           end
@@ -145,7 +145,7 @@ function CHoldoutGameMode:DamageFilter(damageTable)
       	end
         -- 受伤害龙心进入CD
         if victim:HasItemInInventory("item_heart") or victim:HasItemInInventory("item_heart_2")  then
-            for i=0,5 do
+            for i=0,8 do
               local itemAbility=victim:GetItemInSlot(i)
               if itemAbility~=nil then
                   if itemAbility:GetAbilityName()=="item_heart" or itemAbility:GetAbilityName()=="item_heart_2" then
@@ -165,8 +165,39 @@ end
 
 
 function CHoldoutGameMode:OrderFilter(orderTable)
-  --DeepPrint( orderTable )
-  local caster = EntIndexToHScript(orderTable.units["0"])
+  
+  --PrintTable(orderTable)
+
+  local caster = EntIndexToHScript(orderTable.units["0"])    --order_type 14 为捡东西指令 
+
+  if caster and caster:GetUnitName()=="npc_dota_courier" and caster.synPlayerId then  --如果信使为某人专属
+     if caster.synPlayerId~=orderTable.issuer_player_id_const then  --非专属玩家操作信使
+       return false
+     end
+  end
+
+  if caster and caster:GetUnitName()=="npc_dota_courier" then --如果是信使
+
+      if orderTable.order_type==14 then  --有人控制信使捡东西
+         caster.nControlledPickPlayerId = orderTable.issuer_player_id_const  --记录下谁用信使捡东西
+      end
+      
+      if orderTable.order_type==5 and orderTable.entindex_ability then  --有人使用信使抓钩
+          local ability=EntIndexToHScript(orderTable.entindex_ability)
+          if ability.GetAbilityName  and  ability:GetAbilityName()=="courier_hook_datadriven"  then
+             caster.nControlledPickPlayerId = orderTable.issuer_player_id_const  --记录下谁用信使抓钩
+          end
+      end
+
+      if  not (orderTable.entindex_ability  and orderTable.entindex_ability > 1) then --如果有人控制信使施法以外的操作
+         if caster.bSellInterrupted==nil then 
+            caster.bSellInterrupted=true 
+         end
+      end
+
+  end
+
+
   if orderTable.entindex_ability ~=0 and orderTable.entindex_ability ~=-1  and  orderTable.order_type~=11 then  --order_type=11 为技能升级指令
       local ability=EntIndexToHScript(orderTable.entindex_ability)
       if  ability and   ability.GetAbilityName   and  ability:GetAbilityName()~="storm_spirit_ball_lightning"  and  ability:GetAbilityName()~="ogre_magi_unrefined_fireblast"   and  ability.IsInAbilityPhase  and  caster.manaCostIns~=nil  and  not ability:IsInAbilityPhase()  and  not ability:IsChanneling()   then  -- 有法强

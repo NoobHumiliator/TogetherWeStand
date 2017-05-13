@@ -32,6 +32,7 @@ function CHoldoutGameSpawner:ReadConfiguration( name, kv, gameRound )
 
 	self._bDontGiveGoal = ( tonumber( kv.DontGiveGoal or 0 ) ~= 0 )
 	self._bDontOffsetSpawn = ( tonumber( kv.DontOffsetSpawn or 0 ) ~= 0 )
+
 end
 
 
@@ -169,12 +170,24 @@ function CHoldoutGameSpawner:_UpdateRandomSpawn()
 	self._vecSpawnLocation = Vector( 0, 0, 0 )
 	self._entWaypoint = nil
 
-	local spawnInfo = self._gameRound:ChooseRandomSpawnInfo()
+    local vNpcDetail = self._gameRound._gameMode.vNpcDetailKV[self._szNPCClassName]
+   
+    local spawnInfo = self._gameRound:ChooseRandomSpawnInfo()
+
+    if vNpcDetail~=nil and vNpcDetail.BoundsHullName~=nil and vNpcDetail.BoundsHullName~="" then
+       local boundsHullSize=vHullSizeTable[vNpcDetail.BoundsHullName]
+       if boundsHullSize>70 then
+            spawnInfo=self._gameRound:ChooseRandomSpawnInfoForBigGuy() --为体型大于70的单位重新选择刷新点（防止在右下角卡住）
+       end
+    end
+    
+
 	if spawnInfo == nil then
 		print( string.format( "Failed to get random spawn info for spawner %s.", self._szName ) )
 		return
 	end
 	
+
 	local entSpawner = Entities:FindByName( nil, spawnInfo.szSpawnerName )
 	if not entSpawner then
 		print( string.format( "Failed to find spawner named %s for %s.", spawnInfo.szSpawnerName, self._szName ) )

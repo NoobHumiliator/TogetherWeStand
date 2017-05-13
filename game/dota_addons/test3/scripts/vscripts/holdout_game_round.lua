@@ -32,12 +32,13 @@ function CHoldoutGameRound:ReadConfiguration( kv, gameMode, roundNumber )
 	self._szRoundTitle = kv.round_title or string.format( "Round%d", roundNumber )
 	self._nBonusLevel = tonumber(kv.bonus_level) or roundNumber
 	self._alias=kv.alias or string.format( "Round%d", roundNumber )   --设置一个别名，方便成就系统
+	self._szType=kv.type or 'normal'   --boss/normal 区分是不是BOSS关
     self._not_multiple=true
 	self._nMaxGold = tonumber( kv.MaxGold or 0 )
 	self._nBagCount = tonumber( kv.BagCount or 0 )
 	self._nBagVariance = tonumber( kv.BagVariance or 0 )
 	self._nFixedXP = tonumber( kv.FixedXP or 0 )
-	self._nItemDropNum = tonumber( kv.ItemDropNum or 5 )  --单人玩家一关默认掉落5件物品 ，5人18件
+	self._nItemDropNum = tonumber( kv.ItemDropNum or 7 )  --单人玩家一关默认掉落7件物品 ，5人21件
  	self._vSpawners = {}
 	self._totalCreatureNum=0
 	self._environmentcontroller= EnvironmentController()
@@ -272,6 +273,9 @@ function CHoldoutGameRound:End()
 			if unit:GetUnitName()==("npc_dota_boss_tidehunter") then
 			    unit:RemoveAbility("tidehunter_gold_bag_fountain")
 			end
+            if unit:GetUnitName()==("npc_dota_boss_lion") then
+			    unit:RemoveAbility("lion_gold_bag_fountain")
+			end
 
 			unit:ForceKill(true)
 		end
@@ -300,6 +304,19 @@ function CHoldoutGameRound:End()
 			end
 	    end 
     end
+
+    if self._alias=="lion"  then   --清理续命神符
+	    local items=Entities:FindAllByClassname( "dota_item_drop")
+		for _,item in pairs( items) do
+		  local containedItem = item:GetContainedItem()	
+		  if containedItem then
+	          if containedItem:GetAbilityName() == "item_rune_life_extension" then
+	             UTIL_Remove( item )
+	          end
+		  end
+		end
+    end
+
     --删除本轮的UI 
 	QuestSystem:DelQuest("Progress")
     if self._szRoundQuestTitle ~=nil then
@@ -540,6 +557,11 @@ end
 function CHoldoutGameRound:ChooseRandomSpawnInfo()
 	return self._gameMode:ChooseRandomSpawnInfo()
 end
+
+function CHoldoutGameRound:ChooseRandomSpawnInfoForBigGuy()
+	return self._gameMode:ChooseRandomSpawnInfoForBigGuy()
+end
+
 
 
 function CHoldoutGameRound:IsFinished()

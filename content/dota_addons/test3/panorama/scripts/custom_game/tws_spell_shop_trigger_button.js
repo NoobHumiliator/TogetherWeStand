@@ -16,6 +16,7 @@ function ShowMainBlock()
      block.SetHasClass("Hidden", true);
      Game.EmitSound("Shop.PanelDown");
 	}
+    HideTooltip()
 }
 
 function FixSpellShopPosition()
@@ -25,7 +26,7 @@ function FixSpellShopPosition()
     //1.777 16:9
     //1.6   16:6
     //1.33  4:3
-    $.Msg(width/height)
+    //$.Msg(width/height)
     var radio=width/height
     if (1.7<radio)
     {
@@ -40,22 +41,39 @@ function FixSpellShopPosition()
 
     	$("#triggerButtonPanel").style.position="1050px 1020px 0"
     }
+
+     $.DispatchEvent("DOTAShowTitleTextTooltip",$("#triggerButtonPanel"), "#spell_trigger_notice_title", "#spell_trigger_notice_detail");
 }
+
+
+function ShowTooltip()
+{
+      $.DispatchEvent("DOTAShowTitleTextTooltip",$("#triggerButtonPanel"), "#spell_trigger_notice_title", "#spell_trigger_notice_detail");
+}
+
+function HideTooltip()
+{
+       $.DispatchEvent( "DOTAHideTitleTextTooltip",$("#triggerButtonPanel") );
+}
+
 
 
 (function()
 {
 
      FixSpellShopPosition();
+     $.Schedule(2.0,ShowTooltip);
+     $.Schedule(7.0,HideTooltip);
 
 })();
 
 
 function OnTestButtonPressed()
 {
-	$.Msg( "Test button pressed." );
+    
 	//var localHeroIndex = Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() );
 	ShowMainBlock();
+
 }
 
 Game.AddCommand( "+CustomGameTestButton", OnTestButtonPressed, "", 0 );

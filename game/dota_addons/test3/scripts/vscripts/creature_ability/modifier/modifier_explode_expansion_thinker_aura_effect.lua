@@ -9,7 +9,7 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_explode_expansion_thinker_aura_effect:OnCreated( kv )
-	if self:GetParent() and self:GetParent():IsAlive() then
+	if self:GetParent() and self:GetParent().IsAlive and self:GetParent():IsAlive() then
 	  self.damage_per_tick = self:GetParent():GetMaxHealth()*0.004  
     end
 	self:StartIntervalThink(0.1)
@@ -38,7 +38,7 @@ function modifier_explode_expansion_thinker_aura_effect:OnIntervalThink()
         }
         
         ApplyDamage(damageTable)
-        self:GetParent():ReduceMana(35)
+        self:GetParent():ReduceMana(50)
 
         EmitSoundOn( "Hero_Alchemist.AcidSpray.Damage", self:GetParent() )
 	end
@@ -46,7 +46,8 @@ end
 --------------------------------------------------------------------------------
 function modifier_explode_expansion_thinker_aura_effect:DeclareFunctions()
 	local funcs = {
-		MODIFIER_PROPERTY_DISABLE_HEALING
+		MODIFIER_PROPERTY_DISABLE_HEALING,
+		MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE
 	}
 	return funcs
 end
@@ -68,3 +69,8 @@ end
 
 --------------------------------------------------------------------------------
 
+function modifier_explode_expansion_thinker_aura_effect:GetModifierTotalDamageOutgoing_Percentage()
+
+	return  -100
+
+end

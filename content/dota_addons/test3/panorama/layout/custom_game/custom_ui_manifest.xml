@@ -15,6 +15,8 @@
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_hud_base.xml" /> 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_spell_shop_trigger_button.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_difficulty_selection.xml" /> 
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_particle_trigger_button.xml" />
+    <CustomUIElement type="Hud"  id="ParticlePanelHub"  layoutfile="file://{resources}/layout/custom_game/tws_particle_panel.xml" />
     <CustomUIElement type="GameInfo" layoutfile="file://{resources}/layout/custom_game/tws_rank_panel.xml" />
   </Panel>
 </root>

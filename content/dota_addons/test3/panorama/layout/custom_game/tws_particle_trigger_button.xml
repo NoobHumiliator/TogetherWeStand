@@ -1,0 +1,18 @@
+<root>
+    <styles>
+       <include src="file://{resources}/styles/custom_game/util.css" />
+       <include src="file://{resources}/styles/custom_game/tws_spell_shop_ui.css" />
+       <include src="file://{resources}/styles/custom_game/tws_particle_panel.css" />
+    </styles>
+
+    <scripts>
+        <include src="file://{resources}/scripts/custom_game/util.js" />
+        <include src="file://{resources}/scripts/custom_game/tws_particle_panel_trigger_button.js" />
+    </scripts>
+    <Panel hittest="false" class="TriggerButtonPanelHud">
+       <Panel class="ParticleTriggerButtonPanel" id="ParticleTriggerButtonPanel">
+          <Button id="ParticleTriggerButton"  onactivate="ShowParticleBlock()">
+          </Button>
+        </Panel>
+    </Panel>
+</root>

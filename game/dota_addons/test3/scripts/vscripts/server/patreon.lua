@@ -7,13 +7,13 @@ require('vip/vip_reward')
 local server_address="http://54.68.31.237:8005/"
 
 
-rewardLevelTable={ [1557280]=1 }   --Reward与Vip等级的关系
+rewardLevelTable={ [1557280]=2 }   --Reward与Vip等级的关系
   
 
 function Patreon:GetPatrons(emailCode,steamID,nPlayerID)
     local patreonRequest = CreateHTTPRequestScriptVM("GET", "https://api.patreon.com/oauth2/api/campaigns/824833/pledges")
-    patreonRequest:SetHTTPRequestHeaderValue("Authorization","Bearer 8azTLCGtrlvrHWEh33prX4rPsermJM")
-    print("steamID"..steamID)
+    patreonRequest:SetHTTPRequestHeaderValue("Authorization","Bearer Zutt4TQWsM0b7FtzxqhDHRgR2wHM81")
+    --print("steamID"..steamID)
     patreonRequest:Send(function(result)
         if result.StatusCode == 200 then
             print("Server return success");
@@ -52,7 +52,8 @@ function Patreon:GetPatrons(emailCode,steamID,nPlayerID)
                                        Notifications:BottomToAll({text = playerName.." ", duration = 5, continue = true})
                                        Notifications:BottomToAll({text = "#patreon_thank_note_2", duration = 5, style = {color = "Orange"}, continue = true})     
                                        GrantExtraLife()  --给与队伍额外生命
-                                       
+                                       local keys={playerId=nPlayerID,vipLevel=rewardLevel}  --传回的是等级                
+                                       CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(nPlayerID),"NotifyVip", keys) --将VIP等级告知前台                                      
                                     end
                                 else
                                     print("Server return", result.StatusCode, result.Body);

@@ -9,6 +9,7 @@ function rearm_start( keys )
 	local abilityLevel = ability:GetLevel()
 	caster:RemoveModifierByName("modifier_slark_shadow_dance")
     caster:RemoveModifierByName("modifier_abaddon_borrowed_time")
+    caster:RemoveModifierByName("modifier_oracle_false_promise_timer")
 	ability:ApplyDataDrivenModifier( caster, caster, "modifier_rearm_level_" .. abilityLevel .. "_datadriven", {} )
 end
 
@@ -29,7 +30,7 @@ function rearm_refresh_cooldown( keys )
     ability_exempt_table["arc_warden_tempest_double"]=true
     ability_exempt_table["juggernaut_healing_ward"]=true
     ability_exempt_table["dark_seer_wall_of_replica_nb2017"]=true
-    ability_exempt_table["slark_shadow_dance"]=true
+    --ability_exempt_table["slark_shadow_dance"]=true
 	for i = 0, caster:GetAbilityCount() - 1 do
 		local ability = caster:GetAbilityByIndex( i )
 		if ability and ability ~= keys.ability and not ability_exempt_table[ability:GetAbilityName()]then

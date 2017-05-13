@@ -18,6 +18,47 @@ var currnet_player_number=null;
 function ShowPage(data)
 {
     ShowRankPanel(data.player_number,data.page_number,data.table);  //数据到达，更新下一页数据
+    if (data.page_number==1)   //遍历第一页数据，记录本地玩家是第几名
+    {
+        var CustomUIContainer_Hud= $('#Title').GetParent().GetParent().GetParent().GetParent().GetParent().GetParent().FindChild('CustomUIContainer_Hud');
+        var particlePanelHub=CustomUIContainer_Hud.FindChild('ParticlePanelHub');
+
+
+        var rank
+        var playerSteamId = Game.GetLocalPlayerInfo().player_steamid;     //玩家Steam ID
+        playerSteamId=convertToSteamId32(playerSteamId)
+
+        //$.Msg("playerId"+playerSteamId)
+
+        for (var i=1; i<=150;i++){
+          if (typeof(data.table)!="undefined"&&data.table.hasOwnProperty(i))
+          {
+             var data_line=data.table[i];
+             var player_ids = data_line["player_steam_ids"].split(';');
+              if (rank!=null)
+             {
+                break;
+             }
+              for (var j in player_ids)
+             {
+                  //$.Msg("j"+player_ids[j])
+                 if ( playerSteamId.toString() ==player_ids[j].toString() )
+                 {                 
+                   rank=i;  
+                 }
+                 if (rank!=null)
+                 {
+                    break;
+                 }
+             }
+          }
+        }
+        if (rank!=null&&( !particlePanelHub.hasOwnProperty("rank") || particlePanelHub.rank==null || particlePanelHub.rank>rank))
+        {
+           particlePanelHub.rank=rank  //记录玩家最好成绩
+           //$.Msg("new Rank"+particlePanelHub.rank)
+        }
+    }
     //$.Msg("player_number: "+  data.player_number+ "page_number:"+data.page_number);
     //$.Msg(data.table);
 }
@@ -144,11 +185,16 @@ function ShowRankPanel(player_number,page_number,page_table)
   }
 }
 
-function ConvertToSteamid64(steamid32)
+function ConvertToSteamid64(steamid32)  //32位转64位
 {
 	var steamid64 = '765' + (parseInt(steamid32) + 61197960265728).toString();
 	return steamid64;
 }
+
+function convertToSteamId32(steamid64) {   //64位转32位
+    return steamid64.substr(3) - 61197960265728;
+}
+
 
 
 function FormatSeconds(value) {
@@ -177,4 +223,5 @@ function FormatSeconds(value) {
 (function()
 {
    GameEvents.Subscribe( "show_page", ShowPage )
+
 })();

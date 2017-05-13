@@ -215,7 +215,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"bonus_reset_time"				"8"
+				"bonus_reset_time"				"9"
 			}
 			"02"
 			{
@@ -225,15 +225,14 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage_per_stack"				"8 11 14 17"
+				"damage_per_stack"				"10 13 17 20"
 				"LinkedSpecialBonus"			"special_bonus_unique_ursa"
 			}
 		}
 	}	
 
     "enchantress_untouchable"
-	{
-			
+	{			
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -292,7 +291,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"hp_leech_percent"	    "0.2 0.4 0.8 1.0"
+				"hp_leech_percent"	    "0.2 0.4 0.6 0.8"
 			}
 		}
 	}
@@ -381,7 +380,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"damage_percent"	        "0.3 0.7 1.1 1.5"
+				"damage_percent"	        "0.25 0.5 0.75 1.0"
 			}
 			"03"
 			{
@@ -414,7 +413,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"damage_health_pct"			"0.5 1.0 1.5 2.0"
+				"damage_health_pct"			"0.6 0.9 1.2 1.5"
 				"LinkedSpecialBonus"		"special_bonus_unique_zeus"
 			}
 		}
@@ -442,6 +441,10 @@
 
    "shadow_shaman_mass_serpent_ward"
 	{
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"LevelsBetweenUpgrades"			"15"
+		"MaxLevel"                      "3"
+
 		"AbilitySpecial"
 		{
 			"01"
@@ -472,6 +475,7 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
+
 		"AbilitySpecial"
 		{
 			"01"
@@ -666,7 +670,7 @@
 			"09"
 			{
 				"var_type"					    "FIELD_INTEGER"
-				"bonus_cleave_damage_scepter"	"5 10 15"
+				"bonus_cleave_damage_scepter"	"10 15 20"
 			}
 			"10"
 			{
@@ -1277,7 +1281,7 @@
 			"07"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_pct"				"5 7 10"
+				"damage_pct"				"6 9 12"
 			}
 			"08"
 			{
@@ -1328,7 +1332,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"percent_damage"		"2.0"
+				"percent_damage"		"0.8"
 			}
 			"04"
 			{
@@ -1384,7 +1388,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"burn_damage_pct"		"0.25 0.5 0.75 1.0"
+				"burn_damage_pct"		"0.2 0.4 0.6 0.8"
 			}
 			"03"
 			{
@@ -1416,7 +1420,7 @@
 			"03"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_perc_damage"		"0.25 0.5 0.75 1.0"
+				"hp_perc_damage"		"0.5 0.75 1.0 1.25"
 			}
 			"04"
 			{
@@ -1569,7 +1573,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"8 12 16 20"
+				"bonus_damage"				"6 9 12 15"
 			}
 			"04"
 			{
@@ -1642,6 +1646,40 @@
 			}
 		}
 	}
+    "item_flying_courier"
+	{
 
+		"ItemStockInitial"				"1"
+		"ItemStockTime"					"270.0"
+	}
+    
+
+    "courier_burst"
+	{
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"90 78 66 54 42 30 18 6"
+		"MaxLevel"		                "8"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		    "FIELD_FLOAT"
+				"duration"	    	"4.0"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movement_speed"	"800"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_absorb"  	"250"
+			}
+		}	
+	}
 
 }  //主括号

@@ -59,6 +59,9 @@ var noReturnAbility = {    //不退回升级点数的技能
 
 var maxAbilitySlotNo=6;  //最大的技能个数
 
+
+var freeToSellAbility=false;
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -401,6 +404,58 @@ function UpdateAttributeButtons()
      attrbutton.GetChild(1).text=GetAttributeBonusLevel(playerId);  //设置黄点技能与卖黄点技能两个按钮状态
 }
 
+function UpdateCourierButtons()
+{
+
+    var fortitudeButton= $("#FortitudeButton");
+    var burstButton= $("#BurstButton");
+    var shieldButton= $("#ShieldButton");
+    var blinkButton= $("#BlinkButton");
+    var hookButton= $("#HookButton");
+    var sellItemsButton= $("#SellItemsButton");
+    var synButton= $("#SynButton");
+
+    var playerId = Game.GetLocalPlayerInfo().player_id; 
+
+    if (!AbilityPointEnough(1,playerId))
+    {
+       fortitudeButton.SetHasClass( "notEnoughDark", true );
+       fortitudeButton.enough=0;
+       burstButton.SetHasClass( "notEnoughDark", true );
+       burstButton.enough=0;
+       shieldButton.SetHasClass( "notEnoughDark", true );
+       shieldButton.enough=0;
+       blinkButton.SetHasClass( "notEnoughDark", true );
+       blinkButton.enough=0;
+       hookButton.SetHasClass( "notEnoughDark", true );
+       hookButton.enough=0;
+       sellItemsButton.SetHasClass( "notEnoughDark", true );
+       sellItemsButton.enough=0;
+       synButton.SetHasClass( "notEnoughDark", true );
+       synButton.enough=0;
+    }
+    else
+    {
+       fortitudeButton.SetHasClass( "notEnoughDark", false );
+       fortitudeButton.enough=1;
+       burstButton.SetHasClass( "notEnoughDark", false );
+       burstButton.enough=1;
+       shieldButton.SetHasClass( "notEnoughDark", false );
+       shieldButton.enough=1;
+       blinkButton.SetHasClass( "notEnoughDark", false );
+       blinkButton.enough=1;
+       hookButton.SetHasClass( "notEnoughDark", false );
+       hookButton.enough=1;
+       sellItemsButton.SetHasClass( "notEnoughDark", false );
+       sellItemsButton.enough=1;
+       synButton.SetHasClass( "notEnoughDark", false );
+       synButton.enough=1;
+    }
+
+}
+
+
+
 
 function GetAbilityCost (abilityName)
 {
@@ -586,7 +641,18 @@ function ResetSellAbilityList(abilityName,sellCostLabel,abPanel,playerId)
         }         
     	var pointsReturn=abilityCost+abilityLevel-1;
     	var sellCost=Players.GetLevel(playerId)*pointsReturn*30;
-        sellCostLabel.text="-"+sellCost;
+    	if (freeToSellAbility)
+    	{
+    		sellCostLabel.text="0";
+    		sellCostLabel.SetHasClass( "lableGreen", true );
+    		sellCostLabel.SetHasClass( "lableYellow", false );
+    	}
+    	else
+    	{
+    		sellCostLabel.text="-"+sellCost;
+    		sellCostLabel.SetHasClass( "lableGreen", false );
+    		sellCostLabel.SetHasClass( "lableYellow", true );
+    	}
     	abPanel.data.abilityCost=abilityCost;
     	var str= abilityName.substring(0, 4);  //专属技能与不能卖的技能
 		if (str=="self" || unsellableAbility[abilityName]==true)
@@ -599,7 +665,7 @@ function ResetSellAbilityList(abilityName,sellCostLabel,abPanel,playerId)
            abPanel.GetParent().enabled=true;
            sellCostLabel.SetHasClass( "hidden", false );
 		}
-        if (Players.GetGold(playerId)<sellCost)
+        if (Players.GetGold(playerId)<sellCost && !freeToSellAbility) //卖技能不免费
         {
             abPanel.SetHasClass( "notEnoughDark", true );
         }
@@ -618,7 +684,9 @@ function ChangeToBuyPanel(isButtonEvent)
     sellPanel.SetHasClass( "hidden", true );
     var attrPanel= $("#attrPanel")
     attrPanel.SetHasClass( "hidden", true);
-
+    var courierPanel= $("#courierPanel")
+    courierPanel.SetHasClass( "hidden", true );
+    
     if (isButtonEvent) 
     {
        Game.EmitSound("ui.switchview");
@@ -636,6 +704,10 @@ function ChangeToSellPanel()
     sellPanel.SetHasClass( "hidden", false );
     var  playerId = Game.GetLocalPlayerInfo().player_id;
     PlayerAbilityListUpdate(playerId);
+     
+    var courierPanel= $("#courierPanel")
+    courierPanel.SetHasClass( "hidden", true );
+
     Game.EmitSound("ui.switchview");
 }
 
@@ -649,9 +721,50 @@ function ChangeToAttrPanel()
     sellPanel.SetHasClass( "hidden", true );
     var attrPanel= $("#attrPanel")
     attrPanel.SetHasClass( "hidden", false );
+    var courierPanel= $("#courierPanel")
+    courierPanel.SetHasClass( "hidden", true );
     Game.EmitSound("ui.switchview");
     UpdateAttributeButtons()
 }
+
+
+function ChangeToCourierPanel()
+{
+    var buyPanel= $("#buyPanel")
+    buyPanel.SetHasClass( "hidden", true);
+    var sellPanel= $("#sellPanel")
+    sellPanel.SetHasClass( "hidden", true );
+    var attrPanel= $("#attrPanel")
+    attrPanel.SetHasClass( "hidden", true );
+    var attrPanel= $("#attrPanel")
+    attrPanel.SetHasClass( "hidden", true );
+    var courierPanel= $("#courierPanel")
+    courierPanel.SetHasClass( "hidden", false );
+    Game.EmitSound("ui.switchview");
+     
+    var cmWrapper=$("#cmWrapper");
+    var particlePanelHub=cmWrapper.GetParent().GetParent().GetParent().FindChild("ParticlePanelHub");
+    if (particlePanelHub.hasOwnProperty("vipLevel")&&particlePanelHub.vipLevel!=null)
+    {
+        if  (particlePanelHub.vipLevel>=1)  //vip等级大于1 可以选后面的技能
+        {
+             var shieldButton= $("#ShieldButton")
+		   	 shieldButton.enabled=true;
+			 var blinkButton= $("#BlinkButton")
+			 blinkButton.enabled=true;
+			 var hookButton= $("#HookButton")
+			 hookButton.enabled=true;
+			 var sellItemsButton= $("#SellItemsButton")
+			 sellItemsButton.enabled=true;
+			 var synButton= $("#SynButton")
+			 synButton.enabled=true;
+        }                      
+    }
+    UpdateCourierButtons();
+
+}
+
+
 
 
 
@@ -687,8 +800,8 @@ var AddAbility = ( function(abPanel )
 		if (abPanel.data.enough)
 		{
 			abPanel.GetParent().enabled=false;
-			$.Msg("GetPlayerAbilityNumber(abPanel.data.playerId)"+GetPlayerAbilityNumber(abPanel.data.playerId))
-			$.Msg("maxAbilitySlotNo"+maxAbilitySlotNo)
+			//$.Msg("GetPlayerAbilityNumber(abPanel.data.playerId)"+GetPlayerAbilityNumber(abPanel.data.playerId))
+			//$.Msg("maxAbilitySlotNo"+maxAbilitySlotNo)
 			if (GetPlayerAbilityNumber(abPanel.data.playerId)==maxAbilitySlotNo-1) //如果即将到达最大技能数目
 			{			
 				SetAllAbilityUnabled(abPanel);
@@ -724,6 +837,64 @@ function  pointToGoldButton ()
    pointToGoldButton.enough=0;  //发完以后立即锁死 等待LUA回传结果 再判断是否解锁 
 }
 
+
+function  grantCourierAbility (key)   //赋予英雄信使物品
+{
+   if (key==1)
+   {
+       var fortitudeButton= $("#FortitudeButton")
+       var playerId = Game.GetLocalPlayerInfo().player_id; 
+       GameEvents.SendCustomGameEventToServer( "GrantCourierAbility",  {playerId: playerId, item:"item_courier_fortitude",enough:fortitudeButton.enough } );
+       fortitudeButton.enough=0;
+   }
+   if (key==2)
+   {
+       var burstButton= $("#BurstButton")
+       var playerId = Game.GetLocalPlayerInfo().player_id; 
+       GameEvents.SendCustomGameEventToServer( "GrantCourierAbility",  {playerId: playerId, item:"item_courier_burst",enough:burstButton.enough } );
+       burstButton.enough=0;
+   }
+   if (key==3)
+   {
+       var shieldButton= $("#ShieldButton")
+       var playerId = Game.GetLocalPlayerInfo().player_id; 
+       GameEvents.SendCustomGameEventToServer( "GrantCourierAbility",  {playerId: playerId, item:"item_courier_shield",enough:shieldButton.enough } );
+       shieldButton.enough=0;
+   }
+   if (key==4)
+   {
+       var blinkButton= $("#BlinkButton")
+       var playerId = Game.GetLocalPlayerInfo().player_id; 
+       GameEvents.SendCustomGameEventToServer( "GrantCourierAbility",  {playerId: playerId, item:"item_courier_blink",enough:blinkButton.enough } );
+       blinkButton.enough=0;
+   }
+   if (key==5)
+   {
+       var hookButton= $("#HookButton")
+       var playerId = Game.GetLocalPlayerInfo().player_id; 
+       GameEvents.SendCustomGameEventToServer( "GrantCourierAbility",  {playerId: playerId, item:"item_courier_hook",enough:hookButton.enough } );
+       hookButton.enough=0;
+   }
+   if (key==6)
+   {
+       var sellItemsButton= $("#SellItemsButton")
+       var playerId = Game.GetLocalPlayerInfo().player_id; 
+       GameEvents.SendCustomGameEventToServer( "GrantCourierAbility",  {playerId: playerId, item:"item_courier_sell_items",enough:sellItemsButton.enough } );
+       sellItemsButton.enough=0;
+   }
+   if (key==7)
+   {
+       var synButton= $("#SynButton")
+       var playerId = Game.GetLocalPlayerInfo().player_id; 
+       GameEvents.SendCustomGameEventToServer( "GrantCourierAbility",  {playerId: playerId, item:"item_courier_syn",enough:synButton.enough } );
+       synButton.enough=0;
+   }
+}
+
+
+
+
+
 function UpdateAbilityList(keys)
 {
 	var isButtonEvent=true;
@@ -736,8 +907,9 @@ function UpdateAbilityList(keys)
 	{   
 		maxAbilitySlotNo=keys.maxSlotNumber  //更新最大技能数目
 	}
-	Hero_Ability_List_Update(keys.heroName,keys.playerId,isButtonEvent);    //技能更新完毕，Lua通知UI更新英雄技能列表
+	Hero_Ability_List_Update(keys.heroName,keys.playerId,isButtonEvent);    //技能更新完毕，Lua通知UI更新可选技能列表
 	UpdateAttributeButtons();
+	UpdateCourierButtons();
 }
 
 
@@ -746,6 +918,18 @@ function UpdatePlayerAbilityList(keys)
 	PlayerAbilityListUpdate(keys.playerId);    //技能更新完毕，Lua通知UI更新英雄技能列表
 }
 
+function UpdateFreeToSell(keys)
+{
+	if (keys.free==true)
+	{
+        freeToSellAbility=true; //卖技能不要钱
+	}
+	if (keys.free==false)
+	{
+        freeToSellAbility=false; //卖技能要钱
+	}
+	PlayerAbilityListUpdate(keys.playerId);
+}
 
 
 function HideMainBlock()
@@ -766,6 +950,47 @@ function InitTooltips()
     pointToGoldButton.SetPanelEvent( "onmouseover", ShowAbilityTooltip( pointToGoldButton ) );
     pointToGoldButton.SetPanelEvent( "onmouseout", HideAbilityTooltip( pointToGoldButton ) );
 
+    var fortitudeButton= $("#FortitudeButton")
+    fortitudeButton.abilityname="courier_fortitude_datadriven";
+    fortitudeButton.SetPanelEvent( "onmouseover", ShowAbilityTooltip( fortitudeButton ) );
+    fortitudeButton.SetPanelEvent( "onmouseout", HideAbilityTooltip( fortitudeButton ) );
+
+    var burstButton= $("#BurstButton")
+    burstButton.abilityname="courier_burst";
+    burstButton.SetPanelEvent( "onmouseover", ShowAbilityTooltip( burstButton ) );
+    burstButton.SetPanelEvent( "onmouseout", HideAbilityTooltip( burstButton ) );
+
+    var shieldButton= $("#ShieldButton")
+    shieldButton.abilityname="courier_shield_datadriven";
+    shieldButton.SetPanelEvent( "onmouseover", ShowAbilityTooltip( shieldButton ) );
+    shieldButton.SetPanelEvent( "onmouseout", HideAbilityTooltip( shieldButton ) );
+    shieldButton.enabled=false;
+
+    var blinkButton= $("#BlinkButton")
+    blinkButton.abilityname="courier_blink_datadriven";
+    blinkButton.SetPanelEvent( "onmouseover", ShowAbilityTooltip( blinkButton ) );
+    blinkButton.SetPanelEvent( "onmouseout", HideAbilityTooltip( blinkButton ) );
+    blinkButton.enabled=false; 
+
+    var hookButton= $("#HookButton")
+    hookButton.abilityname="courier_hook_datadriven";
+    hookButton.SetPanelEvent( "onmouseover", ShowAbilityTooltip( hookButton ) );
+    hookButton.SetPanelEvent( "onmouseout", HideAbilityTooltip( hookButton ) );
+    hookButton.enabled=false; 
+
+    var sellItemsButton= $("#SellItemsButton")
+    sellItemsButton.abilityname="courier_sell_items_datadriven";
+    sellItemsButton.SetPanelEvent( "onmouseover", ShowAbilityTooltip( sellItemsButton ) );
+    sellItemsButton.SetPanelEvent( "onmouseout", HideAbilityTooltip( sellItemsButton ) );
+    sellItemsButton.enabled=false; 
+
+    var synButton= $("#SynButton")
+    synButton.abilityname="courier_syn_datadriven";
+    synButton.SetPanelEvent( "onmouseover", ShowAbilityTooltip( synButton ) );
+    synButton.SetPanelEvent( "onmouseout", HideAbilityTooltip( synButton ) );
+    synButton.enabled=false;
+
+
 }
 
 
@@ -776,6 +1001,7 @@ function InitTooltips()
 	HideMainBlock();
 	GameEvents.Subscribe( "UpdateAbilityList", UpdateAbilityList );
 	GameEvents.Subscribe( "UpdatePlayerAbilityList", UpdatePlayerAbilityList );
+	GameEvents.Subscribe( "UpdateFreeToSell", UpdateFreeToSell );
     InitTooltips();
 
 })();

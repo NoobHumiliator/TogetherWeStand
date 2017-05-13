@@ -532,3 +532,16 @@ function SetTimer( cmdName, time )
     print( "Set the timer to: " .. time )
     nCOUNTDOWNTIMER = time
 end
+
+
+
+function RemoveModifierOneStack(hUnit,szModifierName,hAbility)
+   if hUnit then
+        local stack_count = hUnit:GetModifierStackCount(szModifierName, hAbility)
+        if stack_count <= 1 then
+            hUnit:RemoveModifierByName(szModifierName)
+        else
+            hUnit:SetModifierStackCount(szModifierName, hAbility, stack_count - 1)
+        end
+   end
+end

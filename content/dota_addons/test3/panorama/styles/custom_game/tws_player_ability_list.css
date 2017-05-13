@@ -86,10 +86,19 @@ Button:enabled DOTAAbilityImage:active
     vertical-align: bottom;
     text-align:left;
     horizontal-align: left;
-    font-size: 17;
     width: 100%;
     height: 25%;
-    color: #FFFF00;
     font-family: Radiance;
 }
 
+.lableYellow {
+    font-size: 17;
+    color: #FFFF00;
+}
+
+
+.lableGreen
+{
+   font-size: 22;
+   color: #C0FF3E;
+}
