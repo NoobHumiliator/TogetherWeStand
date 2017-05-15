@@ -29,8 +29,26 @@ function InitVipReward()
             end
 	    end
     end
+    NotifyVipToClient()
     if sound_flag then  --播放只要有一个vip在，播放vip的声音
     	EmitGlobalSound("SOTA.FlagCaptureGood")
+    end
+
+end
+
+
+
+
+function NotifyVipToClient()  --将VIP等级告知前台
+    
+    local vipMap=GameRules:GetGameModeEntity().CHoldoutGameMode.vipMap
+    local steamIdMap=GameRules:GetGameModeEntity().CHoldoutGameMode.steamIdMap
+
+    for k,v in pairs(vipMap) do
+        local playerId=steamIdMap[tonumber(k)]
+        local keys={playerId=playerId,vipLevel=v}                  
+        --PrintTable(keys)
+        CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerId),"NotifyVip", keys) --将VIP等级告知前台
     end
 
 end

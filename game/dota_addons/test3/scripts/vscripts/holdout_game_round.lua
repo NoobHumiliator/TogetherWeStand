@@ -401,8 +401,6 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
 		})    
 	end
 	if self._alias=="morphing" then
-		GameRules:GetGameModeEntity():SetFogOfWarDisabled( true )
-		GameRules:SendCustomMessage("#waterblowfog", 0, 0)
 		QuestSystem:RefreshAchQuest("Achievement",0,5)
 		self.achievement_flag=false
 		local maxReaperNumber=0
@@ -438,7 +436,6 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
 			})    
 	end
 	if self._alias=="rattletrap" then
-		GameRules:GetGameModeEntity():SetFogOfWarDisabled( false )
 		PrecacheUnitByNameAsync('npc_maze_wall', function() end)
 		PrecacheUnitByNameAsync('bomber_bomb', function() end)
 		PrecacheUnitByNameAsync('stasis_trap', function() end)
@@ -455,7 +452,6 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
         PrecacheUnitByNameAsync('npc_dota_tiny_3',function() end)
         PrecacheUnitByNameAsync('npc_dota_tiny_4',function() end)
         PrecacheUnitByNameAsync('npc_dota_tiny_5',function() end)
-		GameRules:GetGameModeEntity():SetFogOfWarDisabled( false )
 		local  wp = Entities:FindByName( nil, "waypoint_tiny1" )
 		local entUnit = CreateUnitByName( "npc_dota_tiny_1", wp:GetOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS)
 	end	
@@ -528,6 +524,9 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
 			PrecacheUnitByNameAsync('npc_dota_hero_nyx_assassin', function() end)
 			alreadyCached["npc_dota_hero_nyx_assassin"]=true
 		end
+	end
+	if self._alias=="faceless"  then   --如果是无面者，加上黑暗信标
+		self._environmentcontroller:ApplyBeaconModifier()
 	end
 end
 
@@ -631,8 +630,8 @@ function CHoldoutGameRound:OnEntityKilled( event )
 		return
 	end
     if killedUnit:GetUnitName()=="npc_dota_creature_broodking" then
-    	  GameRules:SendCustomMessage("#spiderqueendie", 0, 0)
-          GameRules:GetGameModeEntity():SetFogOfWarDisabled( true )
+    	  --GameRules:SendCustomMessage("#spiderqueendie", 0, 0)
+          --GameRules:GetGameModeEntity():SetFogOfWarDisabled( true )
     end
 	for i, unit in pairs( self._vEnemiesRemaining ) do
 		if killedUnit == unit then

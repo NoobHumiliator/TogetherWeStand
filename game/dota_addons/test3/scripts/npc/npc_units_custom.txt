@@ -13171,7 +13171,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"9000000"		// Base health.
+		"StatusHealth"				"8000000"		// Base health.
 		"StatusHealthRegen"			"20.0"		// Health regeneration rate.
 		"StatusMana"				"5000"			// Base mana.
 		"StatusManaRegen"			"150"			// Mana regeneration rate.
@@ -13224,5 +13224,122 @@
 			}	
 		}
 	}
+     
+    "npc_dota_faceless_monster"
+	{
+		// General
+		//
+		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
+		"Model"						"models/heroes/faceless_void/faceless_void.vmdl"	// Model.
+	    "ModelScale"			    "1"
+		"Level"						"26"
+
+		"ConsideredHero"			"1"
+	    "CanBeDominated"			"0"
+	    "IsAncient"					"0"
+		
+		"MinimapIcon"				"minimap_ancient"
+		"MinimapIconSize"			"200"
+		
+		"SoundSet"		            "Hero_Winter_Wyvern"
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_faceless_void.vsndevts"
+		"VoiceFile"				    "soundevents/voscripts/game_sounds_vo_faceless_void.vsndevts"
+
+		// Inventory
+		//----------------------------------------------------------------
+		"HasInventory"				"1"
+		
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"			    "4"
+		"Ability1"					"faceless_undie"   // Ability 1.
+		"Ability2"					"faceless_shadow_beacon" // Ability 2.
+		"Ability3"					""			    // Ability 3.
+		"Ability4"					""			    // Ability 4.
+        "Ability5"				    ""			// Ability 4.
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"40"			// Physical protection.
+		"MagicalResistance"			"25"		    // Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"	    "DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"152"		// Damage range min.
+		"AttackDamageMax"			"168"		// Damage range max.
+		"AttackRate"				"1.25"		// Speed of attack.
+		"AttackAnimationPoint"	    "0.2"		// Normalized time in animation cycle to attack.
+		"AttackRange"				"150"		// Range within a target can be attacked.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"				    "0"		// Experience earn.
+		"BountyGoldMin"				"150"		// Gold earned min.
+		"BountyGoldMax"				"150"		// Gold earned max.
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"300"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"	
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"	    "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"200"		// Speed
+		"MovementTurnRate"			"0.4"		// Turning rate.
+
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1000000"		// Base health.
+		"StatusHealthRegen"			"20.0"		// Health regeneration rate.
+		"StatusMana"				"5000"			// Base mana.
+		"StatusManaRegen"			"150"			// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
+
+        "vscripts"					"creature_ai/faceless_monster_ai.lua"
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"		
+			"DisableResistance"			"90"
+	        "AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"5861"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"5868"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"5896"
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"5897"
+				}
+				"Wearable5"
+				{
+					"ItemDef"			"5898"
+				}
+			}	
+		}
+	}
+
+
 
 }  //主括号

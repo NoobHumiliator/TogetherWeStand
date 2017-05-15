@@ -4391,7 +4391,7 @@
 		"MaxGold"					"0"  //金币在金币泉技能里面
 		"BagCount"					"0"
 		"BagVariance"				"0"
-		"FixedXP"					"8000"
+		"FixedXP"					"8500"
 		"alias"                     "lion"
 		"type"                      "boss"
 		"Unit1"
@@ -4399,6 +4399,51 @@
 			"NPCName"				"npc_dota_boss_lion"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"		
+		}
+	}
+	"Round25"
+	{
+		"round_title"				"#DOTA_Holdout_Round_Faceless_Title"
+		"MaxGold"					"0"  //金币在金币泉技能里面
+		"BagCount"					"0"
+		"BagVariance"				"0"
+		"FixedXP"					"8000"
+		"alias"                     "faceless"
+		"Unit1"
+		{
+			"NPCName"				"npc_dota_faceless_monster"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"2"		
+		}
+		"Unit2"
+		{
+			"NPCName"				"npc_dota_faceless_monster"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"2"		
+		}
+		"Unit3"
+		{
+			"NPCName"				"npc_dota_faceless_monster"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"2"		
+		}
+		"Unit4"
+		{
+			"NPCName"				"npc_dota_faceless_monster"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"2"		
+		}
+		"Unit5"
+		{
+			"NPCName"				"npc_dota_faceless_monster"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"2"		
+		}
+		"Unit6"
+		{
+			"NPCName"				"npc_dota_faceless_monster"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"2"		
 		}
 	}
 }

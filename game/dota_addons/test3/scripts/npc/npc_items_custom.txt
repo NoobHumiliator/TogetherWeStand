@@ -5796,7 +5796,7 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%bonus_armor"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"			"%bonus_int"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"			        "%bonus_health"
-					"MODIFIER_PROPERTY_PREATTACK_BONUSDAMAGE"			"%bonus_damage"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
 				}
 			}
 			"modifier_item_redblade_armor_invulnerable"
@@ -5944,7 +5944,7 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%bonus_armor"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"			"%bonus_int"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"			        "%bonus_health"
-					"MODIFIER_PROPERTY_PREATTACK_BONUSDAMAGE"			"%bonus_damage"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		     	"%bonus_agi"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		    "%bonus_str"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		    "%bonus_health_regen"
@@ -6083,7 +6083,7 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%bonus_armor"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"			"%bonus_int"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"			        "%bonus_health"
-					"MODIFIER_PROPERTY_PREATTACK_BONUSDAMAGE"			"%bonus_damage"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		     	"%bonus_agi"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		    "%bonus_str"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		    "%bonus_health_regen"

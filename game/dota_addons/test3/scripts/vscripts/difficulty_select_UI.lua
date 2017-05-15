@@ -56,7 +56,8 @@ function CHoldoutGameMode:SetBaseDifficulty()  --设定四种基本难度
 	local max = math.max(difficulty.easy,difficulty.normal,difficulty.hard,difficulty.trial)
     
     if GameRules:IsCheatMode() then 
-      Notifications:BottomToAll({text="#cheat_mode_warning", duration=10, style={color="Red"}})
+      Notifications:BottomToAll({text="#cheat_mode_warning_1", duration=10, style={color="Red"}})
+      Notifications:BottomToAll({text="#cheat_mode_warning_2", duration=10, style={color="Red"}})
     end
 
 	if max == difficulty.normal then

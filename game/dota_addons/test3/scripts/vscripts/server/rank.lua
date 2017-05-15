@@ -30,7 +30,7 @@ function Rank:GetRankDataFromServer(nPlayerNumber)
         local request = CreateHTTPRequestScriptVM("GET", server_address .. "getrankdata")
         request:SetHTTPRequestGetOrPostParameter("player_number",player_number);
         request:Send(function(result)
-            print("Rank data arrived: "..result.Body)
+            --print("Rank data arrived: "..result.Body)
             if result.StatusCode == 200 then
                 local result_table = JSON:decode(result.Body);
                 --PrintTable(result_table,nil,nil)

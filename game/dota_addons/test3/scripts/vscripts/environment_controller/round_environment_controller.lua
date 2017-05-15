@@ -54,3 +54,39 @@ function EnvironmentController:SpawnLightBall()
 			end
 			})
 end
+
+
+
+
+function EnvironmentController:ApplyBeaconModifier()  --随机选取一个无面者加暗影信标
+
+    Timers:CreateTimer({
+		endTime = 25,
+		callback = function()
+        
+        --print("wfffds")
+        local units= FindUnitsInRadius(DOTA_TEAM_BADGUYS,Vector(0,0,0), nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY,DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+		local faceless_monsters={}
+		for _,unit in pairs(units) do
+			 if unit:GetUnitName()=="npc_dota_faceless_monster" then 
+			 	table.insert(faceless_monsters,unit)
+			 end
+		end
+        --print("#faceless_monsters"..#faceless_monsters)
+        if #faceless_monsters>1 then
+            local i=RandomInt(1,#faceless_monsters)
+            local monster=faceless_monsters[i]
+            local ability=monster:FindAbilityByName("faceless_shadow_beacon")
+            ability:ApplyDataDrivenModifier(monster,monster,"modifier_shadow_beacon", {duration = 5})            
+            monster:EmitSound("Hero_Dazzle.Shallow_Grave")
+        end
+       
+        if CHoldoutGameMode._currentRound==nil or  CHoldoutGameMode._currentRound._alias ~="faceless"  then
+		       return nil
+		   else
+		       return 10	       
+		   end
+		end
+
+     })
+end

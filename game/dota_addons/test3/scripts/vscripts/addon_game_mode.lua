@@ -14,7 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
-testMode=true --减少刷兵间隔，增加初始金钱
+--testMode=true --减少刷兵间隔，增加初始金钱
 
 require( "holdout_game_round" )
 require( "holdout_game_spawner" )
@@ -105,7 +105,6 @@ function CHoldoutGameMode:InitGameMode()
 	self.nTrialSetTime=12
 	self.vipMap={}  --key是steamID vlaue是vip等级初始化是0
 	self.steamIdMap={}  --key是steamID vlaue是nPlayerNumber
-    
 
 
 	GameRules:SetTimeOfDay( 0.75 )
@@ -187,6 +186,8 @@ function CHoldoutGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetDamageFilter(Dynamic_Wrap(CHoldoutGameMode, "DamageFilter"), self)
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CHoldoutGameMode, "OrderFilter"), self)
 	GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(CHoldoutGameMode, "ModifyGoldFilter"), self)
+	GameRules:GetGameModeEntity():SetModifierGainedFilter(Dynamic_Wrap(CHoldoutGameMode, "ModifierGainedFilter"), self)
+
 	GameRules:GetGameModeEntity():SetLoseGoldOnDeath(false) --死亡不扣除金钱
 	GameRules:GetGameModeEntity():SetContextThink( "globalthink0",function() return self:OnThink() end , 1.0)
 	--self._vHeroList={}
@@ -319,7 +320,7 @@ function CHoldoutGameMode:OnPlayerSay(keys)
     if string.match(text,"%w%w%w%w%-%w%w%w%w%-%w%w%w%w%-%w%w%w%w")~=nil then  --如果为淘宝Code
         Taobao:RegisterVip(text,steamID,nPlayerID)
     end
-    if string.match(text,"^[r|R][o|O][u|U][n|N][d|D]%d+")~=nil and GameRules:IsCheatMode() then  --如果为跳关码
+    if string.match(text,"^%-[r|R][o|O][u|U][n|N][d|D]%d+")~=nil and GameRules:IsCheatMode() then  --如果为跳关码
         local round= string.match(text,"%d+")
         print("round"..round)
         self:TestRound(round,nil)
@@ -397,20 +398,25 @@ function CHoldoutGameMode:OnGameRulesStateChange()
 		for i=1,5 do  
 			Rank:GetRankDataFromServer(i) --从服务器获取天梯数据
 		end
-		self:GetVipDataFromServer() --从服务器读取vip数据
+		--self:GetVipDataFromServer() --从服务器读取vip数据
 	end
 
 	if nNewState ==  DOTA_GAMERULES_STATE_HERO_SELECTION then
 		PrecacheUnitByNameAsync('npc_precache_always', function() end) 
 		ShowGenericPopup( "#holdout_instructions_title", "#holdout_instructions_body", "", "", DOTA_SHOWGENERICPOPUP_TINT_SCREEN )
+		self:GetVipDataFromServer() --从服务器读取vip数据
 	end
-    
-    
+    if nNewState ==  DOTA_GAMERULES_STATE_PRE_GAME then	
+	   Timers:CreateTimer({
+	    endTime = 3,
+	    callback = function()
+	      InitVipReward()  --进入游戏三秒 初始化VIP奖励
+	    end})	
+	end
 	if nNewState ==  DOTA_GAMERULES_STATE_GAME_IN_PROGRESS   then
 		self.flProgressTime=GameRules:GetGameTime()
 		CustomGameEventManager:Send_ServerToAllClients( "UpdateCmHud", {} )
 		self:SetBaseDifficulty()
-		InitVipReward()  --初始化VIP奖励
 	end
 end
 
@@ -511,6 +517,11 @@ function CHoldoutGameMode:_GrantMulberry()  --给予桑葚
 				local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
 				if hero then
 				   hero:AddItemByName("item_mulberry")
+				   local steamID = PlayerResource:GetSteamAccountID( nPlayerID)
+				   local vipMap=GameRules:GetGameModeEntity().CHoldoutGameMode.vipMap
+				   if vipMap[tonumber(steamID)]>1 then  --VIP给俩
+				   	 hero:AddItemByName("item_mulberry")
+				   end
 			    end
 			end
 		end
@@ -766,7 +777,7 @@ function CHoldoutGameMode:OnNPCSpawned( event )
 
                 local newMaxHealth=maxHealth*self.flDHPadjust
              
-                local healthRegen=math.max(newMaxHealth*0.0025, spawnedUnit:GetBaseHealthRegen())  --2.5%%的基础恢复
+                local healthRegen=math.max(newMaxHealth*0.0018, spawnedUnit:GetBaseHealthRegen())  --1.8%%的基础恢复
 
                 if newMaxHealth<1 then --避免出现0血单位
                 	newMaxHealth=1

@@ -113,6 +113,11 @@ function CHoldoutGameMode:DamageFilter(damageTable)
                   end
               end 
           end
+          if victim and victim:HasModifier("modifier_faceless_undie") then  --如果有不死的技能
+              if damageTable.damage>=victim:GetHealth() then  --无法将血量扣除小于1
+                 return false
+              end
+          end
     end
     if attacker:GetTeam()==DOTA_TEAM_BADGUYS then
 
@@ -215,4 +220,24 @@ function CHoldoutGameMode:OrderFilter(orderTable)
       end
   end
   return true
+end
+
+
+function CHoldoutGameMode:ModifierGainedFilter(event)
+  
+
+  if not event.entindex_parent_const then 
+    return true
+  end
+  
+  local target = EntIndexToHScript(event.entindex_parent_const)
+  
+  if target and target.GetUnitName and target:GetUnitName() then   --不受斩杀
+      if target:HasModifier("modifier_faceless_undie") and event.name_const=="modifier_ice_blast" then
+        return false
+      end
+  end
+  
+  return true
+
 end
