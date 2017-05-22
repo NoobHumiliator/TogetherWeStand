@@ -577,7 +577,7 @@ function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正  --测
 		 self.last_live=self.last_live-1
 		 table.insert(vFailedRound, self._nRoundNumber) --记录下折在第几关了
 		 if self.last_live==0 then
-		 	 if self._nRoundNumber > 2 and not GameRules:IsCheatMode() then  --如果通过了条件，记录细节
+		 	 if self._nRoundNumber > 20 and not GameRules:IsCheatMode() then  --如果通过了条件，记录细节
                  Detail:RecordDetail(self._nRoundNumber-1,self.map_difficulty) 
 	         end
 		 	 if self.map_difficulty==3 and not GameRules:IsCheatMode()then 
@@ -699,6 +699,13 @@ function CHoldoutGameMode:OnNPCSpawned( event )
 	if not spawnedUnit or spawnedUnit:GetClassname() == "npc_dota_thinker" or spawnedUnit:IsPhantom() then
 		return 
 	end
+
+    if  spawnedUnit~=nil and not spawnedUnit:IsNull()  then
+    	if spawnedUnit:IsSummoned() and not spawnedUnit:IsRealHero() then
+    	   spawnedUnit:AddNewModifier(nil,nil,"modifier_invulnerable",{duration=0.35})
+    	end
+    end
+    
 	Timers:CreateTimer({
 		endTime = 0.3, 
 		callback = function()

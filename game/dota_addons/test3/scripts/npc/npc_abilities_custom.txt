@@ -22606,7 +22606,7 @@
 			"01"
 			{
 				"var_type"					    "FIELD_INTEGER"
-				"damage_reduce"					"-69 -78 -85 -88 -91 -93 -95 -97"
+				"damage_reduce"					"-78 -85 -88 -91 -93 -95 -97 -98"
 			}
 		}
 		"Modifiers"

@@ -2025,7 +2025,7 @@
 		   "03"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"mana_increase"	                "0.00 0.1 0.15 0.19 0.22 0.24"
+				"mana_increase"	                "0.00 0.05 0.09 0.12 0.14 0.15"
 			}
 	    }
   "Modifiers"
@@ -2123,7 +2123,7 @@
 	    "04"
 		{
 			"var_type"						"FIELD_FLOAT"
-			"mana_increase"	                "0.00 0.1 0.15 0.19 0.22 0.24"
+			"mana_increase"	                "0.00 0.05 0.09 0.12 0.14 0.15"
 		}
     }
   "Modifiers"
@@ -2228,7 +2228,7 @@
 		    "04"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"mana_increase"	                "0.00 0.1 0.15 0.19 0.22 0.24"
+				"mana_increase"	                "0.00 0.05 0.09 0.12 0.14 0.15"
 			}
 	    }
   "Modifiers"
@@ -2340,7 +2340,7 @@
 		    "06"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"mana_increase"	                "0.00 0.1 0.15 0.19 0.22 0.24"
+				"mana_increase"	                "0.00 0.05 0.09 0.12 0.14 0.15"
 			}
 	    }
   "Modifiers"
@@ -2386,7 +2386,7 @@
 		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4525"	
+		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -2395,7 +2395,7 @@
 		"ItemResult"					"item_mage_staff_5"
 		"ItemRequirements"
 		{
-			"01"						"item_mage_staff_4;item_sheepstick;item_dagon_5;item_rod_of_atos"
+			"01"						"item_mage_staff_4;item_mystic_staff_2;item_mystic_staff_2"
 		}
 }
 
@@ -2411,7 +2411,7 @@
   "AbilityTextureName" 		    "custom_items/mage_staff_5"
 
   "ItemPurchasable"				"1"
-  "ItemCost"					"34145"
+  "ItemCost"					"33850"
   "ItemQuality"					"artifact"
   "MaxUpgradeLevel"			    "6"
   "ItemBaseLevel"			    "5"
@@ -2464,7 +2464,7 @@
 		    "08"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"mana_increase"	                "0.00 0.1 0.15 0.19 0.22 0.24"
+				"mana_increase"	                "0.00 0.05 0.09 0.12 0.14 0.15"
 			}
 	    }
   "Modifiers"
@@ -5419,7 +5419,7 @@
 		"ItemBaseLevel"					"6"
 
 		"ItemPurchasable"				"1"
-		"ItemCost"				     	"109145"
+		"ItemCost"				     	"103850"
 		"ItemQuality"					"artifact"
 		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
 		"ItemAliases"					"orchid malevolence"
@@ -5465,7 +5465,7 @@
 		    "08"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"mana_increase"	                "0.00 0.1 0.15 0.19 0.22 0.24"
+				"mana_increase"	                "0.00 0.05 0.09 0.12 0.14 0.15"
 			}
 		}
 		"Modifiers"
@@ -7270,7 +7270,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"150"
+		"ItemCost"						"500"
 		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"

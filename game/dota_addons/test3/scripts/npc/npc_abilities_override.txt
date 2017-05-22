@@ -49,6 +49,7 @@
 		}
 	}
 
+
    "item_gem"
 	{
 		"ItemSellable"					"1"
