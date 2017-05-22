@@ -6340,7 +6340,7 @@
            "03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"pure_bonus_damage_per_str"     "0.04 0.08"
+				"pure_bonus_damage_per_str"     "0.04 0.06"
 			}
 			"04"
 			{
@@ -6479,7 +6479,7 @@
            "03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"pure_bonus_damage_per_str"     "0.04 0.08"
+				"pure_bonus_damage_per_str"     "0.04 0.06"
 			}
 			"04"
 			{

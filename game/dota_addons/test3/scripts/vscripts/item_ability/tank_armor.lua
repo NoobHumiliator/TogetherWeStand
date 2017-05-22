@@ -5,7 +5,7 @@ function ApplyReValue( keys )
     if caster:HasModifier("modifier_item_tank_armor_2") then
       caster.pysical_return=1.8
       caster.magical_return=1.5
-      caster.pure_return=0.08
+      caster.pure_return=0.06
     elseif caster:HasModifier("modifier_item_tank_armor_1") then
           caster.pysical_return=1.2
           caster.magical_return=1.0
@@ -31,7 +31,7 @@ function RemoveReValue( keys )
     if caster:HasModifier("modifier_item_tank_armor_2") then
        caster.pysical_return=1.8
        caster.magical_return=1.5
-       caster.pure_return=0.08
+       caster.pure_return=0.06
     elseif caster:HasModifier("modifier_item_tank_armor_1") then
           caster.pysical_return=1.2
           caster.magical_return=1.0
