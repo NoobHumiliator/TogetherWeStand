@@ -353,7 +353,14 @@ function charge_dot_damage( keys )
           GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag=false
         end
    end
-  local dot_damage = 100*stacks*stacks
+  
+  local dot_damage = 100
+  if stacks>1 then
+      dot_damage = 100*math.pow(1.8,stacks)
+  else
+      dot_damage = 100
+  end
+
   local damageTable = {
          victim=target,
          attacker=caster,

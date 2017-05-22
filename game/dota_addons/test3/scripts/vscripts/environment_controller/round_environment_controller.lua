@@ -65,7 +65,7 @@ function EnvironmentController:ApplyBeaconModifier()  --随机选取一个无面
 		callback = function()
         
         --print("wfffds")
-        local units= FindUnitsInRadius(DOTA_TEAM_BADGUYS,Vector(0,0,0), nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY,DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+        local units= FindUnitsInRadius(DOTA_TEAM_BADGUYS,Vector(0,0,0), nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY,DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES+DOTA_UNIT_TARGET_FLAG_INVULNERABLE, 0, false )
 		local faceless_monsters={}
 		for _,unit in pairs(units) do
 			 if unit:GetUnitName()=="npc_dota_faceless_monster" then 

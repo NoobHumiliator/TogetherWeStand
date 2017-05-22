@@ -11,7 +11,7 @@ function SellAllItems( keys )
        if caster.bSellInterrupted~=nil and caster.bSellInterrupted==true then --被打断
        	  return nil
        else
-       	  print((caster:GetAbsOrigin()-shopPosition):Length2D())
+       	  --print((caster:GetAbsOrigin()-shopPosition):Length2D())
        	  if (caster:GetAbsOrigin()-shopPosition):Length2D()<500 then
 	       	  	for i=0, 8, 1 do
 					local current_item = caster:GetItemInSlot(i)

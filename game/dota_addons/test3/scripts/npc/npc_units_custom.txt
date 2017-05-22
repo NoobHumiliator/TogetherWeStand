@@ -7934,7 +7934,7 @@
 			//-----------------------------------------------------------------
 		}
 	}
-         "npc_dota_creature_tree_nova"
+   "npc_dota_creature_tree_nova"
 	{
 		// General
 		//
@@ -8043,7 +8043,7 @@
 
 		}
 	}
-        "npc_dota_creature_tree_slow"
+   "npc_dota_creature_tree_slow"
 	{
 		// General
 		//
@@ -8152,7 +8152,7 @@
 
 		}
 	}
-        "npc_dota_creature_tree_fast"
+ "npc_dota_creature_tree_fast"
 	{
 		// General
 		//
@@ -8185,7 +8185,7 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"108"		// Damage range min.
 		"AttackDamageMax"			"206"		// Damage range max.
-		"AttackRate"				"1.6"		// Speed of attack.
+		"AttackRate"				"1.1"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"800"		// Range within a target can be acquired.
 		"AttackRange"				"128"		// Range within a target can be attacked.
@@ -8207,12 +8207,12 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
-		"MovementSpeed"				"500"		// Speed
+		"MovementSpeed"				"550"		// Speed
 		"MovementTurnRate"			"0.2"		// Turning rate.
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3600"		// Base health.
+		"StatusHealth"				"4300"		// Base health.
 		"StatusHealthRegen"			"10.0"		// Health regeneration rate.
 		"StatusMana"				"1000"			// Base mana.
 		"StatusManaRegen"			"50"			// Mana regeneration rate.
@@ -8261,7 +8261,7 @@
 
 		}
 	}
-        "npc_dota_creature_tree_killer"
+   "npc_dota_creature_tree_killer"
 	{
 		// General
 		//
@@ -8321,7 +8321,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"5600"		// Base health.
+		"StatusHealth"				"6700"		// Base health.
 		"StatusHealthRegen"			"10.0"		// Health regeneration rate.
 		"StatusMana"				"1000"			// Base mana.
 		"StatusManaRegen"			"50"			// Mana regeneration rate.
@@ -8370,7 +8370,7 @@
 
 		}
 	}
-        "npc_dota_tree_elder"
+  "npc_dota_tree_elder"
 	{
 		// General
 		//----------------------------------------------------------------
@@ -8383,7 +8383,7 @@
 		"MinimapIcon"				"minimap_roshancamp"
 		"MinimapIconSize"			"300"
 		
-		"SoundSet"				"Hero_Treant"								// Name of sound set.
+		"SoundSet"				    "Hero_Treant"								// Name of sound set.
 		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_treant.vsndevts"
 
 		// Inventory
@@ -8404,7 +8404,7 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackCapabilities"		     "DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"152"		// Damage range min.
 		"AttackDamageMax"			"168"		// Damage range max.
 		"AttackRate"				"1.25"		// Speed of attack.
@@ -8412,7 +8412,7 @@
 		"AttackRange"				"180"		// Range within a target can be attacked.
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"				"100"		// Experience earn.
+		"BountyXP"				    "100"		// Experience earn.
 		"BountyGoldMin"				"200"		// Gold earned min.
 		"BountyGoldMax"				"200"		// Gold earned max.
 		// Bounds
@@ -8432,7 +8432,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"9500"		// Base health.
+		"StatusHealth"				"11500"		// Base health.
 		"StatusHealthRegen"			"6.0"		// Health regeneration rate.
 		"StatusMana"				"1500"		// Base mana.
 		"StatusManaRegen"			"30.0"		// Mana regeneration rate.
@@ -8560,7 +8560,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"5600"		// Base health.
+		"StatusHealth"				"6600"		// Base health.
 		"StatusHealthRegen"			"10.0"		// Health regeneration rate.
 		"StatusMana"				"1000"			// Base mana.
 		"StatusManaRegen"			"50"			// Mana regeneration rate.
@@ -12683,7 +12683,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"100000"
+		"StatusHealth"				"150000"
 		"StatusHealthRegen"			"50.0"
 		"StatusMana"				"2000"
 		"StatusManaRegen"			"30.0"
@@ -12711,7 +12711,9 @@
 		{	
 			//Basic AI State
 			//-----------------------------------------------------------------
-			"DefaultState"			"Invade"
+			"DefaultState"			    "Invade"
+			"DisableResistance"			"80"
+
 			"States"
 			{
 				"Invade"
@@ -13267,7 +13269,7 @@
 		"AttackCapabilities"	    "DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"152"		// Damage range min.
 		"AttackDamageMax"			"168"		// Damage range max.
-		"AttackRate"				"1.25"		// Speed of attack.
+		"AttackRate"				"1.9"		// Speed of attack.
 		"AttackAnimationPoint"	    "0.2"		// Normalized time in animation cycle to attack.
 		"AttackRange"				"150"		// Range within a target can be attacked.
 
@@ -13284,7 +13286,7 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"	    "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
-		"MovementSpeed"				"200"		// Speed
+		"MovementSpeed"				"180"		// Speed
 		"MovementTurnRate"			"0.4"		// Turning rate.
 
 

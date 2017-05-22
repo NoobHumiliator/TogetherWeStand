@@ -1882,7 +1882,7 @@
 	{
 		"round_quest_title"			"#TWS_Round_Tree_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Tree_Title"
-		"MaxGold"					"7850"    //Boss掉落3000 共10850 (小兵掉的钱拿不全)
+		"MaxGold"					"8850"    //Boss掉落3000 共11850 (小兵掉的钱拿不全)
 		"BagCount"					"100"
 		"BagVariance"				"10"
 		"FixedXP"					"48700"
@@ -4129,7 +4129,7 @@
 			"NPCName"				"npc_dota_creature_alchemist"
 			"TotalUnitsToSpawn"		"10"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"10"
+			"SpawnInterval"			"4"
 		}
 		"Unit2"
 		{
@@ -4138,7 +4138,7 @@
 			"NPCName"				"npc_dota_creature_alchemist"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"5"
 		}
 		"Unit3"
 		{
@@ -4147,7 +4147,7 @@
 			"NPCName"				"npc_dota_creature_alchemist"
 			"TotalUnitsToSpawn"		"8"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"15"
+			"SpawnInterval"			"5"
 		}
 	}
 	"Round21"

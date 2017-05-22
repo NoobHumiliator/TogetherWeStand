@@ -10,7 +10,7 @@ function Spawn( entityKeyValues )
 	if  thisEntity:GetTeam()==DOTA_TEAM_BADGUYS then
 	  thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
 	  Timers:CreateTimer({
-	    endTime = 0.5, 
+	    endTime = 0.8, 
 	    callback = function()
 	      thisEntity:SetHealth(1)
 	    end

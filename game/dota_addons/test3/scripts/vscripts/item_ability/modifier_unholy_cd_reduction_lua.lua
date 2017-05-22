@@ -22,8 +22,8 @@ function modifier_unholy_cd_reduction_lua:OnRefresh( kv )
 	local cool_down_reduce_per_stack=self:GetAbility():GetSpecialValueFor( "cool_down_reduce" )
 	local caster=self:GetCaster()
 	local cool_down_reduce= cool_down_reduce_per_stack*caster:GetModifierStackCount(stack_modifier, ability)
-	if cool_down_reduce>80 then
-		cool_down_reduce=80
+	if cool_down_reduce>75 then
+		cool_down_reduce=75
 	end
 	self.cool_down_reduce = cool_down_reduce
 end

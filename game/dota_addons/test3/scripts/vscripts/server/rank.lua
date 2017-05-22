@@ -92,6 +92,13 @@ function Rank:RecordGame(nRoundNumber,nLoser)
                 if result.Body=="Not good enough" then
                     print("Not good enough")
                     GameRules:MakeTeamLose(nLoser)
+                elseif result.Body=="Not better than before" then
+                   Notifications:BottomToAll( {text="#try_again", duration=6, style={color="Red"}})
+                   Timers:CreateTimer({
+                            endTime = 6, 
+                              callback = function()
+                              GameRules:MakeTeamLose(nLoser)
+                            end})
                 elseif result.Body=="Dupulicate game id" then
                    Notifications:BottomToAll( {text="Sorry, record fail due to dupulicate game id (>﹏<)", duration=3, style={color="Red"}})
                    Timers:CreateTimer({

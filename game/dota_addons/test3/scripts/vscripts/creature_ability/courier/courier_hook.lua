@@ -26,7 +26,7 @@ function HookItems( keys )
              Timers:CreateTimer(time, 
               function()
                   local containedItem = drop_item:GetContainedItem()        
-                  if caster:GetUnitName()=="npc_dota_courier" and caster.nControlledPickPlayerId then --如果是信使，寻找操作人
+                  if caster:GetUnitName()=="npc_dota_courier" and caster.nControlledPickPlayerId  and  string.sub(containedItem:GetName(),1,20)~= "item_treasure_chest_" then --如果是信使，且不是宝箱
                      if containedItem:GetPurchaser()==nil then
                         local playerId=caster.nControlledPickPlayerId
                         local hero = PlayerResource:GetSelectedHeroEntity( playerId )

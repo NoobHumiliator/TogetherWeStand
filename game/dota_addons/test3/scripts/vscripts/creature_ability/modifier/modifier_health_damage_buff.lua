@@ -66,8 +66,20 @@ function modifier_health_damage_buff:GetModifierMoveSpeedBonus_Constant( params 
 	    end
     end
 end
+-------------------------------------------------------------------------------
+function modifier_health_damage_buff:CheckState()
+	local fly_flag=false
+    
+    if self.damage_bunus_radio>95 then
+       fly_flag=true
+    end
 
---------------------------------------------------------------------------------
+	local state = {
+		[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = fly_flag,
+	}
+	return state
+end
+------------------------------------------------------------------------------------
 
 function modifier_health_damage_buff:IsHidden()
 	return true

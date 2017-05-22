@@ -7377,7 +7377,7 @@
 					"Center" 	"CASTER"
 					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
 				}			
-				"ItemName"			"item_bag_of_gold"
+				"ItemName"			"item_bag_of_gold_tws"
 				"ItemCount"			"%bag_count"
 				"SpawnRadius"		"25"
 				"ItemChargeCount"	"%gold_value"
@@ -7421,7 +7421,7 @@
 					"Center" 	"CASTER"
 					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
 				}			
-				"ItemName"			"item_bag_of_gold"
+				"ItemName"			"item_bag_of_gold_tws"
 				"ItemCount"			"%bag_count"
 				"SpawnRadius"		"25"
 				"ItemChargeCount"	"%gold_value"
@@ -7479,7 +7479,7 @@
 					"Center" 	"CASTER"
 					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
 				}			
-				"ItemName"			"item_bag_of_gold"
+				"ItemName"			"item_bag_of_gold_tws"
 				"ItemCount"			"%bag_count"
 				"SpawnRadius"		"25"
 				"ItemChargeCount"	"%gold_value"
@@ -7522,7 +7522,7 @@
 					"Center" 	"CASTER"
 					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
 				}			
-				"ItemName"			"item_bag_of_gold"
+				"ItemName"			"item_bag_of_gold_tws"
 				"ItemCount"			"%bag_count"
 				"SpawnRadius"		"25"
 				"ItemChargeCount"	"%gold_value"
@@ -7594,7 +7594,7 @@
 					"Center" 	"CASTER"
 					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
 				}			
-				"ItemName"			"item_bag_of_gold"
+				"ItemName"			"item_bag_of_gold_tws"
 				"ItemCount"			"%bag_count"
 				"SpawnRadius"		"25"
 				"ItemChargeCount"	"%gold_value"
@@ -7641,7 +7641,7 @@
 					"Center" 	"CASTER"
 					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
 				}			
-				"ItemName"			"item_bag_of_gold"
+				"ItemName"			"item_bag_of_gold_tws"
 				"ItemCount"			"%bag_count"
 				"SpawnRadius"		"25"
 				"ItemChargeCount"	"%gold_value"
@@ -7705,7 +7705,7 @@
 					"Center" 	"CASTER"
 					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
 				}			
-				"ItemName"			"item_bag_of_gold"
+				"ItemName"			"item_bag_of_gold_tws"
 				"ItemCount"			"%bag_count"
 				"SpawnRadius"		"25"
 				"ItemChargeCount"	"%gold_value"
@@ -7752,7 +7752,7 @@
 					"Center" 	"CASTER"
 					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
 				}			
-				"ItemName"			"item_bag_of_gold"
+				"ItemName"			"item_bag_of_gold_tws"
 				"ItemCount"			"%bag_count"
 				"SpawnRadius"		"25"
 				"ItemChargeCount"	"%gold_value"
@@ -7800,7 +7800,7 @@
 					"Center" 	"CASTER"
 					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
 				}			
-				"ItemName"			"item_bag_of_gold"
+				"ItemName"			"item_bag_of_gold_tws"
 				"ItemCount"			"%bag_count"
 				"SpawnRadius"		"25"
 				"ItemChargeCount"	"%gold_value"
@@ -7847,7 +7847,7 @@
 					"Center" 	"CASTER"
 					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
 				}			
-				"ItemName"			"item_bag_of_gold"
+				"ItemName"			"item_bag_of_gold_tws"
 				"ItemCount"			"%bag_count"
 				"SpawnRadius"		"25"
 				"ItemChargeCount"	"%gold_value"
@@ -7895,7 +7895,7 @@
 					"Center" 	"CASTER"
 					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
 				}			
-				"ItemName"			"item_bag_of_gold"
+				"ItemName"			"item_bag_of_gold_tws"
 				"ItemCount"			"%bag_count"
 				"SpawnRadius"		"25"
 				"ItemChargeCount"	"%gold_value"
@@ -9498,7 +9498,7 @@
 					"Center" 	"CASTER"
 					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
 				}			
-				"ItemName"			"item_bag_of_gold"
+				"ItemName"			"item_bag_of_gold_tws"
 				"ItemCount"			"%bag_count"
 				"SpawnRadius"		"25"
 				"ItemChargeCount"	"%gold_value"
@@ -11852,10 +11852,10 @@
 	"AbilityBehavior"                                "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 	"BaseClass"                                       "ability_datadriven"
 	"AbilityTextureName"                              "magnataur_skewer"
-	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-	"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+	"AbilityUnitTargetTeam"			                  "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			                  "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitTargetFlags"		                  "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	"AbilityUnitDamageType"			                  "DAMAGE_TYPE_PHYSICAL"
 
 	//-------------------------------------------------------------------------------------------------------------
 	"AbilityCastPoint"                                "0.2"
@@ -12067,7 +12067,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"pull_radius"					"100000"
+				"pull_radius"			"100000"
 			}
 			"02"
 			{
@@ -12301,7 +12301,7 @@
 		"AbilityTextureName"          "magnataur_empower"          
 		// Stats
 		//----------------------------------------------------------------
-		"AbilityChannelTime"	  "2.7"
+		"AbilityChannelTime"	  "2.7"   //2.7--->3.5
 		"AbilityManaCost"         "0"
 		"AbilityCastPoint"        "0"
 		"AbilityCooldown"         "5"
@@ -12450,7 +12450,7 @@
 			}
 			"damage_immune_datadriven"
 			{
-				"Duration"				"2.8"
+				"Duration"				"2.6"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-100"
@@ -14180,7 +14180,18 @@
 				"Passive"						"1"
 				"IsHidden"						"1"
                 "IsDebuff"						"0"
-                "IsPurgable"			     	"0"	
+                "IsPurgable"			     	"0"
+
+                "ThinkInterval"                 "0.1"
+                "OnIntervalThink"
+                {
+                	"RunScript"
+				   {
+					    "ScriptFile"		"abilities/pick_gold.lua"
+					    "Function"			"CheckToPickGold"
+			       }
+                }
+
                 "OnCreated"
                 {
                 	"RunScript"
@@ -15150,7 +15161,7 @@
 					"Center" 	"CASTER"
 					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
 				}			
-				"ItemName"			"item_bag_of_gold"
+				"ItemName"			"item_bag_of_gold_tws"
 				"ItemCount"			"%bag_count"
 				"SpawnRadius"		"25"
 				"ItemChargeCount"	"%gold_value"
@@ -15198,7 +15209,7 @@
 					"Center" 	"CASTER"
 					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
 				}			
-				"ItemName"			"item_bag_of_gold"
+				"ItemName"			"item_bag_of_gold_tws"
 				"ItemCount"			"%bag_count"
 				"SpawnRadius"		"25"
 				"ItemChargeCount"	"%gold_value"
@@ -15259,7 +15270,7 @@
 					"Center" 	"CASTER"
 					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
 				}			
-				"ItemName"			"item_bag_of_gold"
+				"ItemName"			"item_bag_of_gold_tws"
 				"ItemCount"			"%bag_count"
 				"SpawnRadius"		"25"
 				"ItemChargeCount"	"%gold_value"
@@ -21024,12 +21035,12 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"min_damage"				"6000"
+				"min_damage"				"9000"
 			}
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"max_damage"				"8000"
+				"max_damage"				"12000"
 			}
 			"06"
 			{
@@ -21071,11 +21082,11 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"45.0"
+		"AbilityCooldown"				"22.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50 100 150"
+		"AbilityManaCost"				"50"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -21094,17 +21105,17 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"base_attack_time"		"0.6"
+				"base_attack_time"		"0.5"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"150000"
+				"bonus_health"			"200000"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"1000"
+				"bonus_health_regen"	"10000"
 			}
 			"06"
 			{
@@ -21137,7 +21148,7 @@
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"130 140 150 160"
+		"AbilityManaCost"				"130"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -21146,28 +21157,28 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"425"
+				"radius"				"325"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"9.0"
+				"duration"				"8.0"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1200"
+				"damage"				"1500"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor_reduction"		"50"
+				"armor_reduction"		"80"
 				"LinkedSpecialBonus"	"special_bonus_unique_alchemist"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"tick_rate"				"1.0"
+				"tick_rate"				"0.5"
 			}
 		}
 	}
@@ -22367,7 +22378,7 @@
 					"Center" 	"CASTER"
 					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
 				}			
-				"ItemName"			"item_bag_of_gold"
+				"ItemName"			"item_bag_of_gold_tws"
 				"ItemCount"			"%bag_count"
 				"SpawnRadius"		"25"
 				"ItemChargeCount"	"%gold_value"
@@ -22595,7 +22606,7 @@
 			"01"
 			{
 				"var_type"					    "FIELD_INTEGER"
-				"damage_reduce"					"-60 -69 -78 -85 -88 -91 -93 -95"
+				"damage_reduce"					"-69 -78 -85 -88 -91 -93 -95 -97"
 			}
 		}
 		"Modifiers"
@@ -22634,7 +22645,7 @@
 			"01"
 			{
 				"var_type"					    "FIELD_INTEGER"
-				"invulnerable_duration"			"6.0"
+				"invulnerable_duration"			"6.5"
 			}
 		}
 
@@ -22659,6 +22670,10 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"-100"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}      
 		}	
@@ -22686,7 +22701,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"7.0 5.0 3.0 1.0"
+		"AbilityCooldown"				"4.4 2.8 1.6 0.8"
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -22701,7 +22716,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"blink_range"			"1150 1300 1450 1600 1750 1900 2050 2200"
+				"blink_range"			"1750 1900 2050 2200"
 			}
 			
 		}
@@ -22746,7 +22761,7 @@
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"courier_hook"
 		"AOERadius"						"%radius"
-		"MaxLevel"                      "8"
+		"MaxLevel"                      "6"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -22755,7 +22770,7 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"35 28 22 17 13 10 8 7"
+		"AbilityCooldown"				"22 17 13 10 8 7"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -22764,7 +22779,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"radius"			"150 200 250 300 350 400 450 500"
+				"radius"			"250 300 350 400 450 500"
 			}
 		}
 		
@@ -22919,7 +22934,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"ability_datadriven"
-		"AbilityTextureName"			"faceless_void_time_dilation"
+		"AbilityTextureName"			"abyssal_underlord_dark_rift"
         "precache"
 		{
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"

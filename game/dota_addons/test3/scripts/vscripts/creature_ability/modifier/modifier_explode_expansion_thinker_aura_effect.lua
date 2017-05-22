@@ -71,6 +71,6 @@ end
 
 function modifier_explode_expansion_thinker_aura_effect:GetModifierTotalDamageOutgoing_Percentage()
 
-	return  -100
+	return  -200
 
 end

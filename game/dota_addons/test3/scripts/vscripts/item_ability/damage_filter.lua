@@ -70,7 +70,7 @@ function CHoldoutGameMode:DamageFilter(damageTable)
 	        end
 
 
-        	if self._currentRound and playerid then
+        	if self._currentRound and playerid and playerid~=-1  then
         		self._currentRound._vPlayerStats[playerid].nTotalDamage=self._currentRound._vPlayerStats[playerid].nTotalDamage+damageTable.damage
         	end
          
@@ -218,6 +218,16 @@ function CHoldoutGameMode:OrderFilter(orderTable)
                       end})
           end
       end
+      if  ability and   ability.GetAbilityName   and  ability:GetAbilityName()=="arc_warden_tempest_double"  then  -- 风暴双雄
+          local units = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector(0,0,0) , nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
+          for _,unit in pairs(units) do
+              print(unit:GetUnitName())
+              print(unit:IsTempestDouble())
+              if unit:IsTempestDouble() and unit:GetPlayerOwnerID()==caster:GetPlayerOwnerID()  then --移除控制者的风暴双雄
+                  unit:ForceKill(true)  --移除掉原来的双雄
+              end
+          end          
+      end
   end
   return true
 end
@@ -225,7 +235,7 @@ end
 
 function CHoldoutGameMode:ModifierGainedFilter(event)
   
-
+  --PrintTable(event)
   if not event.entindex_parent_const then 
     return true
   end

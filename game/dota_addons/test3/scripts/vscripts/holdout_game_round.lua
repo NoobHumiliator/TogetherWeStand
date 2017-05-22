@@ -70,7 +70,6 @@ function CHoldoutGameRound:Begin()
 	self._vEventHandles = {
 		ListenToGameEvent( "npc_spawned", Dynamic_Wrap( CHoldoutGameRound, "OnNPCSpawned" ), self ),
 		ListenToGameEvent( "entity_killed", Dynamic_Wrap( CHoldoutGameRound, "OnEntityKilled" ), self ),
-		ListenToGameEvent( "dota_item_picked_up", Dynamic_Wrap( CHoldoutGameRound, 'OnItemPickedUp' ), self ),
 		ListenToGameEvent( "dota_holdout_revive_complete", Dynamic_Wrap( CHoldoutGameRound, 'OnHoldoutReviveComplete' ), self )
 	}
 	self.Begin_Time=GameRules:GetGameTime()
@@ -97,15 +96,18 @@ function CHoldoutGameRound:Begin()
 			end
 		end
 	end
+
+    GameRules:GetGameModeEntity().Palyer_Number=self.Palyer_Number --更新玩家数量
+
 	if self._not_multiple then
 	  self._nFixedXP=self._nFixedXP*playernumberbonus
 	  self._nMaxGold=self._nMaxGold*playernumberbonus
-	  self._nGoldRemainingInRound = self._nMaxGold
 	  self._nItemDropNum=self._nItemDropNum*playernumberbonus
 	  self._nItemDropNum=math.ceil(self._nItemDropNum* hardLevelItemDropBonus[self._gameMode.map_difficulty])
-	  self._not_multiple=false
+	  self._not_multiple=false  --不重复加成
     end
 
+    self._nGoldRemainingInRound = self._nMaxGold
 	self._nGoldBagsRemaining = self._nBagCount
 	self._nGoldBagsExpired = 0
 	self._nCoreUnitsTotal = 0
@@ -669,16 +671,6 @@ function CHoldoutGameRound:OnHoldoutReviveComplete( event )
 end
 
 
-function CHoldoutGameRound:OnItemPickedUp( event )
-	if event.itemname == "item_bag_of_gold" then
-		local playerStats = self._vPlayerStats[ event.PlayerID ]
-		if playerStats then
-			playerStats.nGoldBagsCollected = playerStats.nGoldBagsCollected + 1
-		end
-	end
-end
-
-
 function CHoldoutGameRound:_CheckForGoldBagDrop( killedUnit )
 	if self._nGoldRemainingInRound <= 0 then
 		return
@@ -707,12 +699,13 @@ function CHoldoutGameRound:_CheckForGoldBagDrop( killedUnit )
 	self._nGoldRemainingInRound = math.max( 0, self._nGoldRemainingInRound - nGoldToDrop )
 	self._nGoldBagsRemaining = math.max( 0, self._nGoldBagsRemaining - 1 )
 
-	local newItem = CreateItem( "item_bag_of_gold", nil, nil )
+	local newItem = CreateItem( "item_bag_of_gold_tws", nil, nil )
 	newItem:SetPurchaseTime( 0 )
 	newItem:SetCurrentCharges( nGoldToDrop )
+	newItem.nGoldToDrop=nGoldToDrop
 	local drop = CreateItemOnPositionSync( killedUnit:GetAbsOrigin(), newItem )
 	local dropTarget = killedUnit:GetAbsOrigin() + RandomVector( RandomFloat( 50, 350 ) )
-	newItem:LaunchLoot( true, 300, 0.75, dropTarget )
+	newItem:LaunchLoot( false, 300, 0.75, dropTarget )  --第一个参数true自动触发
 end
 
 

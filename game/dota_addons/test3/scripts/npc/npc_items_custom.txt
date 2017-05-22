@@ -8,7 +8,7 @@
 		"ID"							"1007"
         "BaseClass"						"item_datadriven"
         "AbilityName"					"item_rock"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityBehavior"			    "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"Model"					        "models/particle/tiny_simrocks.vmdl"
@@ -63,7 +63,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"99999"
+		"ItemCost"						"150"
 		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -73,6 +73,10 @@
 		"ItemInitialCharges"			"1"
 		"ItemKillable"					"0"
 	}
+
+
+
+
 
     "item_pineapple"
 	{
@@ -2021,7 +2025,7 @@
 		   "03"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"mana_increase"	                "0.00 0.15 0.19 0.24 0.27 0.3"
+				"mana_increase"	                "0.00 0.1 0.15 0.19 0.22 0.24"
 			}
 	    }
   "Modifiers"
@@ -2119,7 +2123,7 @@
 	    "04"
 		{
 			"var_type"						"FIELD_FLOAT"
-			"mana_increase"	                "0.00 0.15 0.19 0.24 0.27 0.3"
+			"mana_increase"	                "0.00 0.1 0.15 0.19 0.22 0.24"
 		}
     }
   "Modifiers"
@@ -2224,7 +2228,7 @@
 		    "04"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"mana_increase"	                "0.00 0.15 0.19 0.24 0.27 0.3"
+				"mana_increase"	                "0.00 0.1 0.15 0.19 0.22 0.24"
 			}
 	    }
   "Modifiers"
@@ -2336,7 +2340,7 @@
 		    "06"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"mana_increase"	                "0.00 0.15 0.19 0.24 0.27 0.3"
+				"mana_increase"	                "0.00 0.1 0.15 0.19 0.22 0.24"
 			}
 	    }
   "Modifiers"
@@ -2460,7 +2464,7 @@
 		    "08"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"mana_increase"	                "0.00 0.15 0.19 0.24 0.27 0.3"
+				"mana_increase"	                "0.00 0.1 0.15 0.19 0.22 0.24"
 			}
 	    }
   "Modifiers"
@@ -2739,7 +2743,7 @@
         "AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2000"	
+		"ItemCost"						"1200"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -2748,30 +2752,43 @@
 		"ItemResult"					"item_desolator_2"
 		"ItemRequirements"
 		{
-			"01"						"item_desolator;item_claymore;item_medallion_of_courage"
+			"01"						"item_desolator;item_rapier1_datadriven;item_medallion_of_courage"
 		}
     }
 
+
+
+
     //=================================================================================================================
-	// Desolator
+	// Desolator 2
 	//=================================================================================================================
 	"item_desolator_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"16060"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"16060"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName" 			"custom_items/desolator_2"
+		"Model"							"models/props_gameplay/red_box.vmdl"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "BaseClass"						"item_desolator"
-        "AbilityTextureName" 			"custom_items/desolator_2"
-
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"70"
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.0"
+		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8100"
+		"ItemCost"						"11425"
 		"ItemShopTags"					"damage;unique"
 		"ItemQuality"					"artifact"
-		"ItemAliases"					"divine rapier"
+		"ItemAliases"					"desolator"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
+
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -2779,21 +2796,106 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"120"
+				"damage"				"200"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"corruption_armor"		"-15"
+				"base_stacks"			"10"
 			}
 			"03"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"corruption_duration"	"15.0"
+				"var_type"				"FIELD_INTEGER"
+				"stack_armor"			"-1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_stacks"			"28"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"15"
 			}
 		}
-    }
-   "item_recipe_desolator_3"
+
+		"Modifiers"
+		{
+			"modifier_item_desolator_datadriven"
+			{
+				"Passive"					"1"
+				"IsHidden"					"1"
+				"IsBuff"					"1"
+				"IsPurgable"				"0"
+
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%damage"
+				}
+			}
+
+			"modifier_item_desolator_2_unique"
+			{
+				"Passive"					"1"
+				"IsHidden"					"1"
+				"IsBuff"					"1"
+				"IsPurgable"				"0"
+
+				"OnCreated"
+				{
+
+					"RunScript"
+					{
+						"ScriptFile"		"item_ability/item_desolator.lua"
+						"Function"			"DesolatorProjectile"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"item_ability/item_desolator.lua"
+						"Function"			"DesolatorProjectile"
+					}
+				}
+		
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"item_ability/item_desolator.lua"
+						"Function"			"DesolatorHit_2"
+
+						"sound_hit"			"Item_Desolator.Target"
+						"modifier_armor"	"modifier_item_imba_desolator_armor_debuff"
+					}
+				}
+			}
+
+			"modifier_item_imba_desolator_armor_debuff"
+			{
+				"Passive"					"0"
+				"IsHidden"					"0"
+				"IsDebuff"					"1"
+				"IsPurgable"				"1"
+
+				"TextureName"				"item_desolator"
+
+				"Duration"					"%duration"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%stack_armor"
+				}
+			}
+		}
+	}
+
+    "item_recipe_desolator_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -2803,7 +2905,7 @@
         "AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2000"	
+		"ItemCost"						"1500"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -2812,30 +2914,41 @@
 		"ItemResult"					"item_desolator_3"
 		"ItemRequirements"
 		{
-			"01"						"item_desolator_2;item_desolator_2;item_relic"
+			"01"						"item_desolator_2;item_rapier2_datadriven;item_demon_edge"
 		}
     }
 
-    //=================================================================================================================
-	// Desolator
+
+	//=================================================================================================================
+	// Desolator 3
 	//=================================================================================================================
 	"item_desolator_3"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"16070"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"16070"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName" 			"custom_items/desolator_3"
+		"Model"							"models/props_gameplay/red_box.vmdl"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "BaseClass"						"item_desolator"
-        "AbilityTextureName" 			"custom_items/desolator_3"
-
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"70"
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.0"
+		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"21200"
+		"ItemCost"						"11425"
 		"ItemShopTags"					"damage;unique"
 		"ItemQuality"					"artifact"
-		"ItemAliases"					"divine rapier"
+		"ItemAliases"					"desolator"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
+
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -2843,21 +2956,268 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"260"
+				"damage"				"800"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"corruption_armor"		"-28"
+				"base_stacks"			"15"
 			}
 			"03"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"corruption_duration"	"15.0"
+				"var_type"				"FIELD_INTEGER"
+				"stack_armor"			"-1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_stacks"			"112"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"15"
 			}
 		}
+
+		"Modifiers"
+		{
+			"modifier_item_desolator_datadriven"
+			{
+				"Passive"					"1"
+				"IsHidden"					"1"
+				"IsBuff"					"1"
+				"IsPurgable"				"0"
+
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%damage"
+				}
+			}
+
+			"modifier_item_desolator_3_unique"
+			{
+				"Passive"					"1"
+				"IsHidden"					"1"
+				"IsBuff"					"1"
+				"IsPurgable"				"0"
+
+				"OnCreated"
+				{
+
+					"RunScript"
+					{
+						"ScriptFile"		"item_ability/item_desolator.lua"
+						"Function"			"DesolatorProjectile"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"item_ability/item_desolator.lua"
+						"Function"			"DesolatorProjectile"
+					}
+				}
+		
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"item_ability/item_desolator.lua"
+						"Function"			"DesolatorHit_3"
+
+						"sound_hit"			"Item_Desolator.Target"
+						"modifier_armor"	"modifier_item_desolator_armor_debuff"
+					}
+				}
+			}
+
+			"modifier_item_desolator_armor_debuff"
+			{
+				"Passive"					"0"
+				"IsHidden"					"0"
+				"IsDebuff"					"1"
+				"IsPurgable"				"1"
+
+				"TextureName"				"item_desolator"
+
+				"Duration"					"%duration"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%stack_armor"
+				}
+			}
+		}
+	}
+
+
+    "item_recipe_desolator_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"16073"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"BaseClass"						"item_datadriven"
+        "AbilityTextureName"			"item_recipe"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1800"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_desolator_4"
+		"ItemRequirements"
+		{
+			"01"						"item_desolator_3;item_rapier3_datadriven"
+		}
     }
-     
+
+
+    //=================================================================================================================
+	// Desolator 4
+	//=================================================================================================================
+	"item_desolator_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"16074"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName" 			"custom_items/desolator_4"
+		"Model"							"models/props_gameplay/red_box.vmdl"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"70"
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.0"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"11425"
+		"ItemShopTags"					"damage;unique"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"desolator"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"3200"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_stacks"			"23"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stack_armor"			"-1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_stacks"			"448"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"15"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_desolator_datadriven"
+			{
+				"Passive"					"1"
+				"IsHidden"					"1"
+				"IsBuff"					"1"
+				"IsPurgable"				"0"
+
+				"Attributes"				"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%damage"
+				}
+			}
+
+			"modifier_item_desolator_3_unique"
+			{
+				"Passive"					"1"
+				"IsHidden"					"1"
+				"IsBuff"					"1"
+				"IsPurgable"				"0"
+
+				"OnCreated"
+				{
+
+					"RunScript"
+					{
+						"ScriptFile"		"item_ability/item_desolator.lua"
+						"Function"			"DesolatorProjectile"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"item_ability/item_desolator.lua"
+						"Function"			"DesolatorProjectile"
+					}
+				}
+		
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"item_ability/item_desolator.lua"
+						"Function"			"DesolatorHit_3"
+
+						"sound_hit"			"Item_Desolator.Target"
+						"modifier_armor"	"modifier_item_desolator_armor_debuff"
+					}
+				}
+			}
+
+			"modifier_item_desolator_armor_debuff"
+			{
+				"Passive"					"0"
+				"IsHidden"					"0"
+				"IsDebuff"					"1"
+				"IsPurgable"				"1"
+
+				"TextureName"				"item_desolator"
+
+				"Duration"					"%duration"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%stack_armor"
+				}
+			}
+		}
+	}
+
+
+
     "item_recipe_heart_2"
 	{
 		// General
@@ -3929,7 +4289,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_bonus"			"1000"
+				"damage_bonus"			"1500"
 			}
 		}
 		"OnOwnerDied"
@@ -4000,7 +4360,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_bonus"			"3300"
+				"damage_bonus"			"7500"
 			}
 		}
 		"OnOwnerDied"
@@ -4767,7 +5127,7 @@
 		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6000"	
+		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -4776,63 +5136,119 @@
 		"ItemResult"					"item_butterfly_2"
 		"ItemRequirements"
 		{
-			"01"						"item_butterfly;item_butterfly"
+			"01"						"item_butterfly;item_butterfly;item_butterfly;item_butterfly"
 		}
 	}
 	
 	"item_butterfly_2"
 	{
-		"ID"							"12038"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"12038"  //Valve's version of this item uses the ID "139".
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"BaseClass"						"item_butterfly"
-		"AbilityTextureName"			"custom_items/butterfly_2"		
-
+		"Model"							"models/props_gameplay/red_box.vmdl" 
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"AbilityTextureName"			"custom_items/butterfly_2"
+		
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"25.0"
-
+		"AbilityCooldown"				"35.0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityManaCost"				"0"
+		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"17550"
+		"ItemCost"						"6000"
 		"ItemShopTags"					"agi;damage;evasion;attack_speed"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"bfly;butterfly"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
+			
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"122"
+				"var_type"						"FIELD_INTEGER"
+				"bonus_agility"					"120"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"105"
+				"var_type"						"FIELD_INTEGER"
+				"bonus_damage"					"120"
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_evasion"			"40"
+				"var_type"						"FIELD_INTEGER"
+				"bonus_evasion"					"37"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"105"
+				"var_type"						"FIELD_INTEGER"
+				"reduce_evasion"				"-63"
 			}
 			"05"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_move_speed"	    "55"
+				"var_type"						"FIELD_INTEGER"
+				"bonus_attack_speed"			"120"
 			}
 			"06"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"5"
-			}			
+				"var_type"						"FIELD_FLOAT"
+				"duration"						"8"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_move_speed_percent"		"40"
+			}
+			"08"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"attack_rate"		            "1.2"
+			}
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"item_ability/item_butterfly.lua"
+				"Function"			"Butterfly"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_butterfly_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"				"%bonus_agility"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"			"%bonus_damage"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"%bonus_evasion"
+					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"       "%attack_rate"
+				}
+			}
+			"modifier_item_butterfly_datadriven_movespeed"
+			{
+				"Duration"			"%duration"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%bonus_move_speed_percent"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"%reduce_evasion"
+				}
+			}
 		}
 	}
     
@@ -4846,7 +5262,7 @@
 		"AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"19000"	
+		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -4855,62 +5271,118 @@
 		"ItemResult"					"item_butterfly_3"
 		"ItemRequirements"
 		{
-			"01"						"item_butterfly_2;item_butterfly_2"
+			"01"						"item_butterfly_2;item_butterfly_2;item_butterfly_2;item_butterfly_2"
 		}
 	}
 	
-	"item_butterfly_3"
+    "item_butterfly_3"
 	{
-		"ID"							"12040"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"12040"  //Valve's version of this item uses the ID "139".
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"BaseClass"						"item_butterfly"
-		"AbilityTextureName"			"custom_items/butterfly_3"		
-
+		"Model"							"models/props_gameplay/red_box.vmdl" 
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"AbilityTextureName"			"custom_items/butterfly_3"
+		
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"25.0"
-
+		"AbilityCooldown"				"30.0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityManaCost"				"0"
+		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"54100"
+		"ItemCost"						"6000"
 		"ItemShopTags"					"agi;damage;evasion;attack_speed"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"bfly;butterfly"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		
+			
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"305"
+				"var_type"						"FIELD_INTEGER"
+				"bonus_agility"					"480"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"263"
+				"var_type"						"FIELD_INTEGER"
+				"bonus_damage"					"480"
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_evasion"			"45"
+				"var_type"						"FIELD_INTEGER"
+				"bonus_evasion"					"39"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"263"
+				"var_type"						"FIELD_INTEGER"
+				"reduce_evasion"				"-65"
 			}
 			"05"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_move_speed"	    "65"
+				"var_type"						"FIELD_INTEGER"
+				"bonus_attack_speed"			"480"
 			}
 			"06"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"6"
+				"var_type"						"FIELD_FLOAT"
+				"duration"						"8"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_move_speed_percent"		"60"
+			}
+			"08"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"attack_rate"		            "1.0"
+			}
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"item_ability/item_butterfly.lua"
+				"Function"			"Butterfly"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_butterfly_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"				"%bonus_agility"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"			"%bonus_damage"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"%bonus_evasion"
+					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"       "%attack_rate"
+				}
+			}
+			"modifier_item_butterfly_datadriven_movespeed"
+			{
+				"Duration"			"%duration"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%bonus_move_speed_percent"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"%reduce_evasion"
+				}
 			}
 		}
 	}
@@ -4993,7 +5465,7 @@
 		    "08"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"mana_increase"	                "0.00 0.15 0.19 0.24 0.27 0.3"
+				"mana_increase"	                "0.00 0.1 0.15 0.19 0.22 0.24"
 			}
 		}
 		"Modifiers"
@@ -5136,7 +5608,7 @@
 				}
 			}
 			"modifier_extra_slot_7_consume"
-			{
+			{				
 				"Attributes"	                "MODIFIER_ATTRIBUTE_PERMANENT"
 				"TextureName"	                "item_extra_slot_7"	
 				"Properties"
@@ -6676,7 +7148,138 @@
 			}
     	}
 	}
+     
+    "item_recipe_dark_moon_shard"  //暗月之晶卷轴
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"12145"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_recipe"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_dark_moon_shard"
+		"ItemRequirements"
+		{
+			"01"						"item_moon_shard;item_moon_shard;"
+		}
+	}
 
+    "item_dark_moon_shard"  //暗月之晶
+	{
+
+		"ID"							"12150"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"custom_items/dark_moon_shard"
+		"ItemKillable"					"0"
+        "ItemQuality"					"rare"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1500"
+		"ItemPurchasable"				"1"
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"SideShop"						"1"
+         
+       "AbilitySpecial"
+		{
+
+			"01"
+			{
+				"var_type"				         "FIELD_INTEGER"
+				"attack_speed"                   "100"
+			}
+           "02"
+			{
+				"var_type"				         "FIELD_INTEGER"
+				"night_vision_bonus"             "200"
+			}       
+        }
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"     "CASTER"
+				"EffectName" "Item.MoonShard.Consume"
+			}
+			"SpendCharge"
+			{}
+		    "RunScript"
+            {
+                "ScriptFile"    "scripts/vscripts/item_ability/item_dark_moon_shard.lua"
+                "Function"      "DarkMoonConsume"
+            }
+		}
+		"Modifiers"
+		{
+			"modifier_item_dark_moon_shard"
+			{
+				"Attributes"	      "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Passive"					"0"
+				"IsHidden"					"0"
+				"IsDebuff"					"0"
+				"IsPurgable"				"0"
+
+				"TextureName"				"item_dark_moon_shard"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"          "%night_vision_bonus"
+				}
+			}
+    	}
+	}
+    
+
+    "item_bag_of_gold_tws"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"12155"
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"Model"							"models/props_gameplay/gold_bag.vmdl"
+		"ItemKillable"					"0"
+		"AbilityTextureName"			"custom_items/gold_bag"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"100"
+		"AbilityCastPoint"				"0.0"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"150"
+		"ItemPurchasable"				"0"
+		"ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"ItemKillable"					"0"
+	}
 
 
 } //主函数

@@ -12,11 +12,11 @@
 		"item"		"item_ward_sentry"		
         "item"      "item_example_item"
         "item"		"item_moon_shard"
+        "item"		"item_dark_moon_shard"
         "item"      "item_pineapple"
         "item"      "item_ultimate_orb_2"
         "item"      "item_ultimate_orb_3"
         "item"      "item_ultimate_orb_4"
-        "item"      "item_ultimate_orb_5"
 	}
 
 	"attributes"
@@ -69,7 +69,8 @@
 		"item"		"item_shadow_amulet"
 		"item"		"item_energy_booster"
 		"item"		"item_vitality_booster"
-		"item"		"item_point_booster"				
+		"item"		"item_point_booster"
+		"item"      "item_ultimate_orb_5"			
 	}	
 	
 	// Level 1 - Green Recipes

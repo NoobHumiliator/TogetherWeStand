@@ -49,6 +49,12 @@
 		}
 	}
 
+   "item_gem"
+	{
+		"ItemSellable"					"1"
+	}
+
+
 
     "item_iron_talon"
 	{
@@ -1092,6 +1098,19 @@
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
+    "leshrac_lightning_storm"
+	{
+		
+		"AbilitySpecial"
+		{
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius_scepter"	    "0"
+			}	
+		}
+	}
+
 	"batrider_flaming_lasso"
 	{
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
@@ -1565,7 +1584,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				        "7"
+				"value"				        "28"
 			}
 		}
 	}
@@ -1579,7 +1598,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				        "2"
+				"value"				        "8"
 			}
 		}
 	}

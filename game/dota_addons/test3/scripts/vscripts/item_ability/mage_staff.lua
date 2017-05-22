@@ -5,19 +5,19 @@ function ApplySpValue( keys )
     local ability= keys.ability
     if caster:HasModifier("modifier_mage_staff_6_datadriven") then
       caster.sp=2.0
-      caster.manaCostIns=0.3
+      caster.manaCostIns=0.24
     elseif caster:HasModifier("modifier_mage_staff_5_datadriven") then
       caster.sp=1.8
-      caster.manaCostIns=0.27
+      caster.manaCostIns=0.22
       elseif caster:HasModifier("modifier_mage_staff_4_datadriven") then
          caster.sp=1.6
-         caster.manaCostIns=0.24
+         caster.manaCostIns=0.19
         elseif caster:HasModifier("modifier_mage_staff_3_datadriven") then
              caster.sp=1.3
-             caster.manaCostIns=0.19
+             caster.manaCostIns=0.15
            elseif caster:HasModifier("modifier_mage_staff_2_datadriven") then 
                caster.sp=1.0
-               caster.manaCostIns=0.15
+               caster.manaCostIns=0.1
              elseif caster:HasModifier("modifier_mage_staff_1_datadriven") then
                caster.sp=0.6
                caster.manaCostIns=0 
@@ -40,19 +40,19 @@ function RemoveSpValue( keys )
     local caster = keys.caster
     if caster:HasModifier("modifier_mage_staff_6_datadriven") then
        caster.sp=2.0
-       caster.manaCostIns=0.3
+       caster.manaCostIns=0.24
     elseif caster:HasModifier("modifier_mage_staff_5_datadriven") then
        caster.sp=1.8
-       caster.manaCostIns=0.27
+       caster.manaCostIns=0.22
       elseif caster:HasModifier("modifier_mage_staff_4_datadriven") then
          caster.sp=1.6
-         caster.manaCostIns=0.24
+         caster.manaCostIns=0.19
         elseif caster:HasModifier("modifier_mage_staff_3_datadriven") then
             caster.sp=1.3
-            caster.manaCostIns=0.19
+            caster.manaCostIns=0.15
            elseif caster:HasModifier("modifier_mage_staff_2_datadriven") then 
        	      caster.sp=1.0
-              caster.manaCostIns=0.15
+              caster.manaCostIns=0.1
              elseif caster:HasModifier("modifier_mage_staff_1_datadriven") then
                caster.sp=0.6
                caster.manaCostIns=0 

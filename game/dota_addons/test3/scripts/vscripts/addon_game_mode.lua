@@ -15,6 +15,8 @@ end
 
 testMode=false
 --testMode=true --减少刷兵间隔，增加初始金钱
+goldTestMode=false
+--goldTestMode=true
 
 require( "holdout_game_round" )
 require( "holdout_game_spawner" )
@@ -64,7 +66,7 @@ function Precache( context )
 
 
 	PrecacheItemByNameSync( "item_tombstone", context )
-	PrecacheItemByNameSync( "item_bag_of_gold", context )
+	PrecacheItemByNameSync( "item_bag_of_gold_tws", context )
 	PrecacheItemByNameSync( "item_skysong_blade", context )
 	PrecacheItemByNameSync( "item_slippers_of_halcyon", context )
 	PrecacheItemByNameSync( "item_greater_clarity", context )
@@ -119,8 +121,10 @@ function CHoldoutGameMode:InitGameMode()
 
 	if testMode then
 	  GameRules:SetPreGameTime( 3.0 )
-	  GameRules:SetGoldTickTime( 0.5 )
-	  GameRules:SetGoldPerTick( 10000 )
+	  if goldTestMode then
+		  GameRules:SetGoldTickTime( 0.5 )
+		  GameRules:SetGoldPerTick( 10000 )
+	  end
 	  self.nTrialSetTime=2
 	  else
 	  GameRules:SetPreGameTime( 15.0 )
@@ -646,7 +650,7 @@ function CHoldoutGameMode:_ThinkLootExpiry()
 	for _,item in pairs( Entities:FindAllByClassname( "dota_item_drop")) do
 		  local containedItem = item:GetContainedItem()	
 		  if  containedItem then
-		          if containedItem:GetAbilityName() == "item_bag_of_gold" or containedItem:GetAbilityName() == "item_rock" or item.Holdout_IsLootDrop then
+		          if containedItem:GetAbilityName() == "item_bag_of_gold_tws" or containedItem:GetAbilityName() == "item_rock" or item.Holdout_IsLootDrop then
 		             self:_ProcessItemForLootExpiry( item, flCutoffTime )
 		           end
 		    else
@@ -666,7 +670,7 @@ function CHoldoutGameMode:_ProcessItemForLootExpiry( item, flCutoffTime )
 
 	local containedItem = item:GetContainedItem()
 
-	if containedItem and containedItem:GetAbilityName() == "item_bag_of_gold" then
+	if containedItem and containedItem:GetAbilityName() == "item_bag_of_gold_tws" then
 		if self._currentRound and self._currentRound.OnGoldBagExpired then
 			self._currentRound:OnGoldBagExpired()
 		end
@@ -942,15 +946,18 @@ function CHoldoutGameMode:CheckForLootItemDrop( killedUnit )
 	end
 end
 
+
 function CHoldoutGameMode:OnItemPickUp( event ,level )
 	--PrintTable(event)
 	local item = EntIndexToHScript( event.ItemEntityIndex )
+	local owner
     if event.UnitEntityIndex then 
     	local unit=EntIndexToHScript( event.UnitEntityIndex )
     	if unit:GetUnitName()=="npc_dota_courier" then --如果是信使捡起的物品，则物品属于操作信使的人
     	   if item:GetPurchaser()==nil then
 	          local playerId=unit.nControlledPickPlayerId
 	          local hero = PlayerResource:GetSelectedHeroEntity( playerId )
+	          owner = hero
 	          --print(hero:GetUnitName())
 	          item:SetPurchaser(hero)
            end
@@ -959,13 +966,16 @@ function CHoldoutGameMode:OnItemPickUp( event ,level )
 
 
 	if event.HeroEntityIndex then
-	   local owner = EntIndexToHScript( event.HeroEntityIndex )
+	   owner = EntIndexToHScript( event.HeroEntityIndex )
+	end
+	if owner then
 	   if string.sub(event.itemname,1,20)== "item_treasure_chest_" then
-		  LootController:SpecialItemAdd(event, tonumber(string.sub(event.itemname,21,string.len(event.itemname))), #self._vRounds )
+		  LootController:SpecialItemAdd(owner, tonumber(string.sub(event.itemname,21,string.len(event.itemname))), #self._vRounds )
 		  UTIL_Remove(item)
 	   end
     end
 end
+
 
 -- Custom game specific console command "holdout_test_round"
 function CHoldoutGameMode:_TestRoundConsoleCommand( cmdName, roundNumber, delay )

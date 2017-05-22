@@ -162,12 +162,8 @@ function NormalDistribution (x,average,stdDeviation)
 end
 
 
+function LootController:SpecialItemAdd( owner, level, nMaxRoundLevel )
 
-function LootController:SpecialItemAdd( event, level, nMaxRoundLevel )
-	local item = EntIndexToHScript( event.ItemEntityIndex )
-	local owner = EntIndexToHScript( event.HeroEntityIndex )
-	local hero = owner:GetClassname()
-	local ownerTeam = owner:GetTeamNumber()
 	local addItemName=nil
 
     if bonusItems[level] ==nil or #bonusItems[level]==0 then  --如果奖励没定义 就从level/关卡数的分段里面取一个
@@ -181,4 +177,7 @@ function LootController:SpecialItemAdd( event, level, nMaxRoundLevel )
 	local particle= ParticleManager:CreateParticle("particles/neutral_fx/roshan_spawn.vpcf",PATTACH_ABSORIGIN_FOLLOW,owner)
     ParticleManager:ReleaseParticleIndex(particle)
 	EmitGlobalSound("powerup_04")
+	
 end
+
+
