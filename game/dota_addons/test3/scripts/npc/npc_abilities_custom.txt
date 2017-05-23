@@ -22637,7 +22637,7 @@
 
         "precache"
 		{
-			"particle"		"particles/items_fx/courier_shield.vpcf"
+			"particle"		"particles/items_fx/immunity_sphere_buff.vpcf"
 		}
          
 		"AbilitySpecial"
@@ -22664,8 +22664,8 @@
 			{
 				
 				"Duration"          "%invulnerable_duration"
-                "EffectName"		"particles/items_fx/courier_shield.vpcf"
-			    "EffectAttachType"	"follow_overhead"
+                "EffectName"		"particles/items_fx/immunity_sphere_buff.vpcf"
+			    "EffectAttachType"	"follow_origin"
 				"TextureName"       "courier_shield"
 				"Properties"
 				{

@@ -4766,6 +4766,64 @@
 		}
 	}
 
+
+    "item_recipe_mystic_staff_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"12042"											
+		"BaseClass"						"item_datadriven"							
+		"Model"							"models/props_gameplay/recipe.vmdl"
+        "AbilityTextureName"			"item_recipe"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_mystic_staff_4"
+		"ItemRequirements"
+		{
+			"01"						"item_mystic_staff_3;item_mystic_staff_3;item_mystic_staff_3"
+		}
+    }
+
+    "item_mystic_staff_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"12043"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"				        "item_mystic_staff"
+        "AbilityTextureName" 			"custom_items/mystic_staff_4"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"129000"
+		"ItemShopTags"					"int"
+		"ItemQuality"					"secret_shop"
+		"ItemAliases"					"mystic staff"
+		"SecretShop"					"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"2020"
+			}
+		}
+	}
+
+
+
+
+
+
+
     "item_slippers_of_halcyon_2"
 	{
 		"ID"							"12031"
@@ -7250,6 +7308,7 @@
 	}
     
 
+
     "item_bag_of_gold_tws"
 	{
 		// General
@@ -7280,6 +7339,553 @@
 		"ItemInitialCharges"			"1"
 		"ItemKillable"					"0"
 	}
+     
+
+    "item_recipe_mage_shield_1"  //法师护盾
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"12160"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_recipe"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_mage_shield_1"
+		"ItemRequirements"
+		{
+			"01"						"item_sphere;item_mystic_staff;item_void_stone"
+		}
+	}
+
+
+    "item_mage_shield_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"12165"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName" 		    "custom_items/mage_shield_1"
+		"Model"							"models/props_gameplay/red_box.vmdl" 
+        "AbilityBehavior"		         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+         
+       	"AbilityManaCost"               "0"
+		"AbilityCastPoint"              "0.0"
+		"AbilityCooldown"               "26 18 12 8"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"					    "8400"
+        "ItemPurchasable"				"1"
+        "ItemBaseLevel"			        "1"
+        "MaxUpgradeLevel"				"4"
+		"ItemShopTags"					"int;attack_speed;damage;regen_mana;damage;hard_to_tag"
+		"ItemQuality"					"rare"
+        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemAliases"					"orchid malevolence"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		
+		"precache"
+	     {
+			"particle"               "particles/items_fx/immunity_sphere_buff.vpcf"                    
+	     }
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+	    {
+	    	"01"
+		    {
+				"var_type"						"FIELD_FLOAT"
+				"damage_per_mana"	            "2 4 6 6"
+		    }
+	    	"02"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"duration"	                    "11"
+		    }
+		    "03"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"bonus_str"	                    "20 80 320 1200"
+		    }
+		    "04"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"bonus_agi"                 	"20 80 320 1200"
+		    }
+		    "05"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"bonus_int"	                    "40 160 640 2560"
+		    }
+		    "05"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"bonus_mana_regen"	            "150 450 1350 4250"
+		    }   
+	    }
+        "OnSpellStart"
+	    {
+	    	"FireSound"
+		    {
+				"EffectName"	"DOTA_Item.LinkensSphere.Activate"
+				"Target" 		"CASTER"
+		    }
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_mage_shield_1_active"
+	    		"Target" 		"CASTER"
+	    	}
+		}
+
+	"Modifiers"
+	{
+		"modifier_mage_shield_1_passive"
+		{
+			"IsBuff"	             "1"
+			"Passive"                "1"
+			"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"IsHidden"               "1"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"        "%bonus_str"
+				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"         "%bonus_agi"
+				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"       "%bonus_int"
+				"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"       "%bonus_mana_regen"
+			}
+		}
+
+		"modifier_mage_shield_1_active"
+		{
+			"Duration"	    "%duration"
+			"IsBuff"        "1"
+			"IsHidden"	    "0"
+            "TextureName"			        "item_mage_shield_1"
+            "EffectName"                    "particles/items_fx/immunity_sphere_buff.vpcf"
+			"EffectAttachType"              "follow_origin"
+
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MIN_HEALTH"                  "1"
+			}
+		}
+	}					
+  }	
+  
+
+  "item_recipe_mage_shield_2"  //法师护盾
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"12170"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_recipe"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_mage_shield_2"
+		"ItemRequirements"
+		{
+			"01"						"item_mage_shield_1;item_mystic_staff_2;item_ultimate_orb_2"
+		}
+	}
+
+
+    "item_mage_shield_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"12175"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName" 		    "custom_items/mage_shield_2"
+		"Model"							"models/props_gameplay/red_box.vmdl" 
+        "AbilityBehavior"		         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+         
+       	"AbilityManaCost"               "0"
+		"AbilityCastPoint"              "0.0"
+		"AbilityCooldown"               "26 18 12 8"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"					    "26700"
+        "ItemPurchasable"				"1"
+        "ItemBaseLevel"			        "2"
+        "MaxUpgradeLevel"				"4"
+		"ItemShopTags"					"int;attack_speed;damage;regen_mana;damage;hard_to_tag"
+		"ItemQuality"					"epic"
+        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemAliases"					"orchid malevolence"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		
+		"precache"
+	     {
+			"particle"               "particles/items_fx/immunity_sphere_buff.vpcf"                 
+	     }
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+	    {
+	    	"01"
+		    {
+				"var_type"						"FIELD_FLOAT"
+				"damage_per_mana"	            "2 4 6 6"
+		    }
+	    	"02"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"duration"	                    "11"
+		    }
+		    "03"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"bonus_str"	                    "20 80 320 1200"
+		    }
+		    "04"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"bonus_agi"                 	"20 80 320 1200"
+		    }
+		    "05"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"bonus_int"	                    "40 160 640 2560"
+		    }
+		    "05"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"bonus_mana_regen"	            "150 450 1350 4250"
+		    }	   
+	    }
+        "OnSpellStart"
+	    {
+	    	"FireSound"
+		    {
+				"EffectName"	"DOTA_Item.LinkensSphere.Activate"
+				"Target" 		"CASTER"
+		    }
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_mage_shield_2_active"
+	    		"Target" 		"CASTER"
+	    	}
+		}
+
+	"Modifiers"
+	{
+		"modifier_mage_shield_2_passive"
+		{
+			"IsBuff"	             "1"
+			"Passive"                "1"
+			"Attributes"          	"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"IsHidden"               "1"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"        "%bonus_str"
+				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"         "%bonus_agi"
+				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"       "%bonus_int"
+				"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"       "%bonus_mana_regen"
+			}
+		}
+
+		"modifier_mage_shield_2_active"
+		{
+			"Duration"	    "%duration"
+			"IsBuff"        "1"
+			"IsHidden"	    "0"
+            "TextureName"			        "item_mage_shield_2"
+            "EffectName"                    "particles/items_fx/immunity_sphere_buff.vpcf"
+			"EffectAttachType"              "follow_origin"
+
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MIN_HEALTH"                  "1"
+			}
+		}
+	}					
+  }	
+  
+
+  "item_recipe_mage_shield_3"  //法师护盾
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"12180"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_recipe"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_mage_shield_3"
+		"ItemRequirements"
+		{
+			"01"						"item_mage_shield_2;item_mystic_staff_3;item_ultimate_orb_3"
+		}
+	}
+
+
+    "item_mage_shield_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"12185"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName" 		    "custom_items/mage_shield_3"
+		"Model"							"models/props_gameplay/red_box.vmdl" 
+        "AbilityBehavior"		         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+         
+       	"AbilityManaCost"               "0"
+		"AbilityCastPoint"              "0.0"
+		"AbilityCooldown"               "26 18 12 8"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"					    "96700"
+        "ItemPurchasable"				"1"
+        "ItemBaseLevel"			        "3"
+        "MaxUpgradeLevel"				"4"
+		"ItemShopTags"					"int;attack_speed;damage;regen_mana;damage;hard_to_tag"
+		"ItemQuality"					"epic"
+        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemAliases"					"orchid malevolence"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		
+		"precache"
+	     {
+			"particle"               "particles/items_fx/immunity_sphere_buff.vpcf"                 
+	     }
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+	    {
+	    	"01"
+		    {
+				"var_type"						"FIELD_FLOAT"
+				"damage_per_mana"	            "2 4 6 6"
+		    }
+	    	"02"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"duration"	                    "11"
+		    }
+		    "03"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"bonus_str"	                    "20 80 320 1200"
+		    }
+		    "04"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"bonus_agi"                 	"20 80 320 1200"
+		    }
+		    "05"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"bonus_int"	                    "40 160 640 2560"
+		    }
+		    "05"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"bonus_mana_regen"	            "150 450 1350 4250"
+		    }	   
+	    }
+        "OnSpellStart"
+	    {
+	    	"FireSound"
+		    {
+				"EffectName"	"DOTA_Item.LinkensSphere.Activate"
+				"Target" 		"CASTER"
+		    }
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_mage_shield_3_active"
+	    		"Target" 		"CASTER"
+	    	}
+		}
+
+	"Modifiers"
+	{
+		"modifier_mage_shield_3_passive"
+		{
+			"IsBuff"	             "1"
+			"Passive"                "1"
+			"Attributes"          	"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"IsHidden"               "1"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"        "%bonus_str"
+				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"         "%bonus_agi"
+				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"       "%bonus_int"
+				"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"       "%bonus_mana_regen"
+			}
+		}
+
+		"modifier_mage_shield_3_active"
+		{
+			"Duration"	    "%duration"
+			"IsBuff"        "1"
+			"IsHidden"	    "0"
+            "TextureName"			"item_mage_shield_3"
+             "EffectName"                    "particles/items_fx/immunity_sphere_buff.vpcf"
+			"EffectAttachType"              "follow_origin"   
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MIN_HEALTH"                  "1"
+			}
+		}
+	}					
+  }	
+
+  "item_recipe_mage_shield_4"  //法师护盾
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"12190"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_recipe"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_mage_shield_4"
+		"ItemRequirements"
+		{
+			"01"						"item_mage_shield_3;item_mystic_staff_4;item_ultimate_orb_3"
+		}
+	}
+
+
+    "item_mage_shield_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"12195"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName" 		    "custom_items/mage_shield_4"
+		"Model"							"models/props_gameplay/red_box.vmdl" 
+        "AbilityBehavior"		         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+         
+       	"AbilityManaCost"               "0"
+		"AbilityCastPoint"              "0.0"
+		"AbilityCooldown"               "26 18 12 8"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"					    "252700"
+        "ItemPurchasable"				"1"
+        "ItemBaseLevel"			        "4"
+        "MaxUpgradeLevel"				"4"
+		"ItemShopTags"					"int;attack_speed;damage;regen_mana;damage;hard_to_tag"
+		"ItemQuality"					"epic"
+        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemAliases"					"orchid malevolence"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		
+		"precache"
+	     {
+			"particle"               "particles/items_fx/immunity_sphere_buff.vpcf"                 
+	     }
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+	    {
+	    	"01"
+		    {
+				"var_type"						"FIELD_FLOAT"
+				"damage_per_mana"	            "2 4 6 6"
+		    }
+	    	"02"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"duration"	                    "11"
+		    }
+		    "03"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"bonus_str"	                    "20 80 320 1200"
+		    }
+		    "04"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"bonus_agi"                 	"20 80 320 1200"
+		    }
+		    "05"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"bonus_int"	                    "40 160 640 2560"
+		    }
+		    "05"
+		    {
+				"var_type"						"FIELD_INTEGER"
+				"bonus_mana_regen"	            "150 450 1350 4250"
+		    }	   
+	    }
+        "OnSpellStart"
+	    {
+	    	"FireSound"
+		    {
+				"EffectName"	"DOTA_Item.LinkensSphere.Activate"
+				"Target" 		"CASTER"
+		    }
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_mage_shield_4_active"
+	    		"Target" 		"CASTER"
+	    	}
+		}
+
+	"Modifiers"
+	{
+		"modifier_mage_shield_4_passive"
+		{
+			"IsBuff"	             "1"
+			"Passive"                "1"
+			"Attributes"          	"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"IsHidden"               "1"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"        "%bonus_str"
+				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"         "%bonus_agi"
+				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"       "%bonus_int"
+				"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"       "%bonus_mana_regen"
+			}
+		}
+
+		"modifier_mage_shield_4_active"
+		{
+			"Duration"	    "%duration"
+			"IsBuff"        "1"
+			"IsHidden"	    "0"
+            "TextureName"			"item_mage_shield_4"
+            "EffectName"                    "particles/items_fx/immunity_sphere_buff.vpcf"
+			"EffectAttachType"              "follow_origin"   
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MIN_HEALTH"                  "1"
+			}
+		}
+	}					
+  }	
+
+
 
 
 } //主函数

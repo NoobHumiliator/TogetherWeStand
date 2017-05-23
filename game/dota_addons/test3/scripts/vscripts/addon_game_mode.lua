@@ -14,7 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
---testMode=true --减少刷兵间隔，增加初始金钱
+testMode=true --减少刷兵间隔，增加初始金钱
 goldTestMode=false
 --goldTestMode=true --需要测试金币相关的内容
 
@@ -73,6 +73,7 @@ function Precache( context )
 	PrecacheItemByNameSync( "item_unholy", context )
 	PrecacheItemByNameSync( "item_fallen_sword", context )
 	PrecacheItemByNameSync( "item_redblade_armor", context )
+	PrecacheItemByNameSync( "item_mage_shield_1", context )
 	PrecacheItemByNameSync( "item_treasure_chest_1", context )
 	PrecacheItemByNameSync( "item_treasure_chest_2", context )
 	PrecacheItemByNameSync( "item_treasure_chest_3", context )
@@ -89,6 +90,7 @@ end
 function CHoldoutGameMode:InitGameMode()
 
     GameRules:GetGameModeEntity().CHoldoutGameMode = self
+    GameRules:GetGameModeEntity().vCouriers={} --存下所有信使的指针
     LinkLuaModifier("modifier_increase_total_damage_lua", "abilities/modifier_increase_total_damage_lua", LUA_MODIFIER_MOTION_NONE )
 	Timers:start()
 	LootController:ReadConfigration() 
@@ -512,6 +514,11 @@ function CHoldoutGameMode:_RefreshPlayers()
 			end
 		end
 	end
+    for _,courier in pairs(GameRules:GetGameModeEntity().vCouriers) do
+    	if  not courier:IsAlive() then
+    		--courier:RespawnUnit()
+    	end
+    end
 end
 
 function CHoldoutGameMode:_GrantMulberry()  --给予桑葚
@@ -701,11 +708,16 @@ function CHoldoutGameMode:OnNPCSpawned( event )
 	end
 
     if  spawnedUnit~=nil and not spawnedUnit:IsNull()  then
+        if spawnedUnit:GetUnitName()=="npc_dota_courier" then
+        	table.insert(GameRules:GetGameModeEntity().vCouriers,spawnedUnit)  --存下信使的句柄
+        end
+         
     	if spawnedUnit:IsSummoned() and not spawnedUnit:IsRealHero() then
     	   spawnedUnit:AddNewModifier(nil,nil,"modifier_invulnerable",{duration=0.35})
     	end
     end
     
+
 	Timers:CreateTimer({
 		endTime = 0.3, 
 		callback = function()

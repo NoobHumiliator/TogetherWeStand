@@ -167,7 +167,7 @@
 		"item"		"item_greater_crit"
 		"item"		"item_butterfly"
 		"item"		"item_rapier1_datadriven"
-		"item"		"item_abyssal_blade"
+		"item"		"item_mage_shield_1"
 		"item"      "item_healer_3"			
 	}
 		
