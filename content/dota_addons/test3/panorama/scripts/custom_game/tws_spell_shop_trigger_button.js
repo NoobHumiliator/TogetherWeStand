@@ -28,7 +28,11 @@ function FixSpellShopPosition()
     //1.33  4:3
     //$.Msg(width/height)
     var radio=width/height
-    if (1.7<radio)
+    if (2.0<radio)
+    {
+        $("#triggerButtonPanel").style.position="1750px 1020px 0"
+    }
+    if (1.7<radio<2.0)
     {
     	$("#triggerButtonPanel").style.position="1500px 1020px 0"
     }

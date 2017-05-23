@@ -26,7 +26,7 @@ function HookItems( keys )
              Timers:CreateTimer(time, 
               function()
                   local containedItem = drop_item:GetContainedItem()        
-                  if caster:GetUnitName()=="npc_dota_courier" and caster.nControlledPickPlayerId  and  string.sub(containedItem:GetName(),1,20)~= "item_treasure_chest_" then --如果是信使，且不是宝箱
+                  if caster:GetUnitName()=="npc_dota_courier" and caster.nControlledPickPlayerId  and  string.sub(containedItem:GetName(),1,20)~= "item_treasure_chest_" and containedItem:GetName()~="item_bag_of_gold_tws"  then --如果是信使，且不是宝箱,或者金币
                      if containedItem:GetPurchaser()==nil then
                         local playerId=caster.nControlledPickPlayerId
                         local hero = PlayerResource:GetSelectedHeroEntity( playerId )
@@ -35,7 +35,23 @@ function HookItems( keys )
                           --UTIL_Remove( containedItem )
                           UTIL_Remove( drop_item )
                        end
-                  end      
+                  end
+                  if caster:GetUnitName()=="npc_dota_courier" and caster.nControlledPickPlayerId  and containedItem:GetName()=="item_bag_of_gold_tws"  then --如果是金币                    
+                     local totalValue=containedItem:GetCurrentCharges()
+                     local playerNumber=GameRules:GetGameModeEntity().Palyer_Number
+                     local value=math.ceil(totalValue/playerNumber)
+                     for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
+                        if PlayerResource:IsValidPlayer( nPlayerID ) then
+                          if PlayerResource:HasSelectedHero( nPlayerID ) then
+                            local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
+                            SendOverheadEventMessage( hero, OVERHEAD_ALERT_GOLD, hero, value, nil )
+                            PlayerResource:ModifyGold(nPlayerID,value,true,DOTA_ModifyGold_Unspecified)
+                          end
+                        end
+                     end
+                     UTIL_Remove(containedItem)              
+                     UTIL_Remove( drop_item )
+                  end                  
               end)
    end
 end

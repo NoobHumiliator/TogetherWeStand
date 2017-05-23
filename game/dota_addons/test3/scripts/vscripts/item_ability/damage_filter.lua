@@ -160,6 +160,59 @@ function CHoldoutGameMode:DamageFilter(damageTable)
               end
             end
         end
+
+         if victim and victim:HasModifier("modifier_mage_shield_1") then  --如果有法术护盾
+            if damageTable.damage>=victim:GetHealth() then  --无法将血量扣除小于1
+               local overDamage=damageTable.damage-victim:GetHealth() --过量伤害
+               caster:ReduceMana(overDamage*5)
+               if caster:GetMana()<1 then
+                  caster:RemoveModifierByName("modifier_mage_shield_1")
+                  return true
+               else
+                  return false
+               end
+            end
+         end
+
+         if victim and victim:HasModifier("modifier_mage_shield_2") then  --如果有法术护盾
+            if damageTable.damage>=victim:GetHealth() then  --无法将血量扣除小于1
+               local overDamage=damageTable.damage-victim:GetHealth() --过量伤害
+               caster:ReduceMana(overDamage*4)
+               if caster:GetMana()<1 then
+                  caster:RemoveModifierByName("modifier_mage_shield_2")
+                  return true
+               else
+                  return false
+               end
+            end
+         end
+
+         if victim and victim:HasModifier("modifier_mage_shield_3") then  --如果有法术护盾
+            if damageTable.damage>=victim:GetHealth() then  --无法将血量扣除小于1
+               local overDamage=damageTable.damage-victim:GetHealth() --过量伤害
+               caster:ReduceMana(overDamage*3)
+               if caster:GetMana()<1 then
+                  caster:RemoveModifierByName("modifier_mage_shield_3")
+                  return true
+               else
+                  return false
+               end
+            end
+         end
+        
+         if victim and victim:HasModifier("modifier_mage_shield_4") then  --如果有法术护盾
+            if damageTable.damage>=victim:GetHealth() then  --无法将血量扣除小于1
+               local overDamage=damageTable.damage-victim:GetHealth() --过量伤害
+               caster:ReduceMana(overDamage*3)
+               if caster:GetMana()<1 then
+                  caster:RemoveModifierByName("modifier_mage_shield_4")
+                  return true
+               else
+                  return false
+               end
+            end
+         end
+
      end
    end
 
