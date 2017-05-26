@@ -25,6 +25,7 @@ function Unholy( event )
           local damageTable = {victim=unit,
                         attacker=caster,
                         damage_type=DAMAGE_TYPE_PURE,
+                        damage_flags = DOTA_DAMAGE_FLAG_HPLOSS,
                         damage=damage}
           ApplyDamage(damageTable)
           if not unit:IsNull() and unit:IsAlive() then

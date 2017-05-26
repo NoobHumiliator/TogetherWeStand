@@ -4429,7 +4429,7 @@
 	{
 		"round_title"				"#DOTA_Holdout_Round_Faceless_Title"
 		"MaxGold"					"16000"
-		"BagCount"					"0"
+		"BagCount"					"12"
 		"BagVariance"				"0"
 		"FixedXP"					"8000"
 		"alias"                     "faceless"
@@ -4469,6 +4469,64 @@
 			"NPCName"				"npc_dota_faceless_monster"
 			"TotalUnitsToSpawn"		"2"
 			"UnitsPerSpawn"			"2"		
+		}
+	}
+	"Round26"
+	{
+		"round_title"				"#DOTA_Holdout_Round_TA_Title"
+		"MaxGold"					"16000"
+		"BagCount"					"6"
+		"BagVariance"				"0"
+		"FixedXP"					"9000"
+		"alias"                     "refraction"
+		"ExpectedGold"              "20000"
+		"Unit1"
+		{
+			"NPCName"				"npc_dota_templar_assassin"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"Unit2"
+		{
+			"NPCName"				"npc_dota_templar_assassin"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"Unit3"
+		{
+			"NPCName"				"npc_dota_templar_assassin"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"Unit4"
+		{
+			"NPCName"				"npc_dota_templar_assassin"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"Unit5"
+		{
+			"NPCName"				"npc_dota_templar_assassin"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"Unit6"
+		{
+			"NPCName"				"npc_dota_templar_assassin"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"Unit7"
+		{
+			"NPCName"				"npc_dota_templar_assassin"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"Unit8"
+		{
+			"NPCName"				"npc_dota_templar_assassin"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
 		}
 	}
 }

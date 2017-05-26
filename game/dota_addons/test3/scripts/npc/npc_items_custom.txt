@@ -1721,7 +1721,6 @@
 				"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE"         "%cool_down_reduce"
 				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "%movement_speed_percentange"
 				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed_bonus"
-				"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"  "%incoming_damage"
 				"MODIFIER_PROPERTY_MOVESPEED_LIMIT"             "%max_movement_speed"
 			}
 		}
@@ -6645,6 +6644,7 @@
 		"ItemStackable"					"0"
 		"ItemCastOnPickup" 				"1"	
 		"ItemPurchasable"				"0"
+		"IsTempestDoubleClonable"		"0"
 		
 		"precache"
 		{
@@ -6699,6 +6699,7 @@
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
 		"SideShop"						"1"
+        "IsTempestDoubleClonable"		"0"
 
 		"OnSpellStart"
 		{
@@ -6769,6 +6770,7 @@
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
 		"SideShop"						"1"
+        "IsTempestDoubleClonable"		"0"
 
 		"OnSpellStart"
 		{
@@ -6837,7 +6839,7 @@
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
-		
+		"IsTempestDoubleClonable"		"0"
 		"SideShop"						"1"
 
 		"OnSpellStart"
@@ -6907,7 +6909,7 @@
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
-		
+		"IsTempestDoubleClonable"		"0"
 		"SideShop"						"1"
 
 		"OnSpellStart"
@@ -6976,7 +6978,7 @@
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
-		
+		"IsTempestDoubleClonable"		"0"
 		"SideShop"						"1"
 
 		"OnSpellStart"
@@ -7045,7 +7047,7 @@
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
-		
+		"IsTempestDoubleClonable"		"0"
 		"SideShop"						"1"
 
 		"OnSpellStart"
@@ -7117,6 +7119,7 @@
 		"ItemInitialCharges"			"1"
 		
 		"SideShop"						"1"
+		"IsTempestDoubleClonable"		"0"
 
 		"OnSpellStart"
 		{
@@ -7181,6 +7184,7 @@
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
 		"SideShop"						"1"
+		"IsTempestDoubleClonable"		"0"
 
 		"OnSpellStart"
 		{
@@ -7255,6 +7259,7 @@
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
 		"SideShop"						"1"
+		"IsTempestDoubleClonable"		"0"
          
        "AbilitySpecial"
 		{

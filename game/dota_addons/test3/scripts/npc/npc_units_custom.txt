@@ -13342,6 +13342,116 @@
 		}
 	}
 
+    "npc_dota_templar_assassin"
+	{
+		// General
+		//
+		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
+		"Model"						"models/heroes/lanaya/lanaya.vmdl"	// Model.
+	    "ModelScale"			    "1"
+		"Level"						"28"
 
+		"ConsideredHero"			"1"
+	    "CanBeDominated"			"0"
+	    "IsAncient"					"0"
+		
+		"MinimapIcon"				"minimap_ancient"
+		"MinimapIconSize"			"200"
+		
+		"SoundSet"		            "Hero_Winter_Wyvern"
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_templar_assassin.vsndevts"
+		"VoiceFile"				    "soundevents/voscripts/game_sounds_vo_templar_assassin.vsndevts"
+
+		// Inventory
+		//----------------------------------------------------------------
+		"HasInventory"				"1"
+		
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"			    "4"
+		"Ability1"					"ta_refraction_datadriven"   // Ability 1.
+		"Ability2"					"" // Ability 2.
+		"Ability3"					""			    // Ability 3.
+		"Ability4"					""			    // Ability 4.
+        "Ability5"				    ""			// Ability 4.
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"40"			// Physical protection.
+		"MagicalResistance"			"25"		    // Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"	    "DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"10"		// Damage range min.
+		"AttackDamageMax"			"10"		// Damage range max.
+		"AttackRate"				"1.2"		// Speed of attack.
+		"AttackAnimationPoint"	    "0.2"		// Normalized time in animation cycle to attack.
+		"AttackRange"				"250"		// Range within a target can be attacked.
+        "ProjectileModel"			"particles/units/heroes/hero_templar_assassin/templar_assassin_base_attack.vpcf" // Particle system model for projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"				    "0"		// Experience earn.
+		"BountyGoldMin"				"150"		// Gold earned min.
+		"BountyGoldMax"				"150"		// Gold earned max.
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"300"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"	
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"	    "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"475"		// Speed
+		"MovementTurnRate"			"0.3"		// Turning rate.
+
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"18000"		// Base health.
+		"StatusHealthRegen"			"20.0"		// Health regeneration rate.
+		"StatusMana"				"5000"			// Base mana.
+		"StatusManaRegen"			"150"			// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
+
+        "vscripts"					"creature_ai/zombie_ai.lua"
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"		
+			"DisableResistance"			"90"
+	        "AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"4697"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"4696"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"4695"
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"514"
+				}
+			}	
+		}
+	}
 
 }  //主括号

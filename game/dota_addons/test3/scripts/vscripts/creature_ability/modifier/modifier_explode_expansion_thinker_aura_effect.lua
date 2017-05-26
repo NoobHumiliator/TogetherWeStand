@@ -10,7 +10,7 @@ end
 
 function modifier_explode_expansion_thinker_aura_effect:OnCreated( kv )
 	if self:GetParent() and self:GetParent().IsAlive and self:GetParent():IsAlive() then
-	  self.damage_per_tick = self:GetParent():GetMaxHealth()*0.004  
+	  self.damage_per_tick = self:GetParent():GetMaxHealth()*0.0035  
     end
 	self:StartIntervalThink(0.1)
 end
@@ -20,7 +20,7 @@ end
 function modifier_explode_expansion_thinker_aura_effect:OnRefresh( kv )
 	
 	if self:GetParent() and self:GetParent():IsAlive() then
-	  self.damage_per_tick = self:GetParent():GetMaxHealth()*0.004   
+	  self.damage_per_tick = self:GetParent():GetMaxHealth()*0.0035   
     end
 
 end
@@ -34,11 +34,12 @@ function modifier_explode_expansion_thinker_aura_effect:OnIntervalThink()
             attacker=self:GetCaster(),
             damage_type=DAMAGE_TYPE_PURE,
             damage=self.damage_per_tick,
+            damage_flags=DOTA_DAMAGE_FLAG_HPLOSS,
             ability = self:GetAbility()
         }
         
         ApplyDamage(damageTable)
-        self:GetParent():ReduceMana(50)
+        self:GetParent():ReduceMana(60)
 
         EmitSoundOn( "Hero_Alchemist.AcidSpray.Damage", self:GetParent() )
 	end

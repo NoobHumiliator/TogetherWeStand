@@ -17,7 +17,7 @@ sp_exempt_table["abyssal_underlord_firestorm"]=true
 sp_exempt_table["zuus_static_field_datadriven"]=true
 sp_exempt_table["spectre_dispersion_datadriven"]=true
 sp_exempt_table["item_blade_mail"]=true
-
+sp_exempt_table["witch_doctor_maledict"]=true
 
 re_table={} --反伤类技能  折射直接扣生命 单独处理
 re_table["tiny_craggy_exterior"]=true
@@ -118,6 +118,13 @@ function CHoldoutGameMode:DamageFilter(damageTable)
                  return false
               end
           end
+
+          if victim and victim:HasModifier("modifier_refraction_affect") then  --如果有折光，移除一层此伤害不起作用
+              local refractionAbility=victim:FindAbilityByName("ta_refraction_datadriven")
+              RemoveModifierOneStack(victim,"modifier_refraction_affect",refractionAbility) 
+              return false
+          end
+
     end
     if attacker:GetTeam()==DOTA_TEAM_BADGUYS then
 
