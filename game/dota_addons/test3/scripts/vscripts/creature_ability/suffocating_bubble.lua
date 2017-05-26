@@ -34,6 +34,7 @@ function BubbleDamage( keys )
             victim=target,
             attacker=caster,
             damage_type=DAMAGE_TYPE_PURE,
+            damage_flag=DOTA_DAMAGE_FLAG_HPLOSS,
             damage=target.suffocating_bubble_damage
         }
         ApplyDamage(damageTable)
