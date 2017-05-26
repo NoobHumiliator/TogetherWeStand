@@ -7914,6 +7914,7 @@
 		"ItemStockMax"					"2"
 		"ItemStockInitial"				"0"
 		"ItemStockTime"					"7200"
+		"IsTempestDoubleClonable"		"0"
         
         "precache"
         {
@@ -7973,6 +7974,7 @@
 		"ItemStockMax"					"2"
 		"ItemStockInitial"				"0"
 		"ItemStockTime"					"7200"
+		"IsTempestDoubleClonable"		"0"
         
         "precache"
         {
