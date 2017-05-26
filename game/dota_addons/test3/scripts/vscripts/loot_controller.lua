@@ -8,7 +8,7 @@ end
 bonusItems={
 
 	{
-		"item_unholy"    --1
+		"item_trail_tablet_1" --1
 	},
 	{
 	   "item_fallen_sword"  --2
@@ -20,7 +20,7 @@ bonusItems={
 		"item_bloodsipper"   --4
 	}, 
 	{   
-		--5
+		"item_unholy"        --5
 	},
     {
 		"item_water_sword"  --6
@@ -33,6 +33,15 @@ bonusItems={
 	},
 	{
 		--9
+	},
+	{
+		--10
+	},
+	{
+        --11
+	}, 
+	{
+		"item_trail_tablet_2" --12
 	}
 }
 
@@ -173,7 +182,19 @@ function LootController:SpecialItemAdd( owner, level, nMaxRoundLevel )
 	  local possibleItems= bonusItems[level]	
 	  addItemName= PickRandom(possibleItems) 
     end
-    owner:AddItemByName( addItemName )
+    if string.find(addItemName,"item_trail_tablet") then  --如果是试炼符
+       local hItem=CreateItem(addItemName,owner,owner)
+       if GameRules:GetGameModeEntity().CHoldoutGameMode.map_difficulty ==1 then
+       	  hItem:SetCurrentCharges(10)
+       elseif GameRules:GetGameModeEntity().CHoldoutGameMode.map_difficulty ==2 then
+       	  hItem:SetCurrentCharges(3)
+       elseif GameRules:GetGameModeEntity().CHoldoutGameMode.map_difficulty >=3 then
+          hItem:SetCurrentCharges(1)
+       end
+       owner:AddItem(hItem)
+    else
+       owner:AddItemByName( addItemName )
+    end
 	local particle= ParticleManager:CreateParticle("particles/neutral_fx/roshan_spawn.vpcf",PATTACH_ABSORIGIN_FOLLOW,owner)
     ParticleManager:ReleaseParticleIndex(particle)
 	EmitGlobalSound("powerup_04")

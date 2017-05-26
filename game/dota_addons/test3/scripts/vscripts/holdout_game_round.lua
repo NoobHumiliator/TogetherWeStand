@@ -39,6 +39,7 @@ function CHoldoutGameRound:ReadConfiguration( kv, gameMode, roundNumber )
 	self._nBagVariance = tonumber( kv.BagVariance or 0 )
 	self._nFixedXP = tonumber( kv.FixedXP or 0 )
 	self._nItemDropNum = tonumber( kv.ItemDropNum or 7 )  --单人玩家一关默认掉落7件物品 ，5人21件
+	self._nExpectedGold = tonumber( kv.ExpectedGold or 0 )  --预计本关可以取得的金钱
  	self._vSpawners = {}
 	self._totalCreatureNum=0
 	self._environmentcontroller= EnvironmentController()

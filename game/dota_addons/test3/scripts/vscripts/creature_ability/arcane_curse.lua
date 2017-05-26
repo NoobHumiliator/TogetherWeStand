@@ -24,7 +24,7 @@ function AddStack( keys )
          --print("stack_count"..bullets_count)
          bullets_count=bullets_count+1
 
-         if  bullets_count>9  and GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag==true then
+         if  bullets_count>8  and GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag==true then
               if target:IsRealHero() then
                 QuestSystem:RefreshAchQuest("Achievement",0,1) 
                 GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag=false

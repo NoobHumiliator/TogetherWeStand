@@ -6694,7 +6694,7 @@
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
-		"ItemPurchasable"				"1"
+		"ItemPurchasable"				"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
@@ -7329,7 +7329,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"500"
+		"ItemCost"						"10"
 		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
@@ -7377,7 +7377,7 @@
          
        	"AbilityManaCost"               "0"
 		"AbilityCastPoint"              "0.0"
-		"AbilityCooldown"               "26 18 12 8"
+		"AbilityCooldown"               "22 16 12 10"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"					    "8400"
@@ -7514,7 +7514,7 @@
          
        	"AbilityManaCost"               "0"
 		"AbilityCastPoint"              "0.0"
-		"AbilityCooldown"               "26 18 12 8"
+		"AbilityCooldown"               "22 16 12 10"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"					    "26700"
@@ -7651,7 +7651,7 @@
          
        	"AbilityManaCost"               "0"
 		"AbilityCastPoint"              "0.0"
-		"AbilityCooldown"               "26 18 12 8"
+		"AbilityCooldown"               "22 16 12 10"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"					    "96700"
@@ -7786,7 +7786,7 @@
          
        	"AbilityManaCost"               "0"
 		"AbilityCastPoint"              "0.0"
-		"AbilityCooldown"               "26 18 12 8"
+		"AbilityCooldown"               "22 16 12 10"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"					    "252700"
@@ -7885,7 +7885,122 @@
 	}					
   }	
 
+ "item_trail_tablet_1"
+  {
+		"ID"							"12200"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"Model"							"models/props_gameplay/salve_blue.vmdl"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"custom_items/trail_tablet_1"
+		"ItemKillable"					"0"
 
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"100"
+		"ItemPurchasable"				"0"
+		"ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"SideShop"						"0"
+		"ItemStockMax"					"2"
+		"ItemStockInitial"				"0"
+		"ItemStockTime"					"7200"
+        
+        "precache"
+        {
+        	"particle"  "particles/econ/items/wisp/wisp_relocate_teleport_ti7.vpcf"       
+        }
 
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"     "CASTER"
+				"EffectName" "DOTA_Item.FaerieSpark.Activate"
+			}
+			"FireEffect"
+			{
+				"EffectName"        "particles/econ/items/wisp/wisp_relocate_teleport_ti7.vpcf"
+				"EffectAttachType"  "follow_customorigin"
+	            "Target"            "CASTER"
+			}
+			"SpendCharge"
+			{}
+		    "RunScript"
+            {
+                "ScriptFile"    "scripts/vscripts/item_ability/item_trail_tablet.lua"
+                "Function"      "RecordSkipRound"
+                "level"         "1"
+            }
+		}
+   }
+   
+  "item_trail_tablet_2"
+  {
+		"ID"							"12205"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"Model"							"models/props_gameplay/salve_blue.vmdl"
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"custom_items/trail_tablet_2"
+		"ItemKillable"					"0"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"100"
+		"ItemPurchasable"				"0"
+		"ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"SideShop"						"0"
+		"ItemStockMax"					"2"
+		"ItemStockInitial"				"0"
+		"ItemStockTime"					"7200"
+        
+        "precache"
+        {
+        	"particle"  "particles/econ/items/wisp/wisp_relocate_teleport_ti7.vpcf"       
+        }
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"     "CASTER"
+				"EffectName" "DOTA_Item.FaerieSpark.Activate"
+			}
+			"FireEffect"
+			{
+				"EffectName"        "particles/econ/items/wisp/wisp_relocate_teleport_ti7.vpcf"
+				"EffectAttachType"  "follow_customorigin"
+	            "Target"            "CASTER"
+			}
+			"SpendCharge"
+			{}
+		    "RunScript"
+            {
+                "ScriptFile"    "scripts/vscripts/item_ability/item_trail_tablet.lua"
+                "Function"      "RecordSkipRound"
+                "level"         "2"
+            }
+		}
+   }
 
 } //主函数

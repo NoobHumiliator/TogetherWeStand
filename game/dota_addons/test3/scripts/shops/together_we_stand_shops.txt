@@ -239,5 +239,6 @@
 		"item"		"item_eagle"
 		"item"		"item_reaver_2"
 		"item"		"item_reaver_3"
+		"item"      "item_trail_tablet_1"
 	}	
 }

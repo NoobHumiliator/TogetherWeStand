@@ -14,7 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
-testMode=true --减少刷兵间隔，增加初始金钱
+--testMode=true --减少刷兵间隔，增加初始金钱
 goldTestMode=false
 --goldTestMode=true --需要测试金币相关的内容
 
@@ -90,7 +90,6 @@ end
 function CHoldoutGameMode:InitGameMode()
 
     GameRules:GetGameModeEntity().CHoldoutGameMode = self
-    GameRules:GetGameModeEntity().vCouriers={} --存下所有信使的指针
     LinkLuaModifier("modifier_increase_total_damage_lua", "abilities/modifier_increase_total_damage_lua", LUA_MODIFIER_MOTION_NONE )
 	Timers:start()
 	LootController:ReadConfigration() 
@@ -109,6 +108,9 @@ function CHoldoutGameMode:InitGameMode()
 	self.nTrialSetTime=12
 	self.vipMap={}  --key是steamID vlaue是vip等级初始化是0
 	self.steamIdMap={}  --key是steamID vlaue是nPlayerNumber
+    self.vRoundSkip={}   --key是Round Number --value是跳关等级
+    self.nGoldToCompensate=0 --跳关待补偿金币
+    self.nExpToCompensate=0 --跳关待补偿经验
 
 
 	GameRules:SetTimeOfDay( 0.75 )
@@ -120,7 +122,6 @@ function CHoldoutGameMode:InitGameMode()
 	GameRules:SetStrategyTime(0.0)
 	GameRules:SetShowcaseTime(0.0)
     
-
 	if testMode then
 	  GameRules:SetPreGameTime( 3.0 )
 	  if goldTestMode then
@@ -514,10 +515,15 @@ function CHoldoutGameMode:_RefreshPlayers()
 			end
 		end
 	end
-    for _,courier in pairs(GameRules:GetGameModeEntity().vCouriers) do
-    	if  not courier:IsAlive() then
-    		--courier:RespawnUnit()
-    	end
+	local couriersNumber=PlayerResource:GetNumCouriersForTeam(DOTA_TEAM_GOODGUYS)
+	if couriersNumber>0 then
+	    for i=1,couriersNumber do
+	    	local courier=PlayerResource:GetNthCourierForTeam(i-1,DOTA_TEAM_GOODGUYS)
+	    	print(courier:GetUnitName())
+	    	if courier and (not courier:IsAlive()) then
+	    	   courier:RespawnUnit()
+	    	end
+	    end 
     end
 end
 
@@ -708,10 +714,6 @@ function CHoldoutGameMode:OnNPCSpawned( event )
 	end
 
     if  spawnedUnit~=nil and not spawnedUnit:IsNull()  then
-        if spawnedUnit:GetUnitName()=="npc_dota_courier" then
-        	table.insert(GameRules:GetGameModeEntity().vCouriers,spawnedUnit)  --存下信使的句柄
-        end
-         
     	if spawnedUnit:IsSummoned() and not spawnedUnit:IsRealHero() then
     	   spawnedUnit:AddNewModifier(nil,nil,"modifier_invulnerable",{duration=0.35})
     	end
@@ -723,7 +725,7 @@ function CHoldoutGameMode:OnNPCSpawned( event )
 		callback = function()
 		if  spawnedUnit~=nil and not spawnedUnit:IsNull() then
 			if  spawnedUnit:IsSummoned() and not spawnedUnit:IsRealHero()  then
-				local playerid=spawnedUnit:GetOwner():GetPlayerID()
+			 local playerid=spawnedUnit:GetOwner():GetPlayerID()
              --print(spawnedUnit:GetUnitName().."has owner, ID"..playerid)
              local owner=spawnedUnit:GetOwner()
              local crownLevel=0
@@ -898,6 +900,81 @@ function CHoldoutGameMode:RoundEnd()
 	self._currentRound = nil
 	self:_RefreshPlayers()
 	self._nRoundNumber = self._nRoundNumber + 1
+
+    while (self.vRoundSkip[self._nRoundNumber]~=nil and self._nRoundNumber<20) do  --如果符合跳关条件
+
+         if self.vRoundSkip[self._nRoundNumber]==1 then
+         	self.nGoldToCompensate=self.nGoldToCompensate+self._vRounds[ self._nRoundNumber]._nExpectedGold*0.1 --累计金币
+			self.nExpToCompensate=self.nExpToCompensate+self._vRounds[ self._nRoundNumber]._nFixedXP*0.1 --累计经验
+         elseif self.vRoundSkip[self._nRoundNumber]==2 then
+         	self.nGoldToCompensate=self.nGoldToCompensate+self._vRounds[ self._nRoundNumber]._nExpectedGold*0.25 --累计金币
+			self.nExpToCompensate=self.nExpToCompensate+self._vRounds[ self._nRoundNumber]._nFixedXP*0.25 --累计经验
+         end
+         self._nRoundNumber = self._nRoundNumber + 1  --跳过
+
+    end
+    
+    local playernumberbonus=0.5
+    local playerNumber=0
+    for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+		if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
+			if  PlayerResource:HasSelectedHero( nPlayerID ) then
+				playernumberbonus=playernumberbonus+0.5
+				playerNumber=playerNumber+1
+				local steamID = PlayerResource:GetSteamAccountID( nPlayerID )
+				if self.vipMap[steamID]>=2 then --如果VIP等级
+					Timers:CreateTimer(5.0, function()  --等待例子特效
+							local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
+					    	local particle_a = ParticleManager:CreateParticle("particles/econ/events/ti6/teleport_start_ti6.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, hero)
+					        ParticleManager:SetParticleControlEnt(particle_a, 0, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetOrigin(), true)
+					        local particle_b = ParticleManager:CreateParticle("particles/econ/events/ti6/teleport_start_ti6_lvl3_rays.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, hero)
+					        ParticleManager:SetParticleControlEnt(particle_a, 0, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetOrigin(), true)
+					        Timers:CreateTimer(9.0, function()
+					           ParticleManager:DestroyParticle(particle_a,false)
+				               ParticleManager:DestroyParticle(particle_b,false)
+				               ParticleManager:ReleaseParticleIndex(particle_a)
+				               ParticleManager:ReleaseParticleIndex(particle_b)
+					        end)
+					end)
+				end
+			end
+		end
+	end
+    
+    if playerNumber>0 then 
+	    local goldCompensatePerWave=self.nGoldToCompensate*playernumberbonus/30/playerNumber  --分30波补偿
+	    local expCompensatePerWave=self.nExpToCompensate*playernumberbonus/30/playerNumber
+	    self.nGoldToCompensate=0
+	    self.nExpToCompensate=0
+	    local nWave=1  
+	 
+	    Timers:CreateTimer(5, function()
+	           for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
+				 if PlayerResource:IsValidPlayer( nPlayerID ) then
+					if PlayerResource:HasSelectedHero( nPlayerID ) then
+						local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
+						local steamID = PlayerResource:GetSteamAccountID( nPlayerID )
+						if self.vipMap[steamID]>=2 then
+		                   SendOverheadEventMessage( hero, OVERHEAD_ALERT_GOLD, hero, goldCompensatePerWave*3, nil )  --三倍补偿
+		                   PlayerResource:ModifyGold(nPlayerID,goldCompensatePerWave*3,true,DOTA_ModifyGold_Unspecified)
+		                   hero:AddExperience(expCompensatePerWave*3,0,false,false)
+		                else
+		                   SendOverheadEventMessage( hero, OVERHEAD_ALERT_GOLD, hero, goldCompensatePerWave, nil )
+		                   PlayerResource:ModifyGold(nPlayerID,goldCompensatePerWave,true,DOTA_ModifyGold_Unspecified)
+		                   hero:AddExperience(expCompensatePerWave,0,false,false)
+		                end
+				    end
+				 end
+			   end
+			 if nWave==30 then  --30波补偿
+			 	return nil
+			 else
+			 	nWave=nWave+1
+		        return 0.3
+		     end
+		end)
+    end
+
 	if self._nRoundNumber > #self._vRounds then
         if self._nRoundNumber > 2 and not GameRules:IsCheatMode() then  --如果通过了条件，记录细节
            Detail:RecordDetail(self._nRoundNumber-1,self.map_difficulty) 

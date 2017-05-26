@@ -2,7 +2,7 @@
 function CheckToPickGold(keys)
     local caster	= keys.caster
 	local ability	= keys.ability
-	if caster:GetUnitName()=="npc_dota_courier" or  caster:IsRealHero() then
+	if caster:GetUnitName()=="npc_dota_courier" or  caster:IsRealHero() or string.find(caster:GetUnitName(),"npc_dota_lone_druid_bear") then --如果是信使、英雄、小熊
         
         local search_radius= 200
 
@@ -18,20 +18,19 @@ function CheckToPickGold(keys)
 	      	  local totalValue=containedItem:GetCurrentCharges()
 	          local playerNumber=GameRules:GetGameModeEntity().Palyer_Number
 	          local value=math.ceil(totalValue/playerNumber)
-
-	         if caster:GetUnitName()=="npc_dota_courier"  or caster:IsRealHero() or string.find(caster:GetUnitName(),"npc_dota_lone_druid_bear") then  --如果是信使、英雄、小熊
-	         	for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
-					if PlayerResource:IsValidPlayer( nPlayerID ) then
-						if PlayerResource:HasSelectedHero( nPlayerID ) then
-							local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
-                            SendOverheadEventMessage( hero, OVERHEAD_ALERT_GOLD, hero, value, nil )
-                            PlayerResource:ModifyGold(nPlayerID,value,true,DOTA_ModifyGold_Unspecified)
-					    end
-					end
-				end
-				UTIL_Remove(containedItem)              
-	            UTIL_Remove( drop_item )
-	         end      
+              --print(caster:GetUnitName())
+              --print(string.find(caster:GetUnitName(),"npc_dota_lone_druid_bear"))
+         	  for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
+				 if PlayerResource:IsValidPlayer( nPlayerID ) then
+					if PlayerResource:HasSelectedHero( nPlayerID ) then
+						local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
+                        SendOverheadEventMessage( hero, OVERHEAD_ALERT_GOLD, hero, value, nil )
+                        PlayerResource:ModifyGold(nPlayerID,value,true,DOTA_ModifyGold_Unspecified)
+				    end
+				 end
+			   end
+			   UTIL_Remove(containedItem)              
+	           UTIL_Remove( drop_item )    
 	      end
 	    end
 	end

@@ -110,6 +110,7 @@
 		"BagVariance"			    "30"
 		"FixedXP"					"10400"
 		"alias"                     "skeleton"
+		"ExpectedGold"              "2900"      
 		
 		// Stage 1 ================================================
 		"UnitFodder_1a" // Duration 80s - Continues with UnitFodderGrouped_2a & 3a to 120s total
@@ -258,6 +259,7 @@
 		"BagVariance"		        "10"
 		"FixedXP"					"10500"
 		"alias"                     "scourge"
+		"ExpectedGold"              "2950"
 		
 		// Stage 1 ================================================ 36Ãë
 		"UnitSpider"
@@ -407,6 +409,7 @@
 		"FixedXP"					"14100"
 		"alias"                     "skywrath"
 		"type"                      "boss"
+		"ExpectedGold"              "4550"
 		// Stage 1 ================================================
 		"UnitBoss"  
 		{
@@ -425,6 +428,7 @@
 		"BagVariance"		        "30"
 		"FixedXP"					"11400"
 		"alias"                     "bloodseeker"
+		"ExpectedGold"              "3250"
 		// Stage 1 ================================================
 		
 		"Unit_bloodseeker_1a" // Duration 80s - Continues with UnitFodderGrouped_2a & 3a to 120s total
@@ -825,6 +829,8 @@
 		"BagVariance"			    "50"
 		"FixedXP"					"12000"
 		"alias"                     "satyr"
+        "ExpectedGold"              "3435"
+
 		// Stage 1 ================================================
 		"UnitFodder_1a" // Duration 80s - Continues with UnitFodderGrouped_2a & 3a to 120s total
 		{
@@ -1077,6 +1083,7 @@
 		"BagVariance"			    "0"
 		"FixedXP"					"16600"
 		"alias"                     "morphing"
+		"ExpectedGold"              "10000"
 		// Stage 1 ================================================
 		"Unitwater_1"
 		{
@@ -1141,6 +1148,7 @@
 		"FixedXP"					"16200"
 		"alias"                     "rattletrap"
 		"type"                      "boss"
+		"ExpectedGold"              "1700"
 		// Stage 1 ================================================
 		"UnitRattle_Boss"
 		{
@@ -1160,6 +1168,7 @@
 		"FixedXP"					"17800"
 		"alias"                     "broodqueen"
 		"type"                      "boss"
+		"ExpectedGold"              "8300"
 		// Stage 1 ================================================
 		"UnitMelee_1"
 		{
@@ -1213,6 +1222,7 @@
 		"BagVariance"				"40"
 		"FixedXP"					"26600"
 		"alias"                     "tiny"
+		"ExpectedGold"              "12900"
 		// Stage 1 ================================================
 		"Unit_1"
 		{
@@ -1870,6 +1880,7 @@
 		"FixedXP"					"25100"
 		"alias"                     "mammoth"
 		"type"                      "boss"
+		"ExpectedGold"              "6300"
 		// Stage 1 ================================================
 		"Unit_1"
 		{
@@ -1887,6 +1898,7 @@
 		"BagVariance"				"10"
 		"FixedXP"					"48700"
 		"alias"                     "tree"
+		"ExpectedGold"              "14062"
 		// Stage 1 ================================================Ã¿¸öË¢Ò»Ö» 
 		"Unit_1"
 		{
@@ -2973,6 +2985,7 @@
 		"FixedXP"					"35700"
 		"alias"                     "blue_dragon"
 		"type"                      "boss"
+		"ExpectedGold"              "8976"
 
 		// Stage 1 ================================================
 		"Unit_1"
@@ -2991,7 +3004,8 @@
 		"BagVariance"		        "40"
 		"FixedXP"					"35700"
 		"alias"                     "dark_citadel"
-
+		"ExpectedGold"              "9812"
+   
 		"UnitAbomination_1a" // Duration 80s - Continues with UnitFodderGrouped_2a & 3a to 120s total
 		{
 			"NPCName"				"npc_dota_creature_abomination"
@@ -3343,6 +3357,7 @@
 		"FixedXP"					"35700"
 		"alias"                     "twins"
 		"type"                      "boss"
+		"ExpectedGold"              "10020"
 		// Stage 1 ================================================
 		"Unit_1"
 		{
@@ -3366,6 +3381,7 @@
 		"BagVariance"				"0"
 		"FixedXP"					"35700"
 		"alias"                     "morphing_again"
+		"ExpectedGold"              "50000"
 		// Stage 1 ================================================
 		"Unitwater_1"
 		{
@@ -3541,6 +3557,7 @@
 		"FixedXP"					"50000"
 		"alias"                     "party"
 		"type"                      "boss"
+		"ExpectedGold"              "25000"
 		// Stage 1 ================================================
 		"Unit_1"
 		{
@@ -3570,6 +3587,7 @@
 		"BagVariance"				"40"
 		"FixedXP"					"40000"
 		"alias"                     "darkness"
+		"ExpectedGold"              "14000"
 		"Unit_stalker_1a" // Duration 80s - Continues with UnitFodderGrouped_2a & 3a to 120s total
 		{
 			"NPCName"			"npc_dota_creature_night_stalker"
@@ -3972,6 +3990,7 @@
 		"BagCount"					"15"
 		"BagVariance"				"40"
 		"FixedXP"					"70000"
+		"ExpectedGold"              "11600"
 
 		// Stage 1 ================================================
 		"UnitSplitter_1"
@@ -4077,6 +4096,7 @@
 		"FixedXP"					"65000"
 		"alias"                     "tusk"
 		"type"                      "boss"
+		"ExpectedGold"              "14000"
 		// Stage 1 ================================================
 		"Unit_tusk_1"
 		{
@@ -4123,7 +4143,7 @@
 		"BagVariance"				"100"
 		"FixedXP"					"70000"
 		"alias"                     "alchemist"
-
+        "ExpectedGold"              "16800"
 		"Unit1"
 		{
 			"NPCName"				"npc_dota_creature_alchemist"
@@ -4160,6 +4180,7 @@
 		"FixedXP"					"80000"
 		"alias"                     "tidehunter"
 		"type"                      "boss"
+		"ExpectedGold"              "18000"
 		"UnitBoss"  
 		{
 			"NPCName"			    "npc_dota_boss_tidehunter"
@@ -4175,6 +4196,7 @@
 		"BagVariance"				"75"
 		"FixedXP"					"7000"
 		"alias"                     "nxy"
+		"ExpectedGold"              "20000"
 		"Unit1"
 		{
 			"NPCName"				"npc_dota_creature_nyx_assassin"
@@ -4208,6 +4230,7 @@
 		"BagVariance"				"75"
 		"FixedXP"					"7000"
 		"alias"                     "geodesic"
+		"ExpectedGold"              "20000"
 		"Unit1"
 		{
 			"NPCName"				"npc_dota_creature_geodesic"
@@ -4388,12 +4411,13 @@
     "Round24"
 	{
 		"round_title"				"#DOTA_Holdout_Round_Lion_Title"
-		"MaxGold"					"0"  //金币在金币泉技能里面
+		"MaxGold"					"0"  //12000金币在金币泉技能里面
 		"BagCount"					"0"
 		"BagVariance"				"0"
 		"FixedXP"					"8500"
 		"alias"                     "lion"
 		"type"                      "boss"
+		"ExpectedGold"              "12000"
 		"Unit1"
 		{
 			"NPCName"				"npc_dota_boss_lion"
@@ -4404,11 +4428,12 @@
 	"Round25"
 	{
 		"round_title"				"#DOTA_Holdout_Round_Faceless_Title"
-		"MaxGold"					"0"  //金币在金币泉技能里面
+		"MaxGold"					"16000"
 		"BagCount"					"0"
 		"BagVariance"				"0"
 		"FixedXP"					"8000"
 		"alias"                     "faceless"
+		"ExpectedGold"              "20000"
 		"Unit1"
 		{
 			"NPCName"				"npc_dota_faceless_monster"
