@@ -1,3 +1,4 @@
+require( "item_ability/item_pipe")
 alreadyCached = {} 
 
 pairedAbility = {shredder_chakram="shredder_return_chakram", morphling_replicate="morphling_morph_replicate", elder_titan_ancestral_spirit="elder_titan_return_spirit" , 
@@ -9,13 +10,16 @@ brokenModifierCounts = {
         modifier_shadow_demon_demonic_purge_charge_counter = 3,
         modifier_bloodseeker_rupture_charge_counter = 2,
         modifier_earth_spirit_stone_caller_charge_counter = 6,
-        modifier_ember_spirit_fire_remnant_charge_counter = 3
+        modifier_ember_spirit_fire_remnant_charge_counter = 3,
+        modifier_obsidian_destroyer_astral_imprisonment_charge_counter = 1
     }
 brokenModifierAbilityMap = {
         shadow_demon_demonic_purge = "modifier_shadow_demon_demonic_purge_charge_counter",
         bloodseeker_rupture = "modifier_bloodseeker_rupture_charge_counter",
         earth_spirit_stone_caller="modifier_earth_spirit_stone_caller_charge_counter",
-        ember_spirit_fire_remnant="modifier_ember_spirit_fire_remnant_charge_counter"  
+        ember_spirit_fire_remnant="modifier_ember_spirit_fire_remnant_charge_counter",
+        obsidian_destroyer_astral_imprisonment="modifier_obsidian_destroyer_astral_imprisonment_charge_counter"
+
    }
 noReturnAbility = {    --不退回升级点数的技能
         troll_warlord_whirling_axes_ranged = true,
@@ -61,7 +65,7 @@ local function isMeleeHero(heroName)
 end
 
 
-local function unitExists(unitName)
+function unitExists(unitName)
     -- Check if the unit exists
     if unitList[unitName] then return true end
     return false
@@ -143,6 +147,19 @@ function CHoldoutGameMode:AddAbility(keys)
                Notifications:Bottom(keys.playerId, {text="#not_enough_ability_points", duration=2, style={color="Red"}})
                EmitSoundOn("General.Cancel",PlayerResource:GetPlayer(keys.playerId))
              end
+        if hero:HasModifier("modifier_pipe_1_datadriven") and not hero:HasModifier("modifier_pipe_2_datadriven") then --处理烟斗
+          local keys={}
+          keys.caster=hero
+          keys.level=1
+          EquipPipe(keys)
+        end
+        if hero:HasModifier("modifier_pipe_2_datadriven") then
+          local keys={}
+          keys.caster=hero
+          keys.level=2
+          EquipPipe(keys)
+        end
+
 		  end
     --ReportHeroAbilities(hero)
 	end

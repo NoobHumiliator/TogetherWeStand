@@ -10,7 +10,7 @@ function StackRefraction(keys)
     ParticleManager:SetParticleControlEnt(ability.particle, 3, caster, PATTACH_POINT_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
   end
   ability:ApplyDataDrivenModifier(caster, caster, "modifier_refraction_affect", {})
-  caster:SetModifierStackCount("modifier_refraction_affect", ability, stack_count + 10)
+  caster:SetModifierStackCount("modifier_refraction_affect", ability, stack_count + 7)
 end
 
 

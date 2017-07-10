@@ -7,10 +7,14 @@
 
     <scripts>
         <include src="file://{resources}/scripts/custom_game/util.js" />
-        <include src="file://{resources}/scripts/custom_game/tws_particle_panel_trigger_button.js" />
+        <include src="file://{resources}/scripts/custom_game/tws_trigger_button.js" />
     </scripts>
     <Panel hittest="false" class="TriggerButtonPanelHud">
        <Panel class="ParticleTriggerButtonPanel" id="ParticleTriggerButtonPanel">
+          <Button id="ParticleTriggerButton"  onactivate="ShowParticleBlock()">
+          </Button>
+        </Panel>
+        <Panel class="SaveGameTriggerButtonPanel" id="SaveGameTriggerButtonPanel">
           <Button id="ParticleTriggerButton"  onactivate="ShowParticleBlock()">
           </Button>
         </Panel>

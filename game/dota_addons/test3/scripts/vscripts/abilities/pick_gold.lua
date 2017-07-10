@@ -2,7 +2,7 @@
 function CheckToPickGold(keys)
     local caster	= keys.caster
 	local ability	= keys.ability
-	if caster:GetUnitName()=="npc_dota_courier" or  caster:IsRealHero() or string.find(caster:GetUnitName(),"npc_dota_lone_druid_bear") then --如果是信使、英雄、小熊
+	if caster:GetUnitName()=="npc_dota_courier" or  caster:IsRealHero() or caster:IsIllusion() or caster:HasModifier("modifier_illusion")  or string.find(caster:GetUnitName(),"npc_dota_lone_druid_bear") then --如果是信使、英雄、小熊
         
         local search_radius= 200
 

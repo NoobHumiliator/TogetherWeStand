@@ -632,6 +632,7 @@ function CheckForCollision( event )
       attacker  = caster,
       damage    = target:GetMaxHealth()*0.05,
       damage_type = DAMAGE_TYPE_PURE,
+      damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
     } )
 
     -- Fire burn particle

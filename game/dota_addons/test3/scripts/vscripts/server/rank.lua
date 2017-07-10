@@ -2,7 +2,7 @@ if Rank == nil then Rank = class({}) end
 
 require('libraries/json')
 require('util')
-local server_address="http://54.68.31.237:8005/"
+local server_address="http://191.101.226.126:8005/"
 
 function Rank:Start()
    CustomGameEventManager:RegisterListener("RequestRankData", Dynamic_Wrap(Rank, 'RequestRankData'))
@@ -60,7 +60,9 @@ function Rank:RecordGame(nRoundNumber,nLoser)
     if tostring(steamGameId)=="0" then
        steamGameId=GetSystemTime().."_"..RandomInt(0,99999999)
     end
-    local nTimeCost=math.floor(GameRules:GetGameTime())
+    local gameMode=GameRules:GetGameModeEntity().CHoldoutGameMode
+    local nTimeCost=gameMode.nTimeCost --此处更换了计时方法
+    
     for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
         if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
             if  PlayerResource:HasSelectedHero( nPlayerID ) then           

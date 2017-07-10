@@ -63,6 +63,19 @@ function Quadric (a,b,c)  --解一元二次方程 输出最大值
    end
 end
 
+function GetValidPlayerNumber ()  --获取有多少已经选了英雄的玩家
+    local playerNumber=0
+    for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
+        if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
+            if  PlayerResource:HasSelectedHero( nPlayerID ) then
+                playerNumber=playerNumber+1
+            end
+        end
+    end
+    return playerNumber
+end
+
+
 
 
 -- Colors
@@ -116,6 +129,63 @@ function ListLearnedAbilities(hHero)  --输出天赋树、damage_counter以外�
   end
   return result
 end
+
+
+
+function ListSaveAbilities(hHero)  --输出天赋树、damage_counter以外的技能
+  local vResult={} --输出一个技能table
+  if IsValidEntity(hHero) then
+    for i=1,20 do
+        local ability=hHero:GetAbilityByIndex(i-1)
+        if ability then
+            local vAbility = {}
+            vAbility.abilityName = ability:GetAbilityName()
+            vAbility.abilityIndex = ability:GetAbilityIndex()
+            vAbility.abilityLevel = ability:GetLevel()
+            vAbility.isHidden = ability:IsHidden()
+            table.insert(vResult,vAbility)
+        end
+    end
+  end
+  return vResult
+end
+
+
+function ListSaveModifiers(hHero)  --列出全部的BUFF
+  local vResult={} --列出全部的BUFF
+  if IsValidEntity(hHero) then
+    local count = hHero:GetModifierCount()  --Buff数量
+    for i=0,count-1 do
+        local vModifier = {}
+        vModifier.modifierName=hHero:GetModifierNameByIndex(i)
+        local modifier= hHero:FindModifierByName(vModifier.modifierName)
+        vModifier.modifierStack=hHero:GetModifierStackCount(vModifier.modifierName,modifier:GetAbility())
+        if modifier:GetAbility() then
+           vModifier.modifierAbilityName=modifier:GetAbility():GetAbilityName()
+        end
+        table.insert(vResult, vModifier)
+    end
+   end
+   --PrintTable(vResult)
+   return vResult
+end
+
+
+function LoadModifier(ability, caster, unit, modifier, stack_count)
+    if ability then
+        print("d"..ability:GetAbilityName())
+        if stack_count>0 then
+           ability:ApplyDataDrivenModifier(caster, caster, modifier, {})
+           caster:SetModifierStackCount(modifier, ability, stack_count)
+        else
+            if not caster:HasModifier(modifier) then
+               --ability:ApplyDataDrivenModifier(caster, caster, modifier, {})
+               caster:AddNewModifier(caster,ability,modifier,nil)
+            end
+        end
+    end
+end
+
 
 
 
@@ -544,4 +614,23 @@ function RemoveModifierOneStack(hUnit,szModifierName,hAbility)
             hUnit:SetModifierStackCount(szModifierName, hAbility, stack_count - 1)
         end
    end
+end
+
+
+
+function RemoveAllItems(unit)
+
+     for i=0,11 do --遍历物品
+        local item = unit:GetItemInSlot(i)
+        if item then
+           UTIL_Remove(item)
+        end
+     end
+end
+
+
+function RemoveDurableBuff(unit)
+    unit:RemoveModifierByName("modifier_abaddon_borrowed_time")
+    unit:RemoveModifierByName("modifier_oracle_false_promise_timer")
+    unit:RemoveModifierByName("modifier_dazzle_shallow_grave")
 end

@@ -36,6 +36,7 @@ require( "server/detail")
 require( "server/patreon")
 require( "server/vip")
 require( "server/taobao")
+require( "server/gamesaver")
 require( "vip/econ_manager")
 require( 'vip/vip_reward')
 
@@ -111,6 +112,16 @@ function CHoldoutGameMode:InitGameMode()
     self.vRoundSkip={}   --key是Round Number --value是跳关等级
     self.nGoldToCompensate=0 --跳关待补偿金币
     self.nExpToCompensate=0 --跳关待补偿经验
+    self.bLoadFlag=false --读盘的游戏不能上天梯 全局变量
+    self.bTestMode=testMode --全局变量存一下是不是测试模式
+    self.nLoadTime = 0  --第几次读档
+    self.vXPBeforeMap={}  --key是nPlayerId value是读档之前已经有的经验
+
+    self.nTimeCost=0 --统计用时
+    Timers:CreateTimer(function() --设置计时器
+      self.nTimeCost=self.nTimeCost+1
+      return 1.0
+    end)
 
 
 	GameRules:SetTimeOfDay( 0.75 )
@@ -163,11 +174,14 @@ function CHoldoutGameMode:InitGameMode()
     CustomGameEventManager:RegisterListener("ConfirmParticle", Dynamic_Wrap(CHoldoutGameMode, 'ConfirmParticle'))
     CustomGameEventManager:RegisterListener("CancleParticle", Dynamic_Wrap(CHoldoutGameMode, 'CancleParticle'))
     CustomGameEventManager:RegisterListener("GrantCourierAbility", Dynamic_Wrap(CHoldoutGameMode, 'GrantCourierAbility'))
-
+    CustomGameEventManager:RegisterListener("SaveGame", Dynamic_Wrap(CHoldoutGameMode, 'SaveGame'))
+    CustomGameEventManager:RegisterListener("AcceptToLoadGame", Dynamic_Wrap(CHoldoutGameMode, 'AcceptToLoadGame'))
+    CustomGameEventManager:RegisterListener("PrepareToLoadGame", Dynamic_Wrap(CHoldoutGameMode, 'PrepareToLoadGame'))
 
     CustomGameEventManager:RegisterListener("SelectDifficulty",Dynamic_Wrap(CHoldoutGameMode, 'SelectDifficulty'))
     CustomGameEventManager:RegisterListener("SendTrialLeveltoServer",Dynamic_Wrap(CHoldoutGameMode, 'SendTrialLeveltoServer'))
     
+    CustomGameEventManager:RegisterListener("ReceiveVipQureySuccess", Dynamic_Wrap(CHoldoutGameMode, 'ReceiveVipQureySuccess'))
 
 	-- Hook into game events allowing reload of functions at run time
 	ListenToGameEvent( "npc_spawned", Dynamic_Wrap( CHoldoutGameMode, "OnNPCSpawned" ), self )
@@ -329,10 +343,12 @@ function CHoldoutGameMode:OnPlayerSay(keys)
     end
     if string.match(text,"^%-[r|R][o|O][u|U][n|N][d|D]%d+")~=nil and GameRules:IsCheatMode() then  --如果为跳关码
         local round= string.match(text,"%d+")
-        print("round"..round)
+        --print("round"..round)
         self:TestRound(round,nil)
     end
-
+    if string.match(text,"^%-[s|S][a|A][v|V][e|E][t|T][e|E][s|S][t|T]")~=nil then  --存档测试开后门
+        CustomGameEventManager:Send_ServerToPlayer(player,"SaveTestBackDoor",{playerId=nPlayerID})
+    end
 end
 
 
@@ -413,7 +429,8 @@ function CHoldoutGameMode:OnGameRulesStateChange()
 		ShowGenericPopup( "#holdout_instructions_title", "#holdout_instructions_body", "", "", DOTA_SHOWGENERICPOPUP_TINT_SCREEN )
 		self:GetVipDataFromServer() --从服务器读取vip数据
 	end
-    if nNewState ==  DOTA_GAMERULES_STATE_PRE_GAME then	
+    if nNewState ==  DOTA_GAMERULES_STATE_PRE_GAME then
+       self.nTimeCost=-15 --计时器时间初始设置 负十五秒，正式开始计时
 	   Timers:CreateTimer({
 	    endTime = 3,
 	    callback = function()
@@ -424,6 +441,7 @@ function CHoldoutGameMode:OnGameRulesStateChange()
 		self.flProgressTime=GameRules:GetGameTime()
 		CustomGameEventManager:Send_ServerToAllClients( "UpdateCmHud", {} )
 		self:SetBaseDifficulty()
+		--self.nTimeCost=0 --计时器时间清空，正式开始计时
 	end
 end
 
@@ -493,7 +511,9 @@ function CHoldoutGameMode:_RefreshPlayers()
 				local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
 				if hero then
 				  if not hero:IsAlive() then
-				    	hero:RespawnUnit()
+				    	local vLocation = hero:GetOrigin()
+					    hero:RespawnHero( false, false, false )
+					    FindClearSpaceForUnit( hero, vLocation, true )
 				  end
 				  --重置买活时间与惩罚
 				  --PlayerResource:SetBuybackCooldownTime( nPlayerID, 0 )  
@@ -509,6 +529,7 @@ function CHoldoutGameMode:_RefreshPlayers()
 			      hero:RemoveModifierByName("modifier_silence_permenant")
 			      hero:RemoveModifierByName("modifier_affixes_falling_rock")
 			      hero:RemoveModifierByName("modifier_overflow_stack")
+			      hero:RemoveModifierByName("modifier_zombie_explode_debuff")
 				  hero:SetHealth( hero:GetMaxHealth() )
 				  hero:SetMana( hero:GetMaxMana() )
 			    end
@@ -590,10 +611,10 @@ function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正  --测
 		 self.last_live=self.last_live-1
 		 table.insert(vFailedRound, self._nRoundNumber) --记录下折在第几关了
 		 if self.last_live==0 then
-		 	 if self._nRoundNumber > 20 and not GameRules:IsCheatMode() then  --如果通过了条件，记录细节
+		 	 if self._nRoundNumber > 5 and not GameRules:IsCheatMode() then  --如果通过了条件，记录细节
                  Detail:RecordDetail(self._nRoundNumber-1,self.map_difficulty) 
 	         end
-		 	 if self.map_difficulty==3 and not GameRules:IsCheatMode()then 
+		 	 if self.map_difficulty==3 and not GameRules:IsCheatMode() and not self.bLoadFlag  then --读盘的游戏不能上天梯
 			   Rank:RecordGame(self._nRoundNumber-1,DOTA_TEAM_GOODGUYS) --储存并结束游戏
 			   return
 			 else
@@ -629,7 +650,7 @@ function CHoldoutGameMode:_ThinkPrepTime()
            self._precacheFlag=nil  --预载入标识
         end
 		if self._nRoundNumber > #self._vRounds then
-			 if self.map_difficulty==3 and not GameRules:IsCheatMode()then 
+			 if self.map_difficulty==3 and not GameRules:IsCheatMode() and not self.bLoadFlag then 
 			   Rank:RecordGame(self._nRoundNumber-1,DOTA_TEAM_BADGUYS) --储存游戏成绩
 			   return false
 			 else
@@ -802,7 +823,7 @@ function CHoldoutGameMode:OnNPCSpawned( event )
 
                 local newMaxHealth=maxHealth*self.flDHPadjust
              
-                local healthRegen=math.max(newMaxHealth*0.0018, spawnedUnit:GetBaseHealthRegen())  --1.8%%的基础恢复
+                local healthRegen=math.max(newMaxHealth*0.0012, spawnedUnit:GetBaseHealthRegen())  --1.2%%的基础恢复
 
                 if newMaxHealth<1 then --避免出现0血单位
                 	newMaxHealth=1
@@ -904,8 +925,8 @@ function CHoldoutGameMode:RoundEnd()
     while (self.vRoundSkip[self._nRoundNumber]~=nil and self._nRoundNumber<20) do  --如果符合跳关条件
 
          if self.vRoundSkip[self._nRoundNumber]==1 then
-         	self.nGoldToCompensate=self.nGoldToCompensate+self._vRounds[ self._nRoundNumber]._nExpectedGold*0.1 --累计金币
-			self.nExpToCompensate=self.nExpToCompensate+self._vRounds[ self._nRoundNumber]._nFixedXP*0.1 --累计经验
+         	self.nGoldToCompensate=self.nGoldToCompensate+self._vRounds[ self._nRoundNumber]._nExpectedGold*0.15 --累计金币
+			self.nExpToCompensate=self.nExpToCompensate+self._vRounds[ self._nRoundNumber]._nFixedXP*0.15 --累计经验
          elseif self.vRoundSkip[self._nRoundNumber]==2 then
          	self.nGoldToCompensate=self.nGoldToCompensate+self._vRounds[ self._nRoundNumber]._nExpectedGold*0.25 --累计金币
 			self.nExpToCompensate=self.nExpToCompensate+self._vRounds[ self._nRoundNumber]._nFixedXP*0.25 --累计经验
@@ -997,10 +1018,13 @@ function CHoldoutGameMode:OnEntityKilled( event )
 	local killedUnit = EntIndexToHScript( event.entindex_killed )
 
     if killedUnit then
-		 if killedUnit:GetUnitName()=="npc_dota_warlock_boss_2" and killedUnit.die_in_peace==nil then
+		 if killedUnit:GetUnitName()=="npc_dota_warlock_boss_2" and killedUnit:GetTeam()==DOTA_TEAM_BADGUYS and killedUnit.die_in_peace==nil then
            self:RoundEnd()
          end
-         if killedUnit:GetUnitName()=="npc_dota_boss_enchantress" and self._currentRound._alias=="tree" and killedUnit.die_in_peace==nil  then
+         if killedUnit:GetUnitName()=="npc_dota_boss_enchantress" and self._currentRound._alias=="tree" and killedUnit:GetTeam()==DOTA_TEAM_BADGUYS  and  killedUnit.die_in_peace==nil  then
+           self:RoundEnd()
+         end
+         if killedUnit:GetUnitName()=="npc_dota_boss_tinker"  and self._currentRound._alias=="tinker" and killedUnit:GetTeam()==DOTA_TEAM_BADGUYS  and killedUnit.die_in_peace==nil  then
            self:RoundEnd()
          end
 	end
@@ -1059,7 +1083,7 @@ function CHoldoutGameMode:OnItemPickUp( event ,level )
            end
     	end      
     end
-
+    
 
 	if event.HeroEntityIndex then
 	   owner = EntIndexToHScript( event.HeroEntityIndex )
@@ -1169,3 +1193,4 @@ function CHoldoutGameMode:CreateNetTablesSettings()
         CustomNetTables:SetTableValue ("abilitiesCost", abilityName, {tonumber(abilityCost)})
     end
 end
+

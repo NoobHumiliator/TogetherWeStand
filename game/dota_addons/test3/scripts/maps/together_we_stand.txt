@@ -4431,7 +4431,7 @@
 		"MaxGold"					"16000"
 		"BagCount"					"12"
 		"BagVariance"				"0"
-		"FixedXP"					"8000"
+		"FixedXP"					"9500"
 		"alias"                     "faceless"
 		"ExpectedGold"              "20000"
 		"Unit1"
@@ -4477,7 +4477,7 @@
 		"MaxGold"					"16000"
 		"BagCount"					"6"
 		"BagVariance"				"0"
-		"FixedXP"					"9000"
+		"FixedXP"					"12000"
 		"alias"                     "refraction"
 		"ExpectedGold"              "20000"
 		"Unit1"
@@ -4527,6 +4527,142 @@
 			"NPCName"				"npc_dota_templar_assassin"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
+		}
+	}
+	"Round27"
+	{
+		"round_title"				"#DOTA_Holdout_Round_Tinker_Title"
+		"MaxGold"					"0"  //20000金币在金币泉技能里面
+		"BagCount"					"0"
+		"BagVariance"				"0"
+		"FixedXP"					"15000"
+		"alias"                     "tinker"
+		"type"                      "boss"
+		"ExpectedGold"              "20000"
+		"Unit1"
+		{
+			"NPCName"				"npc_dota_boss_tinker"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"		
+		}
+	}
+	"Round28"
+	{
+		"round_title"				"#DOTA_Holdout_Round_Zombie_Title"
+		"MaxGold"					"25000"  //25000金币
+		"BagCount"					"50"
+		"BagVariance"				"0"
+		"FixedXP"					"18500"
+		"alias"                     "tombstone"
+		"ExpectedGold"              "25000"
+		// 先给两个僵尸亮亮像
+		"UnitGold"
+		{
+			"NPCName"	       "npc_dota_creature_red_zombie"
+			"TotalUnitsToSpawn"		"1"
+		}
+		"UnitRed"
+		{
+			"NPCName"	       "npc_dota_creature_gold_zombie"
+			"TotalUnitsToSpawn"		"1"
+		}
+		"UnitGold_2_1"
+		{
+            "WaitForUnit"			"UnitGold"
+			"WaitForTime"			"20"
+			"NPCName"	            "npc_dota_creature_gold_zombie"
+			"TotalUnitsToSpawn"		"8"
+			"SpawnInterval"			"8"
+		}
+		"UnitRed_2_1"
+		{
+			"GroupWithUnit"			"UnitGold_2_1"
+			"NPCName"	            "npc_dota_creature_red_zombie"
+			"TotalUnitsToSpawn"		"8"
+		}
+		"UnitGold_2_2"
+		{
+            "WaitForUnit"			"UnitGold"
+			"WaitForTime"			"15"
+			"NPCName"	            "npc_dota_creature_gold_zombie"
+			"TotalUnitsToSpawn"		"8"
+			"SpawnInterval"			"8"
+		}
+		"UnitRed_2_2"
+		{
+			"GroupWithUnit"			"UnitGold_2_2"
+			"NPCName"	            "npc_dota_creature_red_zombie"
+			"TotalUnitsToSpawn"		"8"
+		}
+		"UnitGold_2_3"
+		{
+            "WaitForUnit"			"UnitGold"
+			"WaitForTime"			"12"
+			"NPCName"	            "npc_dota_creature_gold_zombie"
+			"TotalUnitsToSpawn"		"8"
+			"SpawnInterval"			"8"
+		}
+		"UnitRed_2_3"
+		{
+			"GroupWithUnit"			"UnitGold_2_3"
+			"NPCName"	            "npc_dota_creature_red_zombie"
+			"TotalUnitsToSpawn"		"8"
+		}
+		"UnitGold_3_1"
+		{
+            "WaitForUnit"			"UnitGold_2_1"
+			"WaitForTime"			"15"
+			"NPCName"	            "npc_dota_creature_gold_zombie"
+			"TotalUnitsToSpawn"		"8"
+			"SpawnInterval"			"6"
+		}
+		"UnitRed_3_1"
+		{
+			"GroupWithUnit"			"UnitGold_3_1"
+			"NPCName"	            "npc_dota_creature_red_zombie"
+			"TotalUnitsToSpawn"		"8"
+		}
+		"UnitGold_3_2"
+		{
+            "WaitForUnit"			"UnitGold_2_1"
+			"WaitForTime"			"15"
+			"NPCName"	            "npc_dota_creature_gold_zombie"
+			"TotalUnitsToSpawn"		"8"
+			"SpawnInterval"			"6"
+		}
+		"UnitRed_3_2"
+		{
+			"GroupWithUnit"			"UnitGold_3_2"
+			"NPCName"	            "npc_dota_creature_red_zombie"
+			"TotalUnitsToSpawn"		"8"
+		}
+		"UnitGold_3_3"
+		{
+            "WaitForUnit"			"UnitGold_2_1"
+			"WaitForTime"			"12"
+			"NPCName"	            "npc_dota_creature_gold_zombie"
+			"TotalUnitsToSpawn"		"8"
+			"SpawnInterval"			"6"
+		}
+		"UnitRed_3_3"
+		{
+			"GroupWithUnit"			"UnitGold_3_3"
+			"NPCName"	            "npc_dota_creature_red_zombie"
+			"TotalUnitsToSpawn"		"8"
+		}
+		"UnitGold_3_4"
+		{
+            "WaitForUnit"			"UnitGold_2_1"
+			"WaitForTime"			"12"
+			"NPCName"	            "npc_dota_creature_gold_zombie"
+			"TotalUnitsToSpawn"		"8"
+			"SpawnInterval"			"6"
+		}
+		"UnitRed_3_4"
+		{
+			"GroupWithUnit"			"UnitGold_3_4"
+			"NPCName"	            "npc_dota_creature_red_zombie"
+			"TotalUnitsToSpawn"		"8"
 		}
 	}
 }

@@ -39,7 +39,7 @@ function modifier_explode_expansion_thinker_aura_effect:OnIntervalThink()
         }
         
         ApplyDamage(damageTable)
-        self:GetParent():ReduceMana(60)
+        self:GetParent():ReduceMana(self:GetParent():GetMaxMana()*0.01)
 
         EmitSoundOn( "Hero_Alchemist.AcidSpray.Damage", self:GetParent() )
 	end

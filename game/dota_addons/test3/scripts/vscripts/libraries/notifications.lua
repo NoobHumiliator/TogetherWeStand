@@ -255,6 +255,5 @@ end
 
 
 function BossAbilityDBM(keys)
-	local ability=keys.ability
-	Notifications:BossAbilityDBM(ability:GetAbilityName())
+	Notifications:BossAbilityDBM(keys.ability:GetAbilityName())
 end

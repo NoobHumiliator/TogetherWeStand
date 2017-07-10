@@ -19,7 +19,7 @@ sp_exempt_table["spectre_dispersion_datadriven"]=true
 sp_exempt_table["item_blade_mail"]=true
 sp_exempt_table["witch_doctor_maledict"]=true
 
-re_table={} --反伤类技能  折射直接扣生命 单独处理
+re_table={} --反伤类技能  折射单独处理
 re_table["tiny_craggy_exterior"]=true
 re_table["bristleback_quill_spray"]=true
 re_table["bristleback_bristleback"]=true
@@ -68,7 +68,31 @@ function CHoldoutGameMode:DamageFilter(damageTable)
 	             damageTable.damage=damageTable.damage*(1+hero.sp*hero:GetIntellect()/100) 
 	           end
 	        end
+          
+          if victim and victim:HasModifier("modifier_faceless_undie") then  --如果有不死的技能
+              if damageTable.damage>=victim:GetHealth() then  --无法将血量扣除小于1
+                 return false
+              end
+          end
 
+          if victim and victim:HasModifier("modifier_invulnerable_immune") then  --如果有无敌免疫的的buff
+              if hero:IsInvulnerable() then  --无敌期间无法对其做成伤害
+                 return false
+              end
+          end
+
+          if victim and victim:HasModifier("modifier_refraction_affect") then  --如果有折光，移除一层此伤害不起作用
+              local refractionAbility=victim:FindAbilityByName("ta_refraction_datadriven")
+              RemoveModifierOneStack(victim,"modifier_refraction_affect",refractionAbility) 
+              return false
+          end
+          
+          if victim and victim:HasModifier("modifier_tinker_boss_invulnerable") then  --如果有TK Boss的活性护甲
+              if damageTable.entindex_inflictor_const and EntIndexToHScript(damageTable.entindex_inflictor_const)  and EntIndexToHScript(damageTable.entindex_inflictor_const).GetAbilityName and EntIndexToHScript(damageTable.entindex_inflictor_const):GetAbilityName()=="creature_techies_suicide"  then  --只有炸弹人自爆能造成伤害
+              else
+                return false
+              end
+          end
 
         	if self._currentRound and playerid and playerid~=-1  then
         		self._currentRound._vPlayerStats[playerid].nTotalDamage=self._currentRound._vPlayerStats[playerid].nTotalDamage+damageTable.damage
@@ -92,7 +116,7 @@ function CHoldoutGameMode:DamageFilter(damageTable)
                  damage_table.victim = attacker
                  damage_table.damage_type = DAMAGE_TYPE_PURE
                  damage_table.ability = victim:FindAbilityByName("nyx_boss_spike")
-                 damage_table.damage = damageTable.damage
+                 damage_table.damage = damageTable.damage*0.6   --反弹60%伤害
                  damage_table.damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
                  ApplyDamage(damage_table)
             end    
@@ -113,18 +137,6 @@ function CHoldoutGameMode:DamageFilter(damageTable)
                   end
               end 
           end
-          if victim and victim:HasModifier("modifier_faceless_undie") then  --如果有不死的技能
-              if damageTable.damage>=victim:GetHealth() then  --无法将血量扣除小于1
-                 return false
-              end
-          end
-
-          if victim and victim:HasModifier("modifier_refraction_affect") then  --如果有折光，移除一层此伤害不起作用
-              local refractionAbility=victim:FindAbilityByName("ta_refraction_datadriven")
-              RemoveModifierOneStack(victim,"modifier_refraction_affect",refractionAbility) 
-              return false
-          end
-
     end
     if attacker:GetTeam()==DOTA_TEAM_BADGUYS then
 
@@ -171,7 +183,7 @@ function CHoldoutGameMode:DamageFilter(damageTable)
          if victim and victim:HasModifier("modifier_mage_shield_1_active") then  --如果有法术护盾
             if damageTable.damage>=victim:GetHealth() then  --无法将血量扣除小于1
                local overDamage=damageTable.damage-victim:GetHealth() --过量伤害
-               victim:ReduceMana(overDamage/2)
+               victim:ReduceMana(overDamage/3)
                if victim:GetMana()<1 then
                   victim:RemoveModifierByName("modifier_mage_shield_1_active")
                   return true
@@ -197,7 +209,7 @@ function CHoldoutGameMode:DamageFilter(damageTable)
          if victim and victim:HasModifier("modifier_mage_shield_3_active") then  --如果有法术护盾
             if damageTable.damage>=victim:GetHealth() then  --无法将血量扣除小于1
                local overDamage=damageTable.damage-victim:GetHealth() --过量伤害
-               victim:ReduceMana(overDamage/6)
+               victim:ReduceMana(overDamage/5)
                if victim:GetMana()<1 then
                   victim:RemoveModifierByName("modifier_mage_shield_3_active")
                   return true
@@ -210,7 +222,7 @@ function CHoldoutGameMode:DamageFilter(damageTable)
          if victim and victim:HasModifier("modifier_mage_shield_4_active") then  --如果有法术护盾
             if damageTable.damage>=victim:GetHealth() then  --无法将血量扣除小于1
                local overDamage=damageTable.damage-victim:GetHealth() --过量伤害
-               victim:ReduceMana(overDamage/6)
+               victim:ReduceMana(overDamage/5)
                if victim:GetMana()<1 then
                   victim:RemoveModifierByName("modifier_mage_shield_4_active")
                   return true
@@ -220,6 +232,32 @@ function CHoldoutGameMode:DamageFilter(damageTable)
             end
          end
 
+         local gameMode = GameRules:GetGameModeEntity().CHoldoutGameMode
+         local round = gameMode._currentRound  
+         --监听部分过关奖励
+
+         if round and round.achievement_flag==true and damageTable.entindex_inflictor_const ~=nil then        
+            
+            local ability=EntIndexToHScript(damageTable.entindex_inflictor_const) --找到伤害来源的技能
+            --血魔关 血之祭祀
+            if ability and ability.GetAbilityName and  round._alias=="bloodseeker" and ability:GetAbilityName()=="bloodseeker_blood_bath_holdout"  then
+                if victim and victim:IsRealHero() then
+                   Notifications:BottomToAll({hero = victim:GetUnitName(), duration = 4})
+                   Notifications:BottomToAll({text = "#round4_acheivement_fail_note", duration = 4, style = {color = "Orange"}, continue = true})                       
+                   QuestSystem:RefreshAchQuest("Achievement",0,1)
+                   round.achievement_flag=false
+                end
+            end
+            --萨特关 尖刺
+            if ability and ability.GetAbilityName and round._alias=="satyr" and ability:GetAbilityName()=="creature_aoe_spikes"  then
+                if victim and victim:IsRealHero() then
+                   Notifications:BottomToAll({hero = victim:GetUnitName(), duration = 4})
+                   Notifications:BottomToAll({text = "#round5_acheivement_fail_note", duration = 4, style = {color = "Orange"}, continue = true})                       
+                   QuestSystem:RefreshAchQuest("Achievement",0,1)
+                   round.achievement_flag=false
+                end
+            end
+         end
      end
    end
 
@@ -263,7 +301,7 @@ function CHoldoutGameMode:OrderFilter(orderTable)
   end
 
 
-  if orderTable.entindex_ability ~=0 and orderTable.entindex_ability ~=-1  and  orderTable.order_type~=11 then  --order_type=11 为技能升级指令
+  if orderTable.entindex_ability ~=0 and orderTable.entindex_ability ~=-1  and  orderTable.order_type~=11 and caster.GetIntellect  then  --order_type=11 为技能升级指令
       local ability=EntIndexToHScript(orderTable.entindex_ability)
       if  ability and   ability.GetAbilityName   and  ability:GetAbilityName()~="storm_spirit_ball_lightning"  and  ability:GetAbilityName()~="ogre_magi_unrefined_fireblast"   and  ability.IsInAbilityPhase  and  caster.manaCostIns~=nil  and  not ability:IsInAbilityPhase()  and  not ability:IsChanneling()   then  -- 有法强
           local current_mana=caster:GetMana()

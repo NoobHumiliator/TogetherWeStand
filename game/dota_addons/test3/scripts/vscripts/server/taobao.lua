@@ -4,7 +4,7 @@ require('libraries/json')
 require('util')
 require('vip/vip_reward')
 
-local server_address="http://54.68.31.237:8005/"
+local server_address="http://191.101.226.126:8005/"
 
 function Taobao:RegisterVip(code,steamID,nPlayerID)
 

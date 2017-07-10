@@ -257,11 +257,11 @@ function CHoldoutGameRound:End()
 				unit:RemoveAbility("sky_gold_bag_fountain")
 			end
 			if unit:GetUnitName()==("npc_dota_boss_enchantress") then
-				unit.die_in_peace=true
+				unit.die_in_peace=true  --过关失败而移除，不触发亡语效果
 				unit:RemoveAbility("enchantress_gold_bag_fountain")
 			end
 			if unit:GetUnitName()==("npc_dota_warlock_boss_2") then
-				unit.die_in_peace=true
+				unit.die_in_peace=true   --过关失败而移除，不触发亡语效果
 				unit:RemoveAbility("warlock_gold_bag_fountain")
 			end
 			if unit:GetUnitName()==("npc_dota_warlock_boss_2") then
@@ -279,7 +279,18 @@ function CHoldoutGameRound:End()
             if unit:GetUnitName()==("npc_dota_boss_lion") then
 			    unit:RemoveAbility("lion_gold_bag_fountain")
 			end
-
+            if unit:GetUnitName()==("npc_dota_boss_tinker") then
+            	unit.die_in_peace=true    --过关失败而移除，不触发亡语效果
+			    unit:RemoveAbility("tinker_gold_bag_fountain")
+			end
+			if unit:GetUnitName()==("npc_dota_creature_gold_zombie") then
+            	unit.die_in_peace=true    --过关失败而移除，不触发亡语效果
+			    unit:RemoveAbility("gold_zombie_straight_wave")
+			end
+			if unit:GetUnitName()==("npc_dota_creature_red_zombie") then
+            	unit.die_in_peace=true    --过关失败而移除，不触发亡语效果
+			    unit:RemoveAbility("red_zombie_lean_wave")
+			end
 			unit:ForceKill(true)
 		end
 	end
@@ -350,58 +361,6 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
 			PrecacheUnitByNameAsync('npc_precache_npc_dota_hero_necrolyte', function() end)
 			alreadyCached["npc_dota_hero_necrolyte"]=true
 		end
-	end
-	if self._alias=="bloodseeker" then
-		Timers:CreateTimer({
-			endTime = 1,
-			callback = function()
-			for playerid = 0 ,9 do 
-				if PlayerResource:GetPlayer(playerid) ~= nil then 
-					if PlayerResource:GetPlayer(playerid):GetAssignedHero():IsSilenced() and not PlayerResource:GetPlayer(playerid):GetAssignedHero():HasModifier("modifier_rattletrap_hookshot") and not PlayerResource:GetPlayer(playerid):GetAssignedHero():HasModifier("modifier_legion_commander_duel") then
-						local playername=PlayerResource:GetPlayerName(playerid)
-						local hero_name=PlayerResource:GetPlayer(playerid):GetAssignedHero():GetName()                    
-						Notifications:BottomToAll({hero = hero_name, duration = 4})
-						Notifications:BottomToAll({text = playername.." ", duration = 4, continue = true})
-						Notifications:BottomToAll({text = "#round4_acheivement_fail_note", duration = 4, style = {color = "Orange"}, continue = true})                       
-                        QuestSystem:RefreshAchQuest("Achievement",0,1)
-						CHoldoutGameMode._currentRound.achievement_flag=false
-						return nil
-					end
-				end
-			end
-			if CHoldoutGameMode._currentRound._alias=="satyr" then
-				return nil
-			else
-				return 1
-			end
-		end
-		})    
-	end
-	if self._alias=="satyr" then
-		Timers:CreateTimer({
-			endTime = 1,
-			callback = function()
-			for playerid = 0 ,9 do 
-				if PlayerResource:GetPlayer(playerid) ~= nil then 
-					if PlayerResource:GetPlayer(playerid):GetAssignedHero():IsStunned() then
-						local playername=PlayerResource:GetPlayerName(playerid)
-						local hero_name=PlayerResource:GetPlayer(playerid):GetAssignedHero():GetName()                    
-						Notifications:BottomToAll({hero = hero_name, duration = 4})
-						Notifications:BottomToAll({text = playername.." ", duration = 4, continue = true})
-						Notifications:BottomToAll({text = "#round5_acheivement_fail_note", duration = 4, style = {color = "Orange"}, continue = true})
-						QuestSystem:RefreshAchQuest("Achievement",0,1)
-						CHoldoutGameMode._currentRound.achievement_flag=false
-						return nil
-					end
-				end
-			end
-			if CHoldoutGameMode._currentRound._alias=="morphing" then
-				return nil
-			else
-				return 1
-			end
-		end
-		})    
 	end
 	if self._alias=="morphing" then
 		QuestSystem:RefreshAchQuest("Achievement",0,5)
@@ -530,6 +489,18 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
 	end
 	if self._alias=="faceless"  then   --如果是无面者，加上黑暗信标
 		self._environmentcontroller:ApplyBeaconModifier()
+	end
+	if self._alias=="tinker"  then   --如果是TK关 预载入TK资源
+		if alreadyCached["npc_dota_hero_tinker"] ==true then
+		else
+			PrecacheUnitByNameAsync('npc_dota_hero_tinker', function() end)
+			alreadyCached["npc_dota_hero_tinker"]=true
+		end
+		PrecacheUnitByNameAsync('npc_dota_creature_techies_suicider',function() end) --预载入炸弹人
+	end
+	if self._alias=="tombstone"  then --刷新墓碑
+		self._environmentcontroller.tombInterval=15
+		self._environmentcontroller:SpawnTombStone()
 	end
 end
 

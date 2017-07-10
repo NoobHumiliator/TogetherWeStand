@@ -1,3 +1,4 @@
+require( "util" )
 modifier_dark_seer_wall_of_replica_nb2017 = class({})
 
 --------------------------------------------------------------------------------
@@ -94,14 +95,7 @@ function modifier_dark_seer_wall_of_replica_nb2017:OnIntervalThink()
 			    			FindClearSpaceForUnit( replica, replica:GetOrigin(), true )
 
                             RemoveAllAbilities(replica) --删除掉此单位的全部技能
-
-			    			for i = 0, DOTA_ITEM_MAX - 1 do  --禁用全部物品
-								local item = replica:GetItemInSlot( i )
-								if item ~= nil then
-									item:SetSellable( false )
-									item:SetDroppable( false )
-				    			end
-				    		end
+                            RemoveAllItems(replica)  --删除此单位全部物品
 				    	end
 
 			    		local kv2 =

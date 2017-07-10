@@ -101,7 +101,6 @@
 		"item"		"item_ring_of_aquila"	
 		"item"		"item_medallion_of_courage"
 		"item"		"item_arcane_boots"
-		"item"		"item_ancient_janggo"
 		"item"		"item_mekansm"					
 		"item"		"item_pipe"	
 		"item"      "item_guardian_greaves"
@@ -110,6 +109,7 @@
 	    "item"      "item_vladimir2"
 	    "item"      "item_slippers_of_halcyon_2"
 	    "item"		"item_golden_mekansm"
+	    "item"      "item_pipe_1"
 	    "item"      "item_extra_slot_8"
 	}
 				

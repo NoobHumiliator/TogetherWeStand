@@ -78,13 +78,13 @@ function modifier_on_health_gain_lua:OnHealReceived( keys )
 
              local healerMultiple=0
              if healer:HasModifier("modifier_item_healer_3") then
-                healerMultiple =2.6
+                healerMultiple =4.0
               else
                 if healer:HasModifier("modifier_item_healer_2") then
-                  healerMultiple =1.8
+                  healerMultiple =2.7
                 else
                   if healer:HasModifier("modifier_item_healer_1") then
-                    healerMultiple=0.4
+                    healerMultiple=1.4
                   end
                 end
              end

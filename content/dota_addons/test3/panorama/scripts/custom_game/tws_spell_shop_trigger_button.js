@@ -23,6 +23,7 @@ function FixSpellShopPosition()
 {
     var width =Game.GetScreenWidth()
     var height =Game.GetScreenHeight()
+    //2.33333 21:9
     //1.777 16:9
     //1.6   16:6
     //1.33  4:3
@@ -30,7 +31,7 @@ function FixSpellShopPosition()
     var radio=width/height
     if (2.0<radio)
     {
-        $("#triggerButtonPanel").style.position="1750px 1020px 0"
+        $("#triggerButtonPanel").style.position="1950px 1020px 0"
     }
     if (1.7<radio<2.0)
     {

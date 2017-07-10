@@ -45,7 +45,6 @@ bonusItems={
 	}
 }
 
-
 function LootController:ReadConfigration()
 
   self._vHardLevelItemValue={
@@ -64,8 +63,8 @@ function LootController:ReadConfigration()
     end
   end
   local itemCsmListKV = LoadKeyValues("scripts/npc/npc_items_custom.txt")
-  for k, v in pairs( itemCsmListKV ) do
-    if type( v ) == "table" and v.ItemCost and tonumber(v.ItemCost)~=0  and  (v.ItemPurchasable==nil or  (v.ItemPurchasable and v.ItemPurchasable==1) )  then  --必须是有价钱并且能买到的物品
+  for k, v in pairs( itemCsmListKV ) do                                                                                                --买不到但是可以掉落的物品
+    if type( v ) == "table" and v.ItemCost and tonumber(v.ItemCost)~=0  and  (v.ItemPurchasable==nil or  (v.ItemPurchasable and v.ItemPurchasable==1) or v.ItemDropExcept==1  )  then  --必须是有价钱并且能买到的物品
        --print("costom item"..k)
        self._itemCost[k] = v.ItemCost
        if tonumber(v.ItemCost)>2500 then --2000以下的装备不参与
@@ -185,9 +184,9 @@ function LootController:SpecialItemAdd( owner, level, nMaxRoundLevel )
     if string.find(addItemName,"item_trail_tablet") then  --如果是试炼符
        local hItem=CreateItem(addItemName,owner,owner)
        if GameRules:GetGameModeEntity().CHoldoutGameMode.map_difficulty ==1 then
-       	  hItem:SetCurrentCharges(10)
+       	  hItem:SetCurrentCharges(16)
        elseif GameRules:GetGameModeEntity().CHoldoutGameMode.map_difficulty ==2 then
-       	  hItem:SetCurrentCharges(3)
+       	  hItem:SetCurrentCharges(4)
        elseif GameRules:GetGameModeEntity().CHoldoutGameMode.map_difficulty >=3 then
           hItem:SetCurrentCharges(1)
        end

@@ -17,7 +17,8 @@ var unsellableAbility = {
 	"broodmother_spin_web" : true,
 	"shredder_chakram_2" : true,
 	"treant_eyes_in_the_forest" : true,
-	"wisp_tether_break" : true
+	"wisp_tether_break" : true,
+	"batrider_sticky_napalm" : true
 };
 
 //卖技能的面板中不显示这些技能
@@ -489,6 +490,15 @@ function CheckAbilityButtonAvailable (Button,abilityName,playerId)
 {
 	var playerHeroIndex=Players.GetPlayerHeroEntityIndex(playerId) ;
 	var abilityIndex=Entities.GetAbilityByName(playerHeroIndex, abilityName );
+    if (abilityIndex==-1)  //找一下是否有光环类的升级技能
+    {
+    	abilityIndex=Entities.GetAbilityByName(playerHeroIndex, abilityName+"_level_2");
+    } 
+    if (abilityIndex==-1)
+    {
+    	abilityIndex=Entities.GetAbilityByName(playerHeroIndex, abilityName+"_level_3");
+    } 
+    
 	if (abilityIndex==-1)
      {
          Button.enabled = true; 

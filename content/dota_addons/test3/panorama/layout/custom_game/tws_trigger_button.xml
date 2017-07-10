@@ -1,0 +1,27 @@
+<root>
+    <styles>
+       <include src="file://{resources}/styles/custom_game/util.css" />
+       <include src="file://{resources}/styles/custom_game/tws_spell_shop_ui.css" />
+       <include src="file://{resources}/styles/custom_game/tws_particle_save_panel.css" />
+       <include src="file://{resources}/styles/custom_game/tws_pay_panel.css" />
+    </styles>
+
+    <scripts>
+        <include src="file://{resources}/scripts/custom_game/util.js" />
+        <include src="file://{resources}/scripts/custom_game/tws_trigger_button.js" />
+    </scripts>
+    <Panel hittest="false" class="TriggerButtonPanelHud">
+       <Panel class="PayTriggerButtonPanel" id="PayTriggerButtonPanel">
+          <Button id="PayTriggerButton"  onactivate="ShowPayBlock()">
+          </Button>
+       </Panel>
+       <Panel class="ParticleTriggerButtonPanel" id="ParticleTriggerButtonPanel">
+          <Button id="ParticleTriggerButton"  onactivate="ShowParticleBlock()">
+          </Button>
+       </Panel>
+       <Panel class="SaveGameTriggerButtonPanel" id="SaveGameTriggerButtonPanel">
+          <Button id="SaveTriggerButton"  onactivate="ShowSaveBlock(false)">
+          </Button>
+       </Panel>
+    </Panel>
+</root>

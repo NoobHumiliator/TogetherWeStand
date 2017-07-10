@@ -1,0 +1,337 @@
+.PayPanelOutBlock {
+    position: 25% 200px 0; /*x,y,z position:absolute? auto?*/
+    width: 50%;
+    height: 800px;
+    border-top: 0px solid #333;
+    border-bottom: 0px solid #333;
+    overflow: clip;  /*overflow:hidden*/
+}
+
+
+
+.PayTriggerButtonPanel {
+    position: 5px 150px 0; 
+    width: 35px;
+    height: 35px;
+}
+
+
+.PayPanelContainer{
+
+    width: 80%;
+    height: 350px;
+    background-color: #181818;
+    horizontal-align: center;
+}
+
+
+
+#PayTriggerButton {
+
+   height:32px;
+   width:32px;
+   background-image: url("s2r://panorama/images/hud/reborn/sharedunit_rest_png.vtex");
+   background-size: 30px;
+   brightness:1.0;
+   wash-color:#CDF;
+   opacity: 0.5;
+   z-index:-1;
+   transition-property :background-image;
+   transition-duration:.18s;
+   transition-timing-function:ease-in-out;
+   tooltip-position:top;
+   vertical-align:bottom;
+   
+}
+
+
+.PayPalLogo {
+    width: 175px;
+    height: 120px;
+    margin-top: 60px;
+    border-top: 0px solid #333;
+    border-bottom: 0px solid #333;
+    horizontal-align: center;
+    background-image: url("file://{images}/custom_game/paypal_logo.png");
+    background-size: 100% 100%;
+}
+
+.TaoBaoLogo {
+    width: 175px;
+    height: 105px;
+    margin-top: 67.5px;
+    border-top: 0px solid #333;
+    border-bottom: 0px solid #333;
+    horizontal-align: center;
+    background-image: url("file://{images}/custom_game/taobao_logo.png");
+    background-size: 100% 100%;
+}
+
+
+
+
+
+#PayPalPanel {
+    flow-children: down;
+    height: 100%;
+    margin-left: 10%;
+    vertical-align: center;
+}
+
+#TaoBaoPanel {
+    flow-children: down;
+    height: 100%;
+    margin-left: 60%;
+    vertical-align: center;
+}
+
+
+.PayPalButton {
+   margin-top: 20px;
+}
+
+#PayPalButton {
+    horizontal-align: center;
+    vertical-align: center;
+    width: 200px;
+    height: 50px;
+    background-color:gradient( linear, 0% 0%, 0% 100%, from( #5e842c ), to( #40621d ) );
+    border-right:1px solid #496922;
+    border-left:1px solid #496922;
+    border-bottom:1px solid #294211;
+}
+
+#PayPalButton:active {
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #204200 ), to( #5e842c ) );
+    border-top:1px solid #294211;
+    border-right:1px solid #496922;
+    border-left:1px solid #496922;
+    border-bottom:1px solid #859d6e;
+}
+
+#PayPalButton:hover {
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #9eb46c ), to( #60823d ) );
+    border-top:1px solid #294211;
+    border-right:1px solid #496922;
+    border-left:1px solid #496922;
+    border-bottom:1px solid #859d6e;
+}
+
+
+#PayPalButton Label {
+    horizontal-align: center;
+    vertical-align: center;
+    font-size: 20;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+
+.Spinner{
+  width:48px;
+  height:48px;
+  vertical-align: middle;
+  background-image:url("s2r://panorama/images/status_icons/loadingthrobber_round_psd.vtex");
+  background-repeat:no-repeat;
+  background-position:50% 50%;
+  background-size:contain;
+
+  animation-name:SpinnerRotate;
+  animation-duration:1.0s;
+  animation-timing-function:linear;
+  animation-iteration-count:infinite;
+}
+
+@keyframes 'SpinnerRotate'
+{
+  0%
+  {
+    transform: rotateZ( 360deg );
+  }
+  
+
+  50%
+  {
+    transform: rotateZ( 180deg );
+  }
+  
+  100%
+  {
+    transform: rotateZ( 0deg );
+  }
+}
+
+
+#Spinner{
+  horizontal-align:center;
+  margin-top:10px;
+}
+
+#Spinner.SpinnerVisible
+{
+  visibility:visible;
+}
+
+.PayLinkMask
+{
+   width: 100%;
+   height: 100%;
+   flow-children: down;
+}
+
+.PayMaskTitle{
+
+  height: 50px;
+  font-size:30px;
+  font-weight:thin;
+  color:#afb4b4;
+  margin-top:50px;
+  horizontal-align:center;
+  font-family:Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+
+}
+
+.PayPalQRCodePanel{
+
+  width: 100%;
+  height: 285px;
+  horizontal-align:middle;
+}
+
+.TaoBaoQRCodePanel{
+
+  width: 100%;
+  height: 285px;
+  horizontal-align:middle;
+}
+
+
+
+.PayLinkInfo{
+
+  width: 100%;
+  height: 100%;
+  flow-children: down;
+}
+.TaobaoInfo{
+
+  width: 100%;
+  height: 100%;
+  flow-children: down;
+}
+
+
+
+#PayPalQRCodeHtml{
+  width: 280px;
+  height: 280px;
+  border: 1px solid #000;
+  background-color: #111;
+  overflow: clip;
+  horizontal-align:middle;
+}
+
+
+
+.PopupPanel{
+
+  background-color:gradient( linear, 0% 0%, 0% 100%, from( #272d2eee ), to( #131617ee ) );
+  border:1px solid #5e6869;
+
+  width: 400px;
+  height: 440px;
+  horizontal-align:center;
+  opacity:1.0;
+  box-shadow:black -4px -4px 8px 8px;
+  animation-name:links-and-more-button-focus;
+  animation-duration:0.6s;
+  animation-delay:0.0s;
+  animation-timing-function:ease-in-out;
+  animation-iteration-count:1;
+  animation-direction:normal;
+  
+  transition-property:transform, pre-transform-scale2d, opacity, background-color, height;
+  transition-duration:0.2s;
+  transition-timing-function:ease-in;
+  transition-delay:0.0s;
+
+}
+
+
+
+@keyframes 'links-and-more-button-focus'
+{
+   from
+   {
+     background-color :gradient( linear, 0% 0%, 0% 100%, from( #a9c8daee ), to( #000000ee ) );
+   }
+   50%
+   {
+     background-color:gradient( linear, 0% 0%, 0% 100%, from( #272d2eee ), to( #131617ee ) );
+   }
+   to
+   {
+     background-color:gradient( linear, 0% 0%, 0% 100%, from( #272d2eee ), to( #131617ee ) );
+   }
+}
+
+
+.PayLinkInfoCloseButton
+{
+  horizontal-align:right;
+  background-color:#333333;
+  wash-color:white;
+  border-radius:50%;
+  border:1px solid #333333;
+  width:38px;
+  height:38px;
+  box-shadow:#000000 -3px -3px 6px 6px;
+
+  z-index:555;
+
+  background-image:url("s2r://panorama/images/control_icons/x_close_png.vtex");
+  background-size:24px 24px;
+  background-repeat:no-repeat;
+  background-position:50% 50%;
+  margin:4px;
+
+  transition-property:wash-color, pre-transform-scale2d, background-color;
+  transition-duration:0.1s;
+  transition-timing-function:ease-in;
+
+}
+
+
+.PayLinkInfoCloseButton:active
+{
+  background-size:20px 20px;
+  sound:"ui_friends_slide_in";
+  
+}
+
+#PayPalUrl{
+
+  width: 100%;
+  height: 50px;
+  font-size:15px;
+  color: #0099ff;
+
+}
+
+
+.PayLinkTitle{
+   
+  height: 30px;
+  font-size:25px;
+  font-weight:thin;
+  color:#afb4b4;
+  margin-top:10px;
+  horizontal-align:left;
+  font-family:Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+  margin-left: 2%;
+  margin-bottom: 2%;
+}
+
+.TaoBaoQRCodeImg{
+    horizontal-align:middle;
+}
