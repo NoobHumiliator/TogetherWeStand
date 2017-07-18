@@ -133,7 +133,7 @@ function CHoldoutGameMode:InitGameMode()
 	GameRules:SetStrategyTime(0.0)
 	GameRules:SetShowcaseTime(0.0)
     
-	if testMode then
+	if testMode and not IsDedicatedServer() then  --单机模式 并且开启了测试
 	  GameRules:SetPreGameTime( 3.0 )
 	  if goldTestMode then
 		  GameRules:SetGoldTickTime( 0.5 )
