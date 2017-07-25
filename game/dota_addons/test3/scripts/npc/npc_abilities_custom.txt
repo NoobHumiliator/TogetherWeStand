@@ -24777,7 +24777,7 @@
 		
 		"SpawnUnit"
 		{
-			"UnitName"		"npc_dota_phoenix_sun"
+			"UnitName"		"npc_dota_phoenix_egg"
 			"UnitCount"		"%spawn_number"
 			"SpawnRadius"	"%spawn_radius"
 			"Target"		"CASTER"
@@ -24788,8 +24788,12 @@
 				{
 					"Target"		"TARGET"
 					"ModifierName"	"modifier_supernova_sun_form_egg_datadriven"
-				}
-				               
+				}				
+				"ApplyModifier"
+				{
+					"Target"		"TARGET"
+					"ModifierName"	"modifier_supernova_invulnerable_aura"
+				}          
                 "RunScript"
 				{
 					"ScriptFile"		"creature_ability/supernova.lua"
@@ -24859,6 +24863,18 @@
 			}
 		}
 		
+        "modifier_supernova_invulnerable_aura"
+		{
+			"IsBuff"	"1"
+					
+			"Aura"			"modifier_supernova_buff_invulnerable"
+			"Aura_Radius"	"99999"
+			"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+			"Aura_Types"	"DOTA_UNIT_TARGET_HERO" //只对凤凰本体有效
+			
+		}
+
+
 		"modifier_supernova_burn_datadriven"
 		{
 			"IsDebuff"	"1"
