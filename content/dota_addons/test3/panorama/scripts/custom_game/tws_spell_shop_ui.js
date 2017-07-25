@@ -75,6 +75,8 @@ var Text_StateAction = [ "CHOOSE", "BAN", "PICK" ];
 var CurrentHero = ["","","","","","","","","",""]
 
 
+var previousHeroRadio=null; //暂存玩家点选的英雄按钮
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function SetPanelText( parentPanel, childPanelId, text ) {
@@ -240,7 +242,7 @@ function _cm_Heroes_UpdateHero( groupKV, heroPanel, groupName, heroId, name)
 	};
 
 	var pID = Game.GetLocalPlayerInfo().player_id;     //玩家ID
-	rButton.SetPanelEvent( "onselect", PreviewHero( rButton.data ) );   //保存下选择的英雄内容
+	rButton.SetPanelEvent( "onselect", PreviewHero( rButton ) );   //保存下选择的英雄内容
 	var childImage = heroPanel.FindChildInLayoutFile( "RadioImage" );
 	childImage.heroname = "npc_dota_hero_" + name;
 }
@@ -791,14 +793,20 @@ function SetAllAbilityUnabled(abPanel)
 	}
 }
 
-var PreviewHero = ( function( heroInfo )
+var PreviewHero = ( function( rButton )
 {
 	return function()
 	{
+		var heroInfo = rButton.data;
         var playerId = Game.GetLocalPlayerInfo().player_id; 
 		Update_Heroes_Table();
 		Hero_Ability_List_Update( heroInfo.heroName,playerId,true);
 		CurrentHero[playerId]=heroInfo.heroName;
+		if (previousHeroRadio!=null)
+		{
+		    previousHeroRadio.checked=false; //取消上一次点选的英雄（此处因为radio group失效）
+		}
+		previousHeroRadio=rButton;       //重新记录
 	}
 });
 
