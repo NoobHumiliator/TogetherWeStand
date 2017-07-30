@@ -24918,6 +24918,23 @@
 				"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"0"
 			}  
         }
+        
+        "modifier_supernova_egg_die_dot"  //凤凰蛋死亡DOT
+        {
+        	"IsDebuff"                   "1"   
+        	"ThinkInterval"		         "0.5"  
+        	"EffectName"		 "particles/units/heroes/hero_phoenix/phoenix_fire_spirit_burn.vpcf"
+			"EffectAttachType"	 "follow_origin"
+        	"OnIntervalThink"  //对玩家造成伤害
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"creature_ability/supernova.lua"
+					"Function"			"DotDamage"
+					"Target"			"TARGET"
+				}
+			}
+        }
 
 	}
 }
