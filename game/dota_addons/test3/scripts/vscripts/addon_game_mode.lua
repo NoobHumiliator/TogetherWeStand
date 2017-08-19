@@ -400,16 +400,26 @@ end
 
 -- Set number of rounds without requiring index in text file
 function CHoldoutGameMode:_ReadRoundConfigurations( kv )
-	self._vRounds = {}
-	while true do
-		local szRoundName = string.format("Round%d", #self._vRounds + 1 )    --#是取长度运算，表示往后再加一个位置
-		local kvRoundData = kv[ szRoundName ]
-		if kvRoundData == nil then
-			return
+	self._vRounds = {} --二维队列
+	local roundIndex = 1
+
+	while roundIndex==1   or (roundIndex>2  and  self._vRounds[roundIndex-1])  do  --如果至少有一个分支
+		local brachIndex = 1
+        while true do
+			local szRoundName = string.format("Round%d-%d", roundIndex, brachIndex)
+			local kvRoundData = kv[ szRoundName ]
+			if kvRoundData == nil then
+				return
+			end
+			local roundObj = CHoldoutGameRound()
+			roundObj:ReadConfiguration( kvRoundData, self, roundIndex )
+			if self._vRounds[roundIndex]==nil then
+			   table.insert(self._vRounds,{}) --二维队列增加
+			end
+			table.insert(self._vRounds[roundIndex],roundObj)  --压入二维队列
+			brachIndex=brachIndex+1 --查看下一个分支
 		end
-		local roundObj = CHoldoutGameRound()
-		roundObj:ReadConfiguration( kvRoundData, self, #self._vRounds + 1 )
-		table.insert( self._vRounds, roundObj )
+		roundIndex=roundIndex+1
 	end
 end
 
