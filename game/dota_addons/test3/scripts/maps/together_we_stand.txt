@@ -101,7 +101,7 @@
 		}
 	}
 	
-	"Round1" // Kobolds
+	"Round1-1" // Kobolds
 	{
 		"round_quest_title"			"#TWS_Round_Skeleton_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Kobolds_Title"
@@ -250,7 +250,7 @@
 		}		
 	}
 	
-	"Round2" // Undead
+	"Round2-1" // Undead
 	{
 		"round_quest_title"			"#TWS_Round_Zombies_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Zombies_Title"
@@ -399,7 +399,7 @@
 		}										
 	}
 	
-	"Round3" //SkywrathBoss
+	"Round3-1" //SkywrathBoss
 	{
 		"round_quest_title"			"#TWS_Round_Skywrath_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Ogre_Title"
@@ -419,7 +419,7 @@
 		}		
 	}
 
-	"Round4" // Fireandblood
+	"Round4-1" // Fireandblood
 	{
 		"round_quest_title"			"#TWS_Round_Bloodseeker_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Fire_Blood_Title"
@@ -820,7 +820,7 @@
 		}	
 
 	}
-	"Round5" // satyr 
+	"Round5-1" // satyr 
 	{
 		"round_quest_title"			"#TWS_Round_Satyr_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Satyr_Title"
@@ -1074,7 +1074,7 @@
 			"UnitsPerSpawn"			"2"
 		}
 	}
-	"Round6" // morphing
+	"Round6-1" // morphing
 	{
 		"round_quest_title"			"#TWS_Round_Morphing_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Slithereen_Title"
@@ -1138,7 +1138,7 @@
 
 	}
 
-	"Round7" // rattletrap boss 1700 in gold bag
+	"Round7-1" // rattletrap boss 1700 in gold bag
 	{
 		"round_quest_title"			"#TWS_Round_Rattletrap_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Rattletrap_Title"
@@ -1158,7 +1158,7 @@
 		}
 	}
 
-	"Round8" // Broodqueen
+	"Round8-1" // Broodqueen
 	{
 		"round_quest_title"			"#TWS_Round_Broodking_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Broodking_Title"
@@ -1213,7 +1213,7 @@
 		} 
 	}
 	
-	"Round9" // tiny
+	"Round9-1" // tiny
 	{
 		"round_quest_title"			"#TWS_Round_Warlock_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Warlock_Title"
@@ -1870,7 +1870,7 @@
 		}
 
 	}
-	"Round10" //mammoth
+	"Round10-1" //mammoth
 	{
 		"round_quest_title"			"#TWS_Round_Mammoth_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Roshan_Title"
