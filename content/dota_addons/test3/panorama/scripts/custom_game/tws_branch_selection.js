@@ -91,12 +91,6 @@ function ConfirmBranch() {
 }
 
 
-var DifficultyTitles = [$.Localize("#easy"), $.Localize("#normal"), $.Localize("#hard"),$.Localize("#trial")];
-
-var LevelText=$.Localize("#trial_level");
-
-
-
 var ChangeLevelChoose =( function ChangeLevelChoose(i)
 {
     return function()
@@ -122,14 +116,30 @@ var SendTrialLeveltoServer = ( function(data)
 
 function ShowBranchSelection(keys)
 {
+	var shortTitles = keys.branchShortTitles
      if (keys.branchNumber==2)  //双分支选择
 	{
         $("#TwoBranchSelection").SetHasClass( "Opacity", false );  //显示双分支选择面板
+        $("#Branch_2_1_Title").text=shortTitles[0];  //设置选择标题
+        $("#Branch_2_2_Title").text=shortTitles[1];
+
 	}
 	if (keys.branchNumber==3)   //三分支选择
 	{
         $("#ThreeBranchSelection").SetHasClass( "Opacity", false ); 
+        $("#Branch_3_1_Title").text=shortTitles[0];
+        $("#Branch_3_2_Title").text=shortTitles[1];
+        $("#Branch_3_3_Title").text=shortTitles[2];
 	}
+    if (keys.branchNumber==4)   //四分支选择
+	{
+        $("#ThreeBranchSelection").SetHasClass( "Opacity", false ); 
+        $("#Branch_3_1_Title").text=shortTitles[0];
+        $("#Branch_3_2_Title").text=shortTitles[1];
+        $("#Branch_3_3_Title").text=shortTitles[2];
+        $("#Branch_3_4_Title").text=shortTitles[3];
+	}
+
 
 	UpdateTimer(); //开始倒计时
 }

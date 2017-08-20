@@ -34,6 +34,7 @@ function CHoldoutGameRound:ReadConfiguration( kv, gameMode, roundNumber )
 	self._alias=kv.alias or string.format( "Round%d", roundNumber )   --设置一个别名，方便成就系统
 	self._szType=kv.type or 'normal'   --boss/normal 区分是不是BOSS关
     self._not_multiple=true
+    self._shortTitle =  kv.ShortTitle or ''
 	self._nMaxGold = tonumber( kv.MaxGold or 0 )
 	self._nBagCount = tonumber( kv.BagCount or 0 )
 	self._nBagVariance = tonumber( kv.BagVariance or 0 )

@@ -98,6 +98,7 @@ function CHoldoutGameMode:InitGameMode()
 	self.loseflag=0 
 	self.last_live=5
 	self._nRoundNumber = 1
+    self._nBranchIndex = 1 --下一关的分支编号
 	self._currentRound = nil
 	self._flLastThinkGameTime = nil
 	self.enchantress_already_die_flag=0
@@ -116,6 +117,8 @@ function CHoldoutGameMode:InitGameMode()
     self.bTestMode=testMode --全局变量存一下是不是测试模式
     self.nLoadTime = 0  --第几次读档
     self.vXPBeforeMap={}  --key是nPlayerId value是读档之前已经有的经验
+    self.vSelectionData={} --key为playerId value为所选分支
+
 
     self.nTimeCost=0 --统计用时
     Timers:CreateTimer(function() --设置计时器
@@ -179,6 +182,9 @@ function CHoldoutGameMode:InitGameMode()
     CustomGameEventManager:RegisterListener("PrepareToLoadGame", Dynamic_Wrap(CHoldoutGameMode, 'PrepareToLoadGame'))
 
     CustomGameEventManager:RegisterListener("SelectDifficulty",Dynamic_Wrap(CHoldoutGameMode, 'SelectDifficulty'))
+    CustomGameEventManager:RegisterListener("SelectBranch",Dynamic_Wrap(CHoldoutGameMode, 'SelectBranch')) --选择分支完毕
+
+
     CustomGameEventManager:RegisterListener("SendTrialLeveltoServer",Dynamic_Wrap(CHoldoutGameMode, 'SendTrialLeveltoServer'))
     
     CustomGameEventManager:RegisterListener("ReceiveVipQureySuccess", Dynamic_Wrap(CHoldoutGameMode, 'ReceiveVipQureySuccess'))
@@ -930,6 +936,7 @@ function CHoldoutGameMode:RoundEnd()
 
 	self._currentRound = nil
 	self:_RefreshPlayers()
+	--关卡进入下一关
 	self._nRoundNumber = self._nRoundNumber + 1
 
     while (self.vRoundSkip[self._nRoundNumber]~=nil and self._nRoundNumber<20) do  --如果符合跳关条件
@@ -1018,9 +1025,73 @@ function CHoldoutGameMode:RoundEnd()
 		   return false
 		end
 	else
-		self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
+        --如果有分支，弹出分选择窗口
+        if #self._vRounds[self._nRoundNumber]>1 then
+
+            local branchShortTitles={}
+            for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
+				if PlayerResource:IsValidPlayer( nPlayerID ) then
+					 self.vSelectionData[nPlayerID]=0 --默认选择分支0
+				end
+			end
+
+            for i=1,#self._vRounds[self._nRoundNumber] do
+            	--将配置文件中的标题传进参数
+            	table.insert(branchShortTitles, #self._vRounds[self._nRoundNumber][i].shortTitle)
+            end
+            --第一个参数是分支数目，第二个参数是分支的Short Title
+        	CustomGameEventManager:Send_ServerToAllClients( "ShowBranchSelection", {branchNumber=#self._vRounds[self._nRoundNumber],shortTitles=branchShortTitles} )
+
+        	--将玩家默认选择随机分支
+            CustomGameEventManager:Send_ServerToAllClients("SelectBranchReturn",{selectionData=self.vSelectionData})
+
+            Timers:CreateTimer({  --设置定时器 xx秒以后 下一轮准备时间开始
+			    endTime = 15,
+			    callback = function()
+			      self:PrepTimeBegin()  --开始下一关的准备倒计时
+			end})	
+
+        else
+           self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
+        end
+
 	end
 end
+
+
+function PrepTimeBegin() --开始下一关的准备倒计时
+     
+    local branchMap={}  --key是分支编号 --value是分支选择人数
+   
+    for i=0,#self._vRounds[self._nRoundNumber]-1 do
+    	table.insert(branchMap, 0) --初始设置为0
+    end
+
+    for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
+		if PlayerResource:IsValidPlayer( nPlayerID ) then
+			local branchIndex=self.vSelectionData[nPlayerID]
+			branchMap[branchIndex]=branchMap[branchIndex]+1 --人数
+		end
+	end
+    
+    local branchIndex=0 --下一关的分支号码
+
+    for i=1,#branchMap do
+        if  branchMap[i]> branchIndex then
+            branchIndex=branchMap[i]
+        end
+    end
+    
+    if branchIndex==0 then  --如果随机
+       branchIndex=RandomInt(1,#self._vRounds[self._nRoundNumber])  --随机出一个分支号码
+    end
+
+
+    self._nBranchIndex = branchIndex --记录下一关的分支编号
+	self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
+end
+
+
 
 
 
@@ -1204,3 +1275,17 @@ function CHoldoutGameMode:CreateNetTablesSettings()
     end
 end
 
+
+--选择分支,后台记录 报告全部前台
+
+function CHoldoutGameMode:SelectBranch( keys )
+
+	if type(keys.branch) == "string" then
+		local player = PlayerResource:GetPlayer(keys.playerID)
+		if player == nil then return end
+            
+        self.vSelectionData[keys.playerID]=keys.branch
+
+		CustomGameEventManager:Send_ServerToAllClients("SelectBranchReturn",{selectionData=self.vSelectionData})
+	end
+end

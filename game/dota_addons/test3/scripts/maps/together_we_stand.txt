@@ -408,12 +408,34 @@
 		"BagVariance"			    "75"
 		"FixedXP"					"14100"
 		"alias"                     "skywrath"
+		"ShortTitle"                "#skywrath_short_title"
 		"type"                      "boss"
 		"ExpectedGold"              "4550"
 		// Stage 1 ================================================
 		"UnitBoss"  
 		{
 			"NPCName"			"npc_dota_boss_sky"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}		
+	}
+    
+    "Round3-2" //Phoenix Boss
+	{
+		"round_quest_title"			"#TWS_Round_Phoenix_Quest_Title"
+		"round_title"				"#DOTA_Holdout_Round_Phoenix_Title"
+		"MaxGold"					"0" //600g from gold fountain ability
+		"BagCount"					"20"
+		"BagVariance"			    "75"
+		"FixedXP"					"14100"
+		"alias"                     "phoenix"
+		"ShortTitle"                "#phoenix_short_title"
+		"type"                      "boss"
+		"ExpectedGold"              "4550"
+		// Stage 1 ================================================
+		"UnitBoss"  
+		{
+			"NPCName"			    "npc_dota_boss_phoenix"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
 		}		
@@ -1889,7 +1911,7 @@
 			"UnitsPerSpawn"			"1"
 		}													
 	}
-	"Round11" //tree
+	"Round11-1" //tree
 	{
 		"round_quest_title"			"#TWS_Round_Tree_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Tree_Title"
@@ -2975,7 +2997,7 @@
 			"SpawnInterval"	                "10"
 		}                             						
 	}
-    "Round12" //dragon
+    "Round12-1" //dragon
 	{
 		"round_quest_title"			"#TWS_Round_Blue_Dragon_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Blue_Dragon_Title"
@@ -2995,7 +3017,7 @@
 			"UnitsPerSpawn"			"1"
 		} 														
 	} 
-	"Round13" //Dark Citadel
+	"Round13-1" //Dark Citadel
 	{
 		//"round_quest_title"			"#DOTA_Holdout_Round_Dark_Citadel_Quest_Title" 没有就不填
 		"round_title"				"#DOTA_Holdout_Round_Dark_Citadel_Title"
@@ -3347,7 +3369,7 @@
 			"UnitsPerSpawn"			"1"
 		}									
 	} 
-	"Round14" //twins
+	"Round14-1" //twins
 	{
 		"round_quest_title"			"#TWS_Round_Twins_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Twins_Title"
@@ -3372,7 +3394,7 @@
 			"UnitsPerSpawn"			"1"
 		}  														
 	} 
-	"Round15" // morphing again!
+	"Round15-1" // morphing again!
 	{
 		"round_quest_title"			"#TWS_Round_Again_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Again_Title"
@@ -3547,7 +3569,7 @@
 			"SpawnerName"			        "spawner4"
 		}
 	}
-	"Round16" //party
+	"Round16-1" //party
 	{
 		//"round_quest_title"			"#DOTA_Holdout_Round_BossParty_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_BossParty_Title"
@@ -3578,7 +3600,7 @@
 			"UnitsPerSpawn"			"1"
 		}        														
 	}               
-	"Round17" //darkness
+	"Round17-1" //darkness
 	{
 		//"round_quest_title"			"#DOTA_Holdout_Round_Darkness_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Darkness_Title"
@@ -3982,7 +4004,7 @@
 			"SpawnerName"			"spawner4"
 		}									
 	}
-	"Round18" // Splitters
+	"Round18-1" // Splitters
 	{
 		//"round_quest_title"		"#DOTA_Holdout_Round_Splitter_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Splitter_Title"
@@ -4086,7 +4108,7 @@
 			"SpawnerName"			"spawner4"
 		}
 	}
-    "Round19" // tusk
+    "Round19-1" // tusk
 	{
 		//"round_quest_title"		"#DOTA_Holdout_Round_Splitter_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Tusk_Title"
@@ -4135,7 +4157,7 @@
 			"UnitsPerSpawn"			"1"
 		}
 	}
-	"Round20"
+	"Round20-1"
 	{
 		"round_title"				"#DOTA_Holdout_Round_Alchemist"
 		"MaxGold"					"13500"
@@ -4170,7 +4192,7 @@
 			"SpawnInterval"			"5"
 		}
 	}
-	"Round21"
+	"Round21-1"
 	{
 		//"round_quest_title"			"#TWS_Round_Skywrath_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Tidehunter_Title"
@@ -4188,7 +4210,7 @@
 			"UnitsPerSpawn"			"1"
 		}		
 	}
-	"Round22"
+	"Round22-1"
 	{
 		"round_title"				"#DOTA_Holdout_Round_Nyx_Title"
 		"MaxGold"					"16000"
@@ -4222,7 +4244,7 @@
 			"SpawnInterval"			"10"
 		}
     }
-    "Round23"
+    "Round23-1"
 	{
 		"round_title"				"#DOTA_Holdout_Round_Geodesic_Title"
 		"MaxGold"					"16000"
@@ -4408,7 +4430,7 @@
 			"SpawnerName"			"spawner4"
 		}
     }
-    "Round24"
+    "Round24-1"
 	{
 		"round_title"				"#DOTA_Holdout_Round_Lion_Title"
 		"MaxGold"					"0"  //12000金币在金币泉技能里面
@@ -4425,7 +4447,7 @@
 			"UnitsPerSpawn"			"1"		
 		}
 	}
-	"Round25"
+	"Round25-1"
 	{
 		"round_title"				"#DOTA_Holdout_Round_Faceless_Title"
 		"MaxGold"					"16000"
@@ -4471,7 +4493,7 @@
 			"UnitsPerSpawn"			"2"		
 		}
 	}
-	"Round26"
+	"Round26-1"
 	{
 		"round_title"				"#DOTA_Holdout_Round_TA_Title"
 		"MaxGold"					"16000"
@@ -4529,7 +4551,7 @@
 			"UnitsPerSpawn"			"1"
 		}
 	}
-	"Round27"
+	"Round27-1"
 	{
 		"round_title"				"#DOTA_Holdout_Round_Tinker_Title"
 		"MaxGold"					"0"  //20000金币在金币泉技能里面
@@ -4546,7 +4568,7 @@
 			"UnitsPerSpawn"			"1"		
 		}
 	}
-	"Round28"
+	"Round28-1"
 	{
 		"round_title"				"#DOTA_Holdout_Round_Zombie_Title"
 		"MaxGold"					"25000"  //25000金币

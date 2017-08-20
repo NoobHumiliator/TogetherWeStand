@@ -24,7 +24,7 @@
                              <Panel id="Branch_2_1_AvatarDown" class="Avatar"/>
                           </Panel>
                           <Panel class="BranchTitlePanel">
-                            <Label class="title" html="true" text=""/>
+                            <Label class="title"  id="Branch_2_1_Title"  html="true" text=""/>
                           </Panel>
                        </RadioButton>
                       <RadioButton class="BranchRadioButton"  onactivate="SendBranchSelection('2')">
@@ -36,7 +36,7 @@
                               <Panel id="Branch_2_2_AvatarDown" class="Avatar"/>
                           </Panel>
                           <Panel class="BranchTitlePanel">
-                            <Label class="title" html="true" text=""/>
+                            <Label class="title" id="Branch_2_2_Title" html="true" text=""/>
                           </Panel>
                       </RadioButton>
                    </Panel>
@@ -68,7 +68,7 @@
                              <Panel id="Branch_3_1_AvatarDown" class="Avatar"/>
                           </Panel>
                           <Panel class="BranchTitlePanel">
-                            <Label class="title" html="true" text=""/>
+                            <Label class="title" id="Branch_3_1_Title" html="true" text=""/>
                           </Panel>
                        </RadioButton>
                       <RadioButton class="BranchRadioButton"  onactivate="SendBranchSelection('2')">
@@ -80,7 +80,7 @@
                               <Panel id="Branch_3_2_AvatarDown" class="Avatar"/>
                           </Panel>
                           <Panel class="BranchTitlePanel">
-                            <Label class="title" html="true" text=""/>
+                            <Label class="title" id="Branch_3_2_Title" html="true" text=""/>
                           </Panel>
                       </RadioButton>
                    </Panel>
@@ -94,7 +94,7 @@
                              <Panel id="Branch_3_3_AvatarDown" class="Avatar"/>
                           </Panel>
                           <Panel class="BranchTitlePanel">
-                            <Label class="title" html="true" text=""/>
+                            <Label class="title" id="Branch_3_3_Title" html="true" text=""/>
                           </Panel>
                       </RadioButton>
                       <RadioButton class="BranchRadioButton"  onactivate="SendBranchSelection('0')">
