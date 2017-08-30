@@ -14,7 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
---testMode=true --减少刷兵间隔，增加初始金钱
+testMode=true --减少刷兵间隔，增加初始金钱
 goldTestMode=false
 --goldTestMode=true --需要测试金币相关的内容
 
@@ -349,7 +349,7 @@ function CHoldoutGameMode:OnPlayerSay(keys)
     end
     if string.match(text,"^%-[r|R][o|O][u|U][n|N][d|D]%d+")~=nil and GameRules:IsCheatMode() then  --如果为跳关码
         local round= string.match(text,"%d+")
-        --print("round"..round)
+        print("round"..round)
         self:TestRound(round,nil)
     end
     if string.match(text,"^%-[s|S][a|A][v|V][e|E][t|T][e|E][s|S][t|T]")~=nil then  --存档测试开后门
@@ -409,13 +409,14 @@ function CHoldoutGameMode:_ReadRoundConfigurations( kv )
 	self._vRounds = {} --二维队列
 	local roundIndex = 1
 
-	while roundIndex==1   or (roundIndex>2  and  self._vRounds[roundIndex-1])  do  --如果至少有一个分支
+	while roundIndex==1   or (roundIndex>1  and  self._vRounds[roundIndex-1])  do  --如果至少有一个分支
 		local brachIndex = 1
         while true do
 			local szRoundName = string.format("Round%d-%d", roundIndex, brachIndex)
 			local kvRoundData = kv[ szRoundName ]
 			if kvRoundData == nil then
-				return
+				print("Rounds"..roundIndex.."BrachIndex"..brachIndex.." is Empty")
+				break
 			end
 			local roundObj = CHoldoutGameRound()
 			roundObj:ReadConfiguration( kvRoundData, self, roundIndex )
@@ -675,14 +676,14 @@ function CHoldoutGameMode:_ThinkPrepTime()
 			 end
 		end
 
-		self._currentRound = self._vRounds[ self._nRoundNumber ]
+		self._currentRound = self._vRounds[ self._nRoundNumber ][self._nBranchIndex]
 		self._currentRound:Begin()
 		return
 	end
 
 	if not self._precacheFlag then
 		QuestSystem:CreateQuest("PrepTime","#tws_quest_prep_time",self._flPrepTimeBetweenRounds,self._flPrepTimeBetweenRounds,nil,self._nRoundNumber)
-	    self._vRounds[ self._nRoundNumber ]:Precache()	
+	    self._vRounds[ self._nRoundNumber ][self._nBranchIndex]:Precache()	
         self._precacheFlag=true
 	end
     QuestSystem:RefreshQuest("PrepTime", math.ceil(self._flPrepTimeBetweenRounds-self._flPrepTimeEnd+GameRules:GetGameTime()),self._flPrepTimeBetweenRounds,self._nRoundNumber)
@@ -942,11 +943,11 @@ function CHoldoutGameMode:RoundEnd()
     while (self.vRoundSkip[self._nRoundNumber]~=nil and self._nRoundNumber<20) do  --如果符合跳关条件
 
          if self.vRoundSkip[self._nRoundNumber]==1 then
-         	self.nGoldToCompensate=self.nGoldToCompensate+self._vRounds[ self._nRoundNumber]._nExpectedGold*0.15 --累计金币
-			self.nExpToCompensate=self.nExpToCompensate+self._vRounds[ self._nRoundNumber]._nFixedXP*0.15 --累计经验
+         	self.nGoldToCompensate=self.nGoldToCompensate+self._vRounds[ self._nRoundNumber][1]._nExpectedGold*0.15 --累计金币 此处使用第一个分支的金钱奖励
+			self.nExpToCompensate=self.nExpToCompensate+self._vRounds[ self._nRoundNumber][1]._nFixedXP*0.15 --累计经验
          elseif self.vRoundSkip[self._nRoundNumber]==2 then
-         	self.nGoldToCompensate=self.nGoldToCompensate+self._vRounds[ self._nRoundNumber]._nExpectedGold*0.25 --累计金币
-			self.nExpToCompensate=self.nExpToCompensate+self._vRounds[ self._nRoundNumber]._nFixedXP*0.25 --累计经验
+         	self.nGoldToCompensate=self.nGoldToCompensate+self._vRounds[ self._nRoundNumber][1]._nExpectedGold*0.25 --累计金币
+			self.nExpToCompensate=self.nExpToCompensate+self._vRounds[ self._nRoundNumber][1]._nFixedXP*0.25 --累计经验
          end
          self._nRoundNumber = self._nRoundNumber + 1  --跳过
 
@@ -1037,7 +1038,7 @@ function CHoldoutGameMode:RoundEnd()
 
             for i=1,#self._vRounds[self._nRoundNumber] do
             	--将配置文件中的标题传进参数
-            	table.insert(branchShortTitles, #self._vRounds[self._nRoundNumber][i].shortTitle)
+            	table.insert(branchShortTitles, self._vRounds[self._nRoundNumber][i].shortTitle)
             end
             --第一个参数是分支数目，第二个参数是分支的Short Title
         	CustomGameEventManager:Send_ServerToAllClients( "ShowBranchSelection", {branchNumber=#self._vRounds[self._nRoundNumber],shortTitles=branchShortTitles} )
@@ -1046,9 +1047,9 @@ function CHoldoutGameMode:RoundEnd()
             CustomGameEventManager:Send_ServerToAllClients("SelectBranchReturn",{selectionData=self.vSelectionData})
 
             Timers:CreateTimer({  --设置定时器 xx秒以后 下一轮准备时间开始
-			    endTime = 15,
+			    endTime = 20,
 			    callback = function()
-			      self:PrepTimeBegin()  --开始下一关的准备倒计时
+			      PrepTimeBegin()  --开始下一关的准备倒计时
 			end})	
 
         else
@@ -1189,8 +1190,8 @@ end
 function CHoldoutGameMode:TestRound(roundNumber, delay)
   
    local nRoundToTest = tonumber( roundNumber )
-
    if nRoundToTest <= 0 or nRoundToTest > #self._vRounds then
+   	     print("d")
 		return
    end
 
@@ -1215,11 +1216,44 @@ function CHoldoutGameMode:TestRound(roundNumber, delay)
 		end
 		UTIL_Remove( item )
 	end
-	self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
+
 	self._nRoundNumber = nRoundToTest
-	if delay ~= nil then
-		self._flPrepTimeEnd = GameRules:GetGameTime() + tonumber( delay )
-	end
+
+
+    if #self._vRounds[self._nRoundNumber]>1 then
+     print("b")
+            local branchShortTitles={}
+            for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
+				if PlayerResource:IsValidPlayer( nPlayerID ) then
+					 self.vSelectionData[nPlayerID]=0 --默认选择分支0
+				end
+			end
+
+            for i=1,#self._vRounds[self._nRoundNumber] do
+            	--将配置文件中的标题传进参数
+            	print("roundNumber"..self._nRoundNumber.." i :"..i)
+            	table.insert(branchShortTitles, self._vRounds[self._nRoundNumber][i].shortTitle)
+            end
+            --第一个参数是分支数目，第二个参数是分支的Short Title
+        	CustomGameEventManager:Send_ServerToAllClients( "ShowBranchSelection", {branchNumber=#self._vRounds[self._nRoundNumber],shortTitles=branchShortTitles} )
+
+        	--将玩家默认选择随机分支
+            CustomGameEventManager:Send_ServerToAllClients("SelectBranchReturn",{selectionData=self.vSelectionData})
+
+            Timers:CreateTimer({  --设置定时器 xx秒以后 下一轮准备时间开始
+			    endTime = 20,
+			    callback = function()
+			      PrepTimeBegin()  --开始下一关的准备倒计时
+			end})	
+
+    else
+       print("a")
+       if delay ~= nil then
+		  self._flPrepTimeEnd = GameRules:GetGameTime() + tonumber( delay )
+	   else
+          self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
+       end
+    end
 
 end
 

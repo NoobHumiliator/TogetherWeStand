@@ -13,7 +13,8 @@
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_difficulty_announcement.xml" /> 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_new_rank_announcement.xml" />  
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_spell_shop_trigger_button.xml" />
-    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_difficulty_selection.xml" /> 
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_difficulty_selection.xml" />
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_branch_selection.xml" /> 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_trigger_button.xml" />
     <CustomUIElement type="Hud"  id="ParticlePanelHub"  layoutfile="file://{resources}/layout/custom_game/tws_particle_panel.xml" />
     <CustomUIElement type="Hud"  id="SavePanelHub"  layoutfile="file://{resources}/layout/custom_game/tws_save_panel.xml" />
