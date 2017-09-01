@@ -1029,7 +1029,7 @@ function CHoldoutGameMode:RoundEnd()
         --如果有分支，弹出分选择窗口
         if #self._vRounds[self._nRoundNumber]>1 then
 
-            local branchShortTitles={}
+            local shortTitles={}
             for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
 				if PlayerResource:IsValidPlayer( nPlayerID ) then
 					 self.vSelectionData[nPlayerID]=0 --默认选择分支0
@@ -1038,10 +1038,10 @@ function CHoldoutGameMode:RoundEnd()
 
             for i=1,#self._vRounds[self._nRoundNumber] do
             	--将配置文件中的标题传进参数
-            	table.insert(branchShortTitles, self._vRounds[self._nRoundNumber][i].shortTitle)
+            	table.insert(shortTitles, self._vRounds[self._nRoundNumber][i]._shortTitle)
             end
             --第一个参数是分支数目，第二个参数是分支的Short Title
-        	CustomGameEventManager:Send_ServerToAllClients( "ShowBranchSelection", {branchNumber=#self._vRounds[self._nRoundNumber],shortTitles=branchShortTitles} )
+        	CustomGameEventManager:Send_ServerToAllClients( "ShowBranchSelection", {branchNumber=#self._vRounds[self._nRoundNumber],shortTitles=shortTitles} )
 
         	--将玩家默认选择随机分支
             CustomGameEventManager:Send_ServerToAllClients("SelectBranchReturn",{selectionData=self.vSelectionData})
@@ -1222,7 +1222,7 @@ function CHoldoutGameMode:TestRound(roundNumber, delay)
 
     if #self._vRounds[self._nRoundNumber]>1 then
      print("b")
-            local branchShortTitles={}
+            local shortTitles={}
             for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
 				if PlayerResource:IsValidPlayer( nPlayerID ) then
 					 self.vSelectionData[nPlayerID]=0 --默认选择分支0
@@ -1232,10 +1232,12 @@ function CHoldoutGameMode:TestRound(roundNumber, delay)
             for i=1,#self._vRounds[self._nRoundNumber] do
             	--将配置文件中的标题传进参数
             	print("roundNumber"..self._nRoundNumber.." i :"..i)
-            	table.insert(branchShortTitles, self._vRounds[self._nRoundNumber][i].shortTitle)
+            	shortTitles[i]=self._vRounds[self._nRoundNumber][i]._shortTitle
             end
             --第一个参数是分支数目，第二个参数是分支的Short Title
-        	CustomGameEventManager:Send_ServerToAllClients( "ShowBranchSelection", {branchNumber=#self._vRounds[self._nRoundNumber],shortTitles=branchShortTitles} )
+            print("aaaaaaaaaaaaa")
+            DeepPrint(shortTitles)
+        	CustomGameEventManager:Send_ServerToAllClients( "ShowBranchSelection", {branchNumber=#self._vRounds[self._nRoundNumber],shortTitles=shortTitles} )
 
         	--将玩家默认选择随机分支
             CustomGameEventManager:Send_ServerToAllClients("SelectBranchReturn",{selectionData=self.vSelectionData})
@@ -1318,8 +1320,8 @@ function CHoldoutGameMode:SelectBranch( keys )
 		local player = PlayerResource:GetPlayer(keys.playerID)
 		if player == nil then return end
             
-        self.vSelectionData[keys.playerID]=keys.branch
+        GameRules:GetGameModeEntity().CHoldoutGameMode.vSelectionData[keys.playerID]=keys.branch
 
-		CustomGameEventManager:Send_ServerToAllClients("SelectBranchReturn",{selectionData=self.vSelectionData})
+		CustomGameEventManager:Send_ServerToAllClients("SelectBranchReturn",{selectionData=GameRules:GetGameModeEntity().CHoldoutGameMode.vSelectionData})
 	end
 end

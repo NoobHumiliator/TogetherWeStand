@@ -9,7 +9,7 @@
         <include src="s2r://panorama/scripts/custom_game/tws_branch_selection.js" />
     </scripts>
     <Panel hittest="false" class="BranchSelect">
-        <Panel hittest="false"  id ="BranchSelectionPanel" class="BranchSelectionPanel">
+        <Panel hittest="false"  id ="BranchSelectionPanel" class="BranchSelectionPanel Opacity">
                 <Label hittest="false" id="branch_select_title" class="VoteLable" text=""/>
                 <Panel hittest="false" class="line-1"></Panel>
                 <!--双分支选择-->
@@ -112,7 +112,7 @@
                     </Panel>
                 </Panel>
                 <Panel class="line-1"></Panel>
-                <Button class="ConfirmButton"  onactivate="ConfirmDifficulty()">
+                <Button class="ConfirmButton"  onactivate="ConfirmBranch()">
                     <Panel id="ConfirmButtonCenter" class="ConfirmButtonCenter">
                       <Label id="ConfirmText" class="ConfirmText" text="#confirm" />
                       <Label id="RemainingBranchSelectTime" class="RemainingBranchSelectTime" text="20" />

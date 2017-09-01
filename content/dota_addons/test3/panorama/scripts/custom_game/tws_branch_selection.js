@@ -38,21 +38,18 @@ function SendBranchSelection( branch ) {
 
 function SelectBranchReturn( data ) {
 
-		var playerNumber=Players.GetMaxPlayers();
-        $.Msg(playerNumber);
-		$("#EasyAvatar").RemoveAndDeleteChildren();
-		$("#EasyAvatar2").RemoveAndDeleteChildren();
-		$("#NormalAvatar").RemoveAndDeleteChildren();
-		$("#NormalAvatar2").RemoveAndDeleteChildren();
-		$("#HardAvatar").RemoveAndDeleteChildren();
-		$("#HardAvatar2").RemoveAndDeleteChildren();
-        $("#TrialAvatar").RemoveAndDeleteChildren();
-		$("#TrialAvatar2").RemoveAndDeleteChildren();
-       
+        //先删掉全部的头像
+        $.Msg("bbbbbbbbbbbbbbbb")
+        for (var i=0;i<=branchToChooseNo;i++)
+        {
+           $("#Branch_"+branchToChooseNo+"_"+i+"_AvatarTop").RemoveAndDeleteChildren();
+           $("#Branch_"+branchToChooseNo+"_"+i+"_AvatarDown").RemoveAndDeleteChildren();
+        }
+        $.Msg(data.selectionData)
         var branchNumber=[0,0,0,0,0,0,0]; //key是 分支编号 value 是分支选择人数
         var selectionData=data.selectionData; // Map  key为playerId value为所选分支
 
-		for (var i = 1; i <= playerNumber; i++) 
+		for (var i = 0; i < selectionData.length; i++) 
 		{
             var branch = selectionData[i]; //i玩家所选分支
 
@@ -62,6 +59,7 @@ function SelectBranchReturn( data ) {
 			{
 				var heroIndex=Players.GetPlayerHeroEntityIndex(i-1);
 				var heroName=Entities.GetUnitName( heroIndex );
+				 $.Msg("#Branch_"+branchToChooseNo+"_"+branch+"_AvatarDown");
 				var notification = $.CreatePanel('DOTAHeroImage', $("#Branch_"+branchToChooseNo+"_"+branch+"_AvatarDown"), '');
 				notification.heroimagestyle = "icon";
 				notification.heroname = heroName;
@@ -71,6 +69,7 @@ function SelectBranchReturn( data ) {
 			{
 				var heroIndex=Players.GetPlayerHeroEntityIndex(i-1);
 				var heroName=Entities.GetUnitName( heroIndex );
+				 $.Msg("#Branch_"+branchToChooseNo+"_"+branch+"_AvatarTop");
 				var notification = $.CreatePanel('DOTAHeroImage', $("#Branch_"+branchToChooseNo+"_"+branch+"_AvatarTop"), '');
 				notification.heroimagestyle = "icon";
 				notification.heroname = heroName;
@@ -80,7 +79,7 @@ function SelectBranchReturn( data ) {
         //设置玩家选择数量
         for (var i=0;i<=branchToChooseNo;i++)
         {
-           $("#Branch_"+branchToChooseNo+"_"+i+"_AvatarDown").text= branchNumber[i];
+           $("#Branch_"+branchToChooseNo+"_"+i+"_Label").text= branchNumber[i];
         }
 
 }
@@ -116,28 +115,33 @@ var SendTrialLeveltoServer = ( function(data)
 
 function ShowBranchSelection(keys)
 {
-	var shortTitles = keys.branchShortTitles
-     if (keys.branchNumber==2)  //双分支选择
+	var shortTitles = keys.shortTitles
+	$.Msg(shortTitles)
+    branchToChooseNo=keys.branchNumber
+    //显示主面板
+	$("#BranchSelectionPanel").SetHasClass( "Opacity", false); 
+
+    if (keys.branchNumber==2)  //双分支选择
 	{
         $("#TwoBranchSelection").SetHasClass( "Opacity", false );  //显示双分支选择面板
-        $("#Branch_2_1_Title").text=shortTitles[0];  //设置选择标题
-        $("#Branch_2_2_Title").text=shortTitles[1];
+        $("#Branch_2_1_Title").text=shortTitles[1];  //设置选择标题
+        $("#Branch_2_2_Title").text=shortTitles[2];
 
 	}
 	if (keys.branchNumber==3)   //三分支选择
 	{
         $("#ThreeBranchSelection").SetHasClass( "Opacity", false ); 
-        $("#Branch_3_1_Title").text=shortTitles[0];
-        $("#Branch_3_2_Title").text=shortTitles[1];
-        $("#Branch_3_3_Title").text=shortTitles[2];
+        $("#Branch_3_1_Title").text=shortTitles[1];
+        $("#Branch_3_2_Title").text=shortTitles[2];
+        $("#Branch_3_3_Title").text=shortTitles[3];
 	}
     if (keys.branchNumber==4)   //四分支选择
 	{
         $("#ThreeBranchSelection").SetHasClass( "Opacity", false ); 
-        $("#Branch_3_1_Title").text=shortTitles[0];
-        $("#Branch_3_2_Title").text=shortTitles[1];
-        $("#Branch_3_3_Title").text=shortTitles[2];
-        $("#Branch_3_4_Title").text=shortTitles[3];
+        $("#Branch_3_1_Title").text=shortTitles[1];
+        $("#Branch_3_2_Title").text=shortTitles[2];
+        $("#Branch_3_3_Title").text=shortTitles[3];
+        $("#Branch_3_4_Title").text=shortTitles[4];
 	}
 
 
@@ -153,7 +157,5 @@ function ShowBranchSelection(keys)
 	UpdateTimer();
 	//展示分支选择窗口
 	GameEvents.Subscribe("ShowBranchSelection",ShowBranchSelection);
-
-
-	GameEvents.Subscribe("SelectDifficultyReturn",SelectDifficultyReturn);
+	GameEvents.Subscribe("SelectBranchReturn",SelectBranchReturn);
 })();
