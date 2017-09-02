@@ -39,7 +39,6 @@ function SendBranchSelection( branch ) {
 function SelectBranchReturn( data ) {
 
         //先删掉全部的头像
-        $.Msg("bbbbbbbbbbbbbbbb")
         for (var i=0;i<=branchToChooseNo;i++)
         {
            $("#Branch_"+branchToChooseNo+"_"+i+"_AvatarTop").RemoveAndDeleteChildren();
@@ -49,7 +48,7 @@ function SelectBranchReturn( data ) {
         var branchNumber=[0,0,0,0,0,0,0]; //key是 分支编号 value 是分支选择人数
         var selectionData=data.selectionData; // Map  key为playerId value为所选分支
 
-		for (var i = 0; i < selectionData.length; i++) 
+		for (var i = 0; i < Object.keys(selectionData).length; i++) 
 		{
             var branch = selectionData[i]; //i玩家所选分支
 
@@ -57,19 +56,18 @@ function SelectBranchReturn( data ) {
             
             if (branchNumber[ branch ]<=3) //选此分支的人数少于等于3人
 			{
-				var heroIndex=Players.GetPlayerHeroEntityIndex(i-1);
+				var heroIndex=Players.GetPlayerHeroEntityIndex(i);
 				var heroName=Entities.GetUnitName( heroIndex );
-				 $.Msg("#Branch_"+branchToChooseNo+"_"+branch+"_AvatarDown");
 				var notification = $.CreatePanel('DOTAHeroImage', $("#Branch_"+branchToChooseNo+"_"+branch+"_AvatarDown"), '');
 				notification.heroimagestyle = "icon";
+				$.Msg("heroName"+heroName)
 				notification.heroname = heroName;
 				notification.hittest = false;
 			}
 			else
 			{
-				var heroIndex=Players.GetPlayerHeroEntityIndex(i-1);
+				var heroIndex=Players.GetPlayerHeroEntityIndex(i);
 				var heroName=Entities.GetUnitName( heroIndex );
-				 $.Msg("#Branch_"+branchToChooseNo+"_"+branch+"_AvatarTop");
 				var notification = $.CreatePanel('DOTAHeroImage', $("#Branch_"+branchToChooseNo+"_"+branch+"_AvatarTop"), '');
 				notification.heroimagestyle = "icon";
 				notification.heroname = heroName;
