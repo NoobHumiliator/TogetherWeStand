@@ -10,106 +10,108 @@
     </scripts>
     <Panel hittest="false" class="BranchSelect">
         <Panel hittest="false"  id ="BranchSelectionPanel" class="BranchSelectionPanel Opacity">
-                <Label hittest="false" id="branch_select_title" class="VoteLable" text=""/>
+                <Label hittest="false" id="branch_select_title" class="VoteLable" text="#choose_branch"/>
                 <Panel hittest="false" class="line-1"></Panel>
-                <!--双分支选择-->
-                <Panel hittest="false" id ="TwoBranchSelection"  class="BranchPanel Opacity">
-                   <Panel hittest="false" class="BranchGroupPanel">
-                       <RadioButton class="BranchRadioButton"  onactivate="SendBranchSelection('1')">
-                          <Panel class="NumberAndAvatar">
-                             <Panel id="Branch_2_1_AvatarTop" class="Avatar"/>
-                             <Panel class="number">
-                               <Label id="Branch_2_1_Label" class="value" text="0"/>
-                             </Panel>
-                             <Panel id="Branch_2_1_AvatarDown" class="Avatar"/>
-                          </Panel>
-                          <Panel class="BranchTitlePanel">
-                            <Label class="title"  id="Branch_2_1_Title"  html="true" text=""/>
-                          </Panel>
-                       </RadioButton>
-                      <RadioButton class="BranchRadioButton"  onactivate="SendBranchSelection('2')">
-                          <Panel class="NumberAndAvatar">
-                               <Panel id="Branch_2_2_AvatarTop" class="Avatar"/>
-                               <Panel class="number">
-                                <Label id="Branch_2_2_Label" class="value" text="0"/>
+                <!--所有分支的面板放在中间-->
+                <Panel hittest="false" id ="BranchCenterPanel"  class="BranchCenterPanel">
+                            <Panel hittest="false" id ="TwoBranchSelection"  class="BranchPanel Opacity">
+                               <Panel hittest="false" class="BranchGroupPanel">
+                                   <RadioButton class="BranchRadioButton"  onactivate="SendBranchSelection('1')">
+                                      <Panel class="NumberAndAvatar">
+                                         <Panel id="Branch_2_1_AvatarTop" class="Avatar"/>
+                                         <Panel class="number">
+                                           <Label id="Branch_2_1_Label" class="value" text="0"/>
+                                         </Panel>
+                                         <Panel id="Branch_2_1_AvatarDown" class="Avatar"/>
+                                      </Panel>
+                                      <Panel class="BranchTitlePanel">
+                                        <Label class="title"  id="Branch_2_1_Title"  html="true" text=""/>
+                                      </Panel>
+                                   </RadioButton>
+                                  <RadioButton class="BranchRadioButton"  onactivate="SendBranchSelection('2')">
+                                      <Panel class="NumberAndAvatar">
+                                           <Panel id="Branch_2_2_AvatarTop" class="Avatar"/>
+                                           <Panel class="number">
+                                            <Label id="Branch_2_2_Label" class="value" text="0"/>
+                                           </Panel>
+                                          <Panel id="Branch_2_2_AvatarDown" class="Avatar"/>
+                                      </Panel>
+                                      <Panel class="BranchTitlePanel">
+                                        <Label class="title" id="Branch_2_2_Title" html="true" text=""/>
+                                      </Panel>
+                                  </RadioButton>
                                </Panel>
-                              <Panel id="Branch_2_2_AvatarDown" class="Avatar"/>
-                          </Panel>
-                          <Panel class="BranchTitlePanel">
-                            <Label class="title" id="Branch_2_2_Title" html="true" text=""/>
-                          </Panel>
-                      </RadioButton>
-                   </Panel>
-                   <!--0表示随机选-->
-                   <Panel hittest="false" class="BranchGroupPanel">
-                      <RadioButton class="BranchRadioButton"  onactivate="SendBranchSelection('0')">
-                          <Panel class="NumberAndAvatar">
-                              <Panel id="Branch_2_0_AvatarTop" class="Avatar"/>
-                              <Panel class="number">
-                               <Label id="Branch_2_0_Label" class="value" text="0"/>
-                              </Panel>
-                             <Panel id="Branch_2_0_AvatarDown" class="Avatar"/>
-                          </Panel>
-                          <Panel class="BranchTitlePanel">
-                            <Label class="title" html="true" text="#game_branch_random"/>
-                          </Panel>
-                      </RadioButton>
-                    </Panel>
-                </Panel>
-                <!--三分支选择-->
-                <Panel hittest="false" id ="ThreeBranchSelection"  class="BranchPanel Opacity">
-                   <Panel hittest="false" class="BranchGroupPanel">
-                       <RadioButton class="BranchRadioButton"  onactivate="SendBranchSelection('1')">
-                          <Panel class="NumberAndAvatar">
-                             <Panel id="Branch_3_1_AvatarTop" class="Avatar"/>
-                             <Panel class="number">
-                               <Label id="Branch_3_1_Label" class="value" text="0"/>
-                             </Panel>
-                             <Panel id="Branch_3_1_AvatarDown" class="Avatar"/>
-                          </Panel>
-                          <Panel class="BranchTitlePanel">
-                            <Label class="title" id="Branch_3_1_Title" html="true" text=""/>
-                          </Panel>
-                       </RadioButton>
-                      <RadioButton class="BranchRadioButton"  onactivate="SendBranchSelection('2')">
-                          <Panel class="NumberAndAvatar">
-                               <Panel id="Branch_3_2_AvatarTop" class="Avatar"/>
-                               <Panel class="number">
-                                <Label id="Branch_3_2_Label" class="value" text="0"/>
+                               <!--0表示随机选-->
+                               <Panel hittest="false" class="BranchGroupPanel">
+                                  <RadioButton class="BranchRadioButton"  onactivate="SendBranchSelection('0')">
+                                      <Panel class="NumberAndAvatar">
+                                          <Panel id="Branch_2_0_AvatarTop" class="Avatar"/>
+                                          <Panel class="number">
+                                           <Label id="Branch_2_0_Label" class="value" text="0"/>
+                                          </Panel>
+                                         <Panel id="Branch_2_0_AvatarDown" class="Avatar"/>
+                                      </Panel>
+                                      <Panel class="BranchTitlePanel">
+                                        <Label class="title" html="true" text="#game_branch_random"/>
+                                      </Panel>
+                                  </RadioButton>
+                                </Panel>
+                            </Panel>
+                            <!--三分支选择-->
+                            <Panel hittest="false" id ="ThreeBranchSelection"  class="BranchPanel Opacity">
+                               <Panel hittest="false" class="BranchGroupPanel">
+                                   <RadioButton class="BranchRadioButton"  onactivate="SendBranchSelection('1')">
+                                      <Panel class="NumberAndAvatar">
+                                         <Panel id="Branch_3_1_AvatarTop" class="Avatar"/>
+                                         <Panel class="number">
+                                           <Label id="Branch_3_1_Label" class="value" text="0"/>
+                                         </Panel>
+                                         <Panel id="Branch_3_1_AvatarDown" class="Avatar"/>
+                                      </Panel>
+                                      <Panel class="BranchTitlePanel">
+                                        <Label class="title" id="Branch_3_1_Title" html="true" text=""/>
+                                      </Panel>
+                                   </RadioButton>
+                                  <RadioButton class="BranchRadioButton"  onactivate="SendBranchSelection('2')">
+                                      <Panel class="NumberAndAvatar">
+                                           <Panel id="Branch_3_2_AvatarTop" class="Avatar"/>
+                                           <Panel class="number">
+                                            <Label id="Branch_3_2_Label" class="value" text="0"/>
+                                           </Panel>
+                                          <Panel id="Branch_3_2_AvatarDown" class="Avatar"/>
+                                      </Panel>
+                                      <Panel class="BranchTitlePanel">
+                                        <Label class="title" id="Branch_3_2_Title" html="true" text=""/>
+                                      </Panel>
+                                  </RadioButton>
                                </Panel>
-                              <Panel id="Branch_3_2_AvatarDown" class="Avatar"/>
-                          </Panel>
-                          <Panel class="BranchTitlePanel">
-                            <Label class="title" id="Branch_3_2_Title" html="true" text=""/>
-                          </Panel>
-                      </RadioButton>
-                   </Panel>
-                   <Panel hittest="false" class="BranchGroupPanel">
-                      <RadioButton class="BranchRadioButton"  onactivate="SendBranchSelection('3')">
-                          <Panel class="NumberAndAvatar">
-                              <Panel id="Branch_3_3_AvatarTop" class="Avatar"/>
-                              <Panel class="number">
-                               <Label id="Branch_3_3_Label" class="value" text="0"/>
-                              </Panel>
-                             <Panel id="Branch_3_3_AvatarDown" class="Avatar"/>
-                          </Panel>
-                          <Panel class="BranchTitlePanel">
-                            <Label class="title" id="Branch_3_3_Title" html="true" text=""/>
-                          </Panel>
-                      </RadioButton>
-                      <RadioButton class="BranchRadioButton"  onactivate="SendBranchSelection('0')">
-                          <Panel class="NumberAndAvatar">
-                              <Panel id="Branch_3_0_AvatarTop" class="Avatar"/>
-                              <Panel class="number">
-                               <Label id="Branch_3_0_Label" class="value" text="0"/>
-                              </Panel>
-                             <Panel id="Branch_3_0_AvatarDown" class="Avatar"/>
-                          </Panel>
-                          <Panel class="BranchTitlePanel">
-                            <Label class="title" html="true" text="#game_branch_random"/>
-                          </Panel>
-                      </RadioButton>
-                    </Panel>
+                               <Panel hittest="false" class="BranchGroupPanel">
+                                  <RadioButton class="BranchRadioButton"  onactivate="SendBranchSelection('3')">
+                                      <Panel class="NumberAndAvatar">
+                                          <Panel id="Branch_3_3_AvatarTop" class="Avatar"/>
+                                          <Panel class="number">
+                                           <Label id="Branch_3_3_Label" class="value" text="0"/>
+                                          </Panel>
+                                         <Panel id="Branch_3_3_AvatarDown" class="Avatar"/>
+                                      </Panel>
+                                      <Panel class="BranchTitlePanel">
+                                        <Label class="title" id="Branch_3_3_Title" html="true" text=""/>
+                                      </Panel>
+                                  </RadioButton>
+                                  <RadioButton class="BranchRadioButton"  onactivate="SendBranchSelection('0')">
+                                      <Panel class="NumberAndAvatar">
+                                          <Panel id="Branch_3_0_AvatarTop" class="Avatar"/>
+                                          <Panel class="number">
+                                           <Label id="Branch_3_0_Label" class="value" text="0"/>
+                                          </Panel>
+                                         <Panel id="Branch_3_0_AvatarDown" class="Avatar"/>
+                                      </Panel>
+                                      <Panel class="BranchTitlePanel">
+                                        <Label class="title" html="true" text="#game_branch_random"/>
+                                      </Panel>
+                                  </RadioButton>
+                                </Panel>
+                            </Panel>
                 </Panel>
                 <Panel class="line-1"></Panel>
                 <Button class="ConfirmButton"  onactivate="ConfirmBranch()">
