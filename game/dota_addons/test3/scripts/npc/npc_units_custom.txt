@@ -1773,7 +1773,7 @@
 			"XPGain"					"100"
 
 			"DefaultState"				"Invade"
-                        "AttachWearables"
+            "AttachWearables"
 			{
 				"Wearable1"
 				{
@@ -14176,7 +14176,7 @@
 		// Bounds
 		//----------------------------------------------------------------
 		"HealthBarOffset"			"450"		
-		"RingRadius"					"85"				 		
+		"RingRadius"			   "85"				 		
 		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"			// Hull type used for navigation/locomotion.
 
 		// Bounty
@@ -14192,7 +14192,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"800000"		// Base health.
+		"StatusHealth"				"200"		// Base health.
 		"StatusHealthRegen"			"0.0"		// Health regeneration rate.
 		
 		// Vision
@@ -14221,7 +14221,7 @@
 		"MinimapIcon"				"minimap_roshancamp"
 		"MinimapIconSize"			"350"
 		
-		"SoundSet"				"Hero_SkywrathMage"								// Name of sound set.
+		"SoundSet"			       	"Hero_SkywrathMage"								// Name of sound set.
 		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
 
 		// Inventory
@@ -14231,14 +14231,8 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"AbilityLayout"				       "5"
-		"Ability1"					"big_wind"	// Ability 1.
-		"Ability2"					"super_concussive"		        // Ability 2.
-		"Ability3"					"fly_to_point"			        // Ability 3.
-		"Ability4"					"skywrath_mage_mystic_flare_datadriven"			// Ability 4.
-		"Ability5"					"skywrath_mage_ancient_seal_datadriven"	// Ability 5.
-		"Ability6"					"sky_gold_bag_fountain"		        // Ability 6 - Extra.
-		"Ability7"					""			// Ability 7 - Extra.
-		"Ability8"					"creature_sky_stun"			// Ability 8 - Extra.
+		"Ability1"					"phoenix_boss_supernova_datadriven"
+		"Ability2"					"phoenix_boss_icarus_dive_datadriven"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -14259,7 +14253,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"				"100"		// Experience earn.
+		"BountyXP"				    "100"		// Experience earn.
 		"BountyGoldMin"				"200"		// Gold earned min.
 		"BountyGoldMax"				"200"		// Gold earned max.
 
@@ -14276,8 +14270,8 @@
 		"MovementTurnRate"			"0.4"		// Turning rate.
 
 		
-		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
-		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_skywrath_mage.vsndevts"
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
+		"VoiceFile"				    "soundevents/voscripts/game_sounds_vo_phoenix.vsndevts"
 
 		// Status
 		//----------------------------------------------------------------
@@ -14298,7 +14292,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
 
-		"vscripts"					"creature_ai/bosssky_ai.lua"
+		"vscripts"					"creature_ai/bossphoenix_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -14323,34 +14317,22 @@
 			"XPGain"					"100"
 
 			"DefaultState"				"Invade"
-                        "AttachWearables"
+             
+            "AttachWearables"
 			{
 				"Wearable1"
 				{
-					"ItemDef"			"5448"
+					"ItemDef"			"592"
 				}
 				"Wearable2"
 				{
-					"ItemDef"			"5455"
+					"ItemDef"			"626"
 				}
 				"Wearable3"
 				{
-					"ItemDef"			"5456"
-				}
-				"Wearable4"
-				{
-					"ItemDef"			"5457"
-				}
-                                "Wearable5"
-				{
-					"ItemDef"			"5458"
-				}
-                                "Wearable6"
-				{
-					"ItemDef"			"5551"
+					"ItemDef"			"535"
 				}
 			}
-			
 		}
 	}
 }  //主括号

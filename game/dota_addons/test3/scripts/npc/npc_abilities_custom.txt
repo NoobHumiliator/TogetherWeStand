@@ -24718,7 +24718,7 @@
 	
 	// Time		
 	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCooldown"				"110.0 110.0 110.0"
+	"AbilityCooldown"				"60.0"
 	"AbilityDuration"				"6.0"
 
 	// Cost
@@ -24737,7 +24737,7 @@
 		"02"
 		{
 			"var_type"			"FIELD_INTEGER"
-			"damage_per_sec"    "2000"
+			"damage_per_sec"    "20"
 		}
 		"03"
 		{
@@ -24747,7 +24747,7 @@
 		"04"
 		{
 			"var_type"			"FIELD_INTEGER"
-			"dot_basic_damage"  "1000"
+			"dot_basic_damage"  "20"
 		}
 	}
 	
@@ -24956,7 +24956,7 @@
 	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 	"FightRecapLevel"				"1"
 	"AbilityTextureName"			"phoenix_icarus_dive"
-
+    "AbilityCastRange"				"1500"
 	// Casting
 	//-------------------------------------------------------------------------------------------------------------
 	"AbilityCastPoint"				"0.1"
@@ -24997,7 +24997,7 @@
 		"05"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"burn_damage"		    "1000"
+			"burn_damage"		    "25"
 		}
 		"06"
 		{

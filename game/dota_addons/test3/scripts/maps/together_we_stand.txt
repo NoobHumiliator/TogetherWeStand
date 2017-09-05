@@ -422,7 +422,7 @@
     
     "Round3-2" //Phoenix Boss
 	{
-		"round_quest_title"			"#TWS_Round_Phoenix_Quest_Title"
+		//"round_quest_title"			"#TWS_Round_Phoenix_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Phoenix_Title"
 		"MaxGold"					"0" //600g from gold fountain ability
 		"BagCount"					"20"
