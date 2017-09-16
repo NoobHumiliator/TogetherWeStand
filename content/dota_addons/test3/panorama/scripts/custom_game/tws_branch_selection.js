@@ -19,7 +19,7 @@ function UpdateTimer()
 		{
 			$("#RemainingBranchSelectTime").text = time;
 		}
-		if( 8-Math.max( 0, Math.floor( gameTime-initTime) )< 0  ) //分支选择计时到
+		if(  ( 8-Math.max( 0, Math.floor( gameTime-initTime) ) ) == 0  ) //分支选择计时到
 		{
 			$("#BranchSelectionPanel").SetHasClass( "Opacity", true ); 
 			initTime=null;

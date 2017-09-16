@@ -14,7 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
-testMode=true --减少刷兵间隔，增加初始金钱
+--testMode=true --减少刷兵间隔，增加初始金钱
 goldTestMode=false
 --goldTestMode=true --需要测试金币相关的内容
 
@@ -683,6 +683,8 @@ function CHoldoutGameMode:_ThinkPrepTime()
 
 	if not self._precacheFlag then
 		QuestSystem:CreateQuest("PrepTime","#tws_quest_prep_time",self._flPrepTimeBetweenRounds,self._flPrepTimeBetweenRounds,nil,self._nRoundNumber)
+		print("self._nRoundNumber"..self._nRoundNumber)
+		print("self._nBranchIndex"..self._nBranchIndex)
 	    self._vRounds[ self._nRoundNumber ][self._nBranchIndex]:Precache()	
         self._precacheFlag=true
 	end
@@ -1047,13 +1049,16 @@ function CHoldoutGameMode:RoundEnd()
             CustomGameEventManager:Send_ServerToAllClients("SelectBranchReturn",{selectionData=self.vSelectionData})
 
             Timers:CreateTimer({  --设置定时器 xx秒以后 下一轮准备时间开始
-			    endTime = 15,
+			    endTime = 10,
 			    callback = function()
 			      PrepTimeBegin()  --开始下一关的准备倒计时
 			end})	
 
-        else
+        else   --如果没有多余分支，下一关分支编号为1
+
+           self._nBranchIndex=1
            self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
+
         end
 
 	end
@@ -1070,6 +1075,8 @@ function PrepTimeBegin() --开始下一关的准备倒计时
     local vSelectionData = GameRules:GetGameModeEntity().CHoldoutGameMode.vSelectionData
     local flPrepTimeBetweenRounds = GameRules:GetGameModeEntity().CHoldoutGameMode._flPrepTimeBetweenRounds
 
+    local branchIndex=0 --下一关的分支号码,默认随机
+
     for i=0,#vRounds[roundNumber] do
     	branchMap[i]=0  --初始化分支选择人数
     end
@@ -1080,14 +1087,10 @@ function PrepTimeBegin() --开始下一关的准备倒计时
 			local branchIndex=tonumber(vSelectionData[nPlayerID])
 			branchMap[branchIndex]=branchMap[branchIndex]+1 --人数
 		end
-	end
-    
-    DeepPrint(branchMap)
-
-    local branchIndex=0 --下一关的分支号码
+	end		    
 
     for i=0,#vRounds[roundNumber] do
-        if  branchMap[i]> branchIndex then
+        if  branchMap[i]> branchMap[branchIndex] then
             branchIndex=i
         end
     end
@@ -1228,7 +1231,6 @@ function CHoldoutGameMode:TestRound(roundNumber, delay)
 
 
     if #self._vRounds[self._nRoundNumber]>1 then
-     print("b")
             local shortTitles={}
             for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
 				if PlayerResource:IsValidPlayer( nPlayerID ) then
