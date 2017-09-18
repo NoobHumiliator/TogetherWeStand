@@ -26,6 +26,18 @@ function modifier_item_wand_of_the_brine_bubble:OnCreated( kv )
 end
 
 --------------------------------------------------------------------------------
+function modifier_item_wand_of_the_brine_bubble:CheckState()
+	local state = {}
+	if IsServer()  then
+		state[ MODIFIER_STATE_ROOTED ] = true
+		state[ MODIFIER_STATE_DISARMED] = true
+		state[ MODIFIER_STATE_SILENCED ] = true
+	end
+
+	return state
+end
+
+--------------------------------------------------------------------------------
 
 function modifier_item_wand_of_the_brine_bubble:OnIntervalThink()
 	if IsServer() then

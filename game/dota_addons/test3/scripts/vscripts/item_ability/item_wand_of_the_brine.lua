@@ -1,7 +1,7 @@
 
 item_wand_of_the_brine = class({})
-LinkLuaModifier( "modifier_item_wand_of_the_brine", "item_ability/modifiers/modifier_item_wand_of_the_brine", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_item_wand_of_the_brine_bubble", "item_ability/modifiers/modifier_item_wand_of_the_brine_bubble", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_wand_of_the_brine", "item_ability/modifier/modifier_item_wand_of_the_brine", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_item_wand_of_the_brine_bubble", "item_ability/modifier/modifier_item_wand_of_the_brine_bubble", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 

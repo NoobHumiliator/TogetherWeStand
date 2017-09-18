@@ -8620,7 +8620,7 @@
 		"ItemResult"					"item_wand_of_the_brine"
 		"ItemRequirements"
 		{
-			"01"						"item_mystic_staff,item_void_stone"
+			"01"						"item_mystic_staff;item_void_stone"
 		}
 	}
 
@@ -8628,6 +8628,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"12285"
 		"BaseClass"						"item_lua"
 		"AbilityTextureName"			"wand_of_the_brine"
 		"ScriptFile"					"item_ability/item_wand_of_the_brine"
@@ -8644,20 +8645,18 @@
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"25.0"
-        "ItemCost"						"3750"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemPurchasable"				"0"
+		"ItemCost"						"3750"
+		"ItemPurchasable"				"1"
 		"ItemQuality"					""
 		"ItemStackable"					"0"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_NOT_SHAREABLE"
 		"ItemPermanent"					"0"
 		"ItemKillable"					"0"
-		"ItemDisplayOwnership"			"1"
-		"CustomShop"					"1"
+		"SideShop"						"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------

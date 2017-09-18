@@ -76,7 +76,7 @@
 	// Level 1 - Green Recipes
 	"basics"
 	{
-		"item"		"item_wraith_band"
+		"item"		"item_wand_of_the_brine"
 		"item"		"item_null_talisman"
 		"item"		"item_magic_wand"
 		"item"		"item_bracer"
