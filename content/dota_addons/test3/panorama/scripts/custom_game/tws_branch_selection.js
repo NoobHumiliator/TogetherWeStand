@@ -12,14 +12,14 @@ function UpdateTimer()
 	{
 		initTime=gameTime
 	}
-	var time = (15-Math.max( 0, Math.floor( gameTime-initTime) ) ).toString();
+	var time = (8-Math.max( 0, Math.floor( gameTime-initTime) ) ).toString();
 	if ($("#RemainingBranchSelectTime"))
 	{
 		if( $("#RemainingBranchSelectTime").text != time )
 		{
 			$("#RemainingBranchSelectTime").text = time;
 		}
-		if( 15-Math.max( 0, Math.floor( gameTime-initTime) )< 0  ) //分支选择计时到
+		if(  ( 8-Math.max( 0, Math.floor( gameTime-initTime) ) ) == 0  ) //分支选择计时到
 		{
 			$("#BranchSelectionPanel").SetHasClass( "Opacity", true ); 
 			initTime=null;
@@ -60,7 +60,6 @@ function SelectBranchReturn( data ) {
 				var heroName=Entities.GetUnitName( heroIndex );
 				var notification = $.CreatePanel('DOTAHeroImage', $("#Branch_"+branchToChooseNo+"_"+branch+"_AvatarDown"), '');
 				notification.heroimagestyle = "icon";
-				$.Msg("heroName"+heroName)
 				notification.heroname = heroName;
 				notification.hittest = false;
 			}
@@ -152,7 +151,6 @@ function ShowBranchSelection(keys)
 
 (function()
 {
-	UpdateTimer();
 	//展示分支选择窗口
 	GameEvents.Subscribe("ShowBranchSelection",ShowBranchSelection);
 	GameEvents.Subscribe("SelectBranchReturn",SelectBranchReturn);

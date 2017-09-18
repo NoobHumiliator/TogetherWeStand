@@ -14,7 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
-testMode=true --减少刷兵间隔，增加初始金钱
+--testMode=true --减少刷兵间隔，增加初始金钱
 goldTestMode=false
 --goldTestMode=true --需要测试金币相关的内容
 
@@ -675,7 +675,7 @@ function CHoldoutGameMode:_ThinkPrepTime()
 			   return false
 			 end
 		end
-
+        print("self._nBranchIndex"..self._nBranchIndex)
 		self._currentRound = self._vRounds[ self._nRoundNumber ][self._nBranchIndex]
 		self._currentRound:Begin()
 		return
@@ -683,6 +683,8 @@ function CHoldoutGameMode:_ThinkPrepTime()
 
 	if not self._precacheFlag then
 		QuestSystem:CreateQuest("PrepTime","#tws_quest_prep_time",self._flPrepTimeBetweenRounds,self._flPrepTimeBetweenRounds,nil,self._nRoundNumber)
+		print("self._nRoundNumber"..self._nRoundNumber)
+		print("self._nBranchIndex"..self._nBranchIndex)
 	    self._vRounds[ self._nRoundNumber ][self._nBranchIndex]:Precache()	
         self._precacheFlag=true
 	end
@@ -1047,13 +1049,16 @@ function CHoldoutGameMode:RoundEnd()
             CustomGameEventManager:Send_ServerToAllClients("SelectBranchReturn",{selectionData=self.vSelectionData})
 
             Timers:CreateTimer({  --设置定时器 xx秒以后 下一轮准备时间开始
-			    endTime = 20,
+			    endTime = 10,
 			    callback = function()
 			      PrepTimeBegin()  --开始下一关的准备倒计时
 			end})	
 
-        else
+        else   --如果没有多余分支，下一关分支编号为1
+
+           self._nBranchIndex=1
            self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
+
         end
 
 	end
@@ -1062,34 +1067,40 @@ end
 
 function PrepTimeBegin() --开始下一关的准备倒计时
      
+
     local branchMap={}  --key是分支编号 --value是分支选择人数
    
-    for i=0,#self._vRounds[self._nRoundNumber]-1 do
-    	table.insert(branchMap, 0) --初始设置为0
+    local vRounds = GameRules:GetGameModeEntity().CHoldoutGameMode._vRounds
+    local roundNumber = GameRules:GetGameModeEntity().CHoldoutGameMode._nRoundNumber
+    local vSelectionData = GameRules:GetGameModeEntity().CHoldoutGameMode.vSelectionData
+    local flPrepTimeBetweenRounds = GameRules:GetGameModeEntity().CHoldoutGameMode._flPrepTimeBetweenRounds
+
+    local branchIndex=0 --下一关的分支号码,默认随机
+
+    for i=0,#vRounds[roundNumber] do
+    	branchMap[i]=0  --初始化分支选择人数
     end
+     
 
     for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
 		if PlayerResource:IsValidPlayer( nPlayerID ) then
-			local branchIndex=self.vSelectionData[nPlayerID]
+			local branchIndex=tonumber(vSelectionData[nPlayerID])
 			branchMap[branchIndex]=branchMap[branchIndex]+1 --人数
 		end
-	end
-    
-    local branchIndex=0 --下一关的分支号码
+	end		    
 
-    for i=1,#branchMap do
-        if  branchMap[i]> branchIndex then
-            branchIndex=branchMap[i]
+    for i=0,#vRounds[roundNumber] do
+        if  branchMap[i]> branchMap[branchIndex] then
+            branchIndex=i
         end
     end
     
     if branchIndex==0 then  --如果随机
-       branchIndex=RandomInt(1,#self._vRounds[self._nRoundNumber])  --随机出一个分支号码
+       branchIndex=RandomInt(1,#vRounds[roundNumber])  --随机出一个分支号码
     end
 
-
-    self._nBranchIndex = branchIndex --记录下一关的分支编号
-	self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
+    GameRules:GetGameModeEntity().CHoldoutGameMode._nBranchIndex = branchIndex --记录下一关的分支编号
+	GameRules:GetGameModeEntity().CHoldoutGameMode._flPrepTimeEnd = GameRules:GetGameTime() + flPrepTimeBetweenRounds
 end
 
 
@@ -1191,7 +1202,6 @@ function CHoldoutGameMode:TestRound(roundNumber, delay)
   
    local nRoundToTest = tonumber( roundNumber )
    if nRoundToTest <= 0 or nRoundToTest > #self._vRounds then
-   	     print("d")
 		return
    end
 
@@ -1221,7 +1231,6 @@ function CHoldoutGameMode:TestRound(roundNumber, delay)
 
 
     if #self._vRounds[self._nRoundNumber]>1 then
-     print("b")
             local shortTitles={}
             for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
 				if PlayerResource:IsValidPlayer( nPlayerID ) then
@@ -1231,25 +1240,21 @@ function CHoldoutGameMode:TestRound(roundNumber, delay)
 
             for i=1,#self._vRounds[self._nRoundNumber] do
             	--将配置文件中的标题传进参数
-            	print("roundNumber"..self._nRoundNumber.." i :"..i)
             	shortTitles[i]=self._vRounds[self._nRoundNumber][i]._shortTitle
             end
             --第一个参数是分支数目，第二个参数是分支的Short Title
-            print("aaaaaaaaaaaaa")
-            DeepPrint(shortTitles)
         	CustomGameEventManager:Send_ServerToAllClients( "ShowBranchSelection", {branchNumber=#self._vRounds[self._nRoundNumber],shortTitles=shortTitles} )
 
         	--将玩家默认选择随机分支
             CustomGameEventManager:Send_ServerToAllClients("SelectBranchReturn",{selectionData=self.vSelectionData})
 
             Timers:CreateTimer({  --设置定时器 xx秒以后 下一轮准备时间开始
-			    endTime = 20,
+			    endTime = 8,
 			    callback = function()
 			      PrepTimeBegin()  --开始下一关的准备倒计时
 			end})	
 
     else
-       print("a")
        if delay ~= nil then
 		  self._flPrepTimeEnd = GameRules:GetGameTime() + tonumber( delay )
 	   else
