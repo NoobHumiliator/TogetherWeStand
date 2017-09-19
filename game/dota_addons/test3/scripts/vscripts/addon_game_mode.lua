@@ -217,6 +217,9 @@ function CHoldoutGameMode:InitGameMode()
 
 	GameRules:GetGameModeEntity():SetLoseGoldOnDeath(false) --死亡不扣除金钱
 	GameRules:GetGameModeEntity():SetContextThink( "globalthink0",function() return self:OnThink() end , 1.0)
+
+    --玩家可买物品最大数目，不限制
+	SendToServerConsole("dota_max_physical_items_purchase_limit 9999")
 	--self._vHeroList={}
     self:CreateNetTablesSettings()
     self:HeroListRefill()
@@ -1295,11 +1298,6 @@ function CHoldoutGameMode:_ListModifiers(cmdName)
 		end
 	end
 end
-
-
-
-
-
 
 
 function CHoldoutGameMode:CreateNetTablesSettings()

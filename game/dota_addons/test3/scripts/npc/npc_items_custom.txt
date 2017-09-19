@@ -8689,6 +8689,104 @@
 			}
 		}
 	}
+    
+     "item_recipe_slippers_of_the_abyss"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"12280"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_recipe"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"200"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_wand_of_the_brine"
+		"ItemRequirements"
+		{
+			"01"						"item_mystic_staff;item_void_stone"
+		}
+	}
+
+
+
+    "item_slippers_of_the_abyss"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"12295"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"slippers_of_the_abyss"
+		"ScriptFile"					"items/item_slippers_of_the_abyss"
+
+		"Model"							"models/props_gameplay/treasure_chest001.vmdl"
+		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+
+		"DungeonItemDef"				"12064"
+		"DungeonAction"					"dungeon_in_game_item_12064"
+		"DungeonCurrencyCost"			"130"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"100"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"20.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemPurchasable"				"0"
+		"ItemQuality"					""
+		"ItemStackable"					"0"
+		"ItemSellable"					"0"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"ItemPermanent"					"0"
+		"ItemKillable"					"0"
+		"ItemDisplayOwnership"			"1"
+		"CustomShop"					"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed"	"90"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"		"15"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_agility"			"15"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_atk_speed"		"100"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"sprint_duration"		"4"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"sprint_bonus_ms"		"200"
+			}
+		}
+	} 
 
 
 } //主函数
