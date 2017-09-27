@@ -9,12 +9,14 @@ function Rank:Start()
 end
 
 function Rank:RequestRankData(keys)
-    local player_number=keys.player_number
-    local page_number=keys.page_number
+    local player_number=tonumber(keys.player_number)
+    local page_number=tonumber(keys.page_number)
     print("player number: "..player_number)
     print("page number: "..page_number)
-    if Rank.rankTable ~=nil then
-        CustomGameEventManager:Send_ServerToAllClients("show_page", {player_number=player_number,page_number=page_number,table=Rank.rankTable[tonumber(player_number)][tonumber(page_number)]})
+    if  Rank.rankTable and  Rank.rankTable[tonumber(player_number)] then
+        CustomGameEventManager:Send_ServerToAllClients("show_page", {player_number=player_number,page_number=page_number,table=Rank.rankTable[player_number][page_number]})
+    else
+        Rank:GetRankDataFromServer(player_number)
     end
 end
 
@@ -36,7 +38,7 @@ function Rank:GetRankDataFromServer(nPlayerNumber)
                 --PrintTable(result_table,nil,nil)
                 for i,v in ipairs(result_table) do
                     --PrintTable(v,nil,nil)
-                    local page=math.ceil(i/150) --1到150是第一页 151-300 第二页 分页保存至表中
+                    local page=math.ceil(i/30) --1到150是第一页 151-300 第二页 分页保存至表中
                     if playerNumberTable[page]==nil then playerNumberTable[page]={} end
                     table.insert(playerNumberTable[page],v)
                 end

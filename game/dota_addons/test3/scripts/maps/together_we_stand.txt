@@ -399,6 +399,149 @@
 		}										
 	}
 	
+    "Round2-2" //Wolf
+	{
+		//"round_quest_title"			"#TWS_Round_Wolf_Quest_Title"
+		"round_title"				"#DOTA_Holdout_Round_Wolf_Title"
+		"MaxGold"					"1950"
+		"BagCount"					"50"
+		"BagVariance"		        "10"
+		"FixedXP"					"10500"
+		"alias"                     "wolf"
+		"ShortTitle"                "#wolf_short_title"
+		"ExpectedGold"              "2950"
+		
+		// Stage 1 ================================================
+		"UnitWolf_1_a"
+		{
+			"NPCName"	            "npc_dota_creature_dire_hound"
+			"TotalUnitsToSpawn"		"35"
+			"UnitsPerSpawn"			"7"
+			"SpawnInterval"         "10"
+		}
+		
+		"UnitWolf_Mid_1_a"
+		{
+			"GroupWithUnit"			"UnitWolf_1_a"			
+			"NPCName"			    "npc_dota_creature_dire_hound_boss"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"		    "1"
+			"SpawnInterval"         "10"
+		}
+	
+		"UnitBear_1_b"
+		{
+			"NPCName"	           "npc_dota_creature_small_hellbear"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"         "10"
+		}
+		
+		"UnitBear_Mid_1_b"
+		{
+			"GroupWithUnit"			"UnitBear_1_b"			
+			"NPCName"			    "npc_dota_creature_hellbear"
+			"TotalUnitsToSpawn"		"1"
+		}
+
+		"UnitBear_1_c"
+		{
+			"NPCName"	           "npc_dota_creature_small_hellbear"		
+			"TotalUnitsToSpawn"		"35"
+			"UnitsPerSpawn"			"7"
+			"SpawnInterval"         "10"
+		}
+		
+		"UnitBear_Mid_1_c"
+		{
+			"GroupWithUnit"			"UnitBear_1_c"			
+			"NPCName"			    "npc_dota_creature_hellbear"
+			"TotalUnitsToSpawn"		"5"
+			"UnitsPerSpawn"		    "1"
+			"SpawnInterval"         "10"
+		}
+		// Stage 2 ================================================
+		"UnitBear_2_a"
+		{
+			"WaitForUnit"			"UnitWolf_1_a"
+			"NPCName"	            "npc_dota_creature_small_hellbear"
+			"TotalUnitsToSpawn"		"24"
+			"UnitsPerSpawn"			"6"
+			"SpawnInterval"         "10"
+		}
+		
+		"UnitBear_Mid_2_a"
+		{
+			"GroupWithUnit"			"UnitWolf_1_a"			
+			"NPCName"			    "npc_dota_creature_hellbear"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"		    "2"
+			"SpawnInterval"         "10"
+		}
+	
+        "UnitWolf_Big_2_a"
+		{
+			"GroupWithUnit"			"UnitWolf_1_a"			
+			"NPCName"			    "npc_dota_creature_werewolf"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"		    "2"
+			"SpawnInterval"         "10"
+		}
+
+
+		"UnitBear_2_b"
+		{
+			"NPCName"	            "npc_dota_creature_dire_hound"
+			"TotalUnitsToSpawn"		"32"
+			"UnitsPerSpawn"			"8"
+			"SpawnInterval"         "10"
+		}
+		
+		"UnitBear_Mid_2_b"
+		{
+			"GroupWithUnit"			"UnitBear_2_b"			
+			"NPCName"			    "npc_dota_creature_werewolf"
+			"TotalUnitsToSpawn"		"4"
+			"UnitsPerSpawn"			"1"
+		}
+
+        
+        "UnitBear_2_c"
+		{
+			"NPCName"	            "npc_dota_creature_small_hellbear"
+			"TotalUnitsToSpawn"		"24"
+			"UnitsPerSpawn"			"6"
+			"SpawnInterval"         "10"
+		}
+		
+		"UnitBear_Mid_2_c"
+		{
+			"GroupWithUnit"			"UnitBear_2_c"			
+			"NPCName"			    "npc_dota_creature_hellbear"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+		}
+
+		"UnitWolf_Mid_2_c"
+		{
+			"GroupWithUnit"			"UnitBear_2_c"			
+			"NPCName"			    "npc_dota_creature_werewolf"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+		}
+		
+		// Stage 3 ================================================
+		"Unit_LycanBoss"
+		{        
+			"WaitForUnit"			"UnitWolf_1_a"
+			"WaitForTime"			"70"	
+			"NPCName"	            "npc_dota_creature_lycan_boss"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}								
+	}
+
+
 	"Round3-1" //SkywrathBoss
 	{
 		"round_quest_title"			"#TWS_Round_Skywrath_Quest_Title"

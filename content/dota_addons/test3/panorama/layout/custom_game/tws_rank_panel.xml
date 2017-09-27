@@ -59,5 +59,8 @@
          <Panel id="ThreePlayerPanel" class="PlayerNumberPanel Hidden"/>
          <Panel id="FourPlayerPanel" class="PlayerNumberPanel Hidden"/>
          <Panel id="FivePlayerPanel" class="PlayerNumberPanel"/>
+         <Panel id="RankMask" class="RankMask Hidden">
+              <Panel id="Spinner" class="Spinner SpinnerVisible" />
+         </Panel>
     </Panel>
 </root>

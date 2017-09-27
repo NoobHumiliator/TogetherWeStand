@@ -356,6 +356,61 @@
     width:  100%;
 }
 
+
+.RankMask
+{
+    margin-top: 250px;
+    horizontal-align:center;
+    width:  100%;
+}
+
+.Spinner{
+  width:48px;
+  height:48px;
+  vertical-align: middle;
+  background-image:url("s2r://panorama/images/status_icons/loadingthrobber_round_psd.vtex");
+  background-repeat:no-repeat;
+  background-position:50% 50%;
+  background-size:contain;
+
+  animation-name:SpinnerRotate;
+  animation-duration:1.0s;
+  animation-timing-function:linear;
+  animation-iteration-count:infinite;
+}
+
+@keyframes 'SpinnerRotate'
+{
+  0%
+  {
+    transform: rotateZ( 360deg );
+  }
+  
+
+  50%
+  {
+    transform: rotateZ( 180deg );
+  }
+  
+  100%
+  {
+    transform: rotateZ( 0deg );
+  }
+}
+
+
+#Spinner{
+  horizontal-align:center;
+  margin-top:10px;
+}
+
+#Spinner.SpinnerVisible
+{
+  visibility:visible;
+}
+
+
+
 .LadderPlayerRoot
 {
     vertical-align: center;

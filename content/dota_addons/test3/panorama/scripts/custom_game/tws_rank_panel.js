@@ -18,6 +18,9 @@ var currnet_player_number=null;
 function ShowPage(data)
 {
     ShowRankPanel(data.player_number,data.page_number,data.table);  //数据到达，更新下一页数据
+
+    $( "#RankMask" ).SetHasClass("Hidden",true); //取消蒙版
+
     if (data.page_number==1)   //遍历第一页数据，记录本地玩家是第几名
     {
         var CustomUIContainer_Hud= $('#Title').GetParent().GetParent().GetParent().GetParent().GetParent().GetParent().FindChild('CustomUIContainer_Hud');
@@ -30,7 +33,7 @@ function ShowPage(data)
 
         //$.Msg("playerId"+playerSteamId)
 
-        for (var i=1; i<=150;i++){
+        for (var i=1; i<=30;i++){
           if (typeof(data.table)!="undefined"&&data.table.hasOwnProperty(i))
           {
              var data_line=data.table[i];
@@ -74,6 +77,7 @@ function ShowPrePage()
 
 function ShowOnePlayer()
 {
+    $( "#RankMask" ).SetHasClass("Hidden",false); //显示蒙版
     GameEvents.SendCustomGameEventToServer( "RequestRankData", {page_number:1,player_number:1});
     $('#OnePlayerPanel').SetHasClass("Hidden", false);
     $('#TwoPlayerPanel').SetHasClass("Hidden", true);
@@ -83,6 +87,7 @@ function ShowOnePlayer()
 }
 function ShowTwoPlayer()
 {
+    $( "#RankMask" ).SetHasClass("Hidden",false); //显示蒙版
     GameEvents.SendCustomGameEventToServer( "RequestRankData", {page_number:1,player_number:2});
     $('#OnePlayerPanel').SetHasClass("Hidden", true);
     $('#TwoPlayerPanel').SetHasClass("Hidden", false);
@@ -92,6 +97,7 @@ function ShowTwoPlayer()
 }
 function ShowThreePlayer()
 {
+    $( "#RankMask" ).SetHasClass("Hidden",false); //显示蒙版
     GameEvents.SendCustomGameEventToServer( "RequestRankData", {page_number:1,player_number:3});
     $('#OnePlayerPanel').SetHasClass("Hidden", true);
     $('#TwoPlayerPanel').SetHasClass("Hidden", true);
@@ -101,6 +107,7 @@ function ShowThreePlayer()
 }
 function ShowFourPlayer()
 {
+    $( "#RankMask" ).SetHasClass("Hidden",false); //显示蒙版
     GameEvents.SendCustomGameEventToServer( "RequestRankData", {page_number:1,player_number:4});
     $('#OnePlayerPanel').SetHasClass("Hidden", true);
     $('#TwoPlayerPanel').SetHasClass("Hidden", true);
@@ -110,6 +117,7 @@ function ShowFourPlayer()
 }
 function ShowFivePlayer()
 {
+    $( "#RankMask" ).SetHasClass("Hidden",false); //显示蒙版
     GameEvents.SendCustomGameEventToServer( "RequestRankData", {page_number:1,player_number:5});
     $('#OnePlayerPanel').SetHasClass("Hidden", true);
     $('#TwoPlayerPanel').SetHasClass("Hidden", true);
@@ -124,7 +132,7 @@ function ShowRankPanel(player_number,page_number,page_table)
 {
   var rank_panel = $("#"+RankPanels[player_number-1]);
   var last_page=false;
-  for (var i=1; i<=150;i++){
+  for (var i=1; i<=30;i++){
       var team_line = rank_panel.FindChild("TeamLine_"+i);
       if (!team_line)
       {
@@ -160,7 +168,7 @@ function ShowRankPanel(player_number,page_number,page_table)
           }
           index++;
          }
-         team_line.FindChildInLayoutFile("TeamIndex").text=i+150*(page_number-1)+"";
+         team_line.FindChildInLayoutFile("TeamIndex").text=i+30*(page_number-1)+"";
          team_line.FindChildInLayoutFile("MaxRound").text=data_line["max_round"];
          team_line.FindChildInLayoutFile("TimeCost").text=FormatSeconds(data_line["time_cost"]);
       }

@@ -14,7 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
---testMode=true --减少刷兵间隔，增加初始金钱
+testMode=true --减少刷兵间隔，增加初始金钱
 goldTestMode=false
 --goldTestMode=true --需要测试金币相关的内容
 
@@ -438,10 +438,11 @@ end
 function CHoldoutGameMode:OnGameRulesStateChange()
 	local nNewState = GameRules:State_Get()
 	if nNewState==DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
-		for i=1,5 do  
-			Rank:GetRankDataFromServer(i) --从服务器获取天梯数据
-		end
-		--self:GetVipDataFromServer() --从服务器读取vip数据
+		--for i=1,5 do
+			--Rank:GetRankDataFromServer(i) --从服务器获取天梯数据
+		--end
+		--服务器压力过大转为逐页加载  初始化的时候只默认加载第五页数据
+		Rank:GetRankDataFromServer(5) --从服务器获取天梯数据
 	end
 
 	if nNewState ==  DOTA_GAMERULES_STATE_HERO_SELECTION then
@@ -632,7 +633,7 @@ function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正  --测
 		 table.insert(vFailedRound, self._nRoundNumber) --记录下折在第几关了
 		 if self.last_live==0 then
 		 	 if self._nRoundNumber > 5 and not GameRules:IsCheatMode() then  --如果通过了条件，记录细节
-                 Detail:RecordDetail(self._nRoundNumber-1,self.map_difficulty) 
+                 --Detail:RecordDetail(self._nRoundNumber-1,self.map_difficulty) --服务器压力大 暂时屏蔽此功能
 	         end
 		 	 if self.map_difficulty==3 and not GameRules:IsCheatMode() and not self.bLoadFlag  then --读盘的游戏不能上天梯
 			   Rank:RecordGame(self._nRoundNumber-1,DOTA_TEAM_GOODGUYS) --储存并结束游戏
@@ -1021,7 +1022,7 @@ function CHoldoutGameMode:RoundEnd()
 
 	if self._nRoundNumber > #self._vRounds then
         if self._nRoundNumber > 2 and not GameRules:IsCheatMode() then  --如果通过了条件，记录细节
-           Detail:RecordDetail(self._nRoundNumber-1,self.map_difficulty) 
+           --Detail:RecordDetail(self._nRoundNumber-1,self.map_difficulty)  --服务器压力大 屏蔽此功能
 	    end
 		if self.map_difficulty==3 and not GameRules:IsCheatMode()then 
 		   Rank:RecordGame(self._nRoundNumber-1,DOTA_TEAM_BADGUYS) --储存游戏	  
