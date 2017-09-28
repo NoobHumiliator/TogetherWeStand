@@ -25317,7 +25317,151 @@
         }
     }
 
+    "hellbear_smash"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/hellbear_smash"
+        "AbilityTextureName"            "polar_furbolg_ursa_warrior_thunder_clap"
 
+        "MaxLevel"                      "1"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
+
+        "IsOnCastBar"                   "0"
+        
+        // Stats
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"              "1.0"
+        "AbilityCooldown"               "3.5"
+        "AbilityDamage"                 "200"
+        "AbilityManaCost"               "0"
+        
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "radius"                "275"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "movespeed_slow"        "-25"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "attackspeed_slow"      "-25"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "duration"              "3.0"
+            }
+            "05"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "damage"                "200"
+            }
+        }
+    }
+
+    "lycan_boss_summon_wolves"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "lycan_summon_wolves"
+        "ScriptFile"                    "creature_ability/lycan_boss_summon_wolves"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityCastAnimation"          "ACT_DOTA_VICTORY"
+
+        "IsOnCastBar"                   "0"
+        
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"              "0.4"
+
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "30.0"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "20"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+        }
+    }
+
+    "lycan_boss_shapeshift"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "lycan_shapeshift"
+        "ScriptFile"                    "creature_ability/lycan_boss_shapeshift"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+        "FightRecapLevel"               "2"
+
+        "IsOnCastBar"                   "0"
+
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "45"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "10"       
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "duration"                  "99999"
+                "LinkedSpecialBonus"        "special_bonus_unique_lycan_1"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "speed"                     "650"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "bonus_night_vision"        "1000"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "transformation_time"       "1.5"
+            }       
+            "05"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "crit_chance"           "40"
+            }
+            "06"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "crit_multiplier"       "140 160 180"
+            }
+        }
+    }
 
 
 } //主括号
