@@ -7784,49 +7784,69 @@
 	// Generic: Gold Bag Fountain 500g
 	//=================================================================================================================
 	"generic_gold_bag_fountain_500"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"BaseClass"						"ability_datadriven"
-		"AbilityTextureName"			"item_hand_of_midas"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+        "BaseClass"                     "ability_datadriven"
+        "AbilityTextureName"            "item_hand_of_midas"
 
-		"OnOwnerDied"
-		{
-			"CreateItem"
-			{
-				"Target"
-				{
-					"Center" 	"CASTER"
-					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
-				}			
-				"ItemName"			"item_bag_of_gold_tws"
-				"ItemCount"			"%bag_count"
-				"SpawnRadius"		"25"
-				"ItemChargeCount"	"%gold_value"
-				"AutoUse"			"1"
-				"LaunchHeight"		"300"
-				"LaunchDistance"	"?50 350"
-				"LaunchDuration"	"0.75"
-			}
-		}
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"gold_value"			"125"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bag_count"				"4"
-			}
-		}
-	}
+        "IsOnCastBar"                   "0"
+
+        "OnOwnerDied"
+        {
+            "CreateThinker"
+            {
+                "ModifierName"          "gold_bag_thinker"
+                "Target"
+                {
+                    "Center"    "CASTER"
+                    "Flags"     "DOTA_UNIT_TARGET_FLAG_DEAD"
+                }  
+            }
+            
+        }
+
+        "Modifiers"
+        {
+            "gold_bag_thinker"
+            {
+                "Duration"              "3"
+                "ThinkInterval"         ".075"
+                "OnIntervalThink"
+                {
+                     "CreateItem"
+                    {
+                        "Target"
+                        {
+                            "Center"    "CASTER"
+                            "Flags"     "DOTA_UNIT_TARGET_FLAG_DEAD"
+                        }           
+                        "ItemName"          "item_bag_of_gold"
+                        "ItemCount"         "1"
+                        "SpawnRadius"       "25"
+                        "ItemChargeCount"   "%gold_value"
+                        "AutoUse"           "1"
+                        "LaunchHeight"      "300"
+                        "LaunchDistance"    "?50 350"
+                        "LaunchDuration"    "0.75"
+                    }
+                }
+            }
+        }
+       
+        
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "gold_value"            "12"
+            }
+        }
+    }
 	//=================================================================================================================
 	// Generic: Gold Bag Fountain 100g
 	//=================================================================================================================
@@ -25316,8 +25336,60 @@
             }
         }
     }
+    
+    "hellbear_smash"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/hellbear_smash"
+        "AbilityTextureName"            "polar_furbolg_ursa_warrior_thunder_clap"
 
+        "MaxLevel"                      "1"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
 
+        "IsOnCastBar"                   "0"
+        
+        // Stats
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"              "1.0"
+        "AbilityCooldown"               "3.5"
+        "AbilityDamage"                 "200"
+        "AbilityManaCost"               "0"
+        
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "radius"                "275"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "movespeed_slow"        "-25"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "attackspeed_slow"      "-25"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "duration"              "3.0"
+            }
+            "05"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "damage"                "200"
+            }
+        }
+    }
 
 
 } //主括号
