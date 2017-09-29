@@ -14643,7 +14643,7 @@
     "npc_dota_creature_werewolf"
 	{
 		// Script
-		"vscripts"					"creature_ai/ai_werewolf.lua"
+		"vscripts"					"creature_ai/werewolf_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
