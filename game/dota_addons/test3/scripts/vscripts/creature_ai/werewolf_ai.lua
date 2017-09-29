@@ -10,7 +10,7 @@ function Spawn( entityKeyValues )
 		thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
 		--狼嚎技能
 		howlAbility = thisEntity:FindAbilityByName( "werewolf_howl" )
-	    behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone, BehaviorPlasma_Field} ) 
+	    behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone, BehaviorHowl} ) 
     end
 end
 
@@ -82,7 +82,7 @@ function BehaviorHowl:Evaluate()
 	local desire = 0
 
 	if howlAbility ~= nil and howlAbility:IsCooldownReady() then
-		desire=2
+		desire=3
 	end
 	return desire
 end

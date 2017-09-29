@@ -534,7 +534,7 @@
 		"Unit_LycanBoss"
 		{        
 			"WaitForUnit"			"UnitWolf_1_a"
-			"WaitForTime"			"70"	
+			"WaitForTime"			"30"	
 			"NPCName"	            "npc_dota_creature_lycan_boss"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"

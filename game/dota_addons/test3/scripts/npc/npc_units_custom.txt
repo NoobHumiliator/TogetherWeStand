@@ -14634,7 +14634,7 @@
 
 
 		// Script
-		"vscripts"					"creature_ai/ai_hellbear.lua"
+		"vscripts"					"creature_ai/hellbear_ai.lua"
 
 	}	
 
