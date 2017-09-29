@@ -25392,4 +25392,228 @@
     }
 
 
+    "lycan_boss_claw_attack"
+    {
+
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "bloodseeker_bloodrage"
+        "ScriptFile"                    "creature_ability/lycan_boss_claw_attack"
+        "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"  
+        "AnimationIgnoresModelScale"     "1"
+
+        "IsOnCastBar"                   "0"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "200"
+        "AbilityCastPoint"              "1.32"
+        
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "0.5"
+    
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage"                    "675"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage_radius"             "80"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "animation_time"            "1.32"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "initial_delay"             "1.08"
+            }
+            "05"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "duration"                  "6.0"
+            }
+            "06"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "movement_damage_pct"       "15"
+            }
+            "07"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage_cap_amount"         "200"
+            }
+            "08"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "damage_cap_interval"       "0.25"
+            }
+            "09"
+            {
+                "var_type"                              "FIELD_FLOAT"
+                "shapeshift_animation_time"            "1.14"
+            }
+            "10"
+            {
+                "var_type"                               "FIELD_FLOAT"
+                "shapeshift_initial_delay"             "0.84"
+            }
+            "11"
+            {
+                "var_type"                               "FIELD_FLOAT"
+                "stun_duration"             "1.0"
+            }
+        }
+    }
+     
+    "lycan_boss_summon_wolves"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "lycan_summon_wolves"
+        "ScriptFile"                    "creature_ability/lycan_boss_summon_wolves"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityCastAnimation"          "ACT_DOTA_VICTORY"
+
+        "IsOnCastBar"                   "0"
+        
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"              "0.4"
+
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "30.0"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "20"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+        }
+    }
+     
+    "lycan_boss_rupture_ball"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "bloodseeker_rupture"
+        "ScriptFile"                    "abilities/lycan_boss_rupture_ball"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"               "1"
+
+        "IsOnCastBar"                   "0"
+        
+        "MaxLevel"                      "1"
+
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
+        
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "1500"
+        "AbilityCastPoint"              "1.0" // was 0.5
+        "AnimationIgnoresModelScale"    "1"
+
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "8"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "attack_speed"               "700"
+            }
+            
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "attack_width_initial"      "100"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "attack_width_end"          "100"
+            }
+            
+            "04"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "attack_distance"           "1500"
+            }
+            "05"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "duration"                  "7.0"
+            }
+            "06"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "movement_damage_pct"       "40"
+            }
+            "07"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage_cap_amount"         "200"
+            }
+            "08"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "damage_cap_interval"       "0.25"
+            }
+            "09"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "cast_range_tooltip"        "1000"
+            }
+            "10"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "max_charges_scepter"       "2"
+            }
+            "11"
+            {
+                "var_type"                          "FIELD_INTEGER"
+                "charge_restore_time_scepter"       "40"
+            }
+        }
+    }
+
 } //主括号
