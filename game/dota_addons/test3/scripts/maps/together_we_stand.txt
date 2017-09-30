@@ -259,6 +259,7 @@
 		"BagVariance"		        "10"
 		"FixedXP"					"10500"
 		"alias"                     "scourge"
+		"ShortTitle"                "#scourge_short_title"
 		"ExpectedGold"              "2950"
 		
 		// Stage 1 ================================================ 36Ãë

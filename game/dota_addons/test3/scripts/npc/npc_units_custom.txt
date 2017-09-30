@@ -14414,7 +14414,7 @@
     "npc_dota_creature_dire_hound_boss"
 	{
 		// Script
-		"vscripts"					"creature_ai/ai_dire_hound_boss.lua"
+		"vscripts"					"creature_ai/zombie_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -14427,7 +14427,7 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"ranged_quill_attack"
+		"Ability1"					""
 		"Ability2"					""
 		"Ability3"					""
 		"Ability4"					""
@@ -14439,15 +14439,15 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
-		"AttackDamageMin"			"0"
-		"AttackDamageMax"			"0"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"45"
+		"AttackDamageMax"			"55"
 		"AttackRate"				"1.35"
 		"AttackAnimationPoint"		"0.33"
 		"AttackAcquisitionRange"	"600"
-		"AttackRange"				"600"
-		"ProjectileModel"			""
-		"ProjectileSpeed"			"1200"
+		"AttackRange"				"750"
+	    "ProjectileModel"			"particles/units/heroes/hero_beastmaster/beastmaster_boar_attack.vpcf" // Particle system model for projectile.
+		"ProjectileSpeed"			"1200"		// Speed of projectile.	
 
 		// Bounds
 		//----------------------------------------------------------------
@@ -14467,7 +14467,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"150"
+		"StatusHealth"				"850"
 		"StatusHealthRegen"			"0.5"
 		"StatusMana"				"350"
 		"StatusManaRegen"			"1"
@@ -14615,7 +14615,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"450"
+		"StatusHealth"				"500"
 		"StatusHealthRegen"			"1"
 		"StatusMana"				"300"
 		"StatusManaRegen"			"1.0"
@@ -14637,7 +14637,6 @@
 		"vscripts"					"creature_ai/hellbear_ai.lua"
 
 	}	
-
 
 
     "npc_dota_creature_werewolf"
@@ -14694,7 +14693,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"500"
+		"StatusHealth"				"800"
 		"StatusHealthRegen"			"1"
 		"StatusMana"				"300"
 		"StatusManaRegen"			"3"
