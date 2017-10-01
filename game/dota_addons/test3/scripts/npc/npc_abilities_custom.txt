@@ -25529,7 +25529,13 @@
         "MaxLevel"                      "1"
 
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
-        
+
+        "precache"
+		{
+			"particle"				"particles/lycanboss_ruptureball_gale.vpcf"
+		}
+
+
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "1500"
@@ -25609,37 +25615,29 @@
     }
 
 
-    "ranged_quill_attack"
+
+    "lycan_boss_shapeshift"
     {
         // General
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-        "FightRecapLevel"               "1"
         "BaseClass"                     "ability_lua"
-        "AbilityTextureName"             "ranged_quill_attack"
-        "ScriptFile"                    "creature_ability/ranged_quill_attack"
-        "MaxLevel"                      "1"
+        "AbilityTextureName"            "lycan_shapeshift"
+        "ScriptFile"                    "creature_ability/lycan_boss_shapeshift"
 
-        "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+        "FightRecapLevel"               "2"
 
         "IsOnCastBar"                   "0"
-        
-        // Casting
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastRange"              "1500"
-        "AbilityCastPoint"              "0.25"
 
         // Time     
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "2.5"
+        "AbilityCooldown"               "45"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "0"
+        "AbilityManaCost"               "10"       
 
         // Special
         //-------------------------------------------------------------------------------------------------------------
@@ -25647,32 +25645,36 @@
         {
             "01"
             {
-                "var_type"                  "FIELD_INTEGER"
-                "attack_speed"               "750"
+                "var_type"                  "FIELD_FLOAT"
+                "duration"                  "99999"
+                "LinkedSpecialBonus"        "special_bonus_unique_lycan_1"
             }
-            
             "02"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "attack_width_initial"    "75"
+                "speed"             "650"
             }
             "03"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "attack_width_end"        "75"
+                "bonus_night_vision"        "1000"
             }
-            
             "04"
             {
-                "var_type"                  "FIELD_INTEGER"
-                "attack_distance"         "800"
-            }
+                "var_type"                  "FIELD_FLOAT"
+                "transformation_time"       "1.5"
+            }       
             "05"
             {
                 "var_type"              "FIELD_INTEGER"
-                "attack_damage"           "175"
+                "crit_chance"           "40"
+            }
+            "06"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "crit_multiplier"       "140 160 180"
             }
         }
     }
-
+    
 } //主括号

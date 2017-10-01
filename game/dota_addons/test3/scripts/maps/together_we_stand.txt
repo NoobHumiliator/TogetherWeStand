@@ -412,6 +412,7 @@
 		"ShortTitle"                "#wolf_short_title"
 		"ExpectedGold"              "2950"
 		
+		
 		// Stage 1 ================================================
 		"UnitWolf_1_a"
 		{
@@ -535,11 +536,11 @@
 		"Unit_LycanBoss"
 		{        
 			"WaitForUnit"			"UnitWolf_1_a"
-			"WaitForTime"			"30"	
+			"WaitForTime"			"10"	
 			"NPCName"	            "npc_dota_creature_lycan_boss"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
-		}								
+		}							
 	}
 
 
