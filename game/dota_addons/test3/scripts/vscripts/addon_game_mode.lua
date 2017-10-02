@@ -118,7 +118,7 @@ function CHoldoutGameMode:InitGameMode()
     self.nLoadTime = 0  --第几次读档
     self.vXPBeforeMap={}  --key是nPlayerId value是读档之前已经有的经验
     self.vSelectionData={} --key为playerId value为所选分支
-
+    
 
     self.nTimeCost=0 --统计用时
     Timers:CreateTimer(function() --设置计时器
@@ -551,6 +551,7 @@ function CHoldoutGameMode:_RefreshPlayers()
 			      hero:RemoveModifierByName("modifier_affixes_falling_rock")
 			      hero:RemoveModifierByName("modifier_overflow_stack")
 			      hero:RemoveModifierByName("modifier_zombie_explode_debuff")
+			      hero:RemoveModifierByName("modifier_random_exp_bonus")
 				  hero:SetHealth( hero:GetMaxHealth() )
 				  hero:SetMana( hero:GetMaxMana() )
 			    end
@@ -1101,6 +1102,14 @@ function PrepTimeBegin() --开始下一关的准备倒计时
     
     if branchIndex==0 then  --如果随机
        branchIndex=RandomInt(1,#vRounds[roundNumber])  --随机出一个分支号码
+        for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
+			if PlayerResource:IsValidPlayer( nPlayerID ) then
+				local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
+				local ability=hero:FindAbilityByName("damage_counter")
+                ability:ApplyDataDrivenModifier(hero, hero, "modifier_random_exp_bonus", {})
+			end
+       	end
+       	vRounds[roundNumber][branchIndex]._nItemDropNum=vRounds[roundNumber][branchIndex]._nItemDropNum*1.25 --调整物品掉率至1.25倍
     end
 
     GameRules:GetGameModeEntity().CHoldoutGameMode._nBranchIndex = branchIndex --记录下一关的分支编号

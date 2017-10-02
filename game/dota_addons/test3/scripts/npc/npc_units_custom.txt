@@ -14266,7 +14266,7 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		  "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
-		"MovementSpeed"				"400"		// Speed
+		"MovementSpeed"				"500"		// Speed
 		"MovementTurnRate"			"0.4"		// Turning rate.
 
 		
