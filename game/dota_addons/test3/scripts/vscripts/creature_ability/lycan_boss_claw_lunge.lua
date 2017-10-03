@@ -30,6 +30,9 @@ end
 
 function lycan_boss_claw_lunge:OnSpellStart()
 	if IsServer() then
+
+		Notifications:BossAbilityDBM("lycan_boss_claw_lunge")
+		
 		ParticleManager:DestroyParticle( self.nPreviewFX, true )
 		self:GetCaster():RemoveGesture( ACT_DOTA_CAST_ABILITY_2 )
 

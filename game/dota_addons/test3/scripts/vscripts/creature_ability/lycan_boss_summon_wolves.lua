@@ -24,6 +24,7 @@ end
 function lycan_boss_summon_wolves:OnSpellStart()
 	if IsServer() then
 		EmitSoundOn( "LycanBoss.SummonWolves", self:GetCaster() )
+		Notifications:BossAbilityDBM("lycan_boss_summon_wolves")
 		local nHoundSpawns = 3
 		local nHoundBossSpawns = 1
 		local nWerewolves = 1

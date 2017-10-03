@@ -32,7 +32,7 @@ function LycanBossThink()
 	end
 	local hEnemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
 	if #hEnemies == 0 then
-		return MoveToTarget()
+		return 1
 	end
 
 	thisEntity.bShapeshift = thisEntity:FindModifierByName( "modifier_lycan_boss_shapeshift" ) ~= nil
@@ -64,7 +64,7 @@ function LycanBossThink()
 
 	local hRuptureTargets = { }
 	for _, hEnemy in pairs( hEnemies ) do
-		if hEnemy ~= nil and hEnemy:IsAlive() and hEnemy:IsRealHero() and ( hEnemy:GetUnitName() ~= "npc_dota_forest_camp_chief" ) then
+		if hEnemy ~= nil and hEnemy:IsAlive() and hEnemy:IsRealHero() then
 			local flDist = ( hEnemy:GetOrigin() - thisEntity:GetOrigin() ):Length2D()
 			if flDist > 500 then
 				table.insert( hRuptureTargets, hEnemy )
@@ -80,28 +80,12 @@ function LycanBossThink()
 	end
 
 	if hClawAttackAbility ~= nil and hClawAttackAbility:IsFullyCastable() then
-		if #hEnemies > 1 and hEnemies[1]:GetUnitName() == "npc_dota_forest_camp_chief" then
-			return CastClawAttack( hEnemies[ 2 ] )
-		end
 		return CastClawAttack( hEnemies[ 1 ] ) 
 	end
 
 	return 0.5
 end
 
-
-function MoveToTarget()
-	if hSpawner == nil then
-		print ( "Lycan doesn't know where target is" )
-		return
-	end
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-		Position = hSpawner:GetOrigin()
-	})
-	return 1
-end
 
 
 function CastClawAttack( enemy )

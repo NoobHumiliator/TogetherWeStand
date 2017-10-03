@@ -25370,6 +25370,8 @@
         "AbilityCooldown"               "3.5"
         "AbilityDamage"                 "200"
         "AbilityManaCost"               "0"
+
+        "IsOnCastBar"                   "0"
         
         // Special
         //-------------------------------------------------------------------------------------------------------------
@@ -25421,6 +25423,7 @@
         "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"  
         "AnimationIgnoresModelScale"     "1"
 
+        "IsOnCastBar"                   "0"
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "200"
@@ -25505,6 +25508,8 @@
         "ScriptFile"                    "creature_ability/lycan_boss_summon_wolves"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityCastAnimation"          "ACT_DOTA_VICTORY"
+
+        "IsOnCastBar"                   "0"
         
         // Casting
         //-------------------------------------------------------------------------------------------------------------
@@ -25542,11 +25547,14 @@
         
         "MaxLevel"                      "1"
 
+        "IsOnCastBar"                   "0"
+
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
 
         "precache"
 		{
 			"particle"				"particles/lycanboss_ruptureball_gale.vpcf"
+			"particle"              "particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant_trail.vpcf"
 		}
 
 

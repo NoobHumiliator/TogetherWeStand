@@ -15,6 +15,7 @@ end
 
 function lycan_boss_shapeshift:OnSpellStart()
 	if IsServer() then
+		Notifications:BossAbilityDBM("lycan_boss_shapeshift")
 		self:GetCaster():AddNewModifier( self:GetCaster(), self, "modifier_lycan_boss_shapeshift_transform", { duration = self:GetSpecialValueFor( "transformation_time" ) } )
 	end
 end
