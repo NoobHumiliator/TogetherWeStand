@@ -558,96 +558,6 @@ end
 
 
 
-function LaserStart(keys)
-    Notifications:TopToAll({ability= "tinker_laser"})
-    Notifications:TopToTeam(DOTA_TEAM_GOODGUYS, {text="#laser_turret_dbm_simple", duration=1.5, style = {color = "Azure"},continue=true})     
-    local pathLength          = 2000
-    local numThinkers         = 25
-    local thinkerRadius       = 192
-    local ability = keys.ability
-    local modifierThinkerName = keys.modifier_thinker_name
-    local laser_angel=0
-    local caster=keys.caster
-    local casterOrigin  = caster:GetAbsOrigin()
-    caster.vThinkers = {}
-    for i=1, numThinkers do
-      local thinker = CreateUnitByName( "npc_dota_invisible_vision_source", casterOrigin, false, caster, caster, caster:GetTeam() )
-      caster.vThinkers[i] = thinker
-      thinker:SetDayTimeVisionRange( thinkerRadius )
-      thinker:SetNightTimeVisionRange( thinkerRadius )
-      ability:ApplyDataDrivenModifier( caster, thinker, modifierThinkerName, {} )
-    end
-    local endcap = caster.vThinkers[numThinkers]
-
-    -- Create particle FX
-    local particleName = "particles/units/heroes/hero_phoenix/phoenix_sunray.vpcf"
-    local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN , caster )
-    --ParticleManager:SetParticleControlEnt( pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin()+Vector(0,0,500), true )
-    ParticleManager:SetParticleControl( pfx, 0, caster:GetAbsOrigin()+Vector(0,0,96))
-    ParticleManager:SetParticleControl( pfx, 1, caster:GetAbsOrigin()+Vector(300,300,96) )
-    --print("hahahah"..caster:GetAbsOrigin()+Vector(300,300,96))
-    -- Attach a loop sound to the endcap
-    local endcapSoundName = "Hero_Phoenix.SunRay.Beam"
-    StartSoundEvent( endcapSoundName, endcap )
-
-     Timers:CreateTimer({
-                  endTime = 0.01,
-                  callback =function()
-                  if not caster:IsAlive() then
-                         ParticleManager:DestroyParticle( pfx, false )
-                         StopSoundEvent( endcapSoundName, endcap )
-                         for i=1, numThinkers do
-                           caster.vThinkers[i]:ForceKill(true)
-                         end
-                         return nil
-                   else
-                        --print("not died")
-                        local endcapPos=Vector(casterOrigin.x+math.sin(math.rad(laser_angel))*pathLength,casterOrigin.y+math.cos(math.rad(laser_angel))*pathLength,casterOrigin.z)
-                        endcap:SetAbsOrigin( endcapPos )
-                        local location_for_turn=Vector(casterOrigin.x+math.sin(math.rad(laser_angel+90))*pathLength,casterOrigin.y+math.cos(math.rad(laser_angel+90))*pathLength,casterOrigin.z)
-                        --print("endcap"..endcapPos.x.." "..endcapPos.y.." "..endcapPos.z)
-                        caster:SetForwardVector((location_for_turn-casterOrigin):Normalized())
-                        local casterForward = (endcapPos-casterOrigin):Normalized()
-                        for i=1, numThinkers do
-                           local thinker = caster.vThinkers[i]
-                           thinker:SetAbsOrigin( casterOrigin + casterForward * ( (pathLength/ (numThinkers-1) ) * i))
-                        end
-                        laser_angel=laser_angel+0.2
-                        ParticleManager:SetParticleControl( pfx, 1, endcapPos+Vector(0,0,96) )
-                        return 0.01
-                   end
-            end})
-
-end
-
-
-function CheckForCollision( event )
-
-  local caster      = event.caster
-  local target      = event.target
-  local ability     = event.ability
-
-   ApplyDamage( {
-      victim    = target,
-      attacker  = caster,
-      damage    = target:GetMaxHealth()*0.05,
-      damage_type = DAMAGE_TYPE_PURE,
-      damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
-    } )
-
-    -- Fire burn particle
-    local pfx = ParticleManager:CreateParticle( event.particle_burn_name, PATTACH_ABSORIGIN, target )
-    ParticleManager:SetParticleControlEnt( pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true )
-    ParticleManager:ReleaseParticleIndex( pfx )
-end
-
-
-
-
-
-
-
-
 behaviorSystem = {} -- create the global so we can assign to it
 
 function Spawn( entityKeyValues )
@@ -776,7 +686,7 @@ end
 BehaviorLaunchMissile = {}
 
 function BehaviorLaunchMissile:Evaluate()
-  self.ability = thisEntity:FindAbilityByName("creature_spawn_laser_turret")
+  self.ability = thisEntity:FindAbilityByName("rattletrap_spawn_laser_turret")
     desire=0
   if self.ability and self.ability:IsFullyCastable() then
         desire = 5

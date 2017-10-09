@@ -36,7 +36,7 @@ function LaserStart(keys)
                             ApplyDamage( {
                               victim    = unit,
                               attacker  = caster,
-                              damage    = unit:GetMaxHealth()*0.0017,
+                              damage    = unit:GetMaxHealth()*0.003,
                               damage_type = DAMAGE_TYPE_PURE,
                               damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
                             } )

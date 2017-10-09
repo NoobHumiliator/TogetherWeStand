@@ -1,3 +1,11 @@
+require('libraries/notifications')
+require('quest_system')
+
+
+--最大叠加层数
+max_stack_number=0
+
+
 function LinkToCaster( keys )  --向施法者连一条输血线
 	local target=keys.target
 	local caster=keys.caster
@@ -23,11 +31,21 @@ function OnDestroyEgg( keys )  --取消血线，移除BUFF
          if not unit:HasModifier("modifier_supernova_egg_die_dot") then --蛋蛋爆炸,全团上Debuff
             ability:ApplyDataDrivenModifier(caster, unit, "modifier_supernova_egg_die_dot", {Duration = 15}) 
             unit:SetModifierStackCount("modifier_supernova_egg_die_dot",ability,1)
+            if max_stack_number==0 then
+                QuestSystem:RefreshAchQuest("Achievement",1,6)
+            end
          else
             local stack_count = unit:GetModifierStackCount("modifier_supernova_egg_die_dot",ability)
             unit:RemoveModifierByName("modifier_supernova_egg_die_dot")
             ability:ApplyDataDrivenModifier(caster, unit, "modifier_supernova_egg_die_dot", {Duration = 15}) 
             unit:SetModifierStackCount("modifier_supernova_egg_die_dot",ability,stack_count+1)
+            if stack_count+1>max_stack_number then
+               QuestSystem:RefreshAchQuest("Achievement",stack_count+1,6)
+               max_stack_number=stack_count+1
+            end
+            if stack_count+1>=6 then
+               GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag=true
+            end
          end
     end
     caster:EmitSound("Hero_Phoenix.SuperNova.Explode")

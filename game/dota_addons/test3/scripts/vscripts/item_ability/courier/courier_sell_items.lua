@@ -21,17 +21,21 @@ end
 
 
 
-function RemoveRedundantAbility(caster) --移除多余的信使技能
+function RemoveRedundantAbility(caster) --移除多余的信使技能，直接删除会导致复活时闪退
     if caster:HasAbility("courier_go_to_secretshop") then
-       caster:RemoveAbility("courier_go_to_secretshop")
+       --caster:RemoveAbility("courier_go_to_secretshop")
+       caster:FindAbilityByName("courier_go_to_secretshop"):SetHidden(true)
     end
     if caster:HasAbility("courier_return_stash_items") then
-       caster:RemoveAbility("courier_return_stash_items")
+       --caster:RemoveAbility("courier_return_stash_items")
+       caster:FindAbilityByName("courier_return_stash_items"):SetHidden(true)
     end
     if caster:HasAbility("courier_take_stash_items") then
-       caster:RemoveAbility("courier_take_stash_items")
+       caster:FindAbilityByName("courier_take_stash_items"):SetHidden(true)
+       --caster:RemoveAbility("courier_take_stash_items")
     end
     if caster:HasAbility("courier_transfer_items") then
-       caster:RemoveAbility("courier_transfer_items")
-    end		
+       --caster:RemoveAbility("courier_transfer_items")
+       caster:FindAbilityByName("courier_transfer_items"):SetHidden(true)
+    end   
 end

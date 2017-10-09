@@ -1,3 +1,6 @@
+require('libraries/notifications')
+require('quest_system')
+
 modifier_lycan_boss_claw_attack = class ({})
 
 --------------------------------------------------------------------------------
@@ -144,6 +147,19 @@ function modifier_lycan_boss_claw_attack:TryToHitTarget( enemy )
 		ApplyDamage( damageInfo )
 		enemy:AddNewModifier( self:GetParent(), self:GetAbility(), "modifier_stunned", { duration = self:GetAbility():GetSpecialValueFor( "stun_duration" ) } )
 		EmitSoundOn( "Roshan.Attack.Post", enemy )
+
+        if enemy:IsRealHero() and GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag==true then
+		    QuestSystem:RefreshAchQuest("Achievement",0,1)
+            local hero_name=enemy:GetName()
+            local playerid= enemy:GetPlayerID()
+            local playername=PlayerResource:GetPlayerName(playerid)
+
+            Notifications:BottomToAll({hero = hero_name, duration = 4})
+            Notifications:BottomToAll({text = playername.." ", duration = 4, continue = true})
+            Notifications:BottomToAll({text = "#round_wolf_acheivement_fail_note", duration = 4, style = {color = "Orange"}, continue = true})
+
+            GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag=false
+        end
 	end					
 end
 

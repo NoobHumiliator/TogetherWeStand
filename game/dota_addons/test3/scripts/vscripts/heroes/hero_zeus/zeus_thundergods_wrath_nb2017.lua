@@ -29,8 +29,8 @@ function zeus_thundergods_wrath_nb2017:OnSpellStart()
 
 		local heroes = HeroList:GetAllHeroes()
 		for i=1,#heroes do
-			local hero = heroes[i]
-			if hero ~= nil and hero:GetTeamNumber() == self:GetCaster():GetTeamNumber() then
+			local hero = heroes[i] --取消幻象与大圣大招的相互作用
+			if hero ~= nil and hero:GetTeamNumber() == self:GetCaster():GetTeamNumber() and hero:IsRealHero() and not hero:IsInvulnerable()  then
 				local vStartPosition = hero:GetOrigin() + Vector( 0, 0, 4000.0 )
 				local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_thundergods_wrath.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster() )
 				ParticleManager:SetParticleControl( nFXIndex, 0, vStartPosition )

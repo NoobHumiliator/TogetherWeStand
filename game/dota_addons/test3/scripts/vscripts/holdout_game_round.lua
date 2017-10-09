@@ -363,6 +363,12 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
 			alreadyCached["npc_dota_hero_necrolyte"]=true
 		end
 	end
+
+    if self._alias=="phoenix" then
+       self.achievement_flag=false
+       QuestSystem:RefreshAchQuest("Achievement",0,6)
+	end
+
 	if self._alias=="morphing" then
 		QuestSystem:RefreshAchQuest("Achievement",0,5)
 		self.achievement_flag=false

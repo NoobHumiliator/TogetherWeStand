@@ -402,7 +402,7 @@
 	
     "Round2-2" //Wolf
 	{
-		//"round_quest_title"			"#TWS_Round_Wolf_Quest_Title"
+		"round_quest_title"			"#TWS_Round_Wolf_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Wolf_Title"
 		"MaxGold"					"1950"
 		"BagCount"					"50"
@@ -547,7 +547,7 @@
 	"Round3-1" //SkywrathBoss
 	{
 		"round_quest_title"			"#TWS_Round_Skywrath_Quest_Title"
-		"round_title"				"#DOTA_Holdout_Round_Ogre_Title"
+		"round_title"				"#DOTA_Holdout_Round_Skywrath_Title"
 		"MaxGold"					"0" //600g from gold fountain ability
 		"BagCount"					"20"
 		"BagVariance"			    "75"
@@ -567,7 +567,7 @@
     
     "Round3-2" //Phoenix Boss
 	{
-		//"round_quest_title"			"#TWS_Round_Phoenix_Quest_Title"
+		"round_quest_title"			"#TWS_Round_Phoenix_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Phoenix_Title"
 		"MaxGold"					"0" //600g from gold fountain ability
 		"BagCount"					"20"
@@ -985,6 +985,124 @@
 			"SpawnInterval"			"8"
 			"SpawnerName"			"spawner4"
 		}	
+
+	}
+
+    "Round4-2"
+	{
+		//"round_quest_title"			"#TWS_Round_Bloodseeker_Quest_Title"
+		"round_title"				"#DOTA_Holdout_Round_Ogre_Title"
+		"MaxGold"					"2600"
+		"BagCount"					"50"
+		"BagVariance"		        "30"
+		"FixedXP"					"11400"
+		"alias"                     "ogre"
+		"ExpectedGold"              "3250"
+		
+		// Stage 1 ================================================
+		"UnitMelee_1" // Duration 20s
+		{
+			"NPCName"				"npc_dota_creature_ogre_melee"
+			"TotalUnitsToSpawn"		"4"
+			"UnitsPerSpawn"			"4"
+			"SpawnInterval"			"20"
+		}
+		
+		"UnitRanged_1"
+		{
+			"GroupWithUnit"			"UnitMelee_1"
+			
+			"NPCName"				"npc_dota_creature_ogre_magi"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"2"
+		}
+		
+		// Stage 2 ================================================
+		"UnitMelee_2" // Duration 120s + 10s WaitForTime
+		{
+			"WaitForUnit"			"UnitMelee_1"
+			"WaitForTime"			"10"
+			
+			"NPCName"				"npc_dota_creature_ogre_melee"
+			"TotalUnitsToSpawn"		"12"
+			"UnitsPerSpawn"			"4"
+			"SpawnInterval"			"40"
+		}
+		
+		"UnitRanged_2"
+		{
+			"GroupWithUnit"			"UnitMelee_2"
+			
+			"NPCName"				"npc_dota_creature_ogre_magi"
+			"TotalUnitsToSpawn"		"6"
+			"UnitsPerSpawn"			"2"
+		}
+		
+		"UnitOgreTank_2"
+		{
+			"GroupWithUnit"			"UnitMelee_2"
+			
+			"NPCName"				"npc_dota_creature_ogre_tank"
+			"TotalUnitsToSpawn"		"3"
+			"UnitsPerSpawn"			"1"
+		}
+		
+		// Stage 2 Concurrent =====================================
+		"UnitMelee_2b" // Duration 120s + 10s
+		{
+			"WaitForUnit"			"UnitMelee_1"
+			"WaitForTime"			"10"
+			
+			"NPCName"				"npc_dota_creature_ogre_melee"
+			"TotalUnitsToSpawn"		"24"
+			"UnitsPerSpawn"			"4"
+			"SpawnInterval"			"20"
+		}
+		
+		"UnitRanged_2b"
+		{
+			"GroupWithUnit"			"UnitMelee_2b"
+			
+			"NPCName"				"npc_dota_creature_ogre_magi"
+			"TotalUnitsToSpawn"		"12"
+			"UnitsPerSpawn"			"2"
+		}
+		
+		"UnitMelee_2c" // Duration 100s + 30s
+		{
+			"WaitForUnit"			"UnitMelee_1"
+			"WaitForTime"			"30"
+			
+			"NPCName"				"npc_dota_creature_ogre_melee"
+			"TotalUnitsToSpawn"		"20"
+			"UnitsPerSpawn"			"4"
+			"SpawnInterval"			"20"
+		}
+		
+		"UnitRanged_2b"
+		{
+			"GroupWithUnit"			"UnitMelee_2c"		
+			"NPCName"				"npc_dota_creature_ogre_magi"
+			"TotalUnitsToSpawn"		"12"
+			"UnitsPerSpawn"			"2"
+		}
+		//Stage 3  Boss
+		"UnitOgre_Boss" // Duration 120s + 10s
+		{
+			"WaitForUnit"			"UnitMelee_2b"
+			"WaitForTime"			"1"
+			
+			"NPCName"				"npc_dota_creature_ogre_melee"
+			"TotalUnitsToSpawn"		"1"
+		}
+
+		"UnitOgre_Seer" // Duration 120s + 10s
+		{
+			"GroupWithUnit"			"UnitOgre_Boss"
+			"NPCName"				"npc_dota_creature_ogre_seer"
+			"TotalUnitsToSpawn"		"4"
+			"UnitsPerSpawn"			"4"
+		}
 
 	}
 	"Round5-1" // satyr 

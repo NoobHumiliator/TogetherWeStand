@@ -36,6 +36,8 @@ function lycan_boss_rupture_ball:OnSpellStart()
 	if IsServer() then
 		ParticleManager:DestroyParticle( self.nPreviewFX, false )
 
+        Notifications:BossAbilityDBM("lycan_boss_rupture_ball")
+        
 		self.attack_speed = self:GetSpecialValueFor( "attack_speed" )
 		self.attack_width_initial = self:GetSpecialValueFor( "attack_width_initial" )
 		self.attack_width_end = self:GetSpecialValueFor( "attack_width_end" )

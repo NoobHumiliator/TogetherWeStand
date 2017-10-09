@@ -15140,6 +15140,7 @@
 		"modifier_boss_battery_assault_aura_effect_datadriven"
 		{
 			"ThinkInterval"  "%stun_interval"
+			"IsDebuff"        "1"
 			"OnIntervalThink"
 			{
 				"Damage"
@@ -15692,122 +15693,7 @@
 	    }
     }
 
-
-
-    "creature_laser_turret_passive"
-	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" 					"ability_datadriven"
-		"MaxLevel"						"1"
-		"AbilityTextureName"            "tinker_laser"
-		
-        "precache"
-	     {
-	 	"soundfile"		"soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"		
-		"particle"		"particles/units/heroes/hero_phoenix/phoenix_sunray.vpcf"
-		"particle"		"particles/units/heroes/hero_phoenix/phoenix_sunray_beam_enemy.vpcf"
-	    }
-        
-
-        "AbilitySpecial"
-    	{
-		   "01"
-	    	{
-			"var_type"						"FIELD_INTEGER"
-			"thinker_radius"		        "120"
-		    }
-		    "02"
-	    	{
-			"var_type"						"FIELD_FLOAT"
-			"tick_interval"		            "0.3"
-		    }
-		    "03"
-		    {
-			"var_type"		            	"FIELD_INTEGER"
-			"radius"			            "130"
-	     	}
-	     	"04"
-		    {
-			"var_type"			            "FIELD_INTEGER"
-			"beam_range"		            "1300"
-		    }
-	    }
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-		"Modifiers"
-		{
-	        "modifier_stasis_trap_datadriven"
-		    {
-			    "IsHidden"		"1"
-			    "Passive"       "1"
-			    "IsPurgable"	"0"
-
-			  "OnCreated"
-			  {
-		         "RunScript"
-		          {
-		        	"ScriptFile"	"creature_ability/rattletrap"
-		        	"Function"		"LaserStart"
-		        	"modifier_thinker_name"         "modifier_laser_thinker_datadriven"
-		          }
-		      }
-	        }
-        "modifier_laser_thinker_datadriven"
-		   {
-
-			"Aura"			"modifier_laser_check_datadriven"
-			"Aura_Radius"	"%thinker_radius"
-			"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-			"Aura_Types"	"DOTA_UNIT_TARGET_HERO"
-			"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-			
-			"OnCreated"
-			{
-				"ApplyModifier"
-				{
-					"Target"		"TARGET"
-					"ModifierName"	"modifier_phased"
-				}
-			}
-			
-			"States"
-			{
-				"MODIFIER_STATE_PROVIDES_VISION"		"MODIFIER_STATE_VALUE_ENABLED"
-				"MODIFIER_STATE_INVULNERABLE"			"MODIFIER_STATE_VALUE_ENABLED"
-				"MODIFIER_STATE_NO_HEALTH_BAR"			"MODIFIER_STATE_VALUE_ENABLED"
-				"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
-				"MODIFIER_STATE_NOT_ON_MINIMAP"			"MODIFIER_STATE_VALUE_ENABLED"
-				"MODIFIER_STATE_UNSELECTABLE"			"MODIFIER_STATE_VALUE_ENABLED"
-			}
-		  }
-
-	   "modifier_laser_check_datadriven"
-		{
-			"IsHidden"	"0"
-			"IsDebuff"  "1"
-			"ThinkInterval"		"%tick_interval"
-
-			"OnIntervalThink"
-			{
-				"RunScript"
-				{
-					"ScriptFile"		"creature_ability/rattletrap"
-					"Function"			"CheckForCollision"
-					
-					"path_length"	 	"%beam_range"
-					"path_radius"		"%radius"
-					
-					"tick_interval"		"%tick_interval"
-					
-					"particle_burn_name"	"particles/units/heroes/hero_phoenix/phoenix_sunray_beam_enemy.vpcf"
-				}
-			}
-		}
-	  }
-    }
-
-    "creature_spawn_laser_turret"
+    "rattletrap_spawn_laser_turret"  //发条地精召唤的炮台  非无敌
     {
     	// General
     	//-------------------------------------------------------------------------------------------------------------
@@ -15866,10 +15752,9 @@
 
     		"SpawnUnit"
     		{
-    			"UnitName"			"npc_dota_creature_laser_turret"
+    			"UnitName"			"npc_dota_creature_rattle_laser_turret"
     			"UnitCount"			"1"
-    			"UnitLimit"			"132"
-    			"SpawnRadius"		"50"
+    			"SpawnRadius"		"150"
     			"Target"			"CASTER"
     		}
     	}
@@ -24870,7 +24755,7 @@
 	"Modifiers"
 	{
 
-		    "modifier_supernova_invulnerable_aura"  //无敌光环
+		    "modifier_supernova_invulnerable_aura"  //无敌光环，提供视野
 			{
 				"Passive"     "1"
 				"IsBuff"	  "1"
@@ -24897,7 +24782,11 @@
 					}
 				}
 			
-				
+                 "States"
+		         {
+		         	"MODIFIER_STATE_PROVIDES_VISION"		"MODIFIER_STATE_VALUE_ENABLED"
+		         }
+		
 			}
              
 
@@ -25699,4 +25588,262 @@
         }
     }
     
+    "ogre_tank_melee_smash"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/ogre_tank_melee_smash"
+        "AbilityTextureName"            "centaur_double_edge"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
+        
+        "IsOnCastBar"                   "0"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "500"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"   // Activity
+        "AnimationPlaybackRate"         "1.0"                       // Animation speed multiplier
+        "AnimationIgnoresModelScale"    "1"
+
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "3"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+        
+        "precache"
+        {
+        	"particle"                   "particles/test_particle/ogre_melee_smash.vpcf"
+        	"particle"                   "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+        }
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "impact_radius"         "200"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "stun_duration"         "1.0"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "damage"                "750"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "base_swing_speed"      "1.0"
+            }
+        }
+    }
+
+    "ogre_tank_jump_smash"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/ogre_tank_jump_smash"
+        "AbilityTextureName"            "centaur_double_edge"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
+        
+        "IsOnCastBar"                   "0"    
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "150"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"   // Activity
+        "AnimationIgnoresModelScale"    "1"
+
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "5.25"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+        
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "impact_radius"         "290"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "stun_duration"         "4.0"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "damage"                "1100"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "jump_speed"            "1.8"
+            }
+        }
+    }
+
+    "ogre_magi_channelled_bloodlust"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/ogre_magi_channelled_bloodlust"
+        "AbilityTextureName"            "ogre_magi_bloodlust"
+
+        "AbilityCastAnimation"          "ACT_DOTA_VICTORY" 
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+
+        "IsOnCastBar"                   "0"
+
+        "precache"
+        {
+        	"particle"                  "particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_cast.vpcf"
+        	"soundfile"                 "soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
+        }
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "600"
+        "AbilityCastPoint"              "0.56"
+        
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "1.0" // was 4.0
+        "AbilityChannelTime"            "10.0"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "duration"              "8"
+            }
+
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "modelscale"            "10"
+            }   
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_movement_speed"  "50"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_attack_speed"    "20"
+            }
+            "05"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "interrupted_cooldown"  "4"
+            }
+        }
+    }
+
+    "ogre_magi_area_ignite"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "ogre_magi_ignite"
+        "ScriptFile"                    "creature_ability/ogre_magi_area_ignite"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+
+        "IsOnCastBar"                   "0"
+       
+        "MaxLevel"                      "1"
+
+        "precache"
+        {
+        	"particle"                "particles/units/heroes/hero_ogre_magi/ogre_magi_ignite.vpcf"
+        	"soundfile"               "soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
+        }
+
+         // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "700"
+        "AbilityCastPoint"              "0.45"
+        
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "8"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+                
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "duration"          "2"
+            }
+
+            "02"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "burn_damage"       "200"
+            }       
+
+            "03"
+            {
+                "var_type"                      "FIELD_INTEGER"
+                "slow_movement_speed_pct"       "-30"
+            }
+
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "projectile_speed"      "700"
+            }  
+            "05"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "radius"                "275"
+            }    
+            "06"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "area_duration"         "2.0"
+            }
+        }
+    }
 } //主括号

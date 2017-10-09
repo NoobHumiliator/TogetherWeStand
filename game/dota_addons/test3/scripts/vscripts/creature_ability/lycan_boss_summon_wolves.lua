@@ -23,6 +23,12 @@ end
 
 function lycan_boss_summon_wolves:OnSpellStart()
 	if IsServer() then
+
+        --超过上限不再召唤，避免玩家无限刷钱
+        if self:GetCaster().nCAST_SUMMON_WOLVES_COUNT>500 then  
+        	return
+        end
+
 		EmitSoundOn( "LycanBoss.SummonWolves", self:GetCaster() )
 		Notifications:BossAbilityDBM("lycan_boss_summon_wolves")
 		local nHoundSpawns = 3
