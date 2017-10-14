@@ -595,6 +595,7 @@
 		"BagVariance"		        "30"
 		"FixedXP"					"11400"
 		"alias"                     "bloodseeker"
+		"ShortTitle"                "#bloodseeker_short_title"
 		"ExpectedGold"              "3250"
 		// Stage 1 ================================================
 		
@@ -997,6 +998,7 @@
 		"BagVariance"		        "30"
 		"FixedXP"					"11400"
 		"alias"                     "ogre"
+		"ShortTitle"                "#ogre_short_title"
 		"ExpectedGold"              "3250"
 		
 		// Stage 1 ================================================

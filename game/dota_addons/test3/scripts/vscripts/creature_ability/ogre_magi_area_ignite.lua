@@ -1,5 +1,5 @@
 ogre_magi_area_ignite = class ({})
-LinkLuaModifier( "modifier_ogre_magi_area_ignite_thinker", "modifiers/modifier_ogre_magi_area_ignite_thinker", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_ogre_magi_area_ignite_thinker", "creature_ability/modifier/modifier_ogre_magi_area_ignite_thinker", LUA_MODIFIER_MOTION_NONE )
 
 ----------------------------------------------------------------------------------------
 

@@ -5173,7 +5173,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-
+        "vscripts"					"creature_ai/zombie_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------
@@ -5221,8 +5221,8 @@
 	
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"ogre_magi_channelled_bloodlust"			// Ability 1
-		"Ability2"					"ogre_magi_area_ignite"			// Ability 2
+		"Ability1"					"ogre_magi_area_ignite"			// Ability 1
+		"Ability2"					""			// Ability 2
 		"Ability3"					""			// Ability 3
 		"Ability4"					""			// Ability 4
 

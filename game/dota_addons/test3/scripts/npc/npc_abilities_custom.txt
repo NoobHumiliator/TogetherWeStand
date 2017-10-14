@@ -25719,8 +25719,6 @@
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
 
-        "IsOnCastBar"                   "0"
-
         "precache"
         {
         	"particle"                  "particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_cast.vpcf"
@@ -25783,8 +25781,6 @@
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-
-        "IsOnCastBar"                   "0"
        
         "MaxLevel"                      "1"
 
