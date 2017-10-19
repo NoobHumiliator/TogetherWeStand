@@ -1,5 +1,5 @@
 ogre_tank_jump_smash = class({})
-LinkLuaModifier( "modifier_ogre_tank_melee_smash_thinker", "modifiers/modifier_ogre_tank_melee_smash_thinker", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_ogre_tank_melee_smash_thinker", "creature_ability/modifier/modifier_ogre_tank_melee_smash_thinker", LUA_MODIFIER_MOTION_NONE )
 
 -----------------------------------------------------------------------------
 

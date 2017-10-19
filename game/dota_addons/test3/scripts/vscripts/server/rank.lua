@@ -73,6 +73,13 @@ function Rank:RecordGame(nRoundNumber,nLoser)
             end
         end
     end
+
+    --没人选英雄 不需要记录成绩
+    if player_number == 0 then
+        return
+    end
+
+
     table.sort(vPlayerSteamIDs)  --排序
     for i=1,#vPlayerSteamIDs do
         playerSteamIDs=playerSteamIDs..vPlayerSteamIDs[i]..";"

@@ -25525,8 +25525,6 @@
         }
     }
 
-
-
     "lycan_boss_shapeshift"
     {
         // General
@@ -25635,7 +25633,7 @@
             "02"
             {
                 "var_type"              "FIELD_FLOAT"
-                "stun_duration"         "1.0"
+                "stun_duration"         "0.7"
             }
             "03"
             {
@@ -25690,7 +25688,7 @@
             "02"
             {
                 "var_type"              "FIELD_FLOAT"
-                "stun_duration"         "4.0"
+                "stun_duration"         "2.0"
             }
             "03"
             {
@@ -25790,7 +25788,7 @@
         	"soundfile"               "soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
         }
 
-         // Casting
+        // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "700"
         "AbilityCastPoint"              "0.45"
@@ -25838,8 +25836,186 @@
             "06"
             {
                 "var_type"              "FIELD_FLOAT"
-                "area_duration"         "2.0"
+                "area_duration"         "5.0"
             }
         }
     }
+
+    "ogre_seer_area_ignite"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "ogre_magi_ignite"
+        "ScriptFile"                    "creature_ability/ogre_seer_area_ignite"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+       
+        "IsOnCastBar"                   "1"
+
+        "MaxLevel"                      "1"
+
+         // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "800"
+        "AbilityCastPoint"              "0.45"
+        
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "10"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+                
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "duration"          "2"
+            }
+
+            "02"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "burn_damage"       "300"
+            }       
+
+            "03"
+            {
+                "var_type"                      "FIELD_INTEGER"
+                "slow_movement_speed_pct"       "-30"
+            }
+
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "projectile_speed"      "700"
+            }  
+            "05"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "radius"                "275" // magi's: 275
+            }    
+            "06"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "area_duration"         "10.0" // magi's: 2.0
+            }
+        }
+    }
+    
+
+    "ogre_tank_boss_melee_smash"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/ogre_tank_boss_melee_smash"
+        "AbilityTextureName"            "centaur_double_edge"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
+        
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "583" // regular version: 500
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"   // Activity
+        "AnimationPlaybackRate"         "1.0"                       // Animation speed multiplier
+        "AnimationIgnoresModelScale"    "1"
+
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "2.0"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+        
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "impact_radius"         "270" // regular version: 200
+            }
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "stun_duration"         "0.7" // regular version: 1.0
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "damage"                "1250" // regular version: 750
+            }
+            "04"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "base_swing_speed"      "1.0"
+            }
+        }
+    }
+
+    "ogre_tank_boss_jump_smash"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/ogre_tank_boss_jump_smash"
+        "AbilityTextureName"            "centaur_double_edge"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
+                        
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "150"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"   // Activity
+        "AnimationIgnoresModelScale"    "1"
+        //"AnimationPlaybackRate"         "1.0" // default 1.0
+
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "3.75" // regular: 5.25
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+        
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "impact_radius"         "400"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "stun_duration"         "2.0" // regular: 4.0
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "damage"                "1833"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "jump_speed"            "1.5" // regular: 1.8
+            }
+        }
+    }
+
 } //主括号
