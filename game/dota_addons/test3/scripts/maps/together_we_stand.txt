@@ -1041,12 +1041,37 @@
 		}
 		
 		"UnitOgreTank_2"
-		{
-			"GroupWithUnit"			"UnitMelee_2"
-			
+		{			
+			"WaitForUnit"			"UnitMelee_1"
+			"NPCName"				"npc_dota_creature_ogre_tank"
+			"TotalUnitsToSpawn"		"6"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"20"
+		}
+		"UnitOgreSeer_2"
+		{			
+			"GroupWithUnit"			"UnitOgreTank_2"
+			"NPCName"				"npc_dota_creature_ogre_seer"
+			"TotalUnitsToSpawn"		"12"
+			"UnitsPerSpawn"			"2"
+		}
+
+
+		"UnitOgreTank_2b"
+		{			
+			"WaitForUnit"			"UnitMelee_1"
+			"WaitForTime"			"60"
 			"NPCName"				"npc_dota_creature_ogre_tank"
 			"TotalUnitsToSpawn"		"3"
 			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"20"
+		}
+		"UnitOgreSeer_2b"
+		{			
+			"GroupWithUnit"			"UnitOgreTank_2b"
+			"NPCName"				"npc_dota_creature_ogre_seer"
+			"TotalUnitsToSpawn"		"6"
+			"UnitsPerSpawn"			"2"
 		}
 		
 		// Stage 2 Concurrent =====================================
@@ -1081,20 +1106,41 @@
 			"SpawnInterval"			"20"
 		}
 		
-		"UnitRanged_2b"
+		"UnitRanged_2c"
 		{
 			"GroupWithUnit"			"UnitMelee_2c"		
 			"NPCName"				"npc_dota_creature_ogre_magi"
-			"TotalUnitsToSpawn"		"12"
+			"TotalUnitsToSpawn"		"10"
 			"UnitsPerSpawn"			"2"
 		}
+
+
+        "UnitMelee_2c" // Duration 100s + 30s
+		{
+			"WaitForUnit"			"UnitMelee_1"
+			"WaitForTime"			"30"
+			
+			"NPCName"				"npc_dota_creature_ogre_melee"
+			"TotalUnitsToSpawn"		"20"
+			"UnitsPerSpawn"			"4"
+			"SpawnInterval"			"20"
+		}
+		
+		"UnitRanged_2c"
+		{
+			"GroupWithUnit"			"UnitMelee_2c"		
+			"NPCName"				"npc_dota_creature_ogre_magi"
+			"TotalUnitsToSpawn"		"10"
+			"UnitsPerSpawn"			"2"
+		}
+
 		//Stage 3  Boss
 		"UnitOgre_Boss" // Duration 120s + 10s
 		{
 			"WaitForUnit"			"UnitMelee_2b"
 			"WaitForTime"			"1"
 			
-			"NPCName"				"npc_dota_creature_ogre_melee"
+			"NPCName"				"npc_dota_creature_ogre_tank_boss"
 			"TotalUnitsToSpawn"		"1"
 		}
 
@@ -1102,8 +1148,8 @@
 		{
 			"GroupWithUnit"			"UnitOgre_Boss"
 			"NPCName"				"npc_dota_creature_ogre_seer"
-			"TotalUnitsToSpawn"		"4"
-			"UnitsPerSpawn"			"4"
+			"TotalUnitsToSpawn"		"6"
+			"UnitsPerSpawn"			"6"
 		}
 
 	}

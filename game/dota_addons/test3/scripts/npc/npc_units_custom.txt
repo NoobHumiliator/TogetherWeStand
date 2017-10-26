@@ -5250,8 +5250,8 @@
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"80"		// Experience earn.
-		"BountyGoldMin"				"40"			// Gold earned min.
-		"BountyGoldMax"				"50"			// Gold earned max.
+		"BountyGoldMin"				"0"			// Gold earned min.
+		"BountyGoldMax"				"0"			// Gold earned max.
 
 		// Movement
 		//----------------------------------------------------------------
@@ -5281,8 +5281,6 @@
 
 	"npc_dota_creature_ogre_tank"
 	{
-		// Script
-		"vscripts"					"units/ai/ai_ogre_tank.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -5358,6 +5356,8 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"vscripts"					"creature_ai/ogre_tank_ai"
 		
 		// Creature Data
 		//----------------------------------------------------------------
@@ -5373,7 +5373,7 @@
 	"npc_dota_creature_ogre_seer"
 	{
 		// Script
-		"vscripts"					"creature_ai/ogre_magi_ai.lua"
+		"vscripts"					"creature_ai/ogre_seer_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -5447,7 +5447,7 @@
 	"npc_dota_creature_ogre_tank_boss"
 	{
 		// Script
-		"vscripts"					"units/ai/ai_ogre_tank_boss.lua"
+		"vscripts"					"creature_ai/ogre_tank_boss_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
