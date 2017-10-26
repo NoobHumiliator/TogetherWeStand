@@ -1445,6 +1445,33 @@
 		}
 	}
 
+    "Round7-2" //Temple Guardian
+	{
+		//"round_quest_title"	    "#TWS_Round_Guardian_Twins_Quest_Title"
+		"round_title"				"#TWS_Round_Guardian_Twins_Title"
+		"MaxGold"					"8350"
+		"BagCount"					"15"
+		"BagVariance"			    "40"
+		"FixedXP"					"35700"
+		"alias"                     "guardians"
+		"type"                      "boss"
+		"ExpectedGold"              "10020"
+		// Stage 1 ================================================
+		"Unit_1"
+		{
+			"NPCName"			   "npc_dota_creature_temple_guardian"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"Unit_2"
+		{
+			"NPCName"			    "npc_dota_creature_temple_guardian"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}  														
+	}
+
+
 	"Round8-1" // Broodqueen
 	{
 		"round_quest_title"			"#TWS_Round_Broodking_Quest_Title"
@@ -3658,7 +3685,8 @@
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
 		}  														
-	} 
+	}
+    
 	"Round15-1" // morphing again!
 	{
 		"round_quest_title"			"#TWS_Round_Again_Quest_Title"
