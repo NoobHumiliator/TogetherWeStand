@@ -7,25 +7,28 @@ var layoutMap ={
     "3" : "file://{resources}/layout/custom_game/tws_rank_line_three_player.xml",
     "4" : "file://{resources}/layout/custom_game/tws_rank_line_four_player.xml",
     "5" : "file://{resources}/layout/custom_game/tws_rank_line_five_player.xml",
+    "6" : "file://{resources}/layout/custom_game/tws_rank_line_one_player.xml",
+    "7" : "file://{resources}/layout/custom_game/tws_rank_line_two_player.xml",
+    "8" : "file://{resources}/layout/custom_game/tws_rank_line_three_player.xml",
+    "9" : "file://{resources}/layout/custom_game/tws_rank_line_four_player.xml",
+    "10" : "file://{resources}/layout/custom_game/tws_rank_line_five_player.xml",
 };
 
-var RankPanels=["OnePlayerPanel","TwoPlayerPanel","ThreePlayerPanel","FourPlayerPanel","FivePlayerPanel"];
+var RankPanels=["OnePlayerPanel","TwoPlayerPanel","ThreePlayerPanel","FourPlayerPanel","FivePlayerPanel",
+"TrailOnePlayerPanel","TrailTwoPlayerPanel","TrailThreePlayerPanel","TrailFourPlayerPanel","TrailFivePlayerPanel"];
 
 var currnet_page=null;
 var currnet_player_number=null;
-
+var current_rank="Hard";  //Hard or Trail
 
 function ShowPage(data)
 {
     ShowRankPanel(data.player_number,data.page_number,data.table);  //数据到达，更新下一页数据
 
-    $( "#RankMask" ).SetHasClass("Hidden",true); //取消蒙版
-
     if (data.page_number==1)   //遍历第一页数据，记录本地玩家是第几名
     {
         var CustomUIContainer_Hud= $('#Title').GetParent().GetParent().GetParent().GetParent().GetParent().GetParent().FindChild('CustomUIContainer_Hud');
         var particlePanelHub=CustomUIContainer_Hud.FindChild('ParticlePanelHub');
-
 
         var rank
         var playerSteamId = Game.GetLocalPlayerInfo().player_steamid;     //玩家Steam ID
@@ -75,61 +78,166 @@ function ShowPrePage()
     GameEvents.SendCustomGameEventToServer( "RequestRankData", {page_number:currnet_page-1,player_number:currnet_player_number});
 }
 
-function ShowOnePlayer()
+ //从试炼排行切换回困难排行
+function ShowHardRank()
 {
-    $( "#RankMask" ).SetHasClass("Hidden",false); //显示蒙版
-    GameEvents.SendCustomGameEventToServer( "RequestRankData", {page_number:1,player_number:1});
-    $('#OnePlayerPanel').SetHasClass("Hidden", false);
+  current_rank="Hard";
+  SwitchPanel(currnet_player_number);
+}
+
+//从困难排行切换回试炼排行
+function ShowTrailRank()
+{
+  current_rank="Trail";
+  SwitchPanel(currnet_player_number);
+}
+
+
+
+function SwitchPanel(player_number)
+{
+
+    if  (current_rank=="Trail" && player_number<6)
+    {
+      player_number=player_number+5
+    }
+    
+    if  (current_rank=="Hard" && player_number>5)
+    {
+      player_number=player_number-5
+    }
+    
+    GameEvents.SendCustomGameEventToServer( "RequestRankData", {page_number:1,player_number:player_number});
+    
+    if (player_number==1)
+    {
+      $('#OnePlayerPanel').SetHasClass("Hidden", false);
+      $('#TwoPlayerPanel').SetHasClass("Hidden", true);
+      $('#ThreePlayerPanel').SetHasClass("Hidden", true);
+      $('#FourPlayerPanel').SetHasClass("Hidden", true);
+      $('#FivePlayerPanel').SetHasClass("Hidden", true);
+      HideTrailPanel();
+    }
+
+    if (player_number==2)
+    {
+      $('#OnePlayerPanel').SetHasClass("Hidden", true);
+      $('#TwoPlayerPanel').SetHasClass("Hidden", false);
+      $('#ThreePlayerPanel').SetHasClass("Hidden", true);
+      $('#FourPlayerPanel').SetHasClass("Hidden", true);
+      $('#FivePlayerPanel').SetHasClass("Hidden", true);
+      HideTrailPanel();
+    }
+
+    if (player_number==3)
+    {
+      $('#OnePlayerPanel').SetHasClass("Hidden", true);
+      $('#TwoPlayerPanel').SetHasClass("Hidden", true);
+      $('#ThreePlayerPanel').SetHasClass("Hidden", false);
+      $('#FourPlayerPanel').SetHasClass("Hidden", true);
+      $('#FivePlayerPanel').SetHasClass("Hidden", true);
+      HideTrailPanel();
+    }
+
+    if (player_number==4)
+    {
+      $('#OnePlayerPanel').SetHasClass("Hidden", true);
+      $('#TwoPlayerPanel').SetHasClass("Hidden", true);
+      $('#ThreePlayerPanel').SetHasClass("Hidden", true);
+      $('#FourPlayerPanel').SetHasClass("Hidden", false);
+      $('#FivePlayerPanel').SetHasClass("Hidden", true);
+      HideTrailPanel();
+    }
+
+    if (player_number==5)
+    {
+      $('#OnePlayerPanel').SetHasClass("Hidden", true);
+      $('#TwoPlayerPanel').SetHasClass("Hidden", true);
+      $('#ThreePlayerPanel').SetHasClass("Hidden", true);
+      $('#FourPlayerPanel').SetHasClass("Hidden", true);
+      $('#FivePlayerPanel').SetHasClass("Hidden", false);
+      HideTrailPanel();
+    }
+
+    if (player_number==6)
+    {
+        $('#TrailOnePlayerPanel').SetHasClass("Hidden", false);
+        $('#TrailTwoPlayerPanel').SetHasClass("Hidden", true);
+        $('#TrailThreePlayerPanel').SetHasClass("Hidden", true);
+        $('#TrailFourPlayerPanel').SetHasClass("Hidden", true);
+        $('#TrailFivePlayerPanel').SetHasClass("Hidden", true);
+        HideHardPanel();
+    }
+
+    if (player_number==7)
+    {
+        $('#TrailOnePlayerPanel').SetHasClass("Hidden", true);
+        $('#TrailTwoPlayerPanel').SetHasClass("Hidden", false);
+        $('#TrailThreePlayerPanel').SetHasClass("Hidden", true);
+        $('#TrailFourPlayerPanel').SetHasClass("Hidden", true);
+        $('#TrailFivePlayerPanel').SetHasClass("Hidden", true);
+        HideHardPanel();
+    }
+
+    if (player_number==8)
+    {
+        $('#TrailOnePlayerPanel').SetHasClass("Hidden", true);
+        $('#TrailTwoPlayerPanel').SetHasClass("Hidden", true);
+        $('#TrailThreePlayerPanel').SetHasClass("Hidden", false);
+        $('#TrailFourPlayerPanel').SetHasClass("Hidden", true);
+        $('#TrailFivePlayerPanel').SetHasClass("Hidden", true);
+        HideHardPanel();
+    }
+
+    if (player_number==9)
+    {
+        $('#TrailOnePlayerPanel').SetHasClass("Hidden", true);
+        $('#TrailTwoPlayerPanel').SetHasClass("Hidden", true);
+        $('#TrailThreePlayerPanel').SetHasClass("Hidden", true);
+        $('#TrailFourPlayerPanel').SetHasClass("Hidden", false);
+        $('#TrailFivePlayerPanel').SetHasClass("Hidden", true);
+        HideHardPanel();
+    }
+   
+    if (player_number==10)
+    {
+        $('#TrailOnePlayerPanel').SetHasClass("Hidden", true);
+        $('#TrailTwoPlayerPanel').SetHasClass("Hidden", true);
+        $('#TrailThreePlayerPanel').SetHasClass("Hidden", true);
+        $('#TrailFourPlayerPanel').SetHasClass("Hidden", true);
+        $('#TrailFivePlayerPanel').SetHasClass("Hidden", false);
+        HideHardPanel();
+    }
+}
+
+
+
+function HideTrailPanel()
+{
+    $('#TrailOnePlayerPanel').SetHasClass("Hidden", true);
+    $('#TrailTwoPlayerPanel').SetHasClass("Hidden", true);
+    $('#TrailThreePlayerPanel').SetHasClass("Hidden", true);
+    $('#TrailFourPlayerPanel').SetHasClass("Hidden", true);
+    $('#TrailFivePlayerPanel').SetHasClass("Hidden", true);
+}
+
+
+function HideHardPanel()
+{
+    $('#OnePlayerPanel').SetHasClass("Hidden", true);
     $('#TwoPlayerPanel').SetHasClass("Hidden", true);
     $('#ThreePlayerPanel').SetHasClass("Hidden", true);
     $('#FourPlayerPanel').SetHasClass("Hidden", true);
     $('#FivePlayerPanel').SetHasClass("Hidden", true);
 }
-function ShowTwoPlayer()
-{
-    $( "#RankMask" ).SetHasClass("Hidden",false); //显示蒙版
-    GameEvents.SendCustomGameEventToServer( "RequestRankData", {page_number:1,player_number:2});
-    $('#OnePlayerPanel').SetHasClass("Hidden", true);
-    $('#TwoPlayerPanel').SetHasClass("Hidden", false);
-    $('#ThreePlayerPanel').SetHasClass("Hidden", true);
-    $('#FourPlayerPanel').SetHasClass("Hidden", true);
-    $('#FivePlayerPanel').SetHasClass("Hidden", true);
-}
-function ShowThreePlayer()
-{
-    $( "#RankMask" ).SetHasClass("Hidden",false); //显示蒙版
-    GameEvents.SendCustomGameEventToServer( "RequestRankData", {page_number:1,player_number:3});
-    $('#OnePlayerPanel').SetHasClass("Hidden", true);
-    $('#TwoPlayerPanel').SetHasClass("Hidden", true);
-    $('#ThreePlayerPanel').SetHasClass("Hidden", false);
-    $('#FourPlayerPanel').SetHasClass("Hidden", true);
-    $('#FivePlayerPanel').SetHasClass("Hidden", true);
-}
-function ShowFourPlayer()
-{
-    $( "#RankMask" ).SetHasClass("Hidden",false); //显示蒙版
-    GameEvents.SendCustomGameEventToServer( "RequestRankData", {page_number:1,player_number:4});
-    $('#OnePlayerPanel').SetHasClass("Hidden", true);
-    $('#TwoPlayerPanel').SetHasClass("Hidden", true);
-    $('#ThreePlayerPanel').SetHasClass("Hidden", true);
-    $('#FourPlayerPanel').SetHasClass("Hidden", false);
-    $('#FivePlayerPanel').SetHasClass("Hidden", true);
-}
-function ShowFivePlayer()
-{
-    $( "#RankMask" ).SetHasClass("Hidden",false); //显示蒙版
-    GameEvents.SendCustomGameEventToServer( "RequestRankData", {page_number:1,player_number:5});
-    $('#OnePlayerPanel').SetHasClass("Hidden", true);
-    $('#TwoPlayerPanel').SetHasClass("Hidden", true);
-    $('#ThreePlayerPanel').SetHasClass("Hidden", true);
-    $('#FourPlayerPanel').SetHasClass("Hidden", true);
-    $('#FivePlayerPanel').SetHasClass("Hidden", false);
-}
+
+
 
 
 
 function ShowRankPanel(player_number,page_number,page_table)
 {
+
   var rank_panel = $("#"+RankPanels[player_number-1]);
   var last_page=false;
   for (var i=1; i<=30;i++){
@@ -150,19 +258,20 @@ function ShowRankPanel(player_number,page_number,page_table)
          team_line.SetHasClass("Hidden", false);
          var player_ids = data_line["player_steam_ids"].split(';');
          var index=1;
-
+         $.Msg(player_ids)
+         $.Msg(player_number)
          for (var j in player_ids)
          {
           team_line.FindChildInLayoutFile( "PlayerAvatarImage"+index ).steamid=ConvertToSteamid64(player_ids[j]);
-          if (parseInt(player_number)==1&&index==1)  //为单人玩家显示姓名
+          if (parseInt(player_number%5)==1&&index==1)  //为单人玩家显示姓名
           {
              team_line.FindChildInLayoutFile("PlayerUserName").steamid = ConvertToSteamid64(player_ids[j]); 
           }
-          if (parseInt(player_number)==2)  //为双人玩家显示姓名
+          if (parseInt(player_number%5)==2)  //为双人玩家显示姓名
           {
              team_line.FindChildInLayoutFile("PlayerUserName"+index).steamid = ConvertToSteamid64(player_ids[j]); 
           }
-          if (parseInt(player_number)==3)  //为三人玩家显示姓名
+          if (parseInt(player_number%5)==3)  //为三人玩家显示姓名
           {
              team_line.FindChildInLayoutFile("PlayerUserName"+index).steamid = ConvertToSteamid64(player_ids[j]); 
           }
@@ -170,7 +279,16 @@ function ShowRankPanel(player_number,page_number,page_table)
          }
          team_line.FindChildInLayoutFile("TeamIndex").text=i+30*(page_number-1)+"";
          team_line.FindChildInLayoutFile("MaxRound").text=data_line["max_round"];
-         team_line.FindChildInLayoutFile("TimeCost").text=FormatSeconds(data_line["time_cost"]);
+         if (player_number<=5)
+         {
+            team_line.FindChildInLayoutFile("TimeCost").text=FormatSeconds(data_line["time_cost"]);
+            $("#InformerLabelTimeCost").text=$.Localize("#timeCost");
+         }
+         else
+         {  
+            $("#InformerLabelTimeCost").text=$.Localize("#trail_level");
+            team_line.FindChildInLayoutFile("TimeCost").text=parseInt(data_line["map_difficulty"])-3;
+         }
       }
   }
    currnet_page=page_number;
@@ -231,5 +349,6 @@ function FormatSeconds(value) {
 (function()
 {
    GameEvents.Subscribe( "show_page", ShowPage )
-
+   $("#SecondaryTabButton_5").checked=true;
+   $("#HardRankPrimaryTabButton").checked=true;
 })();

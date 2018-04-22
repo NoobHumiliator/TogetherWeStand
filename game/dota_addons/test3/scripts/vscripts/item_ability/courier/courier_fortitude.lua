@@ -13,5 +13,5 @@ function LevelupFortitude( keys )
 			target:FindAbilityByName("courier_fortitude_datadriven"):SetLevel(abilityLevel+1)
 	    end
 	end
-	
+	ReportHeroAbilities(target)
 end

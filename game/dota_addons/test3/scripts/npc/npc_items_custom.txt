@@ -35,8 +35,8 @@
 		        "RunScript"
 			{
 				"Target"				"CASTER"
-				"ScriptFile"			"scripts/vscripts/fly.lua"
-				"Function"			"tiny_eat"
+				"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
+				"Function"		      	"tiny_eat"
 			}    
 			"SpendCharge"
 			{}
@@ -1525,8 +1525,8 @@
 		{
 			"01"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_mana_regen"			"35"
+				"var_type"					"FIELD_FLOAT"
+				"bonus_mana_regen"			"0.35"
 			}
 			"02"
 			{
@@ -1563,7 +1563,7 @@
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"			"%bonus_mana_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%bonus_mana_regen"
 				}
 			}
 
@@ -2066,7 +2066,6 @@
   "ItemQuality"					"rare"
   "MaxUpgradeLevel"				"6"
   "ItemBaseLevel"			    "2"
-  "ItemShareability"			"ITEM_FULLY_SHAREABLE"
   "ItemAliases"					"orchid malevolence"
   "ItemDeclarations"			"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
   
@@ -2084,8 +2083,8 @@
 	    }
 	    "02"
 	    {
-			"var_type"						"FIELD_INTEGER"
-			"bonus_mana_regen"	            "20"
+			"var_type"						"FIELD_FLOAT"
+			"bonus_mana_regen"	            "0.2"
 	    }
 	    "03"
 		{
@@ -2124,7 +2123,7 @@
 		   "Properties"
 		   {
 		      "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
-		      "MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
+		      "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%bonus_mana_regen"
 		   }
 		}
    }
@@ -2171,7 +2170,6 @@
   "ItemQuality"					"artifact"
   "MaxUpgradeLevel"				"6"
   "ItemBaseLevel"			    "3"
-  "ItemShareability"			"ITEM_FULLY_SHAREABLE"
   "ItemAliases"					"orchid malevolence"
   "ItemDeclarations"			"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
   
@@ -2189,8 +2187,8 @@
 		    }
 		    "02"
 		    {
-			"var_type"						"FIELD_INTEGER"
-			"bonus_mana_regen"	            "50"
+			"var_type"						"FIELD_FLOAT"
+			"bonus_mana_regen"	            "0.5"
 		    }
 		    "03"
 			{
@@ -2229,7 +2227,7 @@
 			 "Properties"
 		   {
 		      "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
-		      "MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
+		      "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%bonus_mana_regen"
 		   }
 		}
    }
@@ -2273,7 +2271,6 @@
   "ItemQuality"					"artifact"
   "MaxUpgradeLevel"				"6"
   "ItemBaseLevel"			    "4"
-  "ItemShareability"			"ITEM_FULLY_SHAREABLE"
   "ItemAliases"					"orchid malevolence"
   "ItemDeclarations"			"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
   
@@ -2291,8 +2288,8 @@
 		    }
 		    "02"
 		    {
-			"var_type"						"FIELD_INTEGER"
-			"bonus_mana_regen"	            "250"
+			"var_type"						"FIELD_FLOAT"
+			"bonus_mana_regen"	            "2.5"
 		    }
 		    "03"
 		    {
@@ -2341,7 +2338,7 @@
 		 "Properties"
 		   {
 		      "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
-		      "MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
+		      "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%bonus_mana_regen"
 		      "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
 		      "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"
 		   }
@@ -2387,7 +2384,6 @@
   "ItemQuality"					"artifact"
   "MaxUpgradeLevel"			    "6"
   "ItemBaseLevel"			    "5"
-  "ItemShareability"			"ITEM_FULLY_SHAREABLE"
   "ItemAliases"					"orchid malevolence"
   "ItemDeclarations"			"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
   
@@ -2405,8 +2401,8 @@
 		    }
 		    "02"
 		    {
-			"var_type"						"FIELD_INTEGER"
-			"bonus_mana_regen"	            "500"
+			"var_type"						"FIELD_FLOAT"
+			"bonus_mana_regen"	            "5"
 		    }
 		    "03"
 		    {
@@ -2466,7 +2462,7 @@
 		  "Properties"
 		   {
 		      "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
-		      "MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
+		      "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%bonus_mana_regen"
 		      "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
 		      "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"
 		      "MODIFIER_PROPERTY_HEALTH_BONUS"		    "%bonus_health"
@@ -3298,8 +3294,8 @@
 			}
 			"02"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen"	            "5"
+				"var_type"						"FIELD_FLOAT"
+				"bonus_mana_regen"	            "0.05"
 			}
 			"03"
 			{
@@ -3352,7 +3348,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%bonus_mana_regen"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_str"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_agi"		    
 				}
@@ -3410,8 +3406,8 @@
 			}
 			"02"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen"	            "10"
+				"var_type"						"FIELD_FLOAT"
+				"bonus_mana_regen"	            "0.1"
 			}
 			"03"
 			{
@@ -3464,7 +3460,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%bonus_mana_regen"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_str"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_agi"		    
 				}
@@ -3522,8 +3518,8 @@
 			}
 			"02"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen"	            "10"
+				"var_type"						"FIELD_FLOAT"
+				"bonus_mana_regen"	            "0.1"
 			}
 			"03"
 			{
@@ -3576,7 +3572,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%bonus_mana_regen"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_str"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_agi"		    
 				}
@@ -3634,8 +3630,8 @@
 			}
 			"02"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen"	            "15"
+				"var_type"						"FIELD_FLOAT"
+				"bonus_mana_regen"	            "0.15"
 			}
 			"03"
 			{
@@ -3688,7 +3684,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%bonus_mana_regen"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_str"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_agi"		    
 				}
@@ -3817,7 +3813,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_str"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_agi"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health"
@@ -4460,7 +4455,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"heal_amount"			"1800"
+				"heal_amount"			"2000"
 			}
 			"06"
 			{
@@ -4477,16 +4472,6 @@
 				"var_type"				"FIELD_FLOAT"
 				"heal_armor_duration"	"25.0"
 			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hot_percentage"		"1"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hot_duration"			"2"
-			}
 		}
 
 		"OnSpellStart"
@@ -4499,7 +4484,6 @@
 				"heal_amount"			"%heal_amount"
 				"heal_radius"			"%heal_radius"
 				"modifier_armor"		"modifier_item_golden_mekansm_heal_armor"
-				"modifier_hot"			"modifier_item_golden_mekansm_hot"
 			}
 		}
 		
@@ -4544,20 +4528,6 @@
 				}
 			}
 
-			"modifier_item_golden_mekansm_hot"
-			{
-				"Duration"				"%hot_duration"
-				"Passive"				"0"
-				"IsHidden"				"0"
-				"IsBuff"				"1"
-				"IsPurgable"			"1"
-                "TextureName"           "item_golden_mekansm"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" 	"%hot_percentage"
-				}
-			}
 
 			"modifier_item_golden_mekansm_heal_armor"
 			{
@@ -5451,7 +5421,6 @@
 		"ItemPurchasable"				"1"
 		"ItemCost"				     	"103850"
 		"ItemQuality"					"artifact"
-		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
 		"ItemAliases"					"orchid malevolence"
 		"ItemDeclarations"			"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -5464,8 +5433,8 @@
 			}
 			"02"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen"	            "500"
+				"var_type"						"FIELD_FLOAT"
+				"bonus_mana_regen"	            "5"
 			}
 			"03"
 			{
@@ -5525,7 +5494,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%bonus_mana_regen"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "%bonus_agi"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_str"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health"
@@ -5546,7 +5515,6 @@
 		"ItemPurchasable"				"1"
 		"ItemCost"				     	"91850"
 		"ItemQuality"					"artifact"
-		"ItemShareability"		    	"ITEM_FULLY_SHAREABLE"
 		"ItemAliases"					"orchid malevolence"
 		"ItemDeclarations"			    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -5565,8 +5533,8 @@
 			}
 			"02"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen"	            "400"
+				"var_type"						"FIELD_FLOAT"
+				"bonus_mana_regen"	            "4"
 			}
 			"03"
 			{
@@ -5585,8 +5553,8 @@
 			}
 			"06"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen_consume"	    "200"
+				"var_type"						"FIELD_FLOAT"
+				"bonus_mana_regen_consume"	    "2"
 			}
 			"07"
 			{
@@ -5634,7 +5602,7 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_all"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage"
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%bonus_mana_regen"
   
 				}
 			}
@@ -5649,7 +5617,7 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_all_consume"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health_consume"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage_consume"
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen_consume"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%bonus_mana_regen_consume"
 				}
 			}
 		}
@@ -5689,7 +5657,6 @@
 		"ItemPurchasable"				"1"
 		"ItemCost"				     	"319950"
 		"ItemQuality"					"artifact"
-		"ItemShareability"			    "ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"			    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
         "ItemStackable"					"0"
@@ -5706,8 +5673,8 @@
 			}
 			"02"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen"	            "1000"
+				"var_type"						"FIELD_FLOAT"
+				"bonus_mana_regen"	            "10"
 			}
 			"03"
 			{
@@ -5726,8 +5693,8 @@
 			}
 			"06"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen_consume"	    "500"
+				"var_type"						"FIELD_FLOAT"
+				"bonus_mana_regen_consume"	    "5"
 			}
 			"07"
 			{
@@ -5775,7 +5742,7 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_all"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage"
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%bonus_mana_regen"
   
 				}
 			}
@@ -5790,7 +5757,7 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_all_consume"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health_consume"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage_consume"
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen_consume"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%bonus_mana_regen_consume"
 				}
 			}
 		}
@@ -5830,7 +5797,6 @@
 		"ItemPurchasable"				"1"
 		"ItemCost"				     	"1095950"
 		"ItemQuality"					"artifact"
-		"ItemShareability"			    "ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"			    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
         "ItemStackable"					"0"
@@ -5847,8 +5813,8 @@
 			}
 			"02"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen"	            "3000"
+				"var_type"						"FIELD_FLOAT"
+				"bonus_mana_regen"	            "30"
 			}
 			"03"
 			{
@@ -5867,8 +5833,8 @@
 			}
 			"06"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen_consume"	    "1500"
+				"var_type"						"FIELD_FLOAT"
+				"bonus_mana_regen_consume"	    "15"
 			}
 			"07"
 			{
@@ -5916,7 +5882,7 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_all"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage"
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%bonus_mana_regen"
   
 				}
 			}
@@ -5931,7 +5897,7 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "%bonus_all_consume"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"		  "%bonus_health_consume"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE""%bonus_damage_consume"
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "%bonus_mana_regen_consume"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%bonus_mana_regen_consume"
 				}
 			}
 		}
@@ -6650,7 +6616,6 @@
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
 		"ItemPurchasable"				"0"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
 		"SideShop"						"1"
@@ -6721,7 +6686,6 @@
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
 		"ItemPurchasable"				"0"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
 		"SideShop"						"1"
@@ -6791,7 +6755,6 @@
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
 		"ItemPurchasable"				"1"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
 		"IsTempestDoubleClonable"		"0"
@@ -6861,7 +6824,6 @@
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
 		"ItemPurchasable"				"0"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
 		"IsTempestDoubleClonable"		"0"
@@ -6930,7 +6892,6 @@
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
 		"ItemPurchasable"				"0"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
 		"IsTempestDoubleClonable"		"0"
@@ -6999,7 +6960,6 @@
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
 		"ItemPurchasable"				"0"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
 		"IsTempestDoubleClonable"		"0"
@@ -7069,7 +7029,6 @@
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
 		"ItemPurchasable"				"0"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
 		
@@ -7346,7 +7305,6 @@
         "MaxUpgradeLevel"				"4"
 		"ItemShopTags"					"int;attack_speed;damage;regen_mana;damage;hard_to_tag"
 		"ItemQuality"					"rare"
-        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemAliases"					"orchid malevolence"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		
@@ -7385,8 +7343,8 @@
 		    }
 		    "05"
 		    {
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen"	            "150 300 600 1200"
+				"var_type"						"FIELD_FLOAT"
+				"bonus_mana_regen"	            "1.5 3 6 12"
 		    }   
 	    }
         "OnSpellStart"
@@ -7416,7 +7374,7 @@
 				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"        "%bonus_str"
 				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"         "%bonus_agi"
 				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"       "%bonus_int"
-				"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"       "%bonus_mana_regen"
+				"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"       "%bonus_mana_regen"
 			}
 		}
 
@@ -7483,7 +7441,6 @@
         "MaxUpgradeLevel"				"4"
 		"ItemShopTags"					"int;attack_speed;damage;regen_mana;damage;hard_to_tag"
 		"ItemQuality"					"epic"
-        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemAliases"					"orchid malevolence"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		
@@ -7522,8 +7479,8 @@
 		    }
 		    "05"
 		    {
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen"	            "150 300 600 1200"
+				"var_type"						"FIELD_FLOAT"
+				"bonus_mana_regen"	            "1.5 3 6 12"
 		    }	   
 	    }
         "OnSpellStart"
@@ -7553,7 +7510,7 @@
 				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"        "%bonus_str"
 				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"         "%bonus_agi"
 				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"       "%bonus_int"
-				"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"       "%bonus_mana_regen"
+				"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"       "%bonus_mana_regen"
 			}
 		}
 
@@ -7620,7 +7577,6 @@
         "MaxUpgradeLevel"				"4"
 		"ItemShopTags"					"int;attack_speed;damage;regen_mana;damage;hard_to_tag"
 		"ItemQuality"					"epic"
-        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemAliases"					"orchid malevolence"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		
@@ -7659,8 +7615,8 @@
 		    }
 		    "05"
 		    {
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen"	            "150 300 600 1200"
+				"var_type"						"FIELD_FLOAT"
+				"bonus_mana_regen"	            "1.5 3 6 12"
 		    }	   
 	    }
         "OnSpellStart"
@@ -7690,7 +7646,7 @@
 				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"        "%bonus_str"
 				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"         "%bonus_agi"
 				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"       "%bonus_int"
-				"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"       "%bonus_mana_regen"
+				"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"         "%bonus_mana_regen"
 			}
 		}
 
@@ -7755,7 +7711,6 @@
         "MaxUpgradeLevel"				"4"
 		"ItemShopTags"					"int;attack_speed;damage;regen_mana;damage;hard_to_tag"
 		"ItemQuality"					"epic"
-        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemAliases"					"orchid malevolence"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		
@@ -7794,8 +7749,8 @@
 		    }
 		    "05"
 		    {
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen"	            "150 300 600 1200"
+				"var_type"						"FIELD_FLOAT"
+				"bonus_mana_regen"	            "1.5 3 6 12"
 		    }	   
 	    }
         "OnSpellStart"
@@ -7825,7 +7780,7 @@
 				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"        "%bonus_str"
 				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"         "%bonus_agi"
 				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"       "%bonus_int"
-				"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"       "%bonus_mana_regen"
+				"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"         "%bonus_mana_regen"
 			}
 		}
 
@@ -8009,7 +7964,6 @@
 		"ItemSellable"					"0"
 		"ItemQuality"					"epic"
 		"ItemStackable"					"1"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPermanent"					"0"
 		"SideShop"						"0"
 		"IsTempestDoubleClonable"		"0"
@@ -8023,13 +7977,13 @@
 		    }
 		    "02"
 		    {
-				"var_type"						"FIELD_INTEGER"
+				"var_type"						"FIELD_FLOAT"
 				"bonus_health_regen"	            "20 60"
 		    }
 		    "03"
 		    {
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen"	                "30 90"
+				"var_type"						"FIELD_FLOAT"
+				"bonus_mana_regen"	                "0.3 0.9"
 		    }
 	    }
 
@@ -8054,7 +8008,7 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		    "%bonus_all"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%bonus_health_regen"
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"		"%bonus_mana_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		    "%bonus_mana_regen"
 				}
 			}
 	    }
@@ -8112,7 +8066,6 @@
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"artifact"
 		"ItemStackable"					"1"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPermanent"					"0"
 		"SideShop"						"0"
 		"IsTempestDoubleClonable"		"0"
@@ -8132,7 +8085,7 @@
 		    "03"
 		    {
 				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen"	                "30 90"
+				"bonus_mana_regen"	                "0.3 0.9"
 		    }
 	    }
 
@@ -8162,7 +8115,7 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		    "%bonus_all"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%bonus_health_regen"
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"		"%bonus_mana_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		    "%bonus_mana_regen"
 				}
 			}
 	    }
@@ -8669,8 +8622,8 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana_regen_pct"	"120"
+				"var_type"				"FIELD_FLOAT"
+				"bonus_mana_regen_pct"	"1.2"
 			}
 			"03"
 			{

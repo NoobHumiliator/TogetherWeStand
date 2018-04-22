@@ -44,7 +44,10 @@ var hideAbility = {
 	"shredder_return_chakram_2" : true,
 	"nyx_assassn_unburrow" : true,
 	"morphling_morph" : true,
-	"nyx_assassin_unburrow" :true
+	"nyx_assassin_unburrow" :true,
+	"pangolier_gyroshell_stop" :true,
+	"tiny_toss_tree":true,
+	"generic_hidden":true
 };
 
 
@@ -60,6 +63,8 @@ var noReturnAbility = {    //不退回升级点数的技能
 
 var maxAbilitySlotNo=6;  //最大的技能个数
 
+//买技能锁，买技能后加锁，禁止操作 等待后台回传结果后解锁
+var buySpellLocking=false;
 
 var freeToSellAbility=false;
 
@@ -490,29 +495,31 @@ function AbilityPointEnough(abilityCost,playerId)
 
 function CheckAbilityButtonAvailable (Button,abilityName,playerId)
 {
-	var playerHeroIndex=Players.GetPlayerHeroEntityIndex(playerId) ;
-	var abilityIndex=Entities.GetAbilityByName(playerHeroIndex, abilityName );
-    if (abilityIndex==-1)  //找一下是否有光环类的升级技能
-    {
-    	abilityIndex=Entities.GetAbilityByName(playerHeroIndex, abilityName+"_level_2");
-    } 
-    if (abilityIndex==-1)
-    {
-    	abilityIndex=Entities.GetAbilityByName(playerHeroIndex, abilityName+"_level_3");
-    } 
-    
-	if (abilityIndex==-1)
-     {
-         Button.enabled = true; 
-     }
-    else
-     {
-         Button.enabled = false;         
-     }
-     if (GetPlayerAbilityNumber(playerId)>=maxAbilitySlotNo)
-     {
-         Button.enabled = false; 
-     }
+		var playerHeroIndex=Players.GetPlayerHeroEntityIndex(playerId);
+		var abilityIndex=Entities.GetAbilityByName(playerHeroIndex, abilityName );
+	    if (abilityIndex==-1)  //找一下是否有光环类的升级技能
+	    {
+	    	abilityIndex=Entities.GetAbilityByName(playerHeroIndex, abilityName+"_level_2");
+	    } 
+	    if (abilityIndex==-1)
+	    {
+	    	abilityIndex=Entities.GetAbilityByName(playerHeroIndex, abilityName+"_level_3");
+	    } 	    
+	    if (!buySpellLocking)  //如果处于买技能的加锁期间，不解锁按钮
+	    {
+				if (abilityIndex==-1)
+			     {
+			         Button.enabled = true; 
+			     }
+			    else
+			     {
+			         Button.enabled = false;         
+			     }
+			     if (GetPlayerAbilityNumber(playerId)>=maxAbilitySlotNo)
+			     {
+			         Button.enabled = false; 
+			     }
+	     }
 }
 
 function InvisiblePlayerAbilityList(abilityList,slot)
@@ -537,8 +544,14 @@ function InvisiblePlayerAbilityList(abilityList,slot)
 	 }
 }
 
-function PlayerAbilityListUpdate(playerId)
+//参数 playId 还有个参数是刚移除技能的名字，7.07的改动，使后台更新的技能列表  前台使用Entities.GetAbility不能立即生效
+//需要从后台主动推送过来
+function PlayerAbilityListUpdate(keys)
 {
+
+	var playerId=keys.playerId;
+    var deleteAbilityName=keys.deleteAbilityName;
+    
 	var container= $("#sellPanel");
 	var parentPanelId = "player_ability_list";
 	var parentPanel = container.FindChild( parentPanelId );
@@ -567,12 +580,12 @@ function PlayerAbilityListUpdate(playerId)
     {
        var ability=Entities.GetAbility(playerHeroIndex,i);
        var abilityName=Abilities.GetAbilityName(ability);
-       if(abilityName!="" && hideAbility[abilityName]!=true&&abilityName.substring(0,14)!="special_bonus_") //天赋技能默认隐藏
+       if(abilityName!="" && abilityName!= deleteAbilityName && hideAbility[abilityName]!=true&&abilityName.substring(0,14)!="special_bonus_") //天赋技能默认隐藏
         {
            slotNumber=slotNumber+1;
            UpdatePlayerAbility(playerAbilityList,slotNumber,abilityName,playerId);
         }
-    }  
+    } 
     if  (!playerAbilityList.maxslot || playerAbilityList.maxslot<slotNumber)
     {
          playerAbilityList.maxslot=slotNumber;
@@ -715,7 +728,11 @@ function ChangeToSellPanel()
     var sellPanel= $("#sellPanel")
     sellPanel.SetHasClass( "hidden", false );
     var  playerId = Game.GetLocalPlayerInfo().player_id;
-    PlayerAbilityListUpdate(playerId);
+    
+    var keys={};
+    keys.playerId=playerId;
+
+    PlayerAbilityListUpdate(keys);
      
     var courierPanel= $("#courierPanel")
     courierPanel.SetHasClass( "hidden", true );
@@ -793,6 +810,23 @@ function SetAllAbilityUnabled(abPanel)
 	}
 }
 
+
+function SetAllAbilityEnabled(abPanel)
+{
+	for (var i = 1 ;i <= 6; i++) 
+	{
+		var abButtonId = "#_ability_new_"+ i;
+		var abButton=$(abButtonId)
+		if (abButton)
+		{
+			abButton.enabled=true;
+		}
+	}
+}
+
+
+
+
 var PreviewHero = ( function( rButton )
 {
 	return function()
@@ -817,13 +851,11 @@ var AddAbility = ( function(abPanel )
 	{
 		if (abPanel.data.enough)
 		{
-			abPanel.GetParent().enabled=false;
-			//$.Msg("GetPlayerAbilityNumber(abPanel.data.playerId)"+GetPlayerAbilityNumber(abPanel.data.playerId))
-			//$.Msg("maxAbilitySlotNo"+maxAbilitySlotNo)
-			if (GetPlayerAbilityNumber(abPanel.data.playerId)==maxAbilitySlotNo-1) //如果即将到达最大技能数目
-			{			
-				SetAllAbilityUnabled(abPanel);
-			}
+			abPanel.GetParent().enabled=false;         
+            //直接禁用所有 等待后台回传再解锁
+			SetAllAbilityUnabled(abPanel);
+            //加锁 禁止期间所有操作
+			buySpellLocking=true;
 		}
 		GameEvents.SendCustomGameEventToServer( "AddAbility", abPanel.data );
 	}
@@ -916,6 +948,9 @@ function  grantCourierAbility (key)   //赋予英雄信使物品
 function UpdateAbilityList(keys)
 {
 	var isButtonEvent=true;
+	//解锁
+    buySpellLocking=false;
+
 	if (keys.heroName==false)
 	{
         keys.heroName=CurrentHero[keys.playerId];  
@@ -925,7 +960,14 @@ function UpdateAbilityList(keys)
 	{   
 		maxAbilitySlotNo=keys.maxSlotNumber  //更新最大技能数目
 	}
-	Hero_Ability_List_Update(keys.heroName,keys.playerId,isButtonEvent);    //技能更新完毕，Lua通知UI更新可选技能列表
+
+    if (GetPlayerAbilityNumber(keys.playerId)<=maxAbilitySlotNo) //如果技能数未到达最大限制
+	{			
+
+		SetAllAbilityEnabled();
+	}
+
+	Hero_Ability_List_Update(keys.heroName,keys.playerId,isButtonEvent);
 	UpdateAttributeButtons();
 	UpdateCourierButtons();
 }
@@ -933,7 +975,7 @@ function UpdateAbilityList(keys)
 
 function UpdatePlayerAbilityList(keys)
 {
-	PlayerAbilityListUpdate(keys.playerId);    //技能更新完毕，Lua通知UI更新英雄技能列表
+	PlayerAbilityListUpdate(keys);    //技能更新完毕，Lua通知UI更新英雄技能列表
 }
 
 function UpdateFreeToSell(keys)
@@ -946,7 +988,7 @@ function UpdateFreeToSell(keys)
 	{
         freeToSellAbility=false; //卖技能要钱
 	}
-	PlayerAbilityListUpdate(keys.playerId);
+	PlayerAbilityListUpdate(keys);
 }
 
 

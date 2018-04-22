@@ -326,6 +326,14 @@ function CHoldoutGameMode:OrderFilter(orderTable)
               end
           end          
       end
+
+      --球状闪电 不允许向地图外施法
+      if ability and   ability.GetAbilityName  and ability:GetAbilityName()=="storm_spirit_ball_lightning" then
+          if orderTable.position_x>4900 or orderTable.position_y>4700 or orderTable.position_x<-4500 or orderTable.position_y<-4100 then
+             return false
+          end
+      end
+
   end
   return true
 end

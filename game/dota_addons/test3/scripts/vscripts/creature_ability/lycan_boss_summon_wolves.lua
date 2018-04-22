@@ -58,6 +58,7 @@ function lycan_boss_summon_wolves:OnSpellStart()
 					ParticleManager:SetParticleControlEnt( nFXIndex, 0, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetCaster():GetAbsOrigin(), true )
 					ParticleManager:ReleaseParticleIndex( nFXIndex )
 					ParticleManager:ReleaseParticleIndex(  ParticleManager:CreateParticle( "particles/units/heroes/hero_lycan/lycan_summon_wolves_spawn.vpcf", PATTACH_ABSORIGIN_FOLLOW, hHound ) )
+	                hHound:AddNewModifier( hHound, nil, "modifier_provide_vision", {} ) --小狼提供视野，避免出现卡在树林里玩家找不到
 				end
 			end
 		end
@@ -80,6 +81,7 @@ function lycan_boss_summon_wolves:OnSpellStart()
 					ParticleManager:SetParticleControlEnt( nFXIndex, 0, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetCaster():GetAbsOrigin(), true )
 					ParticleManager:ReleaseParticleIndex( nFXIndex )
 					ParticleManager:ReleaseParticleIndex(  ParticleManager:CreateParticle( "particles/units/heroes/hero_lycan/lycan_summon_wolves_spawn.vpcf", PATTACH_ABSORIGIN_FOLLOW, hHoundBoss ) )
+				    hHoundBoss:AddNewModifier( hHoundBoss, nil, "modifier_provide_vision", {} ) --小狼提供视野，避免出现卡在树林里玩家找不到
 				end	
 			end
 		end
@@ -102,7 +104,8 @@ function lycan_boss_summon_wolves:OnSpellStart()
 					ParticleManager:SetParticleControlEnt( nFXIndex, 0, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetCaster():GetAbsOrigin(), true )
 					ParticleManager:ReleaseParticleIndex( nFXIndex )
 					ParticleManager:ReleaseParticleIndex(  ParticleManager:CreateParticle( "particles/units/heroes/hero_lycan/lycan_summon_wolves_spawn.vpcf", PATTACH_ABSORIGIN_FOLLOW, hWerewolf ) )
-				end	
+					hWerewolf:AddNewModifier( hWerewolf, nil, "modifier_provide_vision", {} ) --小狼提供视野，避免出现卡在树林里玩家找不到
+				end
 			end
 		end
 

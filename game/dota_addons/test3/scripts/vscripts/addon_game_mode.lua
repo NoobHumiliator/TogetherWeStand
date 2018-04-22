@@ -14,7 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
---testMode=true --减少刷兵间隔，增加初始金钱
+testMode=true --减少刷兵间隔，增加初始金钱
 goldTestMode=false
 --goldTestMode=true --需要测试金币相关的内容
 
@@ -64,7 +64,6 @@ function Precache( context )
     PrecacheResource( 'particle', 'particles/econ/courier/courier_sappling/courier_sappling_ambient_fly_lvl1.vpcf', context)
     PrecacheResource( 'particle', 'particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_3.vpcf', context)
     PrecacheResource( 'particle', 'particles/econ/courier/courier_trail_orbit/courier_trail_orbit.vpcf', context)
-
 
 	PrecacheItemByNameSync( "item_tombstone", context )
 	PrecacheItemByNameSync( "item_bag_of_gold_tws", context )
@@ -118,7 +117,7 @@ function CHoldoutGameMode:InitGameMode()
     self.nLoadTime = 0  --第几次读档
     self.vXPBeforeMap={}  --key是nPlayerId value是读档之前已经有的经验
     self.vSelectionData={} --key为playerId value为所选分支
-    
+    self.bRandomRound=false  --本轮是否处于随机
 
     self.nTimeCost=0 --统计用时
     Timers:CreateTimer(function() --设置计时器
@@ -461,7 +460,11 @@ function CHoldoutGameMode:OnGameRulesStateChange()
 	if nNewState ==  DOTA_GAMERULES_STATE_GAME_IN_PROGRESS   then
 		self.flProgressTime=GameRules:GetGameTime()
 		CustomGameEventManager:Send_ServerToAllClients( "UpdateCmHud", {} )
-		self:SetBaseDifficulty()
+
+        --如果本局已经读盘 难度选择不影响
+		if not GameRules:GetGameModeEntity().CHoldoutGameMode.bLoadFlag then 
+		   self:SetBaseDifficulty()
+	    end
 		--self.nTimeCost=0 --计时器时间清空，正式开始计时
 	end
 end
@@ -533,7 +536,7 @@ function CHoldoutGameMode:_RefreshPlayers()
 				if hero then
 				  if not hero:IsAlive() then
 				    	local vLocation = hero:GetOrigin()
-					    hero:RespawnHero( false, false, false )
+					    hero:RespawnHero( false, false )
 					    FindClearSpaceForUnit( hero, vLocation, true )
 				  end
 				  --重置买活时间与惩罚
@@ -552,6 +555,8 @@ function CHoldoutGameMode:_RefreshPlayers()
 			      hero:RemoveModifierByName("modifier_overflow_stack")
 			      hero:RemoveModifierByName("modifier_zombie_explode_debuff")
 			      hero:RemoveModifierByName("modifier_random_exp_bonus")
+			      hero:RemoveModifierByName("modifier_affixes_fragile")
+			      hero:RemoveModifierByName("modifier_affixes_dilation")
 				  hero:SetHealth( hero:GetMaxHealth() )
 				  hero:SetMana( hero:GetMaxMana() )
 			    end
@@ -636,7 +641,7 @@ function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正  --测
 		 	 if self._nRoundNumber > 5 and not GameRules:IsCheatMode() then  --如果通过了条件，记录细节
                  --Detail:RecordDetail(self._nRoundNumber-1,self.map_difficulty) --服务器压力大 暂时屏蔽此功能
 	         end
-		 	 if self.map_difficulty==3 and not GameRules:IsCheatMode() and not self.bLoadFlag  then --读盘的游戏不能上天梯
+		 	 if self.map_difficulty>=3 and not GameRules:IsCheatMode() and not self.bLoadFlag  then --读盘的游戏不能上天梯
 			   Rank:RecordGame(self._nRoundNumber-1,DOTA_TEAM_GOODGUYS) --储存并结束游戏
 			   return
 			 else
@@ -672,7 +677,7 @@ function CHoldoutGameMode:_ThinkPrepTime()
            self._precacheFlag=nil  --预载入标识
         end
 		if self._nRoundNumber > #self._vRounds then
-			 if self.map_difficulty==3 and not GameRules:IsCheatMode() and not self.bLoadFlag then 
+			 if self.map_difficulty>=3 and not GameRules:IsCheatMode() and not self.bLoadFlag then 
 			   Rank:RecordGame(self._nRoundNumber-1,DOTA_TEAM_BADGUYS) --储存游戏成绩
 			   return false
 			 else
@@ -769,59 +774,63 @@ function CHoldoutGameMode:OnNPCSpawned( event )
 		endTime = 0.3, 
 		callback = function()
 		if  spawnedUnit~=nil and not spawnedUnit:IsNull() then
-			if  spawnedUnit:IsSummoned() and not spawnedUnit:IsRealHero()  then
-			 local playerid=spawnedUnit:GetOwner():GetPlayerID()
-             --print(spawnedUnit:GetUnitName().."has owner, ID"..playerid)
-             local owner=spawnedUnit:GetOwner()
-             local crownLevel=0
-             if owner:HasModifier("modifier_crown_6_datadriven") then
-             	crownLevel=6
-             else
-	             if owner:HasModifier("modifier_crown_5_datadriven") then
-	             	crownLevel=5
+
+			if ( spawnedUnit:IsSummoned() or spawnedUnit:IsNeutralUnitType() ) and not spawnedUnit:IsRealHero()  then
+			 local owner=spawnedUnit:GetOwner()
+			 if owner ~=nil then
+			 	 --local playerid=spawnedUnit:GetOwner():GetPlayerID()
+	             local crownLevel=0
+	             if owner:HasModifier("modifier_crown_6_datadriven") then
+	             	crownLevel=6
 	             else
-	             	if owner:HasModifier("modifier_crown_4_datadriven") then
-	             		crownLevel=4
-	             	else
-	             		if owner:HasModifier("modifier_crown_3_datadriven") then
-	             			crownLevel =3
-	             		else
-	             			if owner:HasModifier("modifier_crown_2_datadriven") then
-	             				crownLevel =2 
-	             			else
-	             				if owner:HasModifier("modifier_crown_1_datadriven") then
-	             					crownLevel=1
-	             				end
-	             			end
-	             		end
+		             if owner:HasModifier("modifier_crown_5_datadriven") then
+		             	crownLevel=5
+		             else
+		             	if owner:HasModifier("modifier_crown_4_datadriven") then
+		             		crownLevel=4
+		             	else
+		             		if owner:HasModifier("modifier_crown_3_datadriven") then
+		             			crownLevel =3
+		             		else
+		             			if owner:HasModifier("modifier_crown_2_datadriven") then
+		             				crownLevel =2 
+		             			else
+		             				if owner:HasModifier("modifier_crown_1_datadriven") then
+		             					crownLevel=1
+		             				end
+		             			end
+		             		end
+		             	end
+		            end
+	             end
+
+	             if crownLevel>0 then
+	             	spawnedUnit.owner=owner
+	             	owner.crownLevel=crownLevel
+	             	if  spawnedUnit:HasAbility("crown_summoned_buff") then
+
+	             	else 
+	             		spawnedUnit:AddAbility("crown_summoned_buff")
+	             		local ability=spawnedUnit:FindAbilityByName("crown_summoned_buff")
+	             		ability:SetLevel(crownLevel)
 	             	end
-	            end
-             end
-
-             if crownLevel>0 then
-             	spawnedUnit.owner=owner
-             	owner.crownLevel=crownLevel
-             	if  spawnedUnit:HasAbility("crown_summoned_buff") then
-
-             	else 
-             		spawnedUnit:AddAbility("crown_summoned_buff")
-             		local ability=spawnedUnit:FindAbilityByName("crown_summoned_buff")
-             		ability:SetLevel(crownLevel)
-             	end
-             else
-             	if spawnedUnit:FindAbilityByName("crown_summoned_buff") then
-             		spawnedUnit:RemoveAbility("crown_summoned_buff")
-             	end
-             end
+	             else
+	             	if spawnedUnit:FindAbilityByName("crown_summoned_buff") then
+	             		spawnedUnit:RemoveAbility("crown_summoned_buff")
+	             	end
+	             end
+		     end
          end
 
 		    if spawnedUnit:GetTeam()==DOTA_TEAM_GOODGUYS and string.sub(spawnedUnit:GetUnitName(),1,14)~="npc_dota_tiny_"then
 				if spawnedUnit:HasAbility("damage_counter") then
 				else
 					spawnedUnit:AddAbility("damage_counter")  --伤害计数器
-					local ability=spawnedUnit:FindAbilityByName("damage_counter")
-					ability:SetLevel(1)
-                    spawnedUnit:AddAbility("attribute_bonus_datadriven")  --属性附加                
+				end
+				local counterAbility=spawnedUnit:FindAbilityByName("damage_counter")
+				if counterAbility:GetLevel()==0 then
+					counterAbility:SetLevel(1)
+
 					if self.map_difficulty and self.map_difficulty==1 then
 						ability:ApplyDataDrivenModifier(spawnedUnit, spawnedUnit, "modifier_map_easy_show", {})
 					end
@@ -1025,7 +1034,7 @@ function CHoldoutGameMode:RoundEnd()
         if self._nRoundNumber > 2 and not GameRules:IsCheatMode() then  --如果通过了条件，记录细节
            --Detail:RecordDetail(self._nRoundNumber-1,self.map_difficulty)  --服务器压力大 屏蔽此功能
 	    end
-		if self.map_difficulty==3 and not GameRules:IsCheatMode()then 
+		if self.map_difficulty>=3 and not GameRules:IsCheatMode() and not self.bLoadFlag then 
 		   Rank:RecordGame(self._nRoundNumber-1,DOTA_TEAM_BADGUYS) --储存游戏	  
 		   return false
 		 else
@@ -1061,6 +1070,7 @@ function CHoldoutGameMode:RoundEnd()
 
         else   --如果没有多余分支，下一关分支编号为1
 
+           GameRules:GetGameModeEntity().CHoldoutGameMode.bRandomRound=false --本轮非随机
            self._nBranchIndex=1
            self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
 
@@ -1109,7 +1119,10 @@ function PrepTimeBegin() --开始下一关的准备倒计时
                 ability:ApplyDataDrivenModifier(hero, hero, "modifier_random_exp_bonus", {})
 			end
        	end
-       	vRounds[roundNumber][branchIndex]._nItemDropNum=vRounds[roundNumber][branchIndex]._nItemDropNum*1.25 --调整物品掉率至1.25倍
+       	vRounds[roundNumber][branchIndex]._nItemDropNum=vRounds[roundNumber][branchIndex]._nItemDropNum*1.35 --调整物品掉率至1.35倍
+       	GameRules:GetGameModeEntity().CHoldoutGameMode.bRandomRound=true --本轮随机
+    else
+    	GameRules:GetGameModeEntity().CHoldoutGameMode.bRandomRound=false 
     end
 
     GameRules:GetGameModeEntity().CHoldoutGameMode._nBranchIndex = branchIndex --记录下一关的分支编号

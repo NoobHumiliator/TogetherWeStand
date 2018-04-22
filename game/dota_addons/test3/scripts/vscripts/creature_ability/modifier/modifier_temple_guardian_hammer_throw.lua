@@ -15,7 +15,7 @@ end
 -------------------------------------------------------------------
 
 function modifier_temple_guardian_hammer_throw:RemoveOnDeath()
-	return false
+	return true
 end
 
 -------------------------------------------------------------------
@@ -112,7 +112,8 @@ end
 
 function modifier_temple_guardian_hammer_throw:OnDestroy()
 	if IsServer() then
-		UTIL_Remove( self.hHammer )
+		self.hHammer:ForceKill(false)
+		--UTIL_Remove( self.hHammer ) --C++删除不触发Onkill事件
 		ParticleManager:DestroyParticle( self.nFXIndex, true )
 	end
 end

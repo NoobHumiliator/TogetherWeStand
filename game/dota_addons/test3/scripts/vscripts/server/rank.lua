@@ -15,49 +15,49 @@ function Rank:RequestRankData(keys)
     print("page number: "..page_number)
     if  Rank.rankTable and  Rank.rankTable[tonumber(player_number)] then
         CustomGameEventManager:Send_ServerToAllClients("show_page", {player_number=player_number,page_number=page_number,table=Rank.rankTable[player_number][page_number]})
-    else
-        Rank:GetRankDataFromServer(player_number)
     end
 end
 
 
+function Rank:GetRankDataFromServer()
+  
+    if self.rankTable ==nil then self.rankTable={} end--创建玩家天梯数据集    
+    --表1-5困难模式  6-10试炼模式排行版
 
-
-
-function Rank:GetRankDataFromServer(nPlayerNumber)
-    if self.rankTable ==nil then self.rankTable={} end--创建玩家天梯数据集
-    if self.rankTable[nPlayerNumber]==nil then  --数据集中没有对应数据
-        local playerNumberTable={}   --新建一个数据表      
-        local player_number=tostring(nPlayerNumber)
-        local request = CreateHTTPRequestScriptVM("GET", server_address .. "getrankdata")
-        request:SetHTTPRequestGetOrPostParameter("player_number",player_number);
-        request:Send(function(result)
-            --print("Rank data arrived: "..result.Body)
-            if result.StatusCode == 200 then
-                local result_table = JSON:decode(result.Body);
-                --PrintTable(result_table,nil,nil)
+    local request = CreateHTTPRequestScriptVM("GET", server_address .. "getrankdata")
+    request:SetHTTPRequestGetOrPostParameter("player_number",player_number);
+    request:Send(function(result)
+        print("Rank data arrived: "..result.Body)
+        if result.StatusCode == 200 then
+            local result_table_list = JSON:decode(result.Body);
+            --PrintTable(result_table,nil,nil)
+            for i=1,10 do
+                local playerNumberTable={}   --新建一个数据表
+                local result_table=result_table_list[i] --遍历1-10张表
                 for i,v in ipairs(result_table) do
                     --PrintTable(v,nil,nil)
-                    local page=math.ceil(i/30) --1到150是第一页 151-300 第二页 分页保存至表中
+                    local page=math.ceil(i/30) --1到30是第一页 31-60 第二页 分页保存至表中
                     if playerNumberTable[page]==nil then playerNumberTable[page]={} end
                     table.insert(playerNumberTable[page],v)
                 end
-                Rank.rankTable[nPlayerNumber]=playerNumberTable
+                Rank.rankTable[i]=playerNumberTable
                 --PrintTable(Rank.rankTable,nil,nil)
-                if playerNumberTable[1]~=nil then --如果第一页数据不为空,显示第一页数据
-                  CustomGameEventManager:Send_ServerToAllClients("show_page", {player_number=player_number,page_number=1,table=playerNumberTable[1]})
+                if playerNumberTable[1]~=nil and i==5 then --显示困难模式5人排行榜的数据
+                  CustomGameEventManager:Send_ServerToAllClients("show_page", {player_number=i,page_number=1,table=playerNumberTable[1]})
                 end
-            else
-                print("Server return", result.StatusCode, result.Body);             
             end
-        end)
-    end
+        else
+            print("Server return", result.StatusCode, result.Body);             
+        end
+    end)
 end
 
 function Rank:RecordGame(nRoundNumber,nLoser)
     local playerSteamIDs=""   --玩家SteamId串（排序后）
     local vPlayerSteamIDs={}  --玩家SteamId表
-    local player_number=0;
+    local player_number=0
+    local map_difficulty=GameRules:GetGameModeEntity().CHoldoutGameMode.map_difficulty  --地图难度
+
     local steamGameId=GameRules:GetMatchID()
     if tostring(steamGameId)=="0" then
        steamGameId=GetSystemTime().."_"..RandomInt(0,99999999)
@@ -94,6 +94,7 @@ function Rank:RecordGame(nRoundNumber,nLoser)
     request:SetHTTPRequestGetOrPostParameter("player_steam_ids",playerSteamIDs);
     request:SetHTTPRequestGetOrPostParameter("time_cost",tostring(nTimeCost));
     request:SetHTTPRequestGetOrPostParameter("player_number",tostring(player_number));
+    request:SetHTTPRequestGetOrPostParameter("map_difficulty",tostring(map_difficulty));
     request:SetHTTPRequestGetOrPostParameter("auth","K4gN+u422RN2X4DubcLylw==");
     print("Recording game: steam_game_id:"..tostring(steamGameId).." max_round: "..tostring(nRoundNumber).." time_cost: "..tostring(nTimeCost).." player_number: "..player_number)
     print("Player steam ids: "..playerSteamIDs)

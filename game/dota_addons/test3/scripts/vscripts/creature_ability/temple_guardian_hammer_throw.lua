@@ -1,5 +1,5 @@
 temple_guardian_hammer_throw = class({})
-LinkLuaModifier( "modifier_temple_guardian_hammer_throw", "modifiers/modifier_temple_guardian_hammer_throw", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_temple_guardian_hammer_throw", "creature_ability/modifier/modifier_temple_guardian_hammer_throw", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 

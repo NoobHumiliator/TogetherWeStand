@@ -71,7 +71,7 @@ function DotDamage( keys )  --造成伤害
 	local stack_count = target:GetModifierStackCount("modifier_supernova_egg_die_dot",ability)
 
     --伤害直接写死   
-    local basic_damage = 10
+    local basic_damage = 6
 
     local damageTable = {
                             victim=target,     --受到伤害的单位

@@ -10,9 +10,7 @@ behaviorSystem = {} -- create the global so we can assign to it
 function Spawn( entityKeyValues )
 	if  thisEntity:GetTeam()==DOTA_TEAM_BADGUYS then
 	  thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
-      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone , BehaviorStatic_Link,BehaviorIce_Armor,BehaviorDeath_Decay} ) 
-      local frostArmorAbility=thisEntity:FindAbilityByName("lich_creature_frost_armor") 
-      frostArmorAbility:SetLevel(2)  --高级的冰甲
+      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone , BehaviorStatic_Link,BehaviorDeath_Decay} ) 
     end
 end
 
@@ -102,58 +100,6 @@ function BehaviorStatic_Link:Think(dt)
 	end
 end
 --------------------------------------------------------------------------------------------------------
-BehaviorIce_Armor = {}
-
-function BehaviorIce_Armor:Evaluate()
-	-- let's not choose this twice in a row
-	if AICore.currentBehavior == self then return desire end
-	self.icearmorAbility = thisEntity:FindAbilityByName("lich_creature_frost_armor") 
-	local desire = 0
-	local range = self.icearmorAbility:GetCastRange()
-    local enemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
-	local minHP = nil
-	local target = nil
-
-	for _,enemy in pairs(enemies) do
-		local distanceToEnemy = (thisEntity:GetOrigin() - enemy:GetOrigin()):Length()
-		local HP = enemy:GetHealth()
-		if enemy:IsAlive() and not enemy:HasModifier('modifier_imba_frost_armor') and (minHP == nil or HP < minHP) and distanceToEnemy < range then
-			minHP = HP
-			target = enemy
-		end
-	end
-    
-    self.target=target
-    
-	if self.icearmorAbility and self.icearmorAbility:IsFullyCastable() and target then   --找到血量最低，并且身上没有冰甲的单位
-		desire = 5
-        self.order =
-		{
-			OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-			UnitIndex = thisEntity:entindex(),
-			TargetIndex = target:entindex(),
-			AbilityIndex = self.icearmorAbility:entindex()
-		}
-	else
-		desire = 1
-	end
-
-	return desire
-end
-
-function BehaviorIce_Armor:Begin()
-	self.endTime = GameRules:GetGameTime() + 1
-end 
-
-BehaviorIce_Armor.Continue = BehaviorIce_Armor.Begin --if we re-enter this ability, we might have a different target; might as well do a full reset
-
-function BehaviorIce_Armor:Think(dt)
-	if self.target  and not self.target:IsAlive() then
-		self.endTime = GameRules:GetGameTime()
-		return
-	end
-end
---------------------------------------------------------------------------------------------------------
 BehaviorDeath_Decay = {}
 
 function BehaviorDeath_Decay:Evaluate()
@@ -197,5 +143,5 @@ function BehaviorDeath_Decay:Think(dt)
 	end
 end
 --------------------------------------------------------------------------------------------------------
-AICore.possibleBehaviors = { BehaviorNone , BehaviorStatic_Link,BehaviorIce_Armor,BehaviorDeath_Decay}
+AICore.possibleBehaviors = { BehaviorNone , BehaviorStatic_Link,BehaviorDeath_Decay}
 

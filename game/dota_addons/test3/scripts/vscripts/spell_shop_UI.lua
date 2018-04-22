@@ -5,7 +5,7 @@ pairedAbility = {shredder_chakram="shredder_return_chakram", morphling_replicate
 phoenix_icarus_dive="phoenix_icarus_dive_stop" , phoenix_sun_ray="phoenix_sun_ray_stop",phoenix_fire_spirits="phoenix_launch_fire_spirit",abyssal_underlord_dark_rift="abyssal_underlord_cancel_dark_rift",
 alchemist_unstable_concoction="alchemist_unstable_concoction_throw",naga_siren_song_of_the_siren="naga_siren_song_of_the_siren_cancel",rubick_telekinesis="rubick_telekinesis_land",
 bane_nightmare="bane_nightmare_end",ancient_apparition_ice_blast="ancient_apparition_ice_blast_release",lone_druid_true_form="lone_druid_true_form_druid",shredder_chakram_2="shredder_return_chakram_2",nyx_assassin_burrow="nyx_assassin_unburrow",
-wisp_tether="wisp_tether_break",morphling_morph_agi="morphling_morph",morphling_morph_str="morphling_morph"}
+wisp_tether="wisp_tether_break",morphling_morph_agi="morphling_morph",morphling_morph_str="morphling_morph",pangolier_gyroshell="pangolier_gyroshell_stop",tiny_craggy_exterior="tiny_toss_tree"}
 brokenModifierCounts = {
         modifier_shadow_demon_demonic_purge_charge_counter = 3,
         modifier_bloodseeker_rupture_charge_counter = 2,
@@ -22,13 +22,16 @@ brokenModifierAbilityMap = {
 
    }
 noReturnAbility = {    --不退回升级点数的技能
+        puck_ethereal_jaunt = true,
         troll_warlord_whirling_axes_ranged = true,
         troll_warlord_whirling_axes_melee = true,
         lone_druid_savage_roar_bear = true,
         phoenix_sun_ray_toggle_move = true,
         morphling_hybrid = true,
         morphling_morph_agi = true,
-        morphling_morph_str = true
+        morphling_morph_str = true,
+        morphling_adaptive_strike_agi = true,
+        morphling_adaptive_strike_str = true
     }
 
 meleeMap = {
@@ -91,10 +94,13 @@ end
 
 function CHoldoutGameMode:AddAbility(keys)
   --PrintTable(keys)
+
 	if PlayerResource:HasSelectedHero( keys.playerId ) then
 		local hero = PlayerResource:GetSelectedHeroEntity( keys.playerId )
 		local abilityName=keys.abilityName
 		  if hero then
+        removeAllGenericHiddenAbility(hero)
+        --hero:RemoveAbility("generic_hidden")
 		  	 if keys.enough==1 then
 	           if isMeleeHero(hero:GetUnitName()) and meleeMap[abilityName] then
 	               abilityName = meleeMap[abilityName]
@@ -244,13 +250,17 @@ function CHoldoutGameMode:RemoveAbility(keys)
               end
               print(hero:GetUnitName().." removing ability: ".. keys.abilityName)
               hero:RemoveAbility(keys.abilityName)
+              hero:AddAbility("generic_hidden")
                if pairedAbility[keys.abilityName]~=nil then                      
                     hero:RemoveAbility(pairedAbility[keys.abilityName])
+                    hero:AddAbility("generic_hidden")
                     print(hero:GetUnitName().." removing pairs ability: ".. keys.abilityName)
                end
               local p = hero:GetAbilityPoints()
                   hero:SetAbilityPoints(p + pointsReturn)
                 hero:SpendGold(expense, DOTA_ModifyGold_Unspecified)
+                --7.07 更新导致后台删除技能无法在前台立即生效，主动将删除技能的名字推送至前台作处理
+                keys.deleteAbilityName=keys.abilityName
                 CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId),"UpdatePlayerAbilityList",keys)
                 CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId),"UpdateAbilityList", {heroName=false,playerId=keys.playerId})
                 EmitSoundOn("compendium_points",PlayerResource:GetPlayer(keys.playerId))
@@ -262,6 +272,7 @@ function CHoldoutGameMode:RemoveAbility(keys)
               end
 		      end
 		   end
+      ReportHeroAbilities(hero)
 	 end
 end
 
@@ -284,5 +295,13 @@ function CHoldoutGameMode:GrantCourierAbility(keys)
            EmitSoundOn("General.Cancel",PlayerResource:GetPlayer(keys.playerId))
          end
       end
+  end
+end
+
+
+function removeAllGenericHiddenAbility(hHero)
+  while(hHero:HasAbility("generic_hidden"))
+  do
+     hHero:RemoveAbility("generic_hidden")
   end
 end

@@ -55,13 +55,10 @@ end
 
 
 function warlock_disappear( keys )
-         local caster = keys.caster
+        local caster = keys.caster
         local casterOrigin=caster:GetOrigin()
         caster:SetOrigin(casterOrigin-Vector(0,0,1500)) 
         caster:ForceKill(true)
-        GameRules:SendCustomMessage("#warlock_disappear_dbm", 0, 0)
-        Notifications:TopToAll({ability= "warlock_disappear"})
-        Notifications:TopToAll({text="#warlock_disappear_dbm_simple", duration=1.5, style = {color = "Azure"},continue=true})     
 end
 
 
@@ -185,6 +182,7 @@ function water_remove_self( keys )
         caster:RemoveAbility('generic_gold_bag_fountain_50')
         end
         local casterOrigin=caster:GetOrigin()
+        caster.die_in_peace=true
         caster:SetOrigin(casterOrigin-Vector(0,0,1500)) 
         caster:ForceKill(true)
         GameRules:SendCustomMessage("#envolveto3_dbm", 0, 0)
@@ -217,23 +215,55 @@ end
 function tiny_hurt_2( keys )
         local caster = keys.caster
         caster:SetHealth(5000)
+        local torso = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/tiny_02/tiny_02_body.vmdl"})
+        torso:FollowEntity(caster, true)
+        local head = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/tiny_02/tiny_02_head.vmdl"})
+        head:FollowEntity(caster, true)
+        local left_arm = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/tiny_02/tiny_02_left_arm.vmdl"})
+        left_arm:FollowEntity(caster, true)
+        local rigt_arm = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/tiny_02/tiny_02_right_arm.vmdl"})
+        rigt_arm:FollowEntity(caster, true)
 end
 
 function tiny_hurt_3( keys )
         local caster = keys.caster
         caster:SetHealth(11000)
+        local torso = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/tiny_03/tiny_03_body.vmdl"})
+        torso:FollowEntity(caster, true)
+        local head = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/tiny_03/tiny_03_head.vmdl"})
+        head:FollowEntity(caster, true)
+        local left_arm = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/tiny_03/tiny_03_left_arm.vmdl"})
+        left_arm:FollowEntity(caster, true)
+        local rigt_arm = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/tiny_03/tiny_03_right_arm.vmdl"})
+        rigt_arm:FollowEntity(caster, true)
 end
 
 function tiny_hurt_4( keys )
         local caster = keys.caster
         caster:SetHealth(12000)
         caster:FindAbilityByName("tiny_splitter"):SetLevel(2)
+        local torso = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/tiny_04/tiny_04_body.vmdl"})
+        torso:FollowEntity(caster, true)
+        local head = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/tiny_04/tiny_04_head.vmdl"})
+        head:FollowEntity(caster, true)
+        local left_arm = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/tiny_04/tiny_04_left_arm.vmdl"})
+        left_arm:FollowEntity(caster, true)
+        local rigt_arm = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/tiny_04/tiny_04_right_arm.vmdl"})
+        rigt_arm:FollowEntity(caster, true)
 end
 
 function tiny_hurt_5( keys )
         local caster = keys.caster
         caster:SetHealth(18000)
         caster:FindAbilityByName("tiny_splitter"):SetLevel(3)
+        local torso = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/tiny_04/tiny_04_body.vmdl"})
+        torso:FollowEntity(caster, true)
+        local head = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/tiny_04/tiny_04_head.vmdl"})
+        head:FollowEntity(caster, true)
+        local left_arm = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/tiny_04/tiny_04_left_arm.vmdl"})
+        left_arm:FollowEntity(caster, true)
+        local rigt_arm = SpawnEntityFromTableSynchronous("prop_dynamic", {model = "models/heroes/tiny_04/tiny_04_right_arm.vmdl"})
+        rigt_arm:FollowEntity(caster, true)
 end
 
 function warlock_rain( keys )
@@ -243,27 +273,25 @@ end
 
 
 function tiny_eat(keys)
-        local targets = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector(0,0,0) , nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, 0, false)
-        if #targets > 0 then
-           for i,unit in pairs(targets) do                 
-               if unit:GetUnitName()==("npc_dota_tiny_1") or unit:GetUnitName()==("npc_dota_tiny_2") or unit:GetUnitName()==("npc_dota_tiny_3") or unit:GetUnitName()==("npc_dota_tiny_4") or unit:GetUnitName()==("npc_dota_tiny_5") then       
-                  unit:SetHealth(unit:GetHealth()+unit:GetMaxHealth()*0.025)  
-               end 
-           end
-       end     
+   local targets = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector(0,0,0) , nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, 0, false)
+   if #targets > 0 then
+       for i,unit in pairs(targets) do                 
+           if unit:GetUnitName()==("npc_dota_tiny_1") or unit:GetUnitName()==("npc_dota_tiny_2") or unit:GetUnitName()==("npc_dota_tiny_3") or unit:GetUnitName()==("npc_dota_tiny_4") or unit:GetUnitName()==("npc_dota_tiny_5") then       
+              unit:SetHealth(unit:GetHealth()+unit:GetMaxHealth()*0.03)
+           end 
+       end
+   end     
 end
+
 function tiny_collapse(keys)
-        local caster = keys.caster
-        local collapse_hurt=caster:GetMaxHealth()*0.08
-        if (caster:GetHealth()-collapse_hurt)<1 then
-            caster:ForceKill(true)
-        else
-        caster:SetHealth(caster:GetHealth()-collapse_hurt)
-        end
+    local caster = keys.caster
+    local collapse_hurt=caster:GetMaxHealth()*0.08
+    if (caster:GetHealth()-collapse_hurt)<1 then
+        caster:ForceKill(true)
+    else
+    caster:SetHealth(caster:GetHealth()-collapse_hurt)
+    end
 end
-
-
-
 
 function charge_unit( keys )
         local caster = keys.caster

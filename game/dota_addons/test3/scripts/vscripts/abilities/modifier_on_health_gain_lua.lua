@@ -133,6 +133,7 @@ function modifier_on_health_gain_lua:OnHealReceived( keys )
        
 
       if unit:HasModifier("modifier_overflow_show") and overflow>0 then  --处理溢出
+        print("overflow"..overflow)
            if unit.heal_absorb==nil then
              unit.heal_absorb=overflow
            else
@@ -143,27 +144,28 @@ function modifier_on_health_gain_lua:OnHealReceived( keys )
            end
       end
 
-      if unit.heal_absorb~=nil then  --处理溢出的吸收量
-         local damage=math.min(unit.heal_absorb, effective)
-         unit.heal_absorb=unit.heal_absorb-damage
-         local damage_table = {}
-          damage_table.attacker = self:GetCaster()
-          damage_table.victim = unit
-          damage_table.damage_type = DAMAGE_TYPE_PURE
-          damage_table.ability = self:GetAbility()
-          damage_table.damage = damage
-          damage_table.damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
-          if unit:GetHealth()/unit:GetMaxHealth()<0.999 then
-             ApplyDamage(damage_table)  --满血不造成伤害
-          end
-         if unit.heal_absorb<=0 then
-            unit:RemoveModifierByName("modifier_overflow_stack")
-            unit.heal_absorb=nil
-         else
-            local stack=math.floor(unit.heal_absorb/100)
-            ability:ApplyDataDrivenModifier( unit, unit, "modifier_overflow_stack", {} )
-            unit:SetModifierStackCount( "modifier_overflow_stack", ability, stack )
-         end
+      if unit.heal_absorb~=nil and effective>0 then  --处理溢出的吸收量
+
+           local damage=math.min(unit.heal_absorb, effective)
+           unit.heal_absorb=unit.heal_absorb-damage
+           local damage_table = {}
+            damage_table.attacker = self:GetCaster()
+            damage_table.victim = unit
+            damage_table.damage_type = DAMAGE_TYPE_PURE
+            damage_table.ability = self:GetAbility()
+            damage_table.damage = damage
+            damage_table.damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
+            if unit:GetHealth()/unit:GetMaxHealth()<0.999 then
+               ApplyDamage(damage_table)  --满血不造成伤害
+            end
+           if unit.heal_absorb~=nil and unit.heal_absorb>0 then
+              local stack=math.floor(unit.heal_absorb/100)
+              ability:ApplyDataDrivenModifier( unit, unit, "modifier_overflow_stack", {} )
+              unit:SetModifierStackCount( "modifier_overflow_stack", ability, stack )
+           else
+              unit:RemoveModifierByName("modifier_overflow_stack")
+              unit.heal_absorb=nil
+           end
       end 
 
     end --IsServer

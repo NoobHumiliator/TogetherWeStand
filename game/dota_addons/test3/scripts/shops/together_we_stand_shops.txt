@@ -7,7 +7,6 @@
 		"item"		"item_flask"
 		"item"		"item_smoke_of_deceit"
 		"item"		"item_courier"
-		"item"		"item_flying_courier"
 		"item"		"item_ward_observer"
 		"item"		"item_ward_sentry"		
         "item"      "item_example_item"
@@ -17,6 +16,7 @@
         "item"      "item_ultimate_orb_2"
         "item"      "item_ultimate_orb_3"
         "item"      "item_ultimate_orb_4"
+        "item"      "item_ultimate_orb_5"
 	}
 
 	"attributes"
@@ -69,14 +69,12 @@
 		"item"		"item_shadow_amulet"
 		"item"		"item_energy_booster"
 		"item"		"item_vitality_booster"
-		"item"		"item_point_booster"
-		"item"      "item_ultimate_orb_5"			
+		"item"		"item_point_booster"		
 	}	
 	
 	// Level 1 - Green Recipes
 	"basics"
 	{
-		"item"		"item_wand_of_the_brine"
 		"item"		"item_null_talisman"
 		"item"		"item_magic_wand"
 		"item"		"item_bracer"
@@ -89,8 +87,11 @@
 		"item"		"item_pers"
 		"item"		"item_hand_of_midas"
 		"item"      "item_mage_staff_2"
+		"item"      "item_summon_crown_1"
 		"item"      "item_summon_crown_2"
-		"item"      "item_extra_slot_7"		
+		"item"      "item_summon_crown_3"
+		"item"      "item_pipe_1"
+		"item"      "item_pipe_2"
 	}
 
 	// Level 2 - Blue Recipes
@@ -107,10 +108,11 @@
 		"item"      "item_solar_crest"
 		"item"		"item_vladmir"	
 	    "item"      "item_vladimir2"
+	    "item"		"item_wand_of_the_brine"
 	    "item"      "item_slippers_of_halcyon_2"
 	    "item"		"item_golden_mekansm"
-	    "item"      "item_pipe_1"
-	    "item"      "item_extra_slot_8"
+	    "item"      "item_healer_2"
+	    "item"      "item_healer_3"	
 	}
 				
 	"magics"			
@@ -124,12 +126,13 @@
 		"item"		"item_refresher"
 		"item"		"item_sheepstick"
 		"item"      "item_octarine_core"
-		"item"		"item_summon_crown_3"
-		"item"      "item_healer_2"
 	    "item"      "item_mage_staff_4"
 		"item"      "item_mage_staff_5"
 		"item"      "item_mage_staff_6"
-		"item"      "item_extra_slot_9"
+		"item"		"item_mage_shield_1"
+		"item"		"item_mage_shield_2"	
+		"item"      "item_extra_slot_7"
+		"item"      "item_extra_slot_8"
 	}
 		
 	// Level 3 - Purple Recipes	
@@ -140,7 +143,6 @@
 		"item"		"item_vanguard"
 		"item"		"item_soul_booster"
 	    "item"      "item_crimson_guard"
-	    "item"		"item_summon_crown_4"
 		"item"		"item_black_king_bar"
 	    "item"      "item_lotus_orb"
 		"item"		"item_shivas_guard"
@@ -149,7 +151,9 @@
 		"item"		"item_sphere"
 		"item"		"item_assault"
 		"item"		"item_heart"
-		"item"      "item_redblade_armor"				
+		"item"      "item_redblade_armor"
+		"item"      "item_tank_armor_1"
+ 		"item"      "item_tank_armor_2"			
 	}
 			
 	"weapons"
@@ -167,8 +171,9 @@
 		"item"		"item_greater_crit"
 		"item"		"item_butterfly"
 		"item"		"item_rapier1_datadriven"
-		"item"		"item_mage_shield_1"
-		"item"      "item_healer_3"			
+		"item"		"item_rapier2_datadriven"
+		"item"		"item_desolator_2"
+		"item"		"item_desolator_3"		
 	}
 		
 	// Level 4 - Orange / Orb / Artifacts				
@@ -179,8 +184,7 @@
 		"item"		"item_sange"
  		"item"		"item_yasha"
  		"item"		"item_maelstrom"
- 		"item"		"item_diffusal_blade"
- 		"item"		"item_summon_crown_5"			
+ 		"item"		"item_diffusal_blade"		
  		"item"		"item_desolator"
  		"item"		"item_heavens_halberd"
  		"item"		"item_sange_and_yasha"
@@ -188,7 +192,9 @@
  		"item"		"item_skadi" 
  		"item"		"item_satanic"
  		"item"		"item_heart_2"
- 		"item"      "item_tank_armor_2"
+ 		"item"		"item_summon_crown_4"
+ 		"item"		"item_summon_crown_5"
+ 		"item"		"item_summon_crown_6"
 	}
 
 	"sideshop1"

@@ -122,7 +122,7 @@ BehaviorIce_Armor = {}
 function BehaviorIce_Armor:Evaluate()
 	-- let's not choose this twice in a row
 	if AICore.currentBehavior == self then return desire end
-	self.icearmorAbility = thisEntity:FindAbilityByName("lich_creature_frost_armor")    --对技能进行定义
+	self.icearmorAbility = thisEntity:FindAbilityByName("lich_frost_armor_tws")    --对技能进行定义
 	local desire = 0
 	local range = self.icearmorAbility:GetCastRange()
     local enemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, 0, false )

@@ -155,7 +155,14 @@
     {
       "abyssal_underlord" "1"
     }
-
+    "18"
+    {
+      "pangolier" "1"
+    }
+    "19"
+    {
+      "dark_willow" "1"
+    }
   }
 
   "3"

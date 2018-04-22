@@ -10,33 +10,45 @@
         <Panel id="Title">
             <Label id="TitleName" text="#world_rank" />
         </Panel>
+        <!--类型选择按钮-->
+        <Panel id="HardOrTrailChoose">
+             <RadioButton  id="HardRankPrimaryTabButton"  class="PrimaryTabButton Activated" onactivate="ShowHardRank()">
+                 <Panel class="RadioBox"/>
+                 <Label text="#hard_mode"/>
+              </RadioButton>
+              <Label class="SecondaryTabSeparator" text="/"/>
+              <RadioButton class="PrimaryTabButton" onactivate="ShowTrailRank()">
+                 <Panel class="RadioBox"/>
+                 <Label text="#trail_mode"/>
+              </RadioButton>
+        </Panel>
         <Panel id="RankPlayerNumberTabs" hittest="false">  <!--Tab按钮-->
               <!--1人-->
-              <RadioButton class="SecondaryTabButton" onactivate="ShowOnePlayer()">
+              <RadioButton class="SecondaryTabButton" onactivate="SwitchPanel(1)">
                  <Panel class="RadioBox"/>
                  <Label text="#one_player"/>
               </RadioButton>
               <Label class="SecondaryTabSeparator" text="/"/>
               <!--2人-->
-              <RadioButton class="SecondaryTabButton" onactivate="ShowTwoPlayer()">
+              <RadioButton class="SecondaryTabButton" onactivate="SwitchPanel(2)">
                  <Panel class="RadioBox"/>
                  <Label text="#two_player"/>
               </RadioButton>
               <Label class="SecondaryTabSeparator" text="/"/>
               <!--3人-->
-              <RadioButton class="SecondaryTabButton" onactivate="ShowThreePlayer()">
+              <RadioButton class="SecondaryTabButton" onactivate="SwitchPanel(3)">
                  <Panel class="RadioBox"/>
                  <Label text="#three_player"/>
               </RadioButton>
               <Label class="SecondaryTabSeparator" text="/"/>
               <!--4人-->
-              <RadioButton class="SecondaryTabButton" onactivate="ShowFourPlayer()">
+              <RadioButton class="SecondaryTabButton" onactivate="SwitchPanel(4)">
                  <Panel class="RadioBox"/>
                  <Label text="#four_player"/>
               </RadioButton>
               <Label class="SecondaryTabSeparator" text="/"/>
               <!--5人-->
-              <RadioButton class="SecondaryTabButton Activated" onactivate="ShowFivePlayer()">
+              <RadioButton id ="SecondaryTabButton_5" class="SecondaryTabButton Activated" onactivate="SwitchPanel(5)">
                  <Panel class="RadioBox"/>
                  <Label text="#five_player"/>
               </RadioButton>
@@ -59,8 +71,11 @@
          <Panel id="ThreePlayerPanel" class="PlayerNumberPanel Hidden"/>
          <Panel id="FourPlayerPanel" class="PlayerNumberPanel Hidden"/>
          <Panel id="FivePlayerPanel" class="PlayerNumberPanel"/>
-         <Panel id="RankMask" class="RankMask Hidden">
-              <Panel id="Spinner" class="Spinner SpinnerVisible" />
-         </Panel>
+         <Panel id="TrailOnePlayerPanel" class="PlayerNumberPanel Hidden"/>
+         <Panel id="TrailTwoPlayerPanel" class="PlayerNumberPanel Hidden"/>
+         <Panel id="TrailThreePlayerPanel" class="PlayerNumberPanel Hidden"/>
+         <Panel id="TrailFourPlayerPanel" class="PlayerNumberPanel Hidden"/>
+         <Panel id="TrailFivePlayerPanel" class="PlayerNumberPanel Hidden"/>
+
     </Panel>
 </root>

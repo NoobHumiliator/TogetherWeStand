@@ -254,10 +254,10 @@
 	{
 		"round_quest_title"			"#TWS_Round_Zombies_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Zombies_Title"
-		"MaxGold"					"1950"
+		"MaxGold"					"1850"
 		"BagCount"					"50"
 		"BagVariance"		        "10"
-		"FixedXP"					"8925"
+		"FixedXP"					"8500"
 		"alias"                     "scourge"
 		"ShortTitle"                "#scourge_short_title"
 		"ExpectedGold"              "2950"
@@ -404,10 +404,10 @@
 	{
 		"round_quest_title"			"#TWS_Round_Wolf_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Wolf_Title"
-		"MaxGold"					"1950"
+		"MaxGold"					"1850"
 		"BagCount"					"50"
 		"BagVariance"		        "10"
-		"FixedXP"					"8925"
+		"FixedXP"					"8500"
 		"alias"                     "wolf"
 		"ShortTitle"                "#wolf_short_title"
 		"ExpectedGold"              "2950"
@@ -1162,6 +1162,7 @@
 		"BagVariance"			    "50"
 		"FixedXP"					"12000"
 		"alias"                     "satyr"
+		"ShortTitle"                "#satyr_short_title"
         "ExpectedGold"              "3435"
 
 		// Stage 1 ================================================
@@ -1407,6 +1408,261 @@
 			"UnitsPerSpawn"			"2"
 		}
 	}
+   "Round5-2" // Frost Bitten 
+	{
+		//"round_quest_title"			"#TWS_Round_Satyr_Quest_Title"
+		"round_title"				"#DOTA_Holdout_Round_Frost_Bitten_Title"
+		"MaxGold"					"2750"
+		"BagCount"					"55"
+		"BagVariance"			    "50"
+		"FixedXP"					"12000"
+		"alias"                     "frostbitten"
+		"ShortTitle"                "#frost_bitten_short_title"
+        "ExpectedGold"              "3435"
+
+		// Stage 1 ================================================
+		"UnitFodder_1a" // Duration 20s - Continues with UnitFodderGrouped_2a & 3a to 120s total
+		{
+			"NPCName"				"npc_dota_creature_frostbitten_melee"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"5"
+		}	
+		"UnitFodder_1b" // Duration 20s - Continues with UnitFodderGrouped_2b & 3b to 120s total
+		{
+			"NPCName"				"npc_dota_creature_frostbitten_melee"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"5"
+		}
+		"UnitFodder_1c" // Duration 20s
+		{
+			"NPCName"				"npc_dota_creature_frostbitten_melee"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"5"
+		}
+		"UnitHealer_1a" // Duration 90s + 30s
+		{
+			"NPCName"				"UnitFodder_1a"
+			"NPCName"				"npc_dota_creature_large_frostbitten_melee"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"10"
+		}
+		"UnitHealer_1b" // Duration 90s + 30s
+		{
+			"NPCName"				"UnitFodder_1a"
+			"NPCName"				"npc_dota_creature_large_frostbitten_melee"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"10"
+		}
+		"UnitHealer_1c" // Duration 90s + 30s
+		{
+			"NPCName"				"UnitFodder_1a"
+			"NPCName"				"npc_dota_creature_large_frostbitten_melee"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"1"
+			"SpawnInterval"			"10"
+		}
+		"UnitRanged_1a" // Duration 60s + 30s
+		{
+			"NPCName"				"npc_dota_creature_frostbitten_ranged"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"5"
+		}
+		
+		"UnitRanged_1b" // Duration 60s + 30s
+		{
+			"NPCName"				"npc_dota_creature_frostbitten_ranged"
+			"TotalUnitsToSpawn"		"8"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"5"
+		}
+		
+		// Stage 2 ================================================
+		"UnitFodderGrouped_2a" // Duration 20s
+		{
+			"WaitForUnit"			"UnitFodder_1a"
+			"WaitForTime"			"6"
+			"NPCName"				"npc_dota_creature_frostbitten_melee"
+			"TotalUnitsToSpawn"		"12"
+			"UnitsPerSpawn"			"4"
+			"SpawnInterval"			"7"
+		}
+		
+		"UnitFodderGrouped_2b" // Duration 20s
+		{
+			"WaitForUnit"			"UnitFodder_1b"
+			"WaitForTime"			"6"	
+			"NPCName"				"npc_dota_creature_frostbitten_melee"
+			"TotalUnitsToSpawn"		"12"
+			"UnitsPerSpawn"			"4"
+			"SpawnInterval"			"7"
+		}	
+		"UnitFodderGrouped_2c" // Duration 20s
+		{
+			"WaitForUnit"			"UnitFodder_1b"
+			"WaitForTime"			"6"	
+			"NPCName"				"npc_dota_creature_frostbitten_melee"
+			"TotalUnitsToSpawn"		"12"
+			"UnitsPerSpawn"			"4"
+			"SpawnInterval"			"7"
+		}
+		"UnitRanged_2a" // Duration 20s
+		{
+			"WaitForUnit"			"UnitFodder_1a"
+			"WaitForTime"			"6"
+			"NPCName"				"npc_dota_creature_frostbitten_ranged"
+			"TotalUnitsToSpawn"		"6"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"7"
+		}
+		
+		"UnitRanged_2b" // Duration 20s
+		{
+			"WaitForUnit"			"UnitFodder_1b"
+			"WaitForTime"			"6"	
+			"NPCName"				"npc_dota_creature_frostbitten_ranged"
+			"TotalUnitsToSpawn"		"6"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"7"
+		}	
+		"UnitRanged_2c" // Duration 20s
+		{
+			"WaitForUnit"			"UnitFodder_1b"
+			"WaitForTime"			"6"	
+			"NPCName"				"npc_dota_creature_frostbitten_ranged"
+			"TotalUnitsToSpawn"		"6"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"7"
+		}
+		"UnitHealer_2a"
+		{
+			"GroupWithUnit"			"UnitFodderGrouped_2a"
+			"NPCName"				"npc_dota_creature_large_frostbitten_melee"
+			"TotalUnitsToSpawn"		"3"
+			"UnitsPerSpawn"			"1"
+		}
+		
+		"UnitHealer_2b"
+		{
+			"GroupWithUnit"			"UnitFodderGrouped_2b"	
+			"NPCName"				"npc_dota_creature_large_frostbitten_melee"
+			"TotalUnitsToSpawn"		"3"
+			"UnitsPerSpawn"			"1"
+		}
+		"UnitHealer_2c"
+		{
+			"GroupWithUnit"			"UnitFodderGrouped_2c"	
+			"NPCName"				"npc_dota_creature_large_frostbitten_melee"
+			"TotalUnitsToSpawn"		"3"
+			"UnitsPerSpawn"			"1"
+		}
+
+		// Stage 3 ================================================
+		"UnitFodderGrouped_3a" // Duration 20s
+		{
+			"WaitForUnit"			"UnitFodderGrouped_2a"
+			"WaitForTime"			"5"		
+			"NPCName"				"npc_dota_creature_frostbitten_melee"
+			"TotalUnitsToSpawn"		"16"
+			"UnitsPerSpawn"			"8"
+			"SpawnInterval"			"10"
+		}
+		
+		"UnitFodderGrouped_3b" // Duration 20s
+		{
+			"WaitForUnit"			"UnitFodderGrouped_2b"
+			"WaitForTime"			"5"		
+			"NPCName"				"npc_dota_creature_frostbitten_melee"
+			"TotalUnitsToSpawn"		"16"
+			"UnitsPerSpawn"			"8"
+			"SpawnInterval"			"10"
+		}
+		"UnitFodderGrouped_3c" // Duration 20s
+		{
+			"WaitForUnit"			"UnitFodderGrouped_2a"
+			"WaitForTime"			"5"		
+			"NPCName"				"npc_dota_creature_frostbitten_melee"
+			"TotalUnitsToSpawn"		"16"
+			"UnitsPerSpawn"			"8"
+			"SpawnInterval"			"10"
+		}
+		
+		"UnitFodderGrouped_3d" // Duration 20s
+		{
+			"WaitForUnit"			"UnitFodderGrouped_2b"
+			"WaitForTime"			"5"		
+			"NPCName"				"npc_dota_creature_frostbitten_melee"
+			"TotalUnitsToSpawn"		"16"
+			"UnitsPerSpawn"			"8"
+			"SpawnInterval"			"10"
+		}
+
+		"UnitRange_3a"
+		{
+			"GroupWithUnit"			"UnitFodderGrouped_3a"		
+			"NPCName"				"npc_dota_creature_frostbitten_ranged"
+			"TotalUnitsToSpawn"		"6"
+			"UnitsPerSpawn"			"3"
+		}
+
+		"UnitRange_3b"
+		{
+			"GroupWithUnit"			"UnitFodderGrouped_3b"		
+			"NPCName"				"npc_dota_creature_frostbitten_ranged"
+			"TotalUnitsToSpawn"		"6"
+			"UnitsPerSpawn"			"3"
+		}
+		"UnitRange_3c"
+		{
+			"GroupWithUnit"			"UnitFodderGrouped_3c"		
+			"NPCName"				"npc_dota_creature_frostbitten_ranged"
+			"TotalUnitsToSpawn"		"6"
+			"UnitsPerSpawn"			"3"
+		}
+
+		"UnitRange_3d"
+		{
+			"GroupWithUnit"			"UnitFodderGrouped_3d"		
+			"NPCName"				"npc_dota_creature_frostbitten_ranged"
+			"TotalUnitsToSpawn"		"6"
+			"UnitsPerSpawn"			"3"
+		}
+		"UnitHealer_3a"
+		{
+			"GroupWithUnit"			"UnitFodderGrouped_3a"		
+			"NPCName"				"npc_dota_creature_large_frostbitten_melee"
+			"TotalUnitsToSpawn"		"4"
+			"UnitsPerSpawn"			"2"
+		}
+		
+		"UnitHealer_3b"
+		{
+			"GroupWithUnit"			"UnitFodderGrouped_3b"		
+			"NPCName"				"npc_dota_creature_large_frostbitten_melee"
+			"TotalUnitsToSpawn"		"4"
+			"UnitsPerSpawn"			"2"
+		}
+		"UnitHealer_3c"
+		{
+			"GroupWithUnit"			"UnitFodderGrouped_3c"		
+			"NPCName"				"npc_dota_creature_large_frostbitten_melee"
+			"TotalUnitsToSpawn"		"4"
+			"UnitsPerSpawn"			"2"
+		}
+		
+		"UnitHealer_3d"
+		{
+			"GroupWithUnit"			"UnitFodderGrouped_3d"		
+			"NPCName"				"npc_dota_creature_large_frostbitten_melee"
+			"TotalUnitsToSpawn"		"4"
+			"UnitsPerSpawn"			"2"
+		}
+	}
 	"Round6-1" // morphing
 	{
 		"round_quest_title"			"#TWS_Round_Morphing_Quest_Title"
@@ -1415,6 +1671,7 @@
 		"BagCount"					"0"
 		"BagVariance"			    "0"
 		"FixedXP"					"16600"
+		"ShortTitle"                "#morphing_short_title"
 		"alias"                     "morphing"
 		"ExpectedGold"              "10000"
 		// Stage 1 ================================================
@@ -1468,7 +1725,27 @@
 			"UnitsPerSpawn"			        "5"
 			"SpawnerName"			        "spawner4"
 		}
+	}
 
+    "Round6-2"
+	{
+		//"round_quest_title"			"#TWS_Round_Rattletrap_Quest_Title"
+		"round_title"				"#DOTA_Holdout_Round_Ice_Boss_Title"
+		"MaxGold"					"0"
+		"BagCount"					"0"
+		"BagVariance"			    "0"
+		"FixedXP"					"16200"
+		"ShortTitle"                "#ice_boss_short_title"
+		"alias"                     "rattletrap"
+		"type"                      "boss"
+		"ExpectedGold"              "10000"
+		// Stage 1 ================================================
+		"UnitRattle_Boss"
+		{
+			"NPCName"				"npc_dota_creature_ice_boss"
+			"TotalUnitsToSpawn"		        "1"
+			"UnitsPerSpawn"			        "1"
+		}
 	}
 
 	"Round7-1" // rattletrap boss 1700 in gold bag
@@ -1479,6 +1756,7 @@
 		"BagCount"					"0"
 		"BagVariance"			    "0"
 		"FixedXP"					"16200"
+		"ShortTitle"                "#rattle_short_title"
 		"alias"                     "rattletrap"
 		"type"                      "boss"
 		"ExpectedGold"              "1700"
@@ -1495,13 +1773,14 @@
 	{
 		//"round_quest_title"	    "#TWS_Round_Guardian_Twins_Quest_Title"
 		"round_title"				"#TWS_Round_Guardian_Twins_Title"
-		"MaxGold"					"8350"
-		"BagCount"					"15"
-		"BagVariance"			    "40"
-		"FixedXP"					"35700"
+		"MaxGold"					"0"
+		"BagCount"					"0"
+		"BagVariance"			    "0"
+		"FixedXP"					"16200"
+		"ShortTitle"                "#guardian_short_title"
 		"alias"                     "guardians"
 		"type"                      "boss"
-		"ExpectedGold"              "10020"
+		"ExpectedGold"              "1700"
 		// Stage 1 ================================================
 		"Unit_1"
 		{
@@ -2239,12 +2518,34 @@
 		"BagVariance"		        "0"
 		"FixedXP"					"25100"
 		"alias"                     "mammoth"
+		"ShortTitle"                "#mammoth_short_title"
 		"type"                      "boss"
 		"ExpectedGold"              "6300"
 		// Stage 1 ================================================
 		"Unit_1"
 		{
 			"NPCName"			    "npc_dota_boss_mag"  
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}													
+	}
+
+	"Round10-2" //amoeba
+	{
+		//"round_quest_title"			"#TWS_Round_Amoeba_Quest_Title"
+		"round_title"				"#DOTA_Holdout_Round_Amoeba_Title"
+		"MaxGold"					"0"    //BOSS掉落6300
+		"BagCount"					"0"
+		"BagVariance"		        "0"
+		"FixedXP"					"25100"
+		"alias"                     "amoeba"
+		"ShortTitle"                "#amoeba_short_title"
+		"type"                      "boss"
+		"ExpectedGold"              "6300"
+		// Stage 1 ================================================
+		"Unit_1"
+		{
+			"NPCName"			    "npc_dota_creature_amoeba_boss"  
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
 		}													
@@ -3397,7 +3698,7 @@
 		{
 			"WaitForTime"			"40"
 			"NPCName"				"npc_dota_creature_abomination"
-			"TotalUnitsToSpawn"		"36"
+			"TotalUnitsToSpawn"		"18"
 			"UnitsPerSpawn"			"4"
 			"SpawnInterval"			"13"
 		}
@@ -3406,7 +3707,7 @@
 		{
 			"WaitForTime"			"40"
 			"NPCName"				"npc_dota_frost_wyrm"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 			"UnitsPerSpawn"			"2"
 			"SpawnInterval"			"20"
 		}
@@ -3414,7 +3715,7 @@
 		{
 			"WaitForTime"			"40"
 			"NPCName"				"npc_dota_frost_wyrm"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 			"UnitsPerSpawn"			"2"
 			"SpawnInterval"			"20"
 		}
@@ -3422,7 +3723,7 @@
 		{
 			"WaitForTime"			"40"
 			"NPCName"				"npc_dota_frost_wyrm"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 			"UnitsPerSpawn"			"2"
 			"SpawnInterval"			"20"
 		}
@@ -3430,7 +3731,7 @@
 		{
 			"WaitForTime"			"40"
 			"NPCName"				"npc_dota_frost_wyrm"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 			"UnitsPerSpawn"			"2"
 			"SpawnInterval"			"20"
 		}
@@ -3438,7 +3739,7 @@
 		{
 			"WaitForTime"			"40"
 			"NPCName"				"npc_dota_frost_wyrm"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 			"UnitsPerSpawn"			"2"
 			"SpawnInterval"			"20"
 		}
@@ -3446,7 +3747,7 @@
 		{
 			"WaitForTime"			"40"
 			"NPCName"				"npc_dota_frost_wyrm"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 			"UnitsPerSpawn"			"2"
 			"SpawnInterval"			"20"
 		}
@@ -3457,7 +3758,7 @@
 			"WaitForUnit"			"UnitAbomination_1a"
 			"WaitForTime"			"2"
 			"NPCName"				"npc_dota_creature_abomination"
-			"TotalUnitsToSpawn"		"64"
+			"TotalUnitsToSpawn"		"32"
 			"UnitsPerSpawn"			"8"
 			"SpawnInterval"			"14"
 		}
@@ -3467,7 +3768,7 @@
 			"WaitForUnit"			"UnitAbomination_1a"
 			"WaitForTime"			"2"
 			"NPCName"				"npc_dota_creature_abomination"
-			"TotalUnitsToSpawn"		"64"
+			"TotalUnitsToSpawn"		"32"
 			"UnitsPerSpawn"			"8"
 			"SpawnInterval"			"14"
 		}
@@ -3490,9 +3791,9 @@
 		"UnitAbomination_2c"   //120
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"42"
+			"WaitForTime"			"10"
 			"NPCName"				"npc_dota_creature_abomination"
-			"TotalUnitsToSpawn"		"45"
+			"TotalUnitsToSpawn"		"20"
 			"UnitsPerSpawn"			"5"
 			"SpawnInterval"			"14"
 		}
@@ -3500,54 +3801,54 @@
 		"UnitRanged_2a" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"43"
+			"WaitForTime"			"10"
 			"NPCName"				"npc_dota_frost_wyrm"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 			"UnitsPerSpawn"			"2"
 			"SpawnInterval"			"21"
 		}
 		"UnitRanged_2b" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"43"
+			"WaitForTime"			"10"
 			"NPCName"				"npc_dota_frost_wyrm"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 			"UnitsPerSpawn"			"2"
 			"SpawnInterval"			"21"
 		}
 		"UnitRanged_2c" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"43"
+			"WaitForTime"			"10"
 			"NPCName"				"npc_dota_frost_wyrm"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 			"UnitsPerSpawn"			"2"
 			"SpawnInterval"			"21"
 		}
 		"UnitRanged_2d" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"43"
+			"WaitForTime"			"10"
 			"NPCName"				"npc_dota_frost_wyrm"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 			"UnitsPerSpawn"			"2"
 			"SpawnInterval"			"21"
 		}
 		"UnitRanged_2e" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"43"
+			"WaitForTime"			"10"
 			"NPCName"				"npc_dota_frost_wyrm"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 			"UnitsPerSpawn"			"2"
 			"SpawnInterval"			"21"
 		}
 		"UnitRanged_2f" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"43"
+			"WaitForTime"			"10"
 			"NPCName"				"npc_dota_frost_wyrm"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 			"UnitsPerSpawn"			"2"
 			"SpawnInterval"			"21"
 		}
@@ -3559,7 +3860,7 @@
 			"WaitForUnit"			"UnitAbomination_2a"
 			"WaitForTime"			"3"
 			"NPCName"				"npc_dota_creature_abomination"
-			"TotalUnitsToSpawn"		"64"
+			"TotalUnitsToSpawn"		"32"
 			"UnitsPerSpawn"			"8"
 			"SpawnInterval"			"15"
 		}
@@ -3569,7 +3870,7 @@
 			"WaitForUnit"			"UnitAbomination_2a"
 			"WaitForTime"			"3"
 			"NPCName"				"npc_dota_creature_abomination"
-			"TotalUnitsToSpawn"		"64"
+			"TotalUnitsToSpawn"		"32"
 			"UnitsPerSpawn"			"8"
 			"SpawnInterval"			"15"
 		}
@@ -3584,7 +3885,7 @@
 		"UnitCryptLord_3" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
 		{
 			"WaitForUnit"			"UnitAbomination_1a"
-			"WaitForTime"			"24"
+			"WaitForTime"			"10"
 			"NPCName"				"npc_dota_crypt_lord_boss"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
@@ -3592,7 +3893,7 @@
 		"UnitLich_3" // Duration 80s - Continues with UnitFodderGrouped_2b & 3b to 120s total
 		{
 			"WaitForUnit"			"UnitAbomination_2a"
-			"WaitForTime"			"46"
+			"WaitForTime"			"20"
 			"NPCName"				"npc_dota_lich_boss"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
@@ -3600,65 +3901,65 @@
 		"UnitAbomination_3c"   //120
 		{
 			"WaitForUnit"			"UnitAbomination_2a"
-			"WaitForTime"			"47"
+			"WaitForTime"			"20"
 			"NPCName"				"npc_dota_creature_abomination"
-			"TotalUnitsToSpawn"		"45"
-			"UnitsPerSpawn"			"5"
+			"TotalUnitsToSpawn"		"20"
+			"UnitsPerSpawn"			"10"
 			"SpawnInterval"			"15"
 		}
 		
 		"UnitRanged_3a" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_2a"
-			"WaitForTime"			"47"
+			"WaitForTime"			"20"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
-			"UnitsPerSpawn"			"2"
+			"UnitsPerSpawn"			"4"
 			"SpawnInterval"			"23"
 		}
 		"UnitRanged_3b" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_2a"
-			"WaitForTime"			"47"
+			"WaitForTime"			"20"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
-			"UnitsPerSpawn"			"2"
+			"UnitsPerSpawn"			"4"
 			"SpawnInterval"			"23"
 		}
 		"UnitRanged_3c" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_2a"
-			"WaitForTime"			"47"
+			"WaitForTime"			"20"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
-			"UnitsPerSpawn"			"2"
+			"UnitsPerSpawn"			"4"
 			"SpawnInterval"			"23"
 		}
 		"UnitRanged_3d" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_2a"
-			"WaitForTime"			"47"
+			"WaitForTime"			"20"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
-			"UnitsPerSpawn"			"2"
+			"UnitsPerSpawn"			"4"
 			"SpawnInterval"			"23"
 		}
 		"UnitRanged_3e" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_2a"
-			"WaitForTime"			"47"
+			"WaitForTime"			"20"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
-			"UnitsPerSpawn"			"2"
+			"UnitsPerSpawn"			"4"
 			"SpawnInterval"			"23"
 		}
 		"UnitRanged_3f" // Duration 60s + 30s
 		{
 			"WaitForUnit"			"UnitAbomination_2a"
-			"WaitForTime"			"47"
+			"WaitForTime"			"20"
 			"NPCName"				"npc_dota_frost_wyrm"
 			"TotalUnitsToSpawn"		"8"
-			"UnitsPerSpawn"			"2"
+			"UnitsPerSpawn"			"4"
 			"SpawnInterval"			"23"
 		}
 		// Stage 4 ================================================ 6个Boss

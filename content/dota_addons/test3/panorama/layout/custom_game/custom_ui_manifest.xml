@@ -7,6 +7,7 @@
   </script>
 
   <Panel>
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_round_title.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_round_end.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_quest_affixes.xml" /> 
     <CustomUIElement type="Hud"  id="spellShop"  layoutfile="file://{resources}/layout/custom_game/tws_spell_shop_ui.xml" />

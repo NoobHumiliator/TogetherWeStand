@@ -3,9 +3,6 @@
 {
 	"Version"		"1"
 	
-	//=================================================================================================================
-	// Helm of the Dominator Override
-	//=================================================================================================================
 	"item_octarine_core"
 	{
 
@@ -49,54 +46,84 @@
 		}
 	}
 
-
-   "item_gem"
+    "item_recipe_poor_mans_shield"
 	{
-		"ItemSellable"					"1"
+
+        "ItemCost"						"0"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_poor_mans_shield"
+		"ItemPurchasable"				"1"
+		"ItemRequirements"
+		{
+			"01"						"item_slippers;item_slippers;item_stout_shield"
+		}
 	}
-
-
-
-    "item_iron_talon"
+	
+	//=================================================================================================================
+	// Poor Man's Shield
+	//=================================================================================================================
+	"item_poor_mans_shield"
 	{
+
+		"ItemPurchasable"				"1"
+		"AbilityCooldown"				"25.0"
+		"ItemCost"						"470"
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_bonus"			"24"
+				"bonus_agility"			"6"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_bonus_ranged"	"7"
+				"damage_block_melee"	"18"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"quelling_range_tooltip"	"350"
+				"damage_block_ranged"	"9"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range_ward"		"450"
-			}
+				"block_chance"			"50"
+			}	
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"creep_damage_pct"		"5"
-			}
+				"block_chance"			"50"
+			}	
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"2"
-			}
+				"bonus_block_melee"			"30"
+			}	
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"alternative_cooldown"	"4"
-			}
+				"bonus_block_range"			"15"
+			}	
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_block_duration"		"5"
+			}	
 		}
+	}
+
+
+    "item_iron_talon"
+	{
+		"ItemPurchasable"				"0"
+	}
+
+   "item_gem"
+	{
+		"ItemSellable"					"1"
 	}
 
 
@@ -110,7 +137,6 @@
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	}
-
 
 
     "item_rapier"
@@ -134,7 +160,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"55"
+				"bonus_damage"			"50"
 			}
 			"02"
 			{
@@ -143,49 +169,59 @@
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana_regen"		"150"
+				"var_type"				"FIELD_FLOAT"
+				"bonus_mana_regen"		"2.25"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cleave_damage_percent"	"35"
+				"cleave_damage_percent"	"40"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"quelling_bonus"		"120"
+				"quelling_bonus"			"130"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"quelling_bonus_ranged"	"110"
+				"quelling_bonus_ranged"	   "112"
 			}			
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cleave_starting_width"	"150"
+				"cleave_starting_width"			"150"
 			}			
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cleave_ending_width"	"280"
+				"cleave_ending_width"			"330"
 			}			
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cleave_distance"		"520"
+				"cleave_distance"			"625"
 			}
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range_tooltip"	"350"
+				"cast_range_tooltip"			"350"
 			}
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range_ward"		"450"
-			}			
+				"cast_range_ward"			"450"
+			}
+			"12"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_quelling_bonus"	"60"
+			}
+			"13"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_quelling_bonus_ranged"	"25"
+			}
 		}
 	}
 	
@@ -212,7 +248,8 @@
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"bonus_reset_time"				"9"
+				"bonus_reset_time"				"5"
+				"LinkedSpecialBonus"			"special_bonus_unique_ursa_4"
 			}
 			"02"
 			{
@@ -222,11 +259,11 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage_per_stack"				"10 13 17 20"
+				"damage_per_stack"				"6 9 12 15"
 				"LinkedSpecialBonus"			"special_bonus_unique_ursa"
 			}
 		}
-	}	
+	}
 
     "enchantress_untouchable"
 	{			
@@ -280,7 +317,7 @@
 	}
 
    "life_stealer_feast"
-	{	
+	{
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -288,7 +325,8 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"hp_leech_percent"	    "0.2 0.4 0.6 0.8"
+				"hp_leech_percent"		"0.4 0.5 0.6 0.7"
+				"LinkedSpecialBonus"	"special_bonus_unique_lifestealer_3"
 			}
 		}
 	}
@@ -1593,5 +1631,50 @@
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
+
+   //7.07新英雄 地雷滚滚
+   "pangolier_gyroshell"
+   {
+       "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"LevelsBetweenUpgrades"			"15"
+		"MaxLevel"                      "3"
+   }
+
+   "pangolier_gyroshell_stop"
+   {
+       "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+   }
+
+   //7.07新英雄 作祟
+   "dark_willow_bedlam"
+   {
+       "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"LevelsBetweenUpgrades"			"15"
+		"MaxLevel"                      "3"
+   }
+
+   //7.07新英雄 恐吓
+   "dark_willow_terrorize"
+   {
+       "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"LevelsBetweenUpgrades"			"15"
+		"MaxLevel"                      "3"
+   }
+
+   	"courier_shield"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"                      "4"
+		"AbilityCooldown"			    "200 100 50 7"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"		"2.0 3.5 5.0 6.5"
+			}
+		}
+	}
+
 
 }  //主括号

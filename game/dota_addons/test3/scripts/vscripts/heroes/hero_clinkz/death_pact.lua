@@ -50,9 +50,3 @@ function DeathPactHealth( event )
 	local caster = event.caster
 	caster.OldHealth = caster:GetHealth()
 end
-
--- Sets the current health to the old health
-function SetCurrentHealth( event )
-	local caster = event.caster
-	caster:SetHealth(caster.OldHealth)
-end

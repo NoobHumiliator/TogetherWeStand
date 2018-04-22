@@ -1,6 +1,6 @@
 temple_guardian_wrath = class({})
-LinkLuaModifier( "modifier_temple_guardian_wrath_thinker", "modifiers/modifier_temple_guardian_wrath_thinker", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_temple_guardian_immunity", "modifiers/modifier_temple_guardian_immunity", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_temple_guardian_wrath_thinker", "creature_ability/modifier/modifier_temple_guardian_wrath_thinker", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_temple_guardian_immunity", "creature_ability/modifier/modifier_temple_guardian_immunity", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 

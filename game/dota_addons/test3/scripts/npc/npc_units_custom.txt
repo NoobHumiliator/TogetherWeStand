@@ -757,7 +757,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					"lich_creature_frost_armor"	// Ability 1.
+		"Ability1"					"lich_frost_armor_tws"	// Ability 1.
 		"Ability2"					""		        // Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
@@ -1377,7 +1377,7 @@
 		}
 	}
 
-        "npc_dota_boss_lich"
+    "npc_dota_boss_lich"
 	{
 		// General
 		//----------------------------------------------------------------
@@ -1401,7 +1401,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					"lich_creature_frost_armor"	// Ability 1.
+		"Ability1"					"lich_frost_armor_tws"	// Ability 1.
 		"Ability2"					"holdout_nova"		        // Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
@@ -2179,14 +2179,14 @@
 		//----------------------------------------------------------------
 		"Model"						"models/heroes/tiny_01/tiny_01_head.vmdl"
 		"BaseClass"					"npc_dota_creature"
-		"ModelScale"				        "0.9"
+		"ModelScale"				        "1.0"
 		"Level"						"1"
 		"ConsideredHero"		    "1"
 		
 		"MinimapIcon"				"minimap_roshancamp"
 		"MinimapIconSize"			"50"
 		
-		"SoundSet"				"Hero_Tiny"								// Name of sound set.
+		"SoundSet"			       	"Hero_Tiny"								// Name of sound set.
 		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_tiny.vsndevts"
 
 		// Inventory
@@ -2207,7 +2207,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"1"			// Physical protection.
+		"ArmorPhysical"				"25"	    // Physical protection.
 		"MagicalResistance"			"25"		// Magical protection.
 
 		// Attack
@@ -2306,9 +2306,9 @@
 	{
 		// General
 		//----------------------------------------------------------------
-		"Model"						"models/heroes/tiny_01/tiny_01_head.vmdl"
+		"Model"						"models/heroes/tiny_02/tiny_02_head.vmdl"
 		"BaseClass"					"npc_dota_creature"
-		"ModelScale"				        "1.2"
+		"ModelScale"				        "1.0"
 		"Level"						"1"
 		"ConsideredHero"			        "1"
 		
@@ -2336,7 +2336,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"3"			// Physical protection.
+		"ArmorPhysical"				"30"			// Physical protection.
 		"MagicalResistance"			"25"		// Magical protection.
 
 		// Attack
@@ -2410,34 +2410,15 @@
 			"XPGain"					"100"
 
 			"DefaultState"				"Invade"
-			"AttachWearables"
-			{
-				"Wearable1"
-				{
-					"ItemDef"			"493"
-				}
-				"Wearable2"
-				{
-					"ItemDef"			"494"
-				}
-				"Wearable3"
-				{
-					"ItemDef"			"495"
-				}
-				"Wearable4"
-				{
-					"ItemDef"			"496"
-				}                         
-			}
 		}
 	}
-                     "npc_dota_tiny_3"
+   "npc_dota_tiny_3"
 	{
 		// General
 		//----------------------------------------------------------------
-		"Model"						"models/heroes/tiny_01/tiny_01_head.vmdl"
+		"Model"						"models/heroes/tiny_03/tiny_03_head.vmdl"
 		"BaseClass"					"npc_dota_creature"
-		"ModelScale"				        "1.4"
+		"ModelScale"				        "1.2"
 		"Level"						"1"
 		"ConsideredHero"			        "1"
 		
@@ -2465,7 +2446,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"			// Physical protection.
+		"ArmorPhysical"				"35"			// Physical protection.
 		"MagicalResistance"			"25"		// Magical protection.
 
 		// Attack
@@ -2490,7 +2471,7 @@
 		//----------------------------------------------------------------
 		"RingRadius"				"110"
 		"HealthBarOffset"			"300"
-		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"	
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"	
 
 		// Movement
 		//----------------------------------------------------------------
@@ -2539,41 +2520,22 @@
 			"XPGain"				"100"
 
 			"DefaultState"				"Invade"
-			"AttachWearables"
-			{
-				"Wearable1"
-				{
-					"ItemDef"			"493"
-				}
-				"Wearable2"
-				{
-					"ItemDef"			"494"
-				}
-				"Wearable3"
-				{
-					"ItemDef"			"495"
-				}
-				"Wearable4"
-				{
-					"ItemDef"			"496"
-				}                               
-			}
 		}
 	}
-           "npc_dota_tiny_4"
+   "npc_dota_tiny_4"
 	{
 		// General
 		//----------------------------------------------------------------
-		"Model"						"models/heroes/tiny_01/tiny_01_head.vmdl"
+		"Model"						"models/heroes/tiny_04/tiny_04_head.vmdl"
 		"BaseClass"					"npc_dota_creature"
-		"ModelScale"				        "1.6"
+		"ModelScale"				        "1.3"
 		"Level"						"1"
 		"ConsideredHero"			        "1"
 		
 		"MinimapIcon"				"minimap_roshancamp"
 		"MinimapIconSize"			"210"
 		
-		"SoundSet"				"Hero_Tiny"								// Name of sound set.
+		"SoundSet"			    	"Hero_Tiny"								// Name of sound set.
 		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_tiny.vsndevts"
 
 		// Inventory
@@ -2587,14 +2549,13 @@
 		"Ability2"					"tiny_collapse"		        // Ability 2.
 		"Ability3"					"avalance"			// Ability 3.
 		"Ability4"					"tiny_splitter"			// Ability 4.
-		"Ability5"					"exterior"			// Ability 5.
-		"Ability6"					"tiny_hurt_4"		        // Ability 6 - Extra.
-		"Ability7"					"tiny_die_announce"			// Ability 7 - Extra.
+		"Ability5"					"tiny_hurt_4"		        // Ability 6 - Extra.
+		"Ability6"					"tiny_die_announce"			// Ability 7 - Extra.
 		"Ability8"					""			// Ability 8 - Extra.
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"7"			// Physical protection.
+		"ArmorPhysical"				"40"			// Physical protection.
 		"MagicalResistance"			"25"		// Magical protection.
 
 		// Attack
@@ -2668,35 +2629,16 @@
 			"XPGain"					"100"
 
 			"DefaultState"				"Invade"
-			"AttachWearables"
-			{
-				"Wearable1"
-				{
-					"ItemDef"			"493"
-				}
-				"Wearable2"
-				{
-					"ItemDef"			"494"
-				}
-				"Wearable3"
-				{
-					"ItemDef"			"495"
-				}
-				"Wearable4"
-				{
-					"ItemDef"			"496"
-				}               
-			}
 		}
 	}
 
-         "npc_dota_tiny_5"
+    "npc_dota_tiny_5"
 	{
 		// General
 		//----------------------------------------------------------------
-		"Model"						"models/heroes/tiny_01/tiny_01_head.vmdl"
+		"Model"						"models/heroes/tiny_04/tiny_04_head.vmdl"
 		"BaseClass"					"npc_dota_creature"
-		"ModelScale"				        "1.8"
+		"ModelScale"				        "1.6"
 		"Level"						        "1"
 		"ConsideredHero"			        "1"
 		
@@ -2715,15 +2657,14 @@
 		"AbilityLayout"				   "5"
 		"Ability1"					"avalance"	// Ability 1.
 		"Ability2"					"tiny_splitter"		        // Ability 2.
-		"Ability3"					"exterior"			// Ability 3.
-		"Ability4"					"tiny_wake"			// Ability 4.
-		"Ability5"					"tiny_hurt_5"			// Ability 5.
-		"Ability6"					"tiny_die_announce"		        // Ability 6 - Extra.
-		"Ability7"					"tiny_collapse"	        // Ability 7 - Extra.
+		"Ability3"					"tiny_wake"			// Ability 4.
+		"Ability4"					"tiny_hurt_5"			// Ability 5.
+		"Ability5"					"tiny_die_announce"		        // Ability 6 - Extra.
+		"Ability6"					"tiny_collapse"	        // Ability 7 - Extra.
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"3"			// Physical protection.
+		"ArmorPhysical"				"45"			// Physical protection.
 		"MagicalResistance"			"25"		// Magical protection.
 
 		// Attack
@@ -2740,7 +2681,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"				"100"		// Experience earn.
+		"BountyXP"			    	"100"		// Experience earn.
 		"BountyGoldMin"				"200"		// Gold earned min.
 		"BountyGoldMax"				"200"		// Gold earned max.
 
@@ -2819,28 +2760,9 @@
 			"XPGain"				"100"
 
 			"DefaultState"				"Invade"
-			"AttachWearables"
-			{
-				"Wearable1"
-				{
-					"ItemDef"			"493"
-				}
-				"Wearable2"
-				{
-					"ItemDef"			"494"
-				}
-				"Wearable3"
-				{
-					"ItemDef"			"495"
-				}
-				"Wearable4"
-				{
-					"ItemDef"			"496"
-				}
-			}
 		}
 	}
-        "npc_dota_warlock_boss_1"
+    "npc_dota_warlock_boss_1"
 	{
 		// General
 		//----------------------------------------------------------------
@@ -7681,7 +7603,7 @@
 		"Ability2"					"creature_reverse_polarity"		        // Ability 2.
 		"Ability3"					"mag_melee_smash"			// Ability 3.
 		"Ability4"					"mag_kill_them_all"			// Ability 4.
-        "Ability5"					"mag_gold_bag_fountain"			// Ability 4.
+        "Ability5"					"generic_gold_bag_fountain_6500"			// Ability 4.
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"42"			// Physical protection.
@@ -9032,7 +8954,11 @@
 	"BaseClass" "npc_dota_creep"
     "Ability1"  "courier_blink_datadriven"
 }
-
+"npc_precache_skeleton_king_mortal_strike_datadriven"
+{
+	"BaseClass" "npc_dota_creep"
+    "Ability1"  "skeleton_king_mortal_strike_datadriven"
+}
 
 "npc_dota_creature_bloodseeker"
 	{
@@ -10294,7 +10220,7 @@
 	//----------------------------------------------------------------
 	"AbilityLayout"				"4"
 	//"Ability1"					"abomination_disease_cloud"
-	"Ability1"					"particle_model_passive"
+	//"Ability1"					"particle_model_passive"
 
 	// Armor
 	//----------------------------------------------------------------
@@ -10591,9 +10517,9 @@
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					"lich_creature_frost_armor"	// Ability 1.
-		"Ability2"					"lich_boss_death_and_dacay" // Ability 2.
-		"Ability3"					"lich_boss_nova"			// Ability 3.
+		"Ability1"					"lich_boss_death_and_dacay"	// Ability 1.
+		"Ability2"					"lich_boss_nova" // Ability 2.
+		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
 		"Ability6"					""		        // Ability 6 - Extra.
@@ -11736,7 +11662,7 @@
 		"Ability2"					"creature_reverse_polarity"		        // Ability 2.
 		"Ability3"					"mag_melee_smash"			// Ability 3.
 		"Ability4"					"mag_kill_them_all"			// Ability 4.
-        "Ability5"					"mag_gold_bag_fountain"			// Ability 4.
+        "Ability5"					"generic_gold_bag_fountain_6500"			// Ability 4.
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"42"			// Physical protection.
@@ -14965,8 +14891,7 @@
 		"Ability3"					"temple_guardian_hammer_smash"
 		"Ability4"					"temple_guardian_rage_hammer_smash"
 		"Ability5"					"temple_guardian_wrath"
-		"Ability6"					"temple_guardian_passive"
-		"Ability7"					"generic_gold_bag_fountain_1000"
+		"Ability6"					"generic_gold_bag_fountain_850"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -14975,7 +14900,7 @@
 		
 		// Attack
 		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"175"
 		"AttackDamageMax"			"225"
 		"AttackRate"				"2.8"
@@ -15000,13 +14925,13 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"260"
+		"MovementSpeed"				"300"
 		"MovementTurnRate"			"0.2"
 
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"48000"
-		"StatusHealthRegen"			"5"
+		"StatusHealthRegen"			"15"
 		"StatusMana"				"5000"
 		"StatusManaRegen"			"30"
 		
@@ -15056,5 +14981,960 @@
 
 		}
 	}
+    
+
+    //=================================================================================
+	// Creature: Frostbitten Melee
+	//=================================================================================
+	"npc_dota_creature_frostbitten_melee"
+	{
+		// Script
+        "vscripts"					"creature_ai/zombie_ai.lua"
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/ice_biome/frostbitten/n_creep_frostbitten_swollen01.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"1"
+		"ModelScale" 				"0.7"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					""
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"60"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"55"
+		"AttackDamageMax"			"75"
+		"AttackRate"				"1.7"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"60"
+		"HealthBarOffset"			"160"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"30"
+		"BountyGoldMin"				"20"
+		"BountyGoldMax"				"24"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"310"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1600"
+		"StatusHealthRegen"			"5"
+		"StatusMana"				"100"
+		"StatusManaRegen"			"1"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"PathfindingSearchDepthScale"		"0.1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"ItemDrops"
+			{
+				"Consumables"
+				{
+					"Item"
+					{
+						"1"  			"item_health_potion"
+						"2"				"item_health_potion"
+						"3"				"item_mana_potion"
+						"4"				"item_mana_potion"
+						"5"				"item_enchanted_mango"
+					}
+					"Chance"			"10"
+				}
+				"StatTomes"
+				{
+					"Item"
+					{
+						"1"  			"item_book_of_strength"
+						"2"				"item_book_of_agility"
+						"3"				"item_book_of_intelligence"
+					}
+					"Chance"			"1"
+				}
+				"Trinkets"
+				{
+					"Item"
+					{
+						"1"				"item_slippers"
+						"2"				"item_gauntlets"
+						"3"				"item_mantle"
+						"4"				"item_branches"
+						"5"				"item_branches"
+						"6"				"item_faerie_fire"
+					}
+					"Chance"			"7"
+				}
+			}
+		}
+	}
+
+	//=================================================================================
+	// Creature: Large Frostbitten Melee
+	//=================================================================================
+	"npc_dota_creature_large_frostbitten_melee"
+	{
+		// Script
+		"vscripts"					"creature_ai/large_frostbitten_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/ice_biome/frostbitten/n_creep_frostbitten_swollen01.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"1"
+		"ModelScale" 				"1.6"
+		"ConsideredHero"			"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"large_frostbitten_icicle"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"
+		"MagicalResistance"			"0"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"150"
+		"AttackDamageMax"			"190"
+		"AttackRate"				"1.35"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"600"
+		"AttackRange"				"150"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"60"
+		"HealthBarOffset"			"340"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"100"
+		"BountyGoldMin"				"80"
+		"BountyGoldMax"				"90"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"350"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"6500"
+		"StatusHealthRegen"			"20.0"
+		"StatusMana"				"300"
+		"StatusManaRegen"			"5"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"PathfindingSearchDepthScale"		"0.1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"ItemDrops"
+			{
+				"Consumables"
+				{
+					"Item"
+					{
+						"1"  			"item_health_potion"
+						"2"				"item_health_potion"
+						"3"				"item_mana_potion"
+						"4"				"item_mana_potion"
+						"5"				"item_enchanted_mango"
+					}
+					"Chance"			"60"
+				}
+				"StatTomes"
+				{
+					"Item"
+					{
+						"1"  			"item_book_of_strength"
+						"2"				"item_book_of_agility"
+						"3"				"item_book_of_intelligence"
+					}
+					"Chance"			"5"
+				}
+				"Trinkets"
+				{
+					"Item"
+					{
+						"1"				"item_ring_of_protection"
+						"2"				"item_sobi_mask"
+						"3"				"item_wind_lace"
+						"4"				"item_orb_of_venom"
+						"5"				"item_blight_stone"
+						"6"				"item_stout_shield"
+						"7"				"item_circlet"
+						"8"				"item_quelling_blade"
+						"9"				"item_ring_of_regen"
+						"10"			"item_infused_raindrop"
+						"11"			"item_greater_salve"
+						"12"			"item_greater_clarity"
+					}
+					"Chance"			"30"
+				}
+			}
+		}
+	}
+
+	//=================================================================================
+	// Creature: Frostbitten Ranged
+	//=================================================================================
+	"npc_dota_creature_frostbitten_ranged"
+	{
+		// Script
+		"vscripts"					"creature_ai/frostbitten_ranged_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/ice_biome/frostbitten/n_creep_frostbitten_shaman01.vmdl"
+		"SoundSet"					"n_creep_Ranged"
+		"Level"						"1"
+		"ModelScale" 				"1.1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"frostbitten_freezing_blast"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"2"
+		"MagicalResistance"			"30"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"52"
+		"AttackDamageMax"			"75"
+		"AttackRate"				"1.7"
+		"AttackAnimationPoint"		"0.4"
+		"AttackAcquisitionRange"	"600"
+		"AttackRange"				"500"
+		"ProjectileModel"			"particles/units/heroes/hero_witchdoctor/witchdoctor_base_attack.vpcf"
+		"ProjectileSpeed"			"1000"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"60"
+		"HealthBarOffset"			"180"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"60"
+		"BountyGoldMin"				"40"
+		"BountyGoldMax"				"44"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"310"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2500"
+		"StatusHealthRegen"			"5"
+		"StatusMana"				"100"
+		"StatusManaRegen"			"1"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"PathfindingSearchDepthScale"		"0.1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"ItemDrops"
+			{
+				"Consumables"
+				{
+					"Item"
+					{
+						"1"  			"item_health_potion"
+						"2"				"item_health_potion"
+						"3"				"item_mana_potion"
+						"4"				"item_mana_potion"
+						"5"				"item_enchanted_mango"
+					}
+					"Chance"			"17"
+				}
+				"StatTomes"
+				{
+					"Item"
+					{
+						"1"  			"item_book_of_strength"
+						"2"				"item_book_of_agility"
+						"3"				"item_book_of_intelligence"
+					}
+					"Chance"			"2"
+				}
+				"Trinkets"
+				{
+					"Item"
+					{
+						"1"				"item_slippers"
+						"2"				"item_gauntlets"
+						"3"				"item_mantle"
+						"4"				"item_faerie_fire"
+						"5"				"item_ring_of_protection"
+					}
+					"Chance"			"12"
+				}
+			}
+		}
+	}
+
+    "npc_dota_creature_ice_boss"
+	{
+		// Script
+		"vscripts"					"creature_ai/ice_boss_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/winterwyvern/winterwyvern.vmdl"
+		"SoundSet"					"Hero_Winter_Wyvern"
+		"Level"						"10"
+		"ModelScale" 				"2.5"
+		"ConsideredHero"			"1"
+		"IsBossMonster"				"1"
+
+		"MinimapIcon"				"minimap_enemyicon"
+		"MinimapIconSize"			"300"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"ice_boss_shatter_projectile"
+		"Ability2"					"ice_boss_flying_shatter_blast"
+		"Ability3"					"ice_boss_take_flight"
+		"Ability4"					"ice_boss_land"
+		"Ability5"					"ice_boss_projectile_curse"
+		"Ability6"					""
+		"Ability7"					"generic_gold_bag_fountain_5000"
+		"Ability8"					""
+		"Ability9"					""
+		"Ability10"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"25"
+		"MagicalResistance"			"20"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"240"
+		"AttackDamageMax"			"260"
+		"AttackRate"				"1.7"
+		"AttackAnimationPoint"		"0.33"
+		"AttackAcquisitionRange"	"1200"
+		"AttackRange"				"600"
+		"ProjectileModel"			"particles/units/heroes/hero_winter_wyvern/winter_wyvern_base_attack.vpcf"
+		"ProjectileSpeed"			"700"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"100"
+		"HealthBarOffset"			"450"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"1000"
+		"BountyGoldMin"				""
+		"BountyGoldMax"				""
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"				"400"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"29000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"7000"
+		"StatusManaRegen"			"30"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"PathfindingSearchDepthScale"		"0.1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"DisableResistance"			"100.0"
+			
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					//"ItemDef"			"9035" // head: Diadem of the Elder Myth
+					"ItemDef"			"7291" // head: Crown of the Iceburnt Elegy
+					//"ItemDef"			"8281" // head: Crown of Frostheart
+					//"ItemDef"			"8516" // head: Noble Crown of Frostheart
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"9036" // back: Wings of the Elder Myth
+					//"ItemDef"			"7292" // back: Wings of the Iceburnt Elegy
+					//"ItemDef"			"8286" // back: Wings of Frostheart
+					//"ItemDef"			"8517" // back: Noble Wings of Frostheart
+				}
+			}				
+		}
+	}
+
+     
+    "npc_dota_creature_ice_boss_egg"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/ice_boss/ice_boss_egg_dest.vmdl"
+		"SoundSet"					"Creep_Good_Melee"
+		"Level"						"1"
+		"ModelScale" 				"3.0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"ice_boss_egg_passive"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"90"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"0"
+		"AttackAnimationPoint"		"0"
+		"AttackAcquisitionRange"	"0"
+		"AttackRange"				"0"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Attributes
+		//----------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"0"
+		"AttributeStrengthGain"		"0"
+		"AttributeBaseIntelligence"	"0"
+		"AttributeIntelligenceGain"	"0"
+		"AttributeBaseAgility"		"0"
+		"AttributeAgilityGain"		"0"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"60"
+		"HealthBarOffset"			"215"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"1.0"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusStartingMana"		"0"
+		"StatusManaRegen"			"0"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+	}
+
+
+    "npc_dota_creature_baby_ice_dragon"
+	{
+		// Script
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/courier/baby_winter_wyvern/baby_winter_wyvern.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"1"
+		"ModelScale" 				"1.5"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"spider_fly"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"185"
+		"AttackDamageMax"			"190"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"5000"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"60"
+		"HealthBarOffset"			"160"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"30"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"522"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"5800"
+		"StatusHealthRegen"			"0.5"
+		"StatusMana"				"100"
+		"StatusManaRegen"			"1"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"5000"
+		"VisionNighttimeRange"		"5000"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+	}
+
+
+	"npc_dota_creature_amoeba_boss"
+	{
+		// Script
+		"vscripts"					"creature_ai/amoeba_boss_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/darkreef/blob/darkreef_blob_01.vmdl"
+		"SoundSet"					"Hero_Venomancer"
+		"Level"						"50"
+		"ModelScale" 				"0.5"
+		"ConsideredHero"			"1"
+		"IsAncient"					"1"
+		"IsBossMonster"				"1"
+
+		// Minimap
+		//----------------------------------------------------------------
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"250"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"amoeba_boss_passive"
+		"Ability2"					"amoeba_fuse"
+		"Ability3"					"amoeba_blob_launch"
+		"Ability4"					"amoeba_boss_jump_splatter"
+		"Ability5"					"amoeba_boss_split"
+		"Ability6"					"generic_gold_bag_fountain_6500"
+		"Ability7"					""
+		"Ability8"					""
+		"Ability9"					""
+		"Ability10"					""
+		"Ability11"					""
+		"Ability12"					""
+		"Ability13"					""
+		"Ability14"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"35"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"300"
+		"AttackDamageMax"			"350"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.53"
+		"AttackAcquisitionRange"	"1800"
+		"AttackRange"				"150"
+		"ProjectileModel"			"particles/act_2/amoeba_blob_launch_no_arc.vpcf"
+		"ProjectileSpeed"			"600"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"75"
+		"HealthBarOffset"			"150"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"4000"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"100"
+		"MovementTurnRate"			"0.5"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"42500"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"10000"
+		"StatusManaRegen"			"500"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"HasInventory"				"1"
+		"PathfindingSearchDepthScale"		"0.1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"DisableClumpingBehavior"	"1"
+		}
+	}	
+
+	//=================================================================================
+	// Creature: Sub Amoeba boss
+	// Zones: dark_reef
+	//=================================================================================
+	"npc_dota_creature_sub_amoeba_boss"
+	{
+		// Script
+		"vscripts"					"creature_ai/amoeba_boss_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/darkreef/blob/darkreef_blob_02_small.vmdl"
+		"SoundSet"					"Hero_Venomancer"
+		"Level"						"50"
+		"ModelScale" 				"0.80"
+
+		// Minimap
+		//----------------------------------------------------------------
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"250"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"amoeba_boss_passive"
+		"Ability2"					"amoeba_fuse"
+		"Ability3"					"amoeba_blob_launch"
+		"Ability4"					"amoeba_boss_jump_splatter"
+		"Ability5"					"amoeba_boss_split"
+		"Ability6"					""
+		"Ability7"					""
+		"Ability8"					""
+		"Ability9"					""
+		"Ability10"					""
+		"Ability11"					""
+		"Ability12"					""
+		"Ability13"					""
+		"Ability14"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"250"
+		"AttackDamageMax"			"275"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.53"
+		"AttackAcquisitionRange"	"1800"
+		"AttackRange"				"150"
+		"ProjectileModel"			"particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"
+		"ProjectileSpeed"			"600"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"75"
+		"HealthBarOffset"			"150"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"100"
+		"MovementTurnRate"			"0.5"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1500"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"10000"
+		"StatusManaRegen"			"500"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"HasInventory"				"1"
+		"PathfindingSearchDepthScale"		"0.1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"DisableClumpingBehavior"	"1"			
+		}
+	}	
+
+	//=================================================================================
+	// Creature: Pet Amoeba from item
+	// Zones: dark_reef
+	//=================================================================================
+	"npc_dota_creature_pet_amoeba"
+	{
+		// Script
+		"vscripts"					"creature_ai/amoeba_boss_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/darkreef/blob/darkreef_blob_02_small.vmdl"
+		"SoundSet"					"Hero_Venomancer"
+		"Level"						"50"
+		"ModelScale" 				"0.80"
+
+		// Minimap
+		//----------------------------------------------------------------
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"250"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"amoeba_boss_passive"
+		"Ability2"					"amoeba_fuse"
+		"Ability3"					"amoeba_blob_launch"
+		"Ability4"					"amoeba_boss_jump_splatter"
+		"Ability5"					"amoeba_boss_split"
+		"Ability6"					""
+		"Ability7"					""
+		"Ability8"					""
+		"Ability9"					""
+		"Ability10"					""
+		"Ability11"					""
+		"Ability12"					""
+		"Ability13"					""
+		"Ability14"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"15"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"350"
+		"AttackDamageMax"			"400"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.53"
+		"AttackAcquisitionRange"	"1800"
+		"AttackRange"				"150"
+		"ProjectileModel"			"particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"
+		"ProjectileSpeed"			"600"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"75"
+		"HealthBarOffset"			"150"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"250"
+		"MovementTurnRate"			"0.5"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"3200"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"500"
+		"StatusManaRegen"			"20"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1100"
+		"VisionNighttimeRange"		"1100"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"HasInventory"				"1"
+		"PathfindingSearchDepthScale"		"0.1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"DisableClumpingBehavior"	"1"
+		}
+	}	
+
 
 }  //主括号

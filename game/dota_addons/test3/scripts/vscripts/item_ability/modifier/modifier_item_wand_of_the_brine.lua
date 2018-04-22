@@ -26,7 +26,7 @@ function modifier_item_wand_of_the_brine:DeclareFunctions()
 	local funcs = 
 	{
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-		MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE,
+		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
 	}
 	return funcs
 end
@@ -39,7 +39,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_item_wand_of_the_brine:GetModifierPercentageManaRegen( params )
+function modifier_item_wand_of_the_brine:GetModifierConstantManaRegen( params )
 	return self.bonus_mana_regen_pct
 end 
 

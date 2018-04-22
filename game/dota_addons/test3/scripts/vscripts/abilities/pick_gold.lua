@@ -16,6 +16,9 @@ function CheckToPickGold(keys)
 	      --DeepPrint(containedItem:GetName())
 	      if containedItem and containedItem:GetName()=="item_bag_of_gold_tws" then
 	      	  local totalValue=containedItem:GetCurrentCharges()
+              if GameRules:GetGameModeEntity().CHoldoutGameMode.bRandomRound then --如果本轮随机，奖励提高1.35倍
+              	 totalValue=totalValue*1.35
+              end
 	          local playerNumber=GameRules:GetGameModeEntity().Palyer_Number
 	          local value=math.ceil(totalValue/playerNumber)
               --print(caster:GetUnitName())

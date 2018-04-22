@@ -4,7 +4,6 @@ function Mekansm( keys )
 	local heal_amount = keys.heal_amount
 	local heal_radius = keys.heal_radius
 	local modifier_armor = keys.modifier_armor
-	local modifier_hot = keys.modifier_hot
 
 	caster:EmitSound("DOTA_Item.Mekansm.Activate")
 	ParticleManager:CreateParticle("particles/items2_fx/mekanism.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
@@ -21,7 +20,6 @@ function Mekansm( keys )
 			ParticleManager:SetParticleControl(mekansm_target_pfx, 0, caster:GetAbsOrigin())
 			ParticleManager:SetParticleControl(mekansm_target_pfx, 1, nearby_ally:GetAbsOrigin())
 
-			ability:ApplyDataDrivenModifier(caster, nearby_ally, modifier_hot, nil)
 			ability:ApplyDataDrivenModifier(caster, nearby_ally, modifier_armor, nil)
 	    end
 	end

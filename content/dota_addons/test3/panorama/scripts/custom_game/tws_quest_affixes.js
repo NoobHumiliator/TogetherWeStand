@@ -56,6 +56,7 @@ function CreatAffixes(data) {  //词缀
                var imageId="affix_id_"+index;
                var offset = 310 - index*50;  //调整横向位置  
                var abilityImage=$.CreatePanel( "DOTAAbilityImage", newPanel, imageId );
+               $.Msg(affixAbilityName)
                abilityImage.abilityname=affixAbilityName;  //abilityname 全小写
                abilityImage.SetHasClass( "AbilityImage", true );
                abilityImage.style.position = offset+"px 0 0 0";

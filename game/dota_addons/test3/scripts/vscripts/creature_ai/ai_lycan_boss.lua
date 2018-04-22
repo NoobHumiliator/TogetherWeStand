@@ -21,6 +21,8 @@ function Spawn( entityKeyValues )
 
 	hSpawner = Entities:FindByName( nil, "forest_holdout_spawner_chief_vip" )
 
+    thisEntity:AddNewModifier(nil,nil,"modifier_kill",{duration=180})  --设置强制死亡时间,3分钟 防止玩家无限刷小怪
+
 	thisEntity:SetContextThink( "LycanBossThink", LycanBossThink, 1 )
 	--thisEntity:SetContextThink( "LycanBoss_AttackMove", LycanBoss_AttackMove, 0.5 )
 end

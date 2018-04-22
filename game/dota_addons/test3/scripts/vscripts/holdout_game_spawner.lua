@@ -32,6 +32,8 @@ function CHoldoutGameSpawner:ReadConfiguration( name, kv, gameRound )
 
 	self._bDontGiveGoal = ( tonumber( kv.DontGiveGoal or 0 ) ~= 0 )
 	self._bDontOffsetSpawn = ( tonumber( kv.DontOffsetSpawn or 0 ) ~= 0 )
+    --是否已经计算繁盛
+	self._bAlreadyCountTeem=false
 
 end
 
@@ -66,8 +68,9 @@ function CHoldoutGameSpawner:Begin()
 	self._nChampionsSpawnedThisRound = 0
 	self._nUnitsCurrentlyAlive = 0
 	
-    if self._gameRound.vAffixes.teeming then  --繁盛词缀，数量乘以2
+    if self._gameRound.vAffixes.teeming  and not self._bAlreadyCountTeem  then  --繁盛词缀，数量乘以2
          self._nTotalUnitsToSpawn= self._nTotalUnitsToSpawn*2 
+         self._bAlreadyCountTeem = true
     end
 
 	self._vecSpawnLocation = nil

@@ -28,9 +28,8 @@
   "beastmaster" {
   "1"    "beastmaster_wild_axes"
   "2"    "beastmaster_call_of_the_wild"
-  "3"    "beastmaster_call_of_the_wild_boar"
-  "4"    "beastmaster_inner_beast"
-  "5"    "beastmaster_primal_roar"
+  "3"    "beastmaster_inner_beast"
+  "4"    "beastmaster_primal_roar"
   }
   "dragon_knight" {
   "1"    "dragon_knight_breathe_fire"
@@ -71,11 +70,10 @@
   }
   "morphling" {
   "1"    "morphling_waveform"
-  "2"    "morphling_adaptive_strike"
-  "3"    "morphling_morph_agi"
-  "4"    "morphling_morph_str"
-  "5"    "morphling_hybrid"
-  "6"    "morphling_replicate"
+  "2"    "morphling_adaptive_strike_agi"
+  "3"    "morphling_adaptive_strike_str"
+  "4"    "morphling_morph_agi"
+  "5"    "morphling_morph_str"
   }
   "phantom_lancer" {
   "1"    "phantom_lancer_spirit_lance"
@@ -357,7 +355,6 @@
   "3"    "keeper_of_the_light_chakra_magic"
   "4"    "keeper_of_the_light_recall_tws"
   "5"    "keeper_of_the_light_blinding_light_tws"
-  "6"    "keeper_of_the_light_light_elemental"
   }
   "skywrath_mage" {
   "1"    "skywrath_mage_arcane_bolt"
@@ -412,7 +409,7 @@
   "skeleton_king" {
   "1"    "skeleton_king_hellfire_blast"
   "2"    "skeleton_king_vampiric_aura"
-  "3"    "skeleton_king_mortal_strike"
+  "3"    "skeleton_king_mortal_strike_datadriven"
   "4"    "skeleton_king_reincarnation"
   }
   "life_stealer" {
@@ -704,5 +701,18 @@
   "1"    "monkey_king_boundless_strike"
   "2"    "monkey_king_jingu_mastery"
   "3"    "monkey_king_wukongs_command"
+  }
+  "pangolier" {
+  "1"    "pangolier_swashbuckle"
+  "2"    "pangolier_shield_crash"
+  "3"    "pangolier_heartpiercer"
+  "4"    "pangolier_gyroshell"
+  }
+  "dark_willow" {
+  "1"    "dark_willow_bramble_maze"
+  "2"    "dark_willow_shadow_realm"
+  "3"    "dark_willow_cursed_crown"
+  "4"    "dark_willow_bedlam"
+  "5"    "dark_willow_terrorize"
   }
 }

@@ -3,9 +3,7 @@
 ]]
 
 require( "environment_controller/round_environment_controller")
-
-
-
+LinkLuaModifier( "modifier_affixes_dilation", "creature_ability/modifier/modifier_affixes_dilation", LUA_MODIFIER_MOTION_NONE )
 
 
 if CHoldoutGameRound == nil then
@@ -13,12 +11,13 @@ if CHoldoutGameRound == nil then
 end
 
 
-exceptionSpawnedUnit ={   --不计入游戏进度的单位名字
+exceptionSpawnedUnit ={   --不计入游戏进度的单位名字，一般是各种马甲单位
    npc_majia_water_1=true,
    npc_dummy_blank=true,
    npc_dota_thinker=true,
    npc_falling_rock_dummy=true,
-   npc_geodesic_dummy=true
+   npc_geodesic_dummy=true,
+   npc_dota_beastmaster_axe=true
 }
 
 
@@ -125,7 +124,9 @@ function CHoldoutGameRound:Begin()
         sanguine="#affixes_sanguine",
         silence="#affixes_silence",
         falling_rock="#affixes_falling_rock",
-        spike="#affixes_spike"
+        spike="#affixes_spike",
+        fragile="#affixes_fragile",
+        dilation="#affixes_dilation"
     }
     local vAffixesTooltipAbility={
       necrotic="affixes_ability_necrotic",
@@ -137,12 +138,22 @@ function CHoldoutGameRound:Begin()
       sanguine="affixes_ability_sanguine",
       silence="affixes_ability_tooltip_silence",
       falling_rock="affixes_ability_tooltip_falling_rock",
-      spike="affixes_ability_spike"
+      spike="affixes_ability_spike",
+      fragile="affixes_ability_tooltip_fragile",
+      dilation="affixes_ability_tooltip_dilation"
     }
+
+    --确保本轮内不会出现的词缀
+    local vRoundExceptionMap={   
+       tinker="bolstering"
+   }
+
+
     local affixesTooltipAbilityList={}
     self.bAffixFlag=false   --是否初始化过词缀
     self.vAffixes=
     {
+        --[[
         necrotic=false,
         teeming=false,
         raging=false,
@@ -152,7 +163,10 @@ function CHoldoutGameRound:Begin()
         sanguine=false,
         silence=false,
         falling_rock=false,
-        spike=false
+        spike=false,
+        fragile=false,
+        ]]
+        dilation=false
     }
     local affixes_temp={}
     local affixes_number=0;
@@ -160,10 +174,13 @@ function CHoldoutGameRound:Begin()
     if self._gameMode.map_difficulty>8 then  --五层以下试炼没有词缀 
        affixes_number=math.floor( Quadric(2.5,-2.5,8-self._gameMode.map_difficulty) ) --2.5*n(n-1)+5=level  n为词缀数目
     end
-    print("Affixes Number:"..affixes_number)
+
     for k,v in pairs(self.vAffixes) do
-        table.insert(affixes_temp, k)
+    	if vRoundExceptionMap[self._alias]~=k then
+    	   table.insert(affixes_temp, k)
+    	end
     end
+
 	for i=1,affixes_number do
 		if #affixes_temp>0 then
 		  local random=RandomInt(1,#affixes_temp)
@@ -187,6 +204,13 @@ function CHoldoutGameRound:Begin()
 						end
 			            if self.vAffixes.falling_rock then
 						  ability:ApplyDataDrivenModifier(hero, hero, "modifier_affixes_falling_rock", {})
+						end
+					    if self.vAffixes.fragile then
+						  ability:ApplyDataDrivenModifier(hero, hero, "modifier_affixes_fragile", {})
+						end
+                        if self.vAffixes.dilation then
+                           hero:AddNewModifier(hero, nil, "modifier_affixes_dilation", {})
+						   --ability:ApplyDataDrivenModifier(hero, hero, "modifier_affixes_dilation", {})
 						end
 					end
 				end
@@ -224,11 +248,15 @@ function CHoldoutGameRound:Begin()
    	  QuestSystem:CreatAffixesQuest("Affixes",affixesTooltipAbilityList)
       self.bAffixFlag=true
    end
-	local messageinfo = {
+
+   CustomGameEventManager:Send_ServerToAllClients("ShowRoundTitle", {roundTitle=self._szRoundTitle})
+   --[[ 7.07更新后 此方法失效
+   local messageinfo = {
            message = self._szRoundTitle,
            duration=6
             }
-     FireGameEvent("show_center_message",messageinfo)  
+   FireGameEvent("show_center_message",messageinfo)  
+   ]]
 end
 
 
@@ -367,6 +395,12 @@ function CHoldoutGameRound:InitialAcheivementSystem()   --初始化成就系统�
     if self._alias=="phoenix" then
        self.achievement_flag=false
        QuestSystem:RefreshAchQuest("Achievement",0,6)
+	end
+
+	if self._alias=="wolf" then  --狼人关处理预载入
+        PrecacheResource( 'particle', 'particles/units/heroes/hero_lycan/lycan_claw_blur.vpcf', context)
+	    PrecacheResource( 'particle', 'particles/units/heroes/hero_lycan/lycan_claw_blur_b.vpcf', context)
+	    PrecacheResource( 'particle', 'particles/units/heroes/hero_beastmaster/beastmaster_boar_attack.vpcf', context)
 	end
 
 	if self._alias=="morphing" then

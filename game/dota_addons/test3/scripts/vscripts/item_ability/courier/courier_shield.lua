@@ -1,4 +1,5 @@
-
+require( "util" )
+--[[
 function LevelupShield( keys )
 	local caster = keys.caster
     local target = keys.target
@@ -12,35 +13,45 @@ function LevelupShield( keys )
     
     RemoveRedundantAbility(target)
 
-	if not target:HasAbility("courier_shield_datadriven") then  --如果没有技能，赋予技能
-		target:AddAbility("courier_shield_datadriven")
-		target:FindAbilityByName("courier_shield_datadriven"):SetLevel(1)
-	else  --升级技能
-		local abilityLevel = target:FindAbilityByName("courier_shield_datadriven"):GetLevel()
-		if abilityLevel<target:FindAbilityByName("courier_shield_datadriven"):GetMaxLevel() then
-			target:FindAbilityByName("courier_shield_datadriven"):SetLevel(abilityLevel+1)
-	    end
-	end
-	
+    if target:HasAbility("courier_shield") then
+       target:FindAbilityByName("courier_shield"):SetHidden(true)
+    end
+
+   if not target:HasAbility("courier_shield_datadriven") then  --如果没有技能，赋予技能
+  		target:AddAbility("courier_shield_datadriven")
+  		target:FindAbilityByName("courier_shield_datadriven"):SetLevel(2)
+   else  --升级技能
+  		local abilityLevel = target:FindAbilityByName("courier_shield_datadriven"):GetLevel()
+  		if abilityLevel<target:FindAbilityByName("courier_shield_datadriven"):GetMaxLevel() then
+  			target:FindAbilityByName("courier_shield_datadriven"):SetLevel(abilityLevel+1)
+  	    end
+   end
+	 
+    --target:SwapAbilities("courier_shield_datadriven","damage_counter",true,true)
+    ReportHeroAbilities(target)
+
+end
+]]
+
+function LevelupShield( keys )
+    local caster = keys.caster
+    local target = keys.target
+    
+    --移除掉多余技能
+    RemoveRedundantCourierAbility(target)
+
+
+    if not target:HasAbility("courier_shield") then  --如果没有技能，赋予技能
+      target:AddAbility("courier_shield")
+      target:FindAbilityByName("courier_shield"):SetLevel(1)
+    else  --升级技能
+      local abilityLevel = target:FindAbilityByName("courier_shield"):GetLevel()
+      if abilityLevel<target:FindAbilityByName("courier_shield"):GetMaxLevel() then
+        target:FindAbilityByName("courier_shield"):SetLevel(abilityLevel+1)
+      end
+    end
+
+    ReportHeroAbilities(target)
+    
 end
 
-
-
-function RemoveRedundantAbility(caster) --移除多余的信使技能，直接删除会导致复活时闪退
-    if caster:HasAbility("courier_go_to_secretshop") then
-       --caster:RemoveAbility("courier_go_to_secretshop")
-       caster:FindAbilityByName("courier_go_to_secretshop"):SetHidden(true)
-    end
-    if caster:HasAbility("courier_return_stash_items") then
-       --caster:RemoveAbility("courier_return_stash_items")
-       caster:FindAbilityByName("courier_return_stash_items"):SetHidden(true)
-    end
-    if caster:HasAbility("courier_take_stash_items") then
-       caster:FindAbilityByName("courier_take_stash_items"):SetHidden(true)
-       --caster:RemoveAbility("courier_take_stash_items")
-    end
-    if caster:HasAbility("courier_transfer_items") then
-       --caster:RemoveAbility("courier_transfer_items")
-       caster:FindAbilityByName("courier_transfer_items"):SetHidden(true)
-    end   
-end
