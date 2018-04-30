@@ -14,7 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
-testMode=true --减少刷兵间隔，增加初始金钱
+--testMode=true --减少刷兵间隔，增加初始金钱
 goldTestMode=false
 --goldTestMode=true --需要测试金币相关的内容
 
@@ -161,7 +161,8 @@ function CHoldoutGameMode:InitGameMode()
 		xpTable[i] = xpTable[i-1]+i*100
 	end
     GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel( xpTable )
-	GameRules:GetGameModeEntity():SetRemoveIllusionsOnDeath( true )
+    --分身跳出问题
+	--GameRules:GetGameModeEntity():SetRemoveIllusionsOnDeath( true )
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesOverride( true )
 	GameRules:GetGameModeEntity():SetTopBarTeamValuesVisible( false )
 	-- Custom console commands

@@ -40,6 +40,10 @@ function CHoldoutGameMode:SaveGame(keys)
   request:SetHTTPRequestGetOrPostParameter("slot_index",tostring(slotIndex));  --存档槽的编号
   request:SetHTTPRequestGetOrPostParameter("json_data",tostring(jsonData));  --数据
   request:SetHTTPRequestGetOrPostParameter("auth","K4gN+u422RN2X4DubcLylw=="); --校验
+  request:SetHTTPRequestGetOrPostParameter("dedicated_server_key",GetDedicatedServerKey("K4gN+u422RN2X4DubcLylw=="));
+
+
+
   request:Send(function(result)
       print("Save result arrived: "..result.Body)
       if result.StatusCode == 200 then
