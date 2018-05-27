@@ -311,10 +311,12 @@ function CHoldoutGameMode:OnHeroLevelUp(keys)
 		   octarine_adjust=0.75
 		end
 	    local cooldown=ability:GetCooldown(ability:GetLevel()-1)*octarine_adjust
+	    --[[
 		if  ability:GetCooldownTimeRemaining()>cooldown*0.9 then  --如果风暴双雄刚刚释放完毕 不扣除
 			CustomGameEventManager:Send_ServerToPlayer(player,"UpdateAbilityList", {heroName=false,playerId=_playerId})
 			return
 		end
+		]]
 	end 
     if keys.level==17 or keys.level==19 or keys.level==21 or keys.level==22 or keys.level==23 or keys.level==24 then --7.0以后不给技能点
        local p = hero:GetAbilityPoints()
