@@ -15,6 +15,6 @@ function LevelupSellItems( keys )
 			target:FindAbilityByName("courier_sell_items_datadriven"):SetLevel(abilityLevel+1)
 	    end
 	end
-  
+  AddRedundantCourierAbility(target)	
 end
 

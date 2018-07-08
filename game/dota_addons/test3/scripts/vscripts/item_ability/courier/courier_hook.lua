@@ -21,6 +21,6 @@ function LevelupHook( keys )
 			  target:FindAbilityByName("courier_hook_datadriven"):SetLevel(abilityLevel+1)
 	    end
 	end
-
+  AddRedundantCourierAbility(target)	
 end
 

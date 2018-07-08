@@ -637,28 +637,50 @@ end
 
 
 function RemoveRedundantCourierAbility(caster) --移除多余的信使技能，直接删除会导致复活时闪退
+
+
     if caster:HasAbility("courier_go_to_secretshop") then
        caster:RemoveAbility("courier_go_to_secretshop")
-       --caster:FindAbilityByName("courier_go_to_secretshop"):SetHidden(true)
     end
     if caster:HasAbility("courier_return_stash_items") then
        caster:RemoveAbility("courier_return_stash_items")
-       --caster:FindAbilityByName("courier_return_stash_items"):SetHidden(true)
     end
     if caster:HasAbility("courier_take_stash_items") then
-       caster:FindAbilityByName("courier_take_stash_items"):SetHidden(true)
-       --caster:RemoveAbility("courier_take_stash_items")
+       caster:RemoveAbility("courier_take_stash_items")
     end
     if caster:HasAbility("courier_transfer_items") then
        caster:RemoveAbility("courier_transfer_items")
-       --caster:FindAbilityByName("courier_transfer_items"):SetHidden(true)
-    end
-    if caster:HasAbility("courier_go_to_secretshop") then
-       caster:RemoveAbility("courier_go_to_secretshop")
-       --caster:FindAbilityByName("courier_go_to_secretshop"):SetHidden(true)
     end
     if caster:HasAbility("courier_go_to_sideshop2") then
        caster:RemoveAbility("courier_go_to_sideshop2")
-       --caster:FindAbilityByName("courier_transfer_items"):SetHidden(true)
+    end  
+
+end
+
+function AddRedundantCourierAbility(caster) --移除多余的信使技能，直接删除会导致复活时闪退
+    if not caster:HasAbility("courier_go_to_secretshop") then
+       caster:AddAbility("courier_go_to_secretshop")
+       caster:FindAbilityByName("courier_go_to_secretshop"):SetLevel(1)
+       caster:FindAbilityByName("courier_go_to_secretshop"):SetHidden(true)
+    end
+    if not caster:HasAbility("courier_return_stash_items") then
+       caster:AddAbility("courier_return_stash_items")
+       caster:FindAbilityByName("courier_return_stash_items"):SetLevel(1)
+       caster:FindAbilityByName("courier_return_stash_items"):SetHidden(true)
+    end
+    if not caster:HasAbility("courier_take_stash_items") then
+       caster:AddAbility("courier_take_stash_items")
+       caster:FindAbilityByName("courier_take_stash_items"):SetLevel(1)
+       caster:FindAbilityByName("courier_take_stash_items"):SetHidden(true)
+    end
+    if not caster:HasAbility("courier_transfer_items") then
+       caster:AddAbility("courier_transfer_items")
+       caster:FindAbilityByName("courier_transfer_items"):SetLevel(1)
+       caster:FindAbilityByName("courier_transfer_items"):SetHidden(true)
+    end
+    if not caster:HasAbility("courier_go_to_sideshop2") then
+       caster:AddAbility("courier_go_to_sideshop2")
+       caster:FindAbilityByName("courier_go_to_sideshop2"):SetLevel(1)
+       caster:FindAbilityByName("courier_go_to_sideshop2"):SetHidden(true)
     end  
 end

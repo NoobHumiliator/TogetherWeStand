@@ -23,4 +23,6 @@ function LevelupBlink( keys )
 			target:FindAbilityByName("courier_blink_datadriven"):SetLevel(abilityLevel+1)
 	    end
 	end
+
+  AddRedundantCourierAbility(target)	
 end

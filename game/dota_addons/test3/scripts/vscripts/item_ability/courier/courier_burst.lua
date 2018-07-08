@@ -18,7 +18,6 @@ function LevelupBurst( keys )
 			target:FindAbilityByName("courier_burst"):SetLevel(abilityLevel+1)
 	    end
 	end
-    ReportHeroAbilities(target)
 end
 
 
