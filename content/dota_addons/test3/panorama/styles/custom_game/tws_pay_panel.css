@@ -194,7 +194,7 @@
 .PayPalQRCodePanel{
 
   width: 100%;
-  height: 285px;
+  height: 360px;
   horizontal-align:middle;
 }
 
@@ -223,8 +223,8 @@
 
 
 #PayPalQRCodeHtml{
-  width: 280px;
-  height: 280px;
+  width: 400px;
+  height: 450px;
   border: 1px solid #000;
   background-color: #111;
   overflow: clip;
@@ -238,8 +238,8 @@
   background-color:gradient( linear, 0% 0%, 0% 100%, from( #272d2eee ), to( #131617ee ) );
   border:1px solid #5e6869;
 
-  width: 400px;
-  height: 440px;
+  width: 500px;
+  height: 540px;
   horizontal-align:center;
   opacity:1.0;
   box-shadow:black -4px -4px 8px 8px;
