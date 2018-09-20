@@ -14,7 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
---testMode=true --减少刷兵间隔，增加初始金钱
+testMode=true --减少刷兵间隔，增加初始金钱
 goldTestMode=false
 --goldTestMode=true --需要测试金币相关的内容
 
@@ -1140,13 +1140,13 @@ function CHoldoutGameMode:OnEntityKilled( event )
 	local killedUnit = EntIndexToHScript( event.entindex_killed )
 
     if killedUnit then
-		 if killedUnit:GetUnitName()=="npc_dota_warlock_boss_2" and killedUnit:GetTeam()==DOTA_TEAM_BADGUYS and killedUnit.die_in_peace==nil then
+		 if killedUnit:GetUnitName()=="npc_dota_warlock_boss_2" and killedUnit:GetTeam()==DOTA_TEAM_BADGUYS and killedUnit.removedByMech==nil then
            self:RoundEnd()
          end
-         if killedUnit:GetUnitName()=="npc_dota_boss_enchantress" and self._currentRound._alias=="tree" and killedUnit:GetTeam()==DOTA_TEAM_BADGUYS  and  killedUnit.die_in_peace==nil  then
+         if killedUnit:GetUnitName()=="npc_dota_boss_enchantress" and self._currentRound._alias=="tree" and killedUnit:GetTeam()==DOTA_TEAM_BADGUYS  and  killedUnit.removedByMech==nil  then
            self:RoundEnd()
          end
-         if killedUnit:GetUnitName()=="npc_dota_boss_tinker"  and self._currentRound._alias=="tinker" and killedUnit:GetTeam()==DOTA_TEAM_BADGUYS  and killedUnit.die_in_peace==nil  then
+         if killedUnit:GetUnitName()=="npc_dota_boss_tinker"  and self._currentRound._alias=="tinker" and killedUnit:GetTeam()==DOTA_TEAM_BADGUYS  and killedUnit.removedByMech==nil  then
            self:RoundEnd()
          end
 	end

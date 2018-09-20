@@ -2,7 +2,7 @@ require('libraries/notifications')
 require('quest_system')
 function announce_egg_die(key)
     local caster = key.caster
-    if caster.die_in_peace~=true then
+    if caster.removedByMech~=true then
       if  GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag==true then
 
         QuestSystem:RefreshAchQuest("Achievement",0,1) 
@@ -15,7 +15,7 @@ end
 
 function DieInPeace(key)
     local caster = key.caster
-    caster.die_in_peace=true
+    caster.removedByMech=true
     --GameRules:SendCustomMessage(" die in peace", 0, 0)
 end
 
