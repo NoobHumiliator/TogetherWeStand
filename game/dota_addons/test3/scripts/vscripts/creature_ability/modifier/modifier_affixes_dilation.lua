@@ -22,20 +22,28 @@ end
 function modifier_affixes_dilation:IsDebuff()
 	return true
 end
+-----------------------------------------------------------------------------------------
+
+function modifier_affixes_dilation:GetTexture()
+	return "dilation"
+end
+
 
 -----------------------------------------------------------------------------------------
 
 function modifier_affixes_dilation:DeclareFunctions()
 	local funcs = 
 	{
-		MODIFIER_PROPERTY_COOLDOWN_REDUCTION_CONSTANT
+		MODIFIER_EVENT_ON_ABILITY_FULLY_CAST
 	}
 	return funcs
 end
 ----------------------------------------
 
-function modifier_affixes_dilation:GetModifierCooldownReduction_Constant( params )
-	return -80
+function modifier_affixes_dilation:OnAbilityFullyCast( params )
+	if not IsServer() then return end
+	local casted_ability= params.ability
+	casted_ability:StartCooldown( casted_ability:GetCooldownTimeRemaining()*3)
 end
 
 ----------------------------------------

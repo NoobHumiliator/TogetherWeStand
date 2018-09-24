@@ -153,6 +153,7 @@ function CHoldoutGameRound:Begin()
     self.bAffixFlag=false   --是否初始化过词缀
     self.vAffixes=
     {
+    --[[
         necrotic=false,
         teeming=false,
         raging=false,
@@ -164,6 +165,7 @@ function CHoldoutGameRound:Begin()
         falling_rock=false,
         spike=false,
         fragile=false,
+      ]]
         dilation=false
     }
     local affixes_temp={}
@@ -268,84 +270,26 @@ function CHoldoutGameRound:End()
 		vTotalDamageTable[i]=vTotalDamageTable[i]+self._vPlayerStats[i].nTotalDamage
 		vTotalHealTable[i]=vTotalHealTable[i]+self._vPlayerStats[i].nTotalHeal
 	end
-
-	for _,unit in pairs( FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector( 0, 0, 0 ), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )) do
-		if unit:IsAlive() then 
-			if unit:GetUnitName()==("npc_dota_boss_rattletrap") then
-				unit:RemoveAbility("rattletrap_gold_bag_fountain")
-			end
-			if unit:GetUnitName()==("npc_dota_boss_blue_dragon") then
-				unit:RemoveAbility("blue_dragon_gold_bag_fountain")
-			end
-			if unit:GetUnitName()==("npc_dota_boss_mag") then
-				unit:RemoveAbility("mag_gold_bag_fountain")
-			end
-			if unit:GetUnitName()==("npc_dota_boss_sky") then
-				unit:RemoveAbility("sky_gold_bag_fountain")
-			end
-			if unit:GetUnitName()==("npc_dota_boss_enchantress") then
-				unit.die_in_peace=true  --过关失败而移除，不触发亡语效果
-				unit:RemoveAbility("enchantress_gold_bag_fountain")
-			end
-			if unit:GetUnitName()==("npc_dota_warlock_boss_2") then
-				unit.die_in_peace=true   --过关失败而移除，不触发亡语效果
-				unit:RemoveAbility("warlock_gold_bag_fountain")
-			end
-			if unit:GetUnitName()==("npc_dota_warlock_boss_2") then
-				unit:RemoveAbility("warlock_gold_bag_fountain")
-			end
-			if unit:GetUnitName()==("npc_dota_splitter_b") then
-				unit:RemoveAbility("creature_split_b")
-			end
-			if unit:GetUnitName()==("npc_dota_splitter_a") then
-				unit:RemoveAbility("creature_split_a")
-			end
-			if unit:GetUnitName()==("npc_dota_boss_tidehunter") then
-			    unit:RemoveAbility("tidehunter_gold_bag_fountain")
-			end
-            if unit:GetUnitName()==("npc_dota_boss_lion") then
-			    unit:RemoveAbility("lion_gold_bag_fountain")
-			end
-            if unit:GetUnitName()==("npc_dota_boss_tinker") then
-            	unit.die_in_peace=true    --过关失败而移除，不触发亡语效果
-			    unit:RemoveAbility("tinker_gold_bag_fountain")
-			end
-			if unit:GetUnitName()==("npc_dota_creature_gold_zombie") then
-            	unit.die_in_peace=true    --过关失败而移除，不触发亡语效果
-			    unit:RemoveAbility("gold_zombie_straight_wave")
-			end
-			if unit:GetUnitName()==("npc_dota_creature_red_zombie") then
-            	unit.die_in_peace=true    --过关失败而移除，不触发亡语效果
-			    unit:RemoveAbility("red_zombie_lean_wave")
-			end
+    --修改娜迦睡怪无法清除问题 +DOTA_UNIT_TARGET_FLAG_INVULNERABLE
+	for _,unit in pairs( FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector( 0, 0, 0 ), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )) do
+		if unit:IsAlive() then          
+            --因游戏机制而移除的单位
+            unit.removedByMech=true
+            if vToRemoveAbilityOnRemoveMap[unit:GetUnitName()] ~=nil then
+                unit:RemoveAbility(vToRemoveAbilityOnRemoveMap[unit:GetUnitName()])
+            end              
 			unit:ForceKill(true)
 		end
 	end
 
-
-    for _,unit in pairs( FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector( 0, 0, 0 ), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )) do
-		if unit:IsAlive() then                   
-		  unit:ForceKill(true)
-		end
-	end  
-
+    for _,spawner in pairs( self._vSpawners ) do
+		spawner:End()
+	end
 
 	if self._alias=="tiny" then
 		KillTiny()  --小小关杀掉小小
 	end
-
-	for _,spawner in pairs( self._vSpawners ) do
-		spawner:End()
-	end
-    
-    if self._alias=="morphing" or self._alias=="morphing_again" then   --清理马甲单位
-    	for _,unit in pairs( FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector( 0, 0, 0 ), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )) do
-			if unit:IsAlive() then 
-				unit:ForceKill(true)
-			end
-	    end 
-    end
-
+  
     if self._alias=="lion"  then   --清理续命神符
 	    local items=Entities:FindAllByClassname( "dota_item_drop")
 		for _,item in pairs( items) do

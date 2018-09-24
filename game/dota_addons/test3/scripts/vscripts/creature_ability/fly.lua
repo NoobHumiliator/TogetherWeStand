@@ -167,7 +167,7 @@ end
 
 function water_remove_self( keys )
         local caster = keys.caster
-        caster.tiny_die_in_peace=true
+        caster.removedByMech=true
         caster:RemoveAbility('water_die')
         if caster:FindAbilityByName("generic_gold_bag_fountain_500") then
         caster:RemoveAbility('generic_gold_bag_fountain_500')
@@ -182,7 +182,7 @@ function water_remove_self( keys )
         caster:RemoveAbility('generic_gold_bag_fountain_50')
         end
         local casterOrigin=caster:GetOrigin()
-        caster.die_in_peace=true
+        caster.removedByMech=true
         caster:SetOrigin(casterOrigin-Vector(0,0,1500)) 
         caster:ForceKill(true)
         GameRules:SendCustomMessage("#envolveto3_dbm", 0, 0)
