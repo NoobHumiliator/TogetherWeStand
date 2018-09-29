@@ -163,6 +163,10 @@
     {
       "dark_willow" "1"
     }
+    "20"
+    {
+      "grimstroke" "1"
+    }
   }
 
   "3"

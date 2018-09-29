@@ -715,4 +715,11 @@
   "4"    "dark_willow_bedlam"
   "5"    "dark_willow_terrorize"
   }
+  "grimstroke" {
+  "1"    "grimstroke_dark_artistry"
+  "2"    "grimstroke_ink_creature"
+  "3"    "grimstroke_spirit_walk"
+  "4"    "grimstroke_soul_chain"
+   }
+
 }

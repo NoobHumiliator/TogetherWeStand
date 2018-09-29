@@ -332,7 +332,7 @@
 	}
     "huskar_life_break"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 		"AbilitySpecial"
@@ -432,7 +432,7 @@
     "bounty_hunter_track"
     {
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-	    "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+	    
 		"LevelsBetweenUpgrades"			"15"
 	    "MaxLevel"                       "3"
     }
@@ -440,21 +440,21 @@
 	{	
 	       "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 	       "AbilityUnitTargetFlags"		    "DOTA_UNIT_TARGET_FLAG_NONE"
-	       "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+	       
 		   "LevelsBetweenUpgrades"			"15"
 		   "MaxLevel"                       "3"
 	}
 
    "shadow_shaman_mass_serpent_ward"
 	{
-        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	
     "skeleton_king_reincarnation"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 
@@ -592,496 +592,476 @@
 	}
 	"earthshaker_echo_slam"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"sven_gods_strength"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"tiny_grow"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
     "omniknight_guardian_angel"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"kunkka_ghostship"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"beastmaster_primal_roar"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
     "dragon_knight_elder_dragon_form"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
     "rattletrap_hookshot"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"antimage_mana_void"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"drow_ranger_marksmanship"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"juggernaut_omni_slash"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"mirana_invis"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
     "morphling_replicate"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"phantom_lancer_juxtapose"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
     "vengefulspirit_nether_swap"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"crystal_maiden_freezing_field"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"puck_dream_coil"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"storm_spirit_ball_lightning"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"windrunner_focusfire"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"lina_laguna_blade"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"alchemist_chemical_rage"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"brewmaster_primal_split"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"treant_overgrowth"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"centaur_stampede"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
    "riki_tricks_of_the_trade"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"sniper_assassinate"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"templar_assassin_psionic_trap"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"luna_eclipse"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 
 	"ursa_enrage"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"gyrocopter_call_down"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"furion_wrath_of_nature"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"enchantress_impetus"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"jakiro_macropyre"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"chen_hand_of_god"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"silencer_global_silence"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"bristleback_warpath"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"tusk_walrus_punch"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"legion_commander_duel"
 	{
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"LevelsBetweenUpgrades"			"15"
-		"MaxLevel"                      "3"
-	}
-	"phoenix_supernova"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"lone_druid_true_form"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"naga_siren_song_of_the_siren"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"arc_warden_tempest_double"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"disruptor_static_storm"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"skywrath_mage_mystic_flare"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"oracle_false_promise"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"techies_remote_mines"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"axe_culling_blade"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"MaxLevel"                      "3"
 	}
 	"pudge_dismember"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"MaxLevel"                      "3"
 	}
 	"juggernaut_omni_slash"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"sandking_epicenter"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"slardar_amplify_damage"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"tidehunter_ravage"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"bloodseeker_rupture"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"MaxLevel"                      "3"
 	}
 	"razor_eye_of_the_storm"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"venomancer_poison_nova"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"faceless_void_chronosphere"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
     "phantom_assassin_coup_de_grace"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"viper_viper_strike"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"MaxLevel"                      "3"
 	}
     "bane_fiends_grip"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"MaxLevel"                      "3"
 	}
    "lich_chain_frost"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
     "lion_finger_of_death"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"witch_doctor_death_ward"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
     "enigma_black_hole"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"razor_eye_of_the_storm"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"necrolyte_reapers_scythe"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"warlock_rain_of_chaos"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"night_stalker_darkness"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"spirit_breaker_nether_strike"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"lycan_shapeshift"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"chaos_knight_phantasm"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"undying_flesh_golem"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"magnataur_reverse_polarity"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"clinkz_death_pact"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"broodmother_insatiable_hunger"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"weaver_time_lapse"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"nyx_assassin_vendetta"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"slark_shadow_dance"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"queenofpain_sonic_wave"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"death_prophet_exorcism"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"pugna_life_drain"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"dazzle_weave"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"pugna_life_drain"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"leshrac_pulse_nova"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
@@ -1100,93 +1080,77 @@
 
 	"batrider_flaming_lasso"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"abaddon_borrowed_time"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"abyssal_underlord_dark_rift"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"medusa_stone_gaze"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"nevermore_requiem"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"ancient_apparition_ice_blast"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"shadow_demon_demonic_purge"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"MaxLevel"                      "3"
 	}
     "visage_summon_familiars"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"winter_wyvern_winters_curse"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"shredder_chakram"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"MaxLevel"                      "3"
 	}
 	"shredder_return_chakram"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"MaxLevel"                      "1"
 	}
     "morphling_morph_replicate"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"MaxLevel"                      "1"
 	}
 	"meepo_divided_we_stand"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"MaxLevel"                      "3"
 		"LevelsBetweenUpgrades"			"15"
 	}
 	"ember_spirit_fire_remnant"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"MaxLevel"                      "3"
 		"LevelsBetweenUpgrades"			"15"
 	}
 	"earth_spirit_magnetize"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"MaxLevel"                      "3"
 		"LevelsBetweenUpgrades"			"15"
 	}
 	"elder_titan_earth_splitter"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"MaxLevel"                      "3"
 		"LevelsBetweenUpgrades"			"15"
 		"AbilitySpecial"
@@ -1475,27 +1439,14 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 	    "AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NONE"
 	}
-	"naga_siren_song_of_the_siren_cancel"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-	}
-    "ancient_apparition_ice_blast_release"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-	}
-	"lone_druid_spirit_bear_return"
-	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-	}
+
 	"ogre_magi_multicast"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"chen_hand_of_god"
     {
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
@@ -1627,7 +1578,6 @@
 
     "monkey_king_wukongs_command"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
@@ -1635,20 +1585,14 @@
    //7.07新英雄 地雷滚滚
    "pangolier_gyroshell"
    {
-       "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
    }
 
-   "pangolier_gyroshell_stop"
-   {
-       "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-   }
 
    //7.07新英雄 作祟
    "dark_willow_bedlam"
    {
-       "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
    }
@@ -1656,14 +1600,13 @@
    //7.07新英雄 恐吓
    "dark_willow_terrorize"
    {
-       "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
    }
 
    	"courier_shield"
 	{
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+	    "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"MaxLevel"                      "4"
 		"AbilityCooldown"			    "200 100 50 7"
 		"AbilitySpecial"
@@ -1675,6 +1618,12 @@
 			}
 		}
 	}
+    
+    "phoenix_supernova"
+	{  
+		"MaxLevel"                      "3"
+	}
+
 
 
 }  //主括号
