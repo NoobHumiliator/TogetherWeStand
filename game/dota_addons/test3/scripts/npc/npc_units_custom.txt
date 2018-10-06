@@ -13572,6 +13572,97 @@
 		}
 	}
 
+
+    "npc_dota_creature_affixes_laser_turret"
+	{
+		// General
+		//
+		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
+		"Model"						"models/items/rattletrap/warmachine_cog_dc/warmachine_cog_dc.vmdl"	// Model.
+		"ModelScale"				"3.0"								// old 1.0
+		"Level"						"1"
+		"ConsideredHero"			"1"
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"200"
+		
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"affixes_laser_turret_passive"		// Ability 1.
+		"Ability2"					"tinker_boss_invulnerable"		    // Ability 2.
+		"Ability3"					""			// Ability 3.
+		"Ability4"					""			// Ability 4.
+		"Ability5"					""			// Ability 5.
+		"Ability6"					""			// Ability 6 - Extra.
+		"Ability7"					""			// Ability 7 - Extra.
+		"Ability8"					""			// Ability 8 - Extra.
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"20"			// Physical protection.
+		"MagicalResistance"			"25"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"0"		// Damage range min.
+		"AttackDamageMax"			"0"		// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.35"		// Speed of attack.
+		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
+		"AttackRange"				"100"		// Range within a target can be attacked.
+		"ProjectileModel"			""			// Particle system model for projectile.
+		"ProjectileSpeed"			""			// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"				    "0"		// Experience earn.
+		"BountyGoldMin"				"0"		// Gold earned min.
+		"BountyGoldMax"				"0"		// Gold earned max.
+
+		// Bounds
+		//---------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+		"HealthBarOffset"			"140"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"			// Type of locomotion - ground, air
+		"MovementSpeed"				"420"		// Speed
+		"MovementTurnRate"			"0.5"		// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"15000"		    // Base health.
+		"StatusHealthRegen"			"20.0"		    // Health regeneration rate.
+		"StatusMana"				"1000"			// Base mana.
+		"StatusManaRegen"			"150"			// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
+
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"
+				
+		}
+	}
+
+
+
     "npc_dota_creature_rattle_laser_turret"
 	{
 		// General
@@ -15935,6 +16026,287 @@
 			"DisableClumpingBehavior"	"1"
 		}
 	}	
+     
+    "npc_dota_creature_venom_1"
+	{
+		// General
+		//
+		"BaseClass"					"npc_dota_creature"	
+		"vscripts"				    "creature_ai/venom_triangle_ai.lua"
+		"Model"						"models/items/venomancer/ward/venomancer_death_poison_venomancerward_01/venomancer_death_poison_venomancerward_01.vmdl"	// Model.
+		"SoundSet"					"Hero_Venomancer"					
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
+		"ModelScale"				"3.0"							
+		"Level"						"20"
+		"ConsideredHero"			"1"
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"300"
+		
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"creature_venom_passive"					// Ability 1.
+		"Ability2"					"creature_venom_channel_heal"	                                        // Ability 2
+		"Ability3"					"creature_venom_poison_nova"				                            // Ability 3.
+		"Ability4"					""	                                        // Ability 4.
+		"Ability5"					""		                                    // Ability 5.
+		"Ability6"					""			                                // Ability 6 - Extra.
+		"Ability7"					""		                                 	// Ability 7 - Extra.
+		"Ability8"					""		                                 	// Ability 8 - Extra.
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"50"		// Physical protection.
+		"MagicalResistance"			"25"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"175"		// Damage range min.
+		"AttackDamageMax"			"350"		// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.35"		// Speed of attack.
+		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"15000"		// Range within a target can be acquired.
+		"AttackRange"				"15000"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_venomancer/venomancer_plague_ward_projectile.vpcf"
+		"ProjectileSpeed"			"1400"			// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"350"		// Experience earn.
+		"BountyGoldMin"				"11"		// Gold earned min.
+		"BountyGoldMax"				"13"		// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"			// Hull type used for navigation/locomotion.
+		"HealthBarOffset"			"140"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"			// Type of locomotion - ground, air
+		"MovementSpeed"				"522"		// Speed
+		"MovementTurnRate"			"0.5"		// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"38000"		// Base health.
+		"StatusHealthRegen"			"15.0"		// Health regeneration rate.
+		"StatusMana"				"5000"			// Base mana.
+		"StatusManaRegen"			"50"			// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+
+		//Precache
+		//------------------------------------------------------------------
+		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_venomancer.vsndevts"
+		"GameSoundsFile"		"soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
+		"ShouldDoFlyHeightVisual" "0"
+		"Creature"
+		{		                  		
+			"DisableResistance"			"100"			
+		}
+	}
+
+
+    "npc_dota_creature_venom_2"
+	{
+		// General
+		//
+		"BaseClass"					"npc_dota_creature"	
+		"vscripts"				    "creature_ai/venom_triangle_ai.lua"
+		"Model"						"models/items/venomancer/ward/ti8_veno_stalagmite_crawler_stalagmite_crawler/ti8_veno_stalagmite_crawler_stalagmite_crawler.vmdl"	// Model.
+		"SoundSet"					"Hero_Venomancer"					
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
+		"ModelScale"				"3.0"							
+		"Level"						"20"
+		"ConsideredHero"			"1"
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"300"
+		
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"creature_venom_passive"					// Ability 1.
+		"Ability2"					"creature_venom_channel_heal"	                                        // Ability 2
+		"Ability3"					"creature_venom_poison_nova"				                            // Ability 3.
+		"Ability4"					""	                                        // Ability 4.
+		"Ability5"					""		                                    // Ability 5.
+		"Ability6"					""			                                // Ability 6 - Extra.
+		"Ability7"					""		                                 	// Ability 7 - Extra.
+		"Ability8"					""		                                 	// Ability 8 - Extra.
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"50"		// Physical protection.
+		"MagicalResistance"			"25"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"175"		// Damage range min.
+		"AttackDamageMax"			"350"		// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.35"		// Speed of attack.
+		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"15000"		// Range within a target can be acquired.
+		"AttackRange"				"15000"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_venomancer/venomancer_plague_ward_projectile.vpcf"
+		"ProjectileSpeed"			"1400"			// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"350"		// Experience earn.
+		"BountyGoldMin"				"11"		// Gold earned min.
+		"BountyGoldMax"				"13"		// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"			// Hull type used for navigation/locomotion.
+		"HealthBarOffset"			"140"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"			// Type of locomotion - ground, air
+		"MovementSpeed"				"522"		// Speed
+		"MovementTurnRate"			"0.5"		// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"38000"		// Base health.
+		"StatusHealthRegen"			"15.0"		// Health regeneration rate.
+		"StatusMana"				"5000"			// Base mana.
+		"StatusManaRegen"			"50"			// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+
+		//Precache
+		//------------------------------------------------------------------
+		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_venomancer.vsndevts"
+		"GameSoundsFile"		"soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
+		"ShouldDoFlyHeightVisual" "0"
+		"Creature"
+		{		                  		
+			"DisableResistance"			"100"			
+		}
+	}
+
+    "npc_dota_creature_venom_3"
+	{
+		// General
+		//
+		"BaseClass"					"npc_dota_creature"	
+		"vscripts"				    "creature_ai/venom_triangle_ai.lua"
+		"Model"						"models/items/venomancer/ward/venomancer_hydra_snakeward/venomancer_hydra_snakeward.vmdl"	// Model.
+		"SoundSet"					"Hero_Venomancer"					
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
+		"ModelScale"				"3.0"							
+		"Level"						"20"
+		"ConsideredHero"			"1"
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"300"
+		
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					"creature_venom_passive"					// Ability 1.
+		"Ability2"					"creature_venom_channel_heal"	                                        // Ability 2
+		"Ability3"					"creature_venom_poison_nova"				                            // Ability 3.
+		"Ability4"					""	                                        // Ability 4.
+		"Ability5"					""		                                    // Ability 5.
+		"Ability6"					""			                                // Ability 6 - Extra.
+		"Ability7"					""		                                 	// Ability 7 - Extra.
+		"Ability8"					""		                                 	// Ability 8 - Extra.
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"50"		// Physical protection.
+		"MagicalResistance"			"25"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"175"		// Damage range min.
+		"AttackDamageMax"			"350"		// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.35"		// Speed of attack.
+		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"15000"		// Range within a target can be acquired.
+		"AttackRange"				"15000"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_venomancer/venomancer_plague_ward_projectile.vpcf"
+		//"ProjectileModel"			"particles/units/heroes/hero_viper/viper_viper_strike_beam.vpcf"
+		"ProjectileSpeed"			"1400"			// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"350"		// Experience earn.
+		"BountyGoldMin"				"11"		// Gold earned min.
+		"BountyGoldMax"				"13"		// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"			// Hull type used for navigation/locomotion.
+		"HealthBarOffset"			"140"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"522"		// Speed
+		"MovementTurnRate"			"0.5"		// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"38000"		// Base health.
+		"StatusHealthRegen"			"15.0"		// Health regeneration rate.
+		"StatusMana"				"5000"			// Base mana.
+		"StatusManaRegen"			"50"			// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+
+		//Precache
+		//------------------------------------------------------------------
+		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_venomancer.vsndevts"
+		"GameSoundsFile"		"soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
+		"ShouldDoFlyHeightVisual" "0"
+
+		"Creature"
+		{		                  		
+			"DisableResistance"			"100"			
+		}
+	}
+
+
 
 
 }  //主括号

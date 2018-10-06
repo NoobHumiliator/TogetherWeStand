@@ -3,6 +3,8 @@ LinkLuaModifier( "modifier_environment_blind_lua","environment_controller/modifi
 
 
 require( "global_setting" )
+require( "util" )
+
 
 if EnvironmentController == nil then
   EnvironmentController = class({})
@@ -144,4 +146,28 @@ function RandomEnemyHeroIgnoreImmnue()
     else
         return nil
     end
+end
+
+
+
+
+function EnvironmentController:AffixesSpawnLaser()
+
+    Timers:CreateTimer({
+		endTime = 3,
+		callback = function()
+	        local hero = RandomHeroIgnoreImmnueAndInvulnerable()
+
+	        if hero then
+	            local randomX=RandomInt(-500,500)
+	            local randomY=RandomInt(-500,500)
+	            local turret = CreateUnitByName("npc_dota_creature_affixes_laser_turret", GetGroundPosition(Vector(hero:GetOrigin().x+randomX,hero:GetOrigin().y+randomY,0),nil), true, nil, nil, DOTA_TEAM_BADGUYS)
+	            if CHoldoutGameMode._currentRound==nil or CHoldoutGameMode._currentRound.vAffixes.laser~=true  then
+			       return nil
+			    else
+			       return 10
+			    end
+	        end
+        end
+	})
 end

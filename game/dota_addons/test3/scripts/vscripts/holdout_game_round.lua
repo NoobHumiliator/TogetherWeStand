@@ -126,7 +126,8 @@ function CHoldoutGameRound:Begin()
         falling_rock="#affixes_falling_rock",
         spike="#affixes_spike",
         fragile="#affixes_fragile",
-        dilation="#affixes_dilation"
+        dilation="#affixes_dilation",
+        laser="#affixes_laser"
     }
     local vAffixesTooltipAbility={
       necrotic="affixes_ability_necrotic",
@@ -139,8 +140,10 @@ function CHoldoutGameRound:Begin()
       silence="affixes_ability_tooltip_silence",
       falling_rock="affixes_ability_tooltip_falling_rock",
       spike="affixes_ability_spike",
-      fragile="affixes_ability_tooltip_fragile",
-      dilation="affixes_ability_tooltip_dilation"
+      --银锋 词缀 禁被动
+      silver="affixes_ability_tooltip_silver",     
+      dilation="affixes_ability_tooltip_dilation",
+      laser="affixes_ability_tooltip_laser"
     }
 
     --确保本轮内不会出现的词缀
@@ -153,6 +156,7 @@ function CHoldoutGameRound:Begin()
     self.bAffixFlag=false   --是否初始化过词缀
     self.vAffixes=
     {
+    --[[
         necrotic=false,
         teeming=false,
         raging=false,
@@ -163,8 +167,10 @@ function CHoldoutGameRound:Begin()
         silence=false,
         falling_rock=false,
         spike=false,
-        fragile=false,
-        dilation=false
+        silver=false,
+        --dilation=false,
+        --]]
+        laser=false
     }
     local affixes_temp={}
     local affixes_number=0;
@@ -203,12 +209,15 @@ function CHoldoutGameRound:Begin()
 			            if self.vAffixes.falling_rock then
 						  ability:ApplyDataDrivenModifier(hero, hero, "modifier_affixes_falling_rock", {})
 						end
-					    if self.vAffixes.fragile then
-						  ability:ApplyDataDrivenModifier(hero, hero, "modifier_affixes_fragile", {})
+					    if self.vAffixes.silver then
+						  ability:ApplyDataDrivenModifier(hero, hero, "modifier_affixes_silver", {})
 						end
                         if self.vAffixes.dilation then
                            hero:AddNewModifier(hero, nil, "modifier_affixes_dilation", {})
 						   --ability:ApplyDataDrivenModifier(hero, hero, "modifier_affixes_dilation", {})
+						end
+						if self.vAffixes.laser then
+                           self._environmentcontroller:AffixesSpawnLaser()
 						end
 					end
 				end

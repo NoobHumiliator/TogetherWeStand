@@ -1802,6 +1802,7 @@
 		"round_quest_title"			"#TWS_Round_Broodking_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Broodking_Title"
 		"MaxGold"					"0" // 8300 from gold fountain ability
+		"ShortTitle"                "#spider_short_title"
 		"BagCount"					"0"
 		"BagVariance"				"0"
 		"FixedXP"					"17800"
@@ -1852,6 +1853,49 @@
 		} 
 	}
 	
+
+    "Round8-2" // 剧毒三角
+	{
+		"round_title"				"#DOTA_Holdout_Round_Triangle_Title"
+		"MaxGold"					"0" // 8300 from gold fountain ability
+		"BagCount"					"0"
+		"BagVariance"				"0"
+		"FixedXP"					"17800"
+		"alias"                     "broodqueen"
+		"ShortTitle"                "#triangle_short_title"
+		"type"                      "boss"
+		"ExpectedGold"              "8300"
+		// Stage 1 ================================================
+		"Unit_1"
+		{
+			"NPCName"		    	"npc_dota_creature_venom_1"
+			"SpawnerName"			"spawner1"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"Unit_2"
+		{
+			"NPCName"			   "npc_dota_creature_venom_2"
+			"SpawnerName"			"spawner3"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		"Unit_3"
+		{
+			"NPCName"			   "npc_dota_creature_venom_3"
+			"SpawnerName"			"spawner4"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+
+	}
+
+
+
+
+
+
+
 	"Round9-1" // tiny
 	{
 		"round_quest_title"			"#TWS_Round_Warlock_Quest_Title"

@@ -684,3 +684,16 @@ function AddRedundantCourierAbility(caster) --移除多余的信使技能，直�
        caster:FindAbilityByName("courier_go_to_sideshop2"):SetHidden(true)
     end  
 end
+
+
+
+function RandomHeroIgnoreImmnueAndInvulnerable ()
+    local enemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES+DOTA_UNIT_TARGET_FLAG_INVULNERABLE, 0, false )
+    if #enemies > 0 then
+        local index = RandomInt( 1, #enemies )
+        return enemies[index]
+    else
+        return nil
+    end
+end
+
