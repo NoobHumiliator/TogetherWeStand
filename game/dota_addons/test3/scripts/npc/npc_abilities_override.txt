@@ -625,6 +625,7 @@
 		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
     "dragon_knight_elder_dragon_form"
 	{
@@ -691,6 +692,7 @@
 		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
 	"storm_spirit_ball_lightning"
 	{
@@ -727,6 +729,7 @@
 		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
 	"centaur_stampede"
 	{
@@ -800,6 +803,7 @@
 		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
 	"bristleback_warpath"
 	{
@@ -816,13 +820,12 @@
 	"legion_commander_duel"
 	{
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"lone_druid_true_form"
-	{
-		
+	{		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
@@ -831,6 +834,7 @@
 		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
 	"arc_warden_tempest_double"
 	{
@@ -843,6 +847,7 @@
 		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
 	"skywrath_mage_mystic_flare"
 	{
@@ -868,9 +873,9 @@
 		"MaxLevel"                      "3"
 	}
 	"pudge_dismember"
-	{
-		
+	{		
 		"MaxLevel"                      "3"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
 	"juggernaut_omni_slash"
 	{
@@ -895,6 +900,7 @@
 		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
 	"bloodseeker_rupture"
 	{
@@ -918,6 +924,7 @@
 		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
     "phantom_assassin_coup_de_grace"
 	{
@@ -932,8 +939,8 @@
 	}
     "bane_fiends_grip"
 	{
-		
 		"MaxLevel"                      "3"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
    "lich_chain_frost"
 	{
@@ -958,6 +965,7 @@
 		
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
 	"razor_eye_of_the_storm"
 	{
@@ -1009,6 +1017,7 @@
 	{
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
 	"clinkz_death_pact"
 	{
@@ -1080,8 +1089,8 @@
 
 	"batrider_flaming_lasso"
 	{
-		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
 	"abaddon_borrowed_time"
 	{
@@ -1121,6 +1130,7 @@
 	{
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
 	"shredder_chakram"
 	{
@@ -1155,131 +1165,21 @@
 		"LevelsBetweenUpgrades"			"15"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"crack_time"				"3.14"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crack_width"				"300"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crack_distance"			"2400"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"slow_pct"					"30 40 50"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"slow_duration"				"3.0 4.0 5.0"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed"						"910"
-			}
 			"07"
 			{
 				"var_type"					"FIELD_INTEGER"
 				"damage_pct"				"6 9 12"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"vision_width"				"500"
-			}
-			"09"
-			{	
-				"var_type"					"FIELD_FLOAT"
-				"vision_interval"			"0.22"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"vision_duration"			"4.0"
-			}
-			"11"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"vision_step"				"200"
-			}
-			"12"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"total_steps"				"12"
-			}
-			"13"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"slow_duration_scepter"		"4.0 5.0 6.0"
 			}
 		}
 	}
 	"winter_wyvern_arctic_burn"
 	{
 		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"6.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_range_bonus"	"275 375 475 575"
-			}			
+		{	
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"percent_damage"		"0.8"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"tick_rate"				"1.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_duration"		"5.0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed"		"-19 -26 -33 -40"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"night_vision_bonus"	"400"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"projectile_speed_bonus"	"500"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tree_destruction_radius"	"250"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"attack_point"			"0.1"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_attacks"			"5"
+				"percent_damage"		"0.6 0.7 0.8 0.9"
 			}
 		}
 	}
@@ -1287,25 +1187,11 @@
 	{
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"burn_damage"			"25 30 35 40"
-			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"burn_damage_pct"		"0.2 0.4 0.6 0.8"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"burn_duration"			"4.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"ministun_duration"	    "0.3"
+				"burn_damage_pct"		"0.125 0.25 0.375 0.5"
+				"LinkedSpecialBonus"	"special_bonus_unique_doom_1"
 			}
 		}
 	}
@@ -1314,65 +1200,11 @@
 	{
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"hp_cost_perc_per_second"		"6"
-			}
-			"02"
-			{
-				"var_type"			    "FIELD_INTEGER"
-				"base_damage"			"10 15 20 25"
-			}
 			"03"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_perc_damage"		"0.5 0.75 1.0 1.25"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"base_heal"			"7 10 13 16"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"hp_perc_heal"			"0.625 1.25 1.875 2.5"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"130"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"tick_interval"		"0.2"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"forward_move_speed"	"250"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"beam_range"		"1300"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"turn_rate_initial"			"250"
-			}
-			"11"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"turn_rate"					"25"
-			}
-			"12"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"tooltip_duration"	"6"
+				"hp_perc_damage"		"0.15 0.325 0.5 0.675"
+				"LinkedSpecialBonus"	"special_bonus_unique_phoenix_5"
 			}
 		}
 	}
@@ -1386,51 +1218,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"400"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"wave_duration"					"7.0"
-			}		
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"wave_count"					"6"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"wave_damage"					"25 40 55 70"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"wave_interval"					"1.0"
-			}
 			"06"
 			{
 				"var_type"						"FIELD_FLOAT"
 				"burn_damage"					"0.1 0.2 0.3 0.4"
 				"CalculateSpellDamageTooltip"	"0"
-			}
-			"07"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"burn_interval"					"1.0"
-			}
-			"08"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"burn_duration"					"2.0"
-			}
-			"09"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"first_wave_delay"				"0.0"
 			}
 		}
 	}
@@ -1454,31 +1246,11 @@
 	{
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"180"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"duration_tooltip"			"12"
-			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
 				"bonus_damage"				"6 9 12 15"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage_threshold"	"100"
-			}			
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"ticks"						"3"
-			}			
+			}		
 		}
 	}
 	"lich_dark_ritual"
@@ -1602,6 +1374,7 @@
    {
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
    }
 
    	"courier_shield"

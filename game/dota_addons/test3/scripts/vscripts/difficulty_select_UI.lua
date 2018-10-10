@@ -131,8 +131,8 @@ function CHoldoutGameMode:SetTrialMapDifficulty ()
 
 	self.map_difficulty=3+math.floor(average)
 
-    self.flDDadjust=1.5*(1+(self.map_difficulty-3)*0.05)
-    self.flDHPadjust=1.5*(1+(self.map_difficulty-3)*0.08)
+    self.flDDadjust=1.5*(1+(self.map_difficulty-3)*0.1)
+    self.flDHPadjust=1.5*(1+(self.map_difficulty-3)*0.16)
 
     CustomGameEventManager:Send_ServerToAllClients("AnnounceDifficulty",{difficulty="trial",level= tostring(math.floor(average)) })
 end

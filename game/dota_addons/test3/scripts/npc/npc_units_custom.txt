@@ -7771,7 +7771,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"26000"		// Base health.
+		"StatusHealth"				"27000"		// Base health.
 		"StatusHealthRegen"			"6.0"		// Health regeneration rate.
 		"StatusMana"				"1500"		// Base mana.
 		"StatusManaRegen"			"30.0"		// Mana regeneration rate.
@@ -16048,7 +16048,7 @@
 		"Ability1"					"creature_venom_passive"					// Ability 1.
 		"Ability2"					"creature_venom_channel_heal"	                                        // Ability 2
 		"Ability3"					"creature_venom_poison_nova"				                            // Ability 3.
-		"Ability4"					""	                                        // Ability 4.
+		"Ability4"					"creature_venom_bag_fountain"	                                        // Ability 4.
 		"Ability5"					""		                                    // Ability 5.
 		"Ability6"					""			                                // Ability 6 - Extra.
 		"Ability7"					""		                                 	// Ability 7 - Extra.
@@ -16141,7 +16141,7 @@
 		"Ability1"					"creature_venom_passive"					// Ability 1.
 		"Ability2"					"creature_venom_channel_heal"	                                        // Ability 2
 		"Ability3"					"creature_venom_poison_nova"				                            // Ability 3.
-		"Ability4"					""	                                        // Ability 4.
+		"Ability4"					"creature_venom_bag_fountain"	                                        // Ability 4.
 		"Ability5"					""		                                    // Ability 5.
 		"Ability6"					""			                                // Ability 6 - Extra.
 		"Ability7"					""		                                 	// Ability 7 - Extra.
@@ -16233,7 +16233,7 @@
 		"Ability1"					"creature_venom_passive"					// Ability 1.
 		"Ability2"					"creature_venom_channel_heal"	                                        // Ability 2
 		"Ability3"					"creature_venom_poison_nova"				                            // Ability 3.
-		"Ability4"					""	                                        // Ability 4.
+		"Ability4"					"creature_venom_bag_fountain"	                                        // Ability 4.
 		"Ability5"					""		                                    // Ability 5.
 		"Ability6"					""			                                // Ability 6 - Extra.
 		"Ability7"					""		                                 	// Ability 7 - Extra.

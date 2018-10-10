@@ -7319,7 +7319,7 @@
 	    	"01"
 		    {
 				"var_type"						"FIELD_FLOAT"
-				"damage_per_mana"	            "3 4 5 5"
+				"damage_per_mana"	            "2 3 4 4"
 		    }
 	    	"02"
 		    {
@@ -7455,7 +7455,7 @@
 	    	"01"
 		    {
 				"var_type"						"FIELD_FLOAT"
-				"damage_per_mana"	            "3 4 5 5"
+				"damage_per_mana"	            "2 3 4 4"
 		    }
 	    	"02"
 		    {
@@ -7591,7 +7591,7 @@
 	    	"01"
 		    {
 				"var_type"						"FIELD_FLOAT"
-				"damage_per_mana"	            "3 4 5 5"
+				"damage_per_mana"	            "2 3 4 4"
 		    }
 	    	"02"
 		    {
@@ -7725,7 +7725,7 @@
 	    	"01"
 		    {
 				"var_type"						"FIELD_FLOAT"
-				"damage_per_mana"	            "3 4 5 5"
+				"damage_per_mana"	            "2 3 4 4"
 		    }
 	    	"02"
 		    {

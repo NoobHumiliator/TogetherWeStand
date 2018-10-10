@@ -25,13 +25,12 @@ function FixSpellShopPosition()
     var height =Game.GetScreenHeight()
     //2.33333 21:9
     //1.777 16:9
-    //1.6   16:6
+    //1.6   16:10
     //1.33  4:3
-    //$.Msg(width/height)
     var radio=width/height
     if (2.0<radio)
     {
-        $("#triggerButtonPanel").style.position="1950px 1020px 0"
+        $("#triggerButtonPanel").style.position="1750px 1020px 0"
     }
     if (1.7<radio<2.0)
     {
@@ -51,23 +50,15 @@ function FixSpellShopPosition()
 }
 
 
-function ShowTooltip()
-{
-      $.DispatchEvent("DOTAShowTitleTextTooltip",$("#triggerButtonPanel"), "#spell_trigger_notice_title", "#spell_trigger_notice_detail");
-}
-
 function HideTooltip()
 {
        $.DispatchEvent( "DOTAHideTitleTextTooltip",$("#triggerButtonPanel") );
 }
 
 
-
 (function()
 {
-
      FixSpellShopPosition();
-     $.Schedule(2.0,ShowTooltip);
      $.Schedule(7.0,HideTooltip);
 
 })();

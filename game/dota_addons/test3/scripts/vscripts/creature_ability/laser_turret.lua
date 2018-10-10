@@ -83,7 +83,8 @@ function AffixesLaserStart(keys)
                   callback =function()
 
                   count = count +1
-
+                  
+                  caster.damageMultiple = 1 --激光炮台不受伤害加成影响
                   
                   if not caster:IsAlive() then
                          --立即销毁模型
@@ -119,7 +120,7 @@ function AffixesLaserStart(keys)
                                 ApplyDamage( {
                                   victim    = unit,
                                   attacker  = caster,
-                                  damage    = unit:GetMaxHealth()*0.004,
+                                  damage    = unit:GetMaxHealth()*0.007,
                                   damage_type = DAMAGE_TYPE_PURE,
                                   damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
                                 } )

@@ -183,7 +183,7 @@ function CHoldoutGameMode:DamageFilter(damageTable)
          if victim and victim:HasModifier("modifier_mage_shield_1_active") then  --如果有法术护盾
             if damageTable.damage>=victim:GetHealth() then  --无法将血量扣除小于1
                local overDamage=damageTable.damage-victim:GetHealth() --过量伤害
-               victim:ReduceMana(overDamage/3)
+               victim:ReduceMana(overDamage/2)
                if victim:GetMana()<1 then
                   victim:RemoveModifierByName("modifier_mage_shield_1_active")
                   return true
@@ -196,7 +196,7 @@ function CHoldoutGameMode:DamageFilter(damageTable)
          if victim and victim:HasModifier("modifier_mage_shield_2_active") then  --如果有法术护盾
             if damageTable.damage>=victim:GetHealth() then  --无法将血量扣除小于1
                local overDamage=damageTable.damage-victim:GetHealth() --过量伤害
-               victim:ReduceMana(overDamage/4)
+               victim:ReduceMana(overDamage/3)
                if victim:GetMana()<1 then
                   victim:RemoveModifierByName("modifier_mage_shield_2_active")
                   return true
@@ -209,7 +209,7 @@ function CHoldoutGameMode:DamageFilter(damageTable)
          if victim and victim:HasModifier("modifier_mage_shield_3_active") then  --如果有法术护盾
             if damageTable.damage>=victim:GetHealth() then  --无法将血量扣除小于1
                local overDamage=damageTable.damage-victim:GetHealth() --过量伤害
-               victim:ReduceMana(overDamage/5)
+               victim:ReduceMana(overDamage/4)
                if victim:GetMana()<1 then
                   victim:RemoveModifierByName("modifier_mage_shield_3_active")
                   return true
@@ -222,7 +222,7 @@ function CHoldoutGameMode:DamageFilter(damageTable)
          if victim and victim:HasModifier("modifier_mage_shield_4_active") then  --如果有法术护盾
             if damageTable.damage>=victim:GetHealth() then  --无法将血量扣除小于1
                local overDamage=damageTable.damage-victim:GetHealth() --过量伤害
-               victim:ReduceMana(overDamage/5)
+               victim:ReduceMana(overDamage/4)
                if victim:GetMana()<1 then
                   victim:RemoveModifierByName("modifier_mage_shield_4_active")
                   return true

@@ -9763,7 +9763,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"gold_value"			"166"
+				"gold_value"			"110"
 			}
 			"02"
 			{
@@ -9773,6 +9773,53 @@
 		}
 	}
 	
+    "creature_venom_bag_fountain"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"item_hand_of_midas"
+
+		"OnOwnerDied"
+		{
+			"CreateItem"
+			{
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}			
+				"ItemName"			"item_bag_of_gold_tws"
+				"ItemCount"			"%bag_count"
+				"SpawnRadius"		"25"
+				"ItemChargeCount"	"%gold_value"
+				"AutoUse"			"1"
+				"LaunchHeight"		"300"
+				"LaunchDistance"	"?50 750"
+				"LaunchDuration"	"0.75"
+			}
+		}
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"gold_value"			"40"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bag_count"				"50"
+			}
+		}
+	}
+
+
+
 	//=================================================================================================================
 	// Zombie Bomber: Toss Bombs
 	//=================================================================================================================
@@ -12098,6 +12145,7 @@
 	"AbilityUnitTargetType"			                  "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	"AbilityUnitTargetFlags"		                  "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 	"AbilityUnitDamageType"			                  "DAMAGE_TYPE_PHYSICAL"
+	"AbilityCastAnimation"		                      "ACT_DOTA_MAGNUS_SKEWER_START"
 
 	//-------------------------------------------------------------------------------------------------------------
 	"AbilityCastPoint"                                "0.2"
@@ -12170,11 +12218,6 @@
 			}
 		}
 
-		"ApplyModifier"
-		{
-			"ModifierName"         "modifier_charge_act"
-			"Target"                        "CASTER"
-		}
 
 		"ApplyModifier"
 		{
@@ -12201,27 +12244,7 @@
 			}
 
 		}
-		"modifier_charge_act"
-		{
-			"Duration"                "0.25"
-			"OverrideAnimation"       "ACT_DOTA_MAGNUS_SKEWER_START"
-			"OnDestroy"
-			{
-				"ApplyModifier"
-				{
-					"Target"	"CASTER"
-					"ModifierName"	"modifier_charge_dur_act"
-				}
-			}
-
-		}
-		"modifier_charge_dur_act"
-		{
-			"Duration"                "10.0"
-			"OverrideAnimation"       "ACT_DOTA_CAST_ABILITY_3"
-			"EffectName"   "particles/items2_fx/mask_of_madness.vpcf"
-			"EffectAttachType"        "follow_head"
-		}
+		
 		"modifier_charge_dot"
 		{
 			"IsDebuff"                          "1"
@@ -14065,7 +14088,7 @@
 				"IsHidden"						"0"
                 "IsDebuff"						"1"
                 "IsPurgable"			     	"0"
-                "TextureName"	                "morphling_adaptive_strike"			     					
+                "TextureName"	                "oracle_false_promise"			     					
 			}
 			"modifier_overflow_stack"
 			{
@@ -14107,14 +14130,14 @@
 				{
 					"ApplyModifier"
 					{
-						"ModifierName"	"modifier_affixes_sliver_effect"
+						"ModifierName"	"modifier_affixes_silver_effect"
 						"Target"		"CASTER"
 						"Duration"		"5.0"
 					}
 				}  		
 			}
             
-            "modifier_affixes_sliver_effect"
+            "modifier_affixes_silver_effect"
 			{
 				"IsHidden"						"0"
                 "IsDebuff"						"1"
@@ -14226,19 +14249,7 @@
         				"ScriptFile"	"abilities/falling_rocks.lua"
         				"Function"		"FallingRockDamage"
         				"Target"		 "TARGET"
-        			}
-        			"Stun"
-        			{
-        				"Duration"   "0.5"
-        				"Target"		 
-						{
-							"Radius"		"200"
-							"Center"		"TARGET"
-							"Types"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_OTHER | DOTA_UNIT_TARGET_CREEP"
-							"Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-							"Flags"		    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-						}
-        			}
+        			}      		
 					"FireEffect"
 					{
 						"EffectName"        "particles/units/heroes/hero_ember_spirit/ember_spirit_hit_fire.vpcf"
@@ -14250,28 +14261,6 @@
 						"EffectName"	"Ability.TossImpact"
 						"Target" 		"CASTER"
 					}
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_affixes_falling_rock_dot"
-						"Target" 		"TARGET"
-						"Duration"		"2.5"
-					}
-        		}
-	        }
-	        "modifier_affixes_falling_rock_dot"
-	        {
-	        	"Passive"			"0"
-	        	"IsHidden"			"1"
-	        	"IsDebuff"			"0"
-	        	"ThinkInterval"     "0.25"
-	        	"OnIntervalThink"
-        		{	
-        			"RunScript"
-        			{
-        				"ScriptFile"	"abilities/falling_rocks.lua"
-        				"Function"		"FallingRockDot"
-        				"Target"		"TARGET"
-        			}
         		}
 	        }
 	        "modifier_random_exp_bonus"

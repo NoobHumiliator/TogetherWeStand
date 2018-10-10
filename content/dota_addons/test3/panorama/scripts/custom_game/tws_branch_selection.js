@@ -44,7 +44,7 @@ function SelectBranchReturn( data ) {
            $("#Branch_"+branchToChooseNo+"_"+i+"_AvatarTop").RemoveAndDeleteChildren();
            $("#Branch_"+branchToChooseNo+"_"+i+"_AvatarDown").RemoveAndDeleteChildren();
         }
-        $.Msg(data.selectionData)
+        //$.Msg(data.selectionData)
         var branchNumber=[0,0,0,0,0,0,0]; //key是 分支编号 value 是分支选择人数
         var selectionData=data.selectionData; // Map  key为playerId value为所选分支
 
@@ -113,7 +113,7 @@ var SendTrialLeveltoServer = ( function(data)
 function ShowBranchSelection(keys)
 {
 	var shortTitles = keys.shortTitles
-	$.Msg(shortTitles)
+	//$.Msg(shortTitles)
     branchToChooseNo=keys.branchNumber
     //显示主面板
 	$("#BranchSelectionPanel").SetHasClass( "Opacity", false); 

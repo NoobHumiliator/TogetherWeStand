@@ -101,7 +101,7 @@ function CHoldoutGameRound:Begin()
     GameRules:GetGameModeEntity().Palyer_Number=self.Palyer_Number --更新玩家数量
 
 	if self._not_multiple then
-	  self._nFixedXP=self._nFixedXP*playernumberbonus
+	  self._nFixedXP=self._nFixedXP*playernumberbonus	  
 	  self._nMaxGold=self._nMaxGold*playernumberbonus
 	  self._nItemDropNum=self._nItemDropNum*playernumberbonus
 	  self._nItemDropNum=math.ceil(self._nItemDropNum* hardLevelItemDropBonus[self._gameMode.map_difficulty])
@@ -125,7 +125,7 @@ function CHoldoutGameRound:Begin()
         silence="#affixes_silence",
         falling_rock="#affixes_falling_rock",
         spike="#affixes_spike",
-        fragile="#affixes_fragile",
+        silver="#affixes_silver",
         dilation="#affixes_dilation",
         laser="#affixes_laser"
     }
@@ -156,7 +156,6 @@ function CHoldoutGameRound:Begin()
     self.bAffixFlag=false   --是否初始化过词缀
     self.vAffixes=
     {
-    --[[
         necrotic=false,
         teeming=false,
         raging=false,
@@ -168,8 +167,7 @@ function CHoldoutGameRound:Begin()
         falling_rock=false,
         spike=false,
         silver=false,
-        --dilation=false,
-        --]]
+        dilation=false,
         laser=false
     }
     local affixes_temp={}
@@ -214,7 +212,6 @@ function CHoldoutGameRound:Begin()
 						end
                         if self.vAffixes.dilation then
                            hero:AddNewModifier(hero, nil, "modifier_affixes_dilation", {})
-						   --ability:ApplyDataDrivenModifier(hero, hero, "modifier_affixes_dilation", {})
 						end
 						if self.vAffixes.laser then
                            self._environmentcontroller:AffixesSpawnLaser()
@@ -277,8 +274,8 @@ function CHoldoutGameRound:End()
 		vTotalDamageTable[i]=vTotalDamageTable[i]+self._vPlayerStats[i].nTotalDamage
 		vTotalHealTable[i]=vTotalHealTable[i]+self._vPlayerStats[i].nTotalHeal
 	end
-    --修改娜迦睡怪无法清除问题 +DOTA_UNIT_TARGET_FLAG_INVULNERABLE
-	for _,unit in pairs( FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector( 0, 0, 0 ), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )) do
+    --修改娜迦睡怪无法清除问题 +DOTA_UNIT_TARGET_FLAG_INVULNERABLE+DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD
+	for _,unit in pairs( FindUnitsInRadius( DOTA_TEAM_BADGUYS, Vector( 0, 0, 0 ), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE+DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD, FIND_ANY_ORDER, false )) do
 		if unit:IsAlive() then          
             --因游戏机制而移除的单位
             unit.removedByMech=true

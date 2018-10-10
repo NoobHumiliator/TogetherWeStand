@@ -846,8 +846,11 @@
 		"DOTA_Tooltip_modifier_boss_arcane_curse_aura_datadriven"                                       "Arcane Disturbance"
 		"DOTA_Tooltip_modifier_boss_arcane_curse_aura_datadriven_Description"                           "When cast a spell or use an item,add one stack of arcane curse"
 
+        "DOTA_Tooltip_modifier_boss_arcane_curse_aura_effect_datadriven"               "Arcane Curse Aura"
+        "DOTA_Tooltip_modifier_boss_arcane_curse_aura_effect_datadriven_Description"   "When attack or use a spell will stack Arcane Curse"
+
 		"DOTA_Tooltip_modifier_arcane_curse_debuff_stack"                                               "Arcane Curse"
-		"DOTA_Tooltip_modifier_arcane_curse_debuff_stack_Description"                                   "Causing a backlash of Arcane power after 5 sec"
+		"DOTA_Tooltip_modifier_arcane_curse_debuff_stack_Description"                                   "Deal damage based on stacks when removed"
 
 		"DOTA_Tooltip_ability_boss_arcane_curse_explode_datadriven"                                     "ARCANE RESONANCE"
 		"DOTA_Tooltip_ability_boss_arcane_curse_explode_datadriven_Description"                         "Remove all the arcane curse from all enemy units and cuase backlash explosion immediately"
@@ -1204,8 +1207,12 @@
 		"affixes_silence"                                                                "Mutability  "
 		"affixes_falling_rock"                                                           "Rocking  "
 		"affixes_spike"                                                                  "Spike  "
-		"affixes_fragile"                                                                "Fragile  "
+		"affixes_silver"                                                                 "Silver  "
         "affixes_dilation"                                                               "Dilation  "
+        "affixes_laser"                                                                  "Laser  "
+
+        "DOTA_Tooltip_ability_affixes_ability_tooltip_laser"					        "Laser"
+        "DOTA_Tooltip_ability_affixes_ability_tooltip_laser_Description"		        "Random laser turrent."
 
 
         "DOTA_Tooltip_ability_affixes_ability_tooltip_dilation"					        "Time Dilation"
@@ -2308,7 +2315,7 @@
 		"DOTA_Tooltip_ability_item_blink_5_Note0"									"Self-casting will cause you to teleport in the direction of your team's fountain."
 		"DOTA_Tooltip_ability_item_blink_5_Note1"								    "If you used Blink to teleport to a distance over the maximum range, you'll be teleported 4/5 of the maximum range instead."
          
-        "game_branch_random"                                                      "RANDOM(+35%Bonus)"
+        "game_branch_random"                                                      "RANDOM(+40%Bonus)"
 
         "skywrath_short_title"                                                     "SKYWRATH MAGE"
         "phoenix_short_title"                                                      "PHEONIX"
@@ -2360,7 +2367,7 @@
         "npc_dota_creature_lycan_boss"	                                 "Lucius Longclaw"
 
          "DOTA_Tooltip_modifier_random_exp_bonus"                         "Exp Boost"
-         "DOTA_Tooltip_modifier_random_exp_bonus_Description"             "In random round, gain 25%% exp boost rate,25%% item loot rate."
+         "DOTA_Tooltip_modifier_random_exp_bonus_Description"             "In random round, gain extra 40%% gold and experience."
          "DOTA_Tooltip_modifier_werewolf_howl_aura_effect"                "Werewolf Howl"
 
          "npc_dota_creature_werewolf"	                                  "Longclaw Skinchanger"
@@ -2424,5 +2431,7 @@
          "npc_dota_creature_venom_2"				                           "Venom"
          "npc_dota_creature_venom_3"				                           "Venom"
          "DOTA_Tooltip_Ability_creature_venom_poison_nova"                     "Poison Nova"
+
+         "npc_dota_creature_affixes_laser_turret"                              "Laser Turret"         
 	}
 }

@@ -14,7 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
-testMode=true --减少刷兵间隔，增加初始金钱
+--testMode=true --减少刷兵间隔，增加初始金钱
 goldTestMode=false
 --goldTestMode=true --需要测试金币相关的内容
 
@@ -198,6 +198,7 @@ function CHoldoutGameMode:InitGameMode()
 	ListenToGameEvent( "game_rules_state_change", Dynamic_Wrap( CHoldoutGameMode, "OnGameRulesStateChange" ), self )
 	ListenToGameEvent( "dota_item_picked_up", Dynamic_Wrap( CHoldoutGameMode, "OnItemPickUp"), self )
 	ListenToGameEvent( "dota_player_gained_level", Dynamic_Wrap(CHoldoutGameMode, "OnHeroLevelUp"), self)
+	ListenToGameEvent( "dota_player_learned_ability", Dynamic_Wrap(CHoldoutGameMode, "OnHeroLearnAbility"), self)
 	ListenToGameEvent( "dota_item_purchased", Dynamic_Wrap(CHoldoutGameMode, "OnItemPurchased"), self)
 	ListenToGameEvent( "dota_player_pick_hero", Dynamic_Wrap(CHoldoutGameMode, "OnPlayerPickHero"), self)
 	--监听玩家打字
@@ -331,6 +332,20 @@ function CHoldoutGameMode:OnHeroLevelUp(keys)
   end
   CustomGameEventManager:Send_ServerToPlayer(player,"UpdateAbilityList", {heroName=false,playerId=_playerId})
 end
+
+--学习技能后刷新UI面板
+function CHoldoutGameMode:OnHeroLearnAbility(keys)
+
+  local player = PlayerInstanceFromIndex( keys.player )
+  local hero = player:GetAssignedHero()
+  local level = hero:GetLevel()
+  local playerId=hero:GetPlayerID()
+  CustomGameEventManager:Send_ServerToPlayer(player,"UpdateAbilityList", {heroName=false,playerId=playerId})
+
+end
+
+
+
 
 function CHoldoutGameMode:OnItemPurchased(keys) 
   --DeepPrint(keys)
@@ -653,7 +668,7 @@ function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正  --测
 			 end
 	     elseif self.last_live<0 then
 	         return
-	     else
+	else
 	       	 Notifications:BottomToAll( {text="#round_fail", duration=3, style={color="Fuchsia"}})
              Notifications:BottomToAll( {text=tostring(self.last_live), duration=3, style={color="Red"}, continue=true})
              Notifications:BottomToAll( {text="#chance_left", duration=3, style={color="Fuchsia"}, continue=true})
@@ -1068,7 +1083,10 @@ function CHoldoutGameMode:RoundEnd()
             Timers:CreateTimer({  --设置定时器 xx秒以后 下一轮准备时间开始
 			    endTime = 10,
 			    callback = function()
-			      PrepTimeBegin()  --开始下一关的准备倒计时
+			      --确定分支选择
+			      SettleBranchIndex()  
+			      --开始下一关的准备倒计时
+			      GameRules:GetGameModeEntity().CHoldoutGameMode._flPrepTimeEnd = GameRules:GetGameTime() + GameRules:GetGameModeEntity().CHoldoutGameMode._flPrepTimeBetweenRounds
 			end})	
 
         else   --如果没有多余分支，下一关分支编号为1
@@ -1083,7 +1101,7 @@ function CHoldoutGameMode:RoundEnd()
 end
 
 
-function PrepTimeBegin() --开始下一关的准备倒计时
+function SettleBranchIndex() --确定分支选择
      
 
     local branchMap={}  --key是分支编号 --value是分支选择人数
@@ -1091,7 +1109,6 @@ function PrepTimeBegin() --开始下一关的准备倒计时
     local vRounds = GameRules:GetGameModeEntity().CHoldoutGameMode._vRounds
     local roundNumber = GameRules:GetGameModeEntity().CHoldoutGameMode._nRoundNumber
     local vSelectionData = GameRules:GetGameModeEntity().CHoldoutGameMode.vSelectionData
-    local flPrepTimeBetweenRounds = GameRules:GetGameModeEntity().CHoldoutGameMode._flPrepTimeBetweenRounds
 
     local branchIndex=0 --下一关的分支号码,默认随机
 
@@ -1122,14 +1139,15 @@ function PrepTimeBegin() --开始下一关的准备倒计时
                 ability:ApplyDataDrivenModifier(hero, hero, "modifier_random_exp_bonus", {})
 			end
        	end
-       	vRounds[roundNumber][branchIndex]._nItemDropNum=vRounds[roundNumber][branchIndex]._nItemDropNum*1.35 --调整物品掉率至1.35倍
+       	vRounds[roundNumber][branchIndex]._nItemDropNum=vRounds[roundNumber][branchIndex]._nItemDropNum*fRandomRoundBonus --随机关卡调整物品掉率
+       	vRounds[roundNumber][branchIndex]._nFixedXP=vRounds[roundNumber][branchIndex]._nFixedXP*fRandomRoundBonus --随机关卡调整经验
+
        	GameRules:GetGameModeEntity().CHoldoutGameMode.bRandomRound=true --本轮随机
     else
     	GameRules:GetGameModeEntity().CHoldoutGameMode.bRandomRound=false 
     end
 
     GameRules:GetGameModeEntity().CHoldoutGameMode._nBranchIndex = branchIndex --记录下一关的分支编号
-	GameRules:GetGameModeEntity().CHoldoutGameMode._flPrepTimeEnd = GameRules:GetGameTime() + flPrepTimeBetweenRounds
 end
 
 
@@ -1280,7 +1298,10 @@ function CHoldoutGameMode:TestRound(roundNumber, delay)
             Timers:CreateTimer({  --设置定时器 xx秒以后 下一轮准备时间开始
 			    endTime = 8,
 			    callback = function()
-			      PrepTimeBegin()  --开始下一关的准备倒计时
+			      SettleBranchIndex()
+			      --开始下一关的准备倒计时
+			      GameRules:GetGameModeEntity().CHoldoutGameMode._flPrepTimeEnd = GameRules:GetGameTime() + GameRules:GetGameModeEntity().CHoldoutGameMode._flPrepTimeBetweenRounds
+
 			end})	
 
     else
