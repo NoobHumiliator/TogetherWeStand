@@ -27467,4 +27467,75 @@
 		}
 	}
 
+	"creature_bandit_archer_arrow"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/round_1_2/bandit_archer_arrow"
+        "AbilityTextureName"            "mirana_arrow"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "MaxLevel"                      "1"
+
+        "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
+
+        "IsOnCastBar"                   "0"
+        
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "1500"
+        "AbilityCastPoint"              "1.2" // "1.334"
+        "AnimationPlaybackRate"         "0.7"
+        "AnimationIgnoresModelScale"    "1"
+
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "4"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "attack_speed"              "700"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "attack_width_initial"      "100"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "attack_width_end"          "100"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "attack_distance"           "1500"
+            }
+            "05"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "attack_damage"             "600"
+            }
+            "06"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "duration"                  "3.0"
+            }
+        }
+    }
+
 } //主括号
