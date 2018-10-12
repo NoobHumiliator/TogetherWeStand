@@ -16423,7 +16423,7 @@
 	"npc_dota_creature_bandit_captain"
 	{
 		// Script
-		"vscripts"					"units/ai/ai_bandit_captain.lua"
+		"vscripts"					"creature_ai/round_1_2/creature_bandit_captain_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -16436,7 +16436,7 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"phantom_assassin_stifling_dagger_nb2017"
+		"Ability1"					"creature_bandit_stifling_dagger"
 		"Ability2"					"creature_blink_strike"
 		"Ability3"					""
 		"Ability4"					""
