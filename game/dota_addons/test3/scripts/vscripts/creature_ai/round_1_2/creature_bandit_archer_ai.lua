@@ -9,7 +9,7 @@ function Spawn( entityKeyValues )
 		return
 	end
 
-	thisEntity.hArrowAbility = thisEntity:FindAbilityByName( "bandit_archer_arrow" )
+	thisEntity.hArrowAbility = thisEntity:FindAbilityByName( "creature_bandit_archer_arrow" )
 
 	thisEntity:SetContextThink( "BanditArcherThink", BanditArcherThink, 0.5 )
 end

@@ -25058,7 +25058,7 @@
         // Time     
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "30"
-        "AbilityDuration"               "13"
+        "AbilityDuration"               "10"
     
         // Cost
         //-------------------------------------------------------------------------------------------------------------
@@ -25085,7 +25085,7 @@
             "03"
             {
                 "var_type"          "FIELD_INTEGER"
-                "bonus_damage"      "35"
+                "bonus_damage"      "25"
             }
             "04"
             {
@@ -27472,7 +27472,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/round_1_2/bandit_archer_arrow"
+        "ScriptFile"                    "creature_ability/round_1_2/creature_bandit_archer_arrow"
         "AbilityTextureName"            "mirana_arrow"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
@@ -27484,7 +27484,6 @@
 
         "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
 
-        "IsOnCastBar"                   "0"
         
         // Casting
         //-------------------------------------------------------------------------------------------------------------
@@ -27547,7 +27546,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "phantom_assassin_stifling_dagger"
-        "ScriptFile"                    "heroes/hero_phantom_assassin/phantom_assassin_stifling_dagger_nb2017"
+        "ScriptFile"                    "creature_ability/round_1_2/creature_bandit_stifling_dagger"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -27558,12 +27557,10 @@
         
         // Casting
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastRange"              "10000"
+        "AbilityCastRange"              "800"
         "AbilityCastPoint"              "0.4"
         "AbilityChannelTime"            "0.9"
 
-        "IsOnCastBar"                   "0"
-        
         // Time     
         //-------------------------------------------------------------------------------------------------------------
         "AbilityDuration"               "4"
@@ -27670,7 +27667,7 @@
             "02"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "bonus_damage"              "300"
+                "bonus_damage"              "50"
             }
         }
     }

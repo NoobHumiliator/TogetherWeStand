@@ -1,15 +1,15 @@
 
-bandit_archer_arrow = class({})
+creature_bandit_archer_arrow = class({})
 
 --------------------------------------------------------------------------------
 
-function bandit_archer_arrow:ProcsMagicStick()
+function creature_bandit_archer_arrow:ProcsMagicStick()
 	return false
 end
 
 --------------------------------------------------------------------------------
 
-function bandit_archer_arrow:OnAbilityPhaseStart()
+function creature_bandit_archer_arrow:OnAbilityPhaseStart()
 	if IsServer() then
 		--[[
 		self.nPreviewFX = ParticleManager:CreateParticle( "particles/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
@@ -28,7 +28,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function bandit_archer_arrow:OnAbilityPhaseInterrupted()
+function creature_bandit_archer_arrow:OnAbilityPhaseInterrupted()
 	if IsServer() then
 		--ParticleManager:DestroyParticle( self.nPreviewFX, false )
 
@@ -39,14 +39,14 @@ end
 -----------------------------------------------------------------------------
 
 --[[
-function bandit_archer_arrow:GetPlaybackRateOverride()
+function creature_bandit_archer_arrow:GetPlaybackRateOverride()
 	return 0.75
 end
 ]]
 
 --------------------------------------------------------------------------------
 
-function bandit_archer_arrow:OnSpellStart()
+function creature_bandit_archer_arrow:OnSpellStart()
 	if IsServer() then
 		--ParticleManager:DestroyParticle( self.nPreviewFX, false )
 
@@ -73,7 +73,7 @@ function bandit_archer_arrow:OnSpellStart()
 		self.attack_speed = self.attack_speed * ( self.attack_distance / ( self.attack_distance - self.attack_width_initial ) )
 
 		local info = {
-			EffectName = "particles/dungeon_bandit_archer_crescent_arrow.vpcf",
+			EffectName = "particles/round_1_2/dungeon_bandit_archer_crescent_arrow.vpcf",
 			Ability = self,
 			vSpawnOrigin = self:GetCaster():GetOrigin(), 
 			fStartRadius = self.attack_width_initial,
@@ -93,7 +93,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function bandit_archer_arrow:OnProjectileHit( hTarget, vLocation )
+function creature_bandit_archer_arrow:OnProjectileHit( hTarget, vLocation )
 	if IsServer() then
 		if hTarget ~= nil and ( not hTarget:IsMagicImmune() ) and ( not hTarget:IsInvulnerable() ) then
 			local damage = {

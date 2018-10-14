@@ -14,7 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
---testMode=true --减少刷兵间隔，增加初始金钱
+testMode=true --减少刷兵间隔，增加初始金钱
 goldTestMode=false
 --goldTestMode=true --需要测试金币相关的内容
 
@@ -93,7 +93,7 @@ function CHoldoutGameMode:InitGameMode()
     LinkLuaModifier("modifier_increase_total_damage_lua", "abilities/modifier_increase_total_damage_lua", LUA_MODIFIER_MOTION_NONE )
 	Timers:start()
 	LootController:ReadConfigration() 
-	self.startflag=0 
+	self.bGameStarted=false 
 	self.loseflag=0 
 	self.last_live=5
 	self._nRoundNumber = 1
@@ -524,9 +524,11 @@ function CHoldoutGameMode:OnThink()
           end
 	   else
 	   	    self:AddHeroDifficultyModifier()
-			if self.startflag==0 then 
-			self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
-			self.startflag=1
+	   	    --如果第一关未开始
+			if  not self.bGameStarted  then
+                -- 第一关选择分支
+		        self:PlayerSelectBranch()
+			    self.bGameStarted=true
 		    end
 			self:_CheckForDefeat() --无影拳CD的特殊修正
 			self:_ThinkLootExpiry()
@@ -1062,43 +1064,51 @@ function CHoldoutGameMode:RoundEnd()
 	else
         --如果有分支，弹出分选择窗口
         if #self._vRounds[self._nRoundNumber]>1 then
-
-            local shortTitles={}
-            for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
-				if PlayerResource:IsValidPlayer( nPlayerID ) then
-					 self.vSelectionData[nPlayerID]=0 --默认选择分支0
-				end
-			end
-
-            for i=1,#self._vRounds[self._nRoundNumber] do
-            	--将配置文件中的标题传进参数
-            	table.insert(shortTitles, self._vRounds[self._nRoundNumber][i]._shortTitle)
-            end
-            --第一个参数是分支数目，第二个参数是分支的Short Title
-        	CustomGameEventManager:Send_ServerToAllClients( "ShowBranchSelection", {branchNumber=#self._vRounds[self._nRoundNumber],shortTitles=shortTitles} )
-
-        	--将玩家默认选择随机分支
-            CustomGameEventManager:Send_ServerToAllClients("SelectBranchReturn",{selectionData=self.vSelectionData})
-
-            Timers:CreateTimer({  --设置定时器 xx秒以后 下一轮准备时间开始
-			    endTime = 10,
-			    callback = function()
-			      --确定分支选择
-			      SettleBranchIndex()  
-			      --开始下一关的准备倒计时
-			      GameRules:GetGameModeEntity().CHoldoutGameMode._flPrepTimeEnd = GameRules:GetGameTime() + GameRules:GetGameModeEntity().CHoldoutGameMode._flPrepTimeBetweenRounds
-			end})	
-
+            self:PlayerSelectBranch() --玩家选择分支
         else   --如果没有多余分支，下一关分支编号为1
-
            GameRules:GetGameModeEntity().CHoldoutGameMode.bRandomRound=false --本轮非随机
            self._nBranchIndex=1
            self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
-
         end
 
 	end
 end
+
+
+function CHoldoutGameMode:PlayerSelectBranch()
+
+        local shortTitles={}
+        for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
+			if PlayerResource:IsValidPlayer( nPlayerID ) then
+				 self.vSelectionData[nPlayerID]=0 --默认选择分支0
+			end
+		end
+
+        for i=1,#self._vRounds[self._nRoundNumber] do
+        	--将配置文件中的标题传进参数
+        	table.insert(shortTitles, self._vRounds[self._nRoundNumber][i]._shortTitle)
+        end
+        --第一个参数是分支数目，第二个参数是分支的Short Title
+    	CustomGameEventManager:Send_ServerToAllClients( "ShowBranchSelection", {branchNumber=#self._vRounds[self._nRoundNumber],shortTitles=shortTitles} )
+
+    	--将玩家默认选择随机分支
+        CustomGameEventManager:Send_ServerToAllClients("SelectBranchReturn",{selectionData=self.vSelectionData})
+
+        Timers:CreateTimer({  --设置定时器 xx秒以后 下一轮准备时间开始
+		    endTime = 10,
+		    callback = function()
+		      --确定分支选择
+		      SettleBranchIndex()  
+		      --开始下一关的准备倒计时
+		      GameRules:GetGameModeEntity().CHoldoutGameMode._flPrepTimeEnd = GameRules:GetGameTime() + GameRules:GetGameModeEntity().CHoldoutGameMode._flPrepTimeBetweenRounds
+		end})	
+end
+
+
+
+
+
+
 
 
 function SettleBranchIndex() --确定分支选择
@@ -1172,7 +1182,7 @@ function CHoldoutGameMode:OnEntityKilled( event )
 	if killedUnit and killedUnit:IsRealHero() then
 		killedUnit.heal_absorb=nil
 		killedUnit:RemoveModifierByName("modifier_overflow_stack") --死亡移除溢出效果
-		if self._currentRound  and  self._currentRound._alias=="skeleton"  and self._currentRound.achievement_flag then
+		if self._currentRound  and  (self._currentRound._alias=="skeleton" or self._currentRound._alias=="bandit") and self._currentRound.achievement_flag then
 		     local playername=PlayerResource:GetPlayerName(killedUnit:GetPlayerOwnerID())
 		     local hero_name=PlayerResource:GetSelectedHeroName(killedUnit:GetPlayerOwnerID())  
 		     Notifications:BottomToAll({hero = hero_name, duration = 4})

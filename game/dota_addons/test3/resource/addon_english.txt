@@ -333,9 +333,10 @@
 		"DOTA_Holdout_Round_StayFrosty_Quest_Title"		"Round %quest_round%%quest_extra_text% Invaders Defeated"
 		"DOTA_Holdout_Round_BossParty_Quest_Title"		"Round %quest_round%%quest_extra_text% Invaders Defeated"
 
-		"DOTA_Holdout_Round_Kobolds_Title"				"Every Adventure Love Skeleton!"
+		"DOTA_Holdout_Round_Kobolds_Title"				"Every Adventure Have Skeleton"
+        "DOTA_Holdout_Round_Bandit"			        	"The Road to Kalabor"
 		"DOTA_Holdout_Round_Zombies_Title"				"Scourge"
-		"DOTA_Holdout_Round_Skywrath_Title"				"Mortals have no place amidst the clouds"
+		"DOTA_Holdout_Round_Skywrath_Title"				"Mortals Have No Place Amidst The Clouds"
 		"DOTA_Holdout_Round_Fire_Blood_Title"           "Blood and Fire"
 		"DOTA_Holdout_Round_Slithereen_Title"			"Current"
 		"DOTA_Holdout_Round_Broodking_Title"			"I Lost Count" 
@@ -2432,6 +2433,12 @@
          "npc_dota_creature_venom_3"				                           "Venom"
          "DOTA_Tooltip_Ability_creature_venom_poison_nova"                     "Poison Nova"
 
-         "npc_dota_creature_affixes_laser_turret"                              "Laser Turret"         
+         "npc_dota_creature_affixes_laser_turret"                              "Laser Turret"
+         "bandit_short_title"                                                  "Bandit"
+         "skeleton_short_title"                                                "Skeleton"
+
+         "npc_dota_creature_bandit"                                            "Bandit"
+         "npc_dota_creature_bandit_archer"                                     "Bandit Archer"
+         "npc_dota_creature_bandit_captain"                                    "Bandit Captain"
 	}
 }

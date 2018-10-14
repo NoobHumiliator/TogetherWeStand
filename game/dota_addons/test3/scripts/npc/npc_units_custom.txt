@@ -294,9 +294,9 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"24"		// Experience earn.
-		"BountyGoldMin"				"21"		// Gold earned min.
-		"BountyGoldMax"				"29"		// Gold earned max.
+		"BountyXP"					"0"		    // Experience earn.
+		"BountyGoldMin"				"10"		// Gold earned min.
+		"BountyGoldMax"				"10"		// Gold earned max.
 
 		// Movement
 		//----------------------------------------------------------------
@@ -412,9 +412,9 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"32"		// Experience earn.
-		"BountyGoldMin"				"0"			// Gold earned min.
-		"BountyGoldMax"				"0"			// Gold earned max.
+		"BountyXP"					"0"		// Experience earn.
+		"BountyGoldMin"				"10"			// Gold earned min.
+		"BountyGoldMax"				"10"			// Gold earned max.
 
 		// Movement
 		//----------------------------------------------------------------
@@ -14544,8 +14544,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"45"
-		"AttackDamageMax"			"55"
+		"AttackDamageMin"			"25"
+		"AttackDamageMax"			"35"
 		"AttackRate"				"1.35"
 		"AttackAnimationPoint"		"0.33"
 		"AttackAcquisitionRange"	"600"
@@ -14619,8 +14619,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"39"
-		"AttackDamageMax"			"44"
+		"AttackDamageMin"			"20"
+		"AttackDamageMax"			"32"
 		"AttackRate"				"1.5"
 		"AttackAnimationPoint"		"0.3"
 		"AttackAcquisitionRange"	"500"
@@ -14692,8 +14692,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"30"
-		"AttackDamageMax"			"40"
+		"AttackDamageMin"			"25"
+		"AttackDamageMax"			"36"
 		"AttackRate"				"1.55"
 		"AttackAnimationPoint"		"0.3"
 		"AttackAcquisitionRange"	"500"
@@ -16448,8 +16448,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"420"
-		"AttackDamageMax"			"450"
+		"AttackDamageMin"			"42"
+		"AttackDamageMax"			"45"
 		"AttackRate"				"1.0"
 		"AttackAnimationPoint"		"0.3"
 		"AttackAcquisitionRange"	"750"
@@ -16466,7 +16466,7 @@
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"200"
-		"BountyGoldMin"				"130"
+		"BountyGoldMin"				"150"
 		"BountyGoldMax"				"150"
 
 		// Movement
@@ -16476,8 +16476,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2200"
-		"StatusHealthRegen"			"10"
+		"StatusHealth"				"1200"
+		"StatusHealthRegen"			"3"
 		"StatusMana"				"1500"
 		"StatusManaRegen"			"20"
 		
@@ -16548,8 +16548,8 @@
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"200"
-		"BountyGoldMin"				"130"
-		"BountyGoldMax"				"150"
+		"BountyGoldMin"				"40"
+		"BountyGoldMax"				"40"
 
 		// Movement
 		//----------------------------------------------------------------
@@ -16558,7 +16558,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"
+		"StatusHealth"				"280"
 		"StatusHealthRegen"			"6"
 		"StatusMana"				"1500"
 		"StatusManaRegen"			"20"
@@ -16611,8 +16611,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"240"
-		"AttackDamageMax"			"270"
+		"AttackDamageMin"			"15"
+		"AttackDamageMax"			"20"
 		"AttackRate"				"1.2"
 		"AttackAnimationPoint"		"0.3"
 		"AttackAcquisitionRange"	"750"
@@ -16628,9 +16628,9 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"110"
-		"BountyGoldMin"				"60"
-		"BountyGoldMax"				"70"
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
 
 		// Movement
 		//----------------------------------------------------------------
@@ -16639,8 +16639,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1000"
-		"StatusHealthRegen"			"5"
+		"StatusHealth"				"150"
+		"StatusHealthRegen"			"2"
 		"StatusMana"				"1000"
 		"StatusManaRegen"			"10"
 		

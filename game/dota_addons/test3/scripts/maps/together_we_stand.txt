@@ -101,16 +101,17 @@
 		}
 	}
 	
-	"Round1-1" // Kobolds
+    "Round1-1" // Kobolds
 	{
 		"round_quest_title"			"#TWS_Round_Skeleton_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Kobolds_Title"
 		"MaxGold"					"1900"
 		"BagCount"					"70"
 		"BagVariance"			    "30"
-		"FixedXP"					"10400"
+		"FixedXP"					"8000"
+		"ShortTitle"                "#skeleton_short_title"
 		"alias"                     "skeleton"
-		"ExpectedGold"              "2900"      
+		"ExpectedGold"              "2900"     
 		
 		// Stage 1 ================================================
 		"UnitFodder_1a" // Duration 80s - Continues with UnitFodderGrouped_2a & 3a to 120s total
@@ -249,6 +250,145 @@
 			"UnitsPerSpawn"			"1"
 		}		
 	}
+
+	"Round1-2" // Bandits
+	{
+	    //两关成就相同
+		"round_quest_title"			"#TWS_Round_Skeleton_Quest_Title"
+		"round_title"				"#DOTA_Holdout_Round_Bandit"
+		"MaxGold"					"1900"
+		"BagCount"					"70"
+		"BagVariance"			    "30"
+		"FixedXP"					"8000"
+		"ShortTitle"                "#bandit_short_title"
+		"alias"                     "bandit"
+		"ExpectedGold"              "2900"      
+		
+		// Stage 1 ================================================
+		"UnitBandit_1a" // Duration 80s
+		{
+			"NPCName"				"npc_dota_creature_bandit"
+			"TotalUnitsToSpawn"		"64"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"10"
+		}
+		
+		"UnitBandit_1b" // Duration 80s
+		{
+			"NPCName"				"npc_dota_creature_bandit"
+			"TotalUnitsToSpawn"		"64"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"10"
+		}
+		
+		"UnitBandit_1c" // Duration 90s + 30s
+		{
+			"WaitForTime"			"30"
+			"NPCName"				"npc_dota_creature_bandit"
+			"TotalUnitsToSpawn"		"45"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"10"
+		}
+		
+		"UnitRanged_1a" // Duration 60s + 30s
+		{
+			"WaitForTime"			"30"
+			"NPCName"				"npc_dota_creature_bandit_archer"
+			"TotalUnitsToSpawn"		"20"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+		
+		"UnitRanged_1b" // Duration 60s + 30s
+		{
+			"WaitForTime"			"30"
+			"NPCName"				"npc_dota_creature_bandit_archer"
+			"TotalUnitsToSpawn"		"20"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"15"
+		}
+		
+		// Stage 2 ================================================
+		"UnitBanditGrouped_2a" // Duration 20s
+		{
+			"WaitForUnit"			"UnitBandit_1a"
+			"WaitForTime"			"12"
+			
+			"NPCName"				"npc_dota_creature_bandit"
+			"TotalUnitsToSpawn"		"16"
+			"UnitsPerSpawn"			"2"
+			"SpawnInterval"			"10"
+		}
+		
+		"UnitBanditGrouped_2b" // Duration 20s
+		{
+			"WaitForUnit"			"UnitBandit_1b"
+			"WaitForTime"			"12"
+			
+			"NPCName"				"npc_dota_creature_bandit"
+			"TotalUnitsToSpawn"		"16"
+			"UnitsPerSpawn"			"8"
+			"SpawnInterval"			"10"
+		}
+		
+		"UnitCaption_2a"
+		{
+			"GroupWithUnit"			"UnitBanditGrouped_2a"
+			
+			"NPCName"				"npc_dota_creature_bandit_captain"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		
+		"UnitCaption_2b"
+		{
+			"GroupWithUnit"			"UnitBanditGrouped_2b"		
+			"NPCName"				"npc_dota_creature_bandit_captain"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		
+		
+		// Stage 3 ================================================
+		"UnitBanditGrouped_3a" // Duration 20s
+		{
+			"WaitForUnit"			"UnitBanditGrouped_2a"
+			"WaitForTime"			"10"
+			
+			"NPCName"				"npc_dota_creature_bandit"
+			"TotalUnitsToSpawn"		"16"
+			"UnitsPerSpawn"			"8"
+			"SpawnInterval"			"10"
+		}
+		
+		"UnitBanditGrouped_3b" // Duration 20s
+		{
+			"WaitForUnit"			"UnitBanditGrouped_2b"
+			"WaitForTime"			"10"
+			
+			"NPCName"				"npc_dota_creature_bandit"
+			"TotalUnitsToSpawn"		"16"
+			"UnitsPerSpawn"			"8"
+			"SpawnInterval"			"10"
+		}
+		
+		"UnitCaption_3a"
+		{
+			"GroupWithUnit"			"UnitBanditGrouped_3a"
+			
+			"NPCName"				"npc_dota_creature_bandit_captain"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+		
+		"UnitCaption_3b"
+		{
+			"GroupWithUnit"			"UnitBanditGrouped_3b"			
+			"NPCName"				"npc_dota_creature_bandit_captain"
+			"TotalUnitsToSpawn"		"3"
+			"UnitsPerSpawn"			"3"
+		}		
+	}
 	
 	"Round2-1" // Undead
 	{
@@ -262,7 +402,7 @@
 		"ShortTitle"                "#scourge_short_title"
 		"ExpectedGold"              "2950"
 		
-		// Stage 1 ================================================ 36Ãë
+		// Stage 1
 		"UnitSpider"
 		{
 			"NPCName"	       "npc_dota_creature_basic_spider"
@@ -279,7 +419,7 @@
 			"UnitsPerSpawn"			"1"
 		}
 
-		// Stage 2 ================================================µÚ¶þ²¨±ù¼×Ö©Öë
+		// Stage 2 
 		"UnitSpider_2"
 		{        
 			"WaitForUnit"			"UnitSpider"
