@@ -16678,10 +16678,10 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"centaur_warlord_hoof_stomp"
-		"Ability2"					"centaur_warlord_double_edge"
-		"Ability3"					"centaur_warlord_return"
-		"Ability4"					"centaur_warlord_stampede" // replace with Rage?
+		"Ability1"					"creature_centaur_warlord_hoof_stomp"
+		"Ability2"					"creature_centaur_warlord_double_edge"
+		"Ability3"					"creature_centaur_warlord_return"
+		"Ability4"					""
 
 		// Armor
 		//----------------------------------------------------------------

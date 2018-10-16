@@ -12,9 +12,9 @@ function Spawn( entityKeyValues )
 		return
 	end
 
-	thisEntity.hHoofStompAbility = thisEntity:FindAbilityByName( "centaur_warlord_hoof_stomp" )
-	thisEntity.hDoubleEdgeAbility = thisEntity:FindAbilityByName( "centaur_warlord_double_edge" )
-	thisEntity.hStampedeAbility = thisEntity:FindAbilityByName( "centaur_warlord_stampede" )
+	thisEntity.hHoofStompAbility = thisEntity:FindAbilityByName( "creature_centaur_warlord_hoof_stomp" )
+	thisEntity.hDoubleEdgeAbility = thisEntity:FindAbilityByName( "creature_centaur_warlord_double_edge" )
+	thisEntity.hStampedeAbility = thisEntity:FindAbilityByName( "creature_centaur_warlord_stampede" )
 
 	thisEntity:SetContextThink( "CentaurWarlordThink", CentaurWarlordThink, 0.5 )
 end
@@ -40,46 +40,28 @@ function CentaurWarlordThink()
 		return 0.5
 	end
 
-	local hEnemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
-	if #hEnemies == 0 then
-		return 0.5
-	end
-
-	-- @fixme: need to check if we have an enemy within 550 radius
-	if thisEntity.hHoofStompAbility ~= nil and thisEntity.hHoofStompAbility:IsFullyCastable() then
-		if ( thisEntity:GetHealthPercent() < 80 ) then
-			return CastHoofStomp()
+	local hEnemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 550, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
+	if #hEnemies > 0 then
+		-- @fixme: need to check if we have an enemy within 550 radius
+		if thisEntity.hHoofStompAbility ~= nil and thisEntity.hHoofStompAbility:IsFullyCastable() then
+			if ( thisEntity:GetHealthPercent() < 80 ) then
+				return CastHoofStomp()
+			end
 		end
-	end
 
-	if thisEntity.hDoubleEdgeAbility ~= nil and thisEntity.hDoubleEdgeAbility:IsFullyCastable() then
-		return CastDoubleEdge( hEnemies[ RandomInt( 1, #hEnemies ) ] )
-	end
-
-	--[[
-	if thisEntity.hStampedeAbility ~= nil and thisEntity.hStampedeAbility:IsFullyCastable() then
-		if ( thisEntity:GetHealthPercent() < 50 ) then
-			return CastStampede()
+		if thisEntity.hDoubleEdgeAbility ~= nil and thisEntity.hDoubleEdgeAbility:IsFullyCastable() then
+			return CastDoubleEdge( hEnemies[ RandomInt( 1, #hEnemies ) ] )
 		end
-	end
-	]]
-
-	--[[
-	local hAggroTarget = thisEntity:GetAggroTarget()
-	local fDistToAggroTarget = nil
-	if hAggroTarget then
-		fDistToAggroTarget = ( hAggroTarget:GetOrigin() - thisEntity:GetOrigin() ):Length2D()
-	end
-	]]
-
-	-- Blademail
-	if ( #hEnemies >= 1 ) and thisEntity.hBlademailAbility and thisEntity.hBlademailAbility:IsFullyCastable() then
-		if ( thisEntity:GetHealthPercent() < 75 ) then
-			return UseBlademail()
+		-- Blademail
+		if ( #hEnemies >= 1 ) and thisEntity.hBlademailAbility and thisEntity.hBlademailAbility:IsFullyCastable() then
+			if ( thisEntity:GetHealthPercent() < 65 ) then
+				return UseBlademail()
+			end
 		end
+	else
+         return AttackNearestEnemy()
 	end
 
-	return 0.5
 end
 
 --------------------------------------------------------------------------------
@@ -146,3 +128,32 @@ end
 
 --------------------------------------------------------------------------------
 
+function AttackNearestEnemy()  --攻击最近的目标
+
+	local target
+	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+	if #allEnemies > 0 then
+		local minDistance = 10000000
+		for _,enemy in pairs(allEnemies) do
+			local distance = ( thisEntity:GetOrigin() - enemy:GetOrigin() ):Length()
+			if distance < minDistance then
+			  minDistance=distance
+              target=enemy
+			end
+		end
+	end
+
+    if target~=nil and not thisEntity:IsAttacking() then  --避免打断攻击动作
+
+		ExecuteOrderFromTable({
+			UnitIndex = thisEntity:entindex(),
+			OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+			Position = target:GetOrigin()
+		})
+
+    end
+
+	local fFuzz = RandomFloat( -0.1, 0.1 ) -- Adds some timing separation to these magi
+	return 0.5 + fFuzz
+end
+--------------------------------------------------------------------------------

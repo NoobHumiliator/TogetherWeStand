@@ -12,7 +12,7 @@ function Spawn( entityKeyValues )
 		return
 	end
 
-	thisEntity.hDoubleEdgeAbility = thisEntity:FindAbilityByName( "centaur_dunerunner_double_edge" )
+	thisEntity.hDoubleEdgeAbility = thisEntity:FindAbilityByName( "creature_centaur_dunerunner_double_edge" )
 	thisEntity.hEarthbindAbility = thisEntity:FindAbilityByName( "dunerunner_earthbind" )
 
 	thisEntity:SetContextThink( "CentaurDunerunnerThink", CentaurDunerunnerThink, 0.5 )
