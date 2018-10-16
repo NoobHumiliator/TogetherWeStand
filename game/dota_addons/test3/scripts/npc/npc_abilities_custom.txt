@@ -27788,5 +27788,89 @@
             }
         }
     }
+     "creature_centaur_warlord_return"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "centaur_return"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
+
+        "IsOnCastBar"                   "0"
+        
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "return_damage"             "25"
+            }
+            "02"
+            {
+                "var_type"                      "FIELD_INTEGER"
+                "strength_pct"                  "50"
+                "CalculateSpellDamageTooltip"   "1"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "aura_radius"               "900"
+            }
+        }
+    }
+
+    "creature_dunerunner_earthbind"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "meepo_earthbind"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
+        "FightRecapLevel"               "1"
+        "AbilitySound"                  "Hero_Meepo.Earthbind.Cast"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "800"
+        "AbilityCastPoint"              "0.3"
+        
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "8"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "30"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "duration"              "2.0"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "radius"                "220"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "speed"                 "500" // 857
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "tooltip_range"         "800"
+            }
+        }
+    }
 
 } //主括号

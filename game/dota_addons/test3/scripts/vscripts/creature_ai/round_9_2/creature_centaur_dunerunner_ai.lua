@@ -12,8 +12,7 @@ function Spawn( entityKeyValues )
 		return
 	end
 
-	thisEntity.hDoubleEdgeAbility = thisEntity:FindAbilityByName( "creature_centaur_dunerunner_double_edge" )
-	thisEntity.hEarthbindAbility = thisEntity:FindAbilityByName( "dunerunner_earthbind" )
+	thisEntity.hEarthbindAbility = thisEntity:FindAbilityByName( "creature_dunerunner_earthbind" )
 
 	thisEntity:SetContextThink( "CentaurDunerunnerThink", CentaurDunerunnerThink, 0.5 )
 end
@@ -34,43 +33,16 @@ function CentaurDunerunnerThink()
 	end
 
 	local hEnemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
-	if #hEnemies == 0 then
-		return 0.5
-	end
+	if #hEnemies > 0 then
 
-	-- @todo: Make Dunerunner either run away after netting or follow-up the net with some other move
-	if thisEntity.hEarthbindAbility ~= nil and thisEntity.hEarthbindAbility:IsFullyCastable() then
-		return CastEarthbind( hEnemies[ RandomInt( 1, #hEnemies ) ] )
-	end
-
-	--[[
-	local hAggroTarget = thisEntity:GetAggroTarget()
-	local fDistToAggroTarget = nil
-	if hAggroTarget then
-		fDistToAggroTarget = ( hAggroTarget:GetOrigin() - thisEntity:GetOrigin() ):Length2D()
-	end
-
-	if fDistToAggroTarget < 150 then
-		if thisEntity.hDoubleEdgeAbility ~= nil and thisEntity.hDoubleEdgeAbility:IsFullyCastable() then
-			return CastDoubleEdge( hAggroTarget )
+		if thisEntity.hEarthbindAbility ~= nil and thisEntity.hEarthbindAbility:IsFullyCastable() then
+			return CastEarthbind( hEnemies[ RandomInt( 1, #hEnemies ) ] )
 		end
+	else          
+         return AttackNearestEnemy()
 	end
-	]]
-
-	return 0.5
-end
-
---------------------------------------------------------------------------------
-
-function CastDoubleEdge( hTarget )
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-		TargetIndex = hTarget:entindex(),
-		AbilityIndex = thisEntity.hDoubleEdgeAbility:entindex(),
-		Queue = false,
-	})
-	return 2
+    
+    return 0.5
 end
 
 --------------------------------------------------------------------------------

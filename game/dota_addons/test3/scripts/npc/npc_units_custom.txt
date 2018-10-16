@@ -16661,7 +16661,7 @@
 
 	}
     
-
+    // Round 9-2
     "npc_dota_creature_centaur_warlord"
 	{
 		// Script
@@ -16790,5 +16790,255 @@
 			}
 		}
 	}
+    
+    // Round 9-2
+    "npc_dota_creature_centaur_scout"
+	{
+		// Script
+		"vscripts"			       "creature_ai/zombie_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/centaurs/centaur_001.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"10"
+		"ModelScale" 				"0.65"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					""
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"300"
+		"AttackDamageMax"			"330"
+		"AttackRate"				"1.2"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"750"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"45"
+		"HealthBarOffset"			"190"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"100"
+		"BountyGoldMin"				"90"
+		"BountyGoldMax"				"110"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"370"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1500"
+		"StatusHealthRegen"			"5"
+		"StatusMana"				"1000"
+		"StatusManaRegen"			"10"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"700"
+		"VisionNighttimeRange"		"700"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"PathfindingSearchDepthScale"		"0.1"
+
+		//Inventory
+		"HasInventory"				"1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			//Basic AI State
+			//-----------------------------------------------------------------
+			"DefaultState"			"Invade"
+			"States"
+			{
+				"Invade"
+				{
+					"Name"			"Invade"
+					"Aggression"	"50.0"
+					"Avoidance"		"0.0"
+					"Support"		"0.0"
+				}
+			}
+		}
+	}
+
+    // Round 9-2
+    "npc_dota_creature_centaur_dunerunner"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_9_2/creature_centaur_dunerunner_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/centaurs/centaur_002.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"15"
+		"ModelScale" 				"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"creature_dunerunner_earthbind"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"20"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"430"
+		"AttackDamageMax"			"480"
+		"AttackRate"				"1.2"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"750"
+		"AttackRange"				"110"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"65"
+		"HealthBarOffset"			"240"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"200"
+		"BountyGoldMin"				"190"
+		"BountyGoldMax"				"210"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"350"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2500"
+		"StatusHealthRegen"			"8"
+		"StatusMana"				"1000"
+		"StatusManaRegen"			"10"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"700"
+		"VisionNighttimeRange"		"700"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"PathfindingSearchDepthScale"		"0.1"
+
+		//Inventory
+		"HasInventory"				"1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			//Basic AI State
+			//-----------------------------------------------------------------
+			"DefaultState"			"Invade"
+			"States"
+			{
+				"Invade"
+				{
+					"Name"			"Invade"
+					"Aggression"	"50.0"
+					"Avoidance"		"0.0"
+					"Support"		"0.0"
+				}
+			}
+
+			"ItemDrops"
+			{
+				"Consumables"
+				{
+					"Item"
+					{
+						"1"  			"item_health_potion"
+						"2"				"item_health_potion"
+						"3"				"item_mana_potion"
+						"4"				"item_mana_potion"
+					}
+					"Chance"			"12"
+				}
+				"StatTomes"
+				{
+					"Item"
+					{
+						"1"  			"item_book_of_strength"
+						"2"				"item_book_of_agility"
+						"3"				"item_book_of_intelligence"
+					}
+					"Chance"			"1"
+				}
+				"Trinkets"
+				{
+					"Item"
+					{
+						"1"				"item_shadow_amulet"
+					}
+					"Chance"			"1"
+				}
+			}
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"6958" 
+				}
+				"Wearable1"
+				{
+					"ItemDef"			"8248" 
+				}	
+				"Wearable1"
+				{
+					"ItemDef"			"5080" 
+				}			
+				"Wearable1"
+				{
+					"ItemDef"			"6963" 
+				}							
+			}
+		}
+	}
+
 
 }  //主括号

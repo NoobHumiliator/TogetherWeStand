@@ -58,6 +58,7 @@ function CentaurWarlordThink()
 				return UseBlademail()
 			end
 		end
+		return 0.5
 	else
          return AttackNearestEnemy()
 	end
