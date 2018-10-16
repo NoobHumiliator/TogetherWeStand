@@ -68,4 +68,32 @@ function CastEarthbind( hEnemy )
 end
 
 --------------------------------------------------------------------------------
+function AttackNearestEnemy()  --攻击最近的目标
+
+	local target
+	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+	if #allEnemies > 0 then
+		local minDistance = 10000000
+		for _,enemy in pairs(allEnemies) do
+			local distance = ( thisEntity:GetOrigin() - enemy:GetOrigin() ):Length()
+			if distance < minDistance then
+			  minDistance=distance
+              target=enemy
+			end
+		end
+	end
+
+    if target~=nil and not thisEntity:IsAttacking() then  --避免打断攻击动作
+
+		ExecuteOrderFromTable({
+			UnitIndex = thisEntity:entindex(),
+			OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+			Position = target:GetOrigin()
+		})
+
+    end
+
+	local fFuzz = RandomFloat( -0.1, 0.1 ) -- Adds some timing separation to these magi
+	return 0.5 + fFuzz
+end
 

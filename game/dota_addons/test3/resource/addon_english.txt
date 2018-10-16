@@ -2448,5 +2448,8 @@
          "DOTA_Tooltip_Ability_creature_bandit_stifling_dagger"                 "Stifling Dagger"
          "DOTA_Tooltip_Ability_creature_bandit_stifling_dagger_Description"     "Throws a flurry of daggers at the area around the target point, each one hitting the first unit in its path. The daggers slow enemy movement speed, and deal physical damage"
 	     "DOTA_Holdout_Round_Kalabor_Waste"                                     "Kalabor Waste"
+
+	     "tiny_short_title"                                                     "Grow"
+	     "waste_short_title"                                                    "Kalabor"
 	} 
 }

@@ -16971,53 +16971,6 @@
 		//----------------------------------------------------------------
 		"Creature"
 		{
-			//Basic AI State
-			//-----------------------------------------------------------------
-			"DefaultState"			"Invade"
-			"States"
-			{
-				"Invade"
-				{
-					"Name"			"Invade"
-					"Aggression"	"50.0"
-					"Avoidance"		"0.0"
-					"Support"		"0.0"
-				}
-			}
-
-			"ItemDrops"
-			{
-				"Consumables"
-				{
-					"Item"
-					{
-						"1"  			"item_health_potion"
-						"2"				"item_health_potion"
-						"3"				"item_mana_potion"
-						"4"				"item_mana_potion"
-					}
-					"Chance"			"12"
-				}
-				"StatTomes"
-				{
-					"Item"
-					{
-						"1"  			"item_book_of_strength"
-						"2"				"item_book_of_agility"
-						"3"				"item_book_of_intelligence"
-					}
-					"Chance"			"1"
-				}
-				"Trinkets"
-				{
-					"Item"
-					{
-						"1"				"item_shadow_amulet"
-					}
-					"Chance"			"1"
-				}
-			}
-
 			"AttachWearables"
 			{
 				"Wearable1"
@@ -17040,5 +16993,346 @@
 		}
 	}
 
+    // Round 9-2
+    "npc_dota_creature_centaur_shaman"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_9_2/creature_centaur_shaman_ai.lua"
 
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/centaurs/centaur_003_shaman.vmdl"
+		"ModelScale" 				"0.9"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"18"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"creature_centaur_shaman_ranged_attack"
+		"Ability2"					"creature_centaur_shaman_shadow_word"
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"25"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackRate"				"0"
+		"AttackAnimationPoint"		"0"
+		"AttackAcquisitionRange"	"750"
+		"AttackRange"				"650"
+		"ProjectileModel"			"particles/units/heroes/hero_dazzle/dazzle_base_attack.vpcf"
+		"ProjectileSpeed"			"700"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"65"
+		"HealthBarOffset"			"290"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"200"
+		"BountyGoldMin"				"150"
+		"BountyGoldMax"				"170"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"350"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"5000"
+		"StatusHealthRegen"			"8"
+		"StatusMana"				"3000"
+		"StatusManaRegen"			"10"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		//Inventory
+		"HasInventory"				"1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+		
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"8757"
+				}
+
+			}
+		}
+	}
+
+    // Round 9-2
+	"creature_centaur_shaman_shadow_word"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "warlock_shadow_word"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_BOTH"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
+        "FightRecapLevel"               "1"
+        "AbilitySound"                  "Hero_Warlock.ShadowWordCastGood"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"              "0.5"
+
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "12"
+
+        // Damage.
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityDamage"                 "500"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"        
+        
+        // Cast Range
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "750"
+
+        // Stats
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportValue"   "0.0"   // Modifier just does damage/healing
+        
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "duration"                  "4.0"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "tick_interval"             "1.0"
+            }
+        }
+    }
+    
+	"npc_dota_creature_giant_burrower"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_9_2/creature_giant_burrower_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/nerubian_assassin/nerubian_assassin.vmdl"
+		"SoundSet"					"Hero_NyxAssassin"
+		"Level"						"25"
+		"ModelScale" 				"2.3"
+		"ConsideredHero"			"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"creature_giant_nyx_burrower_impale"
+		"Ability2"					"creature_giant_nyx_mana_burn"
+		"Ability3"					"nyx_assassin_spiked_carapace"
+		"Ability4"					"giant_burrower_minion_spawner"
+		"Ability5"					"giant_burrower_explosion"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"40"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"900"
+		"AttackDamageMax"			"1000"
+		"AttackRate"				"1.55"
+		"AttackAnimationPoint"		"0.46"
+		"AttackAcquisitionRange"	"1000"
+		"AttackRange"				"150"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"65"
+		"HealthBarOffset"			"260"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"450"
+		"BountyGoldMin"				"300"
+		"BountyGoldMax"				"350"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"300"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"15000"
+		"StatusHealthRegen"			"3"
+		"StatusMana"				"2800"
+		"StatusManaRegen"			"30"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1000"
+		"VisionNighttimeRange"		"1000"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		//Inventory
+		"HasInventory"				"1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+
+			"DisableResistance"			"100.0"
+
+			"EquippedItems"
+			{
+				"Aghanims"
+				{
+					"Item"				"item_ultimate_scepter"
+				}
+			}
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"4796" // weapon: Claws of the Hidden Hive
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"578" // misc: Nyx's Miscellaneous
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"4795" // head: Horn of the Hidden Hive
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"4797" // back: Shell of the Hidden Hive
+				}
+			}
+		}
+	}
+    
+    "npc_dota_creature_exploding_burrower"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_9_2/creature_exploding_burrower_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/nyx_swarm/nyx_swarm.vmdl"
+		"SoundSet"					"Hero_NyxAssassin"
+		"Level"						"5"
+		"ModelScale" 				"0.7"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"creature_burrower_explosion"
+		"Ability2"					""
+		"Ability3"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"50"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackRate"				"1.55"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"1000"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"25"
+		"HealthBarOffset"			"150"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"50"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"450"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"400"
+		"StatusHealthRegen"			"25"
+		"StatusMana"				"1000"
+		"StatusManaRegen"			"30"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"750"
+		"VisionNighttimeRange"		"750"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			
+			"DisableClumpingBehavior"	"1"
+		}
+	}
 }  //主括号

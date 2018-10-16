@@ -1,8 +1,3 @@
-
---[[ units/ai/ai_centaur_shaman.lua ]]
-
---------------------------------------------------------------------------------
-
 function Spawn( entityKeyValues )
 	if not IsServer() then
 		return
@@ -15,8 +10,8 @@ function Spawn( entityKeyValues )
 	thisEntity.hSpawnedUnits = { }
 	thisEntity.nMaxSpawns = 12
 
-	thisEntity.hRangedAttackAbility = thisEntity:FindAbilityByName( "centaur_shaman_ranged_attack" )
-	thisEntity.hShadowWordAbility = thisEntity:FindAbilityByName( "centaur_shaman_shadow_word" )
+	thisEntity.hRangedAttackAbility = thisEntity:FindAbilityByName( "creature_centaur_shaman_ranged_attack" )
+	thisEntity.hShadowWordAbility = thisEntity:FindAbilityByName( "creature_centaur_shaman_shadow_word" )
 
 	thisEntity:SetContextThink( "CentaurShamanThink", CentaurShamanThink, 0.5 )
 end
@@ -199,30 +194,4 @@ function CastShadowWord( hUnit )
 	})
 	return 2
 end
-
---------------------------------------------------------------------------------
-
---[[
-function CastEarthbind( hEnemy )
-	local vEnemySpeed = hEnemy:GetBaseMoveSpeed()
-	local vEnemyForward = hEnemy:GetForwardVector()
-	local vPos = nil
-	if hEnemy:IsMoving() then
-		vPos = hEnemy:GetOrigin() + ( vEnemyForward * vEnemySpeed )
-	else
-		vPos = hEnemy:GetOrigin()
-	end
-
-	ExecuteOrderFromTable({
-		UnitIndex = thisEntity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-		Position = vPos,
-		AbilityIndex = thisEntity.hEarthbindAbility:entindex(),
-		Queue = false,
-	})
-	return 2
-end
-]]
-
---------------------------------------------------------------------------------
 

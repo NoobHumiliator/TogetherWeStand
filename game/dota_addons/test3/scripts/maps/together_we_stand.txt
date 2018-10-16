@@ -2039,6 +2039,7 @@
 		"BagCount"					"50"
 		"BagVariance"				"40"
 		"FixedXP"					"26600"
+		"ShortTitle"                "#tiny_short_title"
 		"alias"                     "tiny"
 		"ExpectedGold"              "12900"
 		// Stage 1 ================================================
@@ -2690,141 +2691,192 @@
 	"Round9-2" //人马 小强
 	{
 	    //两关成就相同
-		//"round_quest_title"			"#TWS_Round_Skeleton_Quest_Title"
-		"round_title"				"#DOTA_Holdout_Round_Bandit"
-		"MaxGold"					"1900"
-		"BagCount"					"70"
-		"BagVariance"			    "30"
-		"FixedXP"					"8000"
-		"ShortTitle"                "#bandit_short_title"
+		//"round_quest_title"		"#TWS_Round_Skeleton_Quest_Title"
+		"round_title"				"#DOTA_Holdout_Round_Kalabor_Waste"
+		"MaxGold"					"8350"
+		"BagCount"					"50"
+		"BagVariance"			    "40"
+		"FixedXP"					"26600"
+		"ShortTitle"                "#waste_short_title"
 		"alias"                     "bandit"
-		"ExpectedGold"              "2900"      
+		"ExpectedGold"              "12900"      
 		
 		// Stage 1 ================================================
-		"UnitBandit_1a" // Duration 80s
+		"Unit_Lord_1"
 		{
-			"NPCName"				"npc_dota_creature_bandit"
-			"TotalUnitsToSpawn"		"64"
-			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"10"
-		}
-		
-		"UnitBandit_1b" // Duration 80s
-		{
-			"NPCName"				"npc_dota_creature_bandit"
-			"TotalUnitsToSpawn"		"64"
-			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"10"
-		}
-		
-		"UnitBandit_1c" // Duration 90s + 30s
-		{
-			"WaitForTime"			"30"
-			"NPCName"				"npc_dota_creature_bandit"
-			"TotalUnitsToSpawn"		"45"
-			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"10"
-		}
-		
-		"UnitRanged_1a" // Duration 60s + 30s
-		{
-			"WaitForTime"			"30"
-			"NPCName"				"npc_dota_creature_bandit_archer"
-			"TotalUnitsToSpawn"		"20"
-			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
-		}
-		
-		"UnitRanged_1b" // Duration 60s + 30s
-		{
-			"WaitForTime"			"30"
-			"NPCName"				"npc_dota_creature_bandit_archer"
-			"TotalUnitsToSpawn"		"20"
-			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"15"
-		}
-		
-		// Stage 2 ================================================
-		"UnitBanditGrouped_2a" // Duration 20s
-		{
-			"WaitForUnit"			"UnitBandit_1a"
-			"WaitForTime"			"12"
-			
-			"NPCName"				"npc_dota_creature_bandit"
-			"TotalUnitsToSpawn"		"16"
-			"UnitsPerSpawn"			"2"
-			"SpawnInterval"			"10"
-		}
-		
-		"UnitBanditGrouped_2b" // Duration 20s
-		{
-			"WaitForUnit"			"UnitBandit_1b"
-			"WaitForTime"			"12"
-			
-			"NPCName"				"npc_dota_creature_bandit"
-			"TotalUnitsToSpawn"		"16"
-			"UnitsPerSpawn"			"8"
-			"SpawnInterval"			"10"
-		}
-		
-		"UnitCaption_2a"
-		{
-			"GroupWithUnit"			"UnitBanditGrouped_2a"
-			
-			"NPCName"				"npc_dota_creature_bandit_captain"
+			"NPCName"				"npc_dota_creature_giant_burrower"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
 		}
-		
-		"UnitCaption_2b"
+
+		"Unit_Lord_2"
 		{
-			"GroupWithUnit"			"UnitBanditGrouped_2b"		
-			"NPCName"				"npc_dota_creature_bandit_captain"
-			"TotalUnitsToSpawn"		"1"
-			"UnitsPerSpawn"			"1"
-		}
-		
-		
-		// Stage 3 ================================================
-		"UnitBanditGrouped_3a" // Duration 20s
-		{
-			"WaitForUnit"			"UnitBanditGrouped_2a"
+			"WaitForUnit"			"Unit_Lord_1"
 			"WaitForTime"			"10"
-			
-			"NPCName"				"npc_dota_creature_bandit"
-			"TotalUnitsToSpawn"		"16"
-			"UnitsPerSpawn"			"8"
-			"SpawnInterval"			"10"
-		}
-		
-		"UnitBanditGrouped_3b" // Duration 20s
-		{
-			"WaitForUnit"			"UnitBanditGrouped_2b"
-			"WaitForTime"			"10"
-			
-			"NPCName"				"npc_dota_creature_bandit"
-			"TotalUnitsToSpawn"		"16"
-			"UnitsPerSpawn"			"8"
-			"SpawnInterval"			"10"
-		}
-		
-		"UnitCaption_3a"
-		{
-			"GroupWithUnit"			"UnitBanditGrouped_3a"
-			
-			"NPCName"				"npc_dota_creature_bandit_captain"
+			"NPCName"			    "npc_dota_creature_centaur_warlord"
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
 		}
-		
-		"UnitCaption_3b"
+
+        "Unit_Runner_2"
 		{
-			"GroupWithUnit"			"UnitBanditGrouped_3b"			
-			"NPCName"				"npc_dota_creature_bandit_captain"
+			"GroupWithUnit"			"Unit_Lord_2"		
+			"NPCName"				"npc_dota_creature_centaur_dunerunner"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"2"
+		}
+
+		"Unit_Shaman_2"
+		{
+			"GroupWithUnit"			"Unit_Lord_2"		
+			"NPCName"				"npc_dota_creature_centaur_shaman"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"2"
+		}
+
+        "Unit_Lord_3"
+		{
+			"WaitForUnit"			"Unit_Lord_2"
+			"WaitForTime"			"5"
+			"NPCName"			    "npc_dota_creature_giant_burrower"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"2"
+		}
+
+        "Unit_Runner_3"
+		{
+			"GroupWithUnit"			"Unit_Lord_3"		
+			"NPCName"				"npc_dota_creature_centaur_dunerunner"
 			"TotalUnitsToSpawn"		"3"
 			"UnitsPerSpawn"			"3"
-		}		
+		}
+
+		"Unit_Shaman_3"
+		{
+			"GroupWithUnit"			"Unit_Lord_3"		
+			"NPCName"				"npc_dota_creature_centaur_shaman"
+			"TotalUnitsToSpawn"		"3"
+			"UnitsPerSpawn"			"3"
+		}
+
+        "Unit_Lord_4"
+		{
+			"WaitForUnit"			"Unit_Lord_3"
+			"WaitForTime"			"25"
+			"NPCName"			    "npc_dota_creature_centaur_warlord"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"2"
+		}
+
+        "Unit_Runner_4"
+		{
+			"GroupWithUnit"			"Unit_Lord_3"		
+			"NPCName"				"npc_dota_creature_centaur_dunerunner"
+			"TotalUnitsToSpawn"		"4"
+			"UnitsPerSpawn"			"4"
+		}
+
+		"Unit_Shaman_4"
+		{
+			"GroupWithUnit"			"Unit_Lord_3"		
+			"NPCName"				"npc_dota_creature_centaur_shaman"
+			"TotalUnitsToSpawn"		"4"
+			"UnitsPerSpawn"			"4"
+		}       
+
+        //左右一起出
+        "Unit_Lord_5a"
+		{
+			"WaitForUnit"			"Unit_Lord_4"
+			"WaitForTime"			"25"
+			"NPCName"			    "npc_dota_creature_giant_burrower"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"2"
+		}
+
+        "Unit_Runner_5a"
+		{
+			"GroupWithUnit"			"Unit_Lord_5a"		
+			"NPCName"				"npc_dota_creature_centaur_dunerunner"
+			"TotalUnitsToSpawn"		"4"
+			"UnitsPerSpawn"			"4"
+		}
+
+		"Unit_Shaman_5a"
+		{
+			"GroupWithUnit"			"Unit_Lord_5a"		
+			"NPCName"				"npc_dota_creature_centaur_shaman"
+			"TotalUnitsToSpawn"		"4"
+			"UnitsPerSpawn"			"4"
+		}    
+
+        "Unit_Lord_5b"
+		{
+			"WaitForUnit"			"Unit_Lord_4"
+			"WaitForTime"			"25"
+			"NPCName"			    "npc_dota_creature_centaur_warlord"
+			"TotalUnitsToSpawn"		"2"
+			"UnitsPerSpawn"			"2"
+		}
+
+        "Unit_Runner_5b"
+		{
+			"GroupWithUnit"			"Unit_Lord_5b"		
+			"NPCName"				"npc_dota_creature_centaur_dunerunner"
+			"TotalUnitsToSpawn"		"4"
+			"UnitsPerSpawn"			"4"
+		}
+
+		"Unit_Shaman_5b"
+		{
+			"GroupWithUnit"			"Unit_Lord_5b"		
+			"NPCName"				"npc_dota_creature_centaur_shaman"
+			"TotalUnitsToSpawn"		"4"
+			"UnitsPerSpawn"			"4"
+		}    
+
+        //四个方向一起出
+        "Unit_Lord_6a"
+		{
+			"WaitForUnit"			"Unit_Lord_5a"
+			"WaitForTime"			"30"
+			"NPCName"			    "npc_dota_creature_giant_burrower"
+			"TotalUnitsToSpawn"		"3"
+			"UnitsPerSpawn"			"3"
+			"SpawnerName"	        "spawner1"
+		}
+
+        "Unit_Lord_6b"
+		{
+			"WaitForUnit"			"Unit_Lord_5a"
+			"WaitForTime"			"30"
+			"NPCName"			    "npc_dota_creature_centaur_warlord"
+			"TotalUnitsToSpawn"		"3"
+			"UnitsPerSpawn"			"3"
+			"SpawnerName"	        "spawner2"
+		}
+        
+        "Unit_Lord_6c"
+		{
+			"WaitForUnit"			"Unit_Lord_5a"
+			"WaitForTime"			"30"
+			"NPCName"			    "npc_dota_creature_giant_burrower"
+			"TotalUnitsToSpawn"		"3"
+			"UnitsPerSpawn"			"3"
+			"SpawnerName"	        "spawner3"
+		}
+
+		"Unit_Lord_6d"
+		{
+			"WaitForUnit"			"Unit_Lord_5a"
+			"WaitForTime"			"30"
+			"NPCName"			    "npc_dota_creature_centaur_warlord"
+			"TotalUnitsToSpawn"		"3"
+			"UnitsPerSpawn"			"3"
+			"SpawnerName"	        "spawner4"
+		}
 	}
+
 	"Round10-1" //mammoth
 	{
 		"round_quest_title"			"#TWS_Round_Mammoth_Quest_Title"
