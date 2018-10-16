@@ -2440,5 +2440,13 @@
          "npc_dota_creature_bandit"                                            "Bandit"
          "npc_dota_creature_bandit_archer"                                     "Bandit Archer"
          "npc_dota_creature_bandit_captain"                                    "Bandit Captain"
-	}
+
+         "DOTA_Tooltip_Ability_creature_bandit_archer_arrow"                   "Arrow"
+         "DOTA_Tooltip_Ability_creature_blink_strike"                          "Blink Strike"
+         "DOTA_Tooltip_Ability_creature_blink_strike_Description"              "Teleports behind the target unit, striking for bonus damage."
+
+         "DOTA_Tooltip_Ability_creature_bandit_stifling_dagger"                 "Stifling Dagger"
+         "DOTA_Tooltip_Ability_creature_bandit_stifling_dagger_Description"     "Throws a flurry of daggers at the area around the target point, each one hitting the first unit in its path. The daggers slow enemy movement speed, and deal physical damage"
+	     "DOTA_Holdout_Round_Kalabor_Waste"                                     "Kalabor Waste"
+	} 
 }
