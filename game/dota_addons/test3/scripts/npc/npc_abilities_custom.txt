@@ -27896,7 +27896,7 @@
         "AbilityCastPoint"              "0.5" // started at 0.25
         "AnimationPlaybackRate"         "0.5" // default 1.0
         "AnimationIgnoresModelScale"    "1"
-
+        "IsOnCastBar"                   "0"
         // Time     
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "3.5"
@@ -28092,6 +28092,51 @@
         {
         }
     }
+
+    "creature_giant_burrower_explosion"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/round_9_2/creature_burrower_explosion"
+        "AbilityTextureName"            "polar_furbolg_ursa_warrior_thunder_clap"
+
+        "MaxLevel"                      "1"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
+
+        "IsOnCastBar"                   "0"
+        
+        // Stats
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"              "0.0"
+        "AbilityCooldown"               "0"
+        "AbilityDamage"                 "1000"
+        "AbilityManaCost"               "0"
+        
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "radius"                "300"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "duration"              "3.0"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "damage"                "1000"
+            }
+        }
+    }
+
 
     "creature_burrower_explosion"
     {

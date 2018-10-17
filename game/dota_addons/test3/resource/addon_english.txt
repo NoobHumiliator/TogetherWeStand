@@ -2451,5 +2451,35 @@
 
 	     "tiny_short_title"                                                     "Grow"
 	     "waste_short_title"                                                    "Kalabor"
-	} 
+
+	     "npc_dota_creature_exploding_burrower"                                 "Sandswarm Burster"
+	     "npc_dota_creature_giant_burrower"                                     "Giant Sandswarm Burrower"
+	     "npc_dota_creature_centaur_shaman"			                            "Centaur Shaman"
+	     "npc_dota_creature_centaur_dunerunner"                                 "Centaur Dune Runner"
+	     "npc_dota_creature_centaur_scout"			                            "Centaur Scout"
+	     "npc_dota_creature_centaur_warlord"                                    "Centaur Warlord"
+
+	     "DOTA_Tooltip_Ability_creature_centaur_warlord_hoof_stomp"              "Hoof Stomp"
+	     "DOTA_Tooltip_Ability_creature_centaur_warlord_hoof_stomp_Description"  "Slams the ground, stunning and damaging nearby enemy units."
+	     "DOTA_Tooltip_Ability_creature_centaur_warlord_double_edge"             "Double Edge"
+	     "DOTA_Tooltip_Ability_creature_centaur_warlord_double_edge_Description" "Centaur strikes a mighty blow at melee range, damaging both himself and a small area around the target."
+	     "DOTA_Tooltip_Ability_creature_centaur_warlord_return"                  "Return"
+	     "DOTA_Tooltip_Ability_creature_centaur_warlord_return_Description"      "Centaur counters all attacks, dealing damage back to the attacker."
+	     "DOTA_Tooltip_Ability_creature_centaur_shaman_shadow_word"              "Shadow Word"
+	     "DOTA_Tooltip_Ability_creature_centaur_shaman_shadow_word_Description"  "Warlock whispers an incantation, healing a friendly unit or damaging an enemy unit over time."
+	     "DOTA_Tooltip_Ability_creature_dunerunner_earthbind"                    "Earthbind"
+	     "DOTA_Tooltip_Ability_creature_dunerunner_earthbind_Description"        "Tosses a net at the target point, pinning down all enemy units. Earthbind prevents invisibility and blink."
+
+         "DOTA_Tooltip_Ability_creature_giant_nyx_burrower_impale"               "Impale"
+	     "DOTA_Tooltip_Ability_creature_giant_nyx_burrower_impale_Description"   "Rock spikes burst from the earth along a straight path. Enemy units are hurled into the air, then are stunned and take damage when they fall."
+	     "DOTA_Tooltip_Ability_creature_giant_nyx_mana_burn"                     "Mana Burn"
+	     "DOTA_Tooltip_Ability_creature_giant_nyx_mana_burn_Description"         "Destroys the target hero's mana equal to a multiplier of its Intelligence, and deals damage equal to the mana burned."
+
+
+	     "DOTA_Tooltip_Ability_creature_giant_nyx_burrower_minion_spawner"                    "Summon Sandswarm"
+	     "DOTA_Tooltip_Ability_creature_giant_nyx_burrower_minion_spawner_Description"        "Summon sandswarm bursters."
+
+	     "DOTA_Tooltip_Ability_creature_giant_burrower_explosion"                             "Self Explosion"
+	     "DOTA_Tooltip_Ability_creature_burrower_explosion"                                   "Self Explosion"
+	}  
 }

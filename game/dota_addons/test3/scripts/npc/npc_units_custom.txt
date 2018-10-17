@@ -17085,62 +17085,7 @@
 		}
 	}
 
-    // Round 9-2
-	"creature_centaur_shaman_shadow_word"
-    {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                     "warlock_shadow_word"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_BOTH"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
-        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
-        "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
-        "FightRecapLevel"               "1"
-        "AbilitySound"                  "Hero_Warlock.ShadowWordCastGood"
-
-        // Casting
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastPoint"              "0.5"
-
-        // Time     
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "12"
-
-        // Damage.
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityDamage"                 "500"
-
-        // Cost
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "0"        
-        
-        // Cast Range
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastRange"              "750"
-
-        // Stats
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityModifierSupportValue"   "0.0"   // Modifier just does damage/healing
-        
-        // Special
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "duration"                  "4.0"
-            }
-            "02"
-            {
-                "var_type"                  "FIELD_FLOAT"
-                "tick_interval"             "1.0"
-            }
-        }
-    }
-    
+  
 	"npc_dota_creature_giant_burrower"
 	{
 		// Script
@@ -17160,8 +17105,8 @@
 		"Ability1"					"creature_giant_nyx_burrower_impale"
 		"Ability2"					"creature_giant_nyx_mana_burn"
 		"Ability3"					"nyx_assassin_spiked_carapace"
-		"Ability4"					"giant_burrower_minion_spawner"
-		"Ability5"					"giant_burrower_explosion"
+		"Ability4"					"creature_giant_nyx_burrower_minion_spawner"
+		"Ability5"					"creature_giant_burrower_explosion"
 
 		// Armor
 		//----------------------------------------------------------------
