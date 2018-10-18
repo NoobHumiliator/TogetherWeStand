@@ -3533,7 +3533,7 @@
 			
 		}
 	}
-        "npc_dota_creature_fireman"
+   "npc_dota_creature_fireman"
 	{
 		// General
 		//
@@ -16685,7 +16685,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"50"
+		"ArmorPhysical"				"25"
 
 		// Attack
 		//----------------------------------------------------------------
@@ -16707,9 +16707,9 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"400"
-		"BountyGoldMin"				"290"
-		"BountyGoldMax"				"310"
+		"BountyXP"					"0"
+		"BountyGoldMin"				"120"
+		"BountyGoldMax"				"150"
 
 		// Movement
 		//----------------------------------------------------------------
@@ -16912,7 +16912,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"20"
+		"ArmorPhysical"				"10"
 
 		// Attack
 		//----------------------------------------------------------------
@@ -16934,9 +16934,9 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"200"
-		"BountyGoldMin"				"190"
-		"BountyGoldMax"				"210"
+		"BountyXP"					"0"
+		"BountyGoldMin"				"30"
+		"BountyGoldMax"				"40"
 
 		// Movement
 		//----------------------------------------------------------------
@@ -17016,7 +17016,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"25"
+		"ArmorPhysical"				"15"
 
 		// Attack
 		//----------------------------------------------------------------
@@ -17038,9 +17038,9 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"200"
-		"BountyGoldMin"				"150"
-		"BountyGoldMax"				"170"
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
 
 		// Movement
 		//----------------------------------------------------------------
@@ -17103,14 +17103,12 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"creature_giant_nyx_burrower_impale"
-		"Ability2"					"creature_giant_nyx_mana_burn"
-		"Ability3"					"nyx_assassin_spiked_carapace"
-		"Ability4"					"creature_giant_nyx_burrower_minion_spawner"
-		"Ability5"					"creature_giant_burrower_explosion"
+		"Ability2"					"creature_giant_nyx_burrower_minion_spawner"
+		"Ability3"					""
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"40"
+		"ArmorPhysical"				"25"
 
 		// Attack
 		//----------------------------------------------------------------
@@ -17132,9 +17130,9 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"450"
-		"BountyGoldMin"				"300"
-		"BountyGoldMax"				"350"
+		"BountyXP"					"0"
+		"BountyGoldMin"				"150"
+		"BountyGoldMax"				"200"
 
 		// Movement
 		//----------------------------------------------------------------
@@ -17222,13 +17220,13 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"0"
-		"MagicalResistance"			"50"
+		"MagicalResistance"			"25"
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
-		"AttackDamageMin"			"0"
-		"AttackDamageMax"			"0"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
 		"AttackRate"				"1.55"
 		"AttackAnimationPoint"		"0.3"
 		"AttackAcquisitionRange"	"1000"
@@ -17244,7 +17242,7 @@
 
 		// Bounty
 		//----------------------------------------------------------------
-		"BountyXP"					"50"
+		"BountyXP"					"0"
 		"BountyGoldMin"				"0"
 		"BountyGoldMax"				"0"
 
