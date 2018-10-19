@@ -28179,6 +28179,671 @@
             }
         }
     }
+    
+    "boss_sand_king_burrow"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_burrow"
+        "AbilityTextureName"            "nyx_assassin_burrow"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+        "MaxLevel"                      "1"
+        "FightRecapLevel"               "1"
+
+        "AbilityCastAnimation"          "ACT_DOTA_RAZE_1"
+
+        "IsOnCastBar"                   "0"
+
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"              "2.0"
+        
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+
+        }
+    }
+
+    //=================================================================================================================
+    // Sand King Boss: Unburrow
+    //=================================================================================================================
+    "boss_sand_king_unburrow"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_unburrow"
+        "AbilityTextureName"            "nyx_assassin_unburrow"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+        "MaxLevel"                      "1"
+        "FightRecapLevel"               "1"
+
+        "AbilityCastAnimation"          "ACT_DOTA_RAZE_2"
+
+        "IsOnCastBar"                   "0"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"              "2.0"
+
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "0.0"
+    
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+    }
+
+    "boss_sand_king_tail_swipe_right"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "bloodseeker_bloodrage"
+        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_tail_swipe_right"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_5"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"  
+        "AnimationIgnoresModelScale"     "1"
+        "IsOnCastBar"                   "0"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "450"
+        "AbilityCastPoint"              "1.98"
+        
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "10"
+    
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage"                    "3500"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage_radius"             "110"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "animation_time"            "1.98"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "initial_delay"             "1.5"
+            }
+            "05"
+            {
+                "var_type"                          "FIELD_FLOAT"
+                "stun_duration"                     "0.5"
+            }
+            "06"
+            {
+                "var_type"                          "FIELD_INTEGER"
+                "knockback_distance"                "800"
+            }
+            "07"
+            {
+                "var_type"                          "FIELD_INTEGER"
+                "knockback_height"                  "100"
+            }
+            "08"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "movespeed_slow"        "-100"
+            }
+            "09"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "attackspeed_slow"      "-100"
+            }
+            "10"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "slow_duration"              "4.0"
+            }
+        }
+    }
+
+    //=================================================================================================================
+    // Sand King: Tail Swipe Left
+    //=================================================================================================================
+    "boss_sand_king_tail_swipe_left"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "bloodseeker_bloodrage"
+        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_tail_swipe_left"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_5"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"  
+        "AnimationIgnoresModelScale"     "1"
+
+        "IsOnCastBar"                   "0"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "450"
+        "AbilityCastPoint"              "1.98"
+        
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "10.0"
+    
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage"                    "3500"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage_radius"             "110"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "animation_time"            "1.98"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "initial_delay"             "1.5"
+            }
+            "05"
+            {
+                "var_type"                          "FIELD_FLOAT"
+                "stun_duration"                     "0.5"
+            }
+            "06"
+            {
+                "var_type"                          "FIELD_INTEGER"
+                "knockback_distance"                "600"
+            }
+            "07"
+            {
+                "var_type"                          "FIELD_INTEGER"
+                "knockback_height"                  "100"
+            }
+            "08"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "movespeed_slow"        "-100"
+            }
+            "09"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "attackspeed_slow"      "-100"
+            }
+            "10"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "slow_duration"              "4.0"
+            }
+        }
+    }
+
+   "boss_sand_king_move_back"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "bloodseeker_bloodrage"
+        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_move_back"
+        "AbilityCastAnimation"          "ACT_DOTA_RUN"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"  
+        "AnimationIgnoresModelScale"     "1"
+
+        "IsOnCastBar"                   "0"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "300"
+        "AbilityCastPoint"              "10"
+        
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "5"
+    
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "speed"                     "300"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "minimum_duration"          "0.75"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "maximum_duration"          "1.0"
+            }
+        }
+    }
+     
+    //=================================================================================================================
+    // Sand King Boss: Burrow strike
+    //=================================================================================================================
+    "boss_sand_king_burrowstrike"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "sandking_burrowstrike"
+        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_burrowstrike"
+
+        "AbilityCastAnimation"          "ACT_DOTA_SAND_KING_BURROW_IN"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+        "AbilityCastPoint"              "0.8"
+
+        "IsOnCastBar"                   "0"
+        
+        // Stats
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "3000"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                          "FIELD_INTEGER"
+                "speed"                             "1000"
+            }
+            "02"
+            {
+                "var_type"                          "FIELD_INTEGER"
+                "damage"                            "1500"
+            }
+            "03"
+            {
+                "var_type"                          "FIELD_INTEGER"
+                "radius"                            "300"
+            }
+            "04"
+            {
+                "var_type"                          "FIELD_FLOAT"
+                "delay"                              "1.0"
+            }
+            "05"
+            {
+                "var_type"                          "FIELD_FLOAT"
+                "stun_duration"                     "1.0"
+            }
+            "06"
+            {
+                "var_type"                          "FIELD_INTEGER"
+                "knockback_distance"                "500"
+            }
+            "07"
+            {
+                "var_type"                          "FIELD_INTEGER"
+                "knockback_height"                  "150"
+            }
+            "08"
+            {
+                "var_type"                          "FIELD_INTEGER"
+                "scaling_speed"                     "900"
+            }
+        }
+    }
+
+    "boss_sand_king_sandstorm"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "sandking_sand_storm"
+        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_sandstorm"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+        "FightRecapLevel"               "1"
+        "AbilitySound"                  "Ability.SandKing_SandStorm.start"
+        "AbilityCastAnimation"           "ACT_DOTA_SPAWN" 
+        "AbilityCastPoint"              "2.0"
+
+        "IsOnCastBar"                   "0"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "0"
+        "AbilityDuration"               "50"
+
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "34"
+        "AbilityChannelTime"            "15"
+
+       // Damage.
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityDamage"                 "500"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "60 50 40 30"
+        
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "sand_storm_invis_delay"    "0.5"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "sand_storm_radius"     "700"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "channel_time"           "15.0"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "storm_count_per_player"          "1"
+            }
+            "05"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "storm_angle_step"           "30"
+            }
+            "06"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "storm_speed"           "325"
+            }
+            "07"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "storm_speed_step"           "40"
+            }
+            "08"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "spiral_storm_count"          "12"
+            }
+        }
+    }
+     
+
+    "boss_sand_king_epicenter"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "sandking_epicenter"
+        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_epicenter"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+        "FightRecapLevel"               "1"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4" 
+        "AbilityCastPoint"              "2.0"
+
+        "IsOnCastBar"                   "0"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "0"
+
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "34"
+        "AbilityChannelTime"            "15"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "60"
+        
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "damage"            "500"
+            }  
+            "02"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "interval"          "1.0"
+            }  
+            "03"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "pulse_width"       "110"
+            }  
+            "04"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "pulse_distance"       "5000"
+            }  
+            "05"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "min_pulse_speed"       "450"
+            }  
+            "06"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "blocker_radius"    "225"
+            }  
+            "07"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "min_random_pulses"     "3"
+            }
+            "08"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "max_random_pulses"     "15"
+            }  
+            "09"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "max_pulse_speed"       "1150"
+            } 
+            "10"
+            {
+                "var_type"         "FIELD_INTEGER"
+                "speed_step"       "100"
+            }    
+            "11"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "pulse_end_width"       "110"
+            }   
+            "12"
+            {
+                "var_type"          "FIELD_INTEGER"
+                "random_pulses_step"       "3"
+            }    
+        }
+    }
+
+
+    "boss_sand_king_passive"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "sandking_caustic_finale"
+        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_passive"
+
+        "MaxLevel"                      "1"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "IsOnCastBar"                   "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                                       "FIELD_INTEGER"
+                "caustic_armor_reduction_pct"                    "33"
+            }
+            "02"
+            {
+                "var_type"                                       "FIELD_FLOAT"
+                "caustic_duration"                               "3.0"
+            }
+            "03"
+            {
+                "var_type"                                       "FIELD_INTEGER"
+                "caustic_radius"                                 "400"
+            }
+            "04"
+            {
+                "var_type"                                       "FIELD_INTEGER"
+                "caustic_damage"                                 "1500"
+            }
+            "05"
+            {
+                "var_type"                                       "FIELD_INTEGER"
+                "accuracy_pct"                                     "50"
+            }
+        }
+    }
+    
+    "boss_sand_king_burrowed_forward_strike"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "bloodseeker_bloodrage"
+        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_burrowed_forward_strike"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_7"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"  
+        "AnimationIgnoresModelScale"     "1"
+
+        "IsOnCastBar"                   "0"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "450"
+        "AbilityCastPoint"              "2.75"
+        
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "4.0"
+    
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage"                    "4000"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage_radius"             "125"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "animation_time"            "3.5"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "initial_delay"             "2.4"
+            }
+            "05"
+            {
+                "var_type"                          "FIELD_FLOAT"
+                "stun_duration"                     "4.0"
+            }
+            "06"
+            {
+                "var_type"                          "FIELD_INTEGER"
+                "knockback_distance"                "0"
+            }
+            "07"
+            {
+                "var_type"                          "FIELD_INTEGER"
+                "knockback_height"                  "0"
+            }
+        }
+    }
 
 
 } //主括号

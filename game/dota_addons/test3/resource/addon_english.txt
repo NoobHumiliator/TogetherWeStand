@@ -2481,5 +2481,6 @@
 
 	     "DOTA_Tooltip_Ability_creature_giant_burrower_explosion"                             "Self Explosion"
 	     "DOTA_Tooltip_Ability_creature_burrower_explosion"                                   "Self Explosion"
+	     "DOTA_Holdout_Round_Sandking_Title"                                                  "Rhyzik"
 	}  
 }
