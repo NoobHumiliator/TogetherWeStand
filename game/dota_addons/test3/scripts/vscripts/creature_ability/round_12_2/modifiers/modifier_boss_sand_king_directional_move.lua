@@ -1,20 +1,20 @@
-modifier_sand_king_boss_directional_move = class({})
+modifier_boss_sand_king_directional_move = class({})
 
 --------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_directional_move:IsHidden()
+function modifier_boss_sand_king_directional_move:IsHidden()
 	return true
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_directional_move:IsPurgable()
+function modifier_boss_sand_king_directional_move:IsPurgable()
 	return false
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_directional_move:OnCreated( kv )
+function modifier_boss_sand_king_directional_move:OnCreated( kv )
 	if IsServer() then
 		
 		self.speed = self:GetAbility():GetSpecialValueFor( "speed" )
@@ -27,7 +27,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_directional_move:OnDestroy()
+function modifier_boss_sand_king_directional_move:OnDestroy()
 	if IsServer() then
 		self:GetParent():RemoveHorizontalMotionController( self )
 		self:GetParent():Interrupt()
@@ -37,7 +37,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_directional_move:UpdateHorizontalMotion( me, dt )
+function modifier_boss_sand_king_directional_move:UpdateHorizontalMotion( me, dt )
 	if IsServer() then
 		self.vMoveDir = nil
 		if self:GetAbility():GetAbilityName() == "sand_king_boss_move_left" then
@@ -60,7 +60,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_directional_move:OnHorizontalMotionInterrupted()
+function modifier_boss_sand_king_directional_move:OnHorizontalMotionInterrupted()
 	if IsServer() then
 		self:Destroy()
 	end
@@ -68,7 +68,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_directional_move:DeclareFunctions()
+function modifier_boss_sand_king_directional_move:DeclareFunctions()
 	local funcs = 
 	{
 		MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS,
@@ -79,7 +79,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_directional_move:GetActivityTranslationModifiers( params )
+function modifier_boss_sand_king_directional_move:GetActivityTranslationModifiers( params )
 	if self:GetAbility():GetAbilityName() == "sand_king_boss_move_left" then -- @fixme: GetAbility can be nil here
 		return "left"
 	end
@@ -94,6 +94,6 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_directional_move:GetModifierTurnRate_Percentage( params )
+function modifier_boss_sand_king_directional_move:GetModifierTurnRate_Percentage( params )
 	return -90
 end

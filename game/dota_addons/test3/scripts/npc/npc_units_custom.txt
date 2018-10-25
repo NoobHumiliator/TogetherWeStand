@@ -17317,8 +17317,8 @@
 		"Ability9"					"boss_sand_king_passive"
 		"Ability10"					"boss_sand_king_burrowed_forward_strike"
 		"Ability11"					"boss_sand_king_burrowed_backward_strike"
-		"Ability12"					"sand_king_boss_move_right"
-		"Ability13"					"sand_king_boss_move_left"
+		"Ability12"					"boss_sand_king_move_right"
+		"Ability13"					"boss_sand_king_move_left"
 		"Ability14"					""
 
 		// Armor
