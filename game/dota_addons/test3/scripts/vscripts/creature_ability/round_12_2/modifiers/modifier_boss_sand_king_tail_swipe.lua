@@ -1,20 +1,20 @@
-modifier_sand_king_tail_swipe = class ({})
+modifier_boss_sand_king_tail_swipe = class ({})
 
 --------------------------------------------------------------------------------
 
-function modifier_sand_king_tail_swipe:IsHidden()
+function modifier_boss_sand_king_tail_swipe:IsHidden()
 	return true
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_sand_king_tail_swipe:IsPurgable()
+function modifier_boss_sand_king_tail_swipe:IsPurgable()
 	return false
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_sand_king_tail_swipe:OnCreated( kv )
+function modifier_boss_sand_king_tail_swipe:OnCreated( kv )
 	if IsServer() then
 		self.nPreviewFX = ParticleManager:CreateParticle( "particles/units/heroes/hero_sandking/sandking_epicenter_tell.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster() )
 		ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_tail", self:GetCaster():GetOrigin(), true )
@@ -36,7 +36,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_sand_king_tail_swipe:OnIntervalThink()
+function modifier_boss_sand_king_tail_swipe:OnIntervalThink()
 	if IsServer() then
 		local tail1 = self:GetParent():ScriptLookupAttachment( "attach_tail" )
 		local tail2 = self:GetParent():ScriptLookupAttachment( "attach_tail2" )
@@ -144,7 +144,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_sand_king_tail_swipe:DeclareFunctions()
+function modifier_boss_sand_king_tail_swipe:DeclareFunctions()
 	local funcs = 
 	{
 		MODIFIER_PROPERTY_DISABLE_TURNING,
@@ -154,13 +154,13 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_sand_king_tail_swipe:GetModifierDisableTurning( params )
+function modifier_boss_sand_king_tail_swipe:GetModifierDisableTurning( params )
 	return 1
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_sand_king_tail_swipe:HasHitTarget( hTarget )
+function modifier_boss_sand_king_tail_swipe:HasHitTarget( hTarget )
 	for _, target in pairs( self.hHitTargets ) do
 		if target == hTarget then
 	    	return true
@@ -172,7 +172,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function modifier_sand_king_tail_swipe:AddHitTarget( hTarget )
+function modifier_boss_sand_king_tail_swipe:AddHitTarget( hTarget )
 	table.insert( self.hHitTargets, hTarget )
 end
 

@@ -1,8 +1,8 @@
-modifier_sand_king_boss_sandstorm_blind = class({})
+modifier_boss_sand_king_sandstorm_blind = class({})
 
 -----------------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_sandstorm_blind:CheckState()
+function modifier_boss_sand_king_sandstorm_blind:CheckState()
 	local state =
 	{
 		[MODIFIER_STATE_BLIND] = true,

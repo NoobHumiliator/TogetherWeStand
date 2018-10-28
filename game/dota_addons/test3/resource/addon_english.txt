@@ -2482,5 +2482,7 @@
 	     "DOTA_Tooltip_Ability_creature_giant_burrower_explosion"                             "Self Explosion"
 	     "DOTA_Tooltip_Ability_creature_burrower_explosion"                                   "Self Explosion"
 	     "DOTA_Holdout_Round_Sandking_Title"                                                  "Rhyzik"
+	     "npc_dota_boss_sand_king"                                                            "Rhyzik"
+	     "sand_king_short_title"                                                              "Sand King"
 	}  
 }

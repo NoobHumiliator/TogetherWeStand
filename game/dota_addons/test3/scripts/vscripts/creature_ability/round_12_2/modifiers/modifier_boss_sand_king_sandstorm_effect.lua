@@ -1,8 +1,8 @@
-modifier_sand_king_boss_sandstorm_effect = class({})
+modifier_boss_sand_king_sandstorm_effect = class({})
 
 -----------------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_sandstorm_effect:OnCreated( kv )
+function modifier_boss_sand_king_sandstorm_effect:OnCreated( kv )
 	self.movespeed_pct = self:GetAbility():GetSpecialValueFor( "movespeed_pct" )
 	self.damage = self:GetAbility():GetSpecialValueFor( "damage" )
 	self.blind_duration = self:GetAbility():GetSpecialValueFor( "blind_duration" )
@@ -13,7 +13,7 @@ end
 
 -----------------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_sandstorm_effect:DeclareFunctions()
+function modifier_boss_sand_king_sandstorm_effect:DeclareFunctions()
 	local funcs =
 	{
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
@@ -23,7 +23,7 @@ end
 
 -----------------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_sandstorm_effect:CheckState()
+function modifier_boss_sand_king_sandstorm_effect:CheckState()
 	local state =
 	{
 	}
@@ -32,13 +32,13 @@ end
 
 -----------------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_sandstorm_effect:GetModifierMoveSpeedBonus_Percentage( params )
+function modifier_boss_sand_king_sandstorm_effect:GetModifierMoveSpeedBonus_Percentage( params )
 	return -self.movespeed_pct
 end
 
 -----------------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_sandstorm_effect:OnIntervalThink()
+function modifier_boss_sand_king_sandstorm_effect:OnIntervalThink()
 	if IsServer() then
 		if self:GetParent() and self:GetParent():IsInvulnerable() == false then
 	
@@ -58,7 +58,7 @@ end
 
 -----------------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_sandstorm_effect:OnDestroy()
+function modifier_boss_sand_king_sandstorm_effect:OnDestroy()
 	if IsServer() then
 		--self:GetParent():AddNewModifier( self:GetCaster(), self:GetAbility(), "modifier_sand_king_boss_sandstorm_blind", { duration = self.blind_duration } )
 	end

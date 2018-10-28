@@ -65,7 +65,7 @@ function GetNumberBurrowStrikes()
 end
 
 function TailIsReady()
-	if thisEntity:FindModifierByName( "modifier_sand_king_boss_burrow" ) == nil then
+	if thisEntity:FindModifierByName( "modifier_boss_sand_king_burrow" ) == nil then
 		if TailSwipeLeft ~= nil and TailSwipeRight ~= nil and TailSwipeLeft:IsCooldownReady() and TailSwipeRight:IsCooldownReady() then
 			return true
 		end
@@ -92,7 +92,7 @@ function ChangePhase()
 		return false
 	end
 
-	if thisEntity:FindModifierByName( "modifier_sand_king_boss_burrow" ) ~= nil then
+	if thisEntity:FindModifierByName( "modifier_boss_sand_king_burrow" ) ~= nil then
 		return 0.1
 	end	
 
@@ -200,7 +200,7 @@ function BurrowThink( enemies )
 			thisEntity.bBurrowStateQueued = false
 			return CastBurrowUp()
 		end
-		if thisEntity:FindModifierByName( "modifier_sand_king_boss_burrow" ) == nil then
+		if thisEntity:FindModifierByName( "modifier_boss_sand_king_burrow" ) == nil then
 			return CastBurrowDown()
 		else
 			return PhysicalThink( enemies )
@@ -208,7 +208,7 @@ function BurrowThink( enemies )
 	end
 
 	if thisEntity.BurrowSkill == BurrowStrike then
-		if thisEntity:FindModifierByName( "modifier_sand_king_boss_burrowstrike" ) ~= nil or thisEntity:FindModifierByName( "modifier_sand_king_boss_burrowstrike_end" ) ~= nil then
+		if thisEntity:FindModifierByName( "modifier_boss_sand_king_burrowstrike" ) ~= nil or thisEntity:FindModifierByName( "modifier_boss_sand_king_burrowstrike_end" ) ~= nil then
 			return 0.1
 		end
 
@@ -296,7 +296,7 @@ function CastEpicenter()
 end
 
 function PhysicalThink( enemies )
-	if thisEntity:FindModifierByName( "modifier_sand_king_boss_directional_move" ) then
+	if thisEntity:FindModifierByName( "modifier_boss_sand_king_directional_move" ) then
 		return 0.2
 	end
 
@@ -304,7 +304,7 @@ function PhysicalThink( enemies )
 	local vRight = thisEntity:GetRightVector()
 	local vLeft = -vRight
 	local flQuadrantDistance = 200
-	local bBurrowed = thisEntity:FindModifierByName( "modifier_sand_king_boss_burrow" ) ~= nil
+	local bBurrowed = thisEntity:FindModifierByName( "modifier_boss_sand_king_burrow" ) ~= nil
 
 	local vFrontRightQuadrant = thisEntity:GetOrigin() + (( vDirection + vRight ) * flQuadrantDistance )
 	local vFrontLeftQuadrant = thisEntity:GetOrigin() + (( vDirection + vLeft ) * flQuadrantDistance )

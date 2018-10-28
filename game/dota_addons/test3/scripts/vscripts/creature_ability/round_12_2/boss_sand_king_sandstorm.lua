@@ -67,7 +67,7 @@ function boss_sand_king_sandstorm:OnSpellStart()
 		for _,Hero in pairs( Heroes ) do
 			if Hero ~= nil then
 				for i=1,self.storm_count_per_player do
-					local hStorm = CreateUnitByName( "npc_dota_sand_king_sandstorm", self:GetCaster():GetAbsOrigin(), true, self:GetCaster(), self:GetCaster(), self:GetCaster():GetTeamNumber() )
+					local hStorm = CreateUnitByName( "npc_dota_vest_sand_king_sandstorm", self:GetCaster():GetAbsOrigin(), true, self:GetCaster(), self:GetCaster(), self:GetCaster():GetTeamNumber() )
 					if hStorm ~= nil then
 						if self:GetCaster().zone ~= nil then
 							self:GetCaster().zone:AddEnemyToZone( hStorm )
@@ -85,7 +85,7 @@ function boss_sand_king_sandstorm:OnSpellStart()
 				
 				
 
-						hStorm:AddNewModifier( hStorm, hStorm:FindAbilityByName( "boss_sand_king_sandstorm_storm_passive" ), "modifier_boss_sand_king_sandstorm", {} )
+						hStorm:AddNewModifier( hStorm, hStorm:FindAbilityByName( "sand_king_vest_sandstorm_passive" ), "modifier_boss_sand_king_sandstorm", {} )
 						
 						table.insert( self.Storms, hStorm )
 					end
@@ -94,7 +94,7 @@ function boss_sand_king_sandstorm:OnSpellStart()
 		end
 
 		for i=1, self.spiral_storm_count do
-			local hStorm = CreateUnitByName( "npc_dota_sand_king_sandstorm", self:GetCaster():GetAbsOrigin(), true, self:GetCaster(), self:GetCaster(), self:GetCaster():GetTeamNumber() )
+			local hStorm = CreateUnitByName( "npc_dota_vest_sand_king_sandstorm", self:GetCaster():GetAbsOrigin(), true, self:GetCaster(), self:GetCaster(), self:GetCaster():GetTeamNumber() )
 			if hStorm ~= nil then
 				if self:GetCaster().zone ~= nil then
 					self:GetCaster().zone:AddEnemyToZone( hStorm )
@@ -128,7 +128,7 @@ function boss_sand_king_sandstorm:OnSpellStart()
 					hStorm.flAngleUpdate = hStorm.flAngleUpdate * -1
 					hStorm.bReverse = bReverse
 				end
-				hStorm:AddNewModifier( hStorm, hStorm:FindAbilityByName( "boss_sand_king_sandstorm_storm_passive" ), "modifier_boss_sand_king_sandstorm", {} )	
+				hStorm:AddNewModifier( hStorm, hStorm:FindAbilityByName( "sand_king_vest_sandstorm_passive" ), "modifier_boss_sand_king_sandstorm", {} )	
 				table.insert( self.Storms, hStorm )
 			end
 		end
