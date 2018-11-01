@@ -116,16 +116,18 @@ function modifier_on_health_gain_lua:OnHealReceived( keys )
                  ]]
              end
             --统计治疗量
-            local playerid=nil
-            if healer:GetOwner() then
-              playerid=healer:GetOwner():GetPlayerID()
-            end
-            if playerid==nil then
-             print("healer"..healer:GetUnitName().."has no playerid")
-            end
-            local game_mode=GameRules:GetGameModeEntity().CHoldoutGameMode
-            if game_mode._currentRound and playerid then
-             game_mode._currentRound._vPlayerStats[playerid].nTotalHeal=game_mode._currentRound._vPlayerStats[playerid].nTotalHeal+effective_for_statistics
+            if healer~=nil and healer:GetTeamNumber()==DOTA_TEAM_GOODGUYS then
+                local playerid=nil
+                if healer:GetOwner() then
+                  playerid=healer:GetOwner():GetPlayerID()
+                end
+                if playerid==nil then
+                 print("healer"..healer:GetUnitName().."has no playerid")
+                end
+                local game_mode=GameRules:GetGameModeEntity().CHoldoutGameMode
+                if game_mode._currentRound and playerid then
+                 game_mode._currentRound._vPlayerStats[playerid].nTotalHeal=game_mode._currentRound._vPlayerStats[playerid].nTotalHeal+effective_for_statistics
+                end
             end
             --统计结束
 

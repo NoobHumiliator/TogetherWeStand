@@ -4062,6 +4062,7 @@
 	{
 		"round_quest_title"			"#TWS_Round_Blue_Dragon_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Blue_Dragon_Title"
+		"ShortTitle"                "#blue_dragon_short_title"
 		"MaxGold"					"0"
 		"BagCount"					"0"
 		"BagVariance"		        "0"

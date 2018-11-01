@@ -115,9 +115,9 @@ function modifier_boss_sand_king_passive:OnAttackLanded( params )
 			local Target = params.target
 			if Target ~= nil then
 				local caustic_duration = self:GetAbility():GetSpecialValueFor( "caustic_duration" )
-				local hCausticBuff = Target:FindModifierByName( "modifier_sand_king_boss_caustic_finale" )
+				local hCausticBuff = Target:FindModifierByName( "modifier_boss_sand_king_caustic_finale" )
 				if hCausticBuff == nil then
-					hCausticBuff = Target:AddNewModifier( self:GetParent(), self:GetAbility(), "modifier_sand_king_boss_caustic_finale", { duration = caustic_duration } )
+					hCausticBuff = Target:AddNewModifier( self:GetParent(), self:GetAbility(), "modifier_boss_sand_king_caustic_finale", { duration = caustic_duration } )
 					if hCausticBuff ~= nil then
 						hCausticBuff:SetStackCount( 0 )
 					end	

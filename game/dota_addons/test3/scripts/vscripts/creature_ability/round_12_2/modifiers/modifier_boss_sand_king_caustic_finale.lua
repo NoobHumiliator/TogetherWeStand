@@ -1,14 +1,14 @@
-modifier_sand_king_boss_caustic_finale = class({})
+modifier_boss_sand_king_caustic_finale = class({})
 
 -----------------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_caustic_finale:GetTexture()
+function modifier_boss_sand_king_caustic_finale:GetTexture()
 	return "sandking_caustic_finale"
 end
 
 -----------------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_caustic_finale:OnCreated( kv )
+function modifier_boss_sand_king_caustic_finale:OnCreated( kv )
 	self.caustic_radius = self:GetAbility():GetSpecialValueFor( "caustic_radius" ) 
 	self.caustic_damage = self:GetAbility():GetSpecialValueFor( "caustic_damage" )
 	self.nArmorReductionPerStack = math.max( math.floor( self:GetAbility():GetSpecialValueFor( "caustic_armor_reduction_pct" ) * self:GetParent():GetPhysicalArmorValue() / 100 ), 1 )
@@ -19,7 +19,7 @@ end
 
 -----------------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_caustic_finale:DeclareFunctions()
+function modifier_boss_sand_king_caustic_finale:DeclareFunctions()
 	local funcs =
 	{
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
@@ -30,7 +30,7 @@ end
 
 -----------------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_caustic_finale:GetModifierPhysicalArmorBonus()
+function modifier_boss_sand_king_caustic_finale:GetModifierPhysicalArmorBonus()
 	if self.nArmorReductionPerStack == nil then
 		return 0
 	end
@@ -39,7 +39,7 @@ end
 
 -----------------------------------------------------------------------------------------
 
-function modifier_sand_king_boss_caustic_finale:OnDeath( params )
+function modifier_boss_sand_king_caustic_finale:OnDeath( params )
 	if IsServer() then
 		if params.unit == self:GetParent() then
 			EmitSoundOn( "Ability.SandKing_CausticFinale", self:GetParent() )

@@ -66,9 +66,9 @@ function modifier_boss_sand_king_tail_swipe:OnIntervalThink()
 						
 						local passive = self:GetCaster():FindAbilityByName( "sand_king_boss_passive" )
 						local caustic_duration = passive:GetSpecialValueFor( "caustic_duration" )
-						local hCausticBuff = enemy:FindModifierByName( "modifier_sand_king_boss_caustic_finale" )
+						local hCausticBuff = enemy:FindModifierByName( "modifier_boss_sand_king_caustic_finale" )
 						if hCausticBuff == nil then
-							hCausticBuff = enemy:AddNewModifier( self:GetCaster(), passive, "modifier_sand_king_boss_caustic_finale", { duration = caustic_duration } )
+							hCausticBuff = enemy:AddNewModifier( self:GetCaster(), passive, "modifier_boss_sand_king_caustic_finale", { duration = caustic_duration } )
 							hCausticBuff:SetStackCount( 0 )
 						end
 						hCausticBuff:SetStackCount( hCausticBuff:GetStackCount() + 1 )  
@@ -101,11 +101,11 @@ function modifier_boss_sand_king_tail_swipe:OnIntervalThink()
 					if enemy ~= nil and enemy:IsInvulnerable() == false and self:HasHitTarget( enemy ) == false then
 						self:AddHitTarget( enemy )
 
-						local passive = self:GetCaster():FindAbilityByName( "sand_king_boss_passive" )
+						local passive = self:GetCaster():FindAbilityByName( "boss_sand_king_passive" )
 						local caustic_duration = passive:GetSpecialValueFor( "caustic_duration" )
-						local hCausticBuff = enemy:FindModifierByName( "modifier_sand_king_boss_caustic_finale" )
+						local hCausticBuff = enemy:FindModifierByName( "modifier_boss_sand_king_caustic_finale" )
 						if hCausticBuff == nil then
-							hCausticBuff = enemy:AddNewModifier( self:GetCaster(), passive, "modifier_sand_king_boss_caustic_finale", { duration = caustic_duration } )
+							hCausticBuff = enemy:AddNewModifier( self:GetCaster(), passive, "modifier_boss_sand_king_caustic_finale", { duration = caustic_duration } )
 							hCausticBuff:SetStackCount( 0 )
 						end
 						hCausticBuff:SetStackCount( hCausticBuff:GetStackCount() + 1 )  

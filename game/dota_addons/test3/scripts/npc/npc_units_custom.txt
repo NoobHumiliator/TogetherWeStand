@@ -17323,7 +17323,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"75"
+		"ArmorPhysical"				"45"
 
 		// Attack
 		//----------------------------------------------------------------
@@ -17361,7 +17361,7 @@
 		"StatusHealth"				"200000"
 		"StatusHealthRegen"			"50"
 		"StatusMana"				"10000"
-		"StatusManaRegen"			"500"
+		"StatusManaRegen"			"300"
 		
 		// Vision
 		//----------------------------------------------------------------
@@ -17475,6 +17475,181 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"300"		// Range of vision during day light.
 		"VisionNighttimeRange"		"300"		// Range of vision at night time.
+	}
+		//=================================================================================
+	"npc_dota_creature_big_exploding_burrower"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_12_2/exploding_big_burrower_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/nyx_swarm/nyx_swarm.vmdl"
+		"SoundSet"					"Hero_NyxAssassin"
+		"Level"						"5"
+		"ModelScale" 				"1.5"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"big_exploding_burrower_big_explosion"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackRate"				"1.55"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"1000"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"25"
+		"HealthBarOffset"			"150"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"50"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"450"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1000"
+		"StatusHealthRegen"			"25"
+		"StatusMana"				"1000"
+		"StatusManaRegen"			"30"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"750"
+		"VisionNighttimeRange"		"750"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"DisableClumpingBehavior"	"1"		
+		}
+	}
+
+	"npc_dota_creature_healing_burrower"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_12_2/healing_burrower_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/nerubian_assassin/nerubian_assassin.vmdl"
+		"SoundSet"					"Hero_NyxAssassin"
+		"Level"						"5"
+		"ModelScale" 				"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"healing_burrower_suicide_heal"
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackRate"				"1.55"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"1000"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"25"
+		"HealthBarOffset"			"120"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"50"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"320"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1000"
+		"StatusHealthRegen"			"100"
+		"StatusMana"				"1000"
+		"StatusManaRegen"			"30"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"750"
+		"VisionNighttimeRange"		"750"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		//Inventory
+		"HasInventory"				"1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+		
+			"DisableClumpingBehavior"	"1"
+			
+			"EquippedItems"
+			{
+				"Aghanims"
+				{
+					"Item"				"item_ultimate_scepter"
+				}
+			}
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"5345" // misc nyx dagon
+				}
+			}
+		}
 	}
 
 }  //主括号

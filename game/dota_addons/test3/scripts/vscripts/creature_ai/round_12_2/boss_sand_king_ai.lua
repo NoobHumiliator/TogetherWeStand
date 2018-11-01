@@ -137,17 +137,6 @@ function SandKingThink()
 		return 0.1
 	end
 
-	if thisEntity.bStarted ~= true then
-		return 0.1
-	end
-
-
-
-	local hEndCamera = Entities:FindByName( nil, "dire_end_camera" )
-	if hEndCamera ~= nil then
-		hEndCamera:SetAbsOrigin( thisEntity:GetAbsOrigin() )
-	end
-
 
 	if thisEntity.flNextPhaseTime == nil then
 		thisEntity.bBurrowStateQueued = true

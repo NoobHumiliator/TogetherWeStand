@@ -74,7 +74,6 @@ function boss_sand_king_sandstorm:OnSpellStart()
 						end
 						hStorm.hParent = self:GetCaster()
 						
-						hStorm:AddNewModifier( Hero, nil, "modifier_provides_vision", {} )
 						hStorm.nFXIndex = ParticleManager:CreateParticle( "particles/test_particle/sand_king_cyclone.vpcf", PATTACH_ABSORIGIN_FOLLOW, hStorm )
 						
 						hStorm:SetForceAttackTarget( Hero )
@@ -101,7 +100,6 @@ function boss_sand_king_sandstorm:OnSpellStart()
 				end
 				hStorm.hParent = self:GetCaster()
 				
-				hStorm:AddNewModifier( Hero, nil, "modifier_provides_vision", {} )
 				hStorm.nFXIndex = ParticleManager:CreateParticle( "particles/test_particle/sand_king_cyclone.vpcf", PATTACH_ABSORIGIN_FOLLOW, hStorm )
 				local vSpawnPoint = self:GetCaster():GetOrigin()
 				FindClearSpaceForUnit( hStorm, vSpawnPoint, true )

@@ -29078,6 +29078,96 @@
         }
     }
 
+    "big_exploding_burrower_big_explosion"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/round_12_2/big_exploding_burrower_big_explosion"
+        "AbilityTextureName"            "polar_furbolg_ursa_warrior_thunder_clap"
+
+        "MaxLevel"                      "1"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
+
+        "IsOnCastBar"                   "0"
+        
+        // Stats
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"              "0.67"
+        "AbilityCooldown"               "10"
+        "AbilityDamage"                 "400"
+        "AbilityManaCost"               "0"
+        
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "radius"                "300"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "duration"              "3.0"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "damage"                "1250"
+            }
+        }
+    }
+
+   "healing_burrower_suicide_heal"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/round_12_2/healing_burrower_suicide_heal"
+        "AbilityTextureName"            "nyx_assassin_unburrow"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_BOTH"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
+
+        "IsOnCastBar"                   "0"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "200"
+        "AbilityCastPoint"              "0.0"
+        
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "15.0"
+        
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+        
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "heal"                  "400"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "radius"                 "350"
+            }
+        }
+    }
+
 
 
 } //主括号

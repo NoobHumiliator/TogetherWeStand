@@ -2484,5 +2484,6 @@
 	     "DOTA_Holdout_Round_Sandking_Title"                                                  "Rhyzik"
 	     "npc_dota_boss_sand_king"                                                            "Rhyzik"
 	     "sand_king_short_title"                                                              "Sand King"
+	     "blue_dragon_short_title"                                                            "Blue Dragon"
 	}  
 }

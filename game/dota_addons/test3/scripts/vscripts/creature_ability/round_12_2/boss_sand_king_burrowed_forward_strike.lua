@@ -10,7 +10,7 @@ function boss_sand_king_burrowed_forward_strike:OnAbilityPhaseStart()
 		local kv = {}
 		kv["duration"] = self.animation_time
 		kv["initial_delay"] = self.initial_delay
-		self:GetCaster():AddNewModifier( self:GetCaster(), self, "modifier_sand_king_tail_swipe", kv )
+		self:GetCaster():AddNewModifier( self:GetCaster(), self, "modifier_boss_sand_king_tail_swipe", kv )
 	end
 	return true
 end
@@ -19,7 +19,7 @@ end
 
 function boss_sand_king_burrowed_forward_strike:OnAbilityPhaseInterrupted()
 	if IsServer() then
-		self:GetCaster():RemoveModifierByName( "modifier_sand_king_tail_swipe" )
+		self:GetCaster():RemoveModifierByName( "modifier_boss_sand_king_tail_swipe" )
 	end
 end
 
@@ -33,7 +33,7 @@ end
 
 function boss_sand_king_burrowed_forward_strike:GetCastRange( vLocation, hTarget )
 	if IsServer() then
-		if self:GetCaster():FindModifierByName( "modifier_sand_king_tail_swipe" ) ~= nil then
+		if self:GetCaster():FindModifierByName( "modifier_boss_sand_king_tail_swipe" ) ~= nil then
 			return 99999
 		end
 	end
