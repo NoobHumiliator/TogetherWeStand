@@ -656,11 +656,8 @@ function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正  --测
 	end
 	if self.loseflag>6 then
 		 self.last_live=self.last_live-1
-		 table.insert(vFailedRound, self._nRoundNumber) --记录下折在第几关了
+		 table.insert(vFailedRound, self._nRoundNumber..'_'..self._nBranchIndex) --记录下折在第几关了
 		 if self.last_live==0 then
-		 	 if self._nRoundNumber > 5 and not GameRules:IsCheatMode() then  --如果通过了条件，记录细节
-                 --Detail:RecordDetail(self._nRoundNumber-1,self.map_difficulty) --服务器压力大 暂时屏蔽此功能
-	         end
 		 	 if self.map_difficulty>=3 and not GameRules:IsCheatMode() and not self.bLoadFlag  then --读盘的游戏不能上天梯
 			   Rank:RecordGame(self._nRoundNumber-1,DOTA_TEAM_GOODGUYS) --储存并结束游戏
 			   return
@@ -678,6 +675,7 @@ function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正  --测
 		        self:_GrantMulberry() --给予桑葚
 		        self._currentRound.achievement_flag=false
 		    	self._currentRound:End()
+		    	Detail:InsertPlayerStatusSnapshot(false)
 		     end
 		     self._currentRound = nil
 			 self:_RefreshPlayers()
@@ -964,6 +962,7 @@ function CHoldoutGameMode:RoundEnd()
 	data.timecost=GameRules:GetGameTime()-self._currentRound.Begin_Time
 
     self._currentRound:End()
+    Detail:InsertPlayerStatusSnapshot(true)
 	if self._currentRound.achievement_flag then
 		data.acheivement_flag=1
 	else
@@ -1051,9 +1050,6 @@ function CHoldoutGameMode:RoundEnd()
     end
 
 	if self._nRoundNumber > #self._vRounds then
-        if self._nRoundNumber > 2 and not GameRules:IsCheatMode() then  --如果通过了条件，记录细节
-           --Detail:RecordDetail(self._nRoundNumber-1,self.map_difficulty)  --服务器压力大 屏蔽此功能
-	    end
 		if self.map_difficulty>=3 and not GameRules:IsCheatMode() and not self.bLoadFlag then 
 		   Rank:RecordGame(self._nRoundNumber-1,DOTA_TEAM_BADGUYS) --储存游戏	  
 		   return false

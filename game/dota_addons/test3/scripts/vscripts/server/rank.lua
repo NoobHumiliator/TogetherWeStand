@@ -2,6 +2,8 @@ if Rank == nil then Rank = class({}) end
 
 require('libraries/json')
 require('util')
+require( "server/detail")
+
 local server_address="http://191.101.226.126:8005/"
 
 function Rank:Start()
@@ -124,8 +126,11 @@ function Rank:RecordGame(nRoundNumber,nLoser)
                 else
                    local nNewRank= tonumber(result.Body)
                    CustomGameEventManager:Send_ServerToAllClients("AnnounceNewRank",{new_rank=tostring(nNewRank)}) --前台显示新排名
-                    Timers:CreateTimer({
-                            endTime = 10, 
+                   if nNewRank<50 then --如果新的前十名产生，记录游戏细节
+                      Detail:RecordDetail()
+                   end
+                   Timers:CreateTimer({
+                            endTime = 15, 
                               callback = function()
                               GameRules:MakeTeamLose(nLoser)
                             end})

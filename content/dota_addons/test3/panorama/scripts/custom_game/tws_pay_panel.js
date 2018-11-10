@@ -49,7 +49,7 @@ function OpenPayLink(payMethod){
         $( "#PayLinkMask" ).SetHasClass("hidden",true); //蒙版隐藏起来
         $( "#PayLinkInfo" ).SetHasClass("hidden",true); //隐藏Paypal
         $( "#TaobaoInfo" ).SetHasClass("hidden",false); //显示淘宝
-        var taobaoUrl="https://item.taobao.com/item.htm?id=558397841723";
+        var taobaoUrl="https://item.taobao.com/item.htm?id=581868803795";
         $( "#TaobaoInfo").BCreateChildren("<Label html='true' id='PayPalUrl' text='&lt;a href=&quot;"+taobaoUrl+"&quot;&gt;"+taobaoUrl+"&lt;a&gt;'/>")
     }
 }
