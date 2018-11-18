@@ -13,6 +13,8 @@ BURROW_DURATION = 15
 MIN_BURROWSTRIKES = 2
 MAX_BURROWSTRIKES = 5
 
+require( "ai_core" )
+
 function Spawn( entityKeyValues )
 	if IsServer() then
 		if thisEntity == nil then
@@ -173,7 +175,7 @@ function SandKingThink()
 
 	local enemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, 3000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 	if #enemies == 0 then
-		return 1
+		return AttackNearestEnemy(thisEntity)
 	end
 
 	if thisEntity.bBurrowStateQueued == true then

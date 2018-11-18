@@ -11,3 +11,16 @@ function boss_sand_king_passive:GetIntrinsicModifierName()
 end
 
 -----------------------------------------------------------------------------------------
+
+function boss_sand_king_passive:OnOwnerDied()
+	if self:GetCaster().vFissures then
+	  for _, hFissure in pairs(self:GetCaster().vFissures) do
+	      if hFissure:IsAlive() then
+	    	hFissure:ForceKill(true)
+	    	ParticleManager:DestroyParticle(hFissure.nFXIndex, true)
+	      end
+	   end
+	end
+end
+
+-----------------------------------------------------------------------------------------

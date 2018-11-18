@@ -100,6 +100,8 @@ function modifier_boss_sand_king_burrow:OnIntervalThink()
 			ParticleManager:SetParticleControl( nFXIndex, 0, vSpawnPoint )
 			ParticleManager:ReleaseParticleIndex( nFXIndex )
 
+			hMinion:AddNewModifier( hMinion, nil, "modifier_provide_vision", {} ) --提供视野，避免出现卡在树林里玩家找不到
+
 			if nBurrowerType == 0 then
 				local nFxIndex2 = ParticleManager:CreateParticle( "particles/units/heroes/hero_huskar/huskar_inner_vitality.vpcf", PATTACH_ABSORIGIN_FOLLOW, hMinion )
 				ParticleManager:SetParticleControlEnt( nFxIndex2, 0, hMinion, PATTACH_ABSORIGIN_FOLLOW, nil, hMinion:GetOrigin(), false )

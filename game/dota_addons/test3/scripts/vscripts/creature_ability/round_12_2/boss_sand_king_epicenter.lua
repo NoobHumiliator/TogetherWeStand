@@ -85,6 +85,10 @@ function boss_sand_king_epicenter:OnProjectileHitHandle( hTarget, vLocation, nPr
 			local vLoc2 = vLocation + vFromCaster * 200 + vToCasterPerp * 65
 			local vLoc3 = vLocation + vFromCaster * 200 + vToCasterPerp * -65
 
+            if self:GetCaster().vFissures==nil then
+               self:GetCaster().vFissures={}
+            end
+
 			local hThinker = CreateModifierThinker( self:GetCaster(), self, "modifier_earthshaker_fissure", {}, vLoc1, self:GetCaster():GetTeamNumber(), true )
 			local hThinker2 = CreateModifierThinker( self:GetCaster(), self, "modifier_earthshaker_fissure", {}, vLoc2, self:GetCaster():GetTeamNumber(), true )
 			local hThinker3 = CreateModifierThinker( self:GetCaster(), self, "modifier_earthshaker_fissure", {}, vLoc3, self:GetCaster():GetTeamNumber(), true )
@@ -94,7 +98,8 @@ function boss_sand_king_epicenter:OnProjectileHitHandle( hTarget, vLocation, nPr
 				ParticleManager:SetParticleControl( nFXIndex, 0, vLoc1 )
 				ParticleManager:SetParticleControl( nFXIndex, 1, vLoc1 )
 				ParticleManager:SetParticleControl( nFXIndex, 2, Vector( 99999, 0, 0 ) )
-
+				hThinker.nFXIndex=nFXIndex
+                table.insert(self:GetCaster().vFissures,hThinker)
 			end
 			if hThinker2 ~= nil then
 				hThinker2:SetHullRadius( 65 )
@@ -102,6 +107,8 @@ function boss_sand_king_epicenter:OnProjectileHitHandle( hTarget, vLocation, nPr
 				ParticleManager:SetParticleControl( nFXIndex, 0, vLoc2 )
 				ParticleManager:SetParticleControl( nFXIndex, 1, vLoc2 )
 				ParticleManager:SetParticleControl( nFXIndex, 2, Vector( 99999, 0, 0 ) )
+				hThinker2.nFXIndex=nFXIndex
+				table.insert(self:GetCaster().vFissures,hThinker2)
 			end
 			if hThinker3 ~= nil then
 				hThinker3:SetHullRadius( 65 )
@@ -109,6 +116,8 @@ function boss_sand_king_epicenter:OnProjectileHitHandle( hTarget, vLocation, nPr
 				ParticleManager:SetParticleControl( nFXIndex, 0, vLoc3 )
 				ParticleManager:SetParticleControl( nFXIndex, 1, vLoc3 )
 				ParticleManager:SetParticleControl( nFXIndex, 2, Vector( 99999, 0, 0 ) )
+				hThinker3.nFXIndex=nFXIndex
+				table.insert(self:GetCaster().vFissures,hThinker3)
 			end
 			EmitSoundOn( "SandKingBoss.Epicenter.Impact", hTarget )
 			
