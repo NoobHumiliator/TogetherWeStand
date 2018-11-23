@@ -4,7 +4,7 @@ function SplitShotLaunch( keys )
 
 	local caster = keys.caster
 	local modifier_dmg_penalty = keys.modifier_dmg_penalty
-	if caster:HasScepter() or (caster:GetOwnerEntity() and caster:GetOwnerEntity():HasScepter()) and not caster:HasModifier(modifier_dmg_penalty)  then
+	if ( caster and caster:HasScepter() ) or (caster:GetOwnerEntity().HasScepter and caster:GetOwnerEntity():HasScepter()) and not caster:HasModifier(modifier_dmg_penalty)  then
 
 		local target = keys.target
         if target.marksmanshipMarkB~=nil and target.marksmanshipMarkB  then

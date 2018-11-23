@@ -1272,12 +1272,12 @@
 		"01"
 		{
 			"var_type"				"FIELD_INTEGER"
-			"resist_debuff"			        "-20"
+			"resist_debuff"	        "-20"
 		}
 		"02"
 		{
-			"var_type"				"FIELD_FLOAT"
-			"seal_duration"			        "5"
+			"var_type"				"FIELD_INTEGER"
+			"seal_duration"	        "5"
 		}
 	}
 	
@@ -1287,8 +1287,7 @@
 	{
 		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
 		"particle"			"particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_debuff_rune.vpcf"
-		"particle"			"particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_silence.vpcf"
-                "particle"			"particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_debuff.vpcf"
+        "particle"			"particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_debuff.vpcf"
 	}
 	
 	"OnSpellStart"
@@ -1836,8 +1835,8 @@
 		}
 		"02"
 		{
-			"var_type"				"FIELD_FLOAT"
-			"duration"				"5.5"
+			"var_type"				"FIELD_INTEGER"
+			"duration"				"6"
 		}
 		"03"
 		{
@@ -11968,8 +11967,8 @@
 					"Types"			"DOTA_UNIT_TARGET_BASIC|DOTA_UNIT_TARGET_HERO"
 					"teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 					"flags"			"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
-					"Radius"		        "%radius"
-					"Center"		        "TARGET"
+					"Radius"	    "%radius"
+					"Center"	    "TARGET"
 				}
 			}
 		}
@@ -12001,7 +12000,7 @@
 			}
 			"02"
 			{
-				"var_type"		"FIELD_FLOAT"
+				"var_type"		"FIELD_INTEGER"
 				"radius"		"350"		
 			}
 			"03"
@@ -27788,39 +27787,6 @@
             }
         }
     }
-     "creature_centaur_warlord_return"
-    {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                     "centaur_return"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
-        "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"
-
-        "IsOnCastBar"                   "0"
-        
-        // Special
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "return_damage"             "25"
-            }
-            "02"
-            {
-                "var_type"                      "FIELD_INTEGER"
-                "strength_pct"                  "50"
-                "CalculateSpellDamageTooltip"   "1"
-            }
-            "03"
-            {
-                "var_type"                  "FIELD_INTEGER"
-                "aura_radius"               "900"
-            }
-        }
-    }
 
     "creature_dunerunner_earthbind"
     {
@@ -27832,7 +27798,7 @@
         "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
         "FightRecapLevel"               "1"
         "AbilitySound"                  "Hero_Meepo.Earthbind.Cast"
-
+         
         // Casting
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastRange"              "800"
@@ -27887,7 +27853,7 @@
         "AbilityTextureName"            "ranged_quill_attack"
         "ScriptFile"                    "creature_ability/round_9_2/creature_centaur_shaman_ranged_attack"
         "MaxLevel"                      "1"
-
+         
         "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
      
         // Casting
@@ -27904,6 +27870,12 @@
         // Cost
         //-------------------------------------------------------------------------------------------------------------
         "AbilityManaCost"               "0"
+
+        "precache"
+		{
+			"particle"				"particles/units/heroes/hero_centaur/centaur_double_edge_streak.vpcf"
+			"particle"				"particles/units/heroes/hero_centaur/centaur_base_attack_streak.vpcf"
+		}
 
         // Special
         //-------------------------------------------------------------------------------------------------------------

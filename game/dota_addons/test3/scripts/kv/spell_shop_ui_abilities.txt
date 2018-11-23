@@ -27,9 +27,10 @@
   }
   "beastmaster" {
   "1"    "beastmaster_wild_axes"
-  "2"    "beastmaster_call_of_the_wild"
-  "3"    "beastmaster_inner_beast"
-  "4"    "beastmaster_primal_roar"
+  "2"    "beastmaster_call_of_the_wild_boar"
+  "3"    "beastmaster_call_of_the_wild_hawk"
+  "4"    "beastmaster_inner_beast"
+  "5"    "beastmaster_primal_roar"
   }
   "dragon_knight" {
   "1"    "dragon_knight_breathe_fire"
@@ -46,8 +47,9 @@
   "antimage" {
   "1"    "antimage_mana_break"
   "2"    "antimage_blink"
-  "3"    "antimage_spell_shield"
-  "4"    "antimage_mana_void"
+  "3"    "antimage_counterspell"
+  "4"    "antimage_spell_shield"
+  "5"    "antimage_mana_void"
   }
   "drow_ranger" {
   "1"    "drow_ranger_frost_arrows"
@@ -515,9 +517,10 @@
   }
   "spirit_breaker" {
   "1"    "spirit_breaker_charge_of_darkness"
-  "2"    "spirit_breaker_empowering_haste"
-  "3"    "spirit_breaker_greater_bash"
-  "4"    "spirit_breaker_nether_strike"
+  "2"    "spirit_breaker_bulldoze"
+  "3"    "spirit_breaker_empowering_haste"
+  "4"    "spirit_breaker_greater_bash"
+  "5"    "spirit_breaker_nether_strike"
   }
   "lycan" {
   "1"    "lycan_summon_wolves"
@@ -548,6 +551,7 @@
   "2"    "clinkz_searing_arrows"
   "3"    "clinkz_wind_walk"
   "4"    "death_pact_datadriven"
+  "5"    "clinkz_burning_army"
   }
   "broodmother" {
   "1"    "broodmother_spawn_spiderlings"

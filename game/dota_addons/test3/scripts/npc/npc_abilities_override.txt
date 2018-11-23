@@ -1012,6 +1012,14 @@
 	{
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"1"
+			}	
+		}
 	}
 	"magnataur_reverse_polarity"
 	{
@@ -1397,6 +1405,28 @@
 		"MaxLevel"                      "3"
 	}
 
+    "clinkz_burning_army"
+	{
+		"LevelsBetweenUpgrades"			"15"
+		"MaxLevel"                      "3"
+	}
+   	"dazzle_bad_juju"
+	{
+
+	    "LevelsBetweenUpgrades"			"15"
+		"MaxLevel"                      "3"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{	
+				"var_type"					"FIELD_INTEGER"
+				"cooldown_reduction"		"10 20 30"
+			}
+		}
+	}
 
 
 }  //主括号

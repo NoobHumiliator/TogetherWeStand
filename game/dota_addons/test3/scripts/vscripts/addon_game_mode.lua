@@ -14,7 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
-testMode=true --减少刷兵间隔，增加初始金钱
+--testMode=true --减少刷兵间隔，增加初始金钱
 goldTestMode=false
 --goldTestMode=true --需要测试金币相关的内容
 
@@ -64,6 +64,10 @@ function Precache( context )
     PrecacheResource( 'particle', 'particles/econ/courier/courier_sappling/courier_sappling_ambient_fly_lvl1.vpcf', context)
     PrecacheResource( 'particle', 'particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_3.vpcf', context)
     PrecacheResource( 'particle', 'particles/econ/courier/courier_trail_orbit/courier_trail_orbit.vpcf', context)
+  
+    --学了立即产生例子特效的技能需要预加载
+    PrecacheResource( 'particle', 'particles/units/heroes/hero_spirit_breaker/spirit_breaker_haste_owner.vpcf', context)
+
 
 	PrecacheItemByNameSync( "item_tombstone", context )
 	PrecacheItemByNameSync( "item_bag_of_gold_tws", context )

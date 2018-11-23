@@ -43,6 +43,8 @@ function creature_giant_nyx_burrower_minion_spawner:CreateMinion()
 
 		FindClearSpaceForUnit( hMinion, vSpawnPoint, true )
 
+        hMinion:AddNewModifier( hMinion, nil, "modifier_provide_vision", {} ) --提供视野，避免出现卡在树林里玩家找不到
+
 		local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_visage/visage_summon_familiars.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster() )
 		ParticleManager:SetParticleControl( nFXIndex, 0, vSpawnPoint )
 		ParticleManager:ReleaseParticleIndex( nFXIndex )
