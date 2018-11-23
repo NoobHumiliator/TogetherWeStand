@@ -142,8 +142,9 @@
   "huskar" {
   "1"    "huskar_inner_vitality"
   "2"    "huskar_burning_spear"
-  "3"    "huskar_berserkers_blood"
-  "4"    "huskar_life_break"
+  "3"    "huskar_inner_fire"
+  "4"    "huskar_berserkers_blood"
+  "5"    "huskar_life_break"
   }
   "alchemist" {
   "1"    "alchemist_acid_spray"
@@ -154,8 +155,9 @@
   "brewmaster" {
   "1"    "brewmaster_thunder_clap"
   "2"    "brewmaster_drunken_haze"
-  "3"    "brewmaster_drunken_brawler"
-  "4"    "brewmaster_primal_split"
+  "3"    "brewmaster_cinder_brew"
+  "4"    "brewmaster_drunken_brawler"
+  "5"    "brewmaster_primal_split"
   }
   "treant" {
   "1"    "treant_natures_guise"
@@ -246,8 +248,10 @@
   }
   "chen" {
   "1"    "chen_penitence"
-  "2"    "chen_test_of_faith"
-  "3"    "chen_hand_of_god"
+  "2"    "chen_divine_favor"
+  "3"    "chen_test_of_faith"
+  "4"    "chen_test_of_faith_teleport"
+  "5"    "chen_hand_of_god"
   }
   "silencer" {
   "1"    "silencer_curse_of_the_silent"
@@ -356,7 +360,8 @@
   "2"    "keeper_of_the_light_mana_leak"
   "3"    "keeper_of_the_light_chakra_magic"
   "4"    "keeper_of_the_light_recall_tws"
-  "5"    "keeper_of_the_light_blinding_light_tws"
+  "5"    "keeper_of_the_light_blinding_light"
+  "6"    "keeper_of_the_light_will_o_wisp"
   }
   "skywrath_mage" {
   "1"    "skywrath_mage_arcane_bolt"
@@ -469,6 +474,8 @@
   "lich" {
   "1"    "lich_frost_nova"
   "2"    "lich_frost_armor"
+  "3"    "lich_sinister_gaze"
+  "4"    "lich_frost_shield"
   "3"    "lich_dark_ritual"
   "4"    "lich_chain_frost"
   }
