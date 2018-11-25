@@ -13376,25 +13376,30 @@
 			}
 		}
 	}
-   "rupture_holdout"
+   "creature_bloodseeker_rupture"
 	{
-		"BaseClass"                                     "bloodseeker_rupture"
+		"BaseClass"                     "bloodseeker_rupture"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			        "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
 		"FightRecapLevel"				"2"
+		"AbilitySound"					"hero_bloodseeker.rupture"
+
+		"HasScepterUpgrade"			     "1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.4"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60"
+		"AbilityCooldown"				"30"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -13402,7 +13407,7 @@
 		
 		// Cast Range
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
+		"AbilityCastRange"				"900"
 			
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -13415,12 +13420,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"12.0"
+				"duration"					"10"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movement_damage_pct"		"15"
+				"movement_damage_pct"		"4"
 			}
 			"03"
 			{
@@ -13429,22 +13434,17 @@
 			}
 			"04"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"damage_cap_interval"		"0.25"
+				"var_type"					"FIELD_INTEGER"
+				"cast_range_tooltip"		"900"
 			}
 			"05"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_range_tooltip"		"1000"
-			}
-		    "06"
-			{
-				"var_type"			        "FIELD_INTEGER"
+				"var_type"			"FIELD_INTEGER"
 				"max_charges_scepter"		"2"
 			}
-			"07"
+			"06"
 			{
-				"var_type"			        "FIELD_INTEGER"
+				"var_type"			"FIELD_INTEGER"
 				"charge_restore_time_scepter"		"40"
 			}
 		}
@@ -27526,7 +27526,7 @@
             "05"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "attack_damage"             "600"
+                "attack_damage"             "150"
             }
             "06"
             {

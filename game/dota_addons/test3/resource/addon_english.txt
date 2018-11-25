@@ -484,10 +484,10 @@
 		"DOTA_Tooltip_ability_bloodseeker_blood_bath_holdout_silence_duration"                                         "SILENCE DURATION: "
 		"DOTA_Tooltip_ability_bloodseeker_blood_bath_holdout_damage"                                                   "DAMAGE:"
 		"DOTA_Tooltip_ability_bloodseeker_blood_bath_holdout_delay"                                                    "RITUAL DELAY"
-		"DOTA_Tooltip_ability_rupture_holdout"							                       "Rupture"
-		"DOTA_Tooltip_ability_rupture_holdout_Description"					       "Causes an enemy unit's skin to rupture. If the unit moves, it takes a percentage of the distance traveled as damage. The damage is dealt through spell immunity.<font color='#70EA72'>Rupture can not stack</font>"
-		"DOTA_Tooltip_ability_rupture_holdout_duration"                                                                "DURATION: "
-		"DOTA_Tooltip_ability_rupture_holdout_movement_damage_pct"                                                     "MOVE DAMAGE:"
+		"DOTA_Tooltip_ability_creature_bloodseeker_rupture"							                       "Rupture"
+		"DOTA_Tooltip_ability_creature_bloodseeker_rupture_Description"					       "Causes an enemy unit's skin to rupture. If the unit moves, it takes a percentage of the distance traveled as damage. The damage is dealt through spell immunity.<font color='#70EA72'>Rupture can not stack</font>"
+		"DOTA_Tooltip_ability_creature_bloodseeker_rupture_duration"                                                                "DURATION: "
+		"DOTA_Tooltip_ability_creature_bloodseeker_rupture_movement_damage_pct"                                                     "MOVE DAMAGE:"
 		"DOTA_Tooltip_ability_invoker_metor_holdout"							               "CHAOS METEOR"
 		"DOTA_Tooltip_ability_invoker_metor_holdout_Description"					               "Unleash 5 meteors in front of forge spirit,when the meteor hit a enemy it will shatter and deal magical damage"
 		"DOTA_Tooltip_ability_invoker_metor_holdout_damage_tooltip"                                                    "damage:"
@@ -2485,5 +2485,9 @@
 	     "npc_dota_boss_sand_king"                                                            "Rhyzik"
 	     "sand_king_short_title"                                                              "Sand King"
 	     "blue_dragon_short_title"                                                            "Blue Dragon"
+	     "DOTA_Tooltip_ability_special_bonus_cooldown_reduction_50"                           "35% Cooldown Reduction"
+	     "DOTA_Tooltip_ability_special_bonus_cooldown_reduction_40"                           "25% Cooldown Reduction"
+         "DOTA_Tooltip_ability_special_bonus_cooldown_reduction_30"                           "20% Cooldown Reduction"
+
 	}  
 }

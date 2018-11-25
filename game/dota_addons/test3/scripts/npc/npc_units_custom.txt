@@ -8972,7 +8972,7 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"bloodseeker_blood_bath_holdout"	// Ability 1
-		"Ability2"					"rupture_holdout"	// Ability 2.
+		"Ability2"					"creature_bloodseeker_rupture"	// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.

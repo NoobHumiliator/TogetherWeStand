@@ -62,7 +62,7 @@ end
 BehaviorLight_Strike = {}
 
 function BehaviorLight_Strike:Evaluate()
-	self.strikeAbility = thisEntity:FindAbilityByName("rupture_holdout")    --对技能进行定义
+	self.strikeAbility = thisEntity:FindAbilityByName("creature_bloodseeker_rupture")    --对技能进行定义
 	local target=nil
 	local desire = 0
 

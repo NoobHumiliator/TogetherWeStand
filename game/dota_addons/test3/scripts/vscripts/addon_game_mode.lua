@@ -65,8 +65,12 @@ function Precache( context )
     PrecacheResource( 'particle', 'particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_3.vpcf', context)
     PrecacheResource( 'particle', 'particles/econ/courier/courier_trail_orbit/courier_trail_orbit.vpcf', context)
   
-    --学了立即产生例子特效的技能需要预加载
+    --学了立即产生例子特效的技能需要预加载,否则闪退
     PrecacheResource( 'particle', 'particles/units/heroes/hero_spirit_breaker/spirit_breaker_haste_owner.vpcf', context)
+    PrecacheResource( 'particle', 'particles/units/heroes/hero_huskar/huskar_berserker_blood_hero_effect.vpcf', context)
+    PrecacheResource( 'particle', 'particles/units/heroes/hero_huskar/huskar_berserkers_blood_glow.vpcf', context)
+    PrecacheResource( 'particle', 'particles/units/heroes/hero_faceless_void/faceless_void_time_lock_bash.vpcf', context)
+    PrecacheResource( 'particle', 'particles/units/heroes/hero_meepo/meepo_geostrike_ambient.vpcf', context)
 
 
 	PrecacheItemByNameSync( "item_tombstone", context )

@@ -902,10 +902,33 @@
 		"MaxLevel"                      "3"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
-	"bloodseeker_rupture"
+
+    "shadow_demon_soul_catcher"{
+
+       	"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_lost"			"12 15 17 20"
+			}		
+		}
+
+    }
+
+
+    "bloodseeker_rupture"
 	{
 		
 		"MaxLevel"                      "3"
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movement_damage_pct"		"1"
+			}
+		}
 	}
 	"razor_eye_of_the_storm"
 	{
@@ -1423,7 +1446,33 @@
 			"01"
 			{	
 				"var_type"					"FIELD_INTEGER"
-				"cooldown_reduction"		"10 20 30"
+				"cooldown_reduction"		"15 20 25"
+			}
+		}
+	}
+
+    "special_bonus_cooldown_reduction_50"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				        "35"
+			}
+		}
+	}
+
+	"special_bonus_cooldown_reduction_40"
+	{
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"30"
 			}
 		}
 	}

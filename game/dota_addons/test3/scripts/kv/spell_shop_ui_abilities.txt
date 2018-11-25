@@ -136,8 +136,9 @@
   "omniknight" {
   "1"    "omniknight_purification"
   "2"    "omniknight_repel"
-  "3"    "omniknight_degen_aura"
-  "4"    "omniknight_guardian_angel"
+  "3"    "omniknight_pacify"
+  "4"    "omniknight_degen_aura"
+  "5"    "omniknight_guardian_angel"
   }
   "huskar" {
   "1"    "huskar_inner_vitality"
@@ -250,8 +251,7 @@
   "1"    "chen_penitence"
   "2"    "chen_divine_favor"
   "3"    "chen_test_of_faith"
-  "4"    "chen_test_of_faith_teleport"
-  "5"    "chen_hand_of_god"
+  "4"    "chen_hand_of_god"
   }
   "silencer" {
   "1"    "silencer_curse_of_the_silent"
@@ -283,8 +283,9 @@
   "1"    "tusk_ice_shards"
   "2"    "tusk_snowball"
   "3"    "tusk_frozen_sigil"
-  "4"    "tusk_walrus_punch"
-  "5"    "tusk_walrus_kick"
+  "4"    "tusk_tag_team"
+  "5"    "tusk_walrus_punch"
+  "6"    "tusk_walrus_kick"
   }
   "elder_titan" {
   "1"    "elder_titan_echo_stomp"
@@ -315,8 +316,9 @@
   "lone_druid" {
   "1"    "lone_druid_spirit_bear"
   "2"    "lone_druid_rabid"
-  "3"    "lone_druid_true_form_battle_cry"
-  "4"    "lone_druid_true_form"
+  "3"    "lone_druid_spirit_link"
+  "4"    "lone_druid_true_form_battle_cry"
+  "5"    "lone_druid_true_form"
   }
   "naga_siren" {
   "1"    "naga_siren_mirror_image"
@@ -348,6 +350,7 @@
   "1"    "rubick_telekinesis"
   "2"    "rubick_fade_bolt"
   "3"    "rubick_null_field"
+  "4"    "rubick_arcane_supremacy"
   }
   "disruptor" {
   "1"    "disruptor_thunder_strike"
@@ -476,8 +479,8 @@
   "2"    "lich_frost_armor"
   "3"    "lich_sinister_gaze"
   "4"    "lich_frost_shield"
-  "3"    "lich_dark_ritual"
-  "4"    "lich_chain_frost"
+  "5"    "lich_frost_aura"
+  "6"    "lich_chain_frost"
   }
   "lion" {
   "1"    "lion_impale"
@@ -581,7 +584,8 @@
   "1"    "meepo_earthbind"
   "2"    "meepo_poof"
   "3"    "meepo_geostrike"
-  "4"    "meepo_divided_we_stand"
+  "4"    "meepo_ransack"
+  "5"    "meepo_divided_we_stand"
   }
   "nyx_assassin" {
   "1"    "nyx_assassin_impale"
@@ -619,7 +623,8 @@
   "1"    "dazzle_poison_touch"
   "2"    "dazzle_shallow_grave"
   "3"    "dazzle_shadow_wave"
-  "4"    "dazzle_weave"
+  "4"    "dazzle_bad_juju"
+  "5"    "dazzle_weave"
   }
   "leshrac" {
   "1"    "leshrac_split_earth"
@@ -681,7 +686,8 @@
   "obsidian_destroyer" {
   "1"    "obsidian_destroyer_arcane_orb"
   "2"    "obsidian_destroyer_astral_imprisonment"
-  "3"    "obsidian_destroyer_essence_aura_datadriven"
+  "3"    "obsidian_destroyer_equilibrium"
+  "4"    "obsidian_destroyer_essence_aura_datadriven"
   }
   "shadow_demon" {
   "1"    "shadow_demon_disruption"
@@ -717,7 +723,8 @@
   "1"    "pangolier_swashbuckle"
   "2"    "pangolier_shield_crash"
   "3"    "pangolier_heartpiercer"
-  "4"    "pangolier_gyroshell"
+  "4"    "pangolier_lucky_shot"
+  "5"    "pangolier_gyroshell"
   }
   "dark_willow" {
   "1"    "dark_willow_bramble_maze"
