@@ -23,6 +23,7 @@ re_table={} --反伤类技能  折射单独处理
 re_table["tiny_craggy_exterior"]=true
 re_table["bristleback_quill_spray"]=true
 re_table["bristleback_bristleback"]=true
+re_table["centaur_return_datadriven"]=true
 re_table["centaur_return"]=true
 re_table["spectre_dispersion"]=true
 re_table["viper_corrosive_skin"]=true

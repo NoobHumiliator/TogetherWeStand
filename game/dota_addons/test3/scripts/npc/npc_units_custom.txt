@@ -8960,6 +8960,19 @@
     "Ability1"  "skeleton_king_mortal_strike_datadriven"
 }
 
+"npc_precache_centaur_return_datadriven"
+{
+	"BaseClass" "npc_dota_creep"
+    "Ability1"  "centaur_return_datadriven"
+}
+
+"npc_precache_lich_dark_ritual_datadriven"
+{
+	"BaseClass" "npc_dota_creep"
+    "Ability1"  "lich_dark_ritual_datadriven"
+}
+
+
 "npc_dota_creature_bloodseeker"
 	{
 		"BaseClass"				"npc_dota_creature"	// Class of entity of link to.

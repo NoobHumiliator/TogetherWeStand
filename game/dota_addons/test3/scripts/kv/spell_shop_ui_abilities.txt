@@ -179,7 +179,8 @@
   "1"    "centaur_hoof_stomp"
   "2"    "centaur_double_edge"
   "3"    "centaur_return"
-  "4"    "centaur_stampede"
+  "4"    "centaur_return_datadriven"
+  "5"    "centaur_stampede"
   }
   "riki" {
   "1"    "riki_smoke_screen"
@@ -480,7 +481,8 @@
   "3"    "lich_sinister_gaze"
   "4"    "lich_frost_shield"
   "5"    "lich_frost_aura"
-  "6"    "lich_chain_frost"
+  "6"    "lich_dark_ritual_datadriven"
+  "7"    "lich_chain_frost"
   }
   "lion" {
   "1"    "lion_impale"

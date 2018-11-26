@@ -2489,5 +2489,16 @@
 	     "DOTA_Tooltip_ability_special_bonus_cooldown_reduction_40"                           "25% Cooldown Reduction"
          "DOTA_Tooltip_ability_special_bonus_cooldown_reduction_30"                           "20% Cooldown Reduction"
 
+         "DOTA_Tooltip_Ability_lich_dark_ritual_datadriven"                    "Dark Ritual"
+	     "DOTA_Tooltip_Ability_lich_dark_ritual_datadriven_Description"        "Sacrifices a friendly creep and converts its current hit points into mana for Lich."
+         "DOTA_Tooltip_Ability_lich_dark_ritual_datadriven_health_conversion"  "Current Health Converted："
+
+         "DOTA_Tooltip_Ability_centaur_return_datadriven"                    "Return"
+	     "DOTA_Tooltip_Ability_centaur_return_datadriven_Description"        "Centaur counters all attacks, dealing damage back to the attacker based on a percentage of Centaur's strength."
+         "DOTA_Tooltip_Ability_centaur_return_datadriven_return_damage"      "Base Damage:"
+         "DOTA_Tooltip_Ability_centaur_return_datadriven_strength_pct"       "Strength as Bonus Damage："
+         "DOTA_Tooltip_modifier_return"						                 "Return"
+
+
 	}  
 }

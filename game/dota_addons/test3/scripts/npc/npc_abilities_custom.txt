@@ -27526,7 +27526,7 @@
             "05"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "attack_damage"             "150"
+                "attack_damage"             "100"
             }
             "06"
             {
@@ -29140,6 +29140,133 @@
         }
     }
 
+   "lich_dark_ritual_datadriven"
+   {
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"				        "ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+	"AbilityTextureName"			"lich_dark_ritual"
+	"MaxLevel"                      "8"
+	
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"400"
+	"AbilityCastPoint"				"0.4 0.4 0.4 0.4 0.4 0.4"
 
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"46 40 34 28 22 16 10 4"
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"25 25 25 25"
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"health_conversion"		"25 40 55 70 85 100 115 130"
+		}
+	}
+
+	"precache"
+	{
+		"particle"	"particles/units/heroes/hero_lich/lich_dark_ritual.vpcf"
+		"soundfile"	"soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
+	}
+
+	"OnSpellStart"
+	{
+		"FireSound"
+		{
+			"EffectName"	"Ability.DarkRitual"
+			"Target" 		"CASTER"
+		}
+
+		"FireEffect"
+		{
+			"EffectName"		"particles/units/heroes/hero_lich/lich_dark_ritual.vpcf"
+			"EffectAttachType" 	"follow_origin"
+			"Target" 			"TARGET"
+			"ControlPointEntities"
+			{
+				"TARGET"	"attach_hitloc"
+				"CASTER"	"attach_hitloc"
+			}
+		}
+
+		"RunScript"
+	    {
+	        "ScriptFile"    "heroes/hero_lich/dark_ritual.lua"
+	        "Function"      "DarkRitual"
+	    }
+	  }
+   }
+    
+  "centaur_return_datadriven"
+  {
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"				        "ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+	"AbilityTextureName"			"centaur_return"
+	
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"return_damage"				"16 18 20 22"
+		}
+		"02"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"strength_pct"				"30 45 60 75"
+		}
+	}
+
+	"precache"
+	{
+		"particle"	"particles/units/heroes/hero_centaur/centaur_return.vpcf"
+	}
+
+	"Modifiers"
+	{
+		"modifier_return"
+		{
+			"Passive"	"1"
+			"OnAttacked"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/hero_centaur/return.lua"
+					"Function"		"Return"
+				}
+				"FireEffect"
+				{
+					"EffectName"		"particles/units/heroes/hero_centaur/centaur_return.vpcf"
+					"EffectAttachType"  "attach_hitloc"
+					"Target" 			"CASTER"
+					"ControlPointEntities"
+					{
+						"CASTER" 		"attach_hitloc"
+						"ATTACKER" 		"attach_hitloc"
+					}
+				}
+			}	
+		}
+	 }
+   }
 
 } //主括号
