@@ -1886,7 +1886,7 @@
 
 
 		"DOTA_Tooltip_ability_item_mulberry"						                             	"Magic Mulberry"
-		"DOTA_Tooltip_ability_item_mulberry_Description"				                            "Use: Consume the mulberry, be free to sell one ability in Spell Shop."
+		"DOTA_Tooltip_ability_item_mulberry_Description"				                            "Use: Consume the mulberry, free to sell one ability in Spell Shop. \n<font color='#FF7800'>Player with PASS got double mulberry</font>"
 
 		"DOTA_Tooltip_modifier_item_mulberry"	                                                    "Magic Mulberry"
 		"DOTA_Tooltip_modifier_item_mulberry_Description"	                                        "Free to sell ability in Spell Shop."
@@ -2498,6 +2498,7 @@
          "DOTA_Tooltip_Ability_centaur_return_datadriven_return_damage"      "Base Damage:"
          "DOTA_Tooltip_Ability_centaur_return_datadriven_strength_pct"       "Strength as Bonus Damage："
          "DOTA_Tooltip_modifier_return"						                 "Return"
+         "vip_reward_initialize_note"                                        "Pass Reward Active."
 
 
 	}  

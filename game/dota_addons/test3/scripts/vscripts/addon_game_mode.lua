@@ -478,7 +478,7 @@ function CHoldoutGameMode:OnGameRulesStateChange()
     if nNewState ==  DOTA_GAMERULES_STATE_PRE_GAME then
        self.nTimeCost=-15 --计时器时间初始设置 负十五秒，正式开始计时
 	   Timers:CreateTimer({
-	    endTime = 3,
+	    endTime = 7,
 	    callback = function()
 	      InitVipReward()  --进入游戏三秒 初始化VIP奖励
 	    end})	
@@ -998,63 +998,53 @@ function CHoldoutGameMode:RoundEnd()
     
     local playernumberbonus=0.5
     local playerNumber=0
+    -- 统计人数
     for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
 		if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
 			if  PlayerResource:HasSelectedHero( nPlayerID ) then
 				playernumberbonus=playernumberbonus+0.5
 				playerNumber=playerNumber+1
-				local steamID = PlayerResource:GetSteamAccountID( nPlayerID )
-				if self.vipMap[steamID]>=2 then --如果VIP等级
-					Timers:CreateTimer(5.0, function()  --等待例子特效
-							local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
-					    	local particle_a = ParticleManager:CreateParticle("particles/econ/events/ti6/teleport_start_ti6.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, hero)
-					        ParticleManager:SetParticleControlEnt(particle_a, 0, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetOrigin(), true)
-					        local particle_b = ParticleManager:CreateParticle("particles/econ/events/ti6/teleport_start_ti6_lvl3_rays.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, hero)
-					        ParticleManager:SetParticleControlEnt(particle_a, 0, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetOrigin(), true)
-					        Timers:CreateTimer(9.0, function()
-					           ParticleManager:DestroyParticle(particle_a,false)
-				               ParticleManager:DestroyParticle(particle_b,false)
-				               ParticleManager:ReleaseParticleIndex(particle_a)
-				               ParticleManager:ReleaseParticleIndex(particle_b)
-					        end)
-					end)
-				end
 			end
 		end
 	end
     
     if playerNumber>0 then 
-	    local goldCompensatePerWave=self.nGoldToCompensate*playernumberbonus/30/playerNumber  --分30波补偿
-	    local expCompensatePerWave=self.nExpToCompensate*playernumberbonus/30/playerNumber
-	    self.nGoldToCompensate=0
-	    self.nExpToCompensate=0
-	    local nWave=1  
-	 
-	    Timers:CreateTimer(5, function()
-	           for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
-				 if PlayerResource:IsValidPlayer( nPlayerID ) then
-					if PlayerResource:HasSelectedHero( nPlayerID ) then
-						local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
-						local steamID = PlayerResource:GetSteamAccountID( nPlayerID )
-						if self.vipMap[steamID]>=2 then
-		                   SendOverheadEventMessage( hero, OVERHEAD_ALERT_GOLD, hero, goldCompensatePerWave*3, nil )  --三倍补偿
-		                   PlayerResource:ModifyGold(nPlayerID,goldCompensatePerWave*3,true,DOTA_ModifyGold_Unspecified)
-		                   hero:AddExperience(expCompensatePerWave*3,0,false,false)
-		                else
-		                   SendOverheadEventMessage( hero, OVERHEAD_ALERT_GOLD, hero, goldCompensatePerWave, nil )
-		                   PlayerResource:ModifyGold(nPlayerID,goldCompensatePerWave,true,DOTA_ModifyGold_Unspecified)
-		                   hero:AddExperience(expCompensatePerWave,0,false,false)
-		                end
-				    end
-				 end
-			   end
-			 if nWave==30 then  --30波补偿
-			 	return nil
-			 else
-			 	nWave=nWave+1
-		        return 0.3
-		     end
-		end)
+
+	    --开始金币补偿
+        if self.nGoldToCompensate>0 then
+        	--补偿的时候 显示VIP特效
+            ShowVIPParticle() --util里面定义
+            local goldCompensatePerWave=self.nGoldToCompensate*playernumberbonus/30/playerNumber  --分30波补偿
+	        local expCompensatePerWave=self.nExpToCompensate*playernumberbonus/30/playerNumber
+	        self.nGoldToCompensate=0
+	        self.nExpToCompensate=0
+            local nWave=1  
+		    Timers:CreateTimer(5, function()
+		           for nPlayerID = 0, DOTA_MAX_PLAYERS-1 do
+					 if PlayerResource:IsValidPlayer( nPlayerID ) then
+						if PlayerResource:HasSelectedHero( nPlayerID ) then
+							local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
+							local steamID = PlayerResource:GetSteamAccountID( nPlayerID )
+							if self.vipMap[steamID]>=2 then
+			                   SendOverheadEventMessage( hero, OVERHEAD_ALERT_GOLD, hero, goldCompensatePerWave*3, nil )  --三倍补偿
+			                   PlayerResource:ModifyGold(nPlayerID,goldCompensatePerWave*3,true,DOTA_ModifyGold_Unspecified)
+			                   hero:AddExperience(expCompensatePerWave*3,0,false,false)
+			                else
+			                   SendOverheadEventMessage( hero, OVERHEAD_ALERT_GOLD, hero, goldCompensatePerWave, nil )
+			                   PlayerResource:ModifyGold(nPlayerID,goldCompensatePerWave,true,DOTA_ModifyGold_Unspecified)
+			                   hero:AddExperience(expCompensatePerWave,0,false,false)
+			                end
+					    end
+					 end
+				   end
+				 if nWave==30 then  --30波补偿
+				 	return nil
+				 else
+				 	nWave=nWave+1
+			        return 0.3
+			     end
+			end)
+	    end
     end
 
 	if self._nRoundNumber > #self._vRounds then
@@ -1107,11 +1097,6 @@ function CHoldoutGameMode:PlayerSelectBranch()
 		      GameRules:GetGameModeEntity().CHoldoutGameMode._flPrepTimeEnd = GameRules:GetGameTime() + GameRules:GetGameModeEntity().CHoldoutGameMode._flPrepTimeBetweenRounds
 		end})	
 end
-
-
-
-
-
 
 
 

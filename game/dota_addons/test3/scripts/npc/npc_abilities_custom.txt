@@ -288,10 +288,10 @@
 					"Target" 		"CASTER"
 				}
 			}
-
 		}
 		"modifier_fire_twin_debuff"
 		{
+			
 			"IsDebuff"			"1"
 			"IsPurgable"		        "0"
 
@@ -16502,12 +16502,12 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
+				"var_type"				"FIELD_INTEGER"
 				"move_speed_bonus"		"250"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_FLOAT"
+				"var_type"				"FIELD_INTEGER"
 				"health_regen_bonus"	"400"
 			}
 			"03"
@@ -16726,7 +16726,7 @@
 			}
 			"02"
 			{
-				"var_type"					"FIELD_FLOAT"
+				"var_type"					"FIELD_INTEGER"
 				"damage_percent"			"12"
 			}
 			"03"
@@ -16736,8 +16736,8 @@
 			}
 			"04"
 			{
-				"var_type"				    "FIELD_FLOAT"
-				"tick_rate"				    "1.0"
+				"var_type"				    "FIELD_INTEGER"
+				"tick_rate"				    "1"
 			}
 		}
 		

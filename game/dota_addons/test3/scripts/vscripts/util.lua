@@ -697,3 +697,5 @@ function RandomHeroIgnoreImmnueAndInvulnerable ()
     end
 end
 
+
+

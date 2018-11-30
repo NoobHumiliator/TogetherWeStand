@@ -90,6 +90,12 @@ function modifier_boss_sand_king_burrow:OnIntervalThink()
 			
 			local vCasterPos = self:GetCaster():GetAbsOrigin()
 			local vSpawnPoint = vCasterPos + RandomVector( 1 ) * 2500
+            
+            while(vSpawnPoint.x<world_left_x or vSpawnPoint.x>world_right_x or vSpawnPoint.y<world_left_y or vSpawnPoint.y>world_right_y )
+			do
+			   vSpawnPoint = vCasterPos + RandomVector( 1 ) * 2500
+			end
+
 			if nBurrowerType ~= 0 then
 				vSpawnPoint = vCasterPos + RandomVector( RandomFloat( 200, 500 ) )
 			end
