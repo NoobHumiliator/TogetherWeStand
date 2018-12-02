@@ -23398,17 +23398,17 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"radius"					"900"
+				"radius"					"1200"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"14 22 30 38 88 138 188 238"
+				"primary_attribute"			"6 12 18 24 56 78 100 122"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_night_vision"		"250 500 750 1000 1250 1500 1750 2000"
+				"bonus_night_vision"		"200 400 600 800 1200 1600 1800 2000"
 			}
 		}
 	}
@@ -23426,17 +23426,17 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"radius"					"900"
+				"radius"					"1200"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"14 22 30 38 88 138 188 238 338 438 538 638" 
+				"primary_attribute"			"6 12 18 24 56 78 100 122 170 218 266 314"
 			}
-			"03" 
+			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_night_vision"		"250 500 750 1000 1250 1500 1750 2000 2250 2500 2750 3000"
+				"bonus_night_vision"		"200 400 600 800 1200 1600 1800 2000 2200 2400 2600 2800"
 			}
 		}
 	}
@@ -23464,9 +23464,9 @@
 		{
 			"01"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"trueshot_ranged_damage"	"20 26 32 38 44 50 56 62"
-				"LinkedSpecialBonus"		"special_bonus_unique_drow_ranger_1"
+				"var_type"				    	"FIELD_FLOAT"
+				"trueshot_ranged_attack_speed"	"20 40 60 80 100 120 140 160"
+				"LinkedSpecialBonus"	    	"special_bonus_unique_drow_ranger_1"
 			}
 		}
 	}
@@ -23494,9 +23494,9 @@
 		{
 			"01"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"trueshot_ranged_damage"	"20 26 32 38 44 50 56 62 68 74 80 86"
-				"LinkedSpecialBonus"		"special_bonus_unique_drow_ranger_1"
+				"var_type"					    "FIELD_FLOAT"
+				"trueshot_ranged_attack_speed"	"20 40 60 80 100 120 140 160 180 200 220 240"
+				"LinkedSpecialBonus"		    "special_bonus_unique_drow_ranger_1"
 			}
 		}
 	}

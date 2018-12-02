@@ -16527,7 +16527,7 @@
 		"SoundSet"					"Hero_DrowRanger"
 		"Level"						"15"
 		"ModelScale" 				"1.32"
-		"ConsideredHero"			"1"
+		"ConsideredHero"			"0"
 
 		// Abilities
 		//----------------------------------------------------------------

@@ -23,6 +23,8 @@ brokenModifierAbilityMap = {
    }
 noReturnAbility = {    --不退回升级点数的技能
         puck_ethereal_jaunt = true,
+        beastmaster_call_of_the_wild_boar = true,
+        beastmaster_call_of_the_wild_hawk = true,
         troll_warlord_whirling_axes_ranged = true,
         troll_warlord_whirling_axes_melee = true,
         lone_druid_savage_roar_bear = true,

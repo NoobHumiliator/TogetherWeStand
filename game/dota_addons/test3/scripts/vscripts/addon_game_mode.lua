@@ -14,7 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
---testMode=true --减少刷兵间隔，增加初始金钱
+testMode=true --减少刷兵间隔，增加初始金钱
 goldTestMode=false
 --goldTestMode=true --需要测试金币相关的内容
 
@@ -71,6 +71,7 @@ function Precache( context )
     PrecacheResource( 'particle', 'particles/units/heroes/hero_huskar/huskar_berserkers_blood_glow.vpcf', context)
     PrecacheResource( 'particle', 'particles/units/heroes/hero_faceless_void/faceless_void_time_lock_bash.vpcf', context)
     PrecacheResource( 'particle', 'particles/units/heroes/hero_meepo/meepo_geostrike_ambient.vpcf', context)
+    PrecacheResource( 'particle', 'particles/units/heroes/hero_luna/luna_ambient_lunar_blessing.vpcf', context)
 
 
 	PrecacheItemByNameSync( "item_tombstone", context )
