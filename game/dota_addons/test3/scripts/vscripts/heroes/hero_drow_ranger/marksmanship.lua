@@ -34,7 +34,8 @@ function SplitShotLaunch( keys )
 
 		-- Create projectiles for units that are not the casters current attack target
 		for _,v in pairs(split_shot_targets) do
-			if v ~= target then
+			--加上此效果 防止能攻击到免疫单位
+			if not target:IsNull() and v ~= target and target:IsAlive() and not target:IsAttackImmune()  then
 				local projectile_info = 
 				{
 					EffectName = split_shot_projectile,

@@ -162,7 +162,7 @@ end
  BehaviorWishFuse.Continue=BehaviorWishFuse.Begin
 
 function BehaviorWishFuse:Think(dt)
-	if not self.target:IsAlive() then
+	if self.target:IsNull() or (not self.target:IsAlive()) then
 		self.endTime = GameRules:GetGameTime()
 		return
 	end
@@ -261,7 +261,7 @@ end
 BehaviorDismember.Continue = BehaviorDismember.Begin --if we re-enter this ability, we might have a different target; might as well do a full reset
 
 function BehaviorDismember:Think(dt)
-	if not self.target:IsAlive() then
+	if self.target:IsNull() or (not self.target:IsAlive()) then
 		self.endTime = GameRules:GetGameTime()
 		return
 	end

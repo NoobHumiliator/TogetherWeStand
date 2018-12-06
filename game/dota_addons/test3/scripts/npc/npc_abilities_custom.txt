@@ -17430,12 +17430,12 @@
 			}
 			"02"
 			{
-				"var_type"						"FIELD_FLOAT"
+				"var_type"						"FIELD_INTEGER"
 				"strike_speed"			        "1800"
 			}
 			"03"
 			{
-				"var_type"						"FIELD_FLOAT"
+				"var_type"						"FIELD_INTEGER"
 				"knockback_distance"			"200"
 			}
 			"04"
@@ -22880,12 +22880,13 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"900"
+				"radius"				"1200"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_attack_speed"	"15 25 35 45 95 145 195 245"
+				"LinkedSpecialBonus"    "special_bonus_unique_beastmaster_4"
 			}
 		}
 	}
@@ -23002,19 +23003,24 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed_pct"	"6 10 14 18 22 26 30 34"
+				"bonus_movespeed_pct_self"	"8 12 16 20 24 28 32 36"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900 900 900 900"
+				"bonus_movespeed_pct_allies"	"4 6 8 10 12 14 16 18"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed_pct_extra"		"3 5 7 9 11 13 15 17"
+				"aura_radius"			"1200"
 			}
 			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movespeed_pct_extra"		"3 4 5 6 7 8 9 10"
+			}
+			"05s"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"duration"			"6"
@@ -23041,22 +23047,27 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed_pct"	"6 10 14 18 22 26 30 34 38 42 46 50"
+				"bonus_movespeed_pct_self"	"8 12 16 20 24 28 32 36 40 44 48 52"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900 900 900 900"
+				"bonus_movespeed_pct_allies"	"4 6 8 10 12 14 16 18 20 22 24 26"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed_pct_extra"		"3 5 7 9 11 13 15 17 19 21 23 25"
+				"aura_radius"			"1200"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration"			    "6"
+				"bonus_movespeed_pct_extra"		"3 4 5 6 7 8 9 10 11 12 13 14"
+			}
+			"05s"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"			"6"
 			}
 		}
 	}
@@ -23141,7 +23152,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"radius"						"900"
+				"radius"						"1200"
 			}
 			"02"
 			{
@@ -23157,6 +23168,7 @@
 			{
 				"var_type"						"FIELD_INTEGER"
 				"bonus_damage_from_hero"		"30 35 40 45 50 55 60 65"
+				"LinkedSpecialBonus"			"special_bonus_unique_underlord_3"
 			}
 			"05"
 			{
@@ -23167,6 +23179,11 @@
 			{
 				"var_type"						 "FIELD_FLOAT"
 				"bonus_damage_duration_scepter"	 "70 80 90 100 110 120 130 140"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"permanent_bonus"		        "2 3 4 5 6 7 8 9"
 			}
 		}
 	}
@@ -23219,6 +23236,11 @@
 				"var_type"						"FIELD_FLOAT"
 				"bonus_damage_duration_scepter"	 "70 80 90 100 110 120 130 140 150 160 170 180"
 			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"permanent_bonus"		        "2 3 4 5 6 7 8 9 10 11 12 13"
+			}
 		}
 	}
     
@@ -23234,7 +23256,7 @@
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900"
+		"AbilityCastRange"				"1200"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -23264,7 +23286,7 @@
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900"
+		"AbilityCastRange"				"1200"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -23273,7 +23295,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"presence_armor_reduction"		"-3 -4 -5 -6 -10 -14 -18 -22 -28 -34 -40 -46"
+				"presence_armor_reduction"		"-3 -4 -5 -6 -10 -14 -18 -22 -30 -38 -46 -54"
 			}
 			"02"
 			{
@@ -29268,5 +29290,52 @@
 		}
 	 }
    }
+
+   "faceless_void_time_lock_tws"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------		 
+        "BaseClass"						"ability_lua"
+		"AbilityTextureName"			"faceless_void_time_lock"
+		"ScriptFile"					"heroes/hero_faceless_void/faceless_void_time_lock_tws"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"AbilitySound"					"Hero_FacelessVoid.TimeLockImpact"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportBonus"		"25"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"0.75"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration_creep"		"2.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chance_pct"			"100 14 18 22"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"25 30 35 40"
+				"LinkedSpecialBonus"	"special_bonus_unique_faceless_void_3"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+
 
 } //主括号

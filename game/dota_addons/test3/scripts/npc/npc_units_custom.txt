@@ -7522,16 +7522,14 @@
     "npc_majia_water_1"
 	{
 		"BaseClass"					"npc_dota_creature"
-		"Model"						"models\development\invisiblebox.vmdl" //¿ÕÄ£ÐÍ
-		"SoundSet"					""								// ÒôÐ§ÎÄ¼þ
-		"ModelScale" 				        "0.9"							// Ä£ÐÍ´óÐ¡
+		"Model"						"models\development\invisiblebox.vmdl"
+		"SoundSet"					""							
+		"ModelScale" 				        "0.9"						
 
-		// »¤¼×
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"0"	  //ÎïÀí»¤¼×
-		"MagicalResistance"			"0"	  //Ä§¿¹
+		"ArmorPhysical"				"0"	 
+		"MagicalResistance"			"0"	  
 
-		//¼¼ÄÜ
 		//----------------------------------------------------------------
 		"Ability1"					"majia"
 		"Ability2"					"majia_water_particle"
@@ -7540,37 +7538,36 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"  	// ¹¥»÷·½Ê½£¬´ËÎª½üÕ½¹¥»÷ 
-		"AttackDamageMin"			"0"							// ×îµÍ¹¥»÷ÉËº¦
-		"AttackDamageMax"			"0"							// ×î¸ß¹¥»÷ÉËº¦
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"							
+		"AttackDamageMax"			"0"							
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1"							// ¹¥»÷¼ä¸ô£¬Óë¹¥»÷ËÙ¶ÈÊÇÁ½¸ö¸ÅÄî
-		"AttackAcquisitionRange"	        "0"							// Õì²â·¶Î§
-		"AttackRange"				"0"							// ¹¥»÷·¶Î§
+		"AttackRate"				"1"							
+		"AttackAcquisitionRange"	        "0"							
+		"AttackRange"				"0"							
 
 		// ½±Àø
 		//----------------------------------------------------------------
-		"BountyXP"				"0"		// ¾­Ñé½±Àø
-		"BountyGoldMin"				"0"		// ×îµÍ½ðÇ®½±Àø
-		"BountyGoldMax"				"0"		// ×î¸ß½ðÇ®½±Àø
+		"BountyXP"			    	"0"		
+		"BountyGoldMin"				"0"	
+		"BountyGoldMax"				"0"	
 
 		// Åö×²
 		//----------------------------------------------------------------
-		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		// Åö×²ÀàÐÍ
-		"RingRadius"				"0"							// Ñ¡ÔñÈ¦´óÐ¡
-		"HealthBarOffset"			"0"							// ÑªÌõÏà¶Ô¸ß¶È
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"		
+		"RingRadius"				"0"						
+		"HealthBarOffset"			"0"							
 
 		// ÒÆ¶¯
 		//----------------------------------------------------------------
-		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"	// ÒÆ¶¯ÀàÐÍ
-		"MovementSpeed"				"0"							// ÒÆ¶¯ËÙ¶È
-		"MovementTurnRate"			"3"							// ×ªÉíËÙ¶È
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"	
+		"MovementSpeed"				"0"							
+		"MovementTurnRate"			"3"							
 
-		// ÉúÃüÖµºÍÄ§·¨Öµ
 		//----------------------------------------------------------------
-		"StatusHealth"				"100000"						// »ù´¡ÉúÃüÖµ
-		"StatusHealthRegen"			"0"							// »ù´¡ÉúÃü»Ø¸´ËÙ¶È
-                "TeamName"				"DOTA_TEAM_BADGUYS"			// Team name.
+		"StatusHealth"				"100000"						
+		"StatusHealthRegen"			"0"							
+        "TeamName"				"DOTA_TEAM_BADGUYS"			
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 	}

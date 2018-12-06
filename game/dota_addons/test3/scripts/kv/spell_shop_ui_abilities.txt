@@ -453,8 +453,9 @@
   }
   "faceless_void" {
   "1"    "faceless_void_time_walk"
-  "2"    "faceless_void_time_lock"
-  "3"    "faceless_void_chronosphere"
+  "2"    "faceless_void_time_lock_tws"
+  "3"    "faceless_void_time_lock"
+  "4"    "faceless_void_chronosphere"
   }
   "phantom_assassin" {
   "1"    "phantom_assassin_stifling_dagger"
@@ -522,10 +523,9 @@
   "4"    "night_stalker_darkness"
   }
   "doom_bringer" {
-  "1"    "doom_bringer_devour"
-  "2"    "doom_bringer_scorched_earth"
-  "3"    "doom_bringer_infernal_blade"
-  "4"    "doom_bringer_doom_datadriven"
+  "1"    "doom_bringer_scorched_earth"
+  "2"    "doom_bringer_infernal_blade"
+  "3"    "doom_bringer_doom_datadriven"
   }
   "spirit_breaker" {
   "1"    "spirit_breaker_charge_of_darkness"
