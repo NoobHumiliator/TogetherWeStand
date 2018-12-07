@@ -25,7 +25,7 @@ function modifier_faceless_void_time_lock_passive:OnAttackLanded(keys)
 			return end
 		-- 防止死循环
         if not owner.bCanTriggerLock then
-           return end
+           return
         end
 
 		-- If this is an illusion, do nothing
@@ -50,9 +50,9 @@ function modifier_faceless_void_time_lock_passive:OnAttackLanded(keys)
                	target:AddNewModifier(owner, self:GetAbility(), "modifier_stunned", {duration = 0.5})
 
                 --避免进入死循环
-                owner.bCanTriggerLock=true
+                owner.bCanTriggerLock=false
 				owner:PerformAttack(target, true, true, true, false, false, false, false)
-				owner.bCanTriggerLock=false
+				owner.bCanTriggerLock=true
 
 				local lock_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_faceless_void/faceless_void_time_lock_bash.vpcf", PATTACH_ABSORIGIN, target)
 		        ParticleManager:ReleaseParticleIndex(lock_pfx)
