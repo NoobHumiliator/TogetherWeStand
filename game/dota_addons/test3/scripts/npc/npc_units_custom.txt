@@ -8969,6 +8969,12 @@
     "Ability1"  "lich_dark_ritual_datadriven"
 }
 
+"npc_precache_faceless_void_time_lock_datadriven"
+{
+	"BaseClass" "npc_dota_creep"
+    "Ability1"  "faceless_void_time_lock_datadriven"
+}
+
 
 "npc_dota_creature_bloodseeker"
 	{

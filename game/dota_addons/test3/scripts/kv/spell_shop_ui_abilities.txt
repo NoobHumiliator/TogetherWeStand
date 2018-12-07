@@ -453,7 +453,7 @@
   }
   "faceless_void" {
   "1"    "faceless_void_time_walk"
-  "2"    "faceless_void_time_lock_tws"
+  "2"    "faceless_void_time_lock_datadriven"
   "3"    "faceless_void_time_lock"
   "4"    "faceless_void_chronosphere"
   }

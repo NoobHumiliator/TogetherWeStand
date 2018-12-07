@@ -29291,18 +29291,24 @@
 	 }
    }
 
-   "faceless_void_time_lock_tws"
+   "faceless_void_time_lock_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------		 
         "BaseClass"						"ability_lua"
 		"AbilityTextureName"			"faceless_void_time_lock"
-		"ScriptFile"					"heroes/hero_faceless_void/faceless_void_time_lock_tws"
+		"ScriptFile"					"heroes/hero_faceless_void/faceless_void_time_lock_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
 		"AbilitySound"					"Hero_FacelessVoid.TimeLockImpact"
+
+        "precache"
+        {
+         	"particle"  "particles/tws_custom/faceless_void_time_lock_bash_tws.vpcf"
+         	"soundfile" "soundevents/game_sounds_heroes/game_sounds_faceless_void.vsndevts"
+        }
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------

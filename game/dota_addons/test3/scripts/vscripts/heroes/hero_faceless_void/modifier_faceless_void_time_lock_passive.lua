@@ -54,10 +54,11 @@ function modifier_faceless_void_time_lock_passive:OnAttackLanded(keys)
 				owner:PerformAttack(target, true, true, true, false, false, false, false)
 				owner.bCanTriggerLock=true
 
-				local lock_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_faceless_void/faceless_void_time_lock_bash.vpcf", PATTACH_ABSORIGIN, target)
+				local lock_pfx = ParticleManager:CreateParticle("particles/tws_custom/faceless_void_time_lock_bash_tws.vpcf", PATTACH_ABSORIGIN, target)
 		        ParticleManager:ReleaseParticleIndex(lock_pfx)
 
-                self:GetCaster():EmitSound("Hero_Juggernaut.BladeFury.Impact")
+
+                self:GetCaster():EmitSound("Hero_FacelessVoid.TimeLockImpact")
 
                 local damage_table = {}
 	            damage_table.owner = self:GetCaster()
