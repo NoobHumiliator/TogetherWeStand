@@ -29,7 +29,9 @@ function Taobao:RegisterVip(code,steamID,nPlayerID)
                Notifications:BottomToAll({text = playerName.." ", duration = 5, continue = true})
                Notifications:BottomToAll({text = "#taobao_thank_note", duration = 5, style = {color = "Orange"}, continue = true})     
                GrantExtraLife()  --给与队伍额外生命
-               local keys={playerId=nPlayerID,vipLevel=tonumber(result.Body)}  --传回的是等级                
+               local keys={playerId=nPlayerID,vipLevel=tonumber(result.Body)}  --传回的是等级  
+               GameRules:GetGameModeEntity().CHoldoutGameMode.vipMap[steamID].level=tonumber(result.Body)   
+
                --PrintTable(keys)
                CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(nPlayerID),"NotifyVip", keys) --将VIP等级告知前台
             end

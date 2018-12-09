@@ -150,10 +150,4 @@ end
 
 
 
-
-
-
-
-
-
 Rank:Start()

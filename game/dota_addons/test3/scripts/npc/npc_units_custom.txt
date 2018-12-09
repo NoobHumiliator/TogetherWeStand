@@ -8975,6 +8975,13 @@
     "Ability1"  "faceless_void_time_lock_datadriven"
 }
 
+"npc_precache_doom_bringer_devour_datadriven"
+{
+	"BaseClass" "npc_dota_creep"
+    "Ability1"  "doom_bringer_devour_datadriven"
+}
+
+
 
 "npc_dota_creature_bloodseeker"
 	{

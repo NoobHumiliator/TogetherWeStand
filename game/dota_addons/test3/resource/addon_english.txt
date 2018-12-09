@@ -2497,7 +2497,25 @@
          "DOTA_Tooltip_Ability_centaur_return_datadriven_strength_pct"       "Strength as Bonus Damage："
          "DOTA_Tooltip_modifier_return"						                 "Return"
          "vip_reward_initialize_note"                                        "Pass Reward Active."
+         
+         "DOTA_Tooltip_ability_doom_bringer_devour_datadriven"	                     "Devour"
+		 "DOTA_Tooltip_ability_doom_bringer_devour_datadriven_Description"	         "Consumes an enemy or neutral creep,<font color='#FF7800'>will not acquiring special abilities in Together We Stand</font>"
+		 "DOTA_Tooltip_ability_doom_bringer_devour_datadriven_bonus_gold"	         "BONUS GOLD:"
+		 "DOTA_Tooltip_ability_doom_bringer_devour_datadriven_Lore"             	 "Lucifer's appetite and greed are never sated."
+		 "DOTA_Tooltip_ability_doom_bringer_devour_datadriven_regen"	             "REGENERATION RATE:"
+		 "DOTA_Tooltip_ability_doom_bringer_devour_datadriven_devour_time"	         "DEVOUR TIME:"
 
+         "DOTA_Tooltip_modifier_doom_bringer_devour_datadriven"                   	  "Devour"
+		 "DOTA_Tooltip_modifier_doom_bringer_devour_datadriven_Description"	          "Still digesting that delicious creep."
+         
+         "DOTA_Tooltip_ability_faceless_void_time_lock_datadriven"	                   "Time Lock"
+		 "DOTA_Tooltip_ability_faceless_void_time_lock_datadriven_Description"	       "Adds the chance for an attack to lock an enemy unit in time while attacking it a second time."
+		 "DOTA_Tooltip_ability_faceless_void_time_lock_datadriven_chance_pct"	       "%CHANCE:"
+		 "DOTA_Tooltip_ability_faceless_void_time_lock_datadriven_duration"	           "DURATION:"
+		 "DOTA_Tooltip_ability_faceless_void_time_lock_datadriven_bonus_damage"	       "BONUS DAMAGE:"
+		 "DOTA_Tooltip_ability_faceless_void_time_lock_datadriven_Lore"	               "The strike of the Faceless Void lands with dimension shifting force."
+         "DOTA_Tooltip_ability_faceless_void_time_lock_datadriven_Note0"	           "The stun passes through spell immunity."
 
+         "pass_expire"                                                                 "Pass Expire:" 
 	}  
 }

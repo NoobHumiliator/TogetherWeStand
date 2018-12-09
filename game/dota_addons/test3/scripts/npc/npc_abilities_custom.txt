@@ -29303,6 +29303,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
 		"AbilitySound"					"Hero_FacelessVoid.TimeLockImpact"
+		"MaxLevel"                      "8"
 
         "precache"
         {
@@ -29331,12 +29332,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"chance_pct"			"100 14 18 22"
+				"chance_pct"			"10 14 18 22 24 26 28 30"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"25 30 35 40"
+				"bonus_damage"			"25 30 35 40 45 50 55 60"
 				"LinkedSpecialBonus"	"special_bonus_unique_faceless_void_3"
 			}
 		}
@@ -29345,14 +29346,21 @@
 
 	"doom_bringer_devour_datadriven"
 	{
-		
+
+	    "BaseClass"						"ability_lua"
+		"AbilityTextureName"			"doom_bringer_devour"	
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"ScriptFile"					"heroes/hero_doom_bringer/doom_bringer_devour_datadriven"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilitySound"					"Hero_DoomBringer.Devour"
+        "precache"
+        {
+        	"particle"  "particles/units/heroes/hero_doom_bringer/doom_bringer_devour.vpcf"
+        	"soundfile" "soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
+        }
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -29380,7 +29388,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"devour_time"			"80"
+				"devour_time"			"2"
 			}
 			"03"
 			{

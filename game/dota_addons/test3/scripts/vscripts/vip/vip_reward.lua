@@ -10,7 +10,7 @@ function ShowVIPParticle()
         if PlayerResource:GetTeam( nPlayerID ) == DOTA_TEAM_GOODGUYS then
             if  PlayerResource:HasSelectedHero( nPlayerID ) then
                 local steamID = PlayerResource:GetSteamAccountID( nPlayerID )
-                if vipMap[steamID]>=2 then --如果VIP等级
+                if vipMap[steamID].level>=2 then --如果VIP等级
                     Timers:CreateTimer(5.0, function()  --等待例子特效
                             local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
                             local particle_a = ParticleManager:CreateParticle("particles/econ/events/ti6/teleport_start_ti6.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, hero)
@@ -42,7 +42,7 @@ function InitVipReward()
     for k,v in pairs(vipMap) do
     	local nPlayerID= steamIdMap[k]
     	if PlayerResource:HasSelectedHero( nPlayerID ) then
-    		if vipMap[k]>=2 then --如果vip等级大于等于2
+    		if vipMap[k].level>=2 then --如果vip等级大于等于2
 				local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )	
 				--print("hero"..hero:GetUnitName())		
 		    	local particle_a = ParticleManager:CreateParticle("particles/econ/events/ti6/teleport_start_ti6.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, hero)
@@ -61,28 +61,10 @@ function InitVipReward()
             end
 	    end
     end
-    NotifyVipToClient()
     if sound_flag then  --播放只要有一个vip在，播放vip的声音
     	EmitGlobalSound("SOTA.FlagCaptureGood")
       Notifications:BottomToAll({text = vipPlayerNames.." ", duration = 5})
       Notifications:BottomToAll({text = "#vip_reward_initialize_note", duration = 5, style = {color = "Orange"}, continue = true})
-    end
-
-end
-
-
-
-
-function NotifyVipToClient()  --将VIP等级告知前台
-    
-    local vipMap=GameRules:GetGameModeEntity().CHoldoutGameMode.vipMap
-    local steamIdMap=GameRules:GetGameModeEntity().CHoldoutGameMode.steamIdMap
-
-    for k,v in pairs(vipMap) do
-        local playerId=steamIdMap[tonumber(k)]
-        local keys={playerId=playerId,vipLevel=v}                  
-        --PrintTable(keys)
-        CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerId),"NotifyVip", keys) --将VIP等级告知前台
     end
 
 end

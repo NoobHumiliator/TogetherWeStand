@@ -14,7 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
-testMode=true --减少刷兵间隔，增加初始金钱
+--testMode=true --减少刷兵间隔，增加初始金钱
 goldTestMode=false
 --goldTestMode=true --需要测试金币相关的内容
 
@@ -69,7 +69,6 @@ function Precache( context )
     PrecacheResource( 'particle', 'particles/units/heroes/hero_spirit_breaker/spirit_breaker_haste_owner.vpcf', context)
     PrecacheResource( 'particle', 'particles/units/heroes/hero_huskar/huskar_berserker_blood_hero_effect.vpcf', context)
     PrecacheResource( 'particle', 'particles/units/heroes/hero_huskar/huskar_berserkers_blood_glow.vpcf', context)
-    PrecacheResource( 'particle', 'particles/units/heroes/hero_faceless_void/faceless_void_time_lock_bash.vpcf', context)
     PrecacheResource( 'particle', 'particles/units/heroes/hero_meepo/meepo_geostrike_ambient.vpcf', context)
     PrecacheResource( 'particle', 'particles/units/heroes/hero_luna/luna_ambient_lunar_blessing.vpcf', context)
 
@@ -365,6 +364,7 @@ end
 
 function CHoldoutGameMode:OnPlayerSay(keys) 
  
+    print(GetSystemDate()..' '..GetSystemTime())
     local player = PlayerInstanceFromIndex( keys.userid )
 	local hero = player:GetAssignedHero()
 	local nPlayerID= hero:GetPlayerID()
@@ -503,7 +503,9 @@ function CHoldoutGameMode:GetVipDataFromServer()  --从服务器读取vip数据
     for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS-1 do
 		 local steamID = PlayerResource:GetSteamAccountID(nPlayerID)
 		 if steamID~=0 and steamID~="0" then
-		   self.vipMap[steamID]=0
+		   self.vipMap[steamID]={}
+		   self.vipMap[steamID].level=0
+		   self.vipMap[steamID].validDateUTC=""
 		   self.steamIdMap[steamID]=nPlayerID
 		    if steamIDs==nil then
 		 	  steamIDs=steamID
@@ -584,8 +586,8 @@ function CHoldoutGameMode:_RefreshPlayers()
 			      hero:RemoveModifierByName("modifier_overflow_stack")
 			      hero:RemoveModifierByName("modifier_zombie_explode_debuff")
 			      hero:RemoveModifierByName("modifier_random_exp_bonus")
-			      hero:RemoveModifierByName("modifier_affixes_fragile")
 			      hero:RemoveModifierByName("modifier_affixes_dilation")
+			      hero:RemoveModifierByName("modifier_affixes_silver")
 				  hero:SetHealth( hero:GetMaxHealth() )
 				  hero:SetMana( hero:GetMaxMana() )
 			    end
@@ -613,7 +615,7 @@ function CHoldoutGameMode:_GrantMulberry()  --给予桑葚
 				   hero:AddItemByName("item_mulberry")
 				   local steamID = PlayerResource:GetSteamAccountID( nPlayerID)
 				   local vipMap=GameRules:GetGameModeEntity().CHoldoutGameMode.vipMap
-				   if vipMap[tonumber(steamID)]>1 then  --VIP给俩
+				   if vipMap[tonumber(steamID)].level>1 then  --VIP给俩
 				   	 hero:AddItemByName("item_mulberry")
 				   end
 			    end
@@ -1026,7 +1028,7 @@ function CHoldoutGameMode:RoundEnd()
 						if PlayerResource:HasSelectedHero( nPlayerID ) then
 							local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
 							local steamID = PlayerResource:GetSteamAccountID( nPlayerID )
-							if self.vipMap[steamID]>=2 then
+							if self.vipMap[steamID].level>=2 then
 			                   SendOverheadEventMessage( hero, OVERHEAD_ALERT_GOLD, hero, goldCompensatePerWave*3, nil )  --三倍补偿
 			                   PlayerResource:ModifyGold(nPlayerID,goldCompensatePerWave*3,true,DOTA_ModifyGold_Unspecified)
 			                   hero:AddExperience(expCompensatePerWave*3,0,false,false)

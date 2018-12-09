@@ -21,7 +21,8 @@
                   <Button id="PayPalButton" class="PayPalButton" onactivate="OpenPayLink('TaoBao')">
                        <Label text="#purchase_pass" />
                   </Button>
-               </Panel>      
+               </Panel>
+               <Label id="ValidDateLabel" class="ValidDateLabel" text="" />   
         </Panel>
         <Panel class="PayLinkPanel hidden"  id="PayLinkPanel"  hittest="true" >
                 <Button id="PayLinkInfoCloseButton" class="PayLinkInfoCloseButton" onactivate="PayLinkInfoCloseButtonActive()" />

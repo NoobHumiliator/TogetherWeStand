@@ -5,6 +5,7 @@
   	"playersAbility",
     "heroes",
     "abilities",
-    "abilitiesCost"
+    "abilitiesCost",
+    "vipMap"
   ]
 }

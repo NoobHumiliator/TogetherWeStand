@@ -61,3 +61,19 @@ function ConvertToSteamid64(steamid32)  //32位转64位
 function ConvertToSteamId32(steamid64) {   //64位转32位
     return steamid64.substr(3) - 61197960265728;
 }
+
+
+function getFormatDateStr(date) {
+    var Y = date.getFullYear();
+    var M = date.getMonth() + 1;
+        M = M < 10 ? '0' + M : M;
+    var D = date.getDate();
+        D = D < 10 ? '0' + D : D;
+    var H = date.getHours();
+        H = H < 10 ? '0' + H : H;
+    var Mi = date.getMinutes();
+        Mi = Mi < 10 ? '0' + Mi : Mi;
+    var S = date.getSeconds();
+        S = S < 10 ? '0' + S : S;
+    return Y + '-' + M + '-' + D + ' ' + H + ':' + Mi + ':' + S;
+}

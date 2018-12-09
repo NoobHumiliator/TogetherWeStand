@@ -20,7 +20,6 @@ var RecordSlotSelect = ( function(index)
 {
     return function()
     {  
-        
          var button = $( "#SaveTriggerButton" );
          var panelHub=button.GetParent().GetParent().GetParent().FindChild("SavePanelHub")
          panelHub.slotIndex=index; //记录下选了第几个存档槽
@@ -52,13 +51,13 @@ function ShowParticleBlock()
                 if (i<=5) //几个VIP的特效
                 {
                     radionButton.enabled=false
-                    if (particlePanelHub.hasOwnProperty("vipLevel")&&particlePanelHub.vipLevel!=null)
+                    var playerId = Players.GetLocalPlayer(); 
+                    var steam_id = Game.GetPlayerInfo(playerId).player_steamid;
+                    var vipLevel=CustomNetTables.GetTableValue( "vipMap", ""+ConvertToSteamId32(steam_id)).level;
+                    if  (vipLevel>=1)  //vip等级大于1 可以选上面的一排
                     {
-                        if  (particlePanelHub.vipLevel>=1)  //vip等级大于1 可以选上面的一排
-                        {
-                            radionButton.enabled=true
-                        }                      
-                    }
+                        radionButton.enabled=true
+                    }                      
                 }
 
                 if (i>=6) //几个天梯等级的特效
@@ -107,10 +106,23 @@ function ShowParticleBlock()
 function ShowPayBlock()
 {
     
-    payPanelContainer==null
     var button = $( "#PayTriggerButton" );
     var payPanelContainer=button.GetParent().GetParent().GetParent().FindChildTraverse("PayPanelContainer");
-    
+
+    var playerId = Players.GetLocalPlayer(); 
+    var steam_id = Game.GetPlayerInfo(playerId).player_steamid;
+
+    var vipValidDateUTC=CustomNetTables.GetTableValue( "vipMap", ""+ConvertToSteamId32(steam_id)).validate_date;
+    if (vipValidDateUTC!=null && vipValidDateUTC!="")
+    {
+
+       var utcDate = new Date(vipValidDateUTC.replace(/-/g, '/'));
+       var localOffset=(new Date()).getTimezoneOffset()*60000;
+       var localDate = new Date(utcDate.getTime() - localOffset);
+       var localDateStr = getFormatDateStr(localDate);
+       payPanelContainer.FindChildInLayoutFile("ValidDateLabel").text=$.Localize("#pass_expire")+localDateStr;
+    }
+
     if (payPanelContainer.BHasClass("hidden"))
     {
         payPanelContainer.SetHasClass( "hidden", false );
@@ -120,12 +132,6 @@ function ShowPayBlock()
        payPanelContainer.SetHasClass( "hidden", true );
     } 
 }
-
-
-
-
-
-
 
 
 
@@ -228,7 +234,11 @@ function ShowSaveBlock(bReloadFlag)
         }
     });
     
-    if (particlePanelHub.vipLevel>=1 || particlePanelHub.saveBackDoor)
+    var playerId = Players.GetLocalPlayer(); 
+    var steam_id = Game.GetPlayerInfo(playerId).player_steamid;
+    var vipLevel=CustomNetTables.GetTableValue( "vipMap", ""+ConvertToSteamId32(steam_id)).level;
+
+    if (vipLevel>=1 || particlePanelHub.saveBackDoor)
     {
          container.FindChildTraverse( "SaveGameButton").enabled=true;
          container.FindChildTraverse( "LoadGameButton").enabled=true;
@@ -253,14 +263,6 @@ function InitParticle()
                 "end";   
      $.DispatchEvent("DOTAGlobalSceneFireEntityInput", "scene_"+i, "model_"+i, "RunScriptCode" , code_equip);         
     }
-}
-
-
-function NotifyVip(keys)
-{
-    var button = $( "#ParticleTriggerButton" );
-    var particlePanelHub=button.GetParent().GetParent().GetParent().FindChild("ParticlePanelHub");
-    particlePanelHub.vipLevel=keys.vipLevel;
 }
 
 
@@ -297,7 +299,6 @@ function HideSaveTooltip()
 
 (function()
 {
-    GameEvents.Subscribe( "NotifyVip", NotifyVip );
     GameEvents.Subscribe( "ReloadSavePanel", ReloadSavePanel ); //后台存档完毕，前台重新加载存档页面
    
     $.Schedule(8.0,ShowPassTooltip);
@@ -313,9 +314,7 @@ function HideSaveTooltip()
 
 function OnParticleButtonPressed()
 {
-    
     ShowParticleBlock();
-
 }
 
 

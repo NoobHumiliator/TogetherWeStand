@@ -771,25 +771,23 @@ function ChangeToCourierPanel()
     courierPanel.SetHasClass( "hidden", false );
     Game.EmitSound("ui.switchview");
      
-    var cmWrapper=$("#cmWrapper");
-    var particlePanelHub=cmWrapper.GetParent().GetParent().GetParent().FindChild("ParticlePanelHub");
-    if (particlePanelHub.hasOwnProperty("vipLevel")&&particlePanelHub.vipLevel!=null)
+    var playerId = Players.GetLocalPlayer(); 
+    var steam_id = Game.GetPlayerInfo(playerId).player_steamid;
+    var vipLevel=CustomNetTables.GetTableValue( "vipMap", ""+ConvertToSteamId32(steam_id)).level;
+    if  (vipLevel>=1)  //vip等级大于1 可以选后面的技能
     {
-        if  (particlePanelHub.vipLevel>=1)  //vip等级大于1 可以选后面的技能
-        {
-             var shieldButton= $("#ShieldButton")
-		   	 shieldButton.enabled=true;
-			 var blinkButton= $("#BlinkButton")
-			 blinkButton.enabled=true;
-			 var hookButton= $("#HookButton")
-			 hookButton.enabled=true;
-			 var sellItemsButton= $("#SellItemsButton")
-			 sellItemsButton.enabled=true;
-			 var synButton= $("#SynButton")
-			 synButton.enabled=true;
-        }                      
-    }
-    UpdateCourierButtons();
+         var shieldButton= $("#ShieldButton")
+	   	 shieldButton.enabled=true;
+		 var blinkButton= $("#BlinkButton")
+		 blinkButton.enabled=true;
+		 var hookButton= $("#HookButton")
+		 hookButton.enabled=true;
+		 var sellItemsButton= $("#SellItemsButton")
+		 sellItemsButton.enabled=true;
+		 var synButton= $("#SynButton")
+		 synButton.enabled=true;
+     }                      
+     UpdateCourierButtons();
 
 }
 
