@@ -1,5 +1,8 @@
 "use strict";
 
+var serverAddress='http://185.201.226.101:8005/'
+
+
 function GetRandomInt( min, max )
 {
 	return Math.floor( Math.random() * ( max - min + 1 ) ) + min;

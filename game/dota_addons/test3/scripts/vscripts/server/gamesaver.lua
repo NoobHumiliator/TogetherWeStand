@@ -4,7 +4,6 @@ if GameSaver == nil then GameSaver = class({}) end  --存储游戏
 
 require('libraries/json')
 require('util')
-local server_address="http://191.101.226.126:8005/"
 
 prepareJsonData=""
 nAcceptLoadPlayerNumber=0

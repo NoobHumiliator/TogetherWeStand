@@ -4,9 +4,6 @@ require('libraries/json')
 require('util')
 require('vip/vip_reward')
 
-local server_address="http://191.101.226.126:8005/"
-
-
 rewardLevelTable={ [1557280]=2 }   --Reward与Vip等级的关系
   
 
@@ -53,7 +50,6 @@ function Patreon:GetPatrons(emailCode,steamID,nPlayerID)
                                        Notifications:BottomToAll({text = "#patreon_thank_note_2", duration = 5, style = {color = "Orange"}, continue = true})     
                                        GrantExtraLife()  --给与队伍额外生命
                                        local keys={playerId=nPlayerID,vipLevel=rewardLevel}  --传回的是等级                
-                                       CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(nPlayerID),"NotifyVip", keys) --将VIP等级告知前台                                      
                                     end
                                 else
                                     print("Server return", result.StatusCode, result.Body);

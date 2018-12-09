@@ -19,7 +19,7 @@ function OpenPayLink(payMethod){
 
     if (payMethod=="PayPal")
     {    
-        $.AsyncWebRequest('http://191.101.226.126:8005/applypaypal?steam_id='+steam_id,  //向服务器请求PayPal的付款链接
+        $.AsyncWebRequest(serverAddress+'applypaypal?steam_id='+steam_id,  //向服务器请求PayPal的付款链接
         {
             type: 'GET',
             success: function(resultJson) {
@@ -28,7 +28,7 @@ function OpenPayLink(payMethod){
                 var qr64str=result.img_str;
                 paymentId=result.paymentId;  //全局变量，存一个最新的付款ID
                 var urlReplace=url.replace("&","%26") //传参转义
-                $( "#PayPalQRCodeHtml" ).SetURL("http://191.101.226.126:8005/urltoqrcode?url="+urlReplace);
+                $( "#PayPalQRCodeHtml" ).SetURL(serverAddress+"urltoqrcode?url="+urlReplace);
                 
 
                 var urlHref=url.replace("&","&amp;") //href转义
@@ -71,7 +71,7 @@ function HasFinishedPay() {
     {
         return;
     }
-    $.AsyncWebRequest('http://191.101.226.126:8005/querypayment?paymentId='+paymentId,  //向服务器请求PayPal的付款链接
+    $.AsyncWebRequest(serverAddress+'querypayment?paymentId='+paymentId,  //向服务器请求PayPal的付款链接
     {
             type: 'GET',
             success: function(result) {

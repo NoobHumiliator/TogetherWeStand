@@ -3,8 +3,6 @@ if Vip == nil then Vip = class({}) end
 require('libraries/json')
 require('util')
 
-local server_address="http://191.101.226.126:8005/"
-
 
 function Vip:GetVipDataFromServer(steamIDs)
     if self.rankTable ==nil then self.rankTable={} end

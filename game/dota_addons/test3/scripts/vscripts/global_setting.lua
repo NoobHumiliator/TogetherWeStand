@@ -2,6 +2,11 @@
  Global Variety
 ]]
 
+--持久化服务器ip 端口
+server_address="http://185.201.226.101:8005/"
+
+
+
 world_left_x=-3072
 world_left_y=-3072
 world_right_x=3712

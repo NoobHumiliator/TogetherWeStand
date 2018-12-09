@@ -185,7 +185,7 @@ function ShowSaveBlock(bReloadFlag)
     var loadingPanel=container.FindChildTraverse("SaveLoadingPanel")
     loadingPanel.SetHasClass( "hidden", false ); //上蒙版
        
-    $.AsyncWebRequest('http://191.101.226.126:8005/loadgame?saver_steam_id='+steam_id,  
+    $.AsyncWebRequest(serverAddress+'loadgame?saver_steam_id='+steam_id,  
     {
         type: 'GET',
         success: function(resultJson) {

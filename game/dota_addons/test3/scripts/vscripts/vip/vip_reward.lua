@@ -92,7 +92,7 @@ function CHoldoutGameMode:ReceiveVipQureySuccess(keys) --前台VIP轮询结果�
 	   ParticleManager:ReleaseParticleIndex(particle_b)
   end)
 
-  local keys={playerId=nPlayerID,vipLevel=keys.level}  --前台传回的等级                
-   --PrintTable(keys)
-  CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(nPlayerID),"NotifyVip", keys) --将VIP等级告知前台
+  local steamID = PlayerResource:GetSteamAccountID(nPlayerID)
+  CustomNetTables:SetTableValue( "vipMap", tostring(steamID), {level=tonumber(keys.level),validate_date=""} )
+
 end

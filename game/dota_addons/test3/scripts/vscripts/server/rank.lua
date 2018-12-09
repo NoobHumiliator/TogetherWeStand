@@ -4,8 +4,6 @@ require('libraries/json')
 require('util')
 require( "server/detail")
 
-local server_address="http://191.101.226.126:8005/"
-
 function Rank:Start()
    CustomGameEventManager:RegisterListener("RequestRankData", Dynamic_Wrap(Rank, 'RequestRankData'))
 end

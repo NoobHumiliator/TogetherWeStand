@@ -2,7 +2,6 @@ if Detail == nil then Detail = class({}) end
 
 require('libraries/json')
 require('util')
-local server_address="http://191.101.226.126:8005/"
 
 vTotalDamageTable={} --全局变量统计总伤害 
 vTotalHealTable={} --全局变量统计总治疗

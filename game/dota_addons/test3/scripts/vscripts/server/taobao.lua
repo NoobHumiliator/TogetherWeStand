@@ -4,8 +4,6 @@ require('libraries/json')
 require('util')
 require('vip/vip_reward')
 
-local server_address="http://191.101.226.126:8005/"
-
 function Taobao:RegisterVip(code,steamID,nPlayerID)
 
     local request = CreateHTTPRequestScriptVM("GET", server_address .. "registervip")
@@ -30,10 +28,8 @@ function Taobao:RegisterVip(code,steamID,nPlayerID)
                Notifications:BottomToAll({text = "#taobao_thank_note", duration = 5, style = {color = "Orange"}, continue = true})     
                GrantExtraLife()  --给与队伍额外生命
                local keys={playerId=nPlayerID,vipLevel=tonumber(result.Body)}  --传回的是等级  
-               GameRules:GetGameModeEntity().CHoldoutGameMode.vipMap[steamID].level=tonumber(result.Body)   
-
-               --PrintTable(keys)
-               CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(nPlayerID),"NotifyVip", keys) --将VIP等级告知前台
+               GameRules:GetGameModeEntity().CHoldoutGameMode.vipMap[steamID].level=tonumber(result.Body)
+               CustomNetTables:SetTableValue( "vipMap", tostring(v.steam_id), {level=tonumber(result.Body),validate_date=""} )
             end
         else
             print("Server return", result.StatusCode, result.Body);
