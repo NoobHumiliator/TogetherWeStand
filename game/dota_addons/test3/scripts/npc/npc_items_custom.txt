@@ -35,7 +35,7 @@
 		        "RunScript"
 			{
 				"Target"				"CASTER"
-				"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
+				"ScriptFile"			"scripts/vscripts/creature_ability/round_tiny/tiny.lua"
 				"Function"		      	"tiny_eat"
 			}    
 			"SpendCharge"
@@ -7301,17 +7301,15 @@
 		}
 	}
 
-
-    "item_mage_shield_1"
+   "item_mage_shield_1"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"12165"
-		"BaseClass"						"item_datadriven"
+        "ID"							"12165"		
+		"BaseClass"						"item_lua"
 		"AbilityTextureName" 		    "custom_items/mage_shield_1"
 		"Model"							"models/props_gameplay/red_box.vmdl" 
-        "AbilityBehavior"		         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-         
+        "AbilityBehavior"		        "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"ScriptFile"					"item_ability/item_mage_shield_1"
+
        	"AbilityManaCost"               "0"
 		"AbilityCastPoint"              "0.0"
 		"AbilityCooldown"               "22 16 12 10"
@@ -7328,7 +7326,7 @@
 		
 		"precache"
 	     {
-			"particle"               "particles/items_fx/immunity_sphere_buff.vpcf"                    
+			"particle"               "particles/units/heroes/hero_antimage/antimage_spellshield.vpcf"                    
 	     }
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -7364,55 +7362,9 @@
 				"var_type"						"FIELD_FLOAT"
 				"bonus_mana_regen"	            "3 12 48 192"
 		    }   
-	    }
-        "OnSpellStart"
-	    {
-	    	"FireSound"
-		    {
-				"EffectName"	"DOTA_Item.LinkensSphere.Activate"
-				"Target" 		"CASTER"
-		    }
-	    	"ApplyModifier"
-	    	{
-	    		"ModifierName"	"modifier_mage_shield_1_active"
-	    		"Target" 		"CASTER"
-	    	}
-		}
-
-	"Modifiers"
-	{
-		"modifier_mage_shield_1_passive"
-		{
-			"IsBuff"	             "1"
-			"Passive"                "1"
-			"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-			"IsHidden"               "1"
-			"Properties"
-			{
-				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"        "%bonus_str"
-				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"         "%bonus_agi"
-				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"       "%bonus_int"
-				"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"       "%bonus_mana_regen"
-			}
-		}
-
-		"modifier_mage_shield_1_active"
-		{
-			"Duration"	    "%duration"
-			"IsBuff"        "1"
-			"IsHidden"	    "0"
-            "TextureName"			        "item_mage_shield_1"
-            "EffectName"                    "particles/items_fx/immunity_sphere_buff.vpcf"
-			"EffectAttachType"              "follow_origin"
-
-			"Properties"
-			{
-				"MODIFIER_PROPERTY_MIN_HEALTH"                  "1"
-			}
-		}
-	}					
+	    }				
   }	
-  
+
 
   "item_recipe_mage_shield_2"  //法师护盾
 	{
@@ -7443,7 +7395,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"12175"
-		"BaseClass"						"item_datadriven"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"item_ability/item_mage_shield_2"
 		"AbilityTextureName" 		    "custom_items/mage_shield_2"
 		"Model"							"models/props_gameplay/red_box.vmdl" 
         "AbilityBehavior"		         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
@@ -7464,7 +7417,7 @@
 		
 		"precache"
 	     {
-			"particle"               "particles/items_fx/immunity_sphere_buff.vpcf"                 
+			"particle"               "particles/units/heroes/hero_antimage/antimage_spellshield.vpcf"                 
 	     }
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -7500,53 +7453,7 @@
 				"var_type"						"FIELD_FLOAT"
 				"bonus_mana_regen"	            "3 12 48 192"
 		    }	   
-	    }
-        "OnSpellStart"
-	    {
-	    	"FireSound"
-		    {
-				"EffectName"	"DOTA_Item.LinkensSphere.Activate"
-				"Target" 		"CASTER"
-		    }
-	    	"ApplyModifier"
-	    	{
-	    		"ModifierName"	"modifier_mage_shield_2_active"
-	    		"Target" 		"CASTER"
-	    	}
-		}
-
-	"Modifiers"
-	{
-		"modifier_mage_shield_2_passive"
-		{
-			"IsBuff"	             "1"
-			"Passive"                "1"
-			"Attributes"          	"MODIFIER_ATTRIBUTE_MULTIPLE"
-			"IsHidden"               "1"
-			"Properties"
-			{
-				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"        "%bonus_str"
-				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"         "%bonus_agi"
-				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"       "%bonus_int"
-				"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"       "%bonus_mana_regen"
-			}
-		}
-
-		"modifier_mage_shield_2_active"
-		{
-			"Duration"	    "%duration"
-			"IsBuff"        "1"
-			"IsHidden"	    "0"
-            "TextureName"			        "item_mage_shield_2"
-            "EffectName"                    "particles/items_fx/immunity_sphere_buff.vpcf"
-			"EffectAttachType"              "follow_origin"
-
-			"Properties"
-			{
-				"MODIFIER_PROPERTY_MIN_HEALTH"                  "1"
-			}
-		}
-	}					
+	    }					
   }	
   
 
@@ -7579,8 +7486,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"12185"
-		"BaseClass"						"item_datadriven"
-		"AbilityTextureName" 		    "custom_items/mage_shield_3"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"item_ability/item_mage_shield_3"
 		"Model"							"models/props_gameplay/red_box.vmdl" 
         "AbilityBehavior"		         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
          
@@ -7600,7 +7507,7 @@
 		
 		"precache"
 	     {
-			"particle"               "particles/items_fx/immunity_sphere_buff.vpcf"                 
+			"particle"               "particles/units/heroes/hero_antimage/antimage_spellshield.vpcf"                 
 	     }
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -7636,52 +7543,7 @@
 				"var_type"						"FIELD_FLOAT"
 				"bonus_mana_regen"	            "3 12 48 192"
 		    }	   
-	    }
-        "OnSpellStart"
-	    {
-	    	"FireSound"
-		    {
-				"EffectName"	"DOTA_Item.LinkensSphere.Activate"
-				"Target" 		"CASTER"
-		    }
-	    	"ApplyModifier"
-	    	{
-	    		"ModifierName"	"modifier_mage_shield_3_active"
-	    		"Target" 		"CASTER"
-	    	}
-		}
-
-	"Modifiers"
-	{
-		"modifier_mage_shield_3_passive"
-		{
-			"IsBuff"	             "1"
-			"Passive"                "1"
-			"Attributes"          	"MODIFIER_ATTRIBUTE_MULTIPLE"
-			"IsHidden"               "1"
-			"Properties"
-			{
-				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"        "%bonus_str"
-				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"         "%bonus_agi"
-				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"       "%bonus_int"
-				"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"         "%bonus_mana_regen"
-			}
-		}
-
-		"modifier_mage_shield_3_active"
-		{
-			"Duration"	    "%duration"
-			"IsBuff"        "1"
-			"IsHidden"	    "0"
-            "TextureName"			"item_mage_shield_3"
-             "EffectName"                    "particles/items_fx/immunity_sphere_buff.vpcf"
-			"EffectAttachType"              "follow_origin"   
-			"Properties"
-			{
-				"MODIFIER_PROPERTY_MIN_HEALTH"                  "1"
-			}
-		}
-	}					
+	    }					
   }	
 
   "item_recipe_mage_shield_4"  //法师护盾
@@ -7713,8 +7575,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"12195"
-		"BaseClass"						"item_datadriven"
-		"AbilityTextureName" 		    "custom_items/mage_shield_4"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"item_ability/item_mage_shield_4"
 		"Model"							"models/props_gameplay/red_box.vmdl" 
         "AbilityBehavior"		         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
          
@@ -7734,7 +7596,7 @@
 		
 		"precache"
 	     {
-			"particle"               "particles/items_fx/immunity_sphere_buff.vpcf"                 
+			"particle"               "particles/units/heroes/hero_antimage/antimage_spellshield.vpcf"                 
 	     }
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -7770,52 +7632,7 @@
 				"var_type"						"FIELD_FLOAT"
 				"bonus_mana_regen"	            "3 12 48 192"
 		    }	   
-	    }
-        "OnSpellStart"
-	    {
-	    	"FireSound"
-		    {
-				"EffectName"	"DOTA_Item.LinkensSphere.Activate"
-				"Target" 		"CASTER"
-		    }
-	    	"ApplyModifier"
-	    	{
-	    		"ModifierName"	"modifier_mage_shield_4_active"
-	    		"Target" 		"CASTER"
-	    	}
-		}
-
-	"Modifiers"
-	{
-		"modifier_mage_shield_4_passive"
-		{
-			"IsBuff"	             "1"
-			"Passive"                "1"
-			"Attributes"          	"MODIFIER_ATTRIBUTE_MULTIPLE"
-			"IsHidden"               "1"
-			"Properties"
-			{
-				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"        "%bonus_str"
-				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"         "%bonus_agi"
-				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"       "%bonus_int"
-				"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"         "%bonus_mana_regen"
-			}
-		}
-
-		"modifier_mage_shield_4_active"
-		{
-			"Duration"	    "%duration"
-			"IsBuff"        "1"
-			"IsHidden"	    "0"
-            "TextureName"			"item_mage_shield_4"
-            "EffectName"                    "particles/items_fx/immunity_sphere_buff.vpcf"
-			"EffectAttachType"              "follow_origin"   
-			"Properties"
-			{
-				"MODIFIER_PROPERTY_MIN_HEALTH"                  "1"
-			}
-		}
-	}					
+	    }					
   }	
 
  "item_trail_tablet_1"

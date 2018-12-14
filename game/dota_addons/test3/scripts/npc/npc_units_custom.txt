@@ -563,7 +563,7 @@
 		"VisionDaytimeRange"		"600"		// Range of vision during day light.
 		"VisionNighttimeRange"		"600"		// Range of vision at night time.
 
-		"vscripts"					"creature_ai/bossnec_ai.lua"
+		"vscripts"					"creature_ai/round_skeleton/bossnec_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -824,7 +824,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
 
-		"vscripts"					"creature_ai/midlich_ai.lua"
+		"vscripts"					"creature_ai/round_scourge/midlich_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -1105,7 +1105,7 @@
 		}
 	}
 
-           "npc_dota_mid_dk"
+   "npc_dota_mid_dk"
 	{
 		// General
 		//----------------------------------------------------------------
@@ -1193,7 +1193,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
 
-		"vscripts"					"creature_ai/middk_ai.lua"
+		"vscripts"					"creature_ai/round_scourge/middk_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -1329,7 +1329,7 @@
 		"VisionDaytimeRange"		"2200"		// Range of vision during day light.
 		"VisionNighttimeRange"		"2200"		// Range of vision at night time.
 
-		"vscripts"					"creature_ai/bossdk_ai.lua"
+		"vscripts"					"creature_ai/round_scourge/bossdk_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -1468,7 +1468,7 @@
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1800"		// Range of vision at night time.
 
-		"vscripts"					"creature_ai/bosslich_ai.lua"
+		"vscripts"					"creature_ai/round_scourge/bosslich_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -1532,7 +1532,7 @@
 		"MinimapIcon"				"minimap_roshancamp"
 		"MinimapIconSize"			"300"
 		
-		"SoundSet"				"Hero_NyxAssassin"								// Name of sound set.
+		"SoundSet"				    "Hero_NyxAssassin"								// Name of sound set.
 		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
 
 		// Inventory
@@ -1602,14 +1602,14 @@
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
-		"UnitRelationshipClass"		     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
 
-		"vscripts"					"creature_ai/bosscavelord_ai.lua"
+		"vscripts"					"creature_ai/round_scourge/bosscavelord_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -1748,7 +1748,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
 
-		"vscripts"					"creature_ai/bosssky_ai.lua"
+		"vscripts"					"creature_ai/round_skywrath/bosssky_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -1892,7 +1892,7 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
-                "vscripts" 				"creature_ai/water_1_ai.lua"
+        "vscripts" 				    "creature_ai/round_water/water_1_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -2004,7 +2004,7 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
-                 "vscripts" 				"creature_ai/water_2_ai.lua"
+                 "vscripts" 				"creature_ai/round_water/water_2_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -2136,7 +2136,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
                				
-                "vscripts"                    "creature_ai/water_3_ai.lua"               
+                "vscripts"                    "creature_ai/round_water/water_3_ai.lua"               
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
 		"Creature"
@@ -2263,7 +2263,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
                				
-        "vscripts"                    "creature_ai/tiny_1_ai.lua"               
+        "vscripts"                    "creature_ai/round_tiny/tiny_1_ai.lua"               
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
 		"Creature"
@@ -2392,7 +2392,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
                				
-                "vscripts"                    "creature_ai/tiny_2_ai.lua"               
+                "vscripts"                    "creature_ai/round_tiny/tiny_2_ai.lua"               
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
 		"Creature"
@@ -2502,7 +2502,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
                				
-        "vscripts"                  "creature_ai/tiny_3_ai.lua"               
+        "vscripts"                  "creature_ai/round_tiny/tiny_3_ai.lua"               
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
 		"Creature"
@@ -2611,7 +2611,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
                				
-         "vscripts"                 "creature_ai/tiny_4_ai.lua"               
+         "vscripts"                 "creature_ai/round_tiny/tiny_4_ai.lua"               
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
 		"Creature"
@@ -2720,7 +2720,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
                				
-        "vscripts"                  "creature_ai/tiny_5_ai.lua"               
+        "vscripts"                  "creature_ai/round_tiny/tiny_5_ai.lua"               
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
 		"Creature"
@@ -2852,7 +2852,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
                				
-                "vscripts"                    "creature_ai/warlock_1_ai.lua"               
+        "vscripts"                    "creature_ai/round_tiny/warlock_1_ai.lua"               
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
 		"Creature"
@@ -2994,7 +2994,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
                				
-                "vscripts"                    "creature_ai/warlock_2_ai.lua"               
+        "vscripts"                    "creature_ai/round_tiny/warlock_2_ai.lua"               
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
 		"Creature"
@@ -3239,7 +3239,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"	    "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "vscripts"			        "creature_ai/pugna_ai.lua"
+        "vscripts"			        "creature_ai/round_tiny/pugna_ai.lua"
 		
 		// Vision
 		//----------------------------------------------------------------
@@ -3362,7 +3362,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "vscripts"					"creature_ai/ancient_app_ai.lua"
+        "vscripts"					"creature_ai/round_tiny/ancient_app_ai.lua"
 		
 		// Vision
 		//----------------------------------------------------------------
@@ -3484,7 +3484,7 @@
 		"VisionDaytimeRange"		"600"		// Range of vision during day light.
 		"VisionNighttimeRange"		"600"		// Range of vision at night time.
 
-		"vscripts"					"creature_ai/ai_razor.lua"
+		"vscripts"					"creature_ai/round_tiny/ai_razor.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -5130,7 +5130,7 @@
 	"npc_dota_creature_ogre_magi"
 	{
 		// Script
-		"vscripts"					"creature_ai/ogre_magi_ai.lua"
+		"vscripts"					"creature_ai/round_ogre/ogre_magi_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -5279,7 +5279,7 @@
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
-		"vscripts"					"creature_ai/ogre_tank_ai"
+		"vscripts"					"creature_ai/round_ogre/ogre_tank_ai"
 		
 		// Creature Data
 		//----------------------------------------------------------------
@@ -5295,7 +5295,7 @@
 	"npc_dota_creature_ogre_seer"
 	{
 		// Script
-		"vscripts"					"creature_ai/ogre_seer_ai.lua"
+		"vscripts"					"creature_ai/round_ogre/ogre_seer_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -5369,7 +5369,7 @@
 	"npc_dota_creature_ogre_tank_boss"
 	{
 		// Script
-		"vscripts"					"creature_ai/ogre_tank_boss_ai.lua"
+		"vscripts"					"creature_ai/round_ogre/ogre_tank_boss_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -6214,7 +6214,7 @@
 		//------------------------------------------------------------------
 		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_broodmother.vsndevts"
 		"GameSoundsFile"		"soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
-		"vscripts"				"creature_ai/broodking_ai.lua"
+		"vscripts"				"creature_ai/round_broodqueen/broodking_ai.lua"
 
 		"ShouldDoFlyHeightVisual" "0"
 
@@ -6293,7 +6293,7 @@
 
 		//Precache
 		//------------------------------------------------------------------
-		"vscripts"				"creature_ai/broodmother_egg_ai.lua"
+		"vscripts"				"creature_ai/round_broodqueen/broodmother_egg_ai.lua"
 	}
 	
 	//=================================================================
@@ -6381,7 +6381,7 @@
 		//------------------------------------------------------------------
 		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_broodmother.vsndevts"
 		"GameSoundsFile"		"soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
-		"vscripts"				"creature_ai/broodmother_ai.lua"
+		"vscripts"				"creature_ai/round_broodqueen/broodmother_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -6499,8 +6499,8 @@
 		//Precache
 		//------------------------------------------------------------------
 		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_broodmother.vsndevts"
-		"GameSoundsFile"		        "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
-		"vscripts"				"creature_ai/spider_warrior_ai.lua"
+		"GameSoundsFile"	    "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+		"vscripts"				"creature_ai/round_broodqueen/spider_warrior_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -6592,8 +6592,8 @@
 		//Precache
 		//------------------------------------------------------------------
 		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_broodmother.vsndevts"
-		"GameSoundsFile"		        "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
-		"vscripts"				"creature_ai/spider_killer_ai.lua"
+		"GameSoundsFile"		"soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+		"vscripts"				"creature_ai/round_broodqueen/spider_killer_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -6688,7 +6688,7 @@
 		//------------------------------------------------------------------
 		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_broodmother.vsndevts"
 		"GameSoundsFile"        "soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
-		"vscripts"				"creature_ai/male_spider_ai.lua"
+		"vscripts"				"creature_ai/round_broodqueen/male_spider_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -6784,7 +6784,7 @@
 		//------------------------------------------------------------------
 		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_broodmother.vsndevts"
 		"GameSoundsFile"		"soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
-	    "vscripts"				"creature_ai/baneling_ai.lua"
+	    "vscripts"				"creature_ai/round_broodqueen/baneling_ai.lua"
 	}
 
 
@@ -7653,7 +7653,7 @@
 		"VisionDaytimeRange"		"15000"		// Range of vision during day light.
 		"VisionNighttimeRange"		"15000"		// Range of vision at night time.
 
-		"vscripts"					"creature_ai/bossmag_ai.lua"
+		"vscripts"					"creature_ai/round_mammoth/bossmag_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -7785,7 +7785,7 @@
 		"VisionDaytimeRange"		"3400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"3400"		// Range of vision at night time.
 
-		"vscripts"					"creature_ai/bossenchatress_ai.lua"
+		"vscripts"					"creature_ai/round_tree/bossenchatress_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -8014,7 +8014,7 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
-        "vscripts"		            "creature_ai/tree_nova_ai.lua"
+        "vscripts"		            "creature_ai/round_tree/tree_nova_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -8341,7 +8341,7 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
-                 "vscripts"					"creature_ai/tree_killer_ai.lua"
+                 "vscripts"					"creature_ai/round_tree/tree_killer_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -8453,7 +8453,7 @@
 		"VisionDaytimeRange"		"2400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"2400"		// Range of vision at night time.
 
-		"vscripts"					"creature_ai/tree_elder_ai.lua"
+		"vscripts"					"creature_ai/round_tree/tree_elder_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -8580,7 +8580,7 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
-        "vscripts"			        "creature_ai/tree_seed_ai.lua"
+        "vscripts"			        "creature_ai/round_tree/tree_seed_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -9056,7 +9056,7 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
-        "vscripts"					"creature_ai/bloodseeker_ai.lua"
+        "vscripts"					"creature_ai/round_bloodseeker/bloodseeker_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -9170,7 +9170,7 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
-        "vscripts"			        "creature_ai/creature_bat_ai.lua"
+        "vscripts"			        "creature_ai/round_bloodseeker/creature_bat_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -9209,7 +9209,7 @@
 			}
 		}
 	}
-         "npc_dota_creature_firespirit"
+    "npc_dota_creature_firespirit"
 	{
 		"BaseClass"				"npc_dota_creature"	// Class of entity of link to.
 		"Model"					"models/items/invoker/forge_spirit/infernus/infernus.vmdl"	// Model.
@@ -9277,13 +9277,13 @@
 		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
-		"UnitRelationshipClass"		        "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		"UnitRelationshipClass"	    "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		
 		// Vision
 		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
-		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
-                 "vscripts"					"creature_ai/firespirit_ai.lua"
+		"VisionDaytimeRange"		"1400"
+		"VisionNighttimeRange"		"1400"
+        "vscripts"					"creature_ai/round_bloodseeker/firespirit_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -9393,7 +9393,7 @@
 		"VisionDaytimeRange"		"3400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"3400"		// Range of vision at night time.
 
-		"vscripts"					"creature_ai/twin_fire_ai.lua"
+		"vscripts"					"creature_ai/round_twins/twin_fire_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -9500,7 +9500,7 @@
 		"VisionDaytimeRange"		"3400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"3400"		// Range of vision at night time.
 
-		 "vscripts"					"creature_ai/twin_dark_ai.lua"
+		 "vscripts"					"creature_ai/round_twins/twin_dark_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -9632,9 +9632,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
 
-		 "vscripts"					"creature_ai/blue_satyr_ai.lua"
-
-
+	    "vscripts"					"creature_ai/round_satyr/blue_satyr_ai.lua"
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
 		"Creature"
@@ -9727,7 +9725,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
 
-		 "vscripts"					"creature_ai/red_satyr_ai.lua"
+		 "vscripts"					"creature_ai/round_satyr/red_satyr_ai.lua"
 
 
 		// Creature Data
@@ -9913,7 +9911,7 @@
 		"VisionDaytimeRange"		"15000"		// Range of vision during day light.
 		"VisionNighttimeRange"		"15000"		// Range of vision at night time.
 
-		"vscripts"					"creature_ability/rattletrap.lua"
+		"vscripts"					"creature_ability/round_rattletrap/rattletrap.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -10138,7 +10136,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
 
-        "vscripts"					"creature_ai/blue_dragon.lua"
+        "vscripts"					"creature_ai/round_blue_dragon/blue_dragon.lua"
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
 		"Creature"
@@ -10468,7 +10466,7 @@
 		"VisionDaytimeRange"		"2200"		// Range of vision during day light.
 		"VisionNighttimeRange"		"2200"		// Range of vision at night time.
 
-		"vscripts"					"creature_ai/death_knight_boss_ai.lua"
+		"vscripts"					"creature_ai/round_dark_citadel/death_knight_boss_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -10607,7 +10605,7 @@
 		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1800"		// Range of vision at night time.
 
-		"vscripts"					"creature_ai/lich_boss_ai.lua"
+		"vscripts"					"creature_ai/round_dark_citadel/lich_boss_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -10748,7 +10746,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
 
-		"vscripts"					"creature_ai/crypt_lord_boss_ai.lua"
+		"vscripts"					"creature_ai/round_dark_citadel/crypt_lord_boss_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -10851,7 +10849,7 @@
 	//----------------------------------------------------------------
 	"VisionDaytimeRange"		"1400"
 	"VisionNighttimeRange"		"1400"
-	"vscripts"					"creature_ai/night_stalker_ai.lua"
+	"vscripts"					"creature_ai/round_night/night_stalker_ai.lua"
 	
 	// Creature Data
 	//----------------------------------------------------------------
@@ -10957,7 +10955,7 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"3"		// Range of vision during day light.
 		"VisionNighttimeRange"		"3"		// Range of vision at night time.
-        "vscripts" 			  	    "creature_ai/light_ball_ai.lua"
+        "vscripts" 			  	    "creature_ai/round_night/light_ball_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -11201,7 +11199,7 @@
 	
 	// Creature Data
 	//----------------------------------------------------------------
-	"vscripts"					"creature_ai/night_bane_ai.lua"
+	"vscripts"					"creature_ai/round_night/night_bane_ai.lua"
 	"Creature"
 	{
 		"AttachWearables"
@@ -11277,7 +11275,7 @@
 	
 	// Creature Data
 	//----------------------------------------------------------------
-	"vscripts"					"creature_ai/night_enigma_ai.lua"
+	"vscripts"					"creature_ai/round_night/night_enigma_ai.lua"
 	"Creature"
 	{
 		"AttachWearables"
@@ -11377,7 +11375,7 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
-        "vscripts" 				    "creature_ai/water_1s_ai.lua"
+        "vscripts" 				    "creature_ai/round_water/water_1s_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -11489,7 +11487,7 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
-        "vscripts" 				    "creature_ai/water_2s_ai.lua"
+        "vscripts" 				    "creature_ai/round_water/water_2s_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -11621,7 +11619,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
                				
-                "vscripts"                    "creature_ai/water_3s_ai.lua"               
+        "vscripts"                    "creature_ai/round_water/water_3s_ai.lua"               
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
 		"Creature"
@@ -11738,7 +11736,7 @@
 		"VisionDaytimeRange"		"15000"		// Range of vision during day light.
 		"VisionNighttimeRange"		"15000"		// Range of vision at night time.
 
-		"vscripts"					"creature_ai/bossmag_ai.lua"
+		"vscripts"					"creature_ai/round_mammoth/bossmag_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -11868,7 +11866,7 @@
 		"VisionDaytimeRange"		"15000"		// Range of vision during day light.
 		"VisionNighttimeRange"		"15000"		// Range of vision at night time.
 
-		"vscripts"					"creature_ability/rattletrap.lua"
+		"vscripts"					"creature_ability/round_rattletrap/rattletrap.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -11996,7 +11994,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
 
-        "vscripts"					"creature_ai/blue_dragon.lua"
+        "vscripts"					"creature_ai/round_blue_dragon/blue_dragon.lua"
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
 		"Creature"
@@ -12371,8 +12369,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"45"		// Physical protection.
-		"MagicalResistance"			"45"		// Magical protection.
+		"ArmorPhysical"				"0"		// Physical protection.
+		"MagicalResistance"			"0"		// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -12409,7 +12407,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"880000"		// Base health.
+		"StatusHealth"				"6000000"		// Base health.
 		"StatusHealthRegen"			"1.0"		// Health regeneration rate.
 		"StatusMana"				"5000"	    // Base mana.
 		"StatusManaRegen"			"35"		// Mana regeneration rate.
@@ -12420,7 +12418,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"vscripts"					"creature_ai/tusk_boss_ai.lua"
+		"vscripts"					"creature_ai/round_tusk/tusk_boss_ai.lua"
 		
 		// Vision
 		//----------------------------------------------------------------
@@ -12534,7 +12532,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"vscripts"					"creature_ai/earth_spirit_ai.lua"
+		"vscripts"					"creature_ai/round_tusk/earth_spirit_ai.lua"
 		
 		// Vision
 		//----------------------------------------------------------------
@@ -12648,7 +12646,7 @@
 		//Inventory
 		"HasInventory"				"1"
 
-		"vscripts"					"creature_ai/alchemist_ai.lua"
+		"vscripts"					"creature_ai/round_alchemist/alchemist_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -12809,7 +12807,7 @@
 		"VisionDaytimeRange"		"15000"		// Range of vision during day light.
 		"VisionNighttimeRange"		"15000"		// Range of vision at night time.
 
-		"vscripts"					"creature_ai/tidehunter.lua"
+		"vscripts"					"creature_ai/round_tidehunter/tidehunter.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -12928,7 +12926,7 @@
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
-		"vscripts"					"creature_ai/nyx_assassin.lua"
+		"vscripts"					"creature_ai/round_nyx/nyx_assassin.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -13135,7 +13133,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
 
-        "vscripts"					"creature_ai/lion_ai.lua"
+        "vscripts"					"creature_ai/round_lion/lion_ai.lua"
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
 		"Creature"
@@ -13254,7 +13252,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
 
-        "vscripts"					"creature_ai/faceless_monster_ai.lua"
+        "vscripts"					"creature_ai/round_faceless/faceless_monster_ai.lua"
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
 		"Creature"
@@ -13485,7 +13483,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
 
-        "vscripts"					"creature_ai/tinker_ai.lua"
+        "vscripts"					"creature_ai/round_tinker/tinker_ai.lua"
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
 		"Creature"
@@ -14419,7 +14417,7 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
 
-		"vscripts"					"creature_ai/bossphoenix_ai.lua"
+		"vscripts"					"creature_ai/round_phoenix/bossphoenix_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -14761,7 +14759,7 @@
 
 
 		// Script
-		"vscripts"					"creature_ai/hellbear_ai.lua"
+		"vscripts"					"creature_ai/round_wolf/hellbear_ai.lua"
 
 	}	
 
@@ -14769,7 +14767,7 @@
     "npc_dota_creature_werewolf"
 	{
 		// Script
-		"vscripts"					"creature_ai/werewolf_ai.lua"
+		"vscripts"					"creature_ai/round_wolf/werewolf_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -14858,7 +14856,7 @@
     "npc_dota_creature_lycan_boss"
 	{
 		// Script
-		"vscripts"					"creature_ai/ai_lycan_boss.lua"
+		"vscripts"					"creature_ai/round_wolf/ai_lycan_boss.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -14981,7 +14979,7 @@
 	"npc_dota_creature_temple_guardian"
 	{
 		// Script
-		"vscripts"					"creature_ai/temple_guardian_ai.lua"
+		"vscripts"					"creature_ai/round_guardians/temple_guardian_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -15224,7 +15222,7 @@
 	"npc_dota_creature_large_frostbitten_melee"
 	{
 		// Script
-		"vscripts"					"creature_ai/large_frostbitten_ai.lua"
+		"vscripts"					"creature_ai/round_frostbitten/large_frostbitten_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -15353,7 +15351,7 @@
 	"npc_dota_creature_frostbitten_ranged"
 	{
 		// Script
-		"vscripts"					"creature_ai/frostbitten_ranged_ai.lua"
+		"vscripts"					"creature_ai/round_frostbitten/frostbitten_ranged_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -15471,7 +15469,7 @@
     "npc_dota_creature_ice_boss"
 	{
 		// Script
-		"vscripts"					"creature_ai/ice_boss_ai.lua"
+		"vscripts"					"creature_ai/round_ice_boss/ice_boss_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -15742,7 +15740,7 @@
 	"npc_dota_creature_amoeba_boss"
 	{
 		// Script
-		"vscripts"					"creature_ai/amoeba_boss_ai.lua"
+		"vscripts"					"creature_ai/round_amoeba/amoeba_boss_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -15849,7 +15847,7 @@
 	"npc_dota_creature_sub_amoeba_boss"
 	{
 		// Script
-		"vscripts"					"creature_ai/amoeba_boss_ai.lua"
+		"vscripts"					"creature_ai/round_amoeba/amoeba_boss_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -15953,7 +15951,7 @@
 	"npc_dota_creature_pet_amoeba"
 	{
 		// Script
-		"vscripts"					"creature_ai/amoeba_boss_ai.lua"
+		"vscripts"					"creature_ai/round_amoeba/amoeba_boss_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -16054,8 +16052,8 @@
 	{
 		// General
 		//
-		"BaseClass"					"npc_dota_creature"	
-		"vscripts"				    "creature_ai/venom_triangle_ai.lua"
+		"BaseClass"					"npc_dota_creature"
+		"vscripts"				    "creature_ai/round_triangle/venom_triangle_ai.lua"
 		"Model"						"models/items/venomancer/ward/venomancer_death_poison_venomancerward_01/venomancer_death_poison_venomancerward_01.vmdl"	// Model.
 		"SoundSet"					"Hero_Venomancer"					
 		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
@@ -16148,7 +16146,7 @@
 		// General
 		//
 		"BaseClass"					"npc_dota_creature"	
-		"vscripts"				    "creature_ai/venom_triangle_ai.lua"
+		"vscripts"				    "creature_ai/round_triangle/venom_triangle_ai.lua"
 		"Model"						"models/items/venomancer/ward/ti8_veno_stalagmite_crawler_stalagmite_crawler/ti8_veno_stalagmite_crawler_stalagmite_crawler.vmdl"	// Model.
 		"SoundSet"					"Hero_Venomancer"					
 		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
@@ -16240,7 +16238,7 @@
 		// General
 		//
 		"BaseClass"					"npc_dota_creature"	
-		"vscripts"				    "creature_ai/venom_triangle_ai.lua"
+		"vscripts"				    "creature_ai/round_triangle/venom_triangle_ai.lua"
 		"Model"						"models/items/venomancer/ward/venomancer_hydra_snakeward/venomancer_hydra_snakeward.vmdl"	// Model.
 		"SoundSet"					"Hero_Venomancer"					
 		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
@@ -16446,7 +16444,7 @@
 	"npc_dota_creature_bandit_captain"
 	{
 		// Script
-		"vscripts"					"creature_ai/round_1_2/creature_bandit_captain_ai.lua"
+		"vscripts"					"creature_ai/round_bandit/creature_bandit_captain_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -16528,7 +16526,7 @@
 	"npc_dota_creature_bandit_archer"
 	{
 		// Script
-		"vscripts"					"creature_ai/round_1_2/creature_bandit_archer_ai.lua"
+		"vscripts"					"creature_ai/round_bandit/creature_bandit_archer_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -16688,7 +16686,7 @@
     "npc_dota_creature_centaur_warlord"
 	{
 		// Script
-		"vscripts"					"creature_ai/round_9_2/creature_centaur_warlord_ai.lua"
+		"vscripts"					"creature_ai/round_kalabor_waste/creature_centaur_warlord_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -16916,7 +16914,7 @@
     "npc_dota_creature_centaur_dunerunner"
 	{
 		// Script
-		"vscripts"					"creature_ai/round_9_2/creature_centaur_dunerunner_ai.lua"
+		"vscripts"					"creature_ai/round_kalabor_waste/creature_centaur_dunerunner_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -17020,7 +17018,7 @@
     "npc_dota_creature_centaur_shaman"
 	{
 		// Script
-		"vscripts"					"creature_ai/round_9_2/creature_centaur_shaman_ai.lua"
+		"vscripts"					"creature_ai/round_kalabor_waste/creature_centaur_shaman_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -17112,7 +17110,7 @@
 	"npc_dota_creature_giant_burrower"
 	{
 		// Script
-		"vscripts"					"creature_ai/round_9_2/creature_giant_burrower_ai.lua"
+		"vscripts"					"creature_ai/round_kalabor_waste/creature_giant_burrower_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -17224,7 +17222,7 @@
     "npc_dota_creature_exploding_burrower"
 	{
 		// Script
-		"vscripts"					"creature_ai/round_9_2/creature_exploding_burrower_ai.lua"
+		"vscripts"					"creature_ai/round_kalabor_waste/creature_exploding_burrower_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -17309,7 +17307,7 @@
 	"npc_dota_boss_sand_king"
 	{
 		// Script
-		"vscripts"					"creature_ai/round_12_2/boss_sand_king_ai.lua"
+		"vscripts"					"creature_ai/round_sandking/boss_sand_king_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -17503,7 +17501,7 @@
 	"npc_dota_creature_big_exploding_burrower"
 	{
 		// Script
-		"vscripts"					"creature_ai/round_12_2/exploding_big_burrower_ai.lua"
+		"vscripts"					"creature_ai/round_sandking/exploding_big_burrower_ai.lua"
 
 		// General
 		//----------------------------------------------------------------
@@ -17581,7 +17579,7 @@
 	"npc_dota_creature_healing_burrower"
 	{
 		// Script
-		"vscripts"					"creature_ai/round_12_2/healing_burrower_ai.lua"
+		"vscripts"					"creature_ai/round_sandking/healing_burrower_ai.lua"
 
 		// General
 		//----------------------------------------------------------------

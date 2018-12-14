@@ -11,6 +11,8 @@ function rearm_start( keys )
     caster:RemoveModifierByName("modifier_abaddon_borrowed_time")
     caster:RemoveModifierByName("modifier_oracle_false_promise_timer")
     caster:RemoveModifierByName("modifier_dazzle_shallow_grave")
+    caster:RemoveModifierByName("modifier_juggernaut_omnislash")
+    caster:RemoveModifierByName("modifier_phantom_assassin_blur_active")
 	ability:ApplyDataDrivenModifier( caster, caster, "modifier_rearm_level_" .. abilityLevel .. "_datadriven", {} )
 end
 

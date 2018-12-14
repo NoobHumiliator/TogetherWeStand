@@ -14,9 +14,9 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
---testMode=true --减少刷兵间隔，增加初始金钱
+testMode=true --减少刷兵间隔，增加初始金钱
 goldTestMode=false
---goldTestMode=true --需要测试金币相关的内容
+goldTestMode=true --需要测试金币相关的内容
 
 require( "holdout_game_round" )
 require( "holdout_game_spawner" )
@@ -52,6 +52,7 @@ function Precache( context )
 	PrecacheResource( "particle", "particles/items2_fx/veil_of_discord.vpcf", context )
 	PrecacheResource( "particle_folder", "particles/frostivus_gameplay", context )
 	PrecacheResource( "sound_folder", "sounds/weapons/creep/neutral", context )
+
     --Vip特效
     PrecacheResource( 'particle', 'particles/econ/courier/courier_trail_lava/courier_trail_lava.vpcf', context)
 	PrecacheResource( 'particle', 'particles/econ/paltinum_baby_roshan/paltinum_baby_roshan.vpcf', context)
@@ -364,7 +365,6 @@ end
 
 function CHoldoutGameMode:OnPlayerSay(keys) 
  
-    print(GetSystemDate()..' '..GetSystemTime())
     local player = PlayerInstanceFromIndex( keys.userid )
 	local hero = player:GetAssignedHero()
 	local nPlayerID= hero:GetPlayerID()

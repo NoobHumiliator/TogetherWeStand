@@ -79,12 +79,12 @@ function EnvironmentController:SpawnTombStone()
         end
 
 
-        for i=1,5 do
+        for i=1,4 do
 
         	local hero=RandomEnemyHeroIgnoreImmnue()  --找一个随机英雄 对其周围放置方尖塔
         	if hero then
-        		local x = RandomInt(-1700,1700)+hero:GetAbsOrigin().x
-        	    local y = RandomInt(-1700,1700)+hero:GetAbsOrigin().y
+        		local x = RandomInt(-1500,1500)+hero:GetAbsOrigin().x
+        	    local y = RandomInt(-1500,1500)+hero:GetAbsOrigin().y
         	    local position= GetGroundPosition(Vector(x,y,0),nil)
         	    CreateUnitByName(unitName, position, true, nil, nil, DOTA_TEAM_BADGUYS)
         	end
@@ -93,7 +93,7 @@ function EnvironmentController:SpawnTombStone()
 		if CHoldoutGameMode._currentRound==nil or  CHoldoutGameMode._currentRound._alias ~="tombstone"  then
 		       return nil
 		   else
-               if CHoldoutGameMode._currentRound._environmentcontroller.tombInterval>3.5 then --最短3.5秒一次
+               if CHoldoutGameMode._currentRound._environmentcontroller.tombInterval>5 then --最短3.5秒一次
 		          CHoldoutGameMode._currentRound._environmentcontroller.tombInterval=CHoldoutGameMode._currentRound._environmentcontroller.tombInterval-0.2  	 
 		       end	 		       	
 		       return CHoldoutGameMode._currentRound._environmentcontroller.tombInterval 

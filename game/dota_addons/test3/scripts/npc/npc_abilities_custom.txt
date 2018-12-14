@@ -131,7 +131,7 @@
 		"modifier_rearm_level_1_datadriven"
 		{
 			"IsHidden"			"0"
-		
+		     
 			"Duration"			"%channel_tooltip"
 			
 			"EffectName"		"particles/units/heroes/hero_tinker/tinker_rearm.vpcf"
@@ -310,7 +310,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"	"creature_ability/firetwindebuff.lua"
+					"ScriptFile"	"creature_ability/round_twins/firetwindebuff.lua"
 					"Function"		"StopSound"
 					"sound"			"Hero_DoomBringer.Doom"
 					"Target"		"TARGET"
@@ -322,7 +322,7 @@
 			{				                     
 				"RunScript"
 				{
-					"ScriptFile"	"creature_ability/firetwindebuff.lua"
+					"ScriptFile"	"creature_ability/round_twins/firetwindebuff.lua"
 					"Function"		"IsNearDarkCheck"
 					"Target"		"TARGET"
 				}
@@ -548,7 +548,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"	        "creature_ability/darktwindebuff.lua"
+					"ScriptFile"	        "creature_ability/round_twins/darktwindebuff.lua"
 					"Function"		"StopSound"
 					"sound"			"Hero_DoomBringer.Doom"
 					"Target"		"TARGET"
@@ -560,7 +560,7 @@
 			{				                   
 				"RunScript"
 				{
-					"ScriptFile"	        "creature_ability/darktwindebuff.lua"
+					"ScriptFile"	        "creature_ability/round_twins/darktwindebuff.lua"
 					"Function"		"IsNearFireCheck"
 					"Target"		"TARGET"
 				}
@@ -667,7 +667,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"	        "creature_ability/bloodlink.lua"
+					"ScriptFile"	        "creature_ability/round_twins/bloodlink.lua"
 					"Function"		"BloodLinkCheck"
 					"modifier_regen_health"	"modifier_regen_health"
 				}
@@ -676,7 +676,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"	"creature_ability/bloodlink.lua"
+					"ScriptFile"	"creature_ability/round_twins/bloodlink.lua"
 					"Function"		"TwinsRespawnActivate"
 				}
 			}
@@ -784,7 +784,7 @@
 				}
 				"RunScript"
 				{
-					"ScriptFile"	"creature_ability/bloodlink.lua"
+					"ScriptFile"	"creature_ability/round_twins/bloodlink.lua"
 					"Function"		"RebornParticle"
 					"Target"			"CASTER"
 				}
@@ -2551,9 +2551,6 @@
 	}//------------------------------ ¼¼ÄÜÀ¨ºÅ
 
 
-
-
-
 	"fire_to_point"
 	{
 		//-------------------------------------------------------------------------------------------------------------
@@ -2585,7 +2582,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"         "scripts/vscripts/creature_ability/fly.lua"
+				"ScriptFile"         "scripts/vscripts/creature_ability/round_tiny/fire_point.lua"
 				"Function"           "fire_point"
 				"Target"                "POINT"
 			}
@@ -3396,7 +3393,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"         "scripts/vscripts/creature_ability/fly.lua"
+					"ScriptFile"         "scripts/vscripts/creature_ability/round_tiny/warlock_disappear.lua"
 					"Function"           "warlock_disappear"
 					"Target"                "CASTER"
 				}
@@ -7468,7 +7465,7 @@
 			}
 		}
 	}
-        "undead_gold_bag_fountain"
+	"undead_gold_bag_fountain"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -7488,18 +7485,18 @@
 				"ItemCount"			"%bag_count"
 				"SpawnRadius"		"25"
 				"ItemChargeCount"	"%gold_value"
-				"AutoUse"		"1"
+				"AutoUse"		    "1"
 				"LaunchHeight"		"300"
 				"LaunchDistance"	"?50 750"
 				"LaunchDuration"	"0.75"
 			}
-                          "RunScript"
+			"RunScript"
 			{
-			   "ScriptFile"	"creature_ability/undeadherodie.lua"
-			   "Function"		"CheckCaveLord"
-                           "Target"		"CASTER"
+				"ScriptFile"	"creature_ability/round_scourge/undeadherodie.lua"
+				"Function"		"CheckCaveLord"
+				"Target"		"CASTER"
 			}
-	        }
+		}
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -9468,12 +9465,12 @@
 		
 		"OnSpellStart"
 		{
-                         "RunScript"
-                         {
-                             "ScriptFile"         "creature_ability/egg_die.lua"
-                             "Function"           "DieInPeace"
-                             "Target"             "CASTER"
-                         }          
+            "RunScript"
+            {
+                 "ScriptFile"         "creature_ability/round_broodqueen/egg_die.lua"
+                 "Function"           "DieInPeace"
+                 "Target"             "CASTER"
+            }          
 			"SpawnUnit"
 			{
 				"UnitName"			"npc_dota_creature_broodmother"
@@ -9519,12 +9516,12 @@
 		
 		"OnSpellStart"
 		{
-                         "RunScript"
-                         {
-                             "ScriptFile"         "creature_ability/egg_die.lua"
-                             "Function"           "DieInPeace"
-                             "Target"             "CASTER"
-                         }          
+             "RunScript"
+             {
+                 "ScriptFile"         "creature_ability/round_broodqueen/egg_die.lua"
+                 "Function"           "DieInPeace"
+                 "Target"             "CASTER"
+             }          
 			"SpawnUnit"
 			{
 				"UnitName"			"npc_dota_creature_spider_warrior"
@@ -9572,7 +9569,7 @@
 		{
                         "RunScript"
                          {
-                             "ScriptFile"         "creature_ability/egg_die.lua"
+                             "ScriptFile"         "creature_ability/round_broodqueen/egg_die.lua"
                              "Function"           "DieInPeace"
                              "Target"             "CASTER"
                          }     
@@ -10326,8 +10323,8 @@
 			"RunScript"
 			{
 				"Target"				"CASTER"
-				"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
-				"Function"			"water_remove_self"
+				"ScriptFile"			"scripts/vscripts/creature_ability/round_morphing/water.lua"
+				"Function"			    "water_remove_self"
 			}         
 
 		}
@@ -10569,7 +10566,7 @@
                            "RunScript"
 			{
 				"Target"			"CASTER"
-				"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
+				"ScriptFile"		"scripts/vscripts/creature_ability/round_tiny/tiny.lua"
 				"Function"			"tiny_wake"
 			}         
 
@@ -10720,7 +10717,7 @@
 					"RunScript"
 					{
 						"Target"				"CASTER"
-						"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
+						"ScriptFile"			"scripts/vscripts/creature_ability/round_tiny/tiny.lua"
 						"Function"		     	"tiny_hurt_1"
 					}        
 				}
@@ -10767,7 +10764,7 @@
 					"RunScript"
 					{
 						"Target"				"CASTER"
-						"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
+						"ScriptFile"			"scripts/vscripts/creature_ability/round_tiny/tiny.lua"
 						"Function"			"tiny_hurt_2"
 					}        
 				}
@@ -10814,7 +10811,7 @@
 					"RunScript"
 					{
 						"Target"				"CASTER"
-						"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
+						"ScriptFile"			"scripts/vscripts/creature_ability/round_tiny/tiny.lua"
 						"Function"			"tiny_hurt_3"
 					}        
 				}
@@ -10860,7 +10857,7 @@
 					"RunScript"
 					{
 						"Target"				"CASTER"
-						"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
+						"ScriptFile"			"scripts/vscripts/creature_ability/round_tiny/tiny.lua"
 						"Function"			"tiny_hurt_4"
 					}        
 				}
@@ -10906,14 +10903,14 @@
 					"RunScript"
 					{
 						"Target"				"CASTER"
-						"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
-						"Function"			"tiny_hurt_5"
+						"ScriptFile"			"scripts/vscripts/creature_ability/round_tiny/tiny.lua"
+						"Function"			    "tiny_hurt_5"
 					}        
 				}
 			}
 		}
 	} 
-          "warlock_set_rain"
+	"warlock_set_rain"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -10922,55 +10919,50 @@
 		"AbilityUnitDamageType"			        "DAMAGE_TYPE_MAGICAL"
 		"Level"							"1"
 		
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"0"
-		//"AbilityCastAnimation"		 "ACT_DOTA_CAST_ABILITY_1"
 		"AbilityManaCost"				"0 0 0 0"
-                "OnOwnerSpawned"
-                {
-                       "ApplyModifier"
+		"OnOwnerSpawned"
+		{
+			"ApplyModifier"
 			{
 				"Target" "CASTER"
 				"ModifierName"  "tiny_hurt"
 			}			
-                             
-                 } 
-                 
- 
+
+		} 
+
 		"Modifiers"
 		{
-			 "modifier_true_sight_1"
-                {
-                       "Passive"            "1"
-                       "IsHidden"           "1"
-                       "OnCreated"
-                        {
-                        	"ApplyModifier"
-                        	{
-                        		"ModifierName"	"modifier_tower_truesight_aura"
-                        		"Target" 		"CASTER"
-                        	}
-                        }
-				    
-				}
-                     "tiny_hurt"
-                      {
-                        "Passive"    "1"
-                        "IsHidden"   "0"
-			"OnCreated"
+			"modifier_true_sight_1"
+			{
+				"Passive"            "1"
+				"IsHidden"           "1"
+				"OnCreated"
 				{
-                                    "RunScript"
-			             {
-				"Target"			"CASTER"
-				"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
-				"Function"			"warlock_rain"
-			             }        
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_tower_truesight_aura"
+						"Target" 		"CASTER"
+					}
 				}
-                     }
+
+			}
+			"tiny_hurt"
+			{
+				"Passive"    "1"
+				"IsHidden"   "0"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"Target"			"CASTER"
+						"ScriptFile"		"scripts/vscripts/creature_ability/round_tiny/warlock_rain.lua"
+						"Function"			"warlock_rain"
+					}        
+				}
+			}
 		}
 	} 
 
@@ -11220,10 +11212,9 @@
 			"RunScript"
 			{
 				"Target"				"CASTER"
-				"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
+				"ScriptFile"			"scripts/vscripts/creature_ability/round_morphing/water.lua"
 				"Function"			    "water_grow"
-			}         
-
+			}
 		}
 		"Modifiers"
 		{   
@@ -11283,7 +11274,7 @@
 			"RunScript"
 			{
 				"Target"				"CASTER"
-				"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
+				"ScriptFile"			"scripts/vscripts/creature_ability/round_morphing/water.lua"
 				"Function"			    "water_fuse"
 			}         
 
@@ -11413,7 +11404,7 @@
 				"respawn_constant"		"30"
 			}
 		}
-	}	//////¼¼ÄÜÀ¨ºÅ	
+	}
     "holdout_ice_armor"
 	{
 		// General
@@ -11743,7 +11734,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"    "scripts/vscripts/creature_ability/wip.lua"
+				"ScriptFile"    "scripts/vscripts/creature_ability/round_skywrath/tornado.lua"
 				"Function"      "big_blow_dot_over"
 			}
 
@@ -11757,7 +11748,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"    "scripts/vscripts/creature_ability/wip.lua"
+				"ScriptFile"    "scripts/vscripts/creature_ability/round_skywrath/tornado.lua"
 				"Function"      "big_blow_dot_over"
 			}
 		}
@@ -11765,7 +11756,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"         "scripts/vscripts/creature_ability/wip.lua"
+				"ScriptFile"         "scripts/vscripts/creature_ability/round_skywrath/tornado.lua"
 				"Function"           "check_interrupt"
 				"Target"             "CASTER"
 			}        
@@ -11787,13 +11778,13 @@
 						{           
 							"RunScript"    
 							{
-								"ScriptFile"    "scripts/vscripts/creature_ability/wip.lua"
+								"ScriptFile"    "scripts/vscripts/creature_ability/round_skywrath/tornado.lua"
 								"Function"      "big_blow_dot"
 							}
 
 							"RunScript"
 							{
-								"ScriptFile"        "scripts/vscripts/creature_ability/wip.lua"
+								"ScriptFile"        "scripts/vscripts/creature_ability/round_skywrath/tornado.lua"
 								"Function"           "volly"
 								"Target"             "CASTER"
 								"FixedDistance"                 "6000"
@@ -11825,24 +11816,22 @@
 			}
 			"Knockback"
 			{
-				"Target"            "TARGET"              //Òª»÷ÍËµÄÄ¿±ê
-				"Center"           "CASTER"              //ÒÔË­ÎªÖÐÐÄ
-				"Duration"         "0.6"                  //»÷ÍË³ÖÐøÊ±¼ä
-				"Distance"         "220"                 //»÷ÍË¾àÀë
-				"Height"           "200"               //»÷ÍË¹ý³ÌÖÐµÄ¸ß¶È
-				"IsFixedDistance"    "0" 
-				"ShouldStun"        "1"                      //ÊÇ·ñ»÷ÔÎ
+				"Target"            "TARGET"             
+				"Center"           "CASTER"              
+				"Duration"         "0.6"                  
+				"Distance"         "220"                
+				"Height"           "200"              
+				"IsFixedDistance"   "0"
+				"ShouldStun"        "1"                 
 			}
 
 			"RunScript"
 			{
-				"ScriptFile"        "scripts/vscripts/creature_ability/wip.lua"
+				"ScriptFile"        "scripts/vscripts/creature_ability/round_skywrath/tornado.lua"
 				"Function"          "vollyHit"
 				"Target"            "TARGET"
-				//"Type"	    "DAMAGE_TYPE_PHYSICAL"
 				"BonusDamage"	    "%bonus_damage"
 			}
-
 		}
 		"AbilitySpecial"
 		{
@@ -11953,9 +11942,9 @@
 
 			"RunScript"
 			{
-				"ScriptFile"                "scripts/vscripts/creature_ability/concussive.lua"
-				"Function"                    "Concussive_damage"
-				"Target"                        "TARGET"
+				"ScriptFile"                "scripts/vscripts/creature_ability/round_skywrath/concussive.lua"
+				"Function"                  "Concussive_damage"
+				"Target"                    "TARGET"
 			}
 
 
@@ -12042,9 +12031,9 @@
 		}
                 "RunScript"
                 {
-                        "ScriptFile"         "scripts/vscripts/creature_ability/fly.lua"
+                        "ScriptFile"         "scripts/vscripts/creature_ability/round_skywrath/fly_to_point.lua"
                         "Function"           "fly_point"
-                        "Target"                "POINT"
+                        "Target"             "POINT"
                 }
 
                 "ApplyModifier"
@@ -12172,7 +12161,7 @@
 		}
 		"RunScript"
 		{
-			"ScriptFile"         "scripts/vscripts/creature_ability/fly.lua"
+			"ScriptFile"         "scripts/vscripts/creature_ability/round_mammoth/charge.lua"
 			"Function"           "charge_unit"
 			"Target"             "TARGET"
 		}
@@ -12256,7 +12245,7 @@
 			{
 				"RunScript"  
 				{
-					"ScriptFile"    "scripts/vscripts/creature_ability/fly.lua"
+					"ScriptFile"    "scripts/vscripts/creature_ability/round_mammoth/charge.lua"
 					"Target"        "TARGET"
 					"Function"      "charge_dot_over"
 				}                                  
@@ -12266,7 +12255,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"         "scripts/vscripts/creature_ability/fly.lua"
+					"ScriptFile"         "scripts/vscripts/creature_ability/round_mammoth/charge.lua"
 					"Function"           "charge_dot_damage"
 					"Target"             "TARGET"
 				}                                   
@@ -12888,7 +12877,7 @@
          {             
             "RunScript"
             {
-                  "ScriptFile"         "scripts/vscripts/creature_ability/boss_heal.lua"
+                  "ScriptFile"         "scripts/vscripts/creature_ability/round_tree/boss_heal.lua"
                   "Function"           "boss_spawn_elf"
                   "EffectName"         "particles/units/heroes/hero_enchantress/enchantress_natures_attendants_heal_wispb.vpcf"
                   "Target"             "CASTER"
@@ -12912,7 +12901,7 @@
            {
              "RunScript"
              {
-                  "ScriptFile"         "scripts/vscripts/creature_ability/boss_heal.lua"
+                  "ScriptFile"         "scripts/vscripts/creature_ability/round_tree/boss_heal.lua"
                   "Function"           "cut_elf"
                   "Target"             "CASTER"
              }        
@@ -13223,32 +13212,32 @@
 			}
 		}		
     }
-  "tree_elder_died"
-  {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-           "BaseClass"                     "ability_datadriven"
-           "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"  
-           "AbilityTextureName"            "furion_force_of_nature"
-           "MaxLevel"		           "1"
-           "AbilityCastAnimation"          "ACT_DOTA_DISABLED"
-           "AbilityCastPoint"              "1"
-           "MaxLevel"                      "1"
-	   "AbilityTextureName"            "magnataur_empower"          			
-           "AbilityManaCost"               "0"
-           "AbilityCastPoint"              "0"
-	   "AbilityCooldown"               "30"
-           "OnOwnerDied"
-           {
-             "RunScript"
-             {
-                  "ScriptFile"         "scripts/vscripts/creature_ability/boss_heal.lua"
-                  "Function"           "announce_my_die"
-                  "Target"             "CASTER"
-             }        
-           }          
-   }
-    "boss_remove_tiny_wake"
+    "tree_elder_died"
+    {
+    	// General
+    	//-------------------------------------------------------------------------------------------------------------
+    	"BaseClass"                     "ability_datadriven"
+    	"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"  
+    	"AbilityTextureName"            "furion_force_of_nature"
+    	"MaxLevel"		           "1"
+    	"AbilityCastAnimation"          "ACT_DOTA_DISABLED"
+    	"AbilityCastPoint"              "1"
+    	"MaxLevel"                      "1"
+    	"AbilityTextureName"            "magnataur_empower"          			
+    	"AbilityManaCost"               "0"
+    	"AbilityCastPoint"              "0"
+    	"AbilityCooldown"               "30"
+    	"OnOwnerDied"
+    	{
+    		"RunScript"
+    		{
+    			"ScriptFile"         "scripts/vscripts/creature_ability/round_tree/boss_heal.lua"
+    			"Function"           "announce_my_die"
+    			"Target"             "CASTER"
+    		}        
+    	}          
+    }
+  "boss_remove_tiny_wake"
   {
         // General
         //-------------------------------------------------------------------------------------------------------------
@@ -13260,7 +13249,7 @@
          {             
             "RunScript"
             {
-                  "ScriptFile"         "scripts/vscripts/creature_ability/fly.lua"
+                  "ScriptFile"         "scripts/vscripts/creature_ability/round_tiny/remove_wake_ability.lua"
                   "Function"           "remove_wake_ability"
                   "Target"             "CASTER"
             }        
@@ -13499,11 +13488,11 @@
 			}
 		}
 	}
- "invoker_metor_holdout"
+	"invoker_metor_holdout"
 	{
 		"AbilityBehavior"                        "DOTA_ABILITY_BEHAVIOR_POINT"
 		"BaseClass"                              "ability_datadriven"
-	    "SpellImmunityType"	                 "SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellImmunityType"	                     "SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastAnimation"                   "ACT_DOTA_ATTACK"
 		"MaxLevel"                               "1"
 		"AbilityTextureName"                     "invoker_chaos_meteor"
@@ -13511,9 +13500,9 @@
 		"AbilityCastPoint"                       "0"
 		"AbilityCooldown"                        "12"
 		"AbilityUnitDamageType"                  "DAMAGE_TYPE_MAGICAL"
-                "AbilityCastPoint"		         "0.6"
-                "AnimationPlaybackRate"                  "0.5"	
-                "AbilitySpecial"
+		"AbilityCastPoint"		                 "0.6"
+		"AnimationPlaybackRate"                  "0.5"	
+		"AbilitySpecial"
 		{
 			"01"
 			{
@@ -13537,131 +13526,131 @@
 			}
 		}
 		"precache"
-                {
-			            "particle"			            "particles/units/heroes/hero_invoker/invoker_chaos_meteor.vpcf"
-		                "particle"		            	"particles/units/heroes/hero_invoker/invoker_chaos_meteor_fly.vpcf"
-                        "particle"                      "particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf"
-			            "soundfile"		            	"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
-                        "particle"                      "particles/units/heroes/hero_invoker/invoker_forge_spirit_ambient.vpcf"
-                        "particle_folder"               "particles/units/heroes/hero_bloodseeker"
-                        "soundfile"                     "soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
-                        "particle"                      "particles/units/heroes/hero_batrider/batrider_firefly.vpcf"
-                        "particle"                      "particles/units/heroes/hero_batrider/batrider_firefly_debuff.vpcf"
-                        "particle"                      "particles/units/heroes/hero_batrider/batrider_firefly_ember.vpcf"
-                        "particle"                      "particles/units/heroes/hero_batrider/batrider_firefly_headglow.vpcf"
-                        "soundfile"                     "soundevents/game_sounds_heroes/game_sounds_batrider.vsndevts"
-                }        
-               "OnSpellStart"
 		{
-	             "RunScript"
-		     {
-			  "ScriptFile"        "scripts/vscripts/creature_ability/meteor.lua"
-			  "Function"           "volly"
-			  "Target"             "CASTER"
-			  "FixedDistance"                 "12000"
-			  "EffectName"                    "particles/units/heroes/hero_invoker/invoker_chaos_meteor.vpcf"
-			  "MoveSpeed"                     "250"
-			  "StartRadius"                   "150"
-			  "EndRadius"                     "150"
-			  "TargetTeams"                   "DOTA_UNIT_TARGET_TEAM_ENEMY"
-			  "TargetTypes"                   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP |DOTA_UNIT_TARGET_OTHER"
-			  "HasFrontalCone"                "1"
-			  "ProvidesVision"                "1"
-			  "VisionRadius"                  "400"
-		      }      
-		     "FireSound"
-		     {
-			  "EffectName"                    "Hero_Invoker.ChaosMeteor.Impact"
-	             }
+			"particle"			            "particles/units/heroes/hero_invoker/invoker_chaos_meteor.vpcf"
+			"particle"		            	"particles/units/heroes/hero_invoker/invoker_chaos_meteor_fly.vpcf"
+			"particle"                      "particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf"
+			"soundfile"		            	"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+			"particle"                      "particles/units/heroes/hero_invoker/invoker_forge_spirit_ambient.vpcf"
+			"particle_folder"               "particles/units/heroes/hero_bloodseeker"
+			"soundfile"                     "soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
+			"particle"                      "particles/units/heroes/hero_batrider/batrider_firefly.vpcf"
+			"particle"                      "particles/units/heroes/hero_batrider/batrider_firefly_debuff.vpcf"
+			"particle"                      "particles/units/heroes/hero_batrider/batrider_firefly_ember.vpcf"
+			"particle"                      "particles/units/heroes/hero_batrider/batrider_firefly_headglow.vpcf"
+			"soundfile"                     "soundevents/game_sounds_heroes/game_sounds_batrider.vsndevts"
+		}        
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"                    "scripts/vscripts/creature_ability/round_bloodseeker/meteor.lua"
+				"Function"                      "volly"
+				"Target"                        "CASTER"
+				"FixedDistance"                 "12000"
+				"EffectName"                    "particles/units/heroes/hero_invoker/invoker_chaos_meteor.vpcf"
+				"MoveSpeed"                     "250"
+				"StartRadius"                   "150"
+				"EndRadius"                     "150"
+				"TargetTeams"                   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"TargetTypes"                   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP |DOTA_UNIT_TARGET_OTHER"
+				"HasFrontalCone"                "1"
+				"ProvidesVision"                "1"
+				"VisionRadius"                  "400"
+			}      
+			"FireSound"
+			{
+				"EffectName"                    "Hero_Invoker.ChaosMeteor.Impact"
+			}
 
 		}
 		"OnProjectileHitUnit"
 		{
-		               "Damage"
-						{
-							"Type"			"DAMAGE_TYPE_PURE"
-							"Damage"		"%damage_tooltip"
-							"Target"
-							{
-									"Center"	"TARGET"
-									"Radius"	"%impact_radius"
-									"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-									"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_OTHER"
-									"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-							}
-						}
-						"Damage"
-						{
-							"Type"			"DAMAGE_TYPE_PURE"
-							"Damage"		"%damage_for_summon"
-							"Target"
-							{
-									"Center"	"TARGET"
-									"Radius"	"%radius_for_summon"
-									"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-									"Types"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_OTHER"
-									"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-							}
-						}
-                         "FireSound"    
-                        {
-                                "EffectName"        "Hero_Invoker.ChaosMeteor.Destroy"
-                                "Target"
-							    {
-									"Center"	"TARGET"							
-									"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-						          	"Types"		"DOTA_UNIT_TARGET_BASIC |DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_OTHER"
-							        "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-						    	}
-                        }
-                   "FireEffect"
+			"Damage"
+			{
+				"Type"			"DAMAGE_TYPE_PURE"
+				"Damage"		"%damage_tooltip"
+				"Target"
+				{
+					"Center"	"TARGET"
+					"Radius"	"%impact_radius"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_OTHER"
+					"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				}
+			}
+			"Damage"
+			{
+				"Type"			"DAMAGE_TYPE_PURE"
+				"Damage"		"%damage_for_summon"
+				"Target"
+				{
+					"Center"	"TARGET"
+					"Radius"	"%radius_for_summon"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_OTHER"
+					"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				}
+			}
+			"FireSound"    
+			{
+				"EffectName"        "Hero_Invoker.ChaosMeteor.Destroy"
+				"Target"
+				{
+					"Center"	"TARGET"							
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types"		"DOTA_UNIT_TARGET_BASIC |DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_OTHER"
+					"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				}
+			}
+			"FireEffect"
 			{
 				"EffectName"			"particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf"
-				 "Target"
+				"Target"
 				{
 					"Center"	"TARGET"							
 					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 					"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_OTHER"
 					"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 				}				
-			    "EffectAttachType"      "follow_origin"
- 			}
+				"EffectAttachType"      "follow_origin"
+			}
 		}
-                 "Modifiers"
-	         {
-	              "modifier_firearound_datadriven"
-		   {
-                        "Passive"		"1"
-			"IsHidden"		"1"
-			"EffectName" 	   "particles/units/heroes/hero_invoker/invoker_forge_spirit_ambient.vpcf"
-        	        "EffectAttachType" "follow_chest"
-		   }
-	        }		
+		"Modifiers"
+		{
+			"modifier_firearound_datadriven"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"EffectName" 	   "particles/units/heroes/hero_invoker/invoker_forge_spirit_ambient.vpcf"
+				"EffectAttachType" "follow_chest"
+			}
+		}		
+	}
+      "egg_die_announce"
+      {
+      	// General
+      	//-------------------------------------------------------------------------------------------------------------
+      	"BaseClass"                     "ability_datadriven"
+      	"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"  
+      	"AbilityTextureName"            "furion_force_of_nature"
+      	"MaxLevel"		           "1"
+      	"AbilityCastAnimation"          "ACT_DOTA_DISABLED"
+      	"AbilityCastPoint"              "1"
+      	"MaxLevel"                      "1"         			
+      	"AbilityManaCost"               "0"
+      	"AbilityCastPoint"              "0"
+      	"AbilityCooldown"               "30"
+      	"OnOwnerDied"
+      	{
+      		"RunScript"
+      		{
+      			"ScriptFile"         "creature_ability/round_broodqueen/egg_die.lua"
+      			"Function"           "announce_egg_die"
+      			"Target"             "CASTER"
+      		}        
+      	}          
       }
-"egg_die_announce"
-  {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-           "BaseClass"                     "ability_datadriven"
-           "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"  
-           "AbilityTextureName"            "furion_force_of_nature"
-           "MaxLevel"		           "1"
-           "AbilityCastAnimation"          "ACT_DOTA_DISABLED"
-           "AbilityCastPoint"              "1"
-           "MaxLevel"                      "1"         			
-           "AbilityManaCost"               "0"
-           "AbilityCastPoint"              "0"
-	   "AbilityCooldown"               "30"
-           "OnOwnerDied"
-           {
-             "RunScript"
-             {
-                  "ScriptFile"         "creature_ability/egg_die.lua"
-                  "Function"           "announce_egg_die"
-                  "Target"             "CASTER"
-             }        
-           }          
-   }
   "tiny_die_announce"
   {
         // General
@@ -13679,7 +13668,7 @@
            {
              "RunScript"
              {
-                  "ScriptFile"         "creature_ability/tiny_die.lua"
+                  "ScriptFile"         "creature_ability/round_tiny/tiny_die.lua"
                   "Function"           "announce_tiny_die"
                   "Target"             "CASTER"
              }        
@@ -13947,7 +13936,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"    "creature_ability/ice_armor.lua"
+						"ScriptFile"    "creature_ability/round_scourge/ice_armor.lua"
 				        "Function"      "FrostArmorParticle"	
 
 				        "particle"		"particles/units/heroes/hero_lich/lich_frost_armor.vpcf"
@@ -13958,7 +13947,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"    "creature_ability/ice_armor.lua"
+						"ScriptFile"    "creature_ability/round_scourge/ice_armor.lua"
 				        "Function"      "EndFrostArmorParticle"	
 				    }
 				}	
@@ -14044,8 +14033,8 @@
                 {
                 	"RunScript"
 				   {
-					    "ScriptFile"		"abilities/heal_received.lua"
-					    "Function"			"AddHealGainModifier"
+					    "ScriptFile"		"abilities/add_player_hidden.lua"
+					    "Function"			"AddPlayerHiddenModifier"
 			    	}
                 }
                 "States"
@@ -14272,7 +14261,7 @@
                 "TextureName"	                "exp_bonus"
                 "Properties"
 				{
-					"MODIFIER_PROPERTY_EXP_RATE_BOOST"	"25"
+					"MODIFIER_PROPERTY_EXP_RATE_BOOST"	"40"
 				}
 			}		
 		}
@@ -15109,7 +15098,7 @@
 		{
             "RunScript"
 			{
-			   "ScriptFile"	    "creature_ability/rattletrap.lua"
+			   "ScriptFile"	    "creature_ability/round_rattletrap/rattletrap.lua"
 			   "Function"		"CheckMyDied"
 			}
 		}
@@ -15217,7 +15206,7 @@
 			 {
 				"RunScript"
 				{
-					"ScriptFile"	"creature_ability/rattletrap.lua"
+					"ScriptFile"	"creature_ability/round_rattletrap/rattletrap.lua"
 					"Function"		"CheckForMaze"
 				}
 			 }
@@ -15294,7 +15283,7 @@
 					"RunScript"
 					{
 						"Target"				"CASTER"
-						"ScriptFile"			 "creature_ability/rattletrap.lua"
+						"ScriptFile"			 "creature_ability/round_rattletrap/rattletrap.lua"
 						"Function"			      "BombExplode"
 					}
 				}
@@ -15420,7 +15409,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"	        "creature_ability/rattletrap.lua"
+					"ScriptFile"	        "creature_ability/round_rattletrap/rattletrap.lua"
 					"Function"		        "StasisTrapTracker"
 					"modifier_trigger"	"modifier_stasis_trap_trigger_datadriven"
 				}
@@ -15471,7 +15460,7 @@
 
 				"RunScript"
 				{
-					"ScriptFile"	     "creature_ability/rattletrap.lua"
+					"ScriptFile"	     "creature_ability/round_rattletrap/rattletrap.lua"
 					"Function"		     "StasisTrapRemove"
                     "Target" 		     "CASTER"
 				}
@@ -15663,7 +15652,7 @@
 		            {
 						   "RunScript"
 						   {
-							 "ScriptFile"	"creature_ability/arcane_curse.lua"
+							 "ScriptFile"	"creature_ability/round_skywrath/arcane_curse.lua"
 							 "Function"		"AddStack"
 						     "Target"		"ATTACKER"
 						   }
@@ -15791,7 +15780,7 @@
 			 {
 				"RunScript"
 				{
-					"ScriptFile"	"creature_ability/black_hole.lua"
+					"ScriptFile"	"creature_ability/round_blue_dragon/black_hole.lua"
 					"Function"		"BlackHole"
 				}
 			 }
@@ -16375,7 +16364,7 @@
 	
 			"RunScript"
 			{
-				"ScriptFile"	"creature_ability/animate_dead.lua"
+				"ScriptFile"	"creature_ability/round_dark_citadel/animate_dead.lua"
 				"Function"		"AnimateDead"
 			}		
 		}
@@ -16469,7 +16458,7 @@
 				
 			"RunScript"
 			{
-				"ScriptFile"	"creature_ability/death_pact.lua"
+				"ScriptFile"	"creature_ability/round_dark_citadel/death_pact.lua"
 				"Function"		"DeathPact"
 			}
 	
@@ -16797,7 +16786,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"creature_ability/midnight_pulse.lua"
+						"ScriptFile"	"creature_ability/round_dark_citadel/midnight_pulse.lua"
 						"Function"	    "ApplyDPS"
 					}
 				}
@@ -16953,7 +16942,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"creature_ability/light_ball_die.lua"
+				"ScriptFile"	"creature_ability/round_darkness/light_ball_die.lua"
 				"Function"		"LightBallDie"
 			}
 		}
@@ -17114,13 +17103,8 @@
 			}
 		   "02"
 			{
-				"var_type"				           "FIELD_FLOAT"
-				"magic_enhance_per_stack"		   "0.2"
-			}
-		   "03"
-			{
 				"var_type"				           "FIELD_INTEGER"
-				"magic_enhance_per_stack_tooltip"  "20"
+				"magic_enhance_ptc_per_stack"      "20"
 			}
 		}
         
@@ -17136,7 +17120,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"         "scripts/vscripts/creature_ability/night_damage.lua"
+						"ScriptFile"         "scripts/vscripts/creature_ability/round_darkness/night_damage.lua"
 						"Function"           "IncreaseDamage"
 					}                                   
 				} 
@@ -17155,7 +17139,7 @@
     "night_terror_lua"
 	{
 		"BaseClass"						 "ability_lua"
-		"ScriptFile"					 "creature_ability/night_terror_lua.lua"
+		"ScriptFile"					 "creature_ability/round_darkness/night_terror_lua.lua"
 		"AbilityName"		             "night_terror_lua"
 		"AbilityTextureName"             "bane_enfeeble"
 		"AbilityBehavior"	          	 "DOTA_ABILITY_BEHAVIOR_POINT"
@@ -17374,7 +17358,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"creature_ability/midnight_pulse.lua"
+						"ScriptFile"	"creature_ability/round_dark_citadel/midnight_pulse.lua"
 						"Function"	    "ApplyDPS"
 					}
 				}
@@ -17712,7 +17696,7 @@
 				{
 				    "RunScript"
 					{
-						"ScriptFile"			"creature_ability/necrotic.lua"
+						"ScriptFile"			"creature_ability/affixes/necrotic.lua"
 						"Function"				"necrotic_attack_landed"
 					}
 				}
@@ -17820,7 +17804,7 @@
 				{
 				    "RunScript"
 					{
-						"ScriptFile"			"creature_ability/raging.lua"
+						"ScriptFile"			"creature_ability/affixes/raging.lua"
 						"Function"				"CheckRaging"
 					}
 				}
@@ -17858,7 +17842,7 @@
 				{
 				    "RunScript"
 					{
-						"ScriptFile"			"creature_ability/fortify.lua"
+						"ScriptFile"			"creature_ability/affixes/fortify.lua"
 						"Function"				"Fortify"
 					}
 				}
@@ -17888,7 +17872,7 @@
 		{
 		    "RunScript"
 			{
-				"ScriptFile"			"creature_ability/bolstering.lua"
+				"ScriptFile"			"creature_ability/affixes/bolstering.lua"
 				"Function"				"AddBolsteringBuff"
 			}
 		}
@@ -17990,7 +17974,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"			"creature_ability/sanguine.lua"
+						"ScriptFile"			"creature_ability/affixes/sanguine.lua"
 						"Function"				"SanguineDamage"
 						"Target"                "TARGET"
 					}
@@ -19930,7 +19914,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"	"creature_ability/spike.lua"
+					"ScriptFile"	"creature_ability/affixes/spike.lua"
 					"Function"		"ApplySpike"
 				}
 			}
@@ -19956,12 +19940,18 @@
             "TextureName"	                       "nyx_assassin_spiked_carapace" 
             "EffectName"		                   "particles/items_fx/blademail.vpcf"
 			"EffectAttachType"	                   "follow_origin"    
-            "OnTakeDamage" //具体反伤逻辑放在damage_filter处理
+            "OnTakeDamage"
 			{
 				"FireSound"
 				{
 					"EffectName"	"Ability.ReflectDamage"
 					"Target"		"UNIT"
+				}
+				"RunScript"
+				{
+					"ScriptFile"	"creature_ability/affixes/spike.lua"
+					"Function"		"TakeDamage"
+					"Damage"		"%attack_damage"
 				}
 			}
 		}
@@ -20042,7 +20032,7 @@
 		}
 		"RunScript"
 		{
-			"ScriptFile"               "scripts/vscripts/creature_ability/snowball.lua"
+			"ScriptFile"               "scripts/vscripts/creature_ability/round_tusk/snowball.lua"
 			"Function"                 "SnowballStart"  
 		}
 	}
@@ -20100,7 +20090,7 @@
 	{
 		"RunScript"
 		{
-			"ScriptFile"         "scripts/vscripts/creature_ability/snowball.lua"
+			"ScriptFile"         "scripts/vscripts/creature_ability/round_tusk/snowball.lua"
 			"Function"           "SnowballDied"
 			"Target"             "CASTER"
 		}        
@@ -20136,7 +20126,15 @@
 		"modifier_share_damage_passive"
 		{
             "Passive"		"1"
-            //具体逻辑在damage_filter处理		
+            "OnTakeDamage"                         
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"creature_ability/round_tusk/share_damage.lua"
+					"Function"		"TakeDamage"
+					"Damage"		"%attack_damage"
+				}
+			}
 		}
 	}
 }
@@ -21272,7 +21270,7 @@
 					}
 					"RunScript"
 					{
-					    "ScriptFile"    "creature_ability/current_storm.lua"
+					    "ScriptFile"    "creature_ability/round_tidehunter/current_storm.lua"
 					    "Function"      "KnockBack"
 					    "fixedforce"		"75"
 					    "random"		    "1"
@@ -21306,7 +21304,7 @@
         		{
         			"RunScript"
 					{
-					    "ScriptFile"    "creature_ability/current_storm.lua"
+					    "ScriptFile"    "creature_ability/round_tidehunter/current_storm.lua"
 					    "Function"      "KnockBack"
 					    "fixedforce"	   "75"
 					    "random"		   "1"
@@ -21447,7 +21445,7 @@
         		{
                     "RunScript"
                     {
-                    	"ScriptFile"	"creature_ability/suffocating_bubble.lua"
+                    	"ScriptFile"	"creature_ability/round_tidehunter/suffocating_bubble.lua"
                     	"Function"		"BubbleCreate"
                         "Target"		"TARGET"
                     }                             
@@ -21457,7 +21455,7 @@
 				{				                     
 					"RunScript"
 					{
-                        "ScriptFile"	"creature_ability/suffocating_bubble.lua"
+                        "ScriptFile"	"creature_ability/round_tidehunter/suffocating_bubble.lua"
                     	"Function"		"BubbleDamage"
 						"Target"		"TARGET"
 					}
@@ -21466,7 +21464,7 @@
         		{
         			"RunScript"
                     {
-                    	"ScriptFile"	"creature_ability/suffocating_bubble.lua"
+                    	"ScriptFile"	"creature_ability/round_tidehunter/suffocating_bubble.lua"
                     	"Function"		"BubbleDestroy"
                     	"Target"		"TARGET"
                     }     
@@ -21498,6 +21496,11 @@
 				"var_type"					           	 "FIELD_FLOAT"
 				"warning_duration"	                     "2.0"
 		    }
+		    "04"
+		    {
+				"var_type"					           	 "FIELD_INTEGER"
+				"damage_reflection_pct"	                 "60"
+		    }
 	    }
 		"precache"
 		{
@@ -21510,7 +21513,7 @@
 		    {
 		           "Passive"            "1"
 		           "IsHidden"           "1"
-		           "OnCreated"
+		         "OnCreated"
 		         {
 		           "ApplyModifier"
 		            {
@@ -21555,12 +21558,18 @@
 	            "TextureName"	                       "nyx_assassin_spiked_carapace" 
 	            "EffectName"		                   "particles/items_fx/blademail.vpcf"
 				"EffectAttachType"	                   "follow_origin"    
-	            "OnTakeDamage"                          //具体反伤逻辑放在damage_filter处理
+	            "OnTakeDamage"                         
 				{
 					"FireSound"
 					{
 						"EffectName"	"Ability.ReflectDamage"
 						"Target"		"UNIT"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"creature_ability/round_nyx/spike.lua"
+						"Function"		"TakeDamage"
+						"Damage"		"%attack_damage"
 					}
 				}
 			}
@@ -21696,7 +21705,7 @@
 			}
 		    "RunScript"
 			{
-				"ScriptFile"		"creature_ability/explode_expansion.lua"
+				"ScriptFile"		"creature_ability/round_geodesic/explode_expansion.lua"
 				"Function"			"ThinkerCreate"
 			}
 		}
@@ -21713,7 +21722,7 @@
                 {
 					"RunScript"
 					{
-						"ScriptFile"	 "creature_ability/explode_expansion.lua"
+						"ScriptFile"	 "creature_ability/round_geodesic/explode_expansion.lua"
 						"Function"		 "InitCountDown"
 					}
 				}
@@ -21721,7 +21730,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	 "creature_ability/explode_expansion.lua"
+						"ScriptFile"	 "creature_ability/round_geodesic/explode_expansion.lua"
 						"Function"		 "Onthink"
 					}
 				}
@@ -21964,25 +21973,25 @@
                     
                     "RunScript"
                     {
-                    	"ScriptFile"	"creature_ability/lion_impale.lua"
+                    	"ScriptFile"	"creature_ability/round_lion/lion_impale.lua"
 						"Function"		"LaunchImpale"
 						"Index"			"1"
                     }
                     "RunScript"
                     {
-                    	"ScriptFile"	"creature_ability/lion_impale.lua"
+                    	"ScriptFile"	"creature_ability/round_lion/lion_impale.lua"
 						"Function"		"LaunchImpale"
 						"Index"			"2"
                     }
                     "RunScript"
                     {
-                    	"ScriptFile"	"creature_ability/lion_impale.lua"
+                    	"ScriptFile"	"creature_ability/round_lion/lion_impale.lua"
 						"Function"		"LaunchImpale"
 						"Index"			"3"
                     }
                     "RunScript"
                     {
-                    	"ScriptFile"	"creature_ability/lion_impale.lua"
+                    	"ScriptFile"	"creature_ability/round_lion/lion_impale.lua"
 						"Function"		"LaunchImpale"
 						"Index"			"4"
                     }
@@ -21991,7 +22000,7 @@
 	            {
 	            	"RunScript"
                     {
-                    	"ScriptFile"	"creature_ability/lion_impale.lua"
+                    	"ScriptFile"	"creature_ability/round_lion/lion_impale.lua"
 						"Function"		"ResetLauchAngle"
                     }
 	            }
@@ -22054,7 +22063,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile" 			"creature_ability/lion_boss_hex.lua"
+				"ScriptFile" 			"creature_ability/round_lion/lion_boss_hex.lua"
 				"Function"				"Hex"
 
 				"sound_cast"			"Hero_Lion.Voodoo"		
@@ -22074,7 +22083,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile" 		"creature_ability/lion_boss_hex.lua"
+						"ScriptFile" 		"creature_ability/round_lion/lion_boss_hex.lua"
 						"Function"			"HexModelChange"
 						"model_frog"		"models/props_gameplay/frog.vmdl"
 					}
@@ -22084,7 +22093,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile" 		"creature_ability/lion_boss_hex.lua"
+						"ScriptFile" 		"creature_ability/round_lion/lion_boss_hex.lua"
 						"Function"			"HexModelRevert"
 					}
 				}
@@ -22103,7 +22112,7 @@
 				{
                    "RunScript"
 					{
-						"ScriptFile" 		"creature_ability/lion_boss_hex.lua"
+						"ScriptFile" 		"creature_ability/round_lion/lion_boss_hex.lua"
 						"Function"			"Onthink"
 						"Target"		    "TARGET"
 					}
@@ -22215,7 +22224,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile" 			"creature_ability/lion_boss_finger.lua"
+				"ScriptFile" 			"creature_ability/round_lion/lion_boss_finger.lua"
 				"Function"				"FingerStart"		
 			}
 		}
@@ -22247,7 +22256,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile" 		"creature_ability/lion_boss_finger.lua"
+						"ScriptFile" 		"creature_ability/round_lion/lion_boss_finger.lua"
 						"Function"			"FingerLaunch"
 						"Target"             "TARGET"
 					}
@@ -22658,7 +22667,7 @@
 				{				                     
 					"RunScript"
 					{
-						"ScriptFile"	"creature_ability/faceless_undead.lua"
+						"ScriptFile"	"creature_ability/round_faceless/faceless_undead.lua"
 						"Function"		"Onthink"
 					}
 				}	
@@ -22666,7 +22675,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	 "creature_ability/faceless_undead.lua"
+						"ScriptFile"	 "creature_ability/round_faceless/faceless_undead.lua"
 						"Function"		 "InitDamageBuff"
 					}
 					"ApplyModifier"
@@ -22718,7 +22727,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"creature_ability/shadow_beacon.lua"
+						"ScriptFile"	"creature_ability/round_faceless/shadow_beacon.lua"
 						"Function"		"ShadowBeaconActive"
 						"Target"        "TARGET"
 					}
@@ -22798,7 +22807,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"creature_ability/refraction.lua"
+						"ScriptFile"	"creature_ability/round_refraction/refraction.lua"
 						"Function"		"StackRefraction"
 						"particle"		"particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf"
 					}
@@ -22807,7 +22816,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"creature_ability/refraction.lua"
+						"ScriptFile"	"creature_ability/round_refraction/refraction.lua"
 						"Function"		"GiveInvulnerable"
 					}
 				}
@@ -23953,7 +23962,7 @@
         	}
         	"RunScript"
 			{
-				"ScriptFile"	"creature_ability/seeking_missile.lua"
+				"ScriptFile"	"creature_ability/round_tinker/seeking_missile.lua"
 				"Function"		"MissileDBM"
 			}
         }
@@ -23969,7 +23978,7 @@
 
            "RunScript"
 			{
-				"ScriptFile"	"creature_ability/seeking_missile.lua"
+				"ScriptFile"	"creature_ability/round_tinker/seeking_missile.lua"
 				"Function"		"MissileStack"
 				"Target"		"TARGET"
 			}
@@ -23991,7 +24000,7 @@
 				
 					"RunScript"
 					{
-						"ScriptFile"	"creature_ability/seeking_missile.lua"
+						"ScriptFile"	"creature_ability/round_tinker/seeking_missile.lua"
 						"Function"		"MissileSeekTarget"
 					}
     			}
@@ -24053,7 +24062,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
 		"AbilityTextureName"			"techies_suicide"
-		"ScriptFile"					"creature_ability/techies_suicide"
+		"ScriptFile"					"creature_ability/round_tinker/techies_suicide"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -24206,7 +24215,7 @@
 			  {
 		         "RunScript"
 		          {
-		        	"ScriptFile"	"creature_ability/laser_turret"
+		        	"ScriptFile"	"creature_ability/round_tinker/laser_turret"
 		        	"Function"		"LaserStart"
 		          }
 		      }
@@ -24281,7 +24290,7 @@
 				{
 				   "RunScript"
 		           {
-		        	"ScriptFile"	"creature_ability/laser_turret"
+		        	"ScriptFile"	"creature_ability/affixes/laser_turret"
 		        	"Function"		"AffixesLaserStart"
 		           }
 				}		
@@ -24432,19 +24441,11 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"creature_ability/zombie_wave.lua"
+				"ScriptFile"	"creature_ability/round_tombstone/zombie_wave.lua"
 				"Function"		"LaunchWave"
 				"Type"          "1"
 			}
 		}
-		"Modifiers"
-	    {
-			"modifier_invulnerable_immune"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"		        
-			}
-	    }
 	}
     
     "red_zombie_lean_wave"
@@ -24461,7 +24462,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"creature_ability/zombie_wave.lua"
+				"ScriptFile"	"creature_ability/round_tombstone/zombie_wave.lua"
 				"Function"		"LaunchWave"
 				"Type"          "2"
 			}
@@ -24476,14 +24477,6 @@
 				"damage_percent"		"50"
 			}
 		}
-	    "Modifiers"
-	    {
-			"modifier_invulnerable_immune"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"		        
-			}
-	    }
 	}
 
 	"creature_general_count_down"  //通用型 倒计时死亡
@@ -24628,7 +24621,7 @@
 
                 "RunScript"
 				{
-					"ScriptFile"		"creature_ability/supernova.lua"
+					"ScriptFile"		"creature_ability/round_phoenix/supernova.lua"
 					"Function"			"LinkToCaster" //拉一条线到凤凰本体
 					"Target"	        "TARGET"
 				}    
@@ -24680,7 +24673,7 @@
 
 		"RunScript"
 		{
-			"ScriptFile"		"creature_ability/supernova.lua"  //取消蛋的连线以及无敌的BUFF
+			"ScriptFile"		"creature_ability/round_phoenix/supernova.lua"  //取消蛋的连线以及无敌的BUFF
 			"Function"			"OnDestroyEgg"
 		}
 
@@ -24815,7 +24808,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"		"creature_ability/supernova.lua"
+						"ScriptFile"		"creature_ability/round_phoenix/supernova.lua"
 						"Function"			"DotDamage"
 						"Target"			"TARGET"
 					}
@@ -24951,7 +24944,7 @@
 
 				"RunScript"
 				{
-					"ScriptFile"		"creature_ability/icarus_dive.lua"
+					"ScriptFile"		"creature_ability/round_phoenix/icarus_dive.lua"
 					"Function"			"CastIcarusDive"
 					
 					"dash_length"		"%dash_length"
@@ -25018,7 +25011,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"		"creature_ability/icarus_dive.lua"
+					"ScriptFile"		"creature_ability/round_phoenix/icarus_dive.lua"
 					"Function"			"CheckToBurn"
 					"Target"			"TARGET"
 					
@@ -25066,7 +25059,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "lycan_howl"
-        "ScriptFile"                    "creature_ability/werewolf_howl"
+        "ScriptFile"                    "creature_ability/round_wolf/werewolf_howl"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
 
@@ -25122,7 +25115,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "lycan_feral_impulse"
-        "ScriptFile"                    "creature_ability/lycan_boss_claw_lunge"
+        "ScriptFile"                    "creature_ability/round_wolf/lycan_boss_claw_lunge"
 
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
@@ -25178,7 +25171,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/hellbear_smash"
+        "ScriptFile"                    "creature_ability/round_wolf/hellbear_smash"
         "AbilityTextureName"            "polar_furbolg_ursa_warrior_thunder_clap"
 
         "MaxLevel"                      "1"
@@ -25235,7 +25228,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "bloodseeker_bloodrage"
-        "ScriptFile"                    "creature_ability/lycan_boss_claw_attack"
+        "ScriptFile"                    "creature_ability/round_wolf/lycan_boss_claw_attack"
         "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -25327,7 +25320,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "lycan_summon_wolves"
-        "ScriptFile"                    "creature_ability/lycan_boss_summon_wolves"
+        "ScriptFile"                    "creature_ability/round_wolf/lycan_boss_summon_wolves"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityCastAnimation"          "ACT_DOTA_VICTORY"
 
@@ -25358,7 +25351,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "bloodseeker_rupture"
-        "ScriptFile"                    "creature_ability/lycan_boss_rupture_ball"
+        "ScriptFile"                    "creature_ability/round_wolf/lycan_boss_rupture_ball"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -25465,7 +25458,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "lycan_shapeshift"
-        "ScriptFile"                    "creature_ability/lycan_boss_shapeshift"
+        "ScriptFile"                    "creature_ability/round_wolf/lycan_boss_shapeshift"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
@@ -25525,7 +25518,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/ogre_tank_melee_smash"
+        "ScriptFile"                    "creature_ability/round_ogre/ogre_tank_melee_smash"
         "AbilityTextureName"            "centaur_double_edge"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
@@ -25587,7 +25580,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/ogre_tank_jump_smash"
+        "ScriptFile"                    "creature_ability/round_ogre/ogre_tank_jump_smash"
         "AbilityTextureName"            "centaur_double_edge"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -25642,7 +25635,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/ogre_magi_channelled_bloodlust"
+        "ScriptFile"                    "creature_ability/round_ogre/ogre_magi_channelled_bloodlust"
         "AbilityTextureName"            "ogre_magi_bloodlust"
 
         "AbilityCastAnimation"          "ACT_DOTA_VICTORY" 
@@ -25709,7 +25702,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "ogre_magi_ignite"
-        "ScriptFile"                    "creature_ability/ogre_magi_area_ignite"
+        "ScriptFile"                    "creature_ability/round_ogre/ogre_magi_area_ignite"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
@@ -25781,7 +25774,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "ogre_magi_ignite"
-        "ScriptFile"                    "creature_ability/ogre_seer_area_ignite"
+        "ScriptFile"                    "creature_ability/round_ogre/ogre_seer_area_ignite"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
@@ -25849,7 +25842,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/ogre_tank_boss_melee_smash"
+        "ScriptFile"                    "creature_ability/round_ogre/ogre_tank_boss_melee_smash"
         "AbilityTextureName"            "centaur_double_edge"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
@@ -25903,7 +25896,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/ogre_tank_boss_jump_smash"
+        "ScriptFile"                    "creature_ability/round_ogre/ogre_tank_boss_jump_smash"
         "AbilityTextureName"            "centaur_double_edge"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -25960,7 +25953,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/temple_guardian_hammer_smash"
+        "ScriptFile"                    "creature_ability/round_guardians/temple_guardian_hammer_smash"
         "AbilityTextureName"            "centaur_double_edge"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
@@ -26019,7 +26012,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/temple_guardian_rage_hammer_smash"
+        "ScriptFile"                    "creature_ability/round_guardians/temple_guardian_rage_hammer_smash"
         "AbilityTextureName"            "centaur_double_edge"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
@@ -26078,7 +26071,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/temple_guardian_purification"
+        "ScriptFile"                    "creature_ability/round_guardians/temple_guardian_purification"
         "AbilityTextureName"            "omniknight_purification"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
@@ -26138,7 +26131,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/temple_guardian_wrath"
+        "ScriptFile"                    "creature_ability/round_guardians/temple_guardian_wrath"
         "AbilityTextureName"            "omniknight_guardian_angel"
 
         "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
@@ -26215,7 +26208,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/temple_guardian_hammer_throw"
+        "ScriptFile"                    "creature_ability/round_guardians/temple_guardian_hammer_throw"
         "AbilityTextureName"            "sven_storm_bolt"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
@@ -26374,8 +26367,7 @@
 	"frostbitten_freezing_blast"
     {
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/frostbitten_freezing_blast"
-
+        "ScriptFile"                    "creature_ability/round_frostbitten/frostbitten_freezing_blast"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -26456,7 +26448,7 @@
     "large_frostbitten_icicle"
     {
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/large_frostbitten_icicle"
+        "ScriptFile"                    "creature_ability/round_frostbitten/large_frostbitten_icicle"
         "AbilityTextureName"            "centaur_double_edge"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
@@ -26525,7 +26517,7 @@
 
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "winter_wyvern_splinter_blast"
-        "ScriptFile"                    "creature_ability/ice_boss_shatter_projectile"
+        "ScriptFile"                    "creature_ability/round_ice_boss/ice_boss_shatter_projectile"
         "MaxLevel"                      "1"
 
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
@@ -26613,7 +26605,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "winter_wyvern_arctic_burn"
-        "ScriptFile"                    "creature_ability/ice_boss_take_flight"
+        "ScriptFile"                    "creature_ability/round_ice_boss/ice_boss_take_flight"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"       
@@ -26661,7 +26653,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "winter_wyvern_arctic_burn"
-        "ScriptFile"                    "creature_ability/ice_boss_land"
+        "ScriptFile"                    "creature_ability/round_ice_boss/ice_boss_land"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"       
@@ -26696,7 +26688,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "winter_wyvern_winters_curse"
-        "ScriptFile"                    "creature_ability/ice_boss_multi_curse"
+        "ScriptFile"                    "creature_ability/round_ice_boss/ice_boss_multi_curse"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"       
@@ -26762,7 +26754,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "winter_wyvern_splinter_blast"
-        "ScriptFile"                    "creature_ability/ice_boss_flying_shatter_blast"
+        "ScriptFile"                    "creature_ability/round_ice_boss/ice_boss_flying_shatter_blast"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
@@ -26842,7 +26834,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/ice_boss_egg_passive"
+        "ScriptFile"                    "creature_ability/round_ice_boss/ice_boss_egg_passive"
 
         "MaxLevel"                      "1"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -26873,7 +26865,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "winter_wyvern_winters_curse"
-        "ScriptFile"                    "creature_ability/ice_boss_projectile_curse"
+        "ScriptFile"                    "creature_ability/round_ice_boss/ice_boss_projectile_curse"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -26943,7 +26935,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/amoeba_boss_passive"
+        "ScriptFile"                    "creature_ability/round_amoeba/amoeba_boss_passive"
 
         "MaxLevel"                      "1"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -27035,7 +27027,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/amoeba_fuse"
+        "ScriptFile"                    "creature_ability/round_amoeba/amoeba_fuse"
 
          "AbilityBehavior"              "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -27082,7 +27074,7 @@
 
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "amoeba_boss_jump_splatter"
-        "ScriptFile"                    "creature_ability/amoeba_boss_jump_splatter"
+        "ScriptFile"                    "creature_ability/round_amoeba/amoeba_boss_jump_splatter"
         "MaxLevel"                      "1"
 
         "AbilityCastAnimation"          "ACT_DOTA_IDLE_RARE"
@@ -27173,7 +27165,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "amoeba_boss_split"
-        "ScriptFile"                    "creature_ability/amoeba_boss_split"
+        "ScriptFile"                    "creature_ability/round_amoeba/amoeba_boss_split"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilitySound"                  "Hero_NagaSiren.MirrorImage"
@@ -27217,7 +27209,7 @@
 
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "amoeba_blob_launch"
-        "ScriptFile"                    "creature_ability/amoeba_blob_launch"
+        "ScriptFile"                    "creature_ability/round_amoeba/amoeba_blob_launch"
         "MaxLevel"                      "1"
 
         "AbilityCastAnimation"          "ACT_DOTA_IDLE_RARE"
@@ -27386,7 +27378,7 @@
             }
             "RunScript"
 			{
-				"ScriptFile"		"creature_ai/venom_triangle_ai"
+				"ScriptFile"		"creature_ai/round_triangle/venom_triangle_ai"
 				"Function"			"StartGesture"
 			}        
 		}
@@ -27395,7 +27387,7 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"		"creature_ai/venom_triangle_ai"
+				"ScriptFile"		"creature_ai/round_triangle/venom_triangle_ai"
 				"Function"			"RestoreHeal"
 			}
 		}
@@ -27493,7 +27485,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/round_1_2/creature_bandit_archer_arrow"
+        "ScriptFile"                    "creature_ability/round_bandit/creature_bandit_archer_arrow"
         "AbilityTextureName"            "mirana_arrow"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
@@ -27567,7 +27559,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "phantom_assassin_stifling_dagger"
-        "ScriptFile"                    "creature_ability/round_1_2/creature_bandit_stifling_dagger"
+        "ScriptFile"                    "creature_ability/round_bandit/creature_bandit_stifling_dagger"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -27873,7 +27865,7 @@
         "FightRecapLevel"               "1"
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "ranged_quill_attack"
-        "ScriptFile"                    "creature_ability/round_9_2/creature_centaur_shaman_ranged_attack"
+        "ScriptFile"                    "creature_ability/round_kalabor_waste/creature_centaur_shaman_ranged_attack"
         "MaxLevel"                      "1"
          
         "AbilityCastAnimation"          "ACT_DOTA_ATTACK"
@@ -28064,7 +28056,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "lycan_summon_wolves"
-        "ScriptFile"                    "creature_ability/round_9_2/creature_giant_nyx_burrower_minion_spawner"
+        "ScriptFile"                    "creature_ability/round_kalabor_waste/creature_giant_nyx_burrower_minion_spawner"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityCastAnimation"          "ACT_DOTA_VICTORY"
 
@@ -28092,7 +28084,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/round_9_2/creature_burrower_explosion"
+        "ScriptFile"                    "creature_ability/round_kalabor_waste/creature_burrower_explosion"
         "AbilityTextureName"            "polar_furbolg_ursa_warrior_thunder_clap"
 
         "MaxLevel"                      "1"
@@ -28137,7 +28129,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/round_9_2/creature_burrower_explosion"
+        "ScriptFile"                    "creature_ability/round_kalabor_waste/creature_burrower_explosion"
         "AbilityTextureName"            "polar_furbolg_ursa_warrior_thunder_clap"
 
         "MaxLevel"                      "1"
@@ -28179,7 +28171,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_burrow"
+        "ScriptFile"                    "creature_ability/round_sandking/boss_sand_king_burrow"
         "AbilityTextureName"            "nyx_assassin_burrow"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -28212,7 +28204,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_unburrow"
+        "ScriptFile"                    "creature_ability/round_sandking/boss_sand_king_unburrow"
         "AbilityTextureName"            "nyx_assassin_unburrow"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -28243,7 +28235,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "bloodseeker_bloodrage"
-        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_tail_swipe_right"
+        "ScriptFile"                    "creature_ability/round_sandking/boss_sand_king_tail_swipe_right"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_5"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -28333,7 +28325,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "bloodseeker_bloodrage"
-        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_tail_swipe_left"
+        "ScriptFile"                    "creature_ability/round_sandking/boss_sand_king_tail_swipe_left"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_5"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -28421,7 +28413,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "bloodseeker_bloodrage"
-        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_move_back"
+        "ScriptFile"                    "creature_ability/round_sandking/boss_sand_king_move_back"
         "AbilityCastAnimation"          "ACT_DOTA_RUN"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -28477,7 +28469,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "sandking_burrowstrike"
-        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_burrowstrike"
+        "ScriptFile"                    "creature_ability/round_sandking/boss_sand_king_burrowstrike"
 
         "AbilityCastAnimation"          "ACT_DOTA_SAND_KING_BURROW_IN"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
@@ -28543,7 +28535,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "sandking_sand_storm"
-        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_sandstorm"
+        "ScriptFile"                    "creature_ability/round_sandking/boss_sand_king_sandstorm"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
@@ -28628,7 +28620,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "sandking_epicenter"
-        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_epicenter"
+        "ScriptFile"                    "creature_ability/round_sandking/boss_sand_king_epicenter"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
@@ -28727,7 +28719,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "sandking_caustic_finale"
-        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_passive"
+        "ScriptFile"                    "creature_ability/round_sandking/boss_sand_king_passive"
 
         "MaxLevel"                      "1"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -28772,7 +28764,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "bloodseeker_bloodrage"
-        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_burrowed_forward_strike"
+        "ScriptFile"                    "creature_ability/round_sandking/boss_sand_king_burrowed_forward_strike"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_7"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -28846,7 +28838,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "bloodseeker_bloodrage"
-        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_burrowed_backward_strike"
+        "ScriptFile"                    "creature_ability/round_sandking/boss_sand_king_burrowed_backward_strike"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_ROT"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -28919,7 +28911,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "bloodseeker_bloodrage"
-        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_move_right"
+        "ScriptFile"                    "creature_ability/round_sandking/boss_sand_king_move_right"
         "AbilityCastAnimation"          "ACT_DOTA_RUN"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -28972,7 +28964,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "bloodseeker_bloodrage"
-        "ScriptFile"                    "creature_ability/round_12_2/boss_sand_king_move_left"
+        "ScriptFile"                    "creature_ability/round_sandking/boss_sand_king_move_left"
         "AbilityCastAnimation"          "ACT_DOTA_RUN"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -29025,7 +29017,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "AbilityTextureName"            "sandking_sand_storm"
-        "ScriptFile"                    "creature_ability/round_12_2/sand_king_vest_sandstorm_passive"
+        "ScriptFile"                    "creature_ability/round_sandking/sand_king_vest_sandstorm_passive"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
@@ -29077,7 +29069,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/round_12_2/big_exploding_burrower_big_explosion"
+        "ScriptFile"                    "creature_ability/round_sandking/big_exploding_burrower_big_explosion"
         "AbilityTextureName"            "polar_furbolg_ursa_warrior_thunder_clap"
 
         "MaxLevel"                      "1"
@@ -29121,7 +29113,7 @@
         // General
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
-        "ScriptFile"                    "creature_ability/round_12_2/healing_burrower_suicide_heal"
+        "ScriptFile"                    "creature_ability/round_sandking/healing_burrower_suicide_heal"
         "AbilityTextureName"            "nyx_assassin_unburrow"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"

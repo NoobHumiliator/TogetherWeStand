@@ -32,14 +32,18 @@ re_table["item_blade_mail"]=true
 re_table["axe_counter_helix_datadriven"]=true
 re_table["axe_counter_helix"]=true
 
-
+-- DamageFilter不应滥用  只处理两种问题 1 是否造成伤害 2 伤害来源是具体哪个技能 其余问题都不应该从这里处理
 function CHoldoutGameMode:DamageFilter(damageTable)
   
    --DeepPrint( damageTable )
    if damageTable and damageTable.entindex_attacker_const then
 	  local attacker = EntIndexToHScript(damageTable.entindex_attacker_const)
 	  local victim = EntIndexToHScript(damageTable.entindex_victim_const)
+
+    --玩家方造成伤害
 	  if  attacker and attacker:GetTeam()==DOTA_TEAM_GOODGUYS then
+
+          --处理法术增幅
           local playerid=attacker:GetPlayerOwnerID()             
           local hero = PlayerResource:GetSelectedHeroEntity( playerid )
 	        if damageTable.entindex_inflictor_const ~=nil then --有明确来源技能
@@ -69,18 +73,6 @@ function CHoldoutGameMode:DamageFilter(damageTable)
 	             damageTable.damage=damageTable.damage*(1+hero.sp*hero:GetIntellect()/100) 
 	           end
 	        end
-          
-          if victim and victim:HasModifier("modifier_faceless_undie") then  --如果有不死的技能
-              if damageTable.damage>=victim:GetHealth() then  --无法将血量扣除小于1
-                 return false
-              end
-          end
-
-          if victim and victim:HasModifier("modifier_invulnerable_immune") then  --如果有无敌免疫的的buff
-              if hero:IsInvulnerable() then  --无敌期间无法对其做成伤害
-                 return false
-              end
-          end
 
           if victim and victim:HasModifier("modifier_refraction_affect") then  --如果有折光，移除一层此伤害不起作用
               local refractionAbility=victim:FindAbilityByName("ta_refraction_datadriven")
@@ -94,62 +86,19 @@ function CHoldoutGameMode:DamageFilter(damageTable)
                 return false
               end
           end
-
+          -- 统计伤害
         	if self._currentRound and playerid and playerid~=-1  then
         		self._currentRound._vPlayerStats[playerid].nTotalDamage=self._currentRound._vPlayerStats[playerid].nTotalDamage+damageTable.damage
         	end
-         
-          if damageTable.entindex_inflictor_const~=nil and  EntIndexToHScript(damageTable.entindex_inflictor_const)  and  EntIndexToHScript(damageTable.entindex_inflictor_const).GetAbilityName  and  (EntIndexToHScript(damageTable.entindex_inflictor_const):GetAbilityName()=="spectre_dispersion_datadriven" or EntIndexToHScript(damageTable.entindex_inflictor_const):GetAbilityName()=="item_blade_mail" ) then  --不能反射反伤类的技能        
-          else
-            if victim and victim:HasModifier("modifier_affixes_spike") then  --处理尖刺技能
-                 local damage_table = {}
-                 damage_table.attacker = victim
-                 damage_table.victim = attacker
-                 damage_table.damage_type = DAMAGE_TYPE_PURE
-                 damage_table.ability = victim:FindAbilityByName("affixes_ability_spike")
-                 damage_table.damage = damageTable.damage
-                 damage_table.damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
-                 ApplyDamage(damage_table)
-            end
-            if victim and victim:HasModifier("modifier_nxy_spike") then  --处理小强的尖刺
-                 local damage_table = {}
-                 damage_table.attacker = victim
-                 damage_table.victim = attacker
-                 damage_table.damage_type = DAMAGE_TYPE_PURE
-                 damage_table.ability = victim:FindAbilityByName("nyx_boss_spike")
-                 damage_table.damage = damageTable.damage*0.6   --反弹60%伤害
-                 damage_table.damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
-                 ApplyDamage(damage_table)
-            end    
-          end
-
-          if victim and victim:HasModifier("modifier_share_damage_passive") then  --处理伤害共享技能
-              local allies = FindUnitsInRadius(DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
-              for _,ally in pairs(allies) do  --共享伤害 不再伤害本体 
-                  if ally:HasAbility("share_damage_passive") and ally~=victim  then             
-                    local damage_table = {}
-                    damage_table.attacker = victim
-                    damage_table.victim = ally
-                    damage_table.damage_type = DAMAGE_TYPE_PURE
-                    damage_table.ability = victim:FindAbilityByName("share_damage_passive")
-                    damage_table.damage = damageTable.damage
-                    damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
-                    ApplyDamage(damage_table)
-                  end
-              end 
-          end
     end
+
     if attacker:GetTeam()==DOTA_TEAM_BADGUYS then
 
         --处理窒息气泡 原始伤害
-        if victim:HasModifier("modifier_suffocating_bubble")  then   
-            --DeepPrint( damageTable )   
+        if victim:HasModifier("modifier_suffocating_bubble")  then    
             if damageTable.entindex_inflictor_const ~=nil then --有明确技能伤害来源
               local ability=EntIndexToHScript(damageTable.entindex_inflictor_const) --如果技能为潮汐的两个伤害技能
-              --print(ability:GetAbilityName())
-              --print(victim.suffocating_bubble_take.."victim.suffocating_bubble_take")
               if (ability:GetAbilityName()=="boss_current_storm" or ability:GetAbilityName()=="boss_greate_gush") and victim.suffocating_bubble_take~=nil and victim.suffocating_bubble_take >0 then
-                  --print(ability:GetAbilityName())
                   victim.suffocating_bubble_take=victim.suffocating_bubble_take-damageTable.damage 
                   if victim.suffocating_bubble_take <100 then
                      victim:RemoveModifierByName("modifier_suffocating_bubble")
@@ -159,84 +108,11 @@ function CHoldoutGameMode:DamageFilter(damageTable)
               end
             end
         end
+       
+        local gameMode = GameRules:GetGameModeEntity().CHoldoutGameMode
+        local round = gameMode._currentRound  
 
-      	if attacker:HasModifier("modifier_night_damage_stack") then
-      		local ability=attacker:FindAbilityByName("night_creature_increase_damage")
-      		local magic_enhance_per_stack=ability:GetSpecialValueFor("magic_enhance_per_stack")
-      		local stacks_number=attacker:GetModifierStackCount("modifier_night_damage_stack",ability)
-      		if damageTable.damagetype_const==2 or damageTable.damagetype_const==4  then
-      			damageTable.damage=damageTable.damage* (1+stacks_number*magic_enhance_per_stack)
-      		end     	
-      	end
-        -- 受伤害龙心进入CD
-        if victim:HasItemInInventory("item_heart") or victim:HasItemInInventory("item_heart_2")  then
-            for i=0,8 do
-              local itemAbility=victim:GetItemInSlot(i)
-              if itemAbility~=nil then
-                  if itemAbility:GetAbilityName()=="item_heart" or itemAbility:GetAbilityName()=="item_heart_2" then
-                     local heartCooldown=itemAbility:GetCooldown(1)
-                     itemAbility:StartCooldown(heartCooldown)
-                  end
-              end
-            end
-        end
-
-         if victim and victim:HasModifier("modifier_mage_shield_1_active") then  --如果有法术护盾
-            if damageTable.damage>=victim:GetHealth() then  --无法将血量扣除小于1
-               local overDamage=damageTable.damage-victim:GetHealth() --过量伤害
-               victim:ReduceMana(overDamage/2)
-               if victim:GetMana()<1 then
-                  victim:RemoveModifierByName("modifier_mage_shield_1_active")
-                  return true
-               else
-                  return false
-               end
-            end
-         end
-
-         if victim and victim:HasModifier("modifier_mage_shield_2_active") then  --如果有法术护盾
-            if damageTable.damage>=victim:GetHealth() then  --无法将血量扣除小于1
-               local overDamage=damageTable.damage-victim:GetHealth() --过量伤害
-               victim:ReduceMana(overDamage/3)
-               if victim:GetMana()<1 then
-                  victim:RemoveModifierByName("modifier_mage_shield_2_active")
-                  return true
-               else
-                  return false
-               end
-            end
-         end
-
-         if victim and victim:HasModifier("modifier_mage_shield_3_active") then  --如果有法术护盾
-            if damageTable.damage>=victim:GetHealth() then  --无法将血量扣除小于1
-               local overDamage=damageTable.damage-victim:GetHealth() --过量伤害
-               victim:ReduceMana(overDamage/4)
-               if victim:GetMana()<1 then
-                  victim:RemoveModifierByName("modifier_mage_shield_3_active")
-                  return true
-               else
-                  return false
-               end
-            end
-         end
-        
-         if victim and victim:HasModifier("modifier_mage_shield_4_active") then  --如果有法术护盾
-            if damageTable.damage>=victim:GetHealth() then  --无法将血量扣除小于1
-               local overDamage=damageTable.damage-victim:GetHealth() --过量伤害
-               victim:ReduceMana(overDamage/4)
-               if victim:GetMana()<1 then
-                  victim:RemoveModifierByName("modifier_mage_shield_4_active")
-                  return true
-               else
-                  return false
-               end
-            end
-         end
-
-         local gameMode = GameRules:GetGameModeEntity().CHoldoutGameMode
-         local round = gameMode._currentRound  
          --监听部分过关奖励
-
          if round and round.achievement_flag==true and damageTable.entindex_inflictor_const ~=nil then        
             
             local ability=EntIndexToHScript(damageTable.entindex_inflictor_const) --找到伤害来源的技能

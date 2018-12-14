@@ -1025,7 +1025,7 @@
 		"DOTA_Tooltip_ability_night_creature_increase_damage"               "Hunter in the Night"
 		"DOTA_Tooltip_ability_night_creature_increase_damage_Description"   "Night creature is in his element at night,<font color='#FF7800'>passively increase 90% magical resistance</font>，damage and magic power increasing over time， once intering <font color='#FF7800'>Light Domain</font> will remove the effect."
 		"DOTA_Tooltip_ability_night_creature_increase_damage_damage_per_stack"  "DAMAGE PER STACK: "
-		"DOTA_Tooltip_ability_night_creature_increase_damage_magic_enhance_per_stack_tooltip"  "%MAGIC DAMAGE INCREASE PER STACK: ："
+		"DOTA_Tooltip_ability_night_creature_increase_damage_magic_enhance_ptc_per_stack"  "%MAGIC DAMAGE INCREASE PER STACK: ："
 		"DOTA_Tooltip_ability_night_terror_lua"                             "DARK PARASITE"
 		"DOTA_Tooltip_ability_night_terror_lua_Description"   "Summons a parasite that patrols a targeted area until an enemy comes within its range. Once a target has been found the parasite grips it, disabling it and causing heavy damage over time,."
 		"DOTA_Tooltip_ability_night_terror_lua_search_radius"  "SEARCH RADIUS："
@@ -1622,12 +1622,12 @@
 
 		"DOTA_Holdout_Round_Nyx_Title"                                             "SPIKY BUGS"
 
-		"DOTA_Tooltip_ability_creature_nyx_spike"                               "Spike"
-        "DOTA_Tooltip_ability_creature_nyx_spike_Description"                   "When Spike active, enemies reflects any damage taken back to the unit that dealt the damage."
-        "DOTA_Tooltip_ability_creature_nyx_spike_active_interval"               "Active Interval"
-        "DOTA_Tooltip_ability_creature_nyx_spike_spike_duration"                "Spike Duration"
-
-
+		"DOTA_Tooltip_ability_creature_nyx_spike"                                   "Spike"
+        "DOTA_Tooltip_ability_creature_nyx_spike_Description"                       "When Spike active, enemies reflects any damage taken back to the unit that dealt the damage."
+        "DOTA_Tooltip_ability_creature_nyx_spike_active_interval"                   "Active Interval"
+        "DOTA_Tooltip_ability_creature_nyx_spike_spike_duration"                    "Spike Duration"
+        "DOTA_Tooltip_ability_creature_nyx_spike_spike_damage_reflection_pct"       "Reflection Percentage："
+ 
         "DOTA_Tooltip_ability_creature_nyx_assassin_impale"								"Impale"
 		"DOTA_Tooltip_ability_creature_nyx_assassin_impale_Description"					"Rock spikes burst from the earth along a straight path. Enemy units are hurled into the air, then are stunned and take damage when they fall."
 		"DOTA_Tooltip_ability_creature_nyx_assassin_impale_Lore"						"All zealot scarabs possess intimate knowledge of underground pathways, using them to their advantage."
@@ -1921,7 +1921,7 @@
         "DOTA_Tooltip_Ability_item_mage_shield_1_bonus_int"                                         "+$int"
         "DOTA_Tooltip_Ability_item_mage_shield_1_bonus_mana_regen"                                  "+$mana_regen"
         "DOTA_Tooltip_Ability_item_mage_shield_1_damage_per_mana"                                   "DAMAGE PER MANA:"
-        "DOTA_Tooltip_modifier_mage_shield_1_active"                                                "Arcane Protection"
+        "DOTA_Tooltip_modifier_mage_shield_active"                                                  "Arcane Protection"
          
 
         "DOTA_Tooltip_Ability_item_mage_shield_2"                                                   "Arcane Sphere Ⅱ"
@@ -1931,7 +1931,7 @@
         "DOTA_Tooltip_Ability_item_mage_shield_2_bonus_int"                                         "+$int"
         "DOTA_Tooltip_Ability_item_mage_shield_2_bonus_mana_regen"                                  "+$mana_regen"
         "DOTA_Tooltip_Ability_item_mage_shield_2_damage_per_mana"                                   "DAMAGE PER MANA:"
-        "DOTA_Tooltip_modifier_mage_shield_2_active"                                                "Arcane Protection"
+
 
         "DOTA_Tooltip_Ability_item_mage_shield_3"                                                   "Arcane Sphere Ⅲ"
         "DOTA_Tooltip_Ability_item_mage_shield_3_Description"                                       "Active: Arcane Protection-All lethal damage will be aborbed by mana under Arcane Protection, effect will end when hero mana is drained." 
@@ -1940,7 +1940,6 @@
         "DOTA_Tooltip_Ability_item_mage_shield_3_bonus_int"                                         "+$int"
         "DOTA_Tooltip_Ability_item_mage_shield_3_bonus_mana_regen"                                  "+$mana_regen"
         "DOTA_Tooltip_Ability_item_mage_shield_3_damage_per_mana"                                   "DAMAGE PER MANA:"
-        "DOTA_Tooltip_modifier_mage_shield_3_active"                                                "Arcane Protection"
 
         "DOTA_Tooltip_Ability_item_mage_shield_4"                                                   "Arcane Sphere Ⅳ"
         "DOTA_Tooltip_Ability_item_mage_shield_4_Description"                                       "Active: Arcane Protection-All lethal damage will be aborbed by mana under Arcane Protection, effect will end when hero mana is drained."
@@ -1949,7 +1948,6 @@
         "DOTA_Tooltip_Ability_item_mage_shield_4_bonus_int"                                         "+$int"
         "DOTA_Tooltip_Ability_item_mage_shield_4_bonus_mana_regen"                                  "+$mana_regen"
         "DOTA_Tooltip_Ability_item_mage_shield_4_damage_per_mana"                                   "DAMAGE PER MANA:"
-        "DOTA_Tooltip_modifier_mage_shield_4_active"                                                "Arcane Protection" 
 
        "DOTA_Tooltip_Ability_item_trail_tablet_1"                                                   "Trail TabletⅠ"
        "DOTA_Tooltip_Ability_item_trail_tablet_1_Description"                                       "Active：Trail Tablet- Consume the Tablet to skip next round, and earn 15%% round Gold&Exp compensation, effect can stack.\n<font color='#FF7800'>Do not effect 20+ round</font>\n<font color='#FF7800'>Pass players will receive triple compensation</font>"
@@ -2266,10 +2264,10 @@
 	    "DOTA_Tooltip_modifier_zombie_explode_debuff_Description"                        "Increase next Death Cross damage by 100%%, effect can stack."
 
 	     "DOTA_Tooltip_ability_gold_zombie_straight_wave"                                "Death Cross"
-	    "DOTA_Tooltip_ability_gold_zombie_straight_wave_Description"                     "When dies, release death cross, causing any enemies to take damage, get Demonic Purged and stack debuff"
+	    "DOTA_Tooltip_ability_gold_zombie_straight_wave_Description"                     "When dies, release death cross, causing any enemies to take damage and stack debuff, <font color='#FF7800'>ingore invulnerable</font>"
 
 	    "DOTA_Tooltip_ability_red_zombie_lean_wave"                                      "Death Cross"
-	    "DOTA_Tooltip_ability_red_zombie_lean_wave_Description"                          "When dies, release death cross, causing any enemies to take damage, get Demonic Purged and stack debuff"
+	    "DOTA_Tooltip_ability_red_zombie_lean_wave_Description"                          "When dies, release death cross, causing any enemies to take damage and stack debuff, <font color='#FF7800'>ingore invulnerable</font>"
         
         "DOTA_Tooltip_ability_item_book_of_strength"						"Book of Strength"
 		"DOTA_Tooltip_ability_item_book_of_strength_Description"			"Consume to gain 3 Strength permanently."

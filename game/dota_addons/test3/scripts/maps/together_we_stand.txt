@@ -1875,7 +1875,7 @@
 		"BagVariance"			    "0"
 		"FixedXP"					"16200"
 		"ShortTitle"                "#ice_boss_short_title"
-		"alias"                     "rattletrap"
+		"alias"                     "ice_boss"
 		"type"                      "boss"
 		"ExpectedGold"              "10000"
 		// Stage 1 ================================================
@@ -2000,7 +2000,7 @@
 		"BagCount"					"0"
 		"BagVariance"				"0"
 		"FixedXP"					"17800"
-		"alias"                     "broodqueen"
+		"alias"                     "triangle"
 		"ShortTitle"                "#triangle_short_title"
 		"type"                      "boss"
 		"ExpectedGold"              "8300"
@@ -2697,7 +2697,7 @@
 		"BagVariance"				"40"
 		"FixedXP"					"19000"
 		"ShortTitle"                "#waste_short_title"
-		"alias"                     "bandit"
+		"alias"                     "kalabor_waste"
 		"ExpectedGold"              "9200"      
 		
 		// Stage 1 ================================================
@@ -5676,7 +5676,7 @@
             "WaitForUnit"			"UnitGold"
 			"WaitForTime"			"20"
 			"NPCName"	            "npc_dota_creature_gold_zombie"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 			"SpawnInterval"			"8"
 		}
 		"UnitRed_2_1"
@@ -5690,84 +5690,84 @@
             "WaitForUnit"			"UnitGold"
 			"WaitForTime"			"15"
 			"NPCName"	            "npc_dota_creature_gold_zombie"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 			"SpawnInterval"			"8"
 		}
 		"UnitRed_2_2"
 		{
 			"GroupWithUnit"			"UnitGold_2_2"
 			"NPCName"	            "npc_dota_creature_red_zombie"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 		}
 		"UnitGold_2_3"
 		{
             "WaitForUnit"			"UnitGold"
 			"WaitForTime"			"12"
 			"NPCName"	            "npc_dota_creature_gold_zombie"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 			"SpawnInterval"			"8"
 		}
 		"UnitRed_2_3"
 		{
 			"GroupWithUnit"			"UnitGold_2_3"
 			"NPCName"	            "npc_dota_creature_red_zombie"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 		}
 		"UnitGold_3_1"
 		{
             "WaitForUnit"			"UnitGold_2_1"
 			"WaitForTime"			"15"
 			"NPCName"	            "npc_dota_creature_gold_zombie"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 			"SpawnInterval"			"6"
 		}
 		"UnitRed_3_1"
 		{
 			"GroupWithUnit"			"UnitGold_3_1"
 			"NPCName"	            "npc_dota_creature_red_zombie"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 		}
 		"UnitGold_3_2"
 		{
             "WaitForUnit"			"UnitGold_2_1"
 			"WaitForTime"			"15"
 			"NPCName"	            "npc_dota_creature_gold_zombie"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 			"SpawnInterval"			"6"
 		}
 		"UnitRed_3_2"
 		{
 			"GroupWithUnit"			"UnitGold_3_2"
 			"NPCName"	            "npc_dota_creature_red_zombie"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 		}
 		"UnitGold_3_3"
 		{
             "WaitForUnit"			"UnitGold_2_1"
 			"WaitForTime"			"12"
 			"NPCName"	            "npc_dota_creature_gold_zombie"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 			"SpawnInterval"			"6"
 		}
 		"UnitRed_3_3"
 		{
 			"GroupWithUnit"			"UnitGold_3_3"
 			"NPCName"	            "npc_dota_creature_red_zombie"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 		}
 		"UnitGold_3_4"
 		{
             "WaitForUnit"			"UnitGold_2_1"
 			"WaitForTime"			"12"
 			"NPCName"	            "npc_dota_creature_gold_zombie"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 			"SpawnInterval"			"6"
 		}
 		"UnitRed_3_4"
 		{
 			"GroupWithUnit"			"UnitGold_3_4"
 			"NPCName"	            "npc_dota_creature_red_zombie"
-			"TotalUnitsToSpawn"		"8"
+			"TotalUnitsToSpawn"		"4"
 		}
 	}
 }
