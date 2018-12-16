@@ -1910,7 +1910,6 @@
 
     "Round7-2" //Temple Guardian
 	{
-		//"round_quest_title"	    "#TWS_Round_Guardian_Twins_Quest_Title"
 		"round_title"				"#TWS_Round_Guardian_Twins_Title"
 		"MaxGold"					"0"
 		"BagCount"					"0"
@@ -4475,6 +4474,25 @@
 			"TotalUnitsToSpawn"		"1"
 			"UnitsPerSpawn"			"1"
 		}  														
+	}
+	"Round14-2" //Ancient Apparition
+	{
+		//"round_quest_title"			"#TWS_Round_Twins_Quest_Title"
+		"round_title"				"#DOTA_Holdout_Round_Ancient_Apparition_Title"
+		"MaxGold"					"8350"
+		"BagCount"					"15"
+		"BagVariance"			    "40"
+		"FixedXP"					"35700"
+		"alias"                     "ancient_apparition"
+		"type"                      "boss"
+		"ExpectedGold"              "10020"
+		// Stage 1 ================================================
+		"Unit_1"
+		{
+			"NPCName"			    "npc_dota_boss_ancient_apparition"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		} 														
 	}
     
 	"Round15-1" // morphing again!

@@ -1,21 +1,22 @@
 
-modifier_siltbreaker_mouth_beam = class({})
+modifier_boss_ancient_apparition_beam = class({})
 
 -----------------------------------------------------------------------------
 
-function modifier_siltbreaker_mouth_beam:GetActivityTranslationModifiers( params )
+function modifier_boss_ancient_apparition_beam:GetActivityTranslationModifiers( params )
 	return "channelling"
 end
 
 -----------------------------------------------------------------------------
 
-function modifier_siltbreaker_mouth_beam:OnCreated( kv )
+function modifier_boss_ancient_apparition_beam:OnCreated( kv )
 	if IsServer() then
 		self.damage_per_tick = self:GetAbility():GetSpecialValueFor( "damage_per_tick" )
 		self.tick_interval = self:GetAbility():GetSpecialValueFor( "tick_interval" )
 		self.damage_radius = self:GetAbility():GetSpecialValueFor( "damage_radius" )
 		self.beam_range = self:GetAbility():GetSpecialValueFor( "beam_range" )
 		self.turn_rate = self:GetAbility():GetSpecialValueFor( "turn_rate" )
+        self.frozen_duration = self:GetAbility():GetSpecialValueFor( "frozen_duration" )
 
 		self.channel_time = self:GetAbility():GetChannelTime()
 		self.nSunRayVisionCount = 8
@@ -47,7 +48,7 @@ end
 
 -----------------------------------------------------------------------------
 
-function modifier_siltbreaker_mouth_beam:OnIntervalThink()
+function modifier_boss_ancient_apparition_beam:OnIntervalThink()
 	if IsServer() then
 		self:DoBeamDamageAndVision()
 	end
@@ -55,7 +56,7 @@ end
 
 -----------------------------------------------------------------------------
 
-function modifier_siltbreaker_mouth_beam:DoBeamDamageAndVision()
+function modifier_boss_ancient_apparition_beam:DoBeamDamageAndVision()
 	if IsServer() then
 		if ( not self:GetCaster() ) then
 			return
@@ -104,9 +105,10 @@ function modifier_siltbreaker_mouth_beam:DoBeamDamageAndVision()
 					ability = self:GetAbility(),
 				}
 				ApplyDamage( damageInfo )
+                
+                hHitEnemy:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_boss_ancient_apparition_frozen", {duration=self.frozen_duration})
 
-				local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_phoenix/phoenix_sunray_beam_enemy.vpcf", PATTACH_ABSORIGIN_FOLLOW, hHitEnemy )
-				ParticleManager:SetParticleControlEnt( nFXIndex, 1, hHitEnemy, PATTACH_POINT_FOLLOW, "attach_hitloc", hHitEnemy:GetAbsOrigin(), true )
+				local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_lich/lich_ice_age_debuff.vpcf", PATTACH_ABSORIGIN_FOLLOW, hHitEnemy )
 				ParticleManager:ReleaseParticleIndex( nFXIndex )
 			end
 		end
@@ -117,7 +119,7 @@ end
 
 -----------------------------------------------------------------------------
 
-function modifier_siltbreaker_mouth_beam:UpdateBeamEffect()
+function modifier_boss_ancient_apparition_beam:UpdateBeamEffect()
 	if ( not self:GetCaster() ) then
 		return
 	end
@@ -131,7 +133,7 @@ end
 
 -----------------------------------------------------------------------------
 
-function modifier_siltbreaker_mouth_beam:DeclareFunctions()
+function modifier_boss_ancient_apparition_beam:DeclareFunctions()
 	local funcs = 
 	{
 		MODIFIER_PROPERTY_DISABLE_TURNING,
@@ -142,13 +144,13 @@ end
 
 -----------------------------------------------------------------------------
 
-function modifier_siltbreaker_mouth_beam:GetModifierDisableTurning( params )
+function modifier_boss_ancient_apparition_beam:GetModifierDisableTurning( params )
 	return 1
 end
 
 -----------------------------------------------------------------------------
 
-function modifier_siltbreaker_mouth_beam:CheckState()
+function modifier_boss_ancient_apparition_beam:CheckState()
 	local state = {}
 	if IsServer()  then
 		state[ MODIFIER_STATE_ROOTED ] = true
@@ -157,3 +159,12 @@ function modifier_siltbreaker_mouth_beam:CheckState()
 	return state
 end
 
+function TableContainsValue( t, value )
+	for _, v in pairs( t ) do
+		if v == value then
+			return true
+		end
+	end
+
+	return false
+end

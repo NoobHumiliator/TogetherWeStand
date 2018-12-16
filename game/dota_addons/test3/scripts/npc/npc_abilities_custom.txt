@@ -29397,7 +29397,7 @@
         //-------------------------------------------------------------------------------------------------------------
         "BaseClass"                     "ability_lua"
         "ScriptFile"                    "creature_ability/round_ancient_apparition/boss_ancient_apparition_beam"
-        "AbilityTextureName"            "phoenix_sun_ray"
+        "AbilityTextureName"            "lich_sinister_gaze"
         "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_7"
 
        
@@ -29407,7 +29407,7 @@
         "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
 
-        "IsOnCastBar"                   "0"
+        "IsOnCastBar"                   "1"
 
         // Casting
         //-------------------------------------------------------------------------------------------------------------
@@ -29419,7 +29419,7 @@
         // Time     
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCooldown"               "25.0"
-        "AbilityChannelTime"            "5.0"
+        "AbilityChannelTime"            "12.0"
     
         // Cost
         //-------------------------------------------------------------------------------------------------------------
@@ -29432,7 +29432,7 @@
             "01"
             {
                 "var_type"              "FIELD_INTEGER"
-                "damage_per_tick"       "40"
+                "damage_per_tick"       "1"
             }
             "02"
             {
@@ -29452,12 +29452,128 @@
             "05"
             {
                 "var_type"              "FIELD_FLOAT"
-                "turn_rate"             "9"
+                "turn_rate"             "30"
             }
             "06"
             {
                 "var_type"              "FIELD_FLOAT"
                 "initial_delay"         "0.4"
+            }
+            "07"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "frozen_duration"       "5.0"
+            }
+        }
+    }
+
+    "boss_ancient_apparition_ice_thorn"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/round_ancient_apparition/boss_ancient_apparition_ice_thorn"
+        "AbilityTextureName"            "centaur_double_edge"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_YES_STRONG"
+        "FightRecapLevel"               "1"
+
+        "IsOnCastBar"                   "1"
+
+        "AbilityCastAnimation"          "ACT_DOTA_ABILITY_1"
+        "AbilityCastRange"              "700"
+        "AbilityCastPoint"              "0.5"
+        "precache"
+        {
+        	"particle"  "particles/units/heroes/hero_winter_wyvern/wyvern_arctic_burn_slow.vpcf"
+        	"particle"  "particles/status_fx/status_effect_wyvern_arctic_burn.vpcf"
+        }
+        
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "7.0"
+       
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "delay"                     "1.2"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "radius"                    "200"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage"                    "250"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "freeze_duration"           "8.0"
+            }
+        }
+    }
+
+    "boss_ancient_apparition_ice_age"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/round_ancient_apparition/boss_ancient_apparition_ice_age"
+        "AbilityTextureName"            "ancient_apparition_ice_blast"
+        "AbilityCastAnimation"          "ACT_DOTA_TELEPORT"
+
+       
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET |DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
+
+         "precache"
+        {
+        	"particle"  "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_explode.vpcf"
+        	"particle"  "particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/maiden_freezing_field_snow_arcana1.vpcf"
+        	"sound"     "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+            "sound"     "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
+        }
+
+
+        "IsOnCastBar"                   "1"
+
+        "AbilityCastPoint"              "0.0"
+        "AnimationIgnoresModelScale"    "1"
+        "AnimationPlaybackRate"         "1.0"
+        
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "25.0"
+        "AbilityChannelTime"            "3.0"
+    
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "frozen_duration"       "10.0"
             }
         }
     }

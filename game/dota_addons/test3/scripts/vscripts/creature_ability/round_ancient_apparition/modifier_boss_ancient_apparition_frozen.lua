@@ -1,10 +1,15 @@
 
 modifier_boss_ancient_apparition_frozen = class({})
 
+function modifier_boss_ancient_apparition_frozen:GetTexture()
+	return "crystal_maiden_frostbite"
+end
+
 -----------------------------------------------------------------------------
 function modifier_boss_ancient_apparition_frozen:CheckState()
 	local state = {
 		[MODIFIER_STATE_STUNNED] = true,
+		[MODIFIER_STATE_FROZEN] = true,
 	}
 	return state
 end

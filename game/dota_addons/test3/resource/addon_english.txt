@@ -2514,6 +2514,12 @@
 		 "DOTA_Tooltip_ability_faceless_void_time_lock_datadriven_Lore"	               "The strike of the Faceless Void lands with dimension shifting force."
          "DOTA_Tooltip_ability_faceless_void_time_lock_datadriven_Note0"	           "The stun passes through spell immunity."
 
-         "pass_expire"                                                                 "Pass Expire:" 
+         "pass_expire"                                                                 "Pass Expire:"
+         "DOTA_Holdout_Round_Ancient_Apparition_Title"                                 "Absolute Zero"
+         "npc_dota_boss_ancient_apparition"                                            "Ancient Apparition"
+         "DOTA_Tooltip_ability_boss_ancient_apparition_beam"                           "Frozen Beam"
+         "DOTA_Tooltip_ability_boss_ancient_apparition_ice_thorn"                      "Ice Thorn"
+         "DOTA_Tooltip_ability_boss_ancient_apparition_ice_age"                        "Ice Age"
+         "DOTA_Tooltip_ability_boss_ancient_apparition_ice_age_Description"            "Release a massive ice storm and freeze all enemies. Ice thorn can block the storm."
 	}  
 }
