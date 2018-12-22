@@ -325,7 +325,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"hp_leech_percent"		"0.1 0.2 0.3 0.4"
+				"hp_leech_percent"		"0.05 0.1 0.15 0.2"
 				"LinkedSpecialBonus"	"special_bonus_unique_lifestealer_3"
 			}
 		}
@@ -1488,6 +1488,5 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
-
 
 }  //主括号

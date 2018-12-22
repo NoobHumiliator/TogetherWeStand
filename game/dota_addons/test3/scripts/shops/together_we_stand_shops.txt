@@ -1,5 +1,126 @@
 "dota_shops"
 {
+    "custom"
+	{
+		"tws_shop"
+		{
+
+
+			// Basic
+			"1"
+			{
+				"item"		"item_moon_shard"
+			    "item"		"item_dark_moon_shard"
+			    "item"      "item_pineapple"
+		        "item"      "item_ultimate_orb_2"
+		        "item"      "item_ultimate_orb_3"
+		        "item"      "item_ultimate_orb_4"
+		        "item"      "item_ultimate_orb_5"
+		        "item"      "item_extra_slot_7"
+		        "item"      "item_extra_slot_8"
+		        "item"      "item_extra_slot_9"
+			}
+
+			// Mage
+			"2"
+			{
+				"item"		"item_mystic_staff_2"
+				"item"		"item_mystic_staff_3"
+				"item"		"item_mystic_staff_4"
+				"item" 		"item_mystic_staff_4"
+				"item"      "item_mage_staff_1"
+				"item"      "item_mage_staff_2"
+				"item"      "item_mage_staff_3"
+				"item"      "item_mage_staff_4"
+				"item"      "item_mage_staff_5"
+				"item"      "item_mage_staff_6"
+				"item"      "item_mage_shield_1"
+				"item"      "item_mage_shield_2"
+				"item"      "item_mage_shield_3"
+				"item"      "item_mage_shield_4"
+			}
+
+			// physical
+			"3"
+			{
+				"item"		"item_rapier1_datadriven"
+				"item"		"item_rapier2_datadriven"
+				"item"		"item_rapier3_datadriven"
+				"item"		"item_butterfly_2"
+				"item"		"item_butterfly_3"
+				"item"      "item_desolator_2"
+				"item"      "item_desolator_3"
+				"item"      "item_desolator_4"
+			}
+			//tank 
+			"4"
+			{
+				"item"		"item_tank_armor_1"
+				"item"		"item_tank_armor_2"
+				"item"		"item_quelling_blade"
+			}
+			//support 
+			"5"
+			{
+				"item"		"item_ring_of_protection"
+				"item"		"item_stout_shield"
+				"item"		"item_quelling_blade"
+			}
+		}
+
+		"forest_holdout_shop"
+		{
+			"1"
+			{
+				"item"  	"item_flask"
+				"item"  	"item_clarity"
+				"item"		"item_enchanted_mango"
+				"item"		"item_bottle"
+				"item"		"item_tome_of_knowledge"
+				"item"		"item_tpscroll"
+			}
+			"2"
+			{
+				"item"		"item_ogre_axe"
+				"item"		"item_blade_of_alacrity"
+				"item"		"item_staff_of_wizardry"
+				"item"		"item_chainmail"
+				"item"		"item_broadsword"
+				"item"		"item_claymore"				
+				"item"		"item_javelin"
+			}
+			"3"
+			{
+				"item"		"item_ring_of_regen"
+				"item"		"item_sobi_mask"
+				"item"		"item_gauntlets"
+				"item"		"item_slippers"
+				"item"		"item_mantle"	
+				"item"		"item_circlet"
+				"item"		"item_gloves"
+			}
+		}
+
+		"invoker_shop"
+		{
+			"1"
+			{
+				"item"		"item_treasure_box"
+			}
+		}
+
+		"tusktown_shop"
+		{
+			// Consumables
+			"1"
+			{
+				"item"  	"item_pocket_campfire"
+			}
+		}
+	}
+
+
+
 	"consumables"
 	{
 		"item"		"item_clarity"

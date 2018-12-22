@@ -1997,7 +1997,7 @@
 		   "03"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"spell_power"	                "0.6 1.0 1.3 1.6 1.8 2.0"
+				"spell_power"	                "0.6 0.8 1.0 1.15 1.3 1.4"
 			}
 		   "04"
 			{
@@ -2095,7 +2095,7 @@
 	    "03"
 		{
 			"var_type"						"FIELD_FLOAT"
-			"spell_power"	                "0.6 1.0 1.3 1.6 1.8 2.0"
+			"spell_power"	                "0.6 0.8 1.0 1.15 1.3 1.4"
 		}
 	    "04"
 		{
@@ -2199,7 +2199,7 @@
 		    "03"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"spell_power"	                "0.6 1.0 1.3 1.6 1.8 2.0"
+				"spell_power"	                "0.6 0.8 1.0 1.15 1.3 1.4"
 			}
 		    "04"
 			{
@@ -2310,7 +2310,7 @@
 		    "05"
 			{
 			  "var_type"						"FIELD_FLOAT"
-			  "spell_power"	                "0.6 1.0 1.3 1.6 1.8 2.0"
+			  "spell_power"	                "0.6 0.8 1.0 1.15 1.3 1.4"
 			}
 		    "06"
 			{
@@ -2433,7 +2433,7 @@
 		    "07"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"spell_power"	                "0.6 1.0 1.3 1.6 1.8 2.0"
+				"spell_power"	                "0.6 0.8 1.0 1.15 1.3 1.4"
 			}
 		    "08"
 			{
@@ -5477,7 +5477,7 @@
 			"07"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"spell_power"	                "0.6 1.0 1.3 1.6 1.8 2.0"
+				"spell_power"	                "0.6 0.8 1.0 1.15 1.3 1.4"
 			}
 		    "08"
 			{
@@ -7487,6 +7487,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"12185"
 		"BaseClass"						"item_lua"
+		"AbilityTextureName" 		    "custom_items/mage_shield_3"
 		"ScriptFile"					"item_ability/item_mage_shield_3"
 		"Model"							"models/props_gameplay/red_box.vmdl" 
         "AbilityBehavior"		         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
@@ -7576,6 +7577,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"12195"
 		"BaseClass"						"item_lua"
+		"AbilityTextureName" 		    "custom_items/mage_shield_4"
 		"ScriptFile"					"item_ability/item_mage_shield_4"
 		"Model"							"models/props_gameplay/red_box.vmdl" 
         "AbilityBehavior"		         "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"

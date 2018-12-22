@@ -17,7 +17,8 @@ exceptionSpawnedUnit ={   --不计入游戏进度的单位名字，一般是各�
    npc_dota_thinker=true,
    npc_falling_rock_dummy=true,
    npc_geodesic_dummy=true,
-   npc_dota_beastmaster_axe=true
+   npc_dota_beastmaster_axe=true,
+   npc_dota_creature_affixes_laser_turret=true,
 }
 
 
@@ -156,7 +157,7 @@ function CHoldoutGameRound:Begin()
     self.bAffixFlag=false   --是否初始化过词缀
     self.vAffixes=
     {
-        
+        --[[
         necrotic=false,
         teeming=false,
         raging=false,
@@ -169,6 +170,7 @@ function CHoldoutGameRound:Begin()
         spike=false,
         silver=false,
         dilation=false,
+        ]]
         laser=false
     }
     local affixes_temp={}

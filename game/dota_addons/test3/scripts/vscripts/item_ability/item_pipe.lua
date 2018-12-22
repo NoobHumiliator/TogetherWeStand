@@ -11,7 +11,9 @@ FirstLevelAuraMap = {
       luna_lunar_blessing="luna_lunar_blessing_level_2",
       drow_ranger_trueshot="drow_ranger_trueshot_level_2",
       lycan_feral_impulse="lycan_feral_impulse_level_2",
-      necrolyte_heartstopper_aura_datadriven="necrolyte_heartstopper_aura_datadriven_level_2"
+      rubick_null_field="rubick_null_field_level_2",
+      necrolyte_heartstopper_aura_datadriven="necrolyte_heartstopper_aura_datadriven_level_2",
+      lich_frost_aura="lich_frost_aura_level_2"
    }
 
 SecondLevelAuraMap = {
@@ -27,7 +29,9 @@ SecondLevelAuraMap = {
       luna_lunar_blessing_level_2="luna_lunar_blessing_level_3",
       drow_ranger_trueshot_level_2="drow_ranger_trueshot_level_3",
       lycan_feral_impulse_level_2="lycan_feral_impulse_level_3",
-      necrolyte_heartstopper_aura_datadriven_level_3="necrolyte_heartstopper_aura_datadriven_level_3"
+      rubick_null_field_level_2="rubick_null_field_level_3",
+      necrolyte_heartstopper_aura_datadriven_level_3="necrolyte_heartstopper_aura_datadriven_level_3",
+      lich_frost_aura_level_2="lich_frost_aura_level_3"
 
    }
 

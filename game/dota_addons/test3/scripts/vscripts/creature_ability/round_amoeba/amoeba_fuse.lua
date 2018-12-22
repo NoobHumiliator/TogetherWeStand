@@ -26,7 +26,8 @@ end
 -----------------------------------------------------------------------------------------
 
 function amoeba_fuse:GetCastRange( vLocation, hTarget )
-	if IsServer() then
+	
+	if IsServer() and self:GetCaster() and self:GetCaster().GetAttackRange then
 		return self:GetCaster():GetAttackRange()
 	end
 	   

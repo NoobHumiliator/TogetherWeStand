@@ -52,12 +52,14 @@ function CentaurWarlordThink()
 		if thisEntity.hDoubleEdgeAbility ~= nil and thisEntity.hDoubleEdgeAbility:IsFullyCastable() then
 			return CastDoubleEdge( hEnemies[ RandomInt( 1, #hEnemies ) ] )
 		end
-		-- Blademail
+        
+        --[[
 		if ( #hEnemies >= 1 ) and thisEntity.hBlademailAbility and thisEntity.hBlademailAbility:IsFullyCastable() then
 			if ( thisEntity:GetHealthPercent() < 65 ) then
 				return UseBlademail()
 			end
 		end
+		]]
 		return 0.5
 	else
          return AttackNearestEnemy()

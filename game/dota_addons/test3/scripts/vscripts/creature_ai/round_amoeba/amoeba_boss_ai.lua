@@ -15,6 +15,8 @@ function Spawn( entityKeyValues )
        thisEntity:AddNewModifier(nil,nil,"modifier_kill",{duration=360})  --设置强制死亡时间,6分钟 防止玩家无限刷小怪
     end
 
+    thisEntity:AddNewModifier( thisEntity, nil, "modifier_provide_vision", {} ) --提供视野，避免出现卡在树林里玩家找不到
+
 	FuseAbility = thisEntity:FindAbilityByName( "amoeba_fuse" )
 	BlobLaunchAbility = thisEntity:FindAbilityByName( "amoeba_blob_launch" )
 	BlobJumpSmashAbility = thisEntity:FindAbilityByName( "amoeba_boss_jump_splatter" )
@@ -107,7 +109,7 @@ function SmallAmoebaThink( nStackCount, friendlies, enemies )
 
 
 	local hBlobTarget = GetLaunchBlobTarget( enemies )
-	if BlobJumpSmashAbility ~= nil and BlobJumpSmashAbility:IsFullyCastable() and hBlobTarget ~= nil and ( ( _G.hBossAmoeba ~= nil and _G.hBossAmoeba:GetHealthPercent() < 50 ) or ( thisEntity:GetTeamNumber() == DOTA_TEAM_GOODGUYS ) ) then
+	if BlobJumpSmashAbility ~= nil and BlobJumpSmashAbility:IsFullyCastable() and hBlobTarget ~= nil and ( ( _G.hBossAmoeba ~= nil and _G.hBossAmoeba:IsAlive() and _G.hBossAmoeba:GetHealthPercent() < 50 ) or ( thisEntity:GetTeamNumber() == DOTA_TEAM_GOODGUYS ) ) then
 		return JumpSmash( hBlobTarget )
 	end
 

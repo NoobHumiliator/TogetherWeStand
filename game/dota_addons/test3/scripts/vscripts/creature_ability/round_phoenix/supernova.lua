@@ -57,9 +57,7 @@ function OnDestroyEgg( keys )  --取消血线，移除BUFF
     ParticleManager:SetParticleControlEnt( pfx, 0, caster, PATTACH_POINT_FOLLOW, "follow_origin", caster:GetAbsOrigin(), true )
     ParticleManager:SetParticleControlEnt( pfx, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true )
 
-
 end
-
 
 
 
@@ -69,9 +67,7 @@ function DotDamage( keys )  --造成伤害
 	local ability = keys.ability
 	
 	local stack_count = target:GetModifierStackCount("modifier_supernova_egg_die_dot",ability)
-
-    --伤害直接写死   
-    local basic_damage = 6
+    local basic_damage = ability:GetSpecialValueFor("dot_basic_damage")
 
     local damageTable = {
                             victim=target,     --受到伤害的单位

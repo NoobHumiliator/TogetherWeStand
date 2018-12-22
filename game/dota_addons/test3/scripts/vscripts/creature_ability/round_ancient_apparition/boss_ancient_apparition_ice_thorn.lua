@@ -14,6 +14,7 @@ function boss_ancient_apparition_ice_thorn:OnSpellStart()
 
     
 	if IsServer() then
+		Notifications:BossAbilityDBM("boss_ancient_apparition_ice_thorn")
 		EmitSoundOn( "Hero_Tusk.IceShards.Projectile", self:GetCaster() )
 
         local enemies = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetCaster():GetAbsOrigin(), nil, 18000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES+DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)		  
@@ -24,7 +25,7 @@ function boss_ancient_apparition_ice_thorn:OnSpellStart()
 			local vLoc3=Vector(enemy:GetOrigin().x+RandomInt(-600, 600),enemy:GetOrigin().y+RandomInt(-600, 600),enemy:GetOrigin().z)
 
 		    CreateModifierThinker( self:GetCaster(), self, "modifier_boss_ancient_apparition_ice_thorn_thinker", {}, vLoc1, self:GetCaster():GetTeamNumber(), false )
-            CreateModifierThinker( self:GetCaster(), self, "modifier_boss_ancient_apparition_ice_thorn_thinker", {}, vLoc2,self:GetCaster():GetTeamNumber(), false )
+            --CreateModifierThinker( self:GetCaster(), self, "modifier_boss_ancient_apparition_ice_thorn_thinker", {}, vLoc2,self:GetCaster():GetTeamNumber(), false )
             --CreateModifierThinker( self:GetCaster(), self, "modifier_boss_ancient_apparition_ice_thorn_thinker", {}, vLoc3,self:GetCaster():GetTeamNumber(), false )
 	    
 	    end

@@ -56,7 +56,7 @@ function CreatAffixes(data) {  //词缀
                var imageId="affix_id_"+index;
                var offset = 310 - index*50;  //调整横向位置  
                var abilityImage=$.CreatePanel( "DOTAAbilityImage", newPanel, imageId );
-               $.Msg(affixAbilityName)
+               //$.Msg(affixAbilityName)
                abilityImage.abilityname=affixAbilityName;  //abilityname 全小写
                abilityImage.SetHasClass( "AbilityImage", true );
                abilityImage.style.position = offset+"px 0 0 0";
@@ -87,7 +87,7 @@ function RefreshAchQuestData(data){
 
 
 function RemoveQuestPUI(data){
-    $.Msg(data.name+"data name")
+    //$.Msg(data.name+"data name")
     var RemovePanle=$('#QuestPanel').FindChild(data.name)
     RemovePanle.deleted = true;
     RemovePanle.DeleteAsync(0);

@@ -1,5 +1,5 @@
-LinkLuaModifier( "modifier_night_terror_thinker_lua", "creature_ability/night_terror_lua.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_night_terror_gisp_lua", "creature_ability/night_terror_lua.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_night_terror_thinker_lua", "creature_ability/round_darkness/night_terror_lua.lua", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_night_terror_gisp_lua", "creature_ability/round_darkness/night_terror_lua.lua", LUA_MODIFIER_MOTION_NONE )
 
 night_terror_lua = class({})
 

@@ -258,8 +258,8 @@ function ShowRankPanel(player_number,page_number,page_table)
          team_line.SetHasClass("Hidden", false);
          var player_ids = data_line["player_steam_ids"].split(';');
          var index=1;
-         $.Msg(player_ids)
-         $.Msg(player_number)
+         //$.Msg(player_ids)
+         //$.Msg(player_number)
          for (var j in player_ids)
          {
           team_line.FindChildInLayoutFile( "PlayerAvatarImage"+index ).steamid=ConvertToSteamid64(player_ids[j]);

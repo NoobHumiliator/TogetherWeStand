@@ -43,7 +43,7 @@ function SelectDifficultyReturn( data ) {
 	if ($("#DifficultyEasyValue")) 
 	{
 		var playerNumber=Players.GetMaxPlayers();
-        $.Msg(playerNumber);
+        //$.Msg(playerNumber);
 		$("#EasyAvatar").RemoveAndDeleteChildren();
 		$("#EasyAvatar2").RemoveAndDeleteChildren();
 		$("#NormalAvatar").RemoveAndDeleteChildren();

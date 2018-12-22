@@ -123,12 +123,13 @@ function modifier_boss_ancient_apparition_beam:UpdateBeamEffect()
 	if ( not self:GetCaster() ) then
 		return
 	end
-
-	self.hBeamEnd:SetOrigin( self.vBeamEnd )
-
-	ParticleManager:SetParticleControlFallback( self.nBeamFXIndex, 0, self:GetCaster():GetAbsOrigin() )
-	ParticleManager:SetParticleControlFallback( self.nBeamFXIndex, 1, self.vBeamEnd )
-	ParticleManager:SetParticleControlFallback( self.nBeamFXIndex, 9, self:GetCaster():GetAbsOrigin() )
+ 
+	if not self.hBeamEnd:IsNull() then   
+		 self.hBeamEnd:SetOrigin( self.vBeamEnd )
+		 ParticleManager:SetParticleControlFallback( self.nBeamFXIndex, 0, self:GetCaster():GetAbsOrigin() )
+		 ParticleManager:SetParticleControlFallback( self.nBeamFXIndex, 1, self.vBeamEnd )
+		 ParticleManager:SetParticleControlFallback( self.nBeamFXIndex, 9, self:GetCaster():GetAbsOrigin() )
+    end
 end
 
 -----------------------------------------------------------------------------
@@ -140,6 +141,13 @@ function modifier_boss_ancient_apparition_beam:DeclareFunctions()
 	}
 
 	return funcs
+end
+-----------------------------------------------------------------------------
+
+function modifier_boss_ancient_apparition_beam:OnDestroy()
+	if not self.hBeamEnd:IsNull() then   
+		self.hBeamEnd:ForceKill(true)
+    end
 end
 
 -----------------------------------------------------------------------------

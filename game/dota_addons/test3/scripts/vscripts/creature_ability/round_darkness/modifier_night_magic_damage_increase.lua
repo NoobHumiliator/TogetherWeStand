@@ -18,8 +18,8 @@ end
 
 function modifier_night_magic_damage_increase:OnRefresh()
     if IsServer() then
-      local ability=attacker:FindAbilityByName("night_creature_increase_damage")
-      local stacks_number=attacker:GetModifierStackCount("modifier_night_damage_stack",ability)   	
+      local ability=self:GetCaster():FindAbilityByName("night_creature_increase_damage")
+      local stacks_number=self:GetCaster():GetModifierStackCount("modifier_night_damage_stack",ability)   	
 	  self.spell_incease_pct = self.magic_enhance_ptc_per_stack * stacks_number
     end
 end

@@ -10380,7 +10380,7 @@
 			"RunScript"
 			{
 				"Target"				"CASTER"
-				"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
+				"ScriptFile"			"scripts/vscripts/creature_ability/round_morphing/water.lua"
 				"Function"			    "water_remove_self"
 			}         
 
@@ -10438,7 +10438,7 @@
 			"RunScript"
 			{
 				"Target"				"CASTER"
-				"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
+				"ScriptFile"			"scripts/vscripts/creature_ability/round_morphing/water.lua"
 				"Function"			"water_remove_self"
 			}         
 
@@ -10496,7 +10496,7 @@
 			"RunScript"
 			{
 				"Target"				"CASTER"
-				"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
+				"ScriptFile"			"scripts/vscripts/creature_ability/round_morphing/water.lua"
 				"Function"			"water_remove_self"
 			}
 		}
@@ -10671,7 +10671,7 @@
                            "RunScript"
 			{
 				"Target"				"CASTER"
-				"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
+				"ScriptFile"			"scripts/vscripts/creature_ability/round_tiny/tiny.lua"
 				"Function"			     "tiny_collapse"
 			}         
 
@@ -11008,7 +11008,7 @@
 			"RunScript"
 			{
 				"Target"				"CASTER"
-				"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
+				"ScriptFile"			"scripts/vscripts/creature_ability/round_morphing/water.lua"
 				"Function"			    "water_remove_self"
 			}         
 		}
@@ -11068,7 +11068,7 @@
 			"RunScript"
 			{
 				"Target"				"CASTER"
-				"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
+				"ScriptFile"			"scripts/vscripts/creature_ability/round_morphing/water.lua"
 				"Function"			    "water_remove_self"
 			}
 		}
@@ -11116,10 +11116,9 @@
 			"RunScript"
 			{
 				"Target"				"CASTER"
-				"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
-				"Function"			"water_remove_self"
+				"ScriptFile"			"scripts/vscripts/creature_ability/round_morphing/water.lua"
+				"Function"			    "water_remove_self"
 			}         
-
 		}
 	}
 
@@ -11165,7 +11164,7 @@
 			"RunScript"
 			{
 				"Target"				"CASTER"
-				"ScriptFile"			"scripts/vscripts/creature_ability/fly.lua"
+				"ScriptFile"			"scripts/vscripts/creature_ability/round_morphing/water.lua"
 				"Function"			    "water_remove_self"
 			}         
 
@@ -19110,7 +19109,7 @@
         "AbilityCastRange"              "700"
         "AbilityCastPoint"              "0"
         "AbilityCooldown"               "12"
-        "AbilityManaCost"               "200"
+        "AbilityManaCost"               "200 220 240 260 280 300 320 340"
 
         // Stats
         //-------------------------------------------------------------------------------------------------------------
@@ -19158,7 +19157,7 @@
             "08"
             {
                 "var_type"              "FIELD_FLOAT"
-                "main_damage"           "100 200 300 400 500 600 700 800"
+                "main_damage"           "115 150 185 220 255 290 325 360"
             }
             "09"
             {
@@ -19168,7 +19167,7 @@
             "10"
             {
                 "var_type"              "FIELD_FLOAT"
-                "burn_dps"              "11.5 18.5 25.5 32.5 39.5 46.5 53.5 60.5"
+                "burn_dps"              "11.5 15 18.5 22 25.5 29 32.5 36"
             }
         }
     }
@@ -23764,7 +23763,17 @@
     "rubick_null_field_level_2"
 	{
 		"BaseClass"                     "rubick_null_field"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"MaxLevel"                      "8"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30"
 	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -23787,7 +23796,17 @@
     "rubick_null_field_level_3"
 	{
 		"BaseClass"                     "rubick_null_field"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"MaxLevel"                      "12"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30"
 	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -23806,6 +23825,75 @@
 		}
 	}
     
+	"lich_frost_aura_level_2"
+	{
+
+        "BaseClass"                     "lich_frost_aura"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"MaxLevel"                      "8"		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1200"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movespeed_slow"	"7 14 21 28 35 42 49 56"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aura_radius"		"1200"
+			}	
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"		    "1.0"
+			}		
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+
+    "lich_frost_aura_level_3"
+	{
+
+        "BaseClass"                     "lich_frost_aura"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	    "MaxLevel"                      "12"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1200"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movespeed_slow"	"7 14 21 28 35 42 49 56 63 70 77 84"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aura_radius"		"1200"
+			}	
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"		    "1.0"
+			}		
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+
+
 
     "tinker_boss_spawn_laser_turret"
     {
@@ -24633,8 +24721,7 @@
 				}        
 			}
 		}
-	}
-	
+	}	
 }
 
 
@@ -24652,12 +24739,7 @@
 		"01"
 		{
 			"var_type"			"FIELD_INTEGER"
-			"damage_per_sec"    "20"
-		}
-		"02"
-		{
-			"var_type"			"FIELD_INTEGER"
-			"dot_basic_damage"  "20"
+			"dot_basic_damage"  "4"
 		}
 	}
 
@@ -27331,7 +27413,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.2"
-		"AbilityChannelTime"			"5"
+		"AbilityChannelTime"			"7"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -27348,7 +27430,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"channel_time"		    "5"
+				"channel_time"		    "7"
 			}
 		}
 		
@@ -29408,10 +29490,16 @@
         "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
 
         "IsOnCastBar"                   "1"
+        
+        "precache"
+        {
+        	"soundfile"  "soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
+        }
+
 
         // Casting
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastRange"              "5000"
+        "AbilityCastRange"              "3000"
         "AbilityCastPoint"              "1.0"
         "AnimationIgnoresModelScale"    "1"
         "AnimationPlaybackRate"         "1.0"
@@ -29432,7 +29520,7 @@
             "01"
             {
                 "var_type"              "FIELD_INTEGER"
-                "damage_per_tick"       "1"
+                "damage_per_tick"       "40"
             }
             "02"
             {
@@ -29452,17 +29540,17 @@
             "05"
             {
                 "var_type"              "FIELD_FLOAT"
-                "turn_rate"             "30"
+                "turn_rate"             "60"
             }
             "06"
             {
                 "var_type"              "FIELD_FLOAT"
-                "initial_delay"         "0.4"
+                "initial_delay"         "0.3"
             }
             "07"
             {
                 "var_type"              "FIELD_FLOAT"
-                "frozen_duration"       "5.0"
+                "frozen_duration"       "4.2"
             }
         }
     }
@@ -29471,7 +29559,7 @@
     {
         "BaseClass"                     "ability_lua"
         "ScriptFile"                    "creature_ability/round_ancient_apparition/boss_ancient_apparition_ice_thorn"
-        "AbilityTextureName"            "centaur_double_edge"
+        "AbilityTextureName"            "lich_frost_nova"
 
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"   
@@ -29489,6 +29577,7 @@
         {
         	"particle"  "particles/units/heroes/hero_winter_wyvern/wyvern_arctic_burn_slow.vpcf"
         	"particle"  "particles/status_fx/status_effect_wyvern_arctic_burn.vpcf"
+        	"soundfile"     "soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
         }
         
         // Time     
@@ -29506,7 +29595,7 @@
             "01"
             {
                 "var_type"                  "FIELD_FLOAT"
-                "delay"                     "1.2"
+                "delay"                     "1.4"
             }
             "02"
             {
@@ -29516,12 +29605,12 @@
             "03"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "damage"                    "250"
+                "damage"                    "1500"
             }
             "04"
             {
                 "var_type"                  "FIELD_FLOAT"
-                "freeze_duration"           "8.0"
+                "freeze_duration"           "7.8"
             }
         }
     }
@@ -29546,8 +29635,8 @@
         {
         	"particle"  "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_explode.vpcf"
         	"particle"  "particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/maiden_freezing_field_snow_arcana1.vpcf"
-        	"sound"     "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
-            "sound"     "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
+        	"soundfile"     "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
         }
 
 
@@ -29559,7 +29648,7 @@
         
         // Time     
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCooldown"               "25.0"
+        "AbilityCooldown"               "15.0"
         "AbilityChannelTime"            "3.0"
     
         // Cost
@@ -29573,7 +29662,7 @@
             "01"
             {
                 "var_type"              "FIELD_FLOAT"
-                "frozen_duration"       "10.0"
+                "frozen_duration"       "11.0"
             }
         }
     }

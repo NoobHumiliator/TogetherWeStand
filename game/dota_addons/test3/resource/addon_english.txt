@@ -1213,7 +1213,7 @@
         "affixes_laser"                                                                  "Laser  "
 
         "DOTA_Tooltip_ability_affixes_ability_tooltip_laser"					        "Laser"
-        "DOTA_Tooltip_ability_affixes_ability_tooltip_laser_Description"		        "Random laser turrent."
+        "DOTA_Tooltip_ability_affixes_ability_tooltip_laser_Description"		        "Random laser turret DOTA_Tooltip_Ability_item_extra_slot_7_bonus_mana_regen around heroes."
 
 
         "DOTA_Tooltip_ability_affixes_ability_tooltip_dilation"					        "Time Dilation"
@@ -2177,14 +2177,14 @@
 
 
 		"DOTA_Tooltip_Ability_item_pipe_1"                                                   "Demon Pipe Ⅰ"
-        "DOTA_Tooltip_Ability_item_pipe_1_Description"                                       "Passive：Equip the pipe, Hero's Aura Type abilities max-level increases to<font color='#FF7800'>8</font>." 
+        "DOTA_Tooltip_Ability_item_pipe_1_Description"                                       "Passive：Equip the pipe, Hero's Aura abilities max-level increases to <font color='#FF7800'>8</font>." 
         "DOTA_Tooltip_Ability_item_pipe_1_bonus_all"                                         "+$all"
         "DOTA_Tooltip_Ability_item_pipe_1_bonus_mana_regen"                                  "+$mana_regen"
         "DOTA_Tooltip_Ability_item_pipe_1_bonus_health_regen"	                             "+$hp_regen"
 
 
         "DOTA_Tooltip_Ability_item_pipe_2"                                                   "Demon Pipe Ⅱ"
-        "DOTA_Tooltip_Ability_item_pipe_2_Description"                                       "Passive：Equip the pipe, Hero's Aura Type abilities max-level increases to<font color='#FF7800'>12</font>.." 
+        "DOTA_Tooltip_Ability_item_pipe_2_Description"                                       "Passive：Equip the pipe, Hero's Aura abilities max-level increases to <font color='#FF7800'>12</font>." 
         "DOTA_Tooltip_Ability_item_pipe_2_bonus_all"                                         "+$all"
         "DOTA_Tooltip_Ability_item_pipe_2_bonus_mana_regen"                                  "+$mana_regen"
         "DOTA_Tooltip_Ability_item_pipe_2_bonus_health_regen"	                             "+$hp_regen"
@@ -2206,7 +2206,7 @@
 
 
 		"DOTA_Tooltip_ability_rubick_null_field_level_3"								"Null Field"
-		"DOTA_Tooltip_ability_rubick_null_field_level_3_Description"					"Rubick's mastery of the arcane protects nearby allies against weaker magics, granting them magic resistance."
+		"DOTA_Tooltip_ability_rubick_null_field_level_3_Description"					"Rubick's mastery of the arcane creates an aura that nullifies nearby enemy senses or increases his own. Can be toggled offensively or defensively to reduce enemy magic resistance or increase allied magic resistance."
 		"DOTA_Tooltip_ability_rubick_null_field_level_3_Lore"							"Not every magus can be a Grand Magus..."
 		"DOTA_Tooltip_ability_rubick_null_field_level_3_Note0"							"Stacks multiplicatively with other spell resistance sources."
 		"DOTA_Tooltip_ability_rubick_null_field_level_3_magic_damage_reduction_pct"		"%MAGIC RESISTANCE:"
@@ -2521,5 +2521,23 @@
          "DOTA_Tooltip_ability_boss_ancient_apparition_ice_thorn"                      "Ice Thorn"
          "DOTA_Tooltip_ability_boss_ancient_apparition_ice_age"                        "Ice Age"
          "DOTA_Tooltip_ability_boss_ancient_apparition_ice_age_Description"            "Release a massive ice storm and freeze all enemies. Ice thorn can block the storm."
-	}  
+         "DOTA_Tooltip_modifier_boss_ancient_apparition_ice_thorn"	                   "Frozen"
+         "DOTA_Tooltip_modifier_boss_ancient_apparition_frozen"	                       "Frozen"
+         "twins_short_title"                                                           "Twins"
+         "ancient_apparition_short_title"                                              "Ancient Apparition"
+
+         "DOTA_Tooltip_ability_lich_frost_aura_level_2"                                "FROST AURA"
+         "DOTA_Tooltip_ability_lich_frost_aura_level_2_Description"                    "Allied Aura, Causes all nearby ally attack to slow enemy movement speed."
+         "DOTA_Tooltip_ability_lich_frost_aura_level_2_movespeed_slow"                 "%MOVEMENT SLOW:"
+         "DOTA_Tooltip_ability_lich_frost_aura_level_2_aura_radius"                    "RADIUS:"
+         "DOTA_Tooltip_ability_lich_frost_aura_level_2_duration"                       "DURATION:"
+
+         "DOTA_Tooltip_ability_lich_frost_aura_level_3"                                "FROST AURA"
+         "DOTA_Tooltip_ability_lich_frost_aura_level_3_Description"                    "Allied Aura, Causes all nearby ally attack to slow enemy movement speed."
+         "DOTA_Tooltip_ability_lich_frost_aura_level_3_movespeed_slow"                 "%MOVEMENT SLOW:"
+         "DOTA_Tooltip_ability_lich_frost_aura_level_3_aura_radius"                    "RADIUS:"
+         "DOTA_Tooltip_ability_lich_frost_aura_level_3_duration"                       "DURATION:"
+
+         "DOTA_Tooltip_modifier_lich_frost_aura"                                       "Frost Aura"
+	}   
 }

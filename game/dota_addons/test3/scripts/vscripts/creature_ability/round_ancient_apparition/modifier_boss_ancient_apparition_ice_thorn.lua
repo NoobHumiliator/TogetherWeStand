@@ -1,6 +1,10 @@
 modifier_boss_ancient_apparition_ice_thorn = class({})
 
 ------------------------------------------------------------------
+function modifier_boss_ancient_apparition_ice_thorn:GetTexture()
+	return "crystal_maiden_frostbite"
+end
+------------------------------------------------------------------
 
 function modifier_boss_ancient_apparition_ice_thorn:OnCreated( kv )
 end

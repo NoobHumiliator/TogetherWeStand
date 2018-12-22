@@ -3,7 +3,7 @@
 
 function ShowRoundTitle( keys )
 {
-    $.Msg( "OnPlayerEnteredZone"+keys.roundTitle );
+    //$.Msg( "OnPlayerEnteredZone"+keys.roundTitle );
     Game.EmitSound("Dungeon.Stinger07");
     $( "#RoundTitleToastPanel" ).SetHasClass( "Visible", true );
     $( "#RoundTitleLabel" ).text = $.Localize( keys.roundTitle );

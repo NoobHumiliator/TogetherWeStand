@@ -4454,13 +4454,14 @@
 	{
 		"round_quest_title"			"#TWS_Round_Twins_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Twins_Title"
-		"MaxGold"					"8350"
+		"ShortTitle"                "#twins_short_title"
+		"MaxGold"					"4750"
 		"BagCount"					"15"
 		"BagVariance"			    "40"
-		"FixedXP"					"35700"
+		"FixedXP"					"19000"
 		"alias"                     "twins"
 		"type"                      "boss"
-		"ExpectedGold"              "10020"
+		"ExpectedGold"              "5500"
 		// Stage 1 ================================================
 		"Unit_1"
 		{
@@ -4479,13 +4480,14 @@
 	{
 		//"round_quest_title"			"#TWS_Round_Twins_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Ancient_Apparition_Title"
-		"MaxGold"					"8350"
+		"ShortTitle"                "#ancient_apparition_short_title"
+		"MaxGold"					"4750"
 		"BagCount"					"15"
 		"BagVariance"			    "40"
-		"FixedXP"					"35700"
+		"FixedXP"					"19000"
 		"alias"                     "ancient_apparition"
 		"type"                      "boss"
-		"ExpectedGold"              "10020"
+		"ExpectedGold"              "5500"
 		// Stage 1 ================================================
 		"Unit_1"
 		{

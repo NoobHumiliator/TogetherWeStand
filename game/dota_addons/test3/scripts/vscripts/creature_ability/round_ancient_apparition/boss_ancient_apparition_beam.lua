@@ -22,6 +22,7 @@ end
 
 function boss_ancient_apparition_beam:OnSpellStart()
 	if IsServer() then
+		Notifications:BossAbilityDBM("boss_ancient_apparition_beam")
 		self.beam_range = self:GetSpecialValueFor( "beam_range" )
 		self.initial_delay = self:GetSpecialValueFor( "initial_delay" )
 		self.channel_time = self:GetChannelTime()

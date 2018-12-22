@@ -17699,9 +17699,7 @@
 		"AbilityLayout"			    "4"
 		"Ability1"					"boss_ancient_apparition_ice_age"	          
 		"Ability2"					"boss_ancient_apparition_ice_thorn"		         
-		"Ability3"					"boss_ancient_apparition_beam"		
-		"Ability4"					""			                      
-        "Ability5"				    "tidehunter_gold_bag_fountain"
+		"Ability3"			    	"boss_ancient_apparition_beam"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -17711,8 +17709,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"	    "DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"2000"		// Damage range min.
-		"AttackDamageMax"			"2500"		// Damage range max.
+		"AttackDamageMin"			"50"		// Damage range min.
+		"AttackDamageMax"			"68"		// Damage range max.
 		"AttackRate"				"1.25"		// Speed of attack.
 		"AttackAnimationPoint"		"0.2"		// Normalized time in animation cycle to attack.
 		"AttackRange"				"180"		// Range within a target can be attacked.
@@ -17735,10 +17733,10 @@
 		
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800000"		// Base health.
-		"StatusHealthRegen"			"500.0"		// Health regeneration rate.
+		"StatusHealth"				"180000"		// Base health.
+		"StatusHealthRegen"			"50.0"		// Health regeneration rate.
 		"StatusMana"				"15000"		// Base mana.
-		"StatusManaRegen"			"300.0"		// Mana regeneration rate.
+		"StatusManaRegen"			"150.0"		// Mana regeneration rate.
 
 		// Team
 		//----------------------------------------------------------------
@@ -17760,7 +17758,33 @@
 		{
                    		
 			"DisableResistance"			"100"
-	
+	        "AttachWearables"
+	        {
+	           "Wearable1"
+				{
+					"ItemDef"			"501"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"7462"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"9462"
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"12569"
+				}
+				"Wearable5"
+				{
+					"ItemDef"			"12570"
+				}
+				"Wearable6"
+				{
+					"ItemDef"			"12570"
+				}
+	        }
 		}
 	}
 
