@@ -2539,5 +2539,23 @@
          "DOTA_Tooltip_ability_lich_frost_aura_level_3_duration"                       "DURATION:"
 
          "DOTA_Tooltip_modifier_lich_frost_aura"                                       "Frost Aura"
+
+		 "DOTA_Tooltip_ability_frostivus2018_clinkz_burning_army"	"Burning Army"
+		 "DOTA_Tooltip_ability_frostivus2018_clinkz_burning_army_Description"	"Clinkz summons an army of fiery ranged skeleton archers. Archers are immobile and die with 2 attacks from a hero. Skeletons use your current Searing Arrows ability and attack <font color='#70EA72'>any units nearby</font>. Base damage is equal to your hero's base damage. Attack range is equal to your hero's attack range. "
+		 "DOTA_Tooltip_ability_frostivus2018_clinkz_burning_army_duration"	"DURATION:"
+		 "DOTA_Tooltip_ability_frostivus2018_clinkz_burning_army_range"	"RANGE:"
+		 "DOTA_Tooltip_ability_frostivus2018_clinkz_burning_army_count"	"COUNT:"
+		 "DOTA_Tooltip_ability_frostivus2018_clinkz_burning_army_attack_rate"	"ATTACK RATE:"
+		 "DOTA_Tooltip_ability_frostivus2018_clinkz_burning_army_spawn_interval"	"SPAWN INTERVAL:"
+
+		 "DOTA_Tooltip_ability_pugna_ward_winter_datadriven"	                        "Saprophytic Ward"
+		 "DOTA_Tooltip_ability_pugna_ward_winter_datadriven_Description"	            "Pugna places a Saprophytic Ward at the target location. Heals allies whenever they spend mana."
+		 "DOTA_Tooltip_ability_pugna_ward_winter_datadriven_aura_radius"	            "AURA RADIUS:"
+		 "DOTA_Tooltip_ability_pugna_ward_winter_datadriven_mana_multiplier"            "HEAL PER MANA:"
+		 "DOTA_Tooltip_ability_pugna_ward_winter_datadriven_aura_mana_regen"	        "AURA MANA REGEN:"
+		 "DOTA_Tooltip_ability_pugna_ward_winter_datadriven_attacks_to_destroy_tooltip"	"ATTACKS TO DESTROY:"
+		 "DOTA_Tooltip_ability_pugna_ward_winter_datadriven_ward_duration"	            "WARD DURATION:"
+         "npc_dota_pugna_ward_winter"	"Saprophytic Ward"
+         "DOTA_Tooltip_modifier_pugna_ward_winter_effect"                               "Saprophytic Ward"
 	}   
 }

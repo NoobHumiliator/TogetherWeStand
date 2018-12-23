@@ -563,7 +563,7 @@
   "2"    "clinkz_searing_arrows"
   "3"    "clinkz_wind_walk"
   "4"    "death_pact_datadriven"
-  "5"    "clinkz_burning_army"
+  "5"    "frostivus2018_clinkz_burning_army"
   }
   "broodmother" {
   "1"    "broodmother_spawn_spiderlings"
@@ -620,6 +620,7 @@
   "2"    "pugna_decrepify"
   "3"    "pugna_nether_ward"
   "4"    "pugna_life_drain"
+  "5"    "pugna_ward_winter_datadriven"
   }
   "dazzle" {
   "1"    "dazzle_poison_touch"
