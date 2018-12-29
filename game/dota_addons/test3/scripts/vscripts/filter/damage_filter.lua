@@ -6,7 +6,7 @@
 sp_exempt_table = {}
 sp_exempt_table["necrolyte_reapers_scythe_datadriven"]=true
 sp_exempt_table["huskar_life_break"]=true
-sp_exempt_table["self_huskar_life_break"]=true
+sp_exempt_table["frostivus2018_huskar_life_break"]=true
 sp_exempt_table["zuus_static_field"]=true
 sp_exempt_table["death_prophet_spirit_siphon"]=true
 sp_exempt_table["elder_titan_earth_splitter"]=true

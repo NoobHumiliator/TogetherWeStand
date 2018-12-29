@@ -29788,5 +29788,535 @@
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 
+    "frostivus2018_omniknight_purification"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Omniknight.Purification"
+		"AbilityTextureName"			"frostivus2018_omniknight_purification"
+        "MaxLevel"                      "8"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"300"
+		"AbilityCastPoint"				"0.2"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"11 11 11 11 11 11 11 11"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75 90 105 120 135 150 165 180"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heal"					"100 170 240 300 360 420 480 520"
+				"LinkedSpecialBonus"	"special_bonus_unique_omniknight_1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"260"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_radius"				"400"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+
+	"frostivus2018_omniknight_degen_aura"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"frostivus2018_omniknight_degen_aura"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"400 500 600 700"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed_bonus"			"10 15 20 25"
+				"LinkedSpecialBonus"	"special_bonus_unique_omniknight_2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_bonus_tooltip"	"10 15 20 25"
+				"LinkedSpecialBonus"	"special_bonus_unique_omniknight_2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"400 500 600 700"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health_regen"	"2 4 6 8"
+				"LinkedSpecialBonus"	"special_bonus_unique_omniknight_2"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+
+	"frostivus2018_clinkz_searing_arrows"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityTextureName"			"frostivus2018_clinkz_searing_arrows"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilitySound"					"Hero_Clinkz.SearingArrows.Impact"
+        "MaxLevel"                      "8"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"640"
+		"AbilityCastPoint"				"0.0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"9"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_bonus"				"30 40 50 60 70 80 90 100"
+				"LinkedSpecialBonus"		"special_bonus_unique_clinkz_1"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_spill_width"		"125"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_spill_range"		"450 500 550 600 650 700 750 800"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"spill_damage_multiplier"	"0.4"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+
+	"frostivus2018_clinkz_wind_walk"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Clinkz.WindWalk"
+		"AbilityTextureName"			"frostivus2018_clinkz_wind_walk"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20 19 18 17"
+		"AbilityCastPoint"				"0.0"
+		"MaxLevel"                      "8"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"20.0 25.0 30.0 35.0 40.0 45.0 50.0 55.0"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"fade_time"					"0.6"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"move_speed_bonus_pct"		"20 35 50 65 80 95 110 125"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"175"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_steal_amount"		"5"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"attack_steal_duration"		"15.0"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_base_dmg_per_stack"	"3 6 9 12 15 18 21 24"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_stacks"				"20"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+
+	"frostivus2018_windrunner_shackleshot"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityTextureName"			"frostivus2018_windrunner_shackleshot"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Windrunner.ShackleshotCast"
+		"MaxLevel"                      "8"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.15"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20 18 16 14 12 10 8 6"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0 0 0 0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"70 85 100 115 130 145 160 175"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"fail_stun_duration"	"1.75 1.75 1.75 1.75 1.75 1.75 1.75 1.75"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shackle_distance"		"350"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"arrow_speed"			"1650"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shackle_count"			"2 3 4 5 6 7 8 9"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"shackle_angle"			"42"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"subtarget_amount"			"2"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+    
+    "earthshaker_aftershock_ward_winter_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"frostivus2018_earthshaker_aftershock_totem"
+		"ScriptFile"					"heroes/hero_earthshaker/earthshaker_aftershock_ward_winter_datadriven.lua"
+		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"		
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Pugna.NetherWard"
+		"LinkedAbility"					"earthshaker_aftershock"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2 0.2 0.2 0.2"
+		"AbilityCastRange"				"150"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"50.0 45.0 40.0 35.0"
+		"AbilityDuration"				"10 15 20 25"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"80 90 100 110"		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					    "FIELD_FLOAT"
+				"tooltip_duration"			    "10.0 15.0 20.0 25.0"
+			}
+			"02"
+			{
+				"var_type"					    "FIELD_INTEGER"
+				"aura_radius"					"1600"
+			}
+			"03"
+			{
+				"var_type"					    "FIELD_INTEGER"
+				"attacks_to_destroy_tooltip"    "4 4 4 4"
+			}
+			"04"
+			{
+				"var_type"					    "FIELD_INTEGER"
+				"ward_duration"				    "10 15 20 25"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+    
+    "frostivus2018_dark_willow_bedlam"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityTextureName"			"frostivus2018_dark_willow_bedlam"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"MaxLevel"						"6"
+		"FightRecapLevel"				"1"
+		"LinkedAbility"					"dark_willow_terrorize"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------		
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastGestureSlot"		"DEFAULT"
+
+		"AbilityCooldown"				"30"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 150 200 250 300 350"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_damage"			"60 110 160 210 260 310"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"attack_interval"		"0.25"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_radius"			"550"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"secondary_targets"		"2 4 6 8 10 12"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"roaming_radius"			"300"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"roaming_seconds_per_rotation"				"1.1"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"roaming_duration"		"7.0"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bounce_radius"			"325"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_targets"			"1"
+			}
+		}
+	}
+	"frostivus2018_huskar_life_break"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"		
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_Huskar.Life_Break"
+		"AbilityTextureName"			"frostivus2018_huskar_life_break"
+		"HasScepterUpgrade"		     	"1"
+		"MaxLevel"                      "6"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3 0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"16 15 14 13 12 11"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0 0 0"		
+		
+		// Cast Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"550"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDuration"				"4 5 6 7 8 9"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"health_cost_percent"		"0.32 0.35 0.38 0.41 0.44 0.48"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"health_damage"				"1.50 2.00 2.50 3.00 3.50 4.00"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"health_damage_scepter"		"0.55"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"charge_speed"				"1200"
+			}
+			"05"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"tooltip_health_damage"				"150 200 250 300 350 400"
+			}
+			"06"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"tooltip_health_cost_percent"		"32 35 38 41 44 48"
+				"CalculateSpellDamageTooltip"		"1"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed"					"-40 -50 -60 -70 -80 -90"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"slow_durtion_tooltip"		"4 5 6 7 8 9"
+			}
+			"09"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"tooltip_health_damage_scepter"		"52"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"cooldown_scepter"			"9"
+			}
+			"11"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_self_damage"			"999999"
+			}
+			"12"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_damage"				"99999999"
+			}
+		}
+	}
+
  
 } //主括号

@@ -23,6 +23,7 @@ end
 --------------------------------------------------------------------------------
 function modifier_mage_shield_active:OnTakeDamage (event)
 
+    PrintTable(event,nil,nil)
 	if event.unit == self:GetParent() then
         
 		local caster = self:GetParent()
@@ -30,6 +31,7 @@ function modifier_mage_shield_active:OnTakeDamage (event)
 		local original_damage = event.original_damage
 		local ability = self:GetAbility()
 
+        --来自队友的伤害不能被抵抗
         if post_damage>=caster:GetHealth() then --如果造成过量伤害
            local overDamage=post_damage-caster:GetHealth()
            caster:ReduceMana(overDamage/self.damage_per_mana)

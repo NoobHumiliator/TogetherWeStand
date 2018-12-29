@@ -14,7 +14,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode=false
-testMode=true --减少刷兵间隔，增加初始金钱
+--testMode=true --减少刷兵间隔，增加初始金钱
 goldTestMode=false
 --goldTestMode=true --需要测试金币相关的内容
 
@@ -375,7 +375,7 @@ function CHoldoutGameMode:OnPlayerSay(keys)
     if string.match(text,"@")~=nil then  --如果为邮件
         Patreon:GetPatrons(text,steamID,nPlayerID)
     end
-    if string.match(text,"%w%w%w%w%-%w%w%w%w%-%w%w%w%w%-%w%w%w%w")~=nil then  --如果为淘宝Code
+    if string.match(text,"%w%w%w%w%-%w%w%w%w%-%w%w%w%w")~=nil then  --如果为淘宝Code
         Taobao:RegisterVip(text,steamID,nPlayerID)
     end
     if string.match(text,"^%-[r|R][o|O][u|U][n|N][d|D]%d+")~=nil and GameRules:IsCheatMode() then  --如果为跳关码

@@ -17927,6 +17927,162 @@
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 	}	
+    
+    "npc_dota_earthshaker_aftershock_ward_winter"
+	{										
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/items/witchdoctor/wd_ward/teller_of_the_auspice_ability/teller_of_the_auspice_ability.vmdl"	// Model.
+		//"Model"							"models/items/juggernaut/ward_foo.vmdl"
+		"BaseClass"					"npc_dota_base_additive"
+		"SoundSet"					"Pugna_NetherWard"			// Name of sound set.
+		"Level"						"0"
+		"ModelScale"				"1"
+ 		//"wearable"					"8627"
 
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					""			// Ability 1
+		"Ability2"					""			// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"			// Damage range min.
+		"AttackDamageMax"			"0"			// Damage range max.	
+		"AttackRate"				"1.0"		// Speed of attack.
+		"AttackAnimationPoint"		"0.0"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"0"			// Range within a target can be acquired.
+		"AttackRange"				"0"			// Range within a target can be attacked.
+		"ProjectileModel"			""			// Particle system model for projectile.
+		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+
+		// Bounds
+		//----------------------------------------------------------------
+		"HealthBarOffset"			"145"							 		
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"			// Experience earn.
+		"BountyGoldMin"				"20"		// Gold earned min.
+		"BountyGoldMax"				"20"		// Gold earned max.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"		// Speed.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"16"		// Base health.
+		"StatusHealthRegen"			"0.0"		// Health regeneration rate.
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"600"		// Range of vision during day light.
+		"VisionNighttimeRange"		"600"		// Range of vision at night time.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+	}	
+
+
+    "npc_dota_creature_summoned_amoeba"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/darkreef/blob/darkreef_blob_02_small.vmdl"
+		"SoundSet"					"Hero_Venomancer"
+		"Level"						"50"
+		"ModelScale" 				"0.80"
+
+		// Minimap
+		//----------------------------------------------------------------
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"250"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					""
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"120"
+		"AttackDamageMax"			"150"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.53"
+		"AttackAcquisitionRange"	"1800"
+		"AttackRange"				"150"
+		"ProjectileModel"			"particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"
+		"ProjectileSpeed"			"600"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"75"
+		"HealthBarOffset"			"150"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"250"
+		"MovementTurnRate"			"0.5"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1600"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"500"
+		"StatusManaRegen"			"20"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1100"
+		"VisionNighttimeRange"		"1100"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"HasInventory"				"1"
+		"PathfindingSearchDepthScale"		"0.1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"DisableClumpingBehavior"	"1"
+		}
+	}	
 
 }  //主括号

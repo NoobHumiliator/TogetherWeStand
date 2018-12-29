@@ -157,7 +157,6 @@ function CHoldoutGameRound:Begin()
     self.bAffixFlag=false   --是否初始化过词缀
     self.vAffixes=
     {
-        --[[
         necrotic=false,
         teeming=false,
         raging=false,
@@ -170,7 +169,6 @@ function CHoldoutGameRound:Begin()
         spike=false,
         silver=false,
         dilation=false,
-        ]]
         laser=false
     }
     local affixes_temp={}

@@ -5,7 +5,8 @@
   "1"    "earthshaker_fissure"
   "2"    "earthshaker_enchant_totem"
   "3"    "earthshaker_aftershock_datadriven"
-  "4"    "earthshaker_echo_slam"
+  "4"    "earthshaker_aftershock_ward_winter_datadriven"
+  "5"    "earthshaker_echo_slam"
   }
   "sven" {
   "1"    "sven_storm_bolt"
@@ -110,9 +111,10 @@
   }
   "windrunner" {
   "1"    "windrunner_shackleshot"
-  "2"    "windrunner_powershot"
-  "3"    "windrunner_windrun"
-  "4"    "windrunner_focusfire"
+  "2"    "frostivus2018_windrunner_shackleshot"
+  "3"    "windrunner_powershot"
+  "4"    "windrunner_windrun"
+  "5"    "windrunner_focusfire"
   }
   "zuus" {
   "1"    "zuus_arc_lightning"
@@ -135,10 +137,12 @@
   }
   "omniknight" {
   "1"    "omniknight_purification"
-  "2"    "omniknight_repel"
-  "3"    "omniknight_pacify"
-  "4"    "omniknight_degen_aura"
-  "5"    "omniknight_guardian_angel"
+  "2"    "frostivus2018_omniknight_purification"
+  "3"    "omniknight_repel"
+  "4"    "omniknight_pacify"
+  "5"    "omniknight_degen_aura"
+  "6"    "frostivus2018_omniknight_degen_aura"
+  "7"    "omniknight_guardian_angel"
   }
   "huskar" {
   "1"    "huskar_inner_vitality"
@@ -146,6 +150,7 @@
   "3"    "huskar_inner_fire"
   "4"    "huskar_berserkers_blood"
   "5"    "huskar_life_break"
+  "6"    "frostivus2018_huskar_life_break"
   }
   "alchemist" {
   "1"    "alchemist_acid_spray"
@@ -454,7 +459,8 @@
   "faceless_void" {
   "1"    "faceless_void_time_walk"
   "2"    "faceless_void_time_lock_datadriven"
-  "3"    "faceless_void_chronosphere"
+  "3"    "faceless_void_backtrack"
+  "4"    "faceless_void_chronosphere"
   }
   "phantom_assassin" {
   "1"    "phantom_assassin_stifling_dagger"
@@ -561,9 +567,11 @@
   "clinkz" {
   "1"    "clinkz_strafe"
   "2"    "clinkz_searing_arrows"
-  "3"    "clinkz_wind_walk"
-  "4"    "death_pact_datadriven"
-  "5"    "frostivus2018_clinkz_burning_army"
+  "3"    "frostivus2018_clinkz_searing_arrows"
+  "4"    "clinkz_wind_walk"
+  "5"    "frostivus2018_clinkz_wind_walk"
+  "6"    "death_pact_datadriven"
+  "7"    "frostivus2018_clinkz_burning_army"
   }
   "broodmother" {
   "1"    "broodmother_spawn_spiderlings"
@@ -734,7 +742,8 @@
   "2"    "dark_willow_shadow_realm"
   "3"    "dark_willow_cursed_crown"
   "4"    "dark_willow_bedlam"
-  "5"    "dark_willow_terrorize"
+  "5"    "frostivus2018_dark_willow_bedlam"
+  "6"    "dark_willow_terrorize"
   }
   "grimstroke" {
   "1"    "grimstroke_dark_artistry"
