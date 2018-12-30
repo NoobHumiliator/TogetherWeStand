@@ -2717,5 +2717,61 @@
 		"DOTA_Tooltip_ability_item_the_caustic_finale_caustic_damage"	             "爆炸伤害："
 		"DOTA_Tooltip_ability_item_the_caustic_finale_max_stack_count"	             "最大叠加次数："
 
+        
+        "DOTA_Tooltip_ability_item_winter_embrace"	                    "寒冬之拥"
+		"DOTA_Tooltip_ability_item_winter_embrace_Description"	        "受到物理攻击时，攻击者的攻击和移动速度被降低，持续%slow_duration%秒。\n"
+		"DOTA_Tooltip_ability_item_winter_embrace_Lore"	                "现在是谁麻了？"
+		"DOTA_Tooltip_ability_item_winter_embrace_bonus_intelligence"	"智力加成："
+		"DOTA_Tooltip_ability_item_winter_embrace_bonus_armor"	        "护甲加成："
+
+		"DOTA_Tooltip_ability_item_ice_dragon_maw"	                    "冰龙之喉"
+		"DOTA_Tooltip_ability_item_ice_dragon_maw_Description"        	"每次攻击有%chance_to_freeze%%%几率冻结目标，持续%freeze_duration%秒。\n"
+		"DOTA_Tooltip_ability_item_ice_dragon_maw_Lore"	                "你的眼里满是冰霜！"
+		"DOTA_Tooltip_ability_item_ice_dragon_maw_bonus_attack_range"	"攻击距离加成（仅远程）："
+		"DOTA_Tooltip_ability_item_ice_dragon_maw_bonus_damage"	        "攻击力加成："
+
+
+		"DOTA_Tooltip_ability_item_precious_egg"	                     "珍稀龙蛋"
+		"DOTA_Tooltip_ability_item_precious_egg_Description"	         "受到致死伤害时有%chance_to_resist_death%%%几率使佩戴者以1点生命生还。\n"
+		"DOTA_Tooltip_ability_item_precious_egg_Lore"	                 "在探索学识的研习之际，古龙掌握了延缓生命之息流失的诀窍。"
+		"DOTA_Tooltip_ability_item_precious_egg_bonus_all_stats"	     "全属性加成："
+
+
+		"DOTA_Tooltip_ability_item_craggy_coat"	"<font color=\"#4ae0bf\">崎岖外衣</font>"
+		"[english]DOTA_Tooltip_ability_item_craggy_coat"	"<font color=\"#4ae0bf\">Craggy Coat</font>"
+		"DOTA_Tooltip_ability_item_craggy_coat_Description"	"需要等级：%required_level%\n\n佩戴者受到伤害时有%boulder_chance%%%几率反击，扔出一块巨石，造成%boulder_damage%点伤害，并眩晕%boulder_stun_duration%秒。\n"
+		"[english]DOTA_Tooltip_ability_item_craggy_coat_Description"	"Required Level: %required_level%\n\nWhen the wearer takes damage, there is a %boulder_chance%%% to retaliate with a thrown boulder, which deals %boulder_damage% and stuns for %boulder_stun_duration% seconds.\n"
+		"DOTA_Tooltip_ability_item_craggy_coat_Lore"	"只是一石之遥。"
+		"[english]DOTA_Tooltip_ability_item_craggy_coat_Lore"	"Just a stone's throw away."
+		"DOTA_Tooltip_ability_item_craggy_coat_bonus_strength"	"力量加成："
+		"[english]DOTA_Tooltip_ability_item_craggy_coat_bonus_strength"	"BONUS STRENGTH:"
+		"DOTA_Tooltip_ability_item_craggy_coat_bonus_armor"	"护甲加成："
+		"[english]DOTA_Tooltip_ability_item_craggy_coat_bonus_armor"	"BONUS ARMOR:"
+		"DOTA_Tooltip_ability_item_stonework_pendant"	"<font color=\"#4ae0bf\">石制坠饰</font>"
+		"[english]DOTA_Tooltip_ability_item_stonework_pendant"	"<font color=\"#4ae0bf\">Stonework Pendant</font>"
+		"DOTA_Tooltip_ability_item_stonework_pendant_Description"	"需要等级：%required_level%\n\n现在施放技能时消耗生命，数值为所需魔法的2倍，并且佩戴者获得额外的生命值和生命恢复，数值分别等于魔法值和魔法恢复。\n"
+		"[english]DOTA_Tooltip_ability_item_stonework_pendant_Description"	"Required Level: %required_level%\n\nSpells now cost hit points equal to 2x their mana cost, and the wearer gains bonus hit points and health regen equal to the size of their mana pool and mana regen.\n"
+		"DOTA_Tooltip_ability_item_stonework_pendant_Lore"	"石头里还是能榨出血的。"
+		"[english]DOTA_Tooltip_ability_item_stonework_pendant_Lore"	"You CAN get blood from a stone."
+		"DOTA_Tooltip_ability_item_stonework_pendant_spell_lifesteal"	"%技能吸血："
+		"[english]DOTA_Tooltip_ability_item_stonework_pendant_spell_lifesteal"	"%SPELL LIFESTEAL:"
+		"DOTA_Tooltip_ability_item_gravel_foot"	"<font color=\"#4ae0bf\">砂砾之足</font>"
+		"[english]DOTA_Tooltip_ability_item_gravel_foot"	"<font color=\"#4ae0bf\">Gravel Foot</font>"
+		"DOTA_Tooltip_ability_item_gravel_foot_Description"	"需要等级：%required_level%\n\n"
+		"[english]DOTA_Tooltip_ability_item_gravel_foot_Description"	"Required Level: %required_level%\n\n"
+		"DOTA_Tooltip_ability_item_gravel_foot_Lore"	"在任何地方都能站稳脚跟。"
+		"[english]DOTA_Tooltip_ability_item_gravel_foot_Lore"	"Find sure footing on any terrain."
+		"DOTA_Tooltip_ability_item_gravel_foot_bonus_movement_speed"	"移动速度加成："
+		"[english]DOTA_Tooltip_ability_item_gravel_foot_bonus_movement_speed"	"BONUS MOVEMENT SPEED:"
+		"DOTA_Tooltip_ability_item_gravel_foot_bonus_all_stats"	"全属性加成："
+		"[english]DOTA_Tooltip_ability_item_gravel_foot_bonus_all_stats"	"BONUS ALL STATS:"
+		"DOTA_Tooltip_ability_item_gravel_foot_bonus_hp_regen"	"生命恢复加成："
+		"[english]DOTA_Tooltip_ability_item_gravel_foot_bonus_hp_regen"	"BONUS HP REGEN:"
+		"DOTA_Tooltip_ability_item_gravel_foot_damage_block"	"伤害格挡："
+		"[english]DOTA_Tooltip_ability_item_gravel_foot_damage_block"	"DAMAGE BLOCK:"
+
+
+
+
 	} 
 }
