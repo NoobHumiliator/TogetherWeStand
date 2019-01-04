@@ -26,6 +26,7 @@
 			"2"
 			{
 				"item"      "item_lifestone"
+				"item"      "item_stonework_pendant"
 				"item"      "item_bogduggs_lucky_femur"
 				"item"      "item_ambient_sorcery"
 				"item"		"item_mystic_staff_2"

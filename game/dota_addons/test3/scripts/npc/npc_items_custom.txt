@@ -10508,6 +10508,137 @@
 	}
 
 
+	"item_stonework_pendant"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"stonework_pendant"
+		"ScriptFile"					"item_ability/item_stonework_pendant"
+
+		"Model"							"models/props_gameplay/treasure_chest001.vmdl"
+		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"DungeonItemDef"				"12061"
+		"DungeonAction"					"dungeon_in_game_item_12061"
+		"DungeonCurrencyCost"			"65"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"100"
+		"AbilityCastPoint"				"0.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"9200"
+		"ItemPurchasable"				"1"
+		"ItemQuality"					""
+		"ItemStackable"					"0"
+		"ItemSellable"					"1"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"ItemPermanent"					"0"
+		"ItemKillable"					"0"
+		"ItemDisplayOwnership"			"1"
+		"CustomShop"					"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"health_multiple"		"3.0"
+			}
+		}
+	}
+
+   "item_recipe_gravel_foot"
+   {
+
+       	// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"12375"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_recipe"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"200"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_gravel_foot"
+		"ItemRequirements"
+		{
+			"01"						"item_crown;"
+		}
+   }
+
+
+
+	"item_gravel_foot"
+	{
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"gravel_foot"
+		"ScriptFile"					"item_ability/item_gravel_foot"
+
+		"Model"							"models/props_gameplay/treasure_chest001.vmdl"
+		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"DungeonItemDef"				"12062"
+		"DungeonAction"					"dungeon_in_game_item_12062"
+		"DungeonCurrencyCost"			"55"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"100"
+		"AbilityCastPoint"				"0.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemPurchasable"				"0"
+		"ItemQuality"					""
+		"ItemStackable"					"0"
+		"ItemSellable"					"0"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"ItemPermanent"					"0"
+		"ItemKillable"					"0"
+		"ItemDisplayOwnership"			"1"
+		"CustomShop"					"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_movement_speed"			"50"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_block"					"25"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_all_stats"				"8"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_hp_regen"				"8"
+			}
+		}
+	}
 
 
 } //主函数
