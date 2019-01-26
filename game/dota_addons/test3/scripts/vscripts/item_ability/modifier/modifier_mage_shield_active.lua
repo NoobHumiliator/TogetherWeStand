@@ -23,7 +23,6 @@ end
 --------------------------------------------------------------------------------
 function modifier_mage_shield_active:OnTakeDamage (event)
 
-    PrintTable(event,nil,nil)
 	if event.unit == self:GetParent() then
         
 		local caster = self:GetParent()
