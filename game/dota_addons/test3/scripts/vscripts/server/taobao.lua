@@ -12,7 +12,7 @@ function Taobao:RegisterVip(code,steamID,nPlayerID)
     request:SetHTTPRequestGetOrPostParameter("steam_id",tostring(steamID))
     request:SetHTTPRequestGetOrPostParameter("auth","K4gN+u422RN2X4DubcLylw==");
     request:SetHTTPRequestGetOrPostParameter("dedicated_server_key",GetDedicatedServerKey("K4gN+u422RN2X4DubcLylw=="));
-    
+    local sSteamID = tostring(steamID)
     request:Send(function(result)   --向服务器请求注册VIP
         print("Register result arrived: "..result.Body)
         if result.StatusCode == 200 then
@@ -29,7 +29,7 @@ function Taobao:RegisterVip(code,steamID,nPlayerID)
                GrantExtraLife()  --给与队伍额外生命
                local keys={playerId=nPlayerID,vipLevel=tonumber(result.Body)}  --传回的是等级  
                GameRules:GetGameModeEntity().CHoldoutGameMode.vipMap[steamID].level=tonumber(result.Body)
-               CustomNetTables:SetTableValue( "vipMap", tostring(v.steam_id), {level=tonumber(result.Body),validate_date=""} )
+               CustomNetTables:SetTableValue( "vipMap", sSteamID, {level=tonumber(result.Body),validate_date=""} )
             end
         else
             print("Server return", result.StatusCode, result.Body);

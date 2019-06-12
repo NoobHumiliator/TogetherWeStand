@@ -3,7 +3,7 @@
 ]]
 
 --持久化服务器ip 端口
-server_address="http://191.101.226.126:8005/"
+server_address="http://106.12.3.136:8090/"
 
 
 

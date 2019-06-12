@@ -1,6 +1,6 @@
 "use strict";
 
-var serverAddress='http://191.101.226.126:8005/'
+var serverAddress='http://106.12.3.136:8090/'
 
 
 function GetRandomInt( min, max )

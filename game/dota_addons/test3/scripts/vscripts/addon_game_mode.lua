@@ -672,6 +672,7 @@ function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正  --测
 		 table.insert(vFailedRound, self._nRoundNumber..'_'..self._nBranchIndex) --记录下折在第几关了
 		 if self.last_live==0 then
 		 	 if self.map_difficulty>=3 and not GameRules:IsCheatMode() and not self.bLoadFlag  then --读盘的游戏不能上天梯
+			 --if true then
 			   Rank:RecordGame(self._nRoundNumber-1,DOTA_TEAM_GOODGUYS) --储存并结束游戏
 			   return
 			 else
