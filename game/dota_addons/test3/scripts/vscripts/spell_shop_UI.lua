@@ -5,7 +5,7 @@ pairedAbility = {shredder_chakram="shredder_return_chakram", morphling_replicate
 phoenix_icarus_dive="phoenix_icarus_dive_stop" , phoenix_sun_ray="phoenix_sun_ray_stop",phoenix_fire_spirits="phoenix_launch_fire_spirit",abyssal_underlord_dark_rift="abyssal_underlord_cancel_dark_rift",
 alchemist_unstable_concoction="alchemist_unstable_concoction_throw",naga_siren_song_of_the_siren="naga_siren_song_of_the_siren_cancel",rubick_telekinesis="rubick_telekinesis_land",
 bane_nightmare="bane_nightmare_end",ancient_apparition_ice_blast="ancient_apparition_ice_blast_release",lone_druid_true_form="lone_druid_true_form_druid",shredder_chakram_2="shredder_return_chakram_2",nyx_assassin_burrow="nyx_assassin_unburrow",
-wisp_tether="wisp_tether_break",morphling_morph_agi="morphling_morph",morphling_morph_str="morphling_morph",pangolier_gyroshell="pangolier_gyroshell_stop",tiny_craggy_exterior="tiny_toss_tree"}
+wisp_tether="wisp_tether_break",wisp_spirits="wisp_spirits_in",morphling_morph_agi="morphling_morph",morphling_morph_str="morphling_morph",pangolier_gyroshell="pangolier_gyroshell_stop",tiny_craggy_exterior="tiny_toss_tree"}
 brokenModifierCounts = {
         modifier_shadow_demon_demonic_purge_charge_counter = 3,
         modifier_bloodseeker_rupture_charge_counter = 2,
@@ -33,7 +33,7 @@ noReturnAbility = {    --不退回升级点数的技能
         morphling_morph_agi = true,
         morphling_morph_str = true,
         morphling_adaptive_strike_agi = true,
-        morphling_adaptive_strike_str = true
+        morphling_adaptive_strike_str = true,
     }
 
 meleeMap = {

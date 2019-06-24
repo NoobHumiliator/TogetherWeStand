@@ -17,7 +17,6 @@ var unsellableAbility = {
 	"broodmother_spin_web" : true,
 	"shredder_chakram_2" : true,
 	"treant_eyes_in_the_forest" : true,
-	"wisp_tether_break" : true,
 	"batrider_sticky_napalm" : true
 };
 
@@ -47,7 +46,10 @@ var hideAbility = {
 	"nyx_assassin_unburrow" :true,
 	"pangolier_gyroshell_stop" :true,
 	"tiny_toss_tree":true,
-	"generic_hidden":true
+	"generic_hidden":true,
+	"wisp_tether_break" : true,
+	"wisp_spirits_in" :true,
+	"wisp_spirits_out" :true,
 };
 
 

@@ -11,6 +11,7 @@ function Vip:GetVipDataFromServer(steamIDs)
         local player_number=tostring(nPlayerNumber)
         local request = CreateHTTPRequestScriptVM("GET", server_address .. "queryvip")
         request:SetHTTPRequestGetOrPostParameter("steam_ids",tostring(steamIDs));
+        request:SetHTTPRequestGetOrPostParameter("dedicated_server_key",GetDedicatedServerKey("K4gN+u422RN2X4DubcLylw=="));
         request:Send(function(result)
             print("Vip data arrived: "..result.Body)
             if result.StatusCode == 200 then

@@ -177,8 +177,6 @@
   "2"    "wisp_spirits"
   "3"    "wisp_overcharge"
   "4"    "wisp_relocate"
-  "5"    "wisp_spirits_in"
-  "6"    "wisp_spirits_out"
   }
   "centaur" {
   "1"    "centaur_hoof_stomp"

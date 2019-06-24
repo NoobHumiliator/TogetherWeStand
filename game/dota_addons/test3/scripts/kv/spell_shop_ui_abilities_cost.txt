@@ -19,8 +19,6 @@
     "brewmaster_primal_split"                 "2"
     "treant_overgrowth"                       "2"
     "wisp_tether_break"                       "0"
-    "wisp_spirits_in"                         "0"
-    "wisp_spirits_out"                        "0"
     "riki_tricks_of_the_trade"                "2"
     "bounty_hunter_track"                     "2"
     "ursa_enrage"                             "2"
