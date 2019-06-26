@@ -18,6 +18,7 @@ sp_exempt_table["zuus_static_field_datadriven"]=true
 sp_exempt_table["spectre_dispersion_datadriven"]=true
 sp_exempt_table["item_blade_mail"]=true
 sp_exempt_table["witch_doctor_maledict"]=true
+sp_exempt_table["undying_flesh_golem"]=true
 
 re_table={} --反伤类技能  折射单独处理
 re_table["tiny_craggy_exterior"]=true

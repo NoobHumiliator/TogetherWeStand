@@ -10,7 +10,7 @@ function TakeDamage(event)
     if caster:GetTeamNumber()~=attacker:GetTeamNumber() then
         local allies = FindUnitsInRadius(DOTA_TEAM_BADGUYS, Vector(0,0,0), nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
         for _,ally in pairs(allies) do  -- 不再伤害本体 
-              if ally:HasAbility("share_damage_passive") and ally~=victim  then             
+              if ally:HasAbility("share_damage_passive") and ally~=caster  then             
                 local damage_table = {}
                 damage_table.attacker = caster
                 damage_table.victim = ally

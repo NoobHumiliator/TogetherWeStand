@@ -2,6 +2,7 @@
 {
 	maps			"together_we_stand"
 	"IsPlayable"	"1"
+	"PenaltiesEnabled"		"0"
 	"together_we_stand"
 	{
 					"MaxPlayers"                    "5"
