@@ -15662,7 +15662,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"	"creature_ability/arcane_curse.lua"
+					"ScriptFile"	"creature_ability/round_skywrath/arcane_curse.lua"
 					"Function"		"AddStack"
 				    "Target"        "UNIT"
 				}	
@@ -15680,7 +15680,7 @@
                {
                     "RunScript"  
                      {
-                           "ScriptFile"    "creature_ability/arcane_curse.lua"
+                           "ScriptFile"    "creature_ability/round_skywrath/arcane_curse.lua"
                            "Target"        "Target"
                            "Function"      "StackOverDamage"
                      }                                  
@@ -15732,7 +15732,7 @@
 		}
 		"RunScript"
 		{
-			"ScriptFile"	"creature_ability/arcane_curse.lua"
+			"ScriptFile"	"creature_ability/round_skywrath/arcane_curse.lua"
 			"Function"		"ForceExplode"
 		}
 	}
@@ -30147,7 +30147,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"MaxLevel"						"6"
+		"MaxLevel"						"3"
 		"FightRecapLevel"				"1"
 		"LinkedAbility"					"dark_willow_terrorize"
 
@@ -30160,7 +30160,7 @@
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 150 200 250 300 350"
+		"AbilityManaCost"				"100 175 250"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -30169,7 +30169,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_damage"			"60 110 160 210 260 310"
+				"attack_damage"			"60 135 210"
 			}
 			"02"
 			{
@@ -30184,7 +30184,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"secondary_targets"		"2 4 6 8 10 12"
+				"secondary_targets"		"2 5 8"
 			}
 			"05"
 			{

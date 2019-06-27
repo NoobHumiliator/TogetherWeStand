@@ -49,7 +49,7 @@ function modifier_item_dredged_trident:GetModifierPreAttack_CriticalStrike( para
 		local hAttacker = params.attacker
 
 		if hTarget and ( hTarget:IsBuilding() == false ) and ( hTarget:IsOther() == false ) and hAttacker and ( hAttacker:GetTeamNumber() ~= hTarget:GetTeamNumber() ) then
-			if RandomFloat( 0, 100 ) > self.crit_chance then -- expose RollPseudoRandomPercentage?
+			if RandomFloat( 0, 100 ) < self.crit_chance then -- expose RollPseudoRandomPercentage?
 				self.bIsCrit = true
 				return self.crit_multiplier
 			end

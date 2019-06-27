@@ -749,5 +749,11 @@
   "3"    "grimstroke_spirit_walk"
   "4"    "grimstroke_soul_chain"
    }
+  "mars" {
+  "1"    "mars_spear"
+  "2"    "mars_gods_rebuke"
+  "3"    "mars_bulwark"
+  "4"    "mars_arena_of_blood"
+   }
 
 }

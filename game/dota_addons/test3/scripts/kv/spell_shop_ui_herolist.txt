@@ -157,15 +157,7 @@
     }
     "18"
     {
-      "pangolier" "1"
-    }
-    "19"
-    {
-      "dark_willow" "1"
-    }
-    "20"
-    {
-      "grimstroke" "1"
+      "mars" "1"
     }
   }
 
@@ -319,6 +311,10 @@
     {
       "terrorblade" "1"
     }
+    "17"
+    {
+      "pangolier" "1"
+    }
   }
 
   "5"
@@ -402,6 +398,14 @@
     "20"
     {
       "techies" "1"
+    }
+    "21"
+    {
+      "dark_willow" "1"
+    }
+    "22"
+    {
+      "grimstroke" "1"
     }
   }
 

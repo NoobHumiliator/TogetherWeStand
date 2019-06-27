@@ -8,7 +8,7 @@
 		"ID"							"1007"
         "BaseClass"						"item_datadriven"
         "AbilityName"					"item_rock"
-		"AbilityBehavior"			    "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityBehavior"			    "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"Model"					        "models/particle/tiny_simrocks.vmdl"
@@ -1258,7 +1258,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					    	"15021"
+		"ID"					    	"15022"
 		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
@@ -1290,7 +1290,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					    	"15021"
+		"ID"					    	"15023"
 		"AbilityTextureName"			"custom_items/treasure_chest"
 		"BaseClass"					    "item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
@@ -6597,7 +6597,7 @@
 			"RunScript"
 			{
 				"Target"				"CASTER"
-				"ScriptFile"			"creature_ability/lion_boss_hex.lua"
+				"ScriptFile"			"creature_ability/round_lion/lion_boss_hex.lua"
 				"Function"			    "LifeExtension"  
 			}
 			"FireSound"
@@ -7266,9 +7266,10 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"10"
+		"ItemCost"						"0"
 		"ItemPurchasable"				"0"
 		"ItemShopTags"					"consumable"
+		"ItemSellable"                  "0"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -8485,7 +8486,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"12285"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"12286"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_recipe"
 		// Item Info
@@ -8582,7 +8583,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"12285"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"12287"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_recipe"
 		// Item Info
@@ -9671,7 +9672,7 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_sign_of_the_arachnid"
+		"ItemResult"					"item_unhallowed_icon"
 		"ItemRequirements"
 		{
 			"01"						"item_ogre_axe;item_lifesteal;item_ring_of_health"
