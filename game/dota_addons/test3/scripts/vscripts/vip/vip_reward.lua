@@ -43,8 +43,8 @@ function InitVipReward()
     	local nPlayerID= steamIdMap[k]
     	if PlayerResource:HasSelectedHero( nPlayerID ) then
     		if vipMap[k].level>=2 then --如果vip等级大于等于2
-				local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )	
-				--print("hero"..hero:GetUnitName())		
+				local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
+				--print("hero"..hero:GetUnitName())
 		    	local particle_a = ParticleManager:CreateParticle("particles/econ/events/ti6/teleport_start_ti6.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, hero)
 		        ParticleManager:SetParticleControlEnt(particle_a, 0, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetOrigin(), true)
 		        local particle_b = ParticleManager:CreateParticle("particles/econ/events/ti6/teleport_start_ti6_lvl3_rays.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, hero)
@@ -74,10 +74,10 @@ function CHoldoutGameMode:ReceiveVipQureySuccess(keys) --前台VIP轮询结果�
   local nPlayerID = keys.playerId
   local playerName=PlayerResource:GetPlayerName(nPlayerID)
   local heroName=PlayerResource:GetSelectedHeroName(nPlayerID)
-  local hero = PlayerResource:GetSelectedHeroEntity(nPlayerID)	 
+  local hero = PlayerResource:GetSelectedHeroEntity(nPlayerID)
   Notifications:BottomToAll({hero = heroName, duration = 15, continue = true})
   Notifications:BottomToAll({text = playerName.." ", duration = 15, continue = true})
-  Notifications:BottomToAll({text = "#taobao_thank_note", duration = 15, style = {color = "Orange"}, continue = true})     
+  Notifications:BottomToAll({text = "#taobao_thank_note", duration = 15, style = {color = "Orange"}, continue = true})
   GrantExtraLife()  --给与队伍额外生命
 
   --给予例子特效

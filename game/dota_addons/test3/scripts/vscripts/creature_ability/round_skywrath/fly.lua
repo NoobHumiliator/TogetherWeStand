@@ -13,16 +13,16 @@ function fly_point( keys )
         --设置施法者的面向角度
         caster:SetForwardVector( ((point - caster:GetOrigin()):Normalized()) )
 
-        GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("MyAbility_point_time"), 
+        GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("MyAbility_point_time"),
                 function( )
 
                         if GameRules:IsGamePaused() == true then
                             return 0.1
                         end
-                                             
+
                         --判断单位是否死亡，是否存在，是否被击晕
                         if caster:IsAlive() and IsValidEntity(caster) and not(caster:IsStunned()) then
-                                
+
                                 --不是死亡，存在这个单位，没被击晕，就运行这里面的内容
                                 local caster_abs = caster:GetAbsOrigin()                --获取施法者的位置
 

@@ -1,0 +1,451 @@
+"DOTAAbilities"
+{
+   	"majia_water_particle"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass" 					"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"OnOwnerDied"
+		{
+		    "RemoveModifier"
+		    {
+			    "Target"				"CASTER"
+			    "ModifierName"			"water_particle"
+		    }
+	    }
+        "Modifiers"
+	    {
+		    "water_particle"
+		    {
+			    "Passive"		           "1"
+                "ThinkInterval"			"5.5"
+                "Duration"		        "7"
+			    "OnIntervalThink"
+			    {
+                    "FireEffect"
+		            {
+			            "Target"
+			            {
+				            "Center" 	"CASTER"
+			            }
+			            "EffectName"				"particles/units/heroes/hero_kunkka/kunkka_spell_torrent_bubbles.vpcf"
+			            "EffectAttachType"			"follow_origin"
+			            "EffectRadius"				"300"
+		            }
+                }
+		    }
+	    }
+	}
+
+    "water_waveform"
+	{
+		"BaseClass"				        "morphling_waveform"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"20000"
+		"AbilityCastPoint"				"0.25"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"11.0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"325 1200"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"165 650"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"2500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"width"					"200"
+			}
+		}
+	}
+
+    "water_torrent"
+	{
+		"BaseClass"				        "kunkka_torrent"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1500"
+		"AbilityCastPoint"				"0.2"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"11.0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"300 1500"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120 600"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.5"	// applies 2 modifiers
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"225"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed_bonus"			"-35"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"slow_duration"				"4.0"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"1.33"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"delay"						"1.2"
+			}
+		}
+	}
+
+    "water_die"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass" 					"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			        "DAMAGE_TYPE_MAGICAL"
+		"Level"							"1"
+		"AbilityTextureName"                         "morphling_replicate"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"1 1 1 1"
+		//"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityManaCost"				"0 0 0 0"
+        "precache"
+	    {
+		    "soundfile"						"soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
+            "soundfile"						"soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
+		    "particle"						"particles/units/heroes/hero_kunkka/kunkka_spell_torrent_bubbles.vpcf"
+		    "particle"						"particles/units/heroes/hero_kunkka/kunkka_spell_torrent_splash.vpcf"
+            "particle"						"particles/units/heroes/hero_kunkka/kunkka_spell_torrent_splash.vpcf"
+            "particle"						"particles/units/heroes/hero_morphling/morphling_waveform.vpcf"
+            "particle"						"particles/units/heroes/hero_morphling/morphling_waveform_splash_a_copy.vpcf"
+            "particle"						"particles/units/heroes/hero_morphling/morphling_waveform_splash_c.vpcf"
+            "particle"						"particles/units/heroes/hero_morphling/morphling_waveform_splash_e.vpcf"
+            "particle"						"particles/units/heroes/hero_morphling/morphling_waveform_wave_2_copy.vpcf"
+	    }
+		"OnOwnerDied"
+		{
+			"FireEffect"
+			{
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+				"EffectName"				"particles/units/heroes/hero_kunkka/kunkka_spell_torrent_bubbles.vpcf"
+				"EffectAttachType"			"follow_origin"
+				"EffectRadius"				"300"
+				"EffectDurationScale"		        "1000"
+				"EffectLifeDurationScale"	        "1000"
+			}
+
+			"FireSound"
+			{
+				"EffectName"		"Hero_Morphling.ReplicateEnd"
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+			}
+            "SpawnUnit"
+			{
+				"UnitName"				"npc_majia_water_1"
+				"UnitCount"				"1"
+				"SpawnRadius"			        "15"
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+				"GrantsGold"			     "1"
+				"GrantsXP"			     "1"
+			}
+
+		}
+	}
+
+	"water_evolve_to_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass" 					"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			        "DAMAGE_TYPE_MAGICAL"
+		"Level"							"1"
+		"AbilityTextureName"                         "morphling_morph_agi"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"1 1 1 1"
+		//"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityManaCost"				"0 0 0 0"
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"		"Hero_Morphling.ReplicateEnd"
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+			}
+			"SpawnUnit"
+			{
+				"UnitName"				"npc_dota_water_2"
+				"UnitCount"				"1"
+				"SpawnRadius"			        "5"
+				"Target"
+				{
+					"Center" 	"CASTER"
+				}
+			}
+			"RunScript"
+			{
+				"Target"				"CASTER"
+				"ScriptFile"			"creature_ability/round_morphing/water.lua"
+				"Function"			    "water_remove_self"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_water_provide_vision"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+
+		         "States"
+		         {
+		         	"MODIFIER_STATE_PROVIDES_VISION"		"MODIFIER_STATE_VALUE_ENABLED"
+		         }
+			}
+		}
+	}
+
+	"water_evolve_to_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass" 					"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			        "DAMAGE_TYPE_MAGICAL"
+		"Level"							"1"
+		"AbilityTextureName"                          "morphling_morph_str"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"1 1 1 1"
+		//"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityManaCost"				"0 0 0 0"
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"		"Hero_Morphling.ReplicateEnd"
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+			}
+			"SpawnUnit"
+			{
+				"UnitName"				"npc_dota_water_3"
+				"UnitCount"				"1"
+				"SpawnRadius"			        "5"
+				"Target"
+				{
+					"Center" 	"CASTER"
+				}
+			}
+			"RunScript"
+			{
+				"Target"				"CASTER"
+				"ScriptFile"			"creature_ability/round_morphing/water.lua"
+				"Function"			    "water_remove_self"
+			}
+		}
+	}
+
+	"water_grow"
+	{
+		"BaseClass"				   "ability_datadriven"
+		"AbilityBehavior"		   "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCastPoint"		   "0.0"
+		"AbilityCooldown"		   "10.0"
+		"AbilityManaCost"		   "50.0"
+		"AbilityTextureName"       "morphling_morph_replicate"
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_damage"		"10 50"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_health"	    "500 5000"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	     "water_growth"
+				"Target"		     "CASTER"
+			}
+			"ApplyModifier"
+			{
+				"Target"             "CASTER"
+				"ModifierName"       "modifier_damageup_act"
+			}
+			"RunScript"
+			{
+				"Target"				"CASTER"
+				"ScriptFile"			"creature_ability/round_morphing/water.lua"
+				"Function"			    "water_grow"
+			}
+		}
+		"Modifiers"
+		{
+			"water_growth"
+			{
+				"Attributes"     "MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"    "0"
+				"IsHidden"   "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" 			"%bonus_damage"
+				}
+			}
+
+			"modifier_damageup_act"
+			{
+				"Duration"      "1.5"
+				"IsHidden"      "1"
+				"OverrideAnimation" "ACT_DOTA_CAST_ABILITY_5"
+			}
+		}
+	}
+	
+	"water_fuse"
+	{
+		"BaseClass"				    "ability_datadriven"
+		"AbilityBehavior"		    "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCastPoint"			"0.0"
+		"AbilityCooldown"			"1.0"
+		"AbilityManaCost"			"50.0"
+		"AbilityTextureName"        "tidehunter_gush"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_damage"		"60 600"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_health"	    "2100 21000"
+			}
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	        "water_fusion"
+				"Target"		        "CASTER"
+			}
+			"ApplyModifier"
+			{
+				"Target"            "CASTER"
+				"ModifierName"      "modifier_damageup_act"
+			}
+			"RunScript"
+			{
+				"Target"				"CASTER"
+				"ScriptFile"			"creature_ability/round_morphing/water.lua"
+				"Function"			    "water_fuse"
+			}
+
+		}
+		"Modifiers"
+		{
+			"water_fusion"
+			{
+				"Attributes"     "MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"        "0"
+				"IsHidden"       "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" 			"%bonus_damage"
+				}
+			}
+			"modifier_damageup_act"
+			{
+				"Duration"      "1.5"
+				"IsHidden"      "1"
+				"OverrideAnimation" "ACT_DOTA_CAST_ABILITY_5"
+			}
+		}
+	}
+}

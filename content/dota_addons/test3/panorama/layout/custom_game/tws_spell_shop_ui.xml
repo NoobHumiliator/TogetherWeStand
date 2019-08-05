@@ -1,75 +1,75 @@
 <root>
     <styles>
-       <include src="file://{resources}/styles/custom_game/util.css" />
-       <include src="file://{resources}/styles/custom_game/tws_spell_shop_ui.css" />
+        <include src="file://{resources}/styles/custom_game/util.css" />
+        <include src="file://{resources}/styles/custom_game/tws_spell_shop_ui.css" />
     </styles>
     <scripts>
         <include src="file://{resources}/scripts/custom_game/util.js" />
         <include src="file://{resources}/scripts/custom_game/tws_spell_shop_ui.js" />
     </scripts>
-    <Panel class="outBlock" hittest="false" >
-      <Panel class="mainBlock" id="mainShop">
-        <Panel id="cmWrapper" class="wrapper">
-            <Panel class="mainTitle hBlock">
-                <Label id="cmWrapperText" text="#spell_shop" />
-            </Panel>
-            <Panel id="spellShopLeft" class="vBlock cmParentCell">
-                <Panel id="heroesTableStrAgi" />
-            </Panel>
-            <Panel id="spellShopRight" class="vBlock cmParentCell">
-                <Panel id="heroesTableInt" />
-                <Panel id="contentSelectionButtons">             
-                     <Button id="buyButton" onactivate="ChangeToBuyPanel(true)">
-                        <Label text="#buy" />
-                     </Button>
-                     <Button id="sellButton" onactivate="ChangeToSellPanel()">
-                        <Label text="#sell" />
-                     </Button>
-                     <Button id="attributesButton" onactivate="ChangeToAttrPanel()">
-                        <Label text="#attributes" />
-                     </Button>
-                     <Button id="courierButton" onactivate="ChangeToCourierPanel()">
-                        <Label text="#courier" />
-                     </Button>
+    <Panel class="outBlock" hittest="false">
+        <Panel class="mainBlock" id="mainShop">
+            <Panel id="cmWrapper" class="wrapper">
+                <Panel class="mainTitle hBlock">
+                    <Label id="cmWrapperText" text="#spell_shop" />
                 </Panel>
-                <Panel id="spellShopPanel"  class="vBlock hBlock"  >
-                  <Panel id="buyPanel"  class="vBlock hBlock"  />
-                  <Panel id="sellPanel"  class="vBlock hBlock" />
-                  <Panel id="attrPanel"  class="vBlock hBlock hidden">
-                        <Button id="attributeButton"  onactivate="attributeButton()" >
-                            <DOTAAbilityImage abilityname="attribute_bonus_lua" class="vBlock hBlock"/>
-                            <Label text="0" class="attributeButtonLabel" />
+                <Panel id="spellShopLeft" class="vBlock cmParentCell">
+                    <Panel id="heroesTableStrAgi" />
+                </Panel>
+                <Panel id="spellShopRight" class="vBlock cmParentCell">
+                    <Panel id="heroesTableInt" />
+                    <Panel id="contentSelectionButtons">
+                        <Button id="buyButton" onactivate="ChangeToBuyPanel(true)">
+                            <Label text="#buy" />
                         </Button>
-                        <Button id="pointToGoldButton" onactivate="pointToGoldButton()">
-                            <DOTAAbilityImage abilityname="skill_point_for_gold_tooltip" class="vBlock hBlock"/>
+                        <Button id="sellButton" onactivate="ChangeToSellPanel()">
+                            <Label text="#sell" />
                         </Button>
-                  </Panel>
-                  <Panel id="courierPanel"  class="vBlock hBlock hidden">
-                        <Button id="FortitudeButton" class="courierAbilityButton" onactivate="grantCourierAbility(1)">
-                            <DOTAAbilityImage abilityname="courier_fortitude_datadriven" class="vBlock hBlock"/>                       
+                        <Button id="attributesButton" onactivate="ChangeToAttrPanel()">
+                            <Label text="#attributes" />
                         </Button>
-                        <Button id="BurstButton" class="courierAbilityButton" onactivate="grantCourierAbility(2)">
-                            <DOTAAbilityImage abilityname="courier_burst" class="vBlock hBlock"/>
+                        <Button id="courierButton" onactivate="ChangeToCourierPanel()">
+                            <Label text="#courier" />
                         </Button>
-                        <Button id="ShieldButton" class="courierAbilityButton" onactivate="grantCourierAbility(3)">
-                            <DOTAAbilityImage abilityname="courier_shield_datadriven" class="vBlock hBlock"/>
-                        </Button>
-                        <Button id="BlinkButton" class="courierAbilityButton" onactivate="grantCourierAbility(4)">
-                            <DOTAAbilityImage abilityname="courier_blink_datadriven" class="vBlock hBlock"/>
-                        </Button>
-                        <Button id="HookButton" class="courierAbilityButton" onactivate="grantCourierAbility(5)">
-                            <DOTAAbilityImage abilityname="courier_hook_datadriven" class="vBlock hBlock"/>
-                        </Button>
-                        <Button id="SellItemsButton" class="courierAbilityButton" onactivate="grantCourierAbility(6)">
-                            <DOTAAbilityImage abilityname="courier_sell_items_datadriven" class="vBlock hBlock"/>
-                        </Button>
-                        <Button id="SynButton" class="courierAbilityButton" onactivate="grantCourierAbility(7)">
-                            <DOTAAbilityImage abilityname="courier_syn_datadriven" class="vBlock hBlock"/>
-                        </Button>
-                  </Panel>   
+                    </Panel>
+                    <Panel id="spellShopPanel" class="vBlock hBlock">
+                        <Panel id="buyPanel" class="vBlock hBlock" />
+                        <Panel id="sellPanel" class="vBlock hBlock" />
+                        <Panel id="attrPanel" class="vBlock hBlock hidden">
+                            <Button id="attributeButton" onactivate="attributeButton()">
+                                <DOTAAbilityImage abilityname="attribute_bonus_lua" class="vBlock hBlock"/>
+                                <Label text="0" class="attributeButtonLabel" />
+                            </Button>
+                            <Button id="pointToGoldButton" onactivate="pointToGoldButton()">
+                                <DOTAAbilityImage abilityname="skill_point_for_gold_tooltip" class="vBlock hBlock"/>
+                            </Button>
+                        </Panel>
+                        <Panel id="courierPanel" class="vBlock hBlock hidden">
+                            <Button id="FortitudeButton" class="courierAbilityButton" onactivate="grantCourierAbility(1)">
+                                <DOTAAbilityImage abilityname="courier_fortitude_datadriven" class="vBlock hBlock"/>
+                            </Button>
+                            <Button id="BurstButton" class="courierAbilityButton" onactivate="grantCourierAbility(2)">
+                                <DOTAAbilityImage abilityname="courier_burst" class="vBlock hBlock"/>
+                            </Button>
+                            <Button id="ShieldButton" class="courierAbilityButton" onactivate="grantCourierAbility(3)">
+                                <DOTAAbilityImage abilityname="courier_shield_datadriven" class="vBlock hBlock"/>
+                            </Button>
+                            <Button id="BlinkButton" class="courierAbilityButton" onactivate="grantCourierAbility(4)">
+                                <DOTAAbilityImage abilityname="courier_blink_datadriven" class="vBlock hBlock"/>
+                            </Button>
+                            <Button id="HookButton" class="courierAbilityButton" onactivate="grantCourierAbility(5)">
+                                <DOTAAbilityImage abilityname="courier_hook_datadriven" class="vBlock hBlock"/>
+                            </Button>
+                            <Button id="SellItemsButton" class="courierAbilityButton" onactivate="grantCourierAbility(6)">
+                                <DOTAAbilityImage abilityname="courier_sell_items_datadriven" class="vBlock hBlock"/>
+                            </Button>
+                            <Button id="SynButton" class="courierAbilityButton" onactivate="grantCourierAbility(7)">
+                                <DOTAAbilityImage abilityname="courier_syn_datadriven" class="vBlock hBlock"/>
+                            </Button>
+                        </Panel>
+                    </Panel>
                 </Panel>
             </Panel>
-         </Panel>
-       </Panel>
+        </Panel>
     </Panel>
 </root>

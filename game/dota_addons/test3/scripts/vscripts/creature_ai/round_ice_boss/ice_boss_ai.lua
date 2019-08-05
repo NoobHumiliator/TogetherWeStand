@@ -47,7 +47,7 @@ function Spawn( entityKeyValues )
 	thisEntity.bEggDied = false
 	thisEntity.nEggsToCreate = 0
     thisEntity.nFlightTimes=0
-    
+
 
 	thisEntity:SetContextThink( "IceBossThink", IceBossThink, 0.5 )
 end
@@ -79,7 +79,7 @@ function IceBossThink()
 
 	if thisEntity:FindModifierByName( "modifier_ice_boss_land" ) ~= nil then
 		return 0.25
-	end 
+	end
 
 	local enemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, 3000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
 	local bFlying =  ( thisEntity:FindModifierByName( "modifier_ice_boss_take_flight" ) ~= nil )
@@ -107,7 +107,7 @@ function IceBossThink()
 		if bFlying then
 			return FlyingThink()
 		else
-			if #enemies>0 then --如果3000范围内有敌人 
+			if #enemies>0 then --如果3000范围内有敌人
 			    return GroundThink( enemies )
 		    else
 		    	return AttackNearestEnemy()
@@ -123,7 +123,7 @@ end
 function WantsToFly( bFlying )
 	if thisEntity:FindModifierByName( "modifier_ice_boss_land" ) ~= nil or thisEntity.bLandPending == true then
 		return false
-	end 
+	end
 	if thisEntity.flNextTakeOffTime > GameRules:GetGameTime() then
 		return false
 	end
@@ -142,7 +142,7 @@ end
 function TakeFlight()
 	if thisEntity:FindModifierByName( "modifier_ice_boss_land" ) ~= nil then
 		return 0.25
-	end 
+	end
 
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
@@ -188,7 +188,7 @@ function FlyingThink()
 			local flDist = ( vPos - thisEntity:GetOrigin() ):Length2D()
 			if flDist > ( FLIGHT_DISTANCE + 2000 ) then
 				table.insert( PotentialPositions, vPos )
-			end	
+			end
 		end
 
 		--print( #PotentialPositions )
@@ -208,7 +208,7 @@ function FlyingThink()
 			thisEntity.vFlightPosition = nil
 			thisEntity.nCurrentFlybys = thisEntity.nCurrentFlybys + 1
             if thisEntity.nCurrentFlybys==2 then --固定第二次停住的位置生蛋
-               
+
                 --落地孵蛋
 				local nEggsToCreate = GetNumEggsToHatch()
 				while nEggsToCreate > 0 do
@@ -234,7 +234,7 @@ end
 --------------------------------------------------------------------------------
 
 function Fly()
-       
+
 	--print( "Flying to position" )
 	--print( "thisEntity.vFlightPosition: ( " .. thisEntity.vFlightPosition.x .. ", " .. thisEntity.vFlightPosition.y .. ", " .. thisEntity.vFlightPosition.z .. ")"  )
 		ExecuteOrderFromTable({
@@ -266,14 +266,14 @@ function GroundThink( enemies )
 
 	if thisEntity:FindModifierByName( "modifier_ice_boss_land" ) ~= nil then
 		return 0.25
-	end 
+	end
 
 	if thisEntity.bLandPending == true then
 		thisEntity.bLandPending = false
         thisEntity.flNextTakeOffTime = GameRules:GetGameTime() + LAND_DURATION
 		local eggs = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_FARTHEST, false )
 		for _, egg in pairs( eggs ) do
-			if egg ~= nil and egg:IsAlive() then
+			if egg:IsAlive() then
 				local hBuff = egg:FindModifierByName( "modifier_ice_boss_egg_passive" )
 				if hBuff ~= nil and hBuff.bHatching == false then
 					local ability = egg:FindAbilityByName( "ice_boss_egg_passive" )
@@ -288,7 +288,7 @@ function GroundThink( enemies )
 	if thisEntity.hWintersCurse ~= nil and thisEntity.hWintersCurse:IsFullyCastable() then
 		return CastWintersCurse( enemies[RandomInt( 1, #enemies)] )
 	end
-	
+
 	if thisEntity.hShatterProjectile ~= nil and thisEntity.hShatterProjectile:IsFullyCastable() then
 		return CastShatterProjectile( enemies[#enemies]:GetOrigin() )
 	end
@@ -328,17 +328,10 @@ end
 
 function AttackNearestEnemy()  --攻击最近的目标
 
-	local target
-	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+	local target = nil
+	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 	if #allEnemies > 0 then
-		local minDistance = 10000000
-		for _,enemy in pairs(allEnemies) do
-			local distance = ( thisEntity:GetOrigin() - enemy:GetOrigin() ):Length()
-			if distance < minDistance then
-			  minDistance=distance
-              target=enemy
-			end
-		end
+		target = allEnemies[1]
 	end
 
     if target~=nil and not thisEntity:IsAttacking() then  --避免打断攻击动作
@@ -351,6 +344,6 @@ function AttackNearestEnemy()  --攻击最近的目标
 
     end
 
-	return 0.5 
+	return 0.5
 end
 --------------------------------------------------------------------------------

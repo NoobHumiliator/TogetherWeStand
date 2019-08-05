@@ -5,11 +5,11 @@ function Fortify( event )
 	local ability = event.ability
   caster.fortify_flag=true
 
-  
+
   if caster.damageMultiple~=nil and caster.damageMultiple>0 then
 
     caster.damageMultiple= caster.damageMultiple*1.2
-    
+
     local maxHealth=caster:GetMaxHealth()
     local newMaxHealth=maxHealth*1.4
     caster:SetBaseMaxHealth(newMaxHealth)

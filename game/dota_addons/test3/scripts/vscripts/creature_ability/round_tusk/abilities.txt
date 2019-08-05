@@ -1,0 +1,348 @@
+"DOTAAbilities"
+{
+    "tws_tusk_snowball"
+    {
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    	"BaseClass"                                       "ability_datadriven"
+    	"AbilityTextureName"                              "tusk_snowball"
+    	"AbilityUnitDamageType"			                  "DAMAGE_TYPE_PURE"
+        "MaxLevel"                                        "8"
+
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityCastPoint"                                "0.2"
+
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityCooldown"                                 "50.0 45.0 40.0 35.0 30.0 25.0 20.0 15.0"
+
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityManaCost"                                 "25"
+    	"precache"
+    	{
+    		"particle"          	        "particles/units/heroes/hero_tusk/tusk_snowball.vpcf"
+    		"particle"                      "particles/units/heroes/hero_earth_spirit/earthspirit_petrify_impact.vpcf"
+    		"particle"                      "particles/units/heroes/hero_life_stealer/life_stealer_infest_emerge_bloody_mid.vpcf"
+    		"particle"                      "particles/units/heroes/hero_chen/chen_hand_of_god.vpcf"
+    		"soundfile"			            "soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts"
+    		"soundfile"	                    "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
+    	}
+
+    	"OnSpellStart"
+    	{
+    		"FireSound"
+    		{
+    			"EffectName"                    "Hero_Tusk.Snowball.Cast"
+    		}
+            "RunScript"
+            {
+                   "ScriptFile"    "libraries/notifications.lua"
+    			   "Function"      "BossAbilityDBM"
+            }
+    		"Random"
+    		{
+    			"Chance"			"33"
+    			"OnSuccess"
+    			{
+    				"FireSound"
+    				{
+    					"EffectName"	"tusk_snowball_03"
+    					"Target"		"CASTER"
+    				}
+    			}
+    			"OnFailure"
+    			{
+    				"Random"
+    				{
+    					"Chance"			"50"
+    					"OnSuccess"
+    					{
+    						"FireSound"
+    						{
+    							"EffectName"	"tusk_snowball_05"
+    							"Target"		"CASTER"
+    						}
+    					}
+    					"OnFailure"
+    					{
+    						"FireSound"
+    						{
+    							"EffectName"	"tusk_snowball_12"
+    							"Target"		"CASTER"
+    						}
+    					}
+    				}
+    			}
+    		}
+    		"RunScript"
+    		{
+    			"ScriptFile"               "creature_ability/round_tusk/snowball.lua"
+    			"Function"                 "SnowballStart"
+    		}
+    	}
+        "AbilitySpecial"
+        {
+        	"01"
+    	    {
+    			"var_type"					           	 "FIELD_INTEGER"
+    			"damage_increasement"	                 "6 9 13 18 24 31 39 48"
+    	    }
+        }
+    	"Modifiers"
+    	{
+    		"modifier_dummy_snowball"
+    		{
+    			"Passive"		"0"
+
+    			"States"
+    			{
+    				"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+    				"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+    				"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
+    				"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+    				"MODIFIER_STATE_NO_TEAM_MOVE_TO"	"MODIFIER_STATE_VALUE_ENABLED"
+    				"MODIFIER_STATE_NO_TEAM_SELECT"		"MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_OUT_OF_GAME"		"MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_STUNNED"		    "MODIFIER_STATE_VALUE_ENABLED" // 进入雪球以后禁止攻击禁止施法
+                    "MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED" // Don't use these state for a channeling ability.
+    			}
+    		}
+    		"modifier_snowball_fly"
+    		{
+    			"Passive"		"0"
+    			"States"
+    			{
+    				"MODIFIER_STATE_FLYING"	            "MODIFIER_STATE_VALUE_ENABLED"
+    			}
+    		}
+    	}
+    }
+
+    "snowball_passive"
+    {
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    	"BaseClass"                                       "ability_datadriven"
+    	"AbilityTextureName"                              "tusk_snowball"
+
+    	//-------------------------------------------------------------------------------------------------------------
+    	"precache"
+    	{
+    		"particle"          	        "particles/units/heroes/hero_tusk/tusk_snowball.vpcf"
+    	}
+        "OnOwnerDied"
+    	{
+    		"RunScript"
+    		{
+    			"ScriptFile"         "creature_ability/round_tusk/snowball.lua"
+    			"Function"           "SnowballDied"
+    			"Target"             "CASTER"
+    		}
+    	}
+    	"Modifiers"
+    	{      
+    		"modifier_snowball_invulnerable"
+    		{
+    			"States"
+    			{
+    				"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+    				"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+    				"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
+    				"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+    				"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+    				"MODIFIER_STATE_NO_TEAM_MOVE_TO"	"MODIFIER_STATE_VALUE_ENABLED"
+    				"MODIFIER_STATE_NO_TEAM_SELECT"		"MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_OUT_OF_GAME"		"MODIFIER_STATE_VALUE_ENABLED"
+    			}
+    		}
+    	}
+    }
+
+    "share_damage_passive"  //共享血量
+    {
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    	"BaseClass"                                       "ability_datadriven"
+    	"AbilityTextureName"                              "bloodseeker_thirst"
+
+    	"Modifiers"
+    	{      
+    		"modifier_share_damage_passive"
+    		{
+                "Passive"		"1"
+                "OnTakeDamage"
+    			{
+    				"RunScript"
+    				{
+    					"ScriptFile"	"creature_ability/round_tusk/share_damage.lua"
+    					"Function"		"TakeDamage"
+    					"Damage"		"%attack_damage"
+    				}
+    			}
+    		}
+    	}
+    }
+
+    "tws_tusk_ice_shards"
+    {
+    		"BaseClass"				        "tusk_ice_shards"
+
+    		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+    		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+    		"AbilityCooldown"				"13.0 12.0 11.0 10.0 9.0 8.0 8.0 8.0"
+
+    		"AbilityManaCost"				"50"
+
+    		"AbilityCastRange"				"3000"
+
+    		"MaxLevel"                       "8"
+
+    		// Special
+    		//-------------------------------------------------------------------------------------------------------------
+    		"AbilitySpecial"
+    		{
+    			"01"
+    			{
+    				"var_type"					"FIELD_INTEGER"
+    				"shard_width"				"200"
+    			}
+
+    			"02"
+    			{
+    				"var_type"					"FIELD_INTEGER"
+    				"shard_damage"				"600 1000 1500 2100 2800 3600 5000 7000"
+    			}
+    			"03"
+    			{
+    				"var_type"					"FIELD_INTEGER"
+    				"shard_count"				"7"
+    			}
+    			"04"
+    			{
+    				"var_type"					"FIELD_FLOAT"
+    				"shard_speed"				"600.0"
+    			}
+    			"05"
+    			{
+    				"var_type"					"FIELD_FLOAT"
+    				"shard_duration"			"4.0"
+    			}
+    			"06"
+    			{
+    				"var_type"					"FIELD_FLOAT"
+    				"shard_angle_step"			"40.0"
+    			}
+    			"07"
+    			{
+    				"var_type"					"FIELD_INTEGER"
+    				"shard_distance"			"200"
+    			}
+    			"08"
+    			{
+    				"var_type"					"FIELD_INTEGER"
+    				"cast_range_tooltip"			"1800"
+    			}
+    		}
+    }
+
+    "tws_tusk_frozen_sigil"
+    {
+    	"BaseClass"				          "tusk_frozen_sigil"
+
+    	"AbilityBehavior"				  "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+    	"SpellImmunityType"				  "SPELL_IMMUNITY_ENEMIES_NO"
+
+    	"AbilityCooldown"				  "50.0 50.0 50.0 50.0"
+
+    	"AbilityManaCost"				  "75"
+
+    	"MaxLevel"                        "8"
+
+    	"AbilitySpecial"
+    	{
+    		"01"
+    		{
+    			"var_type"					"FIELD_INTEGER"
+    			"sigil_radius"				"800 1000 1200 1400 1600 1800 2000 2200"
+    		}
+    		"02"
+    		{
+    			"var_type"					"FIELD_FLOAT"
+    			"sigil_duration"			"50.0"
+    		}
+    		"03"
+    		{
+    			"var_type"					"FIELD_INTEGER"
+    			"move_slow"					"15 25 35 45 55 65 75 85"
+    		}
+    		"04"
+    		{
+    			"var_type"					"FIELD_INTEGER"
+    			"attack_slow"				"100 200 350 550 800 1100 1450 1850"
+    		}
+
+    	}
+    }
+
+    "tws_tusk_walrus_punch"
+    {
+    	"BaseClass"				        "tusk_walrus_punch"
+    	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    	"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+    	"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+    	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+    	"MaxLevel"                      "8"
+
+    	// Casting
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityCastPoint"				"0"
+    	"AbilityCastRange"				"150"
+
+    	// Time
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityCooldown"				"36 24 12 10 8 8 8 8"
+
+    	// Cost
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityManaCost"				"75"
+
+    	// Special
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilitySpecial"
+    	{
+    		"01"
+    		{
+    			"var_type"					"FIELD_INTEGER"
+    			"crit_multiplier"			"250 350 500 750 1000 1300 1650 2050"
+    			"LinkedSpecialBonus"		"special_bonus_unique_tusk"
+    		}
+    		"02"
+    		{
+    			"var_type"					"FIELD_FLOAT"
+    			"air_time"					"0.6"
+    		}
+    		"03"
+    		{
+    			"var_type"					"FIELD_FLOAT"
+    			"slow_duration"				"2.0 3.0 4.0 4.0 4.0 4.0 4.0 4.0"
+    		}
+    		"04"
+    		{
+    			"var_type"					"FIELD_INTEGER"
+    			"move_slow"					"40"
+    		}
+    		"05"
+    		{
+    			"var_type"					"FIELD_INTEGER"
+    			"push_length"				"1000"
+    		}
+    	}
+    }
+}

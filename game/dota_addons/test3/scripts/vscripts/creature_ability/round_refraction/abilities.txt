@@ -1,0 +1,97 @@
+"DOTAAbilities"
+{
+	"ta_refraction_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				        "ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"templar_assassin_refraction"
+
+		"precache"
+		{
+			"particle"			"particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf"
+			"soundfile"			"sounds/weapons/hero/templar_assassin/refraction.vsnd"
+			"soundfile"			"sounds/weapons/hero/templar_assassin/refraction_absorb.vsnd"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"think_interval"			"0.1"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage"				"20"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_threshold"			"5"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"stack_tooltip"			    "70"
+			}
+		}
+
+		"Modifiers"
+		{
+
+            "modifier_true_sight_1"
+			{
+				"Passive"            "1"
+				"IsHidden"           "1"
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_tower_truesight_aura"
+						"Target" 		"CASTER"
+					}
+				}
+
+			}
+
+            "modifier_ta_refraction_passive"
+			{
+				"Passive"         "1"
+				"IsHidden"        "1"
+				"ThinkInterval"  "%think_interval"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"creature_ability/round_refraction/refraction.lua"
+						"Function"		"StackRefraction"
+						"particle"		"particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"creature_ability/round_refraction/refraction.lua"
+						"Function"		"GiveInvulnerable"
+					}
+				}
+			}
+
+			"modifier_refraction_affect"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage"
+				}
+			}
+		}
+	}
+}

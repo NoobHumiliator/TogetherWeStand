@@ -5,13 +5,13 @@ function BloodLinkCheck( event )
 	local link_distance = ability:GetLevelSpecialValueFor( "link_distance" , ability:GetLevel() - 1 )
 	if caster.link_flag==nil then
        caster.link_flag=0
-	end  
-	local friends= FindUnitsInRadius( DOTA_TEAM_BADGUYS, caster:GetOrigin(), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, 0, false )
+	end
+	local friends= FindUnitsInRadius( DOTA_TEAM_BADGUYS, caster:GetOrigin(), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	local have_a_friend_flag=0
 	local all_died_flag=1
 	local alone_flag=1
 	for _,friend in pairs(friends) do
-		if (caster:GetOrigin()-friend:GetOrigin()):Length()<link_distance  and  friend:HasModifier("modifier_bloodlink_think") and caster.link_flag==0 and friend~=caster then 
+		if (caster:GetOrigin()-friend:GetOrigin()):Length()<link_distance  and  friend:HasModifier("modifier_bloodlink_think") and caster.link_flag==0 and friend~=caster then
 		local particleName = "particles/units/heroes/hero_pugna/pugna_life_drain.vpcf"
 	    caster.BloodLinkParticle = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
 	    ParticleManager:SetParticleControlEnt(caster.BloodLinkParticle, 1, friend, PATTACH_POINT_FOLLOW, "attach_hitloc", friend:GetAbsOrigin(), true)

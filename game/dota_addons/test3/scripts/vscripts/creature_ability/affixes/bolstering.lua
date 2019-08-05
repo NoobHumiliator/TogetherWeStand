@@ -7,8 +7,8 @@ function AddBolsteringBuff( keys )
    local nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_sven/sven_spell_warcry.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
 	ParticleManager:SetParticleControlEnt( nFXIndex, 2, caster, PATTACH_POINT_FOLLOW, "attach_head", caster:GetOrigin(), true )
 	ParticleManager:ReleaseParticleIndex( nFXIndex )
-	
-    local targets = FindUnitsInRadius( DOTA_TEAM_BADGUYS, caster:GetOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+
+    local targets = FindUnitsInRadius( DOTA_TEAM_BADGUYS, caster:GetOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 	for _,target in pairs(targets) do
 		if target:HasModifier( modifierName ) then
 			local current_stack = target:GetModifierStackCount( modifierName, ability )
@@ -36,7 +36,7 @@ function AddBolsteringBuff( keys )
 		     target.base_damageMultiple=target.damageMultiple
 		     target.damageMultiple=target.damageMultiple*1.2
 		    end
-		    
+
 		    local newMaxHealth=maxHealth*1.2
 		    local newCurrentHealth=math.ceil(newMaxHealth*rate)
 		    if newCurrentHealth<1 then
@@ -47,5 +47,5 @@ function AddBolsteringBuff( keys )
 		    target:SetHealth(newCurrentHealth)
 		end
 	end
-	
+
 end

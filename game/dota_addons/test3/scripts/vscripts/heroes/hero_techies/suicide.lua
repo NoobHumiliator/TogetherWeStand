@@ -1,9 +1,11 @@
-function Suicide( keys )
-	local caster = keys.caster
-	local caster_location = caster:GetAbsOrigin()
-	local ability = keys.ability
-	local ability_level = ability:GetLevel() - 1
+function Suicide(keys)
+    local caster = keys.caster
+    local caster_location = caster:GetAbsOrigin()
+    local ability = keys.ability
+    local ability_level = ability:GetLevel() - 1
 
-	--Kill the caster
-	caster:Kill(ability, caster)
+    --Kill the caster
+    if caster:GetTeamNumber() ~= DOTA_TEAM_BADGUYS then
+        caster:Kill(ability, caster)
+    end
 end

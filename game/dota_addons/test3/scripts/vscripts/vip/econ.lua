@@ -10,7 +10,7 @@ function EconCreateParticleOnHero(hero, particleName)
 end
 
 function RemoveAllParticlesOnHero(hero)  --移除全部VIP特效
-	if hero.nParticleLegionWingsVip then 
+	if hero.nParticleLegionWingsVip then
 		EconRemoveParticle(hero.nParticleLegionWingsVip)
 		hero.nParticleLegionWingsVip=nil
 	end
@@ -190,7 +190,7 @@ Econ.OnRemove_sakura_trail_client = Econ.OnRemove_sakura_trail_server
 ----------------------------------------------------------------------------------------------------------------------------
 -- 紫气缭绕
 Econ.OnEquip_rex_server = function(hero)
-    RemoveAllParticlesOnHero(hero)               
+    RemoveAllParticlesOnHero(hero)
 	hero.nParticleRex = EconCreateParticleOnHero(hero, "particles/econ/courier/courier_trail_orbit/courier_trail_orbit.vpcf")
 end
 

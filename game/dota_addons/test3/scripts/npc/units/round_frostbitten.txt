@@ -1,0 +1,364 @@
+"DOTAUnits"
+{
+	"npc_dota_creature_frostbitten_melee"
+	{
+		// Script
+        "vscripts"					"creature_ai/zombie_ai.lua"
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/ice_biome/frostbitten/n_creep_frostbitten_swollen01.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"1"
+		"ModelScale" 				"0.7"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					""
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"60"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"55"
+		"AttackDamageMax"			"75"
+		"AttackRate"				"1.7"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"60"
+		"HealthBarOffset"			"160"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"30"
+		"BountyGoldMin"				"20"
+		"BountyGoldMax"				"24"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"310"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"
+		"StatusHealthRegen"			"5"
+		"StatusMana"				"100"
+		"StatusManaRegen"			"1"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"PathfindingSearchDepthScale"		"0.1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"ItemDrops"
+			{
+				"Consumables"
+				{
+					"Item"
+					{
+						"1"  			"item_health_potion"
+						"2"				"item_health_potion"
+						"3"				"item_mana_potion"
+						"4"				"item_mana_potion"
+						"5"				"item_enchanted_mango"
+					}
+					"Chance"			"10"
+				}
+				"StatTomes"
+				{
+					"Item"
+					{
+						"1"  			"item_book_of_strength"
+						"2"				"item_book_of_agility"
+						"3"				"item_book_of_intelligence"
+					}
+					"Chance"			"1"
+				}
+				"Trinkets"
+				{
+					"Item"
+					{
+						"1"				"item_slippers"
+						"2"				"item_gauntlets"
+						"3"				"item_mantle"
+						"4"				"item_branches"
+						"5"				"item_branches"
+						"6"				"item_faerie_fire"
+					}
+					"Chance"			"7"
+				}
+			}
+		}
+	}
+
+	"npc_dota_creature_large_frostbitten_melee"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_frostbitten/large_frostbitten_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/ice_biome/frostbitten/n_creep_frostbitten_swollen01.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"1"
+		"ModelScale" 				"1.6"
+		"ConsideredHero"			"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"large_frostbitten_icicle"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"
+		"MagicalResistance"			"0"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"150"
+		"AttackDamageMax"			"190"
+		"AttackRate"				"1.35"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"600"
+		"AttackRange"				"150"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"60"
+		"HealthBarOffset"			"340"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"100"
+		"BountyGoldMin"				"80"
+		"BountyGoldMax"				"90"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"350"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"8000"
+		"StatusHealthRegen"			"20.0"
+		"StatusMana"				"300"
+		"StatusManaRegen"			"5"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"PathfindingSearchDepthScale"		"0.1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"ItemDrops"
+			{
+				"Consumables"
+				{
+					"Item"
+					{
+						"1"  			"item_health_potion"
+						"2"				"item_health_potion"
+						"3"				"item_mana_potion"
+						"4"				"item_mana_potion"
+						"5"				"item_enchanted_mango"
+					}
+					"Chance"			"60"
+				}
+				"StatTomes"
+				{
+					"Item"
+					{
+						"1"  			"item_book_of_strength"
+						"2"				"item_book_of_agility"
+						"3"				"item_book_of_intelligence"
+					}
+					"Chance"			"5"
+				}
+				"Trinkets"
+				{
+					"Item"
+					{
+						"1"				"item_ring_of_protection"
+						"2"				"item_sobi_mask"
+						"3"				"item_wind_lace"
+						"4"				"item_orb_of_venom"
+						"5"				"item_blight_stone"
+						"6"				"item_stout_shield"
+						"7"				"item_circlet"
+						"8"				"item_quelling_blade"
+						"9"				"item_ring_of_regen"
+						"10"			"item_infused_raindrop"
+						"11"			"item_greater_salve"
+						"12"			"item_greater_clarity"
+					}
+					"Chance"			"30"
+				}
+			}
+		}
+	}
+
+	"npc_dota_creature_frostbitten_ranged"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_frostbitten/frostbitten_ranged_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/ice_biome/frostbitten/n_creep_frostbitten_shaman01.vmdl"
+		"SoundSet"					"n_creep_Ranged"
+		"Level"						"1"
+		"ModelScale" 				"1.1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"frostbitten_freezing_blast"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"2"
+		"MagicalResistance"			"30"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"52"
+		"AttackDamageMax"			"75"
+		"AttackRate"				"1.7"
+		"AttackAnimationPoint"		"0.4"
+		"AttackAcquisitionRange"	"600"
+		"AttackRange"				"500"
+		"ProjectileModel"			"particles/units/heroes/hero_witchdoctor/witchdoctor_base_attack.vpcf"
+		"ProjectileSpeed"			"1000"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"60"
+		"HealthBarOffset"			"180"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"60"
+		"BountyGoldMin"				"40"
+		"BountyGoldMax"				"44"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"310"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"3000"
+		"StatusHealthRegen"			"5"
+		"StatusMana"				"100"
+		"StatusManaRegen"			"1"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"PathfindingSearchDepthScale"		"0.1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"ItemDrops"
+			{
+				"Consumables"
+				{
+					"Item"
+					{
+						"1"  			"item_health_potion"
+						"2"				"item_health_potion"
+						"3"				"item_mana_potion"
+						"4"				"item_mana_potion"
+						"5"				"item_enchanted_mango"
+					}
+					"Chance"			"17"
+				}
+				"StatTomes"
+				{
+					"Item"
+					{
+						"1"  			"item_book_of_strength"
+						"2"				"item_book_of_agility"
+						"3"				"item_book_of_intelligence"
+					}
+					"Chance"			"2"
+				}
+				"Trinkets"
+				{
+					"Item"
+					{
+						"1"				"item_slippers"
+						"2"				"item_gauntlets"
+						"3"				"item_mantle"
+						"4"				"item_faerie_fire"
+						"5"				"item_ring_of_protection"
+					}
+					"Chance"			"12"
+				}
+			}
+		}
+	}
+}

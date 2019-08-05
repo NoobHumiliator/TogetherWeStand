@@ -2,13 +2,13 @@
 function LevelupBlink( keys )
 	local caster = keys.caster
     local target = keys.target
-    
+
     if alreadyCached['npc_precache_courier_blink_datadriven']==true then
-    else				
+    else
       alreadyCached['npc_precache_courier_blink_datadriven'] = true
       PrecacheUnitByNameAsync('npc_precache_courier_blink_datadriven', function() end)
     end
-   
+
   --移除掉多余技能
   RemoveRedundantCourierAbility(target)
 
@@ -24,5 +24,5 @@ function LevelupBlink( keys )
 	    end
 	end
 
-  AddRedundantCourierAbility(target)	
+  AddRedundantCourierAbility(target)
 end

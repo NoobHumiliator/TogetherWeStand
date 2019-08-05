@@ -27,14 +27,14 @@ function Sunder( event )
 	end
 
 	-- Show the particle caster-> target
-	local particleName = "particles/units/heroes/hero_terrorblade/terrorblade_sunder.vpcf"	
+	local particleName = "particles/units/heroes/hero_terrorblade/terrorblade_sunder.vpcf"
 	local particle = ParticleManager:CreateParticle( particleName, PATTACH_POINT_FOLLOW, target )
 
 	ParticleManager:SetParticleControlEnt(particle, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 
 	-- Show the particle target-> caster
-	local particleName = "particles/units/heroes/hero_terrorblade/terrorblade_sunder.vpcf"	
+	local particleName = "particles/units/heroes/hero_terrorblade/terrorblade_sunder.vpcf"
 	local particle = ParticleManager:CreateParticle( particleName, PATTACH_POINT_FOLLOW, caster )
 
 	ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)

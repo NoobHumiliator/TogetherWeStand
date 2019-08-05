@@ -21,7 +21,7 @@ function OgreMagiThink()
 	if ( not thisEntity:IsAlive() ) then
 		return -1
 	end
-	
+
 	if GameRules:IsGamePaused() == true then
 		return 1
 	end
@@ -73,17 +73,10 @@ end
 --------------------------------------------------------------------------------
 function AttackNearestEnemy()  --攻击最近的目标
 
-	local target
-	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+	local target = nil
+	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 	if #allEnemies > 0 then
-		local minDistance = 10000000
-		for _,enemy in pairs(allEnemies) do
-			local distance = ( thisEntity:GetOrigin() - enemy:GetOrigin() ):Length()
-			if distance < minDistance then
-			  minDistance=distance
-              target=enemy
-			end
-		end
+		target = allEnemies[1]
 	end
 
     if target~=nil and not thisEntity:IsAttacking() then  --避免打断攻击动作

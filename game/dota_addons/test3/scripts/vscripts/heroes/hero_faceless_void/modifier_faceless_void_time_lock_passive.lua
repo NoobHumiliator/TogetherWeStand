@@ -31,13 +31,13 @@ function modifier_faceless_void_time_lock_passive:OnAttackLanded(keys)
 		-- If this is an illusion, do nothing
 		if owner:IsIllusion() then
 			return end
-        
+
         if owner:IsStunned() then
             return end
 
 		-- Else, keep going
 		local target = keys.target
-         
+
         if not target:IsNull() and target:IsAlive() then
         	self.bonus_damage = self:GetAbility():GetSpecialValueFor("bonus_damage")
         	self.chance_pct = self:GetAbility():GetSpecialValueFor("chance_pct")
@@ -67,7 +67,7 @@ function modifier_faceless_void_time_lock_passive:OnAttackLanded(keys)
 	            damage_table.ability = self:GetAbility()
 	            damage_table.damage = self.bonus_damage
 
-	            ApplyDamage(damage_table)  
+	            ApplyDamage(damage_table)
 			end
 	    end
 	end

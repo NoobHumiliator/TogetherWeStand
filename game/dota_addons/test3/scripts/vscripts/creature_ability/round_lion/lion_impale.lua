@@ -13,16 +13,16 @@ function LaunchImpale(keys)
     end
     if caster.lion_impale_angel[index] ==nil then
        caster.lion_impale_angel[index]=caster.lion_impale_safe_angel+index*55  --随机选取安全角度
-    else 
+    else
        caster.lion_impale_angel[index]=caster.lion_impale_angel[index]+15 --每次尖刺递增5度
     end
     local result = {}
     local casterOrigin  = caster:GetAbsOrigin()
     local angel=caster.lion_impale_angel[index]
-    local vector=GetGroundPosition(Vector(casterOrigin.x+math.sin(math.rad(angel))*5500,casterOrigin.y+math.cos(math.rad(angel))*5500,0),nil) 
+    local vector=GetGroundPosition(Vector(casterOrigin.x+math.sin(math.rad(angel))*5500,casterOrigin.y+math.cos(math.rad(angel))*5500,0),nil)
     local velocity=vector:Normalized() * spike_speed
 
-    local info = 
+    local info =
 	{
 		Ability = ability,
         EffectName = "particles/units/heroes/hero_lion/lion_spell_impale.vpcf",
@@ -43,7 +43,7 @@ function LaunchImpale(keys)
 
     local projectile = ProjectileManager:CreateLinearProjectile(info)
 
-    
+
 end
 
 
@@ -51,5 +51,5 @@ function ResetLauchAngle(keys)
 
    local caster=keys.caster
    caster.lion_impale_angel=nil
-    
+
 end

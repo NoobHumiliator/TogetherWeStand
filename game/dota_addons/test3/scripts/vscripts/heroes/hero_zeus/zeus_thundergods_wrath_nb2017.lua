@@ -5,8 +5,8 @@ zeus_thundergods_wrath_nb2017 = class({})
 function zeus_thundergods_wrath_nb2017:OnAbilityPhaseStart()
 	if IsServer() then
 		self.nFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_thundergods_wrath_start.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
-		ParticleManager:SetParticleControlEnt( self.nFXIndex, 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetCaster():GetOrigin(), true );
-		ParticleManager:SetParticleControlEnt( self.nFXIndex, 2, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_attack2", self:GetCaster():GetOrigin(), true );
+		ParticleManager:SetParticleControlEnt( self.nFXIndex, 1, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetCaster():GetOrigin(), true )
+		ParticleManager:SetParticleControlEnt( self.nFXIndex, 2, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_attack2", self:GetCaster():GetOrigin(), true )
 		EmitSoundOn( "Hero_Zuus.GodsWrath.PreCast", self:GetCaster() )
 	end
 
@@ -23,7 +23,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function zeus_thundergods_wrath_nb2017:OnSpellStart()	
+function zeus_thundergods_wrath_nb2017:OnSpellStart()
 	if IsServer() then
 		ParticleManager:ReleaseParticleIndex( self.nFXIndex )
 

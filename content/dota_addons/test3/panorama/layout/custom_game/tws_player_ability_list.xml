@@ -3,8 +3,8 @@
         <include src="file://{resources}/styles/custom_game/util.css" />
         <include src="file://{resources}/styles/custom_game/tws_player_ability_list.css" />
     </styles>
-     <Panel class="PlayerAbilityPanel">
-         <DOTAAvatarImage id="PlayerImage" steamid=""/>
-         <Panel id="PlayerAbilities" />
+    <Panel class="PlayerAbilityPanel">
+        <DOTAAvatarImage id="PlayerImage" steamid=""/>
+        <Panel id="PlayerAbilities" />
     </Panel>
 </root>

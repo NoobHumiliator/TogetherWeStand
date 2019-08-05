@@ -1,0 +1,351 @@
+"DOTAAbilities"
+{
+    "amoeba_boss_passive"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/round_amoeba/amoeba_boss_passive"
+
+        "MaxLevel"                      "1"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "IsOnCastBar"                   "0"
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                       "FIELD_FLOAT"
+                "model_scale_per_stack"          "3.0"
+            }
+            "02"
+            {
+                "var_type"                       "FIELD_FLOAT"
+                "move_speed_loss_per_stack"      "1.25"
+            }
+            "03"
+            {
+                "var_type"                       "FIELD_FLOAT"
+                "base_attack_time_per_stack"          "0.016"
+            }
+            "04"
+            {
+                "var_type"                       "FIELD_INTEGER"
+                "attack_damage_per_stack"          "5"
+            }
+            "05"
+            {
+                "var_type"                       "FIELD_INTEGER"
+                "damage_per_amoeba"              "16"
+            }
+            "06"
+            {
+                "var_type"                       "FIELD_INTEGER"
+                "bonus_hp_per_stack"             "100"
+            }
+            "07"
+            {
+                "var_type"                       "FIELD_FLOAT"
+                "bonus_attack_range_per_stack"             "0.6"
+            }
+            "08"
+            {
+                "var_type"                       "FIELD_FLOAT"
+                "hull_radius_per_stack"             "0.75"
+            }
+            "09"
+            {
+                "var_type"                       "FIELD_INTEGER"
+                "starting_stacks"                "250"
+            }
+            "10"
+            {
+                "var_type"                       "FIELD_FLOAT"
+                "stun_timer_per_amoeba"                "0.33"
+            }
+            "11"
+            {
+                "var_type"                       "FIELD_INTEGER"
+                "projectile_speed"               "600"
+            }
+            "12"
+            {
+                "var_type"                            "FIELD_FLOAT"
+                "slow_duration"             "3.0"
+            }
+            "13"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "movement_speed_pct"        "-3"
+            }
+            "14"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "turn_rate_pct"             "-3"
+            }
+            "15"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "armor_per_stack"            "0.2"
+            }
+        }
+    }
+
+    "amoeba_fuse"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/round_amoeba/amoeba_fuse"
+
+        "AbilityBehavior"              "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ALLIES_YES"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+        "FightRecapLevel"               "1"
+
+        "IsOnCastBar"                   "0"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "150"
+        "AbilityCastPoint"              "0"
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "1"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+        }
+    }
+
+    "amoeba_boss_jump_splatter"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"               "1"
+
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "amoeba_boss_jump_splatter"
+        "ScriptFile"                    "creature_ability/round_amoeba/amoeba_boss_jump_splatter"
+        "MaxLevel"                      "1"
+
+        "AbilityCastAnimation"          "ACT_DOTA_IDLE_RARE"
+
+        "IsOnCastBar"                   "0"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "10000"
+        "AbilityCastPoint"              "0.5"
+
+        "AbilityChannelTime"            "0.0"
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "15.0"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "radius"                     "450"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "stun_duration"              "3.0"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "land_damage"               "4000"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "splatter_damage"              "100"
+            }
+            "05"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "splatter_min_distance"       "450"
+            }
+            "06"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "splatter_max_distance"       "1250"
+            }
+            "07"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "splatter_speed"            "700"
+            }
+            "08"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "slow_duration"             "3.0"
+            }
+            "09"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "movement_speed_pct"        "-3"
+            }
+            "10"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "turn_rate_pct"             "-3"
+            }
+            "11"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "splatter_radius"                    "300"
+            }
+        }
+    }
+
+    "amoeba_boss_split"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "amoeba_boss_split"
+        "ScriptFile"                    "creature_ability/round_amoeba/amoeba_boss_split"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilitySound"                  "Hero_NagaSiren.MirrorImage"
+
+        "IsOnCastBar"                   "0"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"              "0.65"
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "30.0"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "invuln_duration"           "0.3"
+            }
+        }
+    }
+
+    "amoeba_blob_launch"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "FightRecapLevel"               "1"
+
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "amoeba_blob_launch"
+        "ScriptFile"                    "creature_ability/round_amoeba/amoeba_blob_launch"
+        "MaxLevel"                      "1"
+
+        "AbilityCastAnimation"          "ACT_DOTA_IDLE_RARE"
+
+        "precache"
+        {
+        	"particle"                 "particles/act_2/amoeba_small_blob_launch.vpcf"
+        	"particle"                 "particles/act_2/blob_launch_impact.vpcf"
+        }
+        "IsOnCastBar"                   "0"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "1500"
+        "AbilityCastPoint"              "1.5"
+
+        "AbilityChannelTime"            "3.0"
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "30.0"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "projectile_speed"               "600"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "launch_speed"              "600"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "splatter_radius"              "350"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "splatter_damage"              "150"
+            }
+            "05"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "slow_duration"             "3.0"
+            }
+            "06"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "movement_speed_pct"        "-4"
+            }
+            "07"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "turn_rate_pct"             "-4"
+            }
+            "08"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "land_radius"                    "300"
+            }
+        }
+    }
+}

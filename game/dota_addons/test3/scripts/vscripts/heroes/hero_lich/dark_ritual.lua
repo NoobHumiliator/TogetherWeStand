@@ -9,7 +9,7 @@ function DarkRitual( event )
 	local target = event.target
 	local ability = event.ability
 
-	-- Mana to give	
+	-- Mana to give
 	local target_health = target:GetHealth()
 	local rate = ability:GetLevelSpecialValueFor( "health_conversion" , ability:GetLevel() - 1 ) * 0.01
 	local mana_gain = target_health * rate

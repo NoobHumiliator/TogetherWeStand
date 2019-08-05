@@ -1,0 +1,1336 @@
+"DOTAAbilities"
+{
+	"creature_spin_web"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "broodmother_spin_web"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"300"
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"8.0"
+		"AbilityManaCost"				"0"
+                 "precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
+		        "particle"			"particles/units/heroes/hero_broodmother/broodmother_web.vpcf"
+		        "particle"			"particles/units/heroes/hero_broodmother/broodmother_spin_web_cast.vpcf"
+                        "particle"		        "particles/units/heroes/hero_broodmother/broodmother_incapacitatingbite_debuff.vpcf"
+                        "particle"			"particles/units/heroes/hero_broodmother/broodmother_spiderlings_debuff.vpcf"
+		        "particle"			"particles/units/heroes/hero_broodmother/broodmother_web_cast.vpcf"
+		        "particle"			"particles/units/heroes/hero_broodmother/broodmother_spiderlings_spawn.vpcf"
+
+
+		}
+		"OnSpellStart"
+		{
+			"SpawnUnit"
+			{
+				"UnitName"			"npc_dota_broodmother_web"
+				"UnitCount"			"1"
+				"SpawnRadius"		"100"
+				"Target"			"CASTER"
+				"Duration"			"60"
+				"OnSpawn"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_creature_spin_web"
+						"Target"		"TARGET"
+					}
+				}
+			}
+			"FireSound"
+			{
+				"EffectName"		"Hero_Broodmother.SpinWebCast"
+				"Target"			"CASTER"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_creature_spin_web"
+			{
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_broodmother/broodmother_web.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "0 0 0"
+							"02" "%radius 1 1"
+						}
+					}
+				}
+
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FLYING"					"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"900"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"count"					"2 4 6 8"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heath_regen"			"2 4 6 8"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movespeed"		"20 25 30 35"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"fade_delay"			"2.0 2.0 2.0 2.0"
+			}
+		}
+	}
+
+	"brood_king_gold_bag_fountain"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"item_hand_of_midas"
+
+		"OnOwnerDied"
+		{
+			"CreateItem"
+			{
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+				"ItemName"			"item_bag_of_gold_tws"
+				"ItemCount"			"%bag_count"
+				"SpawnRadius"		"25"
+				"ItemChargeCount"	"%gold_value"
+				"AutoUse"			"1"
+				"LaunchHeight"		"300"
+				"LaunchDistance"	"?50 750"
+				"LaunchDuration"	"0.75"
+			}
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"gold_value"			"110"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bag_count"				"50"
+			}
+		}
+	}
+
+	"creature_spawn_broodmother"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "broodmother_insatiable_hunger"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"14.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"OnSpellStart"
+		{
+			"SpawnUnit"
+			{
+				"UnitName"			"npc_dota_creature_broodmother"
+				"UnitCount"			"4" //?4 6
+				"UnitLimit"			"12"
+				"SpawnRadius"		"250"
+				"Target"			"CASTER"
+			}
+		}
+	}
+
+	"creature_spawn_broodmother_eggs"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "broodmother_spawn_spiderlings"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"14.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"OnSpellStart"
+		{
+			"SpawnUnit"
+			{
+				"UnitName"			"npc_dota_creature_broodmother_egg"
+				"UnitCount"			"6"
+				"SpawnRadius"		"250"
+				"Target"			"CASTER"
+				"OnSpawn"
+				{
+					"FireEffect"
+					{
+						"Target" "TARGET"
+						"EffectName" "particles/units/heroes/hero_life_stealer/life_stealer_infest_cast_mid.vpcf"
+						"EffectAttachType" "follow_origin"
+						"EffectRadius" "100"
+						"EffectDurationScale" "1"
+						"EffectLifeDurationScale" "1"
+						"EffectColorA" "100 100 100"
+						"EffectColorB" "200 200 200"
+					}
+				}
+			}
+		}
+	}
+
+	"creature_hatch_broodmother"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "broodmother_spawn_spiderlings"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"8.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"OnSpellStart"
+		{
+            "RunScript"
+            {
+                 "ScriptFile"         "creature_ability/round_broodqueen/egg_die.lua"
+                 "Function"           "DieInPeace"
+                 "Target"             "CASTER"
+            }
+			"SpawnUnit"
+			{
+				"UnitName"			"npc_dota_creature_broodmother"
+				"UnitCount"			"1"
+				"UnitLimit"			"120"
+				"SpawnRadius"		"250"
+				"Target"			"CASTER"
+				"OnSpawn"
+				{
+					"FireEffect"
+					{
+						"Target" "TARGET"
+						"EffectName" "particles/units/heroes/hero_life_stealer/life_stealer_infest_cast_mid.vpcf"
+						"EffectAttachType" "follow_origin"
+						"EffectRadius" "100"
+						"EffectDurationScale" "1"
+						"EffectLifeDurationScale" "1"
+						"EffectColorA" "100 100 100"
+						"EffectColorB" "200 200 200"
+					}
+				}
+			}
+			"RemoveUnit"
+			{
+				"Target" "CASTER"
+			}
+		}
+	}
+
+    "creature_hatch_warrior"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "broodmother_spawn_spiderlings"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"8.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"OnSpellStart"
+		{
+            "RunScript"
+            {
+                "ScriptFile"         "creature_ability/round_broodqueen/egg_die.lua"
+                "Function"           "DieInPeace"
+                "Target"             "CASTER"
+            }
+			"SpawnUnit"
+			{
+				"UnitName"			"npc_dota_creature_spider_warrior"
+				"UnitCount"			"1"
+				"UnitLimit"			"120"
+				"SpawnRadius"		"250"
+				"Target"			"CASTER"
+				"OnSpawn"
+				{
+					"FireEffect"
+					{
+						"Target" "TARGET"
+						"EffectName" "particles/units/heroes/hero_life_stealer/life_stealer_infest_cast_mid.vpcf"
+						"EffectAttachType" "follow_origin"
+						"EffectRadius" "100"
+						"EffectDurationScale" "1"
+						"EffectLifeDurationScale" "1"
+						"EffectColorA" "100 100 100"
+						"EffectColorB" "200 200 200"
+					}
+				}
+			}
+			"RemoveUnit"
+			{
+				"Target" "CASTER"
+			}
+		}
+	}
+
+    "creature_hatch_killer"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN "
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "broodmother_spawn_spiderlings"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"14.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"OnSpellStart"
+		{
+            "RunScript"
+            {
+                "ScriptFile"         "creature_ability/round_broodqueen/egg_die.lua"
+                "Function"           "DieInPeace"
+                "Target"             "CASTER"
+            }
+			"SpawnUnit"
+			{
+				"UnitName"			"npc_dota_creature_spider_killer"
+				"UnitCount"			"1"
+				"UnitLimit"			"12"
+				"SpawnRadius"		"250"
+				"Target"			"CASTER"
+				"OnSpawn"
+				{
+					"FireEffect"
+					{
+						"Target" "TARGET"
+						"EffectName" "particles/units/heroes/hero_life_stealer/life_stealer_infest_cast_mid.vpcf"
+						"EffectAttachType" "follow_origin"
+						"EffectRadius" "100"
+						"EffectDurationScale" "1"
+						"EffectLifeDurationScale" "1"
+						"EffectColorA" "100 100 100"
+						"EffectColorB" "200 200 200"
+					}
+				}
+			}
+
+			"RemoveUnit"
+			{
+				"Target" "CASTER"
+			}
+		}
+	}
+
+	"creature_self_haste"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "nyx_assassin_mana_burn"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"Duration"		"6.0"
+				"ModifierName"	"modifier_rune_haste"
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"Duration"		"6.0"
+				"ModifierName"	"modifier_creature_full_avoidance"
+			}
+		}
+	}
+
+    "egg_die_announce"
+    {
+      	// General
+      	//-------------------------------------------------------------------------------------------------------------
+      	"BaseClass"                     "ability_datadriven"
+      	"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+      	"AbilityTextureName"            "furion_force_of_nature"
+      	"MaxLevel"		           "1"
+      	"AbilityCastAnimation"          "ACT_DOTA_DISABLED"
+      	"AbilityCastPoint"              "1"
+      	"MaxLevel"                      "1"         
+      	"AbilityManaCost"               "0"
+      	"AbilityCastPoint"              "0"
+      	"AbilityCooldown"               "30"
+      	"OnOwnerDied"
+      	{
+      		"RunScript"
+      		{
+      			"ScriptFile"         "creature_ability/round_broodqueen/egg_die.lua"
+      			"Function"           "announce_egg_die"
+      			"Target"             "CASTER"
+      		}
+      	}
+    }
+
+	"creature_spawn_spider"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "broodmother_spawn_spiderlings"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"OnSpellStart"
+		{
+			"SpawnUnit"
+			{
+				"UnitName"			"npc_dota_creature_spiderling"
+				"UnitCount"			"?2 4"
+				"UnitLimit"			"32"
+				"SpawnRadius"		"50"
+				"Target"			"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+		   "modifier_fly_spider_datadriven"
+		   {
+			    "IsHidden"	"1"
+			    "Passive"   "1"
+			    "States"
+			    {
+				    "MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
+			    }
+		    }
+		}
+	}
+
+    "queenofpain_shadow_strike_datadriven"
+    {
+	    // General
+	    //-------------------------------------------------------------------------------------------------------------
+	    "BaseClass"				"ability_datadriven"
+	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	    "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	    "FightRecapLevel"				"1"
+	    "AbilityTextureName"			"queenofpain_shadow_strike"
+            "MaxLevel"                                      "1"
+
+	    // Precache
+	    //-------------------------------------------------------------------------------------------------------------
+	    "precache"
+	    {
+	    	"soundfile"			"soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
+	    	"particle"			"particles/units/heroes/hero_queenofpain/queen_shadow_strike.vpcf"
+	    	"particle"			"particles/units/heroes/hero_queenofpain/queen_shadow_strike_body.vpcf"
+	    	"particle"			"particles/units/heroes/hero_queenofpain/queen_shadow_strike_debuff.vpcf"
+	    }
+
+	    // Casting
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityCastRange"				"750"
+	    "AbilityCastPoint"				"0.452"
+
+	    // Time
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityCooldown"				"12.0"
+	    "AbilityDuration"				"15.0"
+
+	    // Cost
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityManaCost"				"110"
+
+
+	    // Special
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+	    	"01"
+	    	{
+	    		"var_type"				"FIELD_INTEGER"
+	    		"strike_damage"			"275"
+	    	}
+	    	"02"
+	    	{
+	    		"var_type"				"FIELD_INTEGER"
+	    		"duration_damage"		"100"
+	    	}
+	    	"03"
+	    	{
+	    		"var_type"				"FIELD_INTEGER"
+	    		"movement_slow"			"-50"
+	    	}
+	    	"04"
+	    	{
+	    		"var_type"				"FIELD_INTEGER"
+	    		"projectile_speed"		"900"
+	    	}
+	    	"05"
+	    	{
+	    		"var_type"				"FIELD_INTEGER"
+	    		"cast_range_tooltip"		"750"
+	    	}
+	    	"06"
+	    	{
+	    		"var_type"				"FIELD_INTEGER"
+	    		"movement_slow_small"			"-3"
+	    	}
+	    }
+
+	    "OnSpellStart"
+	    {
+	    	"TrackingProjectile"
+	    	{
+	    		"Target"           "TARGET"
+	    	    "EffectName"       "particles/units/heroes/hero_queenofpain/queen_shadow_strike.vpcf"
+	    	    "Dodgeable"        "1"
+	    	    "ProvidesVision"   "0"
+	    	    "MoveSpeed"        "%projectile_speed"
+	    	    "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+	    	}
+
+	    	"FireSound"
+	    	{
+	    		"EffectName"		"Hero_Venomancer.VenomousGale"
+	    		"Target"			"CASTER"
+	    	}
+
+	    	"AttachEffect"
+	    	{
+	    		"Target"			"CASTER"
+	    		"EffectAttachType"	"attach_origin"
+	    		"EffectName"		"particles/units/heroes/hero_queenofpain/queen_shadow_strike_body.vpcf"
+	    	}
+	    }
+
+	    "OnProjectileHitUnit"
+	    {
+	    	"Damage"
+	    	{
+	    		"Target"		"TARGET"
+	    		"Type"			"DAMAGE_TYPE_MAGICAL"
+	    		"Damage"		"%strike_damage"
+	    	}
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_shadow_strike_debuff_datadriven"
+	    		"Target"		"TARGET"
+	    	}
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_shadow_strike_thinker_datadriven"
+	    		"Target"		"TARGET"
+	    	}
+
+	    	// Slow stacks(15 of them)
+
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_shadow_strike_slow_datadriven"
+	    		"Target"		"TARGET"
+	    	}
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_shadow_strike_slow_datadriven"
+	    		"Target"		"TARGET"
+	    	}
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_shadow_strike_slow_datadriven"
+	    		"Target"		"TARGET"
+	    	}
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_shadow_strike_slow_datadriven"
+	    		"Target"		"TARGET"
+	    	}
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_shadow_strike_slow_datadriven"
+	    		"Target"		"TARGET"
+	    	}
+	    	// 5
+
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_shadow_strike_slow_datadriven"
+	    		"Target"		"TARGET"
+	    	}
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_shadow_strike_slow_datadriven"
+	    		"Target"		"TARGET"
+	    	}
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_shadow_strike_slow_datadriven"
+	    		"Target"		"TARGET"
+	    	}
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_shadow_strike_slow_datadriven"
+	    		"Target"		"TARGET"
+	    	}
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_shadow_strike_slow_datadriven"
+	    		"Target"		"TARGET"
+	    	}
+	    	// 10
+
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_shadow_strike_slow_datadriven"
+	    		"Target"		"TARGET"
+	    	}
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_shadow_strike_slow_datadriven"
+	    		"Target"		"TARGET"
+	    	}
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_shadow_strike_slow_datadriven"
+	    		"Target"		"TARGET"
+	    	}
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_shadow_strike_slow_datadriven"
+	    		"Target"		"TARGET"
+	    	}
+	    	"ApplyModifier"
+	    	{
+	    		"ModifierName"	"modifier_shadow_strike_slow_datadriven"
+	    		"Target"		"TARGET"
+	    	}
+	    	// 15
+	    }
+
+	    "Modifiers"
+	    {
+		    "modifier_fly_spider_datadriven"
+		    {
+		    	"IsHidden"	"1"
+		    	"Passive"   "1"
+		    	"States"
+		    	{
+		    		"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
+		    	}
+		    }
+		    "modifier_shadow_strike_debuff_datadriven"
+		    {
+		    	"Duration"	"%AbilityDuration"
+		    	"IsDebuff"	"1"
+		    	"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+		    	"EffectName"	"particles/units/heroes/hero_queenofpain/queen_shadow_strike_debuff.vpcf"
+		    	"EffectAttachType"	"follow_chest"
+
+		    	"ThinkInterval"	"3.0"
+
+		    	"OnIntervalThink"
+		    	{
+		    		"Damage"
+		    		{
+		    			"Target"		"TARGET"
+		    			"Type"			"DAMAGE_TYPE_MAGICAL"
+		    			"Damage"		"%duration_damage"
+		    		}
+		    	}
+		    }
+
+		    "modifier_shadow_strike_thinker_datadriven"
+		    {
+		    	"IsHidden"	"1"
+                        "IsPurgable"	"0"
+		    	"Duration"	"%AbilityDuration"
+		    	"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+		    	"ThinkInterval"	"1.0"
+
+		    	"OnIntervalThink"
+		    	{
+		    		"RemoveModifier"
+		    		{
+		    			"ModifierName"	"modifier_shadow_strike_slow_datadriven"
+		    			"Target"		"TARGET"
+		    		}
+		    	}
+		    }
+
+		    "modifier_shadow_strike_slow_datadriven"
+		    {
+			    "IsHidden"		"1"
+                "IsPurgable"		"1"
+			    "Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+                "Duration"	"%AbilityDuration"
+			    "Properties"
+			    {
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%movement_slow_small"
+			    }
+		    }
+	    }
+    }
+
+    "killer_poison"
+    {
+         //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                  "ability_datadriven"
+        "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"			"viper_viper_strike"
+
+        "precache"
+        {
+            "particle"          	        "particles/units/heroes/hero_viper/viper_viper_strike_beam.vpcf"
+            "particle"               	"particles/units/heroes/hero_viper/viper_poison_attack.vpcf"
+            "particle"          	        "particles/units/heroes/hero_venomancer/venomancer_gale_poison_debuff.vpcf" 
+        }
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1800"
+		"AbilityCastPoint"				"0.4"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"			"120"
+
+		"OnSpellStart"
+		{
+            "TrackingProjectile"
+            {
+                "Target"                        "TARGET"
+                "EffectName"                "particles/units/heroes/hero_viper/viper_poison_attack.vpcf"
+                "Dodgeable"                        "1"
+                "ProvidesVision"                   "1"
+                "VisionRadius"                     "600"
+                "MoveSpeed"                        "1200"
+                "SourceAttachment"      "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+            }
+            "FireSound"
+            {
+                "EffectName"        "hero_viper.viperStrike"
+                "Target"                "CASTER"
+            }
+		}
+
+        "OnProjectileHitUnit"
+        {
+
+            "Damage"
+            {
+                "Damage"                "70"
+                "Type"                  "DAMAGE_TYPE_PURE"
+                "Target"
+			    {
+			    	"Center"   "TARGET"
+			    	"Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			    	"Flags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			    }
+            }
+            "FireSound"
+            {
+                "EffectName"        "hero_viper.viperStrikeImpact"
+                "Target"
+			    {
+			        "Center"   "TARGET"
+			    	"Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			    	"Flags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			    }
+            }
+            "ApplyModifier"
+			{
+				"ModifierName"		 "modifier_slow_no_heal"
+				"Target"
+				{
+					"Center"   "TARGET"
+					"Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+					"Flags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				}
+			}
+        }
+
+		"Modifiers"
+		{
+			  "modifier_true_sight_1"
+                {
+                    "Passive"            "1"
+                    "IsHidden"           "1"
+                    "OnCreated"
+                    {
+                    "ApplyModifier"
+                    {
+                        "ModifierName"	"modifier_tower_truesight_aura"
+                        "Target" 		"CASTER"
+                    }
+                }
+			}
+			"modifier_fly_spider_datadriven"
+		    {
+		     	"IsHidden"	"1"
+		      	"Passive"   "1"
+			    "States"
+			    {
+				    "MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
+			    }
+		    }
+			"modifier_slow_no_heal"
+			{
+                "Duration"				"5.0"
+                "Attributes"     "MODIFIER_ATTRIBUTE_MULTIPLE"
+                "IsPurgable"		                  "0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_HEALING"	"1"
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "-40"
+                    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "-60"
+				}
+                "AttachEffect"
+				{
+					"EffectName"		"particles/units/heroes/hero_venomancer/venomancer_gale_poison_debuff.vpcf"
+					"EffectAttachType"	"follow_chest"
+					"Target"		"TARGET"
+				}
+
+				"ThinkInterval"			"1.0"
+				"OnIntervalThink"
+				{
+                    "Damage"
+                    {
+                        "Damage"               "50"
+                        "Type"                "DAMAGE_TYPE_PURE"
+                        "Target"                "TARGET"
+                    }
+                    "AttachEffect"
+				    {
+						"EffectName"		"particles/units/heroes/hero_venomancer/venomancer_gale_poison_debuff.vpcf"
+						"EffectAttachType"	"follow_chest"
+						"Target"		"TARGET"
+				    }
+				}
+			}
+		}
+    }
+
+	"creature_spawn_baneling"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"            "broodmother_spawn_spiderlings"
+		"AbilityCastPoint"				"1.6"
+		"AbilityCastAnimation"			"ACT_DOTA_FLAIL"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"OnSpellStart"
+		{
+			"SpawnUnit"
+			{
+				"UnitName"			"npc_dota_creature_baneling"
+				"UnitCount"			"?10 12"
+				"UnitLimit"			"132"
+				"SpawnRadius"		"50"
+				"Target"			"CASTER"
+			}
+			"Damage"
+			{
+				"Target"		"CASTER"
+				"Type"			"DAMAGE_TYPE_PURE"
+				"Damage"		"1100"
+			}
+		}
+	}
+
+    "creature_baneling_explode"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass" 					"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE"
+		"SpellImmunityType"			   "SPELL_IMMUNITY_ENEMIES_YES"
+	    "AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"			"alchemist_acid_spray"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"900"
+        "precache"
+		{
+                "particle"		    "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+                "particle"			"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+		        "particle"			"particles/econ/generic/generic_buff_1/generic_buff_1.vpcf"
+		}
+		"OnOwnerDied"
+		{
+			"CreateThinker"
+			{
+				"ModifierName"			"creature_acid_spray_thinker"
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+			}
+
+			"FireEffect"
+			{
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+				"EffectName"			"particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"EffectRadius"			"%radius"
+				"EffectDurationScale"	"1"
+				"EffectLifeDurationScale" "1"
+				"EffectColorA"			"25 150 25"
+				"EffectColorB"			"25 150 25"
+			}
+
+			"Damage"
+			{
+				"Type"					"DAMAGE_TYPE_PURE"
+				"Damage"				"%damage_explode"
+				"Target"
+				{
+					"Center"			"CASTER"
+					"Radius"			"%radius"
+					"Teams"				"DOTA_UNIT_TARGET_TEAM_NONE"
+					"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_OTHER"
+					"Flags"		        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				}
+			}
+		    "Damage"
+			{
+				"Type"					"DAMAGE_TYPE_PURE"
+				"Damage"				"%damage_explode_for_summon"
+				"Target"
+				{
+					"Center"			"CASTER"
+					"Radius"			"%radius_for_summon"
+					"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types"				"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_OTHER"
+					"Flags"		        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				}
+			}
+			"FireSound"
+			{
+				"EffectName"		"Hero_Broodmother.SpawnSpiderlings"
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+			}
+		}
+
+		"Modifiers"
+		{
+			"creature_acid_spray_thinker"
+			{
+				"Aura"					"create_acid_spray_armor_reduction_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Duration"				"%duration"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%radius 1 1"
+							"15" "255 153 102"
+							"16" "1 0 0"
+						}
+					}
+				}
+			}
+
+			"create_acid_spray_armor_reduction_aura"
+			{
+				"IsDebuff"		"1"
+				"IsPurgable"	"0"
+				"EffectName"	"particles/units/heroes/hero_alchemist/alchemist_acid_spray_debuff.vpcf"
+				"ThinkInterval"	"%tick_rate"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Type"		"DAMAGE_TYPE_PURE"
+						"Damage"	"%damage"
+						"Target"	"TARGET"
+					}
+				}
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction"
+				}
+			}
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"190"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"20.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"60"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_reduction"		"-6"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"tick_rate"				"0.25"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_explode"		"105"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"radius_for_summon"		"350"
+			}
+			"08"
+			{
+				"var_type"				        "FIELD_FLOAT"
+				"damage_explode_for_summon"		"950"
+			}
+		}
+	}
+
+    "spider_kill_self"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+        "BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"MaxLevel"                      "1"
+		"AbilityManaCost"               "0"
+		"AbilityTextureName"			"techies_suicide"
+		"OnSpellStart"
+		{
+			"Damage"
+			{
+				"Target"		"CASTER"
+				"Type"			"DAMAGE_TYPE_MAGICAL"
+				"Damage"		"800"
+			}
+		}
+	}
+
+	"creature_acid_spray"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass" 					"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_COMPOSITE"
+		"AbilityTextureName"			"alchemist_acid_spray"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"900"
+
+		"OnOwnerDied"
+		{
+			"CreateThinker"
+			{
+				"ModifierName"			"creature_acid_spray_thinker"
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+			}
+
+			"FireEffect"
+			{
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+				"EffectName"			"particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"EffectRadius"			"%radius"
+				"EffectDurationScale"	"1"
+				"EffectLifeDurationScale" "1"
+				"EffectColorA"			"25 150 25"
+				"EffectColorB"			"25 150 25"
+			}
+
+			"Damage"
+			{
+				"Type"					"DAMAGE_TYPE_MAGICAL"
+				"Damage"				"%damage_explode"
+				"Target"
+				{
+					"Center"			"CASTER"
+					"Radius"			"%radius"
+					"Teams"				"DOTA_UNIT_TARGET_TEAM_NONE"
+					"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				}
+			}
+
+			"Knockback"
+			{
+				"Target"
+				{
+					"Center"	"CASTER"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_NONE"
+					"Radius"	"%radius"
+				}
+				"Center"	"CASTER"
+				"Duration"	"0.75"
+				"Distance"	"275"
+				"Height"	"175"
+			}
+
+			"FireSound"
+			{
+				"EffectName"		"Ability.AcidSpray"
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+			}
+		}
+
+		"Modifiers"
+		{
+			"creature_acid_spray_thinker"
+			{
+				"Aura"					"create_acid_spray_armor_reduction_aura"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Duration"				"%duration"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%radius 1 1"
+							"15" "28 225 28"
+							"16" "1 0 0"
+						}
+					}
+				}
+			}
+
+			"create_acid_spray_armor_reduction_aura"
+			{
+				"IsDebuff"		"1"
+				"IsPurgable"	"0"
+				"EffectName"	"particles/units/heroes/hero_alchemist/alchemist_acid_spray_debuff.vpcf"
+				"ThinkInterval"	"%tick_rate"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Type"		"DAMAGE_TYPE_COMPOSITE"
+						"Damage"	"%damage"
+						"Target"	"TARGET"
+					}
+				}
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction"
+				}
+			}
+
+			"acid_spray_fx"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"CASTER"
+						"EffectName"				"particles/econ/generic/generic_buff_1/generic_buff_1.vpcf"
+						"EffectAttachType"			"follow_overhead"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"28 255 28"
+						"EffectAlphaScale"			"1"
+					}
+				}
+			}
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"250"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"16.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"118 128 138 158"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_reduction"		"-3 -4 -5 -6"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"tick_rate"				"1.0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_explode"		"450 650 850 1050"
+			}
+		}
+	}
+}

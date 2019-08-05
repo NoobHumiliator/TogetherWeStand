@@ -1,50 +1,41 @@
 .ParticleTriggerButtonPanel {
-    position: 595px 1000px 0; 
+    position: 595px 1000px 0;
     width: 30px;
     height: 30px;
 }
 
-
 #ParticleTriggerButton {
-
-   height:30px;
-   width:30px;
-   background-image: url("s2r://panorama/images/control_icons/brackets_png.vtex");
-   background-size: 30px;
-   brightness:1.0;
-   wash-color:#CDF;
-   opacity: 0.3;
-   z-index:-1;
-   transition-property :background-image;
-   transition-duration:.18s;
-   transition-timing-function:ease-in-out;
-   tooltip-position:top;
-   vertical-align:bottom;
+    height: 30px;
+    width: 30px;
+    background-image: url("s2r://panorama/images/control_icons/brackets_png.vtex");
+    background-size: 30px;
+    brightness: 1.0;
+    wash-color: #CDF;
+    opacity: 0.3;
+    z-index: -1;
+    transition-property: background-image;
+    transition-duration: .18s;
+    transition-timing-function: ease-in-out;
+    tooltip-position: top;
+    vertical-align: bottom;
 }
 
-
-
 .ParticlePanelOutBlock {
-
-    pre-transform-scale2d:1;
-    transition-property:opacity, box-shadow, pre-transform-scale2d;
+    pre-transform-scale2d: 1;
+    transition-property: opacity, box-shadow, pre-transform-scale2d;
     transition-duration: 0.37s;
-
-    position: 0 100px 0; /*x,y,z position:absolute? auto?*/
+    position: 0 100px 0;
+    /*x,y,z position:absolute? auto?*/
     width: 100%;
     height: 75%;
     border-top: 0px solid #333;
     border-bottom: 0px solid #333;
-    overflow: clip;  /*overflow:hidden*/
+    overflow: clip;
+    /*overflow:hidden*/
     horizontal-align: center;
-
-
 }
 
-
-
-.ParticlePanelContainer{
-
+.ParticlePanelContainer {
     width: 80%;
     height: 100%;
     margin-left: 14%;
@@ -52,62 +43,54 @@
     flow-children: down;
 }
 
-
 .ParticlePanel {
-
-    pre-transform-scale2d:1;
-    transition-property:opacity, box-shadow, pre-transform-scale2d;
+    pre-transform-scale2d: 1;
+    transition-property: opacity, box-shadow, pre-transform-scale2d;
     transition-duration: 0.37s;
-    
     width: 100%;
     height: 40%;
     border-top: 0px solid #333;
     border-bottom: 0px solid #333;
     margin-top: 2%;
     margin-left: 1%;
-    overflow: clip;  /*overflow:hidden*/
+    overflow: clip;
+    /*overflow:hidden*/
     flow-children: right;
 }
 
-
 .ParticlePanelDown {
-
-    pre-transform-scale2d:1;
-    transition-property:opacity, box-shadow, pre-transform-scale2d;
+    pre-transform-scale2d: 1;
+    transition-property: opacity, box-shadow, pre-transform-scale2d;
     transition-duration: 0.37s;
-    
     width: 100%;
     height: 20%;
     border-top: 0px solid #333;
     border-bottom: 0px solid #333;
-    overflow: clip;  /*overflow:hidden*/
+    overflow: clip;
+    /*overflow:hidden*/
 }
 
-
-.ParticleRadioButton{
-    width:300px;
-    height:300px;
-    padding-left:5px;
-    padding-right:5px;
-    padding-top:5px;
-    padding-bottom:4px;
+.ParticleRadioButton {
+    width: 300px;
+    height: 300px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 4px;
 }
 
+.ParticleRadioButton:hover {
+    box-shadow: #FEE38C 0px 0px 3px 0px;
+}
 
-.ParticleRadioButton:hover{
-      box-shadow: #FEE38C 0px 0px 3px 0px;
-}  
-
-.ParticleRadioButton:selected{
-    background-color: gradient( linear, 0% 0%, 100% 100%, from( #568e2658 ), to( #24420a58 ) );
+.ParticleRadioButton:selected {
+    background-color: gradient( linear, 0% 0%, 100% 100%, from( #568e2658), to( #24420a58));
     box-shadow: #7fe22a 0px 0px 10px 0px;
 }
 
-
-
-.attributeButtonLabel{
+.attributeButtonLabel {
     vertical-align: bottom;
-    text-align:right;
+    text-align: right;
     horizontal-align: right;
     font-size: 20;
     width: 100%;
@@ -116,8 +99,6 @@
     font-family: Radiance;
 }
 
-
-
 #ParticleConfirmButton {
     horizontal-align: left;
     vertical-align: center;
@@ -125,13 +106,13 @@
     height: 50px;
     margin-left: 50px;
     border: 1px solid #000;
-    background-color: gradient( linear, 0% 0%, 0% 100%, from(#a50a04), to(#670303) );
+    background-color: gradient( linear, 0% 0%, 0% 100%, from(#a50a04), to(#670303));
     box-shadow: inset #ffffff50 1px 1px 2px 2px;
     margin-left: 400px;
 }
 
 #ParticleConfirmButton:active {
-    background-color: gradient( linear, 0% 0%, 0% 100%, from(#880303), to(#b80803) );
+    background-color: gradient( linear, 0% 0%, 0% 100%, from(#880303), to(#b80803));
     width: 192px;
     height: 48px;
     margin-left: 404px;
@@ -145,9 +126,6 @@
     text-transform: uppercase;
 }
 
-
-
-
 #ParticleCancleButton {
     horizontal-align: left;
     vertical-align: center;
@@ -155,13 +133,13 @@
     height: 50px;
     margin-left: 50px;
     border: 1px solid #000;
-    background-color: gradient( linear, 0% 0%, 0% 100%, from(#a50a04), to(#670303) );
+    background-color: gradient( linear, 0% 0%, 0% 100%, from(#a50a04), to(#670303));
     box-shadow: inset #ffffff50 1px 1px 2px 2px;
     margin-left: 900px;
 }
 
 #ParticleCancleButton:active {
-    background-color: gradient( linear, 0% 0%, 0% 100%, from(#880303), to(#b80803) );
+    background-color: gradient( linear, 0% 0%, 0% 100%, from(#880303), to(#b80803));
     width: 192px;
     height: 48px;
     margin-left: 904px;

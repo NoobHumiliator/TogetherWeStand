@@ -1,0 +1,109 @@
+"DOTAUnits"
+{
+    "npc_dota_boss_blue_dragon"
+	{
+		// General
+		//
+		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
+		"Model"						"models/heroes/winterwyvern/winterwyvern.vmdl"	// Model.
+	    "ModelScale"			    "2.3"
+		"Level"						"25"
+		"ConsideredHero"			"1"
+		"IsAncient"					"0"
+		"CanBeDominated"			"0"
+
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"350"
+
+		"SoundSet"		            "Hero_Winter_Wyvern"
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_winter_wyvern.vsndevts"
+		"VoiceFile"				    "soundevents/voscripts/game_sounds_vo_winter_wyvern.vsndevts"
+
+		// Inventory
+		//----------------------------------------------------------------
+		"HasInventory"				"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"			    "4"
+		"Ability1"					"boss_arcane_curse_aura_datadriven"	// Ability 1.
+		"Ability2"					"boss_arcane_curse_explode_datadriven"		        // Ability 2.
+		"Ability3"					"boss_fly_black_hole_datadriven"			// Ability 3.
+		"Ability4"					""			// Ability 4.
+        "Ability5"				    "blue_dragon_gold_bag_fountain"			// Ability 4.
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"42"			// Physical protection.
+		"MagicalResistance"			"35"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"	    "DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"152"		// Damage range min.
+		"AttackDamageMax"			"168"		// Damage range max.
+		"AttackRate"				"1.25"		// Speed of attack.
+		"AttackAnimationPoint"	    "0.2"		// Normalized time in animation cycle to attack.
+		"AttackRange"				"125"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_winter_wyvern/winter_wyvern_arctic_attack.vpcf" // Particle system model for projectile.
+		"ProjectileSpeed"			"1700"		// Speed of projectile.
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"				    "0"		// Experience earn.
+		"BountyGoldMin"				"150"		// Gold earned min.
+		"BountyGoldMax"				"150"		// Gold earned max.
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"300"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"	    "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"320"		// Speed
+		"MovementTurnRate"			"0.4"		// Turning rate.
+
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"200000"		// Base health.
+		"StatusHealthRegen"			"20.0"		// Health regeneration rate.
+		"StatusMana"				"1000"			// Base mana.
+		"StatusManaRegen"			"150"			// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
+
+        "vscripts"					"creature_ai/round_blue_dragon/blue_dragon.lua"
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"
+			"DisableResistance"			"100"
+	        "AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"551"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"552"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"553"
+				}
+			}
+		}
+	}
+}

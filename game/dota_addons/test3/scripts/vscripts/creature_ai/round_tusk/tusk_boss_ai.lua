@@ -5,7 +5,7 @@ behaviorSystem = {} -- create the global so we can assign to it
 function Spawn( entityKeyValues )
 	if  thisEntity:GetTeam()==DOTA_TEAM_BADGUYS then
 	  thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
-      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone,BehaviorIceShards,BehaviorKick} ) 
+      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone,BehaviorIceShards,BehaviorKick} )
     end
 end
 
@@ -22,16 +22,9 @@ end
 function BehaviorNone:Begin()
 	self.endTime = GameRules:GetGameTime() + 1
 	self.target=nil
-	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 		if #allEnemies > 0 then
-			local minDistance = 10000000
-			for _,enemy in pairs(allEnemies) do
-				local distance = ( thisEntity:GetOrigin() - enemy:GetOrigin() ):Length()
-				if distance < minDistance then
-				  minDistance=distance
-                  self.target=enemy
-				end
-			end
+			self.target = allEnemies[1]
 		end
 
 	if self.target and self.target:IsAlive() then
@@ -55,14 +48,14 @@ end
 BehaviorIceShards = {}  --冰片
 
 function BehaviorIceShards:Evaluate()
-	self.shardsAbility = thisEntity:FindAbilityByName("tws_tusk_ice_shards")    
+	self.shardsAbility = thisEntity:FindAbilityByName("tws_tusk_ice_shards")
 	local target =nil
 	local desire = 0
 
 	-- let's not choose this twice in a row
 	if AICore.currentBehavior == self then return desire end
 
-	if self.shardsAbility and self.shardsAbility:IsFullyCastable() then   
+	if self.shardsAbility and self.shardsAbility:IsFullyCastable() then
 		local range = self.shardsAbility:GetCastRange()
 		target = AICore:RandomEnemyHeroInRangeNotIllusionIgnoreImmnue( thisEntity, range )
 	end
@@ -86,20 +79,20 @@ end
 
 function BehaviorIceShards:Begin()
 	self.endTime = GameRules:GetGameTime() + 1
-end 
+end
 
 BehaviorIceShards.Continue = BehaviorIceShards.Begin
 --------------------------------------------------------------------------------------------------------
 BehaviorKick = {}  --海象飞踢
 
 function BehaviorKick:Evaluate()
-	self.kickAbility = thisEntity:FindAbilityByName("tws_tusk_walrus_punch")    
+	self.kickAbility = thisEntity:FindAbilityByName("tws_tusk_walrus_punch")
 	local target =nil
 	local desire = 0
 
 	if AICore.currentBehavior == self then return desire end
 
-	if self.kickAbility and self.kickAbility:IsFullyCastable() then   
+	if self.kickAbility and self.kickAbility:IsFullyCastable() then
 		local range = self.kickAbility:GetCastRange()
 		target = AICore:RandomEnemyHeroInRangeNotIllusionIgnoreImmnue( thisEntity, range )
 	end
@@ -123,7 +116,7 @@ end
 
 function BehaviorKick:Begin()
 	self.endTime = GameRules:GetGameTime() + 1
-end 
+end
 
 BehaviorKick.Continue = BehaviorKick.Begin
 --------------------------------------------------------------------------------------------------------

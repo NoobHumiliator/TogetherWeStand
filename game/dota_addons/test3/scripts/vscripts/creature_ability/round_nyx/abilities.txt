@@ -1,0 +1,200 @@
+"DOTAAbilities"
+{
+	"creature_nyx_spike"
+	{
+		"AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                       "ability_datadriven"
+		"AbilityTextureName"                              "nyx_assassin_spiked_carapace"
+		"MaxLevel"                                        "1"
+	    "AbilitySpecial"
+	    {
+	    	"01"
+		    {
+				"var_type"					           	 "FIELD_INTEGER"
+				"active_interval"	                     "16"
+		    }
+		    "02"
+		    {
+				"var_type"					           	 "FIELD_INTEGER"
+				"spike_duration"	                     "7"
+		    }
+		    "03"
+		    {
+				"var_type"					           	 "FIELD_FLOAT"
+				"warning_duration"	                     "2.0"
+		    }
+		    "04"
+		    {
+				"var_type"					           	 "FIELD_INTEGER"
+				"damage_reflection_pct"	                 "60"
+		    }
+	    }
+		"precache"
+		{
+		     "particle"               "particles/items_fx/blademail.vpcf"
+		     "particle"               "particles/econ/courier/courier_greevil_blue/courier_greevil_blue_ambient_1.vpcf"
+		}
+		"Modifiers"
+		{
+            "modifier_true_sight_1"
+		    {
+		           "Passive"            "1"
+		           "IsHidden"           "1"
+		         "OnCreated"
+		         {
+		           "ApplyModifier"
+		            {
+		                 "ModifierName"	"modifier_tower_truesight_aura"
+		                 "Target" 		"CASTER"
+		            }
+		        }
+		    }
+			"modifier_nxy_spike_permanent"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"ThinkInterval"     "%active_interval"
+				"OnIntervalThink"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	               "modifier_nxy_spike_warning"
+						"Target" 		               "CASTER"
+					}
+				}
+			}
+	        "modifier_nxy_spike_warning"
+			{
+	            "IsHidden"		                       "1"
+	            "EffectName"		                   "particles/econ/courier/courier_greevil_blue/courier_greevil_blue_ambient_1.vpcf"
+				"EffectAttachType"	                   "follow_origin"
+				"Duration"                             "%warning_duration"
+	            "OnDestroy"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	               "modifier_nxy_spike"
+						"Target" 		               "CASTER"
+					}
+				}
+			}
+			"modifier_nxy_spike"
+			{
+	            "IsBuff"                               "1"
+	            "Duration"                             "%spike_duration"
+	            "TextureName"	                       "nyx_assassin_spiked_carapace"
+	            "EffectName"		                   "particles/items_fx/blademail.vpcf"
+				"EffectAttachType"	                   "follow_origin"
+	            "OnTakeDamage"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Ability.ReflectDamage"
+						"Target"		"UNIT"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"creature_ability/round_nyx/spike.lua"
+						"Function"		"TakeDamage"
+						"Damage"		"%attack_damage"
+					}
+				}
+			}
+		}
+	}
+
+	"creature_nyx_assassin_impale"
+	{
+		"BaseClass"				        "nyx_assassin_impale"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"FightRecapLevel"				"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1200"
+		"AbilityCastPoint"				"0.3"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"9.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"5000"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"width"				"125"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"1.6"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"length"			"1500"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"450"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cooldown_upgrade"	"7"
+			}
+		}
+	}
+
+	"creature_nyx_assassin_invisible"
+	{
+		"BaseClass"				        "riki_permanent_invisibility"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"damage_multiplier"			"1.0"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"backstab_angle"			"105"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"fade_time"					"0.2"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"fade_delay"				"0.3"
+			}
+		}
+	}
+}

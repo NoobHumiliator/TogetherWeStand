@@ -1,0 +1,272 @@
+"DOTAAbilities"
+{
+    "boss_arcane_curse_aura_datadriven"
+    {
+    	// General
+    	//-------------------------------------------------------------------------------------------------------------
+    	"BaseClass"				        "ability_datadriven"
+    	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+    	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    	"AbilityTextureName"			"arcane_curse"
+    	"MaxLevel"                      "1"
+
+        "precache"
+    	{
+    		"particle"					"particles/econ/items/lanaya/lanaya_epit_trap/templar_assassin_epit_trap_explode.vpcf"
+    		"particle"					"particles/units/heroes/hero_templar_assassin/templar_assassin_meld_armor.vpcf"
+    		"particle"                  "particles/hw_fx/candy_carrying_stack.vpcf"
+    		"soundfile"		            "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
+    	}
+
+    	// Special
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilitySpecial"
+    	{
+    		"01"
+    		{
+    			"var_type"			"FIELD_INTEGER"
+    			"attack_chance"  "50"
+    		}
+    		// Extra variables
+    		"02"
+    		{
+    			"var_type"			"FIELD_INTEGER"
+    			"global_radius"		"9000"
+    		}
+    	}
+
+    	// Data driven
+    	//-------------------------------------------------------------------------------------------------------------
+    	"Modifiers"
+    	{
+    		"modifier_boss_arcane_curse_aura_datadriven"
+    		{
+    			"Passive"				"1"
+    			"IsPurgable"			"0"
+    			"IsHidden"				"1"
+    			"Aura"					"modifier_boss_arcane_curse_aura_effect_datadriven"
+    			"Aura_Radius"			"%global_radius"
+    			"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    			"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_OTHER"
+    			"Aura_Flags"	        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    		}
+    	    "modifier_true_sight_1"
+            {
+                "Passive"            "1"
+                "IsHidden"           "1"
+                "OnCreated"
+                {
+                   "ApplyModifier"
+                    {
+                         "ModifierName"	"modifier_tower_truesight_aura"
+                         "Target" 		"CASTER"
+                    }
+                }
+    	    }
+    		"modifier_boss_arcane_curse_aura_effect_datadriven"
+    		{
+    			"IsDebuff"		"1"
+    			"TextureName"	 "arcane_curse"
+    			"OnAttackLanded"
+    			{
+    			   "Random"
+    		        {
+    		            "Chance" 	"%attack_chance"
+    		            "OnSuccess"
+    		            {
+    						   "RunScript"
+    						   {
+    							 "ScriptFile"	"creature_ability/round_blue_dragon/arcane_curse.lua"
+    							 "Function"		"AddStack"
+    						     "Target"		"ATTACKER"
+    						   }
+    				    }
+    				}
+    			}
+    			"OnAbilityExecuted"
+    			{
+    				"RunScript"
+    				{
+    					"ScriptFile"	"creature_ability/round_blue_dragon/arcane_curse.lua"
+    					"Function"		"AddStack"
+    				    "Target"        "UNIT"
+    				}
+    			}
+    		}
+    	    "modifier_arcane_curse_debuff_stack"
+            {
+                "IsDebuff"                         "1"
+                "IsPurgable"                       "0"
+                "Duration"                         "6.0"
+                "EffectName"                       "particles/units/heroes/hero_templar_assassin/templar_assassin_meld_armor.vpcf"
+                "ModifierAttributes"               "MODIFIER_ATTRIBUTE_MULTIPLE"
+                "EffectAttachType"                 "follow_chest"
+                "OnDestroy"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "creature_ability/round_blue_dragon/arcane_curse.lua"
+                        "Target"        "TARGET"
+                        "Function"      "StackOverDamage"
+                    }
+                }
+            }
+    	}
+    }
+
+    "boss_arcane_curse_explode_datadriven"
+    {
+	    // General
+	    //-------------------------------------------------------------------------------------------------------------
+	    "BaseClass"				        "ability_datadriven"
+	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    "AbilityTextureName"			"invoker_emp"
+	    "MaxLevel"                      "1"
+        "AbilityCooldown"				"20.0"
+	    "AbilityManaCost"				"0"
+	    "AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"	// Activity
+	    "AnimationPlaybackRate"			"5.0"
+
+        "precache"
+	    {
+	    	"particle"					"particles/units/heroes/hero_invoker/invoker_emp_explode.vpcf"
+	    }
+
+	    // Special
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+	    	"01"
+	    	{
+	    		"var_type"			"FIELD_INTEGER"
+	    		"global_radius"		"9000"
+	    	}
+	    }
+
+	    "OnSpellStart"
+	    {
+		    "FireEffect"
+		    {
+		    	"EffectName"        "particles/units/heroes/hero_invoker/invoker_emp_explode.vpcf"
+		    	"EffectAttachType"  "follow_origin"
+		    	"Target"            "CASTER"
+		    	"ControlPoints"
+		    	{
+		    		"01"			"5000 5000 5000"
+		    	}
+		    }
+		    "RunScript"
+		    {
+		    	"ScriptFile"	"creature_ability/round_blue_dragon/arcane_curse.lua"
+		    	"Function"		"ForceExplode"
+		    }
+	    }
+    }
+
+    "boss_fly_black_hole_datadriven"
+    {
+	    // General
+	    //-------------------------------------------------------------------------------------------------------------
+	    "BaseClass"				        "ability_datadriven"
+	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	    "AbilityTextureName"			"winter_wyvern_winters_curse"
+	    "MaxLevel"                      "1"
+	    "AnimationPlaybackRate"			"1.0"
+
+        "precache"
+	    {
+		    "particle"					"particles/econ/items/enigma/enigma_world_chasm/enigma_blackhole_ti5.vpcf"
+	    }
+
+	    // Special
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+		    "01"
+		    {
+		    	"var_type"			"FIELD_INTEGER"
+		    	"global_radius"		"9000"
+		    }
+		    "02"
+		    {
+		    	"var_type"			"FIELD_INTEGER"
+		    	"duration"		    "30"
+		    }
+	    }
+        "Modifiers"
+	    {
+	        "modifier_dragon_black_hole_think"
+		    {
+                "IsHidden"      "1"
+                "Passive"       "1"
+                "IsPurgable"    "0"
+                "OnTakeDamage"
+			    {
+				    "RunScript"
+				    {
+					    "ScriptFile"	"creature_ability/round_blue_dragon/black_hole.lua"
+					    "Function"		"BlackHole"
+				    }
+			    }
+		    }
+		    "modifier_blue_dragon_boss_fly"
+		    {
+			    "Passive"				"0"
+			    "IsPurgable"			"0"
+			    "IsHidden"				"1"
+			    "States"
+			    {
+			     "MODIFIER_STATE_FLYING"		"MODIFIER_STATE_VALUE_ENABLED"
+			    }
+			    "Properties"
+			    {
+			    	"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"550"
+			    }
+		    }
+	    }
+    }
+
+    "blue_dragon_gold_bag_fountain"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"					    "ability_datadriven"
+		"AbilityTextureName"	        "item_hand_of_midas"
+		"OnOwnerDied"
+		{
+			"CreateItem"
+			{
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+				"ItemName"			"item_bag_of_gold_tws"
+				"ItemCount"			"%bag_count"
+				"SpawnRadius"		"25"
+				"ItemChargeCount"	"%gold_value"
+				"AutoUse"			"1"
+				"LaunchHeight"		"300"
+				"LaunchDistance"	"?50 1050"
+				"LaunchDuration"	"0.75"
+			}
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"gold_value"		    "34"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bag_count"				"264"
+			}
+		}
+	}
+}

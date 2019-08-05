@@ -11,7 +11,7 @@ end
 
 
 
-function night_terror_lua:OnSpellStart() 
+function night_terror_lua:OnSpellStart()
 	local caster = self:GetCaster()
 	local point = self:GetCursorPosition()
 	local team_id = caster:GetTeamNumber()
@@ -63,16 +63,16 @@ function modifier_night_terror_thinker_lua:OnIntervalThink()
 			self:Destroy()
 		else
 			local enemies = FindUnitsInRadius(thinker:GetOpposingTeamNumber(), thinker_pos, nil, self.search_radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_CREEP + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
-			if enemies[1] then
+			if #enemies > 0 then
 				self.target = enemies[1]
 				self.duration = nil
 				self.expire = nil
 				self:StartIntervalThink(-1)
-				local info = 
+				local info =
 					{
 					Target = enemies[1],
 					Source = thinker,
-					Ability = thinker:FindAbilityByName("night_terror_lua"),	
+					Ability = thinker:FindAbilityByName("night_terror_lua"),
 					EffectName = "particles/units/heroes/hero_bane/bane_projectile.vpcf",
 					vSourceLoc = thinker_pos,
 					bDrawsOnMinimap = false,

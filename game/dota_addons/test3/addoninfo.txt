@@ -7,7 +7,7 @@
 	{
 					"MaxPlayers"                    "5"
 	}
-   "Default_Keys"
+   	"Default_Keys"
 	{
 		"01"
 		{

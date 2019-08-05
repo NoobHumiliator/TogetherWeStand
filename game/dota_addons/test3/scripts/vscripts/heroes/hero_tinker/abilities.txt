@@ -1,0 +1,139 @@
+"DOTAAbilities"
+{
+	"tinker_heat_seeking_missile_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"tinker_heat_seeking_missile"
+		"LevelsBetweenUpgrades"			"15"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+		"AbilityCastRange"				"1600"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"25.0 25.0 25.0 25.0"
+
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120 140 160 180"
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"launch_radius"		"2500"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"targets"			"20"
+			}
+	        "03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speed"			        "900 900 900 900"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"125 200 275 350"
+			}
+		}
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
+			"particle"			"particles/units/heroes/hero_tinker/tinker_missile.vpcf"
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"		"CASTER"
+				"EffectName"		"Hero_Tinker.Heat-Seeking_Missile"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_tinker/seeking_missile.lua"
+				"Function"		"concussive_shot_seek_target"
+			}
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"FireSound"
+			{
+				"Target"		"CASTER"
+				"EffectName"		"Hero_Tinker.Heat-Seeking_Missile.Impact"
+			}
+
+			"Damage"
+			{
+				"Target"		"TARGET"
+				"Damage"		"%damage"
+				"Type"			"DAMAGE_TYPE_MAGICAL"
+			}
+		}
+	}
+
+	"tinker_rearm_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_tinker/tinker_rearm_lua"
+		"AbilityTextureName"			"tinker_rearm"
+		"FightRecapLevel"				"2"
+		"MaxLevel"						"3"
+		
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
+			"particle"				"particles/units/heroes/hero_tinker/tinker_rearm.vpcf"
+		}
+
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.53"
+		"AbilityChannelTime"			"3.0 1.5 0.75"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"100 200 300"
+
+		// Damage
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				    "FIELD_FLOAT"
+				"channel_tooltip"			"3.0 1.5 0.75"
+			}
+		}
+	}
+}

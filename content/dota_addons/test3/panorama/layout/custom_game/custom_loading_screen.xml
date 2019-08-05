@@ -4,17 +4,15 @@
         </styles>
         <Panel>
                 <Image hittest="false" id="ix" class="imageSize" src="file://{images}/custom_game/loadingscreen.png"/>
-                <!--
-                <Panel  hittest="false" class="hidden" id="community_stuff_container" >
+                <!-- <Panel hittest="false" class="hidden" id="community_stuff_container">
 
-						<Panel  hittest="false" id="CommunityPanel">					
+                        <Panel hittest="false" id="CommunityPanel">
 
-							<Button id="community_taobao_header" class="CommunityImg" onactivate="DOTADisplayURL('https://item.taobao.com/item.htm?id=550725086992');" >
-								<Image hittest="false" src="file://{images}/custom_game/taobao.png" />
-							</Button>
-							<Label id="community_taobao_description" class="CommunityText" html="true" text="获取通行证(PASS)"/>
-						</Panel>
-			    </Panel>
-		    	-->
+                                <Button id="community_taobao_header" class="CommunityImg" onactivate="DOTADisplayURL('https://item.taobao.com/item.htm?id=550725086992');">
+                                        <Image hittest="false" src="file://{images}/custom_game/taobao.png" />
+                                </Button>
+                                <Label id="community_taobao_description" class="CommunityText" html="true" text="获取通行证(PASS)"/>
+                        </Panel>
+                </Panel> -->
         </Panel>
 </root>

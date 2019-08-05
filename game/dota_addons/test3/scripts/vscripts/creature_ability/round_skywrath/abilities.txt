@@ -1,0 +1,864 @@
+"DOTAAbilities"
+{
+	"big_wind"
+	{
+		"AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_NO_TARGET| DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"BaseClass"           "ability_datadriven"
+		"AbilityUnitTargetFlags"		   "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityCastAnimation"      "ACT_DOTA_TELEPORT"
+		"MaxLevel"                      "1"
+		"AbilityTextureName"            "invoker_tornado"
+		// Stats
+		//----------------------------------------------------------------
+		"AbilityChannelTime"	  "14"
+		"AbilityCastRange"        "1200"
+		"AbilityManaCost"         "600"
+		"AbilityCastPoint"        "0"
+		"AbilityCooldown"         "17"
+		"AbilityUnitDamageType"   "DAMAGE_TYPE_PHYSICAL"
+
+		"precache"
+		{
+			"particle"          	 "particles/units/heroes/hero_invoker/invoker_tornado.vpcf"
+			"soundfile"		 "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	        "wind_blow"
+				"Target"		"CASTER"
+			}
+			"FireSound"
+			{
+				"EffectName"		"skywrath_mage_drag_attack_11"
+				"Target"			"CASTER"
+			}
+			"RunScript"
+            {
+                   "ScriptFile"    "libraries/notifications.lua"
+				   "Function"      "BossAbilityDBM"
+            }
+		}
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"		"wind_blow"
+			}
+			"RunScript"
+			{
+				"ScriptFile"    "creature_ability/round_skywrath/tornado.lua"
+				"Function"      "big_blow_dot_over"
+			}
+
+		}
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"		"wind_blow"
+			}
+			"RunScript"
+			{
+				"ScriptFile"    "creature_ability/round_skywrath/tornado.lua"
+				"Function"      "big_blow_dot_over"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"         "creature_ability/round_skywrath/tornado.lua"
+				"Function"           "check_interrupt"
+				"Target"             "CASTER"
+			}
+		}
+		// Modifiers
+		//-------------------------------------------------------------------------------------------------------------
+		"Modifiers"
+		{
+			"wind_blow"
+			{
+				"Duration"				"20"
+				"ThinkInterval"				"1"
+
+				"OnIntervalThink"
+				{
+					"IsCasterAlive"
+					{
+						"OnSuccess"
+						{
+							"RunScript"
+							{
+								"ScriptFile"    "creature_ability/round_skywrath/tornado.lua"
+								"Function"      "big_blow_dot"
+							}
+
+							"RunScript"
+							{
+								"ScriptFile"        "creature_ability/round_skywrath/tornado.lua"
+								"Function"           "volly"
+								"Target"             "CASTER"
+								"FixedDistance"                 "6000"
+								"EffectName"                    "particles/units/heroes/hero_invoker/invoker_tornado.vpcf"
+								"MoveSpeed"                     "4"
+								"StartRadius"                   "110"
+								"EndRadius"                     "110"
+								"TargetTeams"                   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+								"TargetTypes"                   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+								"HasFrontalCone"                "1"
+								"ProvidesVision"                "1"
+								"VisionRadius"                  "400"
+							}
+							"FireSound"
+							{
+								"EffectName"                    "Hero_Invoker.Tornado"
+							}
+						}
+					}
+				}
+			}
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"FireSound"
+			{
+				"EffectName"                    "Hero_Invoker.Tornado.Cast"
+			}
+			"Knockback"
+			{
+				"Target"            "TARGET"
+				"Center"           "CASTER"
+				"Duration"         "0.6"
+				"Distance"         "220"
+				"Height"           "200"
+				"IsFixedDistance"   "0"
+				"ShouldStun"        "1"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"        "creature_ability/round_skywrath/tornado.lua"
+				"Function"          "vollyHit"
+				"Target"            "TARGET"
+				"BonusDamage"	    "%bonus_damage"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_damage"						"140"
+			}
+		}
+	}
+
+	"super_concussive"
+	{
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+		"BaseClass"				"ability_datadriven"
+		"AbilityTextureName"			"skywrath_mage_concussive_shot"
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"1800"
+		"AbilityCastAnimation"			   "ACT_DOTA_CAST_ABILITY_2"
+
+
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12.0"
+
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"180"
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
+			"particle"				"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot.vpcf"		// Attach for core
+		}
+
+		"OnSpellStart"
+		{
+			"Random"
+			{
+				"Chance"			"33"
+				"OnSuccess"
+				{
+					"FireSound"
+					{
+						"EffectName"	"skywrath_mage_drag_concussive_shot_01"
+						"Target"		"CASTER"
+					}
+				}
+				"OnFailure"
+				{
+					"Random"
+					{
+						"Chance"			"50"
+						"OnSuccess"
+						{
+							"FireSound"
+							{
+								"EffectName"	"skywrath_mage_drag_concussive_shot_02"
+								"Target"		"CASTER"
+							}
+						}
+						"OnFailure"
+						{
+							"FireSound"
+							{
+								"EffectName"	"skywrath_mage_drag_concussive_shot_03"
+								"Target"		"CASTER"
+							}
+						}
+					}
+				}
+			}
+            "RunScript"
+            {
+                   "ScriptFile"    "libraries/notifications.lua"
+				   "Function"      "BossAbilityDBM"
+            }
+			"TrackingProjectile"
+			{
+				"Target"			"TARGET"
+				"EffectName"		"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot.vpcf"
+				"EffectRadius"				"700"
+				"Dodgeable"			"0"
+				"ProvidesVision"	"1"
+				"VisionRadius"		"300"
+				"MoveSpeed"			"230"
+				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+
+			"FireSound"
+			{
+				"EffectName"	"Hero_SkywrathMage.ConcussiveShot.Cast"
+				"Target"		"CASTER"
+			}
+
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_SkywrathMage.ConcussiveShot.Target"
+				"Target"		"TARGET"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"                "creature_ability/round_skywrath/concussive.lua"
+				"Function"                  "Concussive_damage"
+				"Target"                    "TARGET"
+			}
+
+			"ApplyModifier"
+			{
+				"ModifierName"		"modifier_ability_unit_target"
+				"Target"
+				{
+					"Types"			"DOTA_UNIT_TARGET_BASIC|DOTA_UNIT_TARGET_HERO"
+					"teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"flags"			"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+					"Radius"	    "%radius"
+					"Center"	    "TARGET"
+				}
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_ability_unit_target"
+			{
+				"IsDebuff"		"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Duration"		"8"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "-60"
+				}
+			}
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"duration"		"2"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"radius"		"350"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"damage"		"100"
+			}
+		}
+	}
+
+    "fly_to_point"
+    {
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityBehavior"                                "DOTA_ABILITY_BEHAVIOR_POINT"
+        "BaseClass"                                       "ability_datadriven"
+        "AbilityTextureName"                              "invoker_emp"
+
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"                                "0.0"
+
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                                 "0.3"
+
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                                 "0"
+        "precache"
+         {
+	        "particle"          	"particles/econ/items/puck/puck_fairy_wing/puck_waning_rift_fairy_wing.vpcf"
+            "particle"          	"particles/econ/items/windrunner/windrunner_cape_cascade/windrunner_cape_cascade_ambient.vpcf"
+            "particle"          	"particles/units/heroes/hero_antimage/antimage_manavoid.vpcf"
+	        "soundfile"		"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
+            "soundfile"		"sounds/physics/movement/wings"
+        }
+
+        "OnSpellStart"
+        {
+            "FireSound"
+		    {
+		        "EffectName"                    "Hero_SkywrathMage.Wings"
+		    }
+            "RunScript"
+            {
+                "ScriptFile"         "creature_ability/round_skywrath/fly_to_point.lua"
+                "Function"           "fly_point"
+                "Target"             "POINT"
+            }
+
+            "ApplyModifier"
+            {
+                "ModifierName"         "modifier_fly_act"
+                "Target"                        "CASTER"
+            }
+
+            "ApplyModifier"
+            {
+                "ModifierName"                "modifier_phased"
+                "Target"                        "CASTER"
+            }
+            "ApplyModifier"
+            {
+                "Target"            "CASTER"
+                "ModifierName"      "modifier_fly_particle"
+            }
+
+            "CreateThinker"
+		    {
+				"ModifierName"	"aoe_blast_thinker"
+				"Target"		"POINT"
+		    }
+
+            "Knockback"
+            {
+                "Target"
+                {
+                    "Types"     "DOTA_UNIT_TARGET_BASIC|DOTA_UNIT_TARGET_HERO"
+                    "teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                    "flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+                    "Radius"    "650"
+                    "Center"    "POINT"
+                }
+                "Center"         "POINT"
+                "Duration"       "1.5"
+                "Distance"       "1000"
+                "Height"         "400"
+                "IsFixedDistance" "0"
+                "ShouldStun"      "1"
+            }
+        }
+
+        "Modifiers"
+        {
+            "modifier_fly_act"
+            {
+                "Duration"                "1.1"
+                "OverrideAnimation"       "ACT_DOTA_TELEPORT_END"
+            }
+            "modifier_fly_particle"
+            {
+                "Duration"          "2.0"
+                "EffectName"   "particles/econ/items/puck/puck_fairy_wing/puck_waning_rift_fairy_wing.vpcf"
+                "EffectName"   "particles/econ/items/windrunner/windrunner_cape_cascade/windrunner_cape_cascade_ambient.vpcf"
+            }
+            "aoe_blast_thinker"
+			{
+				"Duration"				"0.7"
+				"ThinkInterval"				"0.5"
+                "OnIntervalThink"
+				{
+                    "AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_antimage/antimage_manavoid.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"		"TARGET"
+
+						"ControlPoints"
+						{
+							"00"		"0 0 0"
+							"01"		"650 0 0"
+							"02"		"0 0 0"
+						}
+					}
+                }
+            }
+        }
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"        "FIELD_INTEGER"
+                "radius"                "650"
+            }
+        }
+    }
+
+    "skywrath_mage_mystic_flare_datadriven"
+    {
+	    "BaseClass"				    "ability_datadriven"
+	    "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	    "AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+	    "AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+	    "AbilityType"				"DOTA_ABILITY_TYPE_ULTIMATE"
+	    "SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+	    "FightRecapLevel"			"2"
+	    "AbilityTextureName"		"skywrath_mage_mystic_flare"
+	    "AOERadius"				    "400"
+        "MaxLevel"                                   "1"
+
+	    // Casting
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityCastRange"				"1700"
+	    "AbilityCastPoint"				"0.1"
+
+	    // Time
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityCooldown"				"18"
+
+	    // Cost
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityManaCost"				"250"
+
+	    // Special
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+	    	"01"
+	    	{
+	    		"var_type"				"FIELD_INTEGER"
+	    		"radius"				"400"
+	    	}
+	    	"02"
+	    	{
+	    		"var_type"				"FIELD_INTEGER"
+	    		"duration"				"6"
+	    	}
+	    	"03"
+	    	{
+	    		"var_type"				"FIELD_INTEGER"
+	    		"damage"				"1000"
+	    	}
+	    	"04"
+	    	{
+	    		"var_type"				"FIELD_FLOAT"
+	    		"damage_interval"		        "0.1"
+	    	}
+	    	"05"
+	    	{
+	    		"var_type"				"FIELD_FLOAT"
+	    		"scepter_cooldown"		        "20 10 0"
+	    	}
+	    }
+
+	    // Data driven
+	    //-------------------------------------------------------------------------------------------------------------
+	    "precache"
+	    {
+	    	"soundfile"				"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
+	    	"particle"				"particles/units/heroes/hero_skywrath_mage/skywrath_mage_mystic_flare_ambient.vpcf"
+            "particle"              "particles/econ/items/skywrath_mage/skywrath_mage_weapon_empyrean/skywrath_mage_mystic_flare_ambient_empyrean_gold.vpcf"
+	    }
+
+	    "OnSpellStart"
+	    {
+	    	"FireSound"
+	    	{
+	    		"Target"			"CASTER"
+	    		"EffectName"		"Hero_SkywrathMage.MysticFlare.Cast"
+	    	}
+
+	    	"RunScript"
+	    	{
+	    		"ScriptFile"		"heroes/hero_skywrath_mage/mystic_flare.lua"
+	    		"Function"			"mystic_flare_start"
+	    		"Target"			"POINT"
+	    	}
+	        "RunScript"
+            {
+                   "ScriptFile"    "libraries/notifications.lua"
+	    		   "Function"      "BossAbilityDBM"
+            }
+	    	"Random"
+	    	{
+	    		"Chance"			"50"
+	    		"OnSuccess"
+	    		{
+	    			"FireSound"
+	    			{
+	    				"Target"			"CASTER"
+	    				"EffectName"		"skywrath_mage_drag_mystic_flare_01"
+	    			}
+	    		}
+	    		"OnFailure"
+	    		{
+	    		    "FireSound"
+	    		    {
+	    				"Target"			"CASTER"
+	    				"EffectName"		"skywrath_mage_drag_mystic_flare_02"
+	    			}
+	    		}
+	    	}
+	    }
+
+	    "Modifiers"
+	    {
+		    "modifier_mystic_flare_dummy_vfx_datadriven"
+		    {
+			    "OnCreated"
+			    {
+			    	"FireSound"
+			    	{
+			    		"Target"				"CASTER"
+			    		"EffectName"			"Hero_SkywrathMage.MysticFlare"
+			    	}
+			    	// Main Effect
+			    	"AttachEffect"
+			    	{
+			    		"Target"				"TARGET"
+			    		"EffectName"			"particles/units/heroes/hero_skywrath_mage/skywrath_mage_mystic_flare_ambient.vpcf"
+			    		"EffectAttachType"		"follow_origin"
+			    		"EffectRadius"			"%radius"
+			    		"ControlPoints"
+			    		{
+			    			"01"			"0 %duration 0"
+			    		}
+			    	}
+                                    "AttachEffect"
+			    	{
+			    		"Target"				"TARGET"
+			    		"EffectName"			"particles/econ/items/skywrath_mage/skywrath_mage_weapon_empyrean/skywrath_mage_mystic_flare_ambient_empyrean_gold.vpcf"
+			    		"EffectAttachType"		"follow_origin"
+			    		"EffectRadius"			"%radius"
+			    		"ControlPoints"
+			    		{
+			    			"01"			"0 %duration 0"
+			    		}
+			    	}
+			    }
+
+			    "States"
+			    {
+			    	"MODIFIER_STATE_INVULNERABLE"					"MODIFIER_STATE_VALUE_ENABLED"
+			    	"MODIFIER_STATE_NO_HEALTH_BAR"					"MODIFIER_STATE_VALUE_ENABLED"
+			    	"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
+			    	"MODIFIER_STATE_NOT_ON_MINIMAP"					"MODIFIER_STATE_VALUE_ENABLED"
+			    	"MODIFIER_STATE_UNSELECTABLE"					"MODIFIER_STATE_VALUE_ENABLED"
+			    }
+		    }
+	    }
+    }
+
+    "skywrath_mage_ancient_seal_datadriven"
+    {
+	    "BaseClass"				"ability_datadriven"
+	    "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+	    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	    "SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+	    "AbilityTextureName"			"skywrath_mage_ancient_seal"
+
+
+	    // Casting
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityCastRange"				"700"
+	    "AbilityCastPoint"				"0.1 0.1 0.1 0.1"
+
+	    // Time
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityCooldown"				"12"
+
+	    // Cost
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityManaCost"				"80"
+
+	    // Special
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+	    	"01"
+	    	{
+	    		"var_type"				"FIELD_INTEGER"
+	    		"resist_debuff"	        "-20"
+	    	}
+	    	"02"
+	    	{
+	    		"var_type"				"FIELD_INTEGER"
+	    		"seal_duration"	        "5"
+	    	}
+	    }
+
+	    // Data driven
+	    //-------------------------------------------------------------------------------------------------------------
+	    "precache"
+	    {
+	    	"soundfile"			"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
+	    	"particle"			"particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_debuff_rune.vpcf"
+        "particle"			"particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_debuff.vpcf"
+	    }
+
+	    "OnSpellStart"
+	    {
+	    	"FireSound"
+	    	{
+	    		"Target"		"TARGET"
+	    		"EffectName"	"Hero_SkywrathMage.AncientSeal.Target"
+	    	}
+
+	    	"Random"
+	    	{
+	    		"Chance"			"33"
+	    		"OnSuccess"
+	    		{
+	    			"FireSound"
+	    			{
+	    				"Target"		"CASTER"
+	    				"EffectName"	"skywrath_mage_drag_ancient_seal_01"
+	    			}
+	    		}
+	    		"OnFailure"
+	    		{
+	    			"Random"
+	    			{
+	    				"Chance"			"50"
+	    				"OnSuccess"
+	    				{
+	    					"FireSound"
+	    					{
+	    						"Target"		"CASTER"
+	    				        "EffectName"	"skywrath_mage_drag_ancient_seal_02"
+	    					}
+	    				}
+	    				"OnFailure"
+	    				{
+	    					"FireSound"
+	    					{
+	    						"Target"		"CASTER"
+	    				        "EffectName"	"skywrath_mage_drag_ancient_seal_03"
+	    					}
+	    				}
+	    			}
+	    		}
+	    	}
+
+	    	"ApplyModifier"
+	    	{
+	    		"Target"
+	    		{
+	    			"Center"	"TARGET"
+	    			"Types"		"DOTA_UNIT_TARGET_HERO"
+	    		}
+	    		"ModifierName"	"modifier_ancient_seal_hero_debuff_datadriven"
+	    	}
+
+	    	"ApplyModifier"
+	    	{
+	    		"Target"
+	    		{
+	    			"Center"	"TARGET"
+	    			"Types"		"DOTA_UNIT_TARGET_BASIC"
+	    		}
+	    		"ModifierName"	"modifier_ancient_seal_basic_debuff_datadriven"
+	    	}
+	    }
+
+	    "Modifiers"
+	    {
+		    "modifier_ancient_seal_hero_debuff_datadriven"
+		    {
+		    	"Duration"				"%seal_duration"
+		    	"OnCreated"
+		    	{
+		    		"AttachEffect"
+		    		{
+		    			"Target"				"TARGET"
+		    			"EffectName"			"particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_debuff_rune.vpcf"
+		    			"EffectAttachType"		"start_at_customorigin"
+		    			"ControlPointEntities"
+		    			{
+		    				"TARGET"			"attach_origin"
+		    			}
+		    		}
+		    	}
+		    	"Properties"
+		    	{
+		    		"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%resist_debuff"
+		    	}
+
+		    	"States"
+		    	{
+		    		"MODIFIER_STATE_SILENCED"						"MODIFIER_STATE_VALUE_ENABLED"
+		    	}
+		    }
+
+		    "modifier_ancient_seal_basic_debuff_datadriven"
+		    {
+			    "Duration"				"%seal_duration"
+
+			    "OnCreated"
+			    {
+			    	"AttachEffect"
+			    	{
+			    		"Target"				"TARGET"
+			    		"EffectName"			"particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_debuff_rune.vpcf"
+			    		"EffectAttachType"		"start_at_customorigin"
+			    		"ControlPointEntities"
+			    		{
+			    			"TARGET"			"attach_origin"
+			    		}
+			    	}
+			    }
+
+			    "States"
+			    {
+			    	"MODIFIER_STATE_SILENCED"						"MODIFIER_STATE_VALUE_ENABLED"
+			    }
+		    }
+	    }
+    }
+
+	"sky_gold_bag_fountain"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"item_hand_of_midas"
+
+		"OnOwnerDied"
+		{
+			"CreateItem"
+			{
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+				"ItemName"			"item_bag_of_gold_tws"
+				"ItemCount"			"%bag_count"
+				"SpawnRadius"		"25"
+				"ItemChargeCount"	"%gold_value"
+				"AutoUse"			"1"
+				"LaunchHeight"		"300"
+				"LaunchDistance"	"?50 750"
+				"LaunchDuration"	"0.75"
+			}
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"gold_value"	        "130"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bag_count"				"35"
+			}
+		}
+	}
+
+    "creature_sky_stun"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"					"ability_datadriven"
+        "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityTextureName"                        "juggernaut_omni_slash"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitDamageType"                         "DAMAGE_TYPE_PURE"
+        "AbilityUnitTargetTeam"                    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetFlags"		   "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"                                "0.0"
+        "AbilityCastRange"				  "1600"
+
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                                "20"
+
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                                "0"
+        "precache"
+        {
+	       "particle"          	 "particles/units/heroes/hero_oracle/oracle_fortune_purge.vpcf"
+        }
+        "OnSpellStart"
+        {
+            "ApplyModifier"
+		    {
+				"ModifierName"	        "modifier_rooted"
+				"Target"		"TARGET"
+		    }
+        }
+        "Modifiers"
+		{
+
+		    "modifier_rooted"
+			{
+				"IsDebuff"		"1"
+				"Duration"		"7"
+                "OnCreated"
+                {
+                    "AttachEffect"
+				    {
+				        "EffectName"		"particles/units/heroes/hero_oracle/oracle_fortune_purge.vpcf"
+				        "EffectAttachType"	"follow_chest"
+				        "Target"		"TARGET"
+				    }
+                }
+				"States"
+		        {
+                    "MODIFIER_STATE_ROOTED"	"MODIFIER_STATE_VALUE_ENABLED"
+                }
+			}
+		}
+	}
+}

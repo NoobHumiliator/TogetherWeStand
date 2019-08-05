@@ -9,7 +9,7 @@ behaviorSystem = {} -- create the global so we can assign to it
 function Spawn( entityKeyValues )
 	if  thisEntity:GetTeam()==DOTA_TEAM_BADGUYS then
 	  thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
-      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone , BehaviorLight_Strike , BehaviorStatic_Link} ) 
+      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone , BehaviorLight_Strike , BehaviorStatic_Link} )
     end
 end
 
@@ -27,16 +27,9 @@ end
 function BehaviorNone:Begin()
 	self.endTime = GameRules:GetGameTime() + 1
 	self.target=nil
-	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 		if #allEnemies > 0 then
-			local minDistance = 10000000
-			for _,enemy in pairs(allEnemies) do
-				local distance = ( thisEntity:GetOrigin() - enemy:GetOrigin() ):Length()
-				if distance < minDistance then
-				  minDistance=distance
-                  self.target=enemy
-				end
-			end
+			self.target = allEnemies[1]
 		end
 
 
@@ -76,7 +69,7 @@ function BehaviorLight_Strike:Evaluate()
 
 	if target then
 		desire = 6
-		self.target = target	
+		self.target = target
 	end
 	return desire
 end
@@ -90,7 +83,7 @@ function BehaviorLight_Strike:Begin()
 		AbilityIndex = self.strikeAbility:entindex(),
 		TargetIndex = self.target:entindex()
 	}
-end 
+end
 
 BehaviorLight_Strike.Continue = BehaviorLight_Strike.Begin
 --------------------------------------------------------------------------------------------------------
@@ -106,12 +99,12 @@ function BehaviorStatic_Link:Evaluate()
 		local range = self.staticlinkAbility:GetCastRange()
 		target = AICore:RandomEnemyHeroInRange( thisEntity, range )
 	end
-         
-	if self.staticlinkAbility and self.staticlinkAbility:IsFullyCastable() and target then   
+
+	if self.staticlinkAbility and self.staticlinkAbility:IsFullyCastable() and target then
 		desire = 7
 		self.target = target
         local targetPoint = self.target:GetOrigin()
-	
+
 	    self.order =
 	    {
 		UnitIndex = thisEntity:entindex(),
@@ -128,7 +121,7 @@ end
 
 function BehaviorStatic_Link:Begin()
 	self.endTime = GameRules:GetGameTime() + 1
-end 
+end
 
 BehaviorStatic_Link.Continue = BehaviorStatic_Link.Begin --if we re-enter this ability, we might have a different target; might as well do a full reset
 --------------------------------------------------------------------------------------------------------

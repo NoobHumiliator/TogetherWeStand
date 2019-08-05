@@ -3,14 +3,14 @@ require( "util" )
 function LevelupShield( keys )
 	local caster = keys.caster
     local target = keys.target
-    
+
 
     if alreadyCached['npc_precache_courier_shield_datadriven']==true then
-    else				
+    else
       alreadyCached['npc_precache_courier_shield_datadriven'] = true
       PrecacheUnitByNameAsync('npc_precache_courier_shield_datadriven', function() end)
     end
-    
+
     RemoveRedundantAbility(target)
 
     if target:HasAbility("courier_shield") then
@@ -26,7 +26,7 @@ function LevelupShield( keys )
   			target:FindAbilityByName("courier_shield_datadriven"):SetLevel(abilityLevel+1)
   	    end
    end
-	 
+
     --target:SwapAbilities("courier_shield_datadriven","damage_counter",true,true)
     ReportHeroAbilities(target)
 
@@ -36,7 +36,7 @@ end
 function LevelupShield( keys )
     local caster = keys.caster
     local target = keys.target
-    
+
     --移除掉多余技能
     RemoveRedundantCourierAbility(target)
 
@@ -52,6 +52,6 @@ function LevelupShield( keys )
     end
 
     ReportHeroAbilities(target)
-    
+
 end
 

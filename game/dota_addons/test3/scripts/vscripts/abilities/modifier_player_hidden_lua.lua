@@ -3,129 +3,126 @@ modifier_player_hidden_lua = class({})
 
 
 function modifier_player_hidden_lua:DeclareFunctions()
-	local funcs = {
-	MODIFIER_EVENT_ON_HEALTH_GAINED,
-  MODIFIER_EVENT_ON_HEAL_RECEIVED,
-  MODIFIER_EVENT_ON_TAKEDAMAGE
-}
-  return funcs
+    local funcs = {
+        MODIFIER_EVENT_ON_HEALTH_GAINED,
+        MODIFIER_EVENT_ON_HEAL_RECEIVED,
+        MODIFIER_EVENT_ON_TAKEDAMAGE
+    }
+    return funcs
 end
 
 
 function modifier_player_hidden_lua:IsHidden()
-  return true
+    return true
 end
 
 
-hp_exempt_table={} --治疗类排除表 这些技能不受治疗增幅
-hp_exempt_table["item_datadriven"]=true  --大吸血面具
-hp_exempt_table["item_octarine_core"]=true --玲珑心
-hp_exempt_table["special_bonus_spell_lifesteal_20"]=true --女王吸血
-hp_exempt_table["special_bonus_spell_lifesteal_70"]=true --TK吸血
-hp_exempt_table["broodmother_insatiable_hunger"]=true  --蜘蛛吸血
-hp_exempt_table["item_satanic"]=true  --撒旦
-hp_exempt_table["item_mask_of_madness"]=true  --疯狂面具
-hp_exempt_table["item_vladmir"]=true  --祭品
-hp_exempt_table["life_stealer_feast"]=true  --盛宴
-hp_exempt_table["skeleton_king_vampiric_aura"]=true  --吸血光环
-hp_exempt_table["abaddon_borrowed_time"]=true  --回光返照
+hp_exempt_table = {} --治疗类排除表 这些技能不受治疗增幅
+hp_exempt_table["item_datadriven"] = true  --大吸血面具
+hp_exempt_table["item_octarine_core"] = true --玲珑心
+hp_exempt_table["special_bonus_spell_lifesteal_20"] = true --女王吸血
+hp_exempt_table["special_bonus_spell_lifesteal_70"] = true --TK吸血
+hp_exempt_table["broodmother_insatiable_hunger"] = true  --蜘蛛吸血
+hp_exempt_table["item_satanic"] = true  --撒旦
+hp_exempt_table["item_mask_of_madness"] = true  --疯狂面具
+hp_exempt_table["item_vladmir"] = true  --祭品
+hp_exempt_table["life_stealer_feast"] = true  --盛宴
+hp_exempt_table["skeleton_king_vampiric_aura"] = true  --吸血光环
+hp_exempt_table["abaddon_borrowed_time"] = true  --回光返照
 
-function modifier_player_hidden_lua:OnTakeDamage( event )
-     
-     --PrintTable( event )
+function modifier_player_hidden_lua:OnTakeDamage(event)
 
-     if event.unit == self:GetParent() then
-         
+    --PrintTable( event )
+    if event.unit == self:GetParent() then
+
         -- 受伤害龙心进入CD
-        if self:GetParent():HasItemInInventory("item_heart") or self:GetParent():HasItemInInventory("item_heart_2")  then
-            for i=0,8 do
-              local itemAbility=self:GetParent():GetItemInSlot(i)
-              if itemAbility~=nil then
-                  if itemAbility:GetAbilityName()=="item_heart" or itemAbility:GetAbilityName()=="item_heart_2" then
-                     local heartCooldown=itemAbility:GetCooldown(1)
-                     itemAbility:StartCooldown(heartCooldown)
-                  end
-              end
+        if self:GetParent():HasItemInInventory("item_heart") or self:GetParent():HasItemInInventory("item_heart_2") then
+            for i = 0, 8 do
+                local itemAbility = self:GetParent():GetItemInSlot(i)
+                if itemAbility ~= nil then
+                    if itemAbility:GetAbilityName() == "item_heart" or itemAbility:GetAbilityName() == "item_heart_2" then
+                        local heartCooldown = itemAbility:GetCooldown(1)
+                        itemAbility:StartCooldown(heartCooldown)
+                    end
+                end
             end
         end
 
-     end
+    end
 
 end
 
 
 
-function modifier_player_hidden_lua:OnHealReceived( keys ) 
+function modifier_player_hidden_lua:OnHealReceived(keys)
 
-    if IsServer()  and keys.unit == self:GetParent() then
+    if IsServer() and keys.unit == self:GetParent() then
 
-      local parent = self:GetParent()
-      local unit=keys.unit
-      local gain=keys.gain
-      local ability=self:GetAbility()
-      local overflow=gain+parent:GetHealth()-parent:GetMaxHealth()
-      if overflow<0 then
-       overflow=0
-      end
-      local effective=gain-overflow --有效治疗量
-      local effective_for_statistics=effective  --有效治疗负责统计
+        local parent = self:GetParent()
+        local unit = keys.unit
+        local gain = keys.gain
+        local ability = self:GetAbility()
+        local overflow = gain + parent:GetHealth() - parent:GetMaxHealth()
+        if overflow < 0 then
+            overflow = 0
+        end
+        local effective = gain - overflow --有效治疗量
+        local effective_for_statistics = effective  --有效治疗负责统计
 
-      if unit:HasModifier( "modifier_necrotic_stack" ) then  --先处理死疽
-          local necrotic_stack = unit:GetModifierStackCount( "modifier_necrotic_stack", nil)
-          if necrotic_stack>100 then
-            necrotic_stack=100
-          end 
-
-          local damage= effective* (necrotic_stack * 0.01)   --有效治疗乘以死疽层数
-          local old_hp = unit:GetHealth()
-          local new_hp = old_hp - damage
-          effective=effective-damage --有效治疗量扣除死疽伤害
-          effective_for_statistics=effective_for_statistics-damage
-
-          if unit:IsAlive() then
-            if new_hp < 1.000000 then
-              unit:Kill(ability, unit)
-            else
-              unit:SetHealth(new_hp)
+        if unit:HasModifier("modifier_necrotic_stack") then  --先处理死疽
+            local necrotic_stack = unit:GetModifierStackCount("modifier_necrotic_stack", nil)
+            if necrotic_stack > 100 then
+                necrotic_stack = 100
             end
-          end     
-      end
-      
-      if keys.inflictor then  --处理治疗增益
-             local healer
-             if keys.inflictor.GetCaster then
-             healer=keys.inflictor:GetCaster()
-             elseif  keys.inflictor.GetUnitName then
-               healer=keys.inflictor
-             end
 
-             local healerMultiple=0
-             if healer:HasModifier("modifier_item_healer_3") then
-                healerMultiple =4.0
-              else
-                if healer:HasModifier("modifier_item_healer_2") then
-                  healerMultiple =2.7
+            local damage = effective * (necrotic_stack * 0.01)   --有效治疗乘以死疽层数
+            local old_hp = unit:GetHealth()
+            local new_hp = old_hp - damage
+            effective = effective - damage --有效治疗量扣除死疽伤害
+            effective_for_statistics = effective_for_statistics - damage
+
+            if unit:IsAlive() then
+                if new_hp < 1 then
+                    unit:Kill(ability, unit)
                 else
-                  if healer:HasModifier("modifier_item_healer_1") then
-                    healerMultiple=1.4
-                  end
+                    unit:SetHealth(new_hp)
                 end
-             end
-             if healerMultiple>0  and not hp_exempt_table[keys.inflictor:GetClassname()] then   
-                local bonus_heal=math.ceil(effective*healerMultiple*healer:GetIntellect()/100)
-                local current_health=unit:GetHealth()
-                local max_health=unit:GetMaxHealth()
-                if (current_health+bonus_heal)>max_health then
-                  bonus_heal=max_health-current_health
-                  unit:SetHealth(unit:GetMaxHealth())
+            end
+        end
+
+        if keys.inflictor then  --处理治疗增益
+            local healer
+            if keys.inflictor.GetCaster then
+                healer = keys.inflictor:GetCaster()
+            elseif keys.inflictor.GetUnitName then
+                healer = keys.inflictor
+            end
+
+            local healerMultiple = 0
+            if healer:HasModifier("modifier_item_healer_3") then
+                local ability = healer:FindModifierByName("modifier_item_healer_3"):GetAbility();
+                healerMultiple = ability:GetSpecialValueFor("healer_bonus_per_int")
+            elseif healer:HasModifier("modifier_item_healer_2") then
+                local ability = healer:FindModifierByName("modifier_item_healer_2"):GetAbility();
+                healerMultiple = ability:GetSpecialValueFor("healer_bonus_per_int")
+            elseif healer:HasModifier("modifier_item_healer_1") then
+                local ability = healer:FindModifierByName("modifier_item_healer_1"):GetAbility();
+                healerMultiple = ability:GetSpecialValueFor("healer_bonus_per_int")
+            end
+            if healerMultiple > 0 and not hp_exempt_table[keys.inflictor:GetClassname()] then
+                local bonus_heal = math.ceil(effective * healerMultiple * healer:GetIntellect() / 100)
+                local current_health = unit:GetHealth()
+                local max_health = unit:GetMaxHealth()
+                if (current_health + bonus_heal) > max_health then
+                    bonus_heal = max_health - current_health
+                    unit:SetHealth(unit:GetMaxHealth())
                 else
-                  local set_health=current_health+bonus_heal
-                  --unit:SetHealth(set_health)
-                  unit:Heal(bonus_heal,nil)
+                    local set_health = current_health + bonus_heal
+                    --unit:SetHealth(set_health)
+                    unit:Heal(bonus_heal, nil)
                 end
-                effective_for_statistics=effective_for_statistics+bonus_heal --下一次治疗找不到治疗者，拿直接统计在这里
-                --[[
-                 if gain>50 then
+                effective_for_statistics = effective_for_statistics + bonus_heal --下一次治疗找不到治疗者，拿直接统计在这里
+            --[[                 if gain>50 then
                    print("inflictor class"..keys.inflictor:GetClassname())
                    print(keys.inflictor:GetClassname())
                    print("healer"..healer:GetUnitName())
@@ -137,61 +134,60 @@ function modifier_player_hidden_lua:OnHealReceived( keys )
                    print("-------------------------------------------------------------")
                  end
                  ]]
-             end
+            end
             --统计治疗量
-            if healer~=nil and healer:GetTeamNumber()==DOTA_TEAM_GOODGUYS then
-                local playerid=nil
+            if healer ~= nil and healer:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+                local playerid = nil
                 if healer:GetOwner() then
-                  playerid=healer:GetOwner():GetPlayerID()
+                    playerid = healer:GetOwner():GetPlayerID()
                 end
-                if playerid==nil then
-                 print("healer"..healer:GetUnitName().."has no playerid")
+                if playerid == nil then
+                    print("healer" .. healer:GetUnitName() .. "has no playerid")
                 end
-                local game_mode=GameRules:GetGameModeEntity().CHoldoutGameMode
+                local game_mode = GameRules:GetGameModeEntity().CHoldoutGameMode
                 if game_mode._currentRound and playerid then
-                 game_mode._currentRound._vPlayerStats[playerid].nTotalHeal=game_mode._currentRound._vPlayerStats[playerid].nTotalHeal+effective_for_statistics
+                    game_mode._currentRound._vPlayerStats[playerid].nTotalHeal = game_mode._currentRound._vPlayerStats[playerid].nTotalHeal + effective_for_statistics
                 end
             end
             --统计结束
+        end
 
-       end
-       
 
-      if unit:HasModifier("modifier_overflow_show") and overflow>0 then  --处理溢出
-        print("overflow"..overflow)
-           if unit.heal_absorb==nil then
-             unit.heal_absorb=overflow
-           else
-             unit.heal_absorb=unit.heal_absorb+overflow
-             local stack=math.floor(unit.heal_absorb/100)
-             ability:ApplyDataDrivenModifier( unit, unit, "modifier_overflow_stack", {} )
-             unit:SetModifierStackCount( "modifier_overflow_stack", ability, stack )
-           end
-      end
+        if unit:HasModifier("modifier_overflow_show") and overflow > 0 then  --处理溢出
+            print("overflow" .. overflow)
+            if unit.heal_absorb == nil then
+                unit.heal_absorb = overflow
+            else
+                unit.heal_absorb = unit.heal_absorb + overflow
+                local stack = math.floor(unit.heal_absorb / 100)
+                ability:ApplyDataDrivenModifier(unit, unit, "modifier_overflow_stack", {})
+                unit:SetModifierStackCount("modifier_overflow_stack", ability, stack)
+            end
+        end
 
-      if unit.heal_absorb~=nil and effective>0 then  --处理溢出的吸收量
+        if unit.heal_absorb ~= nil and effective > 0 then  --处理溢出的吸收量
 
-           local damage=math.min(unit.heal_absorb, effective)
-           unit.heal_absorb=unit.heal_absorb-damage
-           local damage_table = {}
+            local damage = math.min(unit.heal_absorb, effective)
+            unit.heal_absorb = unit.heal_absorb - damage
+            local damage_table = {}
             damage_table.attacker = self:GetCaster()
             damage_table.victim = unit
             damage_table.damage_type = DAMAGE_TYPE_PURE
             damage_table.ability = self:GetAbility()
             damage_table.damage = damage
             damage_table.damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
-            if unit:GetHealth()/unit:GetMaxHealth()<0.999 then
-               ApplyDamage(damage_table)  --满血不造成伤害
+            if unit:GetHealth() / unit:GetMaxHealth() < 0.999 then
+                ApplyDamage(damage_table)  --满血不造成伤害
             end
-           if unit.heal_absorb~=nil and unit.heal_absorb>0 then
-              local stack=math.floor(unit.heal_absorb/100)
-              ability:ApplyDataDrivenModifier( unit, unit, "modifier_overflow_stack", {} )
-              unit:SetModifierStackCount( "modifier_overflow_stack", ability, stack )
-           else
-              unit:RemoveModifierByName("modifier_overflow_stack")
-              unit.heal_absorb=nil
-           end
-      end 
+            if unit.heal_absorb ~= nil and unit.heal_absorb > 0 then
+                local stack = math.floor(unit.heal_absorb / 100)
+                ability:ApplyDataDrivenModifier(unit, unit, "modifier_overflow_stack", {})
+                unit:SetModifierStackCount("modifier_overflow_stack", ability, stack)
+            else
+                unit:RemoveModifierByName("modifier_overflow_stack")
+                unit.heal_absorb = nil
+            end
+        end
 
     end --IsServer
 end

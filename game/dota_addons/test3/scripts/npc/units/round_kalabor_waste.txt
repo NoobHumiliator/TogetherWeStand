@@ -1,0 +1,615 @@
+"DOTAUnits"
+{
+    "npc_dota_creature_centaur_warlord"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_kalabor_waste/creature_centaur_warlord_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/centaurs/centaur_001.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"20"
+		"ModelScale" 				"1.4"
+		"ConsideredHero"			"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"creature_centaur_warlord_hoof_stomp"
+		"Ability2"					"creature_centaur_warlord_double_edge"
+		"Ability3"					"creature_centaur_warlord_return"
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"25"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"825"
+		"AttackDamageMax"			"875"
+		"AttackRate"				"1.4"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"750"
+		"AttackRange"				"130"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"65"
+		"HealthBarOffset"			"410"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"120"
+		"BountyGoldMax"				"150"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"350"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"20000"
+		"StatusHealthRegen"			"20"
+		"StatusMana"				"4500"
+		"StatusManaRegen"			"40"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"700"
+		"VisionNighttimeRange"		"700"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		//Inventory
+		"HasInventory"				"1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+
+			"DisableResistance"			"100.0"
+
+			"EquippedItems"
+			{
+				"PowerTreads"
+				{
+					"Item"					"item_power_treads"
+				}
+				"Blademail"
+				{
+					"Item"					"item_blade_mail"
+				}
+			}
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"6569" // weapon: Double Edge of the Unbroken Stallion (6311, Axe of the Warstomp Clan) (4535 Horned Mother)
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"8479" // shoulders: Armor of the Warstomp Clan
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"6211" // belt: Belt of the Warstomp Clan
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"6209" // back: Shields of the Warstomp Clan
+				}
+				"Wearable5"
+				{
+					"ItemDef"			"6207" // bracers: Bracers of the Warstomp Clan
+				}
+				"Wearable6"
+				{
+					"ItemDef"			"6208" // tail: Tail of the Warstomp Clan
+				}
+				"Wearable7"
+				{
+					"ItemDef"			"8240" // helm
+				}
+			}
+		}
+	}
+
+    "npc_dota_creature_centaur_scout"
+	{
+		// Script
+		"vscripts"			       "creature_ai/zombie_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/centaurs/centaur_001.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"10"
+		"ModelScale" 				"0.65"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					""
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"300"
+		"AttackDamageMax"			"330"
+		"AttackRate"				"1.2"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"750"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"45"
+		"HealthBarOffset"			"190"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"100"
+		"BountyGoldMin"				"90"
+		"BountyGoldMax"				"110"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"370"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"
+		"StatusHealthRegen"			"5"
+		"StatusMana"				"1000"
+		"StatusManaRegen"			"10"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"700"
+		"VisionNighttimeRange"		"700"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"PathfindingSearchDepthScale"		"0.1"
+
+		//Inventory
+		"HasInventory"				"1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			//Basic AI State
+			//-----------------------------------------------------------------
+			"DefaultState"			"Invade"
+			"States"
+			{
+				"Invade"
+				{
+					"Name"			"Invade"
+					"Aggression"	"50.0"
+					"Avoidance"		"0.0"
+					"Support"		"0.0"
+				}
+			}
+		}
+	}
+
+    "npc_dota_creature_centaur_dunerunner"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_kalabor_waste/creature_centaur_dunerunner_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/centaurs/centaur_002.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"15"
+		"ModelScale" 				"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"creature_dunerunner_earthbind"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"430"
+		"AttackDamageMax"			"480"
+		"AttackRate"				"1.2"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"750"
+		"AttackRange"				"110"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"65"
+		"HealthBarOffset"			"240"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"30"
+		"BountyGoldMax"				"40"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"350"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"3000"
+		"StatusHealthRegen"			"8"
+		"StatusMana"				"1000"
+		"StatusManaRegen"			"10"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"700"
+		"VisionNighttimeRange"		"700"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"PathfindingSearchDepthScale"		"0.1"
+
+		//Inventory
+		"HasInventory"				"1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"6958"
+				}
+				"Wearable1"
+				{
+					"ItemDef"			"8248"
+				}
+				"Wearable1"
+				{
+					"ItemDef"			"5080"
+				}
+				"Wearable1"
+				{
+					"ItemDef"			"6963"
+				}
+			}
+		}
+	}
+
+    "npc_dota_creature_centaur_shaman"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_kalabor_waste/creature_centaur_shaman_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/centaurs/centaur_003_shaman.vmdl"
+		"ModelScale" 				"0.9"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"18"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"creature_centaur_shaman_ranged_attack"
+		"Ability2"					"creature_centaur_shaman_shadow_word"
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"15"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackRate"				"0"
+		"AttackAnimationPoint"		"0"
+		"AttackAcquisitionRange"	"750"
+		"AttackRange"				"650"
+		"ProjectileModel"			"particles/units/heroes/hero_dazzle/dazzle_base_attack.vpcf"
+		"ProjectileSpeed"			"700"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"65"
+		"HealthBarOffset"			"290"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"350"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"6500"
+		"StatusHealthRegen"			"8"
+		"StatusMana"				"3000"
+		"StatusManaRegen"			"10"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		//Inventory
+		"HasInventory"				"1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"8757"
+				}
+
+			}
+		}
+	}
+
+	"npc_dota_creature_giant_burrower"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_kalabor_waste/creature_giant_burrower_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/nerubian_assassin/nerubian_assassin.vmdl"
+		"SoundSet"					"Hero_NyxAssassin"
+		"Level"						"25"
+		"ModelScale" 				"2.3"
+		"ConsideredHero"			"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"creature_giant_nyx_burrower_impale"
+		"Ability2"					"creature_giant_nyx_burrower_minion_spawner"
+		"Ability3"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"25"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"900"
+		"AttackDamageMax"			"1000"
+		"AttackRate"				"1.55"
+		"AttackAnimationPoint"		"0.46"
+		"AttackAcquisitionRange"	"1000"
+		"AttackRange"				"150"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"65"
+		"HealthBarOffset"			"260"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"150"
+		"BountyGoldMax"				"200"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"300"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"20000"
+		"StatusHealthRegen"			"3"
+		"StatusMana"				"2800"
+		"StatusManaRegen"			"30"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1000"
+		"VisionNighttimeRange"		"1000"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		//Inventory
+		"HasInventory"				"1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+
+			"DisableResistance"			"100.0"
+
+			"EquippedItems"
+			{
+				"Aghanims"
+				{
+					"Item"				"item_ultimate_scepter"
+				}
+			}
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"4796" // weapon: Claws of the Hidden Hive
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"578" // misc: Nyx's Miscellaneous
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"4795" // head: Horn of the Hidden Hive
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"4797" // back: Shell of the Hidden Hive
+				}
+			}
+		}
+	}
+
+    "npc_dota_creature_exploding_burrower"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_kalabor_waste/creature_exploding_burrower_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/nyx_swarm/nyx_swarm.vmdl"
+		"SoundSet"					"Hero_NyxAssassin"
+		"Level"						"5"
+		"ModelScale" 				"0.7"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"creature_burrower_explosion"
+		"Ability2"					""
+		"Ability3"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"25"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"1"
+		"AttackDamageMax"			"1"
+		"AttackRate"				"1.55"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"1000"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"25"
+		"HealthBarOffset"			"150"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"450"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"500"
+		"StatusHealthRegen"			"25"
+		"StatusMana"				"1000"
+		"StatusManaRegen"			"30"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"750"
+		"VisionNighttimeRange"		"750"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+
+			"DisableClumpingBehavior"	"1"
+		}
+	}
+}

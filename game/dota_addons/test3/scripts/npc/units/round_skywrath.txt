@@ -1,0 +1,148 @@
+"DOTAUnits"
+{
+    "npc_dota_boss_sky"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/heroes/skywrath_mage/skywrath_mage.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"ModelScale"				        "1.5"
+		"Level"						        "10"
+		"ConsideredHero"			        "1"
+
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"350"
+
+		"SoundSet"				"Hero_SkywrathMage"								// Name of sound set.
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
+
+		// Inventory
+		//----------------------------------------------------------------
+		"HasInventory"				"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"				       "5"
+		"Ability1"					"big_wind"	// Ability 1.
+		"Ability2"					"super_concussive"		        // Ability 2.
+		"Ability3"					"fly_to_point"			        // Ability 3.
+		"Ability4"					"skywrath_mage_mystic_flare_datadriven"			// Ability 4.
+		"Ability5"					"skywrath_mage_ancient_seal_datadriven"	// Ability 5.
+		"Ability6"					"sky_gold_bag_fountain"		        // Ability 6 - Extra.
+		"Ability7"					""			// Ability 7 - Extra.
+		"Ability8"					"creature_sky_stun"			// Ability 8 - Extra.
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"15"			// Physical protection.
+		"MagicalResistance"			"25"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		     "DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"88"		// Damage range min.
+		"AttackDamageMax"			"108"		// Damage range max.
+		"AttackRate"				"1.4"		// Speed of attack.
+		"AttackAnimationPoint"		        "0.2"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	        "600"		// Range within a target can be acquired.
+		"AttackRange"				"600"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_skywrath_mage/skywrath_mage_base_attack.vpcf"			// Particle system model for projectile.
+		"ProjectileSpeed"			"1600"			// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"				"100"		// Experience earn.
+		"BountyGoldMin"				"200"		// Gold earned min.
+		"BountyGoldMax"				"200"		// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"300"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		  "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"400"		// Speed
+		"MovementTurnRate"			"0.4"		// Turning rate.
+
+
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
+		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_skywrath_mage.vsndevts"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"9600"		// Base health.
+		"StatusHealthRegen"			"2.0"		// Health regeneration rate.
+		"StatusMana"				"1000"		// Base mana.
+		"StatusManaRegen"			"50.0"		// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
+
+		"vscripts"					"creature_ai/round_skywrath/bosssky_ai.lua"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"
+
+			"EquippedItems"
+			{
+			}
+                        
+			"DisableResistance"			"85.0"
+
+			//Level Up Parameters
+			//-----------------------------------------------------------------
+			"HPGain"				"500"
+			"DamageGain"				"25"
+			"ArmorGain"				"1"
+			"MagicResistGain"			"1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"100"
+
+			"DefaultState"				"Invade"
+            "AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"5448"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"5455"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"5456"
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"5457"
+				}
+                                "Wearable5"
+				{
+					"ItemDef"			"5458"
+				}
+                                "Wearable6"
+				{
+					"ItemDef"			"5551"
+				}
+			}
+
+		}
+	}
+}

@@ -1,0 +1,364 @@
+"DOTAUnits"
+{
+    "npc_dota_boss_mag_hp_bonus"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/heroes/magnataur/magnataur.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"ModelScale"				"2.0"
+		"Level"						"18"
+		"ConsideredHero"			"1"
+
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"350"
+
+		"SoundSet"					"Hero_SkywrathMage"								// Name of sound set.
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts"
+
+		// Inventory
+		//----------------------------------------------------------------
+		"HasInventory"				"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"				"4"
+		"Ability1"					"charge_to_unit"	// Ability 1.
+		"Ability2"					"creature_reverse_polarity"		        // Ability 2.
+		"Ability3"					"mag_melee_smash"			// Ability 3.
+		"Ability4"					"mag_kill_them_all"			// Ability 4.
+        "Ability5"					"generic_gold_bag_fountain_6500"			// Ability 4.
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"42"			// Physical protection.
+		"MagicalResistance"			"35"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"152"		// Damage range min.
+		"AttackDamageMax"			"168"		// Damage range max.
+		"AttackRate"				"1.25"		// Speed of attack.
+		"AttackAnimationPoint"		        "0.2"		// Normalized time in animation cycle to attack.
+		"AttackRange"				"180"		// Range within a target can be attacked.
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"				"100"		// Experience earn.
+		"BountyGoldMin"				"200"		// Gold earned min.
+		"BountyGoldMax"				"200"		// Gold earned max.
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"300"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"	              "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"400"		// Speed
+		"MovementTurnRate"			"0.4"		// Turning rate.
+
+
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts"
+		"VoiceFile"			    	"soundevents/voscripts/game_sounds_vo_magnataur.vsndevts"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"162200"		// Base health.
+		"StatusHealthRegen"			"300.0"		// Health regeneration rate.
+		"StatusMana"				"1500"		// Base mana.
+		"StatusManaRegen"			"30.0"		// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		        "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"15000"		// Range of vision during day light.
+		"VisionNighttimeRange"		"15000"		// Range of vision at night time.
+
+		"vscripts"					"creature_ai/round_mammoth/bossmag_ai.lua"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"
+
+			"EquippedItems"
+			{
+			}
+                        
+			"DisableResistance"			"100"
+
+			//Level Up Parameters
+			//-----------------------------------------------------------------
+			"HPGain"				"500"
+			"DamageGain"				"25"
+			"ArmorGain"				"1"
+			"MagicResistGain"			"1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"100"
+
+			"DefaultState"				"Invade"
+            "AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"6531"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"6532"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"6533"
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"6534"
+				}
+                                "Wearable5"
+				{
+					"ItemDef"			"6535"
+				}
+			}
+
+		}
+	}
+
+	"npc_dota_boss_rattletrap_hp_bonus"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/heroes/rattletrap/rattletrap.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"ModelScale"			    "2.0"
+		"Level"						"18"
+		"ConsideredHero"		    "1"
+
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"350"
+
+		"SoundSet"				    "Hero_RattleTrap"								// Name of sound set.
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_rattletrap.vsndevts"
+		"VoiceFile"				    "soundevents/voscripts/game_sounds_vo_rattletrap.vsndevts"
+
+		// Inventory
+		//----------------------------------------------------------------
+		"HasInventory"				"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"			    "4"
+		"Ability1"					"boss_battery_assault_aura_datadriven"	// Ability 1.
+		"Ability2"					"boss_super_maze_datadriven"		        // Ability 2.
+		"Ability3"					"rattletrap_spawn_laser_turret"			// Ability 3.
+		"Ability4"					"rattletrap_remove_gears"			// Ability 4.
+        "Ability5"				    "rattletrap_gold_bag_fountain"			// Ability 4.
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"42"			// Physical protection.
+		"MagicalResistance"			"35"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"	    "DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"152"		// Damage range min.
+		"AttackDamageMax"			"168"		// Damage range max.
+		"AttackRate"				"1.25"		// Speed of attack.
+		"AttackAnimationPoint"		        "0.2"		// Normalized time in animation cycle to attack.
+		"AttackRange"				"180"		// Range within a target can be attacked.
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"				    "0"		// Experience earn.
+		"BountyGoldMin"				"150"		// Gold earned min.
+		"BountyGoldMax"				"150"		// Gold earned max.
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"300"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"	    "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"320"		// Speed
+		"MovementTurnRate"			"0.4"		// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"198000"		// Base health.
+		"StatusHealthRegen"			"50.0"		// Health regeneration rate.
+		"StatusMana"				"1500"		// Base mana.
+		"StatusManaRegen"			"30.0"		// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"15000"		// Range of vision during day light.
+		"VisionNighttimeRange"		"15000"		// Range of vision at night time.
+
+		"vscripts"					"creature_ability/round_rattletrap/rattletrap.lua"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"
+
+			"EquippedItems"
+			{
+			}
+                        
+			"DisableResistance"			"100"
+
+			//Level Up Parameters
+			//-----------------------------------------------------------------
+			"HPGain"				   "500"
+			"DamageGain"				"25"
+			"ArmorGain"				    "1"
+			"MagicResistGain"			"1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"100"
+
+			"DefaultState"				"Invade"
+            "AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"446"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"484"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"485"
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"231"
+				}
+			}
+
+		}
+	}
+
+    "npc_dota_boss_blue_dragon_hp_bonus"
+	{
+		// General
+		//
+		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
+		"Model"						"models/heroes/winterwyvern/winterwyvern.vmdl"	// Model.
+	    "ModelScale"			    "2.3"
+		"Level"						"25"
+		"ConsideredHero"		    "1"
+
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"350"
+
+		"SoundSet"		            "Hero_Winter_Wyvern"
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_winter_wyvern.vsndevts"
+		"VoiceFile"				    "soundevents/voscripts/game_sounds_vo_winter_wyvern.vsndevts"
+
+		// Inventory
+		//----------------------------------------------------------------
+		"HasInventory"				"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"			    "4"
+		"Ability1"					"boss_arcane_curse_aura_datadriven"	// Ability 1.
+		"Ability2"					"boss_arcane_curse_explode_datadriven"		        // Ability 2.
+		"Ability3"					"boss_fly_black_hole_datadriven"			// Ability 3.
+		"Ability4"					""			// Ability 4.
+        "Ability5"				    "blue_dragon_gold_bag_fountain"			// Ability 4.
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"42"			// Physical protection.
+		"MagicalResistance"			"35"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"	    "DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"152"		// Damage range min.
+		"AttackDamageMax"			"168"		// Damage range max.
+		"AttackRate"				"1.25"		// Speed of attack.
+		"AttackAnimationPoint"	    "0.2"		// Normalized time in animation cycle to attack.
+		"AttackRange"				"125"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_winter_wyvern/winter_wyvern_arctic_attack.vpcf" // Particle system model for projectile.
+		"ProjectileSpeed"			"1700"		// Speed of projectile.
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"				    "0"		// Experience earn.
+		"BountyGoldMin"				"150"		// Gold earned min.
+		"BountyGoldMax"				"150"		// Gold earned max.
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"300"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"	    "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"320"		// Speed
+		"MovementTurnRate"			"0.4"		// Turning rate.
+
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"325000"		// Base health.
+		"StatusHealthRegen"			"20.0"		// Health regeneration rate.
+		"StatusMana"				"1000"			// Base mana.
+		"StatusManaRegen"			"150"			// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_LIGHT"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
+
+        "vscripts"					"creature_ai/round_blue_dragon/blue_dragon.lua"
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"
+			"DisableResistance"			"100"
+	        "AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"551"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"552"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"553"
+				}
+			}
+		}
+	}
+}

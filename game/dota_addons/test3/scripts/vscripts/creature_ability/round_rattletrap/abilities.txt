@@ -1,0 +1,604 @@
+"DOTAAbilities"
+{
+    "boss_battery_assault_aura_datadriven"
+    {
+    	// General
+    	//-------------------------------------------------------------------------------------------------------------
+    	"BaseClass"				        "ability_datadriven"
+    	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+    	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    	"AbilityTextureName"			"rattletrap_battery_assault"
+    	"MaxLevel"                      "15"
+
+        "precache"
+    	{
+    		"particle"					"particles/units/heroes/hero_rattletrap/rattletrap_battery_assault.vpcf"
+    	}
+
+    	// Special
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilitySpecial"
+    	{
+    		"01"
+    		{
+    			"var_type"			"FIELD_INTEGER"
+    			"damage"		    "1152 720 450 281 175 109 68 42 26 16 10 6 4 3 2"
+    		}
+    		// Extra variables
+    		"02"
+    		{
+    			"var_type"			"FIELD_INTEGER"
+    			"global_radius"		"9000"
+    		}
+    		"03"
+    		{
+    			"var_type"			"FIELD_FLOAT"
+    			"stun_duration"		"0.1"
+    		}
+        	"04"
+    		{
+    			"var_type"			"FIELD_FLOAT"
+    			"stun_interval"		"0.5 0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.9 0.95 1 1.05 1.1 1.15 1.2"
+    		}
+    	}
+
+    	// Data driven
+    	//-------------------------------------------------------------------------------------------------------------
+    	"Modifiers"
+    	{
+    		"modifier_boss_battery_assault_aura_datadriven"
+    		{
+    			"Passive"				"1"
+    			"IsPurgable"			"0"
+    			"IsHidden"				"1"
+    			"Aura"					"modifier_boss_battery_assault_aura_effect_datadriven"
+    			"Aura_Radius"			"%global_radius"
+    			"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    			"Aura_Types"			"DOTA_UNIT_TARGET_ALL"
+    			"Aura_Flags"	        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    		}
+    	    "modifier_true_sight_1"
+            {
+                   "Passive"            "1"
+                   "IsHidden"           "1"
+                   "OnCreated"
+                {
+                   "ApplyModifier"
+                    {
+                         "ModifierName"	"modifier_tower_truesight_aura"
+                         "Target" 		"CASTER"
+                    }
+                }
+                "States"
+    			{
+    				"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+    			}
+    	    }
+    		"modifier_boss_battery_assault_aura_effect_datadriven"
+    		{
+    			"ThinkInterval"  "%stun_interval"
+    			"IsDebuff"        "1"
+    			"OnIntervalThink"
+    			{
+    				"Damage"
+    				{
+    					"Type"			"DAMAGE_TYPE_PURE"
+    					"Damage"		"%damage"
+    					"Target"
+    			    	{
+    			    		"Center"   "TARGET"
+    			    		"Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    			    		"Flags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    			    	}
+    				}
+    			    "Stun"
+    				{
+    					"Duration"		"%stun_duration"
+    			    	"Target"
+    			    	{
+    			    		"Center"   "TARGET"
+    			    		"Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    			    		"Flags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    			    	}
+    			    }
+    			    "FireEffect"
+    		        {
+    	  		        "EffectName"        "particles/units/heroes/hero_rattletrap/rattletrap_battery_assault.vpcf"
+    			        "EffectAttachType"  "follow_origin"
+    			        "Target"            "TARGET"
+    		        }
+    			}
+    		}
+    	}
+    }
+
+    "boss_super_maze_datadriven"
+    {
+    	// General
+    	//-------------------------------------------------------------------------------------------------------------
+    	"BaseClass"				        "ability_datadriven"
+    	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    	"AbilityTextureName"			"rattletrap_power_cogs"
+    	"MaxLevel"                      "1"
+
+        "precache"
+    	{
+    		"particle"					"particles/units/heroes/hero_rattletrap/rattletrap_battery_assault.vpcf"
+    	    "particle"		            "particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf"
+    	    "particle"                  "particles/econ/items/techies/techies_arcana/techies_remote_mines_detonate_arcana.vpcf"
+    	}
+
+    	// Data driven
+    	//-------------------------------------------------------------------------------------------------------------
+    	"Modifiers"
+    	{
+    		"modifier_bloodlink_think"
+    		{
+                "IsHidden"      "1"
+                "Passive"       "1"
+                "IsPurgable"    "0"
+                "OnTakeDamage"
+    			{
+    				"RunScript"
+    				{
+    					"ScriptFile"	"creature_ability/round_rattletrap/rattletrap.lua"
+    					"Function"		"CheckForMaze"
+    				}
+    			}
+    		}
+    		"modifier_maze_vacuum_datadriven"
+    		{
+    			"IsPurgable"	"0"
+
+    			"OverrideAnimation"     "ACT_DOTA_FLAIL"
+
+    			"States"
+    			{
+    				"MODIFIER_STATE_STUNNED"			"MODIFIER_STATE_VALUE_ENABLED"
+    				"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+    			}
+    		}
+        }
+    }
+
+    "rattletrap_spawn_laser_turret"  //发条地精召唤的炮台  非无敌
+    {
+    	// General
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    	"BaseClass" 					"ability_datadriven"
+    	"AbilityTextureName"            "tinker_laser"
+    	"AbilityCastPoint"				"0.2"
+    	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+    	"AbilityCooldown"               "4 4.5 5 5.5 6 6.5 7 7.5 8 8.5 9 9.5 10 10.5 11"
+
+    	// Stats
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityCooldown"				"15.0"
+
+    	// Item Info
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityManaCost"				"0"
+
+    	"OnSpellStart"
+    	{
+    		"Random"
+    		{
+    			"Chance"			"33"
+    			"OnSuccess"
+    			{
+    				"FireSound"
+    				{
+    					"Target"		"CASTER"
+    					"EffectName"	"rattletrap_ratt_level_15"
+    				}
+    			}
+    			"OnFailure"
+    			{
+    				"Random"
+    				{
+    					"Chance"			"50"
+    					"OnSuccess"
+    					{
+    						"FireSound"
+    						{
+    							"Target"		"CASTER"
+    							"EffectName"	"rattletrap_ratt_level_02"
+    						}
+    					}
+    					"OnFailure"
+    					{
+    						"FireSound"
+    						{
+    							"Target"		"CASTER"
+    							"EffectName"	"rattletrap_ratt_attack_01"
+    						}
+    					}
+    				}
+    			}
+    		}
+
+    		"SpawnUnit"
+    		{
+    			"UnitName"			"npc_dota_creature_rattle_laser_turret"
+    			"UnitCount"			"1"
+    			"SpawnRadius"		"150"
+    			"Target"			"CASTER"
+    		}
+    	}
+    }
+
+    "rattletrap_remove_gears"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"					         "ability_datadriven"
+		"AbilityTextureName"			        "item_hand_of_midas"
+		"OnOwnerDied"
+		{
+            "RunScript"
+			{
+			   "ScriptFile"	    "creature_ability/round_rattletrap/rattletrap.lua"
+			   "Function"		"CheckMyDied"
+			}
+		}
+	}
+
+    "rattletrap_gold_bag_fountain"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"					"ability_datadriven"
+		"AbilityTextureName"			        "item_hand_of_midas"
+        "precache"
+		{
+            "particle" 	"particles/units/heroes/hero_magnataur/magnataur_reverse_polarity.vpcf"
+		}
+		"OnOwnerDied"
+		{
+			"CreateItem"
+			{
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+				"ItemName"			"item_bag_of_gold_tws"
+				"ItemCount"			"%bag_count"
+				"SpawnRadius"		"25"
+				"ItemChargeCount"	"%gold_value"
+				"AutoUse"			"1"
+				"LaunchHeight"		"300"
+				"LaunchDistance"	"?50 1050"
+				"LaunchDuration"	"0.75"
+			}
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"gold_value"		   "34"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bag_count"				"50"
+			}
+		}
+	}
+
+
+	"ability_dummy_prop"
+	{
+		"BaseClass"					"ability_datadriven"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"					"1"
+		"Modifiers"
+		{
+			"unphased"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_TEAM_MOVE_TO"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_TEAM_SELECT"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+ 	"bomb_passive"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" 					"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityTextureName"            "jakiro_liquid_fire"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.1"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+        "precache"
+	    {
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"
+			"particle"		"particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf"
+	    }
+        "OnCreated"
+        {
+            "ApplyModifier"
+		   	{
+                "ModifierName"	"bomb_modifier"
+		      	"Target"	"CASTER"
+		   	}
+            "ApplyModifier"
+		   	{
+            	"ModifierName"	"phase_move"
+		      	"Target"	        "CASTER"
+		   	}
+        }
+		"Modifiers"
+		{
+			"bomb_modifier"
+			{
+				"IsHidden"				"1"
+				"Passive"				"1"
+				"ThinkInterval"			        "3.0"
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES"	        "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"				"MODIFIER_STATE_VALUE_ENABLED"
+					//"MODIFIER_STATE_OUT_OF_GAME"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+				"Properties"
+                {
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"	"1000"
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"Target"				"CASTER"
+						"ScriptFile"			 "creature_ability/round_rattletrap/rattletrap.lua"
+						"Function"			      "BombExplode"
+					}
+				}
+			}
+            "phase_move"
+			{
+				"IsHidden"				"1"
+				"Passive"				"1"
+				"Duration"			        "0.3"
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+    "stasis_trap_passive"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" 					"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityTextureName"            "jakiro_liquid_fire"
+
+        "precache"
+	    {
+	 	    "soundfile"		"soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"
+		    "particle"		"particles/units/heroes/hero_techies/techies_stasis_trap_plant.vpcf"
+		    "particle"		"particles/units/heroes/hero_techies/techies_stasis_trap_apear.vpcf"
+		    "particle"		"particles/units/heroes/hero_techies/techies_stasis_trap_explode.vpcf"
+		    "particle"		"particles/status_fx/status_effect_techies_stasis.vpcf"
+		    "model"			"models/heroes/techies/fx_techiesfx_stasis.vmdl"
+	        }
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.1"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+        "precache"
+	    {
+		    "soundfile"		"soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"
+		    "particle"		"particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf"
+	    }
+        "OnCreated"
+        {
+            "ApplyModifier"
+		    {
+                "ModifierName"	"modifier_stasis_trap_datadriven"
+		        "Target"	"CASTER"
+		    }
+            "ApplyModifier"
+		    {
+                "ModifierName"	"wait_to_act"
+		        "Target"	        "CASTER"
+		    }
+            "ApplyModifier"
+		    {
+                "ModifierName"	"phase_move"
+		        "Target"	        "CASTER"
+		    }
+            "FireSound"
+		    {
+		    	"EffectName"	"Hero_Techies.StasisTrap.Plant"
+		    	"Target" 		"CASTER"
+		    }
+		    "FireEffect"
+		    {
+		    	"EffectName"        "particles/units/heroes/hero_techies/techies_stasis_trap_plant.vpcf"
+		    	"EffectAttachType"  "start_at_customorigin"
+		    	"TargetPoint"            "POINT"
+
+		    	"ControlPoints"
+		    	{
+		    		"01"	"POINT"
+		    	}
+		    }
+        }
+		"Modifiers"
+		{
+	        "modifier_stasis_trap_datadriven"
+		    {
+		    	"IsHidden"		"1"
+		    	"IsPurgable"	"0"
+
+		    	"OnCreated"
+		    	{
+		    		"FireEffect"
+		    		{
+		    			"EffectName"        "particles/units/heroes/hero_techies/techies_stasis_trap_apear.vpcf"
+		    			"EffectAttachType"  "follow_origin"
+		    		}
+		    	}
+
+		    	"States"
+		    	{
+		    		"MODIFIER_STATE_NO_UNIT_COLLISION"	       "MODIFIER_STATE_VALUE_ENABLED"
+                                    "MODIFIER_STATE_NO_HEALTH_BAR"			"MODIFIER_STATE_VALUE_ENABLED"
+                                    "MODIFIER_STATE_ATTACK_IMMUNE"		        "MODIFIER_STATE_VALUE_ENABLED"
+		    	}
+		    }
+            "wait_to_act"
+            {
+                "Duration"	"1.0" 
+		        "OnDestroy"
+		        {
+                    "ApplyModifier"
+		            {
+                        "ModifierName"	"modifier_stasis_trap_tracker_datadriven"
+		                "Target"	        "CASTER"
+		            }
+                }
+            }
+            "modifier_stasis_trap_tracker_datadriven"
+		    {
+			    "IsHidden"		"1"
+			    "IsPurgable"	"0"
+
+			    "ThinkInterval"  "0.1"
+			    "OnIntervalThink"
+			    {
+			    	"RunScript"
+			    	{
+			    		"ScriptFile"	        "creature_ability/round_rattletrap/rattletrap.lua"
+			    		"Function"		        "StasisTrapTracker"
+			    		"modifier_trigger"	"modifier_stasis_trap_trigger_datadriven"
+			    	}
+			    }
+		    }
+		    "modifier_stasis_trap_trigger_datadriven"
+		    {
+		    	"OnCreated"
+		    	{
+		    		"ActOnTargets"
+		    		{
+		    			"Target"
+		    			{
+		    				"Center"  	"CASTER"
+		    				"Radius" 	"250"
+		    				"Teams" 	"DOTA_UNIT_TARGET_TEAM_BOTH"
+		    				"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		    			}
+
+		    			"Action"
+		    			{
+		    				"ApplyModifier"
+		    				{
+		    					"ModifierName"	"modifier_stasis_trap_stun_datadriven"
+		    					"Target" 		"TARGET"
+		    					"Duration"		"2.4"
+		    				}
+		    			}
+		    		}
+
+		    		"FireEffect"
+		    		{
+		    			"EffectName"        "particles/units/heroes/hero_techies/techies_stasis_trap_explode.vpcf"
+		    			"EffectAttachType"  "follow_hitloc"
+		    			"Target"            "CASTER"
+
+		    			"ControlPoints"
+		    			{
+		    				"01"	"250 0 0"
+		    			}
+		    		}
+
+		    		"CreateThinker"
+		    		{
+		    			"ModifierName"	"modifier_stasis_trap_thinker"
+		    			"Target" 		"CASTER"
+		    		}
+
+		    		"RunScript"
+		    		{
+		    			"ScriptFile"	     "creature_ability/round_rattletrap/rattletrap.lua"
+		    			"Function"		     "StasisTrapRemove"
+                        "Target" 		     "CASTER"
+		    		}
+		    	}
+		    }
+		    "modifier_stasis_trap_stun_datadriven"
+		    {
+		    	"IsDebuff"	"1"
+
+		    	"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
+		    	"EffectAttachType"	"follow_overhead"
+
+		    	"StatusEffectName"		"particles/status_fx/status_effect_techies_stasis.vpcf"
+		    	"StatusEffectPriority"	"1"
+
+		    	"States"
+		    	{
+		    		"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+		    		"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
+		    	}
+		    }
+
+		    "modifier_stasis_trap_thinker"
+		    {
+		    	"Duration"	"0.03"
+		    	"OnCreated"
+		    	{
+		    		"FireSound"
+		    		{
+		    			"EffectName"	"Hero_Techies.StasisTrap.Stun"
+		    			"Target" 		"TARGET"
+		    		}
+		    	}
+		    }
+            "phase_move"
+		    {
+		    	"IsHidden"				"1"
+		    	"Passive"				"1"
+		    	"Duration"			        "0.5"
+		    	"States"
+		    	{
+		    		"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+		    	}
+		    }
+	    }
+    }
+}

@@ -1,0 +1,351 @@
+"DOTAAbilities"
+{
+	"necrolyte_heartstopper_aura_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_necrolyte/necrolyte_heartstopper_aura_lua"
+		"AbilityTextureName"			"necrolyte_heartstopper_aura"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aura_radius"			"700"		// If you change this, also change the AbilityCastRange above
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"aura_damage"		"0.05 0.1 0.15 0.2" 
+				"LinkedSpecialBonus"		"special_bonus_unique_necrophos_2"
+			} 	
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"health_regen"	"3.5 4.5 5.5 6.5"
+			}		
+			"04"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"mana_regen"	"3.5 4.5 5.5 6.5"
+			}	
+			"05"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"regen_duration"		"7"
+			}			
+			"06"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"hero_multiplier" "6"
+			}
+		}
+	}
+
+	"necrolyte_heartstopper_aura_level_2_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_necrolyte/necrolyte_heartstopper_aura_lua"
+		"AbilityTextureName"			"necrolyte_heartstopper_aura"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"MaxLevel"                      "8"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aura_radius"			"700"		// If you change this, also change the AbilityCastRange above
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"aura_damage"		"0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4"
+				"LinkedSpecialBonus"		"special_bonus_unique_necrophos_2"
+			} 	
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"health_regen"	"3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5"
+			}		
+			"04"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"mana_regen"	"3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5"
+			}	
+			"05"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"regen_duration"		"7"
+			}			
+			"06"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"hero_multiplier" "6"
+			}
+		}
+	}
+	
+	"necrolyte_heartstopper_aura_level_3_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_necrolyte/necrolyte_heartstopper_aura_lua"
+		"AbilityTextureName"			"necrolyte_heartstopper_aura"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"MaxLevel"                      "12"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aura_radius"			"700"		// If you change this, also change the AbilityCastRange above
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"aura_damage"		"0.05 0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.6"
+				"LinkedSpecialBonus"		"special_bonus_unique_necrophos_2"
+			} 	
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"health_regen"	"3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5"
+			}		
+			"04"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"mana_regen"	"3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5"
+			}	
+			"05"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"regen_duration"		"7"
+			}			
+			"06"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"hero_multiplier" "6"
+			}
+		}
+	}
+
+    "necrolyte_reapers_scythe_lua"
+    {
+    	// General
+    	//-------------------------------------------------------------------------------------------------------------
+    	"BaseClass"				"ability_datadriven"
+    	"AbilityType"				"DOTA_ABILITY_TYPE_BASIC"
+    	"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    	"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    	"SpellImmunityType"			     "SPELL_IMMUNITY_ENEMIES_YES"
+    	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+    	"AbilityTextureName"			"necrolyte_reapers_scythe"
+    	"LevelsBetweenUpgrades"			"15"
+    	"MaxLevel"                      "3"
+
+    	// Precache
+    	//-------------------------------------------------------------------------------------------------------------
+    	"precache"
+    	{
+    		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
+    		"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_scythe.vpcf"
+    		"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_scythe_model.vpcf"
+    		"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_scythe_orig.vpcf"
+    		"particle"			"particles/generic_gameplay/generic_stunned.vpcf"
+    	}
+
+    	// Casting
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityCastPoint"				"0.5 0.5 0.5"
+
+    	// Time
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityCooldown"				"100 85 70"
+
+    	// Cost
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityManaCost"				"175 340 500"
+
+    	// Cast Range
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityCastRange"				"600"
+
+    	// Stats
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityModifierSupportValue"	"0.1"	// Primarily about the damage
+
+    	// Special
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilitySpecial"
+    	{
+    		"01"
+    		{
+    			"var_type"					"FIELD_FLOAT"
+    			"damage_per_health"			"0.10 0.20 0.30"
+    		}
+    		"02"
+    		{
+    			"var_type"					"FIELD_FLOAT"
+    			"stun_duration"				"1.5 1.5 1.5"
+    		}
+    		"03"
+    		{
+    			"var_type"					"FIELD_INTEGER"
+    			"mana_cost_scepter"			"150 340 500"
+    		}
+    		"04"
+    		{
+    			"var_type"					"FIELD_FLOAT"
+    			"cooldown_scepter"			"70"
+    		}
+    		"05"
+    		{
+    			"var_type"					"FIELD_FLOAT"
+    			"damage_per_health_scepter"	"0.11 0.22 0.33"
+    		}
+    		"06"
+    		{
+    			"var_type"				"FIELD_FLOAT"
+    			"respawn"		             "0.0"
+    		}
+    		"07"
+    		{
+    			"var_type"				"FIELD_INTEGER"
+    			"respawn_constant"		"30"
+    		}
+    	}
+
+    	"OnSpellStart"
+    	{
+    		"ApplyModifier"
+    		{
+    			"ModifierName"	"modifier_reapers_scythe_datadriven"
+    			"Target"
+    			{
+    				"Center"  	"TARGET"
+    				"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    				"Types" 	"DOTA_UNIT_TARGET_BASIC"
+    				"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    			}
+    		}
+
+    		"FireSound"
+    		{
+    			"EffectName"	"Hero_Necrolyte.ReapersScythe.Cast"
+    			"Target"		"CASTER"
+    		}
+
+    		"FireSound"
+    		{
+    			"EffectName"	"Hero_Necrolyte.ReapersScythe.Target"
+    			"Target"		"TARGET"
+    		}
+
+    		"DelayedAction"
+    		{
+    			"Delay"		"%stun_duration"
+
+    			"Action"
+    			{
+    				"FireEffect"
+    				{
+    					"EffectName"	"particles/units/heroes/hero_necrolyte/necrolyte_scythe_orig.vpcf"
+    					"EffectAttachType"	"start_at_customorigin"
+
+    					"ControlPointEntities"
+    					{
+    						"TARGET"	"follow_origin"
+    						"TARGET"	"follow_origin"
+    					}
+    				}
+
+    				"RunScript"
+    				{
+    					"ScriptFile"	"heroes/hero_necrolyte/reapers_scythe.lua"
+    					"Function"		"ReapersScythe"
+    				}
+    			}
+    		}
+    	}
+
+    	"Modifiers"
+    	{
+    		"modifier_reapers_scythe_datadriven"
+    		{
+    			"IsDebuff"	"1"
+    			"Duration"	"%stun_duration"
+
+    			"OverrideAnimation"	"ACT_DOTA_DISABLED"
+
+    			"EffectName" "particles/generic_gameplay/generic_stunned.vpcf"
+            	"EffectAttachType" "follow_overhead"
+
+
+
+    			"OnCreated"
+    			{
+    				"DelayedAction"
+    				{
+    					// Scythe animation has a 0.7 sec travel time
+    					"Delay"		"%stun_duration - 0.7"
+
+    					"Action"
+    					{
+    						"FireEffect"
+    						{
+    							"EffectName"	"particles/units/heroes/hero_necrolyte/necrolyte_scythe_model.vpcf"
+    							"EffectAttachType"	"follow_origin"
+
+    							"ControlPointEntities"
+    							{
+    								"CASTER"	"follow_origin"
+    								"TARGET"	"follow_origin"
+    							}
+    						}
+    					}
+    				}
+
+    				"AttachEffect"
+    				{
+    					"EffectName"	"particles/units/heroes/hero_necrolyte/necrolyte_scythe.vpcf"
+    					"EffectAttachType"	"follow_origin"
+    					"Target"		"TARGET"
+    				}
+    			}
+
+    			"States"
+    			{
+    				"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+    			}
+    		}
+    	}
+    }
+}

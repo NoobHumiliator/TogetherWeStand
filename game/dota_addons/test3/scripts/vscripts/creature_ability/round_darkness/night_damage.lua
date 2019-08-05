@@ -14,13 +14,13 @@ function IncreaseDamage(keys)
         if not caster:HasModifier("modifier_night_damage_stack") then
             AddModifier(caster, caster, ability, "modifier_night_damage_stack", nil)
             caster:SetModifierStackCount("modifier_night_damage_stack",ability,1)
-            caster:AddNewModifier(caster, ability , "modifier_night_magic_damage_increase", {})                                                                        
+            caster:AddNewModifier(caster, ability , "modifier_night_magic_damage_increase", {})
         else
             local stack_number = caster:GetModifierStackCount("modifier_night_damage_stack",ability)
             stack_number=stack_number+1
-            caster:RemoveModifierByName("modifier_night_damage_stack")       
+            caster:RemoveModifierByName("modifier_night_damage_stack")
             AddModifier(caster, caster, ability, "modifier_night_damage_stack", nil)
-            caster:SetModifierStackCount("modifier_night_damage_stack",ability,stack_number)                                            
+            caster:SetModifierStackCount("modifier_night_damage_stack",ability,stack_number)
         end
     end
 end

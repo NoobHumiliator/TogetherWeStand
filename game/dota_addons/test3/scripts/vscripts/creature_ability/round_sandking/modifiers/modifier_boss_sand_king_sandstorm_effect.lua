@@ -41,8 +41,8 @@ end
 function modifier_boss_sand_king_sandstorm_effect:OnIntervalThink()
 	if IsServer() then
 		if self:GetParent() and self:GetParent():IsInvulnerable() == false then
-	
-			local damageInfo = 
+
+			local damageInfo =
 			{
 				victim = self:GetParent(),
 				attacker = self:GetCaster(),

@@ -1,30 +1,27 @@
-.TopHorizonLine
-{
+.TopHorizonLine {
     width: 100%;
     height: 2px;
     vertical-align: bottom;
-    background-color: gradient( linear, 0% 0%, 100% 0%, from( #6f829c00 ), color-stop( 0.3, #6f829c44 ), color-stop( 0.7, #6f829c44 ), to( #6f829c00 ) );
+    background-color: gradient( linear, 0% 0%, 100% 0%, from( #6f829c00), color-stop( 0.3, #6f829c44), color-stop( 0.7, #6f829c44), to( #6f829c00));
     margin-bottom: 5.5px;
     margin-top: 5.5px;
 }
 
-.CollumInformerPanel
-{
+.CollumInformerPanel {
     width: 100%;
     horizontal-align: center;
     flow-children: down;
 }
 
-.Informers
-{
-    height:30px;
+.Informers {
+    height: 30px;
     width: 100%;
     horizontal-align: center;
     flow-children: right;
 }
-.NavigeteButtonPanel
-{
-    height:30px;
+
+.NavigeteButtonPanel {
+    height: 30px;
     width: 100px;
     margin-right: 40px;
     horizontal-align: right;
@@ -32,9 +29,7 @@
     margin-top: 20px;
 }
 
-
-#InformerLabelRank
-{
+#InformerLabelRank {
     color: white;
     margin: 0px;
     height: 100%;
@@ -46,15 +41,12 @@
     transform: translateY(10px);
     text-shadow: 0px 0px 0px 1.0 #ffffff00;
     letter-spacing: 2px;
-    
     transition-property: transform, color, text-shadow;
     transition-duration: 0.2s;
-    transition-timing-function: ease-in;    
+    transition-timing-function: ease-in;
 }
 
-
-#InformerLabelPlayer
-{
+#InformerLabelPlayer {
     color: white;
     margin: 0px;
     margin-left: 50px;
@@ -67,14 +59,12 @@
     transform: translateY(10px);
     text-shadow: 0px 0px 0px 1.0 #ffffff00;
     letter-spacing: 2px;
-    
     transition-property: transform, color, text-shadow;
     transition-duration: 0.2s;
-    transition-timing-function: ease-in;    
+    transition-timing-function: ease-in;
 }
 
-#InformerLabelRound
-{
+#InformerLabelRound {
     color: white;
     margin: 0px;
     margin-left: 130px;
@@ -87,14 +77,12 @@
     transform: translateY(10px);
     text-shadow: 0px 0px 0px 1.0 #ffffff00;
     letter-spacing: 2px;
-    
     transition-property: transform, color, text-shadow;
     transition-duration: 0.2s;
-    transition-timing-function: ease-in;    
+    transition-timing-function: ease-in;
 }
 
-#InformerLabelTimeCost
-{
+#InformerLabelTimeCost {
     color: white;
     margin-left: 1px;
     height: 100%;
@@ -106,95 +94,73 @@
     transform: translateY(10px);
     text-shadow: 0px 0px 0px 1.0 #ffffff00;
     letter-spacing: 2px;
-    
     transition-property: transform, color, text-shadow;
     transition-duration: 0.2s;
-    transition-timing-function: ease-in;    
+    transition-timing-function: ease-in;
 }
 
-
-.NavigetePreButtonPic
-{
-    background-image: url("s2r://panorama/images/custom_game/arrow_solid_left.png");
+.NavigetePreButtonPic {
+    background-image: url("file://{images}/custom_game/arrow_solid_left.png");
 }
 
-.NavigeteNextButtonPic
-{
-    background-image: url("s2r://panorama/images/custom_game/arrow_solid_right.png");
+.NavigeteNextButtonPic {
+    background-image: url("file://{images}/custom_game/arrow_solid_right.png");
 }
 
-.NavigeteButton
-{
-    margin-left : 10px;
-    margin-right : 10px;
+.NavigeteButton {
+    margin-left: 10px;
+    margin-right: 10px;
     width: 18px;
     height: 33px;
     background-size: 18px 28px;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     /*wash-color: #25292f;*/
-    
     transition-property: background-color, wash-color;
     transition-delay: 0.0s;
     transition-duration: 0.2s;
     transition-timing-function: ease-out;
 }
 
-
-.NavigeteButton:disabled
-{
-   wash-color:#111111;
+.NavigeteButton:disabled {
+    wash-color: #111111;
 }
 
-
-
-
-#RankPlayerNumberTabs
-{
-    width: fill-parent-flow( 1.0 );
+#RankPlayerNumberTabs {
+    width: fill-parent-flow( 1.0);
     /*background-color: gradient( linear, 0% 0%, 100% 0%, from( #000000aa ), color-stop( 0.8, #000000aa ),  to( #00000000 ) );*/
     height: 50px;
     flow-children: right;
     vertical-align: middle;
-    
     padding-left: 1%;
     padding-top: 14px;
     padding-bottom: 7px;
-    
     opacity: 1.0;
-    
     transition-property: transform, opacity;
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
-    
 }
 
-#HardOrTrailChoose
-{
-    width: fill-parent-flow( 1.0 );
+#HardOrTrailChoose {
+    width: fill-parent-flow( 1.0);
     /*background-color: gradient( linear, 0% 0%, 100% 0%, from( #000000aa ), color-stop( 0.8, #000000aa ),  to( #00000000 ) );*/
     height: 100px;
     flow-children: right;
     vertical-align: middle;
-    
     padding-left: 1%;
     padding-top: 14px;
     padding-bottom: 7px;
     margin-left: 15%;
-
     opacity: 1.0;
-    
     transition-property: transform, opacity;
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
-    
 }
 
-.PrimaryTabButton{
-
+.PrimaryTabButton {
     margin: 0px;
     vertical-align: middle;
-    wash-color: white;  
+    wash-color: white;
     width: 160px;
     transition-property: wash-color;
     transition-duration: 0.6s;
@@ -202,10 +168,7 @@
     flow-children: right;
 }
 
-
-
-.PrimaryTabButton Label
-{
+.PrimaryTabButton Label {
     color: #768e8d;
     vertical-align: middle;
     font-size: 35px;
@@ -214,47 +177,36 @@
     letter-spacing: 3px;
 }
 
-.PrimaryTabButton:hover Label
-{
+.PrimaryTabButton:hover Label {
     color: white;
 }
 
-
-.PrimaryTabButton:disabled Label,
-.PrimaryTabButton:disabled:hover Label
-{
+.PrimaryTabButton:disabled Label, .PrimaryTabButton:disabled:hover Label {
     color: #768e8d33;
 }
 
-.AspectRatio4x3 .PrimaryTabButton Label,
-.AspectRatio5x4 .PrimaryTabButton Label
-{
+.AspectRatio4x3 .PrimaryTabButton Label, .AspectRatio5x4 .PrimaryTabButton Label {
     letter-spacing: 0px;
     font-size: 18px;
 }
 
-.PrimaryTabButton:active
-{
+.PrimaryTabButton:active {
     sound: "ui_rollover_micro";
 }
 
-.PrimaryTabButton:selected Label
-{
+.PrimaryTabButton:selected Label {
     text-shadow: 0px 0px 12px #5d7070;
 }
 
-.PrimaryTabButton .RadioBox
-{
+.PrimaryTabButton .RadioBox {
     visibility: collapse;
 }
 
-.PrimaryTabButton.NoLabel Label
-{
+.PrimaryTabButton.NoLabel Label {
     visibility: collapse;
 }
 
-.PrimaryTabButton DOTAViolator
-{
+.PrimaryTabButton DOTAViolator {
     vertical-align: bottom;
     margin-bottom: 8px;
     opacity: 1.0;
@@ -264,66 +216,50 @@
     background-color: #C1272D;
 }
 
-.PrimaryTabButton DOTAViolator Label
-{
+.PrimaryTabButton DOTAViolator Label {
     font-size: 35px;
     color: white;
     letter-spacing: 1px;
     padding-left: 4px;
 }
 
-.PrimaryTabButton DOTAViolator.Acknowledged
-{
+.PrimaryTabButton DOTAViolator.Acknowledged {
     visibility: collapse;
 }
 
-.PrimaryTabButton .SecondaryTabPrefixImage,
-.PrimaryTabButton .SecondaryTabPostfixImage
-{
-    width: height-percentage( 100% );
+.PrimaryTabButton .SecondaryTabPrefixImage, .PrimaryTabButton .SecondaryTabPostfixImage {
+    width: height-percentage( 100%);
     height: 85%;
-
     transition-property: wash-color;
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
-
     wash-color: #768e8d;
 }
 
-.PrimaryTabButton:hover .SecondaryTabPrefixImage,
-.PrimaryTabButton:hover .SecondaryTabPostfixImage
-{
+.PrimaryTabButton:hover .SecondaryTabPrefixImage, .PrimaryTabButton:hover .SecondaryTabPostfixImage {
     wash-color: white;
 }
 
-.PrimaryTabButton .SecondaryTabPrefixImage
-{
+.PrimaryTabButton .SecondaryTabPrefixImage {
     margin-right: -5px;
 }
 
-.PrimaryTabButton .SecondaryTabPostfixImage
-{
+.PrimaryTabButton .SecondaryTabPostfixImage {
     margin-left: -5px;
 }
 
-
-
-
-.SecondaryTabButton
-{
+.SecondaryTabButton {
     margin: 0px;
     vertical-align: middle;
-    wash-color: white;  
+    wash-color: white;
     width: 85px;
     transition-property: wash-color;
     transition-duration: 0.6s;
     transition-timing-function: ease-in-out;
-
     flow-children: right;
 }
 
-.SecondaryTabButton Label
-{
+.SecondaryTabButton Label {
     color: #768e8d;
     vertical-align: middle;
     font-size: 19px;
@@ -332,54 +268,41 @@
     letter-spacing: 3px;
 }
 
-.SecondaryTabButton:hover Label
-{
+.SecondaryTabButton:hover Label {
     color: white;
 }
 
-.SecondaryTabButton:disabled Label,
-.SecondaryTabButton:disabled:hover Label
-{
+.SecondaryTabButton:disabled Label, .SecondaryTabButton:disabled:hover Label {
     color: #768e8d33;
 }
 
-
-.Language_schinese .SecondaryTabButton Label
-{
+.Language_schinese .SecondaryTabButton Label {
     font-size: 20px;
     letter-spacing: 4px;
 }
 
-
-.AspectRatio4x3 .SecondaryTabButton Label,
-.AspectRatio5x4 .SecondaryTabButton Label
-{
+.AspectRatio4x3 .SecondaryTabButton Label, .AspectRatio5x4 .SecondaryTabButton Label {
     letter-spacing: 0px;
     font-size: 18px;
 }
 
-.SecondaryTabButton:active
-{
+.SecondaryTabButton:active {
     sound: "ui_rollover_micro";
 }
 
-.SecondaryTabButton:selected Label
-{
+.SecondaryTabButton:selected Label {
     text-shadow: 0px 0px 12px #5d7070;
 }
 
-.SecondaryTabButton .RadioBox
-{
+.SecondaryTabButton .RadioBox {
     visibility: collapse;
 }
 
-.SecondaryTabButton.NoLabel Label
-{
+.SecondaryTabButton.NoLabel Label {
     visibility: collapse;
 }
 
-.SecondaryTabButton DOTAViolator
-{
+.SecondaryTabButton DOTAViolator {
     vertical-align: bottom;
     margin-bottom: 8px;
     opacity: 1.0;
@@ -389,51 +312,39 @@
     background-color: #C1272D;
 }
 
-.SecondaryTabButton DOTAViolator Label
-{
+.SecondaryTabButton DOTAViolator Label {
     font-size: 12px;
     color: white;
     letter-spacing: 1px;
     padding-left: 4px;
 }
 
-.SecondaryTabButton DOTAViolator.Acknowledged
-{
+.SecondaryTabButton DOTAViolator.Acknowledged {
     visibility: collapse;
 }
 
-.SecondaryTabButton .SecondaryTabPrefixImage,
-.SecondaryTabButton .SecondaryTabPostfixImage
-{
-    width: height-percentage( 100% );
+.SecondaryTabButton .SecondaryTabPrefixImage, .SecondaryTabButton .SecondaryTabPostfixImage {
+    width: height-percentage( 100%);
     height: 85%;
-
     transition-property: wash-color;
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
-
     wash-color: #768e8d;
 }
 
-.SecondaryTabButton:hover .SecondaryTabPrefixImage,
-.SecondaryTabButton:hover .SecondaryTabPostfixImage
-{
+.SecondaryTabButton:hover .SecondaryTabPrefixImage, .SecondaryTabButton:hover .SecondaryTabPostfixImage {
     wash-color: white;
 }
 
-.SecondaryTabButton .SecondaryTabPrefixImage
-{
+.SecondaryTabButton .SecondaryTabPrefixImage {
     margin-right: -5px;
 }
 
-.SecondaryTabButton .SecondaryTabPostfixImage
-{
+.SecondaryTabButton .SecondaryTabPostfixImage {
     margin-left: -5px;
 }
 
-
-.SecondaryTabSeparator
-{
+.SecondaryTabSeparator {
     color: #768e8d;
     margin-left: 3px;
     margin-right: 3px;
@@ -441,251 +352,193 @@
     vertical-align: middle;
 }
 
-
-
-
-
-
-
-
-
-.LadderInfoRoot
-{
-    width:100%;
+.LadderInfoRoot {
+    width: 100%;
     flow-children: down;
 }
 
-.Logo
-{
-  width:70px;
-  height:20px;
-  vertical-align: bottom;
-  horizontal-align:right;
+.Logo {
+    width: 70px;
+    height: 20px;
+    vertical-align: bottom;
+    horizontal-align: right;
 }
 
-#Title
-{
+#Title {
     flow-children: down;
     /*horizontal-align:center;*/
-    margin-left:15%;
+    margin-left: 15%;
 }
 
-#TitleIcon
-{
+#TitleIcon {
     width: 64px;
     height: 64px;
     vertical-align: center;
 }
 
-#TitleName
-{
+#TitleName {
     color: #cccccc;
     font-size: 50px;
     text-transform: uppercase;
     vertical-align: center;
 }
 
-.PlayerNumberPanel
-{
+.PlayerNumberPanel {
     /*margin-top:5px;*/
-    flow-children:down;
-    horizontal-align:center;
-    width:  100%;
+    flow-children: down;
+    horizontal-align: center;
+    width: 100%;
 }
 
-
-.RankMask
-{
+.RankMask {
     margin-top: 250px;
-    horizontal-align:center;
-    width:  100%;
+    horizontal-align: center;
+    width: 100%;
 }
 
-.Spinner{
-  width:48px;
-  height:48px;
-  vertical-align: middle;
-  background-image:url("s2r://panorama/images/status_icons/loadingthrobber_round_psd.vtex");
-  background-repeat:no-repeat;
-  background-position:50% 50%;
-  background-size:contain;
-
-  animation-name:SpinnerRotate;
-  animation-duration:1.0s;
-  animation-timing-function:linear;
-  animation-iteration-count:infinite;
+.Spinner {
+    width: 48px;
+    height: 48px;
+    vertical-align: middle;
+    background-image: url("s2r://panorama/images/status_icons/loadingthrobber_round_psd.vtex");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    animation-name: SpinnerRotate;
+    animation-duration: 1.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
-@keyframes 'SpinnerRotate'
-{
-  0%
-  {
-    transform: rotateZ( 360deg );
-  }
-  
-
-  50%
-  {
-    transform: rotateZ( 180deg );
-  }
-  
-  100%
-  {
-    transform: rotateZ( 0deg );
-  }
+@keyframes 'SpinnerRotate' {
+    0% {
+        transform: rotateZ( 360deg);
+    }
+    50% {
+        transform: rotateZ( 180deg);
+    }
+    100% {
+        transform: rotateZ( 0deg);
+    }
 }
 
-
-#Spinner{
-  horizontal-align:center;
-  margin-top:10px;
+#Spinner {
+    horizontal-align: center;
+    margin-top: 10px;
 }
 
-#Spinner.SpinnerVisible
-{
-  visibility:visible;
+#Spinner.SpinnerVisible {
+    visibility: visible;
 }
 
-
-
-.LadderPlayerRoot
-{
+.LadderPlayerRoot {
     vertical-align: center;
-    flow-children:right;
-    width:  100%;
-    margin-top:15px;
+    flow-children: right;
+    width: 100%;
+    margin-top: 15px;
 }
 
-
-.RankTextRound
-{
-    width:50px;
+.RankTextRound {
+    width: 50px;
     height: 100%;
-    margin-left:30px;
+    margin-left: 30px;
     vertical-align: center;
     font-size: 46px;
-    text-align:center;
-    color:white;
-
+    text-align: center;
+    color: white;
 }
 
-.RankTextRound2P
-{
-    width:50px;
+.RankTextRound2P {
+    width: 50px;
     height: 100%;
-    margin-left:20px;
+    margin-left: 20px;
     vertical-align: center;
     font-size: 46px;
-    text-align:center;
-    color:white;
-
+    text-align: center;
+    color: white;
 }
 
-.RankTextRound3P
-{
-    width:50px;
+.RankTextRound3P {
+    width: 50px;
     height: 100%;
-    margin-left:20px;
+    margin-left: 20px;
     vertical-align: center;
     font-size: 46px;
-    text-align:center;
-    color:white;
-
+    text-align: center;
+    color: white;
 }
 
-
-
-.RankTextRound4P
-{
-    width:50px;
+.RankTextRound4P {
+    width: 50px;
     height: 100%;
-    margin-left:50px;
+    margin-left: 50px;
     vertical-align: center;
     font-size: 46px;
-    text-align:center;
-    color:white;
-
+    text-align: center;
+    color: white;
 }
 
-
-
-.RankTextTime
-{
-    width:110px;
+.RankTextTime {
+    width: 110px;
     /*height: 78%;*/
-    margin-left:30px;
+    margin-left: 30px;
     vertical-align: center;
     font-size: 33px;
-    text-align:center;
-    color:white;
-
+    text-align: center;
+    color: white;
 }
 
-
-
-
-
-.TeamIndex
-{
-    width:40px;
+.TeamIndex {
+    width: 40px;
     vertical-align: center;
     font-size: 25px;
-    text-align:center;
-    color:white;
+    text-align: center;
+    color: white;
 }
 
-.PlayerAvatarImage
-{
-    width:60px;
-    height:60px;
+.PlayerAvatarImage {
+    width: 60px;
+    height: 60px;
     vertical-align: center;
 }
 
-
-
-.PlayerUserName
-{
-    width:250px;
-    margin-left:10px;
+.PlayerUserName {
+    width: 250px;
+    margin-left: 10px;
     vertical-align: center;
-    padding-left:10px;
+    padding-left: 10px;
 }
 
-.PlayerLadderScore
-{
-    width:50px;
-    text-align:center;
-    margin-left:10px;
-    margin-right:10px;
+.PlayerLadderScore {
+    width: 50px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
     vertical-align: center;
     font-size: 20px;
 }
 
-#RatingImage
-{
-    width:40px;
-    height:40px;
+#RatingImage {
+    width: 40px;
+    height: 40px;
 }
 
-#RatingSubImage
-{
-    width:15px;
-    height:15px;
+#RatingSubImage {
+    width: 15px;
+    height: 15px;
     vertical-align: center;
     horizontal-align: center;
 }
 
-#Stars
-{
-    flow-children:right;
-    width:105px;
+#Stars {
+    flow-children: right;
+    width: 105px;
     vertical-align: center;
 }
 
-#Stars Image
-{
-    width:15px;
-    height:15px;
+#Stars Image {
+    width: 15px;
+    height: 15px;
     vertical-align: center;
     horizontal-align: left;
 }
@@ -694,64 +547,57 @@
     visibility: collapse;
 }
 
-
-.PlayerUserName
-{
-    width:230px;
-    margin-left:10px;
+.PlayerUserName {
+    width: 230px;
+    margin-left: 10px;
     vertical-align: center;
     horizontal-align: center;
-    padding-left:10px;
+    padding-left: 10px;
     font-size: 30px;
 }
 
-.PlayerUserName2PL
-{
-    width:90px;
-     height: 20px;
-    vertical-align: center;
-    horizontal-align: center;
-    font-size: 30px;
-}
-
-.PlayerUserName2PR
-{
-    width:90px;
+.PlayerUserName2PL {
+    width: 90px;
     height: 20px;
     vertical-align: center;
     horizontal-align: center;
     font-size: 30px;
 }
 
-.Seperator
-{
+.PlayerUserName2PR {
+    width: 90px;
+    height: 20px;
+    vertical-align: center;
+    horizontal-align: center;
+    font-size: 30px;
+}
+
+.Seperator {
     color: #768e8d;
     margin-left: 3px;
     margin-right: 3px;
     vertical-align: middle;
 }
-.PlayerNamePanel
-{
+
+.PlayerNamePanel {
     flow-children: down;
-    width:120px;
+    width: 120px;
     height: 60px;
     margin-left: 10px;
 }
 
-.PlayerUserName3P
-{
-    width:120px;
+.PlayerUserName3P {
+    width: 120px;
     height: 20px;
     vertical-align: center;
     horizontal-align: center;
     font-size: 30px;
-    text-align:center;
+    text-align: center;
 }
 
-.PlayerAvatarImageFirst4P
-{
-    margin-left:35px;
-    width:60px;
-    height:60px;
+.PlayerAvatarImageFirst4P {
+    margin-left: 35px;
+    width: 60px;
+    height: 60px;
     vertical-align: center;
 }

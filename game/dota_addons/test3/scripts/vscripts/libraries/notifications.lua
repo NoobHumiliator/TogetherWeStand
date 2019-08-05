@@ -14,7 +14,7 @@ NOTIFICATIONS_VERSION = "0.88"
 		-duration: The duration to display the notification for on screen.  Ignored for a notification which "continues" a previous notification line.
 		-class: An optional (leave as nil for default) string which will be used as the class to add to the notification piece.
 		-style: An optional (leave as nil for default) table of css properties to add to this notification, such as {["font-size"]="60px", color="green"}.
-		-continue: An optional (leave as nil for false) boolean which tells the notification system to add this notification to the current notification line if 'true'.  
+		-continue: An optional (leave as nil for false) boolean which tells the notification system to add this notification to the current notification line if 'true'.
 			This lets you place multiple individual notification pieces on the same overall notification.
 	-For Labels, there is one additional mandatory parameter:
 		-text:  The text to display in the notification.  Can provide localization tokens ("#addonname") or non-localized text.
@@ -30,13 +30,13 @@ NOTIFICATIONS_VERSION = "0.88"
 
 	-Notifications can be removed from the Top/Bottom or cleared
 
-	-Call the Notifications:Top, Notifications:TopToAll, or Notifications:TopToTeam to send a top-area notification to the appropriate players 
-	-Call the Notifications:Bottom, Notifications:BottomToAll, or Notifications:BottomToTeam to send a bottom-area notifications to the appropriate players 
+	-Call the Notifications:Top, Notifications:TopToAll, or Notifications:TopToTeam to send a top-area notification to the appropriate players
+	-Call the Notifications:Bottom, Notifications:BottomToAll, or Notifications:BottomToTeam to send a bottom-area notifications to the appropriate players
 	-Call the Notifications:ClearTop, Notifications:ClearTopFromAll, or Notifications:ClearTopFromTeam to clear all existing top-area notifications from appropriate players
 	-Call the Notifications:ClearBottom, Notifications:ClearBottomFromAll, or Notifications:ClearBottomFromTeam to clear all existing bottom-area notifications from appropriate players
 	-Call the Notifications:RemoveTop, Notifications:RemoveTopFromAll, or Notifications:RemoveTopFromTeam to remove all existing top-area notifications from appropriate players up to the provided count of notifications
 	-Call the Notifications:RemoveBottom, Notifications:RemoveBottomFromAll, or Notifications:RemoveBottomFromTeam to remove all existing bottom-area notifications from appropriate players up to the provided count of notifications
-	
+
 	Examples:
 
 	-- Send a notification to all players that displays up top for 5 seconds
@@ -248,7 +248,7 @@ end
 
 function Notifications:BossAbilityDBM(abilityName)
 	self:TopToAll({ability= abilityName})
-    self:TopToAll({text="#DOTA_Tooltip_ability_"..abilityName, duration=1.5, style = {color = "Azure"},continue=true}) 
+    self:TopToAll({text="#DOTA_Tooltip_ability_"..abilityName, duration=1.5, style = {color = "Azure"},continue=true})
 end
 
 

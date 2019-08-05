@@ -1,8 +1,8 @@
 <root>
     <styles>
-       <include src="file://{resources}/styles/custom_game/util.css" />
-       <include src="file://{resources}/styles/custom_game/tws_spell_shop_ui.css" />
-       <include src="file://{resources}/styles/custom_game/tws_particle_save_panel.css" />
+        <include src="file://{resources}/styles/custom_game/util.css" />
+        <include src="file://{resources}/styles/custom_game/tws_spell_shop_ui.css" />
+        <include src="file://{resources}/styles/custom_game/tws_particle_save_panel.css" />
     </styles>
     <scripts>
         <include src="file://{resources}/scripts/custom_game/util.js" />
@@ -10,66 +10,66 @@
     </scripts>
     <snippets>
         <snippet name="save_snippet_container">
-           <Panel>
-              <Panel class="SavePanelContainer"  id="SavePanelContainer"  hittest="true" >
-                   <Panel id="SaveLoadingPanel">
-                      <Panel id="SaveLoading" class="Spinner"/>
-                   </Panel>
-                   <Panel class="SavePanel"  id="SavePanelTop" >
-                      <RadioButton id="SaveRadioButton_1" class="SaveRadioButton" group="SaveRadios">
-                          <Panel class="EmptyMask" id="EmptyMask_1">
-                              <Label text="Empty Slot" />
-                          </Panel>                      
-                      </RadioButton>
-                      <RadioButton id="SaveRadioButton_2" class="SaveRadioButton" group="SaveRadios">
-                         <Panel class="EmptyMask" id="EmptyMask_2">
-                              <Label text="Empty Slot" />
-                          </Panel>                      
-                      </RadioButton>
-                      <RadioButton id="SaveRadioButton_3" class="SaveRadioButton" group="SaveRadios">
-                         <Panel class="EmptyMask" id="EmptyMask_3">
-                              <Label text="Empty Slot" />
-                          </Panel>                      
-                      </RadioButton>
-                      <RadioButton id="SaveRadioButton_4" class="SaveRadioButton" group="SaveRadios">
-                         <Panel class="EmptyMask" id="EmptyMask_4">
-                              <Label text="Empty Slot" />
-                          </Panel>                      
-                      </RadioButton>
-                      <RadioButton id="SaveRadioButton_5" class="SaveRadioButton" group="SaveRadios">
-                         <Panel class="EmptyMask" id="EmptyMask_5">
-                              <Label text="Empty Slot" />
-                          </Panel>                      
-                      </RadioButton>
-                   </Panel>                  
-                   <Panel class="ParticlePanelDown" id="SavePanelDown" >
+            <Panel>
+                <Panel class="SavePanelContainer" id="SavePanelContainer" hittest="true">
+                    <Panel id="SaveLoadingPanel">
+                        <Panel id="SaveLoading" class="Spinner"/>
+                    </Panel>
+                    <Panel class="SavePanel" id="SavePanelTop">
+                        <RadioButton id="SaveRadioButton_1" class="SaveRadioButton" group="SaveRadios">
+                            <Panel class="EmptyMask" id="EmptyMask_1">
+                                <Label text="Empty Slot" />
+                            </Panel>
+                        </RadioButton>
+                        <RadioButton id="SaveRadioButton_2" class="SaveRadioButton" group="SaveRadios">
+                            <Panel class="EmptyMask" id="EmptyMask_2">
+                                <Label text="Empty Slot" />
+                            </Panel>
+                        </RadioButton>
+                        <RadioButton id="SaveRadioButton_3" class="SaveRadioButton" group="SaveRadios">
+                            <Panel class="EmptyMask" id="EmptyMask_3">
+                                <Label text="Empty Slot" />
+                            </Panel>
+                        </RadioButton>
+                        <RadioButton id="SaveRadioButton_4" class="SaveRadioButton" group="SaveRadios">
+                            <Panel class="EmptyMask" id="EmptyMask_4">
+                                <Label text="Empty Slot" />
+                            </Panel>
+                        </RadioButton>
+                        <RadioButton id="SaveRadioButton_5" class="SaveRadioButton" group="SaveRadios">
+                            <Panel class="EmptyMask" id="EmptyMask_5">
+                                <Label text="Empty Slot" />
+                            </Panel>
+                        </RadioButton>
+                    </Panel>
+                    <Panel class="ParticlePanelDown" id="SavePanelDown">
                         <Button id="SaveGameButton" onactivate="SaveGame()" onmouseover="ShowSaveTooltip(1)" onmouseout="HideSaveTooltip(1)">
-                               <Label text="#save_game" />
+                            <Label text="#save_game" />
                         </Button>
                         <Button id="LoadGameButton" onactivate="LoadGame()" onmouseover="ShowSaveTooltip(2)" onmouseout="HideSaveTooltip(2)">
-                               <Label text="#load_game" />
+                            <Label text="#load_game" />
                         </Button>
                         <Button id="CancleGameButton" onactivate="CancleGame()">
-                               <Label text="#load_cancle" />
+                            <Label text="#load_cancle" />
                         </Button>
-                   </Panel>
-            </Panel>
-            <Panel class="LoadVotePanelContainer hidden"  id="LoadVotePanelContainer"  hittest="true" >
-                    <Panel class="LoadVotePanelTop"  id="LoadVotePanelTop" >
-                        <DOTAAvatarImage id="SponsorPlayerImage" steamid=""/> 
-                        <Label text="#prepare_to_load_game" />                      
                     </Panel>
-                    <Panel class="LoadVotePanelDown" id="LoadVotePanelDown" >
+                </Panel>
+                <Panel class="LoadVotePanelContainer hidden" id="LoadVotePanelContainer" hittest="true">
+                    <Panel class="LoadVotePanelTop" id="LoadVotePanelTop">
+                        <DOTAAvatarImage id="SponsorPlayerImage" steamid=""/>
+                        <Label text="#prepare_to_load_game" />
+                    </Panel>
+                    <Panel class="LoadVotePanelDown" id="LoadVotePanelDown">
                         <Button id="LoadAcceptButton" onactivate="Accpet()">
-                               <Label text="#load_vote_accept" />
+                            <Label text="#load_vote_accept" />
                         </Button>
                         <Button id="LoadDeclineButton" onactivate="Decline()">
-                               <Label text="#load_vote_decline" />
-                        </Button>                      
-                    </Panel>   
+                            <Label text="#load_vote_decline" />
+                        </Button>
+                    </Panel>
+                </Panel>
             </Panel>
-         </Panel>
-      </snippet>
+        </snippet>
     </snippets>
     <Panel class="SavePanelOutBlock" hittest="false" />
-</root> 
+</root>

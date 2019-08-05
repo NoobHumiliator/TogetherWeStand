@@ -38,7 +38,7 @@ function CastIcarusDive( event )
 		local y = -math.cos( theta ) * dashLength * 0.5
 
 		local pos = ellipseCenter + rightDir * x + forwardDir * y
-		local yaw = casterAngles.y + 90 + progress * -360  
+		local yaw = casterAngles.y + 90 + progress * -360
 
 		pos = GetGroundPosition( pos, caster )
 		caster:SetAbsOrigin( pos )

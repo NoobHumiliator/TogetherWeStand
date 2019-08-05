@@ -39,7 +39,7 @@ function Spawn( entityKeyValues )
 
 		Blink = thisEntity:FindItemInInventory( "item_blink" )
 		Shivas = thisEntity:FindItemInInventory( "item_shivas_guard" )
-		
+
 		thisEntity:SetContextThink( "SandKingThink", SandKingThink, 1 )
 		thisEntity.flNextPhaseTime = nil
 		thisEntity.flPhaseTriggerEndTime = 0
@@ -76,7 +76,7 @@ function TailIsReady()
 			return true
 		end
 	end
-	
+
 	return false
 end
 
@@ -96,7 +96,7 @@ function ChangePhase()
 
 	if thisEntity:FindModifierByName( "modifier_boss_sand_king_burrow" ) ~= nil then
 		return 0.1
-	end	
+	end
 
 	if thisEntity.bBurrowStateQueued == true then
 		return false
@@ -119,7 +119,7 @@ function ChangePhase()
 --		return true
 --	end
 --	return false
-	
+
 end
 
 function SandKingThink()
@@ -181,7 +181,7 @@ function SandKingThink()
 	if thisEntity.bBurrowStateQueued == true then
 		return BurrowThink( enemies )
 	end
- 
+
 	return PhysicalThink( enemies )
 end
 
@@ -211,7 +211,7 @@ function BurrowThink( enemies )
 			thisEntity.bBurrowStateQueued = false
 			thisEntity.flNextPhaseTime = thisEntity.flNextPhaseTime + ( GameRules:GetGameTime() - thisEntity.flBurrowStrikesStartTime )
 			return 0.1
-		end 
+		end
 
 		thisEntity.nBurrowStrikesRemaining = thisEntity.nBurrowStrikesRemaining - 1
 
@@ -301,10 +301,10 @@ function PhysicalThink( enemies )
 	local vFrontLeftQuadrant = thisEntity:GetOrigin() + (( vDirection + vLeft ) * flQuadrantDistance )
 	local vBackRightQuadrant = thisEntity:GetOrigin() + (( -vDirection + vRight ) * flQuadrantDistance )
 	local vBackLeftQuadrant = thisEntity:GetOrigin() + (( -vDirection + vLeft ) * flQuadrantDistance )
-	local frontRightEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, vFrontRightQuadrant, enemies[1], 450, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
-	local frontLeftEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, vFrontLeftQuadrant, enemies[1], 450, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
-	local backRightEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, vBackRightQuadrant, enemies[1], 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
-	local backLeftEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, vBackLeftQuadrant, enemies[1], 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+	local frontRightEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, vFrontRightQuadrant, enemies[1], 450, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+	local frontLeftEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, vFrontLeftQuadrant, enemies[1], 450, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+	local backRightEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, vBackRightQuadrant, enemies[1], 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+	local backLeftEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, vBackLeftQuadrant, enemies[1], 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 
 	local bEnemiesBehind = true
 	if #backRightEnemies == 0 and #backLeftEnemies == 0 then
@@ -318,7 +318,7 @@ function PhysicalThink( enemies )
 	if bBurrowed then
 		return CastForwardsTailSwipe( enemies[1] )
 	end
-	
+
 	if bBurrowed then
 		return 1
 	end

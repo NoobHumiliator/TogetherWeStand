@@ -1,0 +1,196 @@
+"DOTAAbilities"
+{
+    "boss_ancient_apparition_beam"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/round_ancient_apparition/boss_ancient_apparition_beam"
+        "AbilityTextureName"            "lich_sinister_gaze"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_7"
+
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
+
+        "IsOnCastBar"                   "1"
+
+        "precache"
+        {
+        	"soundfile"  "soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
+        }
+
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "3000"
+        "AbilityCastPoint"              "1.0"
+        "AnimationIgnoresModelScale"    "1"
+        "AnimationPlaybackRate"         "1.0"
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "25.0"
+        "AbilityChannelTime"            "12.0"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "damage_per_tick"       "40"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "tick_interval"         "0.02"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "damage_radius"         "130"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "beam_range"            "3000"
+            }
+            "05"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "turn_rate"             "60"
+            }
+            "06"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "initial_delay"         "0.3"
+            }
+            "07"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "frozen_duration"       "4.2"
+            }
+        }
+    }
+
+    "boss_ancient_apparition_ice_thorn"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/round_ancient_apparition/boss_ancient_apparition_ice_thorn"
+        "AbilityTextureName"            "lich_frost_nova"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_YES_STRONG"
+        "FightRecapLevel"               "1"
+
+        "IsOnCastBar"                   "1"
+
+        "AbilityCastAnimation"          "ACT_DOTA_ABILITY_1"
+        "AbilityCastRange"              "700"
+        "AbilityCastPoint"              "0.5"
+        "precache"
+        {
+        	"particle"  "particles/units/heroes/hero_winter_wyvern/wyvern_arctic_burn_slow.vpcf"
+        	"particle"  "particles/status_fx/status_effect_wyvern_arctic_burn.vpcf"
+        	"soundfile"     "soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
+        }
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "7.0"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "delay"                     "1.4"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "radius"                    "200"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage"                    "1500"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "freeze_duration"           "7.8"
+            }
+        }
+    }
+
+    "boss_ancient_apparition_ice_age"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/round_ancient_apparition/boss_ancient_apparition_ice_age"
+        "AbilityTextureName"            "ancient_apparition_ice_blast"
+        "AbilityCastAnimation"          "ACT_DOTA_TELEPORT"
+
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET |DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
+
+         "precache"
+        {
+        	"particle"  "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_explode.vpcf"
+        	"particle"  "particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/maiden_freezing_field_snow_arcana1.vpcf"
+        	"soundfile"     "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
+        }
+
+
+        "IsOnCastBar"                   "1"
+
+        "AbilityCastPoint"              "0.0"
+        "AnimationIgnoresModelScale"    "1"
+        "AnimationPlaybackRate"         "1.0"
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "15.0"
+        "AbilityChannelTime"            "3.0"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "frozen_duration"       "11.0"
+            }
+        }
+    }
+}

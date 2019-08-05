@@ -28,13 +28,13 @@ function BanditArcherThink()
 	if GameRules:IsGamePaused() == true then
 		return 0.5
 	end
-	
+
 	local hEnemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 	if #hEnemies >0 then
 		local hAttackTarget = nil
 		local hApproachTarget = nil
 		for _, hEnemy in pairs( hEnemies ) do
-			if hEnemy ~= nil and hEnemy:IsAlive() then --and hEnemy:GetUnitName() ~= "npc_dota_friendly_bristleback_son" 
+			if hEnemy:IsAlive() then --and hEnemy:GetUnitName() ~= "npc_dota_friendly_bristleback_son"
 				local flDist = ( hEnemy:GetOrigin() - thisEntity:GetOrigin() ):Length2D()
 				if flDist < 400 then
 					if ( thisEntity.fTimeOfLastRetreat and ( GameRules:GetGameTime() < thisEntity.fTimeOfLastRetreat + 3 ) ) then

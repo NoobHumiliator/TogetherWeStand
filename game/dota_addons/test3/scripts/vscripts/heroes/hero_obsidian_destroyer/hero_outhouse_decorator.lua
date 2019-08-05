@@ -9,7 +9,7 @@ function RestoreMana( keys )
 	local cast_ability = keys.event_ability
 	local essence_particle = keys.essence_particle
 	local essence_sound = keys.essence_sound
-    
+
    local exempt_table = {}
 	exempt_table["shredder_chakram"]=true
     exempt_table["shredder_chakram_2"]=true

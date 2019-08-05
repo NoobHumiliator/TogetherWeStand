@@ -5,8 +5,8 @@
     </styles>
 
     <Panel>
-    	<RadioButton id="RadioButton">
-    		<DOTAHeroImage id="RadioImage" heroname="" />
-    	</RadioButton>
+        <RadioButton id="RadioButton">
+            <DOTAHeroImage id="RadioImage" heroname="" />
+        </RadioButton>
     </Panel>
 </root>

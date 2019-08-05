@@ -1,0 +1,99 @@
+"DOTAAbilities"
+{
+	"faceless_undie"   //不死之体
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"faceless_void_time_dilation"
+		"precache"
+		{
+			"particle"				"particles/hw_fx/candy_carrying_stack.vpcf"
+		}
+
+	    "Modifiers"
+		{
+			"modifier_faceless_undie"
+			{
+				"IsBuff"			        "1"
+				"IsPurgable"		        "0"
+				"Passive"                   "1"
+				"ThinkInterval"             "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH"       "1"
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"creature_ability/round_faceless/faceless_undead.lua"
+						"Function"		"Onthink"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	 "creature_ability/round_faceless/faceless_undead.lua"
+						"Function"		 "InitDamageBuff"
+					}
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_tower_truesight_aura"
+						"Target" 		"CASTER"
+					}
+				}
+			}
+		}
+	}
+
+    "faceless_shadow_beacon"   //暗影信标
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"abyssal_underlord_dark_rift"
+        "precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
+			"particle"			"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
+			"particle"          "particles/econ/items/dazzle/dazzle_dark_light_weapon/dazzle_dark_shallow_grave.vpcf"
+		}
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"radius"		"500"
+			}
+		}
+
+	    "Modifiers"
+		{
+			"modifier_shadow_beacon"
+			{
+				"IsBuff"			        "1"
+				"IsPurgable"		        "0"
+				"Passive"                   "0"
+
+				"EffectName"		"particles/units/heroes/hero_dazzle/dazzle_shallow_grave.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"creature_ability/round_faceless/shadow_beacon.lua"
+						"Function"		"ShadowBeaconActive"
+						"Target"        "TARGET"
+					}
+				}
+			}
+		}
+	}
+}

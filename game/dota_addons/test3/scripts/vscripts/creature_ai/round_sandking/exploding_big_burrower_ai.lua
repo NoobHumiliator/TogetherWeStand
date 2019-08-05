@@ -23,18 +23,16 @@ function ExplodingNyxThink()
 	if GameRules:IsGamePaused() == true then
 		return 1
 	end
-	
+
 	local hEnemies = FindUnitsInRadius( thisEntity:GetTeamNumber(), thisEntity:GetOrigin(), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
-	if #hEnemies > 0 then	
+	if #hEnemies > 0 then
 		local enemy = hEnemies[1]
-		if enemy ~= nil then
 			local flDist = ( enemy:GetOrigin() - thisEntity:GetOrigin() ):Length2D()
 			if flDist <= 150 then
 				return CastExplosion()
 			else
 				return Approach( enemy )
 			end
-		end
 	end
 
 	return 0.5

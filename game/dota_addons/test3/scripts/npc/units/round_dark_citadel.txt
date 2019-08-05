@@ -1,0 +1,572 @@
+"DOTAUnits"
+{
+ 	"npc_dota_creature_abomination"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/pudge/pudge.vmdl"
+		"ModelScale"				"1"
+		"Level"						"4"
+		"HealthBarOffset"			"140"
+		"HasInventory"				"1"
+		"SoundSet"                  "Hero_Pudge"
+    	"GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"				"4"
+		//"Ability1"					"abomination_disease_cloud"
+		//"Ability1"					"particle_model_passive"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"50"		// Physical protection.
+		"MagicalResistance"			"0"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackDamageMin"			"156.0"
+		"AttackDamageMax"			"194.0"
+		"AttackRate"				"1.9"
+		"AttackAnimationPoint"		"0.5"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"128"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"RingRadius"				"70"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"340"
+		"MovementTurnRate"			"0.4"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"16000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"
+		"VisionNighttimeRange"		"1400"
+		"vscripts"					"creature_ai/zombie_ai.lua"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		 {
+			"CanRespawn"				"0"                       
+			"DisableResistance"			"0.0"
+			"AttachWearables"
+			{
+				"Wearable1"		{	"ItemDef"		"258"		}
+				"Wearable2"		{	"ItemDef"		"259"		}
+				"Wearable3" 	{	"ItemDef"		"260"		}
+				"Wearable4"		{	"ItemDef"		"261"		}
+				"Wearable5"		{	"ItemDef"		"262"		}
+				"Wearable6"		{	"ItemDef"		"470"		} //Belt
+				"Wearable7"		{	"ItemDef"		"47"		} //Hook
+			}
+		}
+   	}
+
+	"npc_dota_frost_wyrm"    //冰霜巨龙
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/winterwyvern/winterwyvern.vmdl"
+		"ModelScale"				"1.2"
+		"Level"						"6"
+		"HealthBarOffset"			"180"
+		"SoundSet"                  "Hero_Winter_Wyvern"
+	   	"GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_winter_wyvern.vsndevts"
+
+
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"				"4"
+		"Ability1"					"undead_freezing_splash"	 //Reference: Afrz
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"50"
+		"MagicalResistance"			"0"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackDamageMin"			"220.0"
+		"AttackDamageMax"			"290.0"
+		"AttackRate"				"2.5"
+		"AttackAnimationPoint"		"0.5"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"300"
+		"ProjectileModel"			"particles/neutral_fx/ghost_frost_attack.vpcf"	 //Add projectile
+		"ProjectileSpeed"			"800"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"40"
+
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"				"380"
+		"MovementTurnRate"			"0.4"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"12000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1600"
+		"VisionNighttimeRange"		"1600"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"vscripts"					"creature_ai/zombie_ai.lua"
+		"Creature"
+		{
+			"CanRespawn"				"0"                       
+			"DisableResistance"			"0.0"
+			"AttachWearables"
+			{
+				"Wearable1"		{	"ItemDef"		"552"		} //"Winter Wyvern's Pelt"
+				"Wearable2"		{	"ItemDef"		"551"		} //"Winter Wyvern's Headdress"
+				"Wearable3"		{	"ItemDef"		"553"		} //"Winter Wyvern''s Ambient Effects"
+			}
+		}
+	}
+
+ 	"npc_dota_death_knight_boss"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/heroes/abaddon/abaddon.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"ModelScale"				        "1.5"
+		"Level"					         	"50"
+		"ConsideredHero"			        "1"
+
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"300"
+
+		"SoundSet"				    "Hero_Abaddon"								// Name of sound set.
+
+		// Inventory
+		//----------------------------------------------------------------
+		"HasInventory"				"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+
+		"Ability1"					"death_knight_boss_mist_coil"	// Ability 1.
+		"Ability2"					"death_knight_boss_unholy_aura"		        // Ability 2.
+		"Ability3"					"death_knight_boss_death_pact"			// Ability 3.
+		"Ability4"					"death_knight_boss_animate_dead"			// Ability 4.
+		"Ability5"					""			// Ability 5.
+		"Ability6"					""		    // Ability 6 - Extra.
+		"Ability7"					""			// Ability 7 - Extra.
+		"Ability8"					""			// Ability 8 - Extra.
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"50"		// Physical protection.
+		"MagicalResistance"			"25"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"	    "DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"243"		// Damage range min.
+		"AttackDamageMax"			"350"		// Damage range max.
+		"AttackRate"				"1.5"		// Speed of attack.
+		"AttackAnimationPoint"	    "0.3"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
+		"AttackRange"				"128"		// Range within a target can be attacked.
+		"ProjectileModel"			""			// Particle system model for projectile.
+		"ProjectileSpeed"			"0"			// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"				    "100"		// Experience earn.
+		"BountyGoldMin"				"200"		// Gold earned min.
+		"BountyGoldMax"				"200"		// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"600"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		  "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"385"		// Speed
+		"MovementTurnRate"			"0.5"		// Turning rate.
+
+
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_abaddon.vsndevts"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"32000"		// Base health.
+		"StatusHealthRegen"			"50.0"		// Health regeneration rate.
+		"StatusMana"				"500"		// Base mana.
+		"StatusManaRegen"			"15.0"		// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"2200"		// Range of vision during day light.
+		"VisionNighttimeRange"		"2200"		// Range of vision at night time.
+
+		"vscripts"					"creature_ai/round_dark_citadel/death_knight_boss_ai.lua"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"
+                        
+			"DisableResistance"			"100.0"
+
+			//Level Up Parameters
+			//-----------------------------------------------------------------
+			"HPGain"					"500"
+			"DamageGain"				"25"
+			"ArmorGain"					"1"
+			"MagicResistGain"			"1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"100"
+
+			"DefaultState"				"Invade"
+                        "AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"5168"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"5691"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"5692"
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"5693"
+				}
+                                "Wearable5"
+				{
+					"ItemDef"			"5694"
+				}
+			}
+
+		}
+	}
+
+    "npc_dota_lich_boss"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/heroes/lich/lich.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"ModelScale"				        "1.5"
+		"Level"						"50"
+		"ConsideredHero"			        "1"
+
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"300"
+
+		"SoundSet"				"Hero_Lich"								// Name of sound set.
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
+		"IdleSoundLoop"				"Hero_Lich.IdleLoop"
+
+		// Inventory
+		//----------------------------------------------------------------
+		"HasInventory"				"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+
+		"Ability1"					"lich_boss_death_and_dacay"	// Ability 1.
+		"Ability2"					"lich_boss_nova" // Ability 2.
+		"Ability3"					""			// Ability 3.
+		"Ability4"					""			// Ability 4.
+		"Ability5"					""			// Ability 5.
+		"Ability6"					""		        // Ability 6 - Extra.
+		"Ability7"					""			// Ability 7 - Extra.
+		"Ability8"					"" // Ability 8 - Extra.
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"60"		// Physical protection.
+		"MagicalResistance"			"25"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		  "DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"300"		// Damage range min.
+		"AttackDamageMax"			"400"		// Damage range max.
+		"AttackRate"				"1.5"		// Speed of attack.
+		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
+		"AttackRange"				"550"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_lich/lich_base_attack.vpcf"			// Particle system model for projectile.
+		"ProjectileSpeed"			"1400"			// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"				    "100"		// Experience earn.
+		"BountyGoldMin"				"200"		// Gold earned min.
+		"BountyGoldMax"				"200"		// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"600"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		 "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"350"		// Speed
+		"MovementTurnRate"			"0.5"		// Turning rate.
+
+
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
+		"VoiceFile"				    "soundevents/voscripts/game_sounds_vo_lich.vsndevts"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"17800"		// Base health.
+		"StatusHealthRegen"			"50.0"		// Health regeneration rate.
+		"StatusMana"				"1000"		// Base mana.
+		"StatusManaRegen"			"50.0"		// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1800"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1800"		// Range of vision at night time.
+
+		"vscripts"					"creature_ai/round_dark_citadel/lich_boss_ai.lua"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"
+
+			"EquippedItems"
+			{
+                              "DivineRapierDatadriven"
+				{
+					"Item"					"item_urn_of_shadows"
+				}
+			}
+                        
+			"DisableResistance"			"100.0"
+
+			//Level Up Parameters
+			//-----------------------------------------------------------------
+			"HPGain"					"500"
+			"DamageGain"				"25"
+			"ArmorGain"					"1"
+			"MagicResistGain"			"1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"100"
+
+			"DefaultState"				"Invade"
+                        "AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"4851"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"4852"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"4853"
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"4854"
+				}
+			}
+
+		}
+	}
+
+    "npc_dota_crypt_lord_boss"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/heroes/nerubian_assassin/nerubian_assassin.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"ModelScale"				"1.5"
+		"Level"						"50"
+		"ConsideredHero"			        "1"
+
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"300"
+
+		"SoundSet"				    "Hero_NyxAssassin"								// Name of sound set.
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
+
+		// Inventory
+		//----------------------------------------------------------------
+		"HasInventory"				"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+
+		"Ability1"					"crypt_lord_boss_impale"	// Ability 1.
+		"Ability2"					""		        // Ability 2.
+		"Ability3"					""			// Ability 3.
+		"Ability4"					""			// Ability 4.
+		"Ability5"					""			// Ability 5.
+		"Ability6"					""		                                // Ability 6 - Extra.
+		"Ability7"					""			                        // Ability 7 - Extra.
+		"Ability8"					""			// Ability 8 - Extra.
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"70"	    // Physical protection.
+		"MagicalResistance"			"25"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"350"		// Damage range min.
+		"AttackDamageMax"			"400"		// Damage range max.
+		"AttackRate"				"1.5"		// Speed of attack.
+		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
+		"AttackRange"				"128"		// Range within a target can be attacked.
+		"ProjectileModel"			""			// Particle system model for projectile.
+		"ProjectileSpeed"			"0"			// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"				    "100"		// Experience earn.
+		"BountyGoldMin"				"200"		// Gold earned min.
+		"BountyGoldMax"				"200"		// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"600"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"355"		// Speed
+		"MovementTurnRate"			"0.5"		// Turning rate.
+
+
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
+		"VoiceFile"				    "soundevents/voscripts/game_sounds_vo_nyx_assassin.vsndevts"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"40000"		// Base health.
+		"StatusHealthRegen"			"3.0"		// Health regeneration rate.
+		"StatusMana"				"300"		// Base mana.
+		"StatusManaRegen"			"15.0"		// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
+
+		"vscripts"					"creature_ai/round_dark_citadel/crypt_lord_boss_ai.lua"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"
+                        
+			"DisableResistance"			"100.0"
+
+			//Level Up Parameters
+			//-----------------------------------------------------------------
+			"HPGain"					"500"
+			"DamageGain"				"25"
+			"ArmorGain"					"1"
+			"MagicResistGain"			"1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"100"
+
+			"DefaultState"				"Invade"
+                        "AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"5926"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"5927"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"5928"
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"5929"
+				}
+                                "Wearable5"
+				{
+					"ItemDef"			"5345"
+				}
+			}
+
+		}
+	}
+}

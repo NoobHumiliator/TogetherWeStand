@@ -1,68 +1,74 @@
-LinkLuaModifier( "modifier_increase_mana_cost_lua","item_ability/modifier_increase_mana_cost_lua", LUA_MODIFIER_MOTION_NONE )
-
-function ApplySpValue( keys )
+function ApplySpValue(keys)
     local caster = keys.caster
-    local ability= keys.ability
+    local ability = keys.ability
     if caster:HasModifier("modifier_mage_staff_6_datadriven") then
-      caster.sp=2.0
-      caster.manaCostIns=0.15
+        local ability = caster:FindModifierByName("modifier_mage_staff_6_datadriven"):GetAbility();
+        caster.sp = ability:GetSpecialValueFor("spell_power")
+        --caster.manaCostIns = ability:GetSpecialValueFor("mana_increase")
     elseif caster:HasModifier("modifier_mage_staff_5_datadriven") then
-      caster.sp=1.8
-      caster.manaCostIns=0.14
-      elseif caster:HasModifier("modifier_mage_staff_4_datadriven") then
-         caster.sp=1.6
-         caster.manaCostIns=0.12
-        elseif caster:HasModifier("modifier_mage_staff_3_datadriven") then
-             caster.sp=1.3
-             caster.manaCostIns=0.09
-           elseif caster:HasModifier("modifier_mage_staff_2_datadriven") then 
-               caster.sp=1.0
-               caster.manaCostIns=0.05
-             elseif caster:HasModifier("modifier_mage_staff_1_datadriven") then
-               caster.sp=0.6
-               caster.manaCostIns=0 
-              else
-                caster.sp=nil
-                caster.manaCostIns=nil
-    end
-    if caster.sp~=nil then
-      print(caster:GetUnitName().. "'sp: " ..caster.sp)
+        local ability = caster:FindModifierByName("modifier_mage_staff_5_datadriven"):GetAbility();
+        caster.sp = ability:GetSpecialValueFor("spell_power")
+        --caster.manaCostIns = ability:GetSpecialValueFor("mana_increase")
+    elseif caster:HasModifier("modifier_mage_staff_4_datadriven") then
+        local ability = caster:FindModifierByName("modifier_mage_staff_4_datadriven"):GetAbility();
+        caster.sp = ability:GetSpecialValueFor("spell_power")
+        --caster.manaCostIns = ability:GetSpecialValueFor("mana_increase")
+    elseif caster:HasModifier("modifier_mage_staff_3_datadriven") then
+        local ability = caster:FindModifierByName("modifier_mage_staff_3_datadriven"):GetAbility();
+        caster.sp = ability:GetSpecialValueFor("spell_power")
+        --caster.manaCostIns = ability:GetSpecialValueFor("mana_increase")
+    elseif caster:HasModifier("modifier_mage_staff_2_datadriven") then
+        local ability = caster:FindModifierByName("modifier_mage_staff_2_datadriven"):GetAbility();
+        caster.sp = ability:GetSpecialValueFor("spell_power")
+        --caster.manaCostIns = ability:GetSpecialValueFor("mana_increase")
+    elseif caster:HasModifier("modifier_mage_staff_1_datadriven") then
+        local ability = caster:FindModifierByName("modifier_mage_staff_1_datadriven"):GetAbility();
+        caster.sp = ability:GetSpecialValueFor("spell_power")
+        --caster.manaCostIns = ability:GetSpecialValueFor("mana_increase")
     else
-      print(caster:GetUnitName().. "'sp: nil")
+        caster.sp = nil
+        --caster.manaCostIns = nil
     end
-
-    --caster:AddNewModifier( caster, self, "modifier_increase_mana_cost_lua", {} )
+    if caster.sp ~= nil then
+        print(caster:GetUnitName() .. "'sp: " .. caster.sp)
+    else
+        print(caster:GetUnitName() .. "'sp: nil")
+    end
 end
 
-
-
-function RemoveSpValue( keys )
+function RemoveSpValue(keys)
     local caster = keys.caster
     if caster:HasModifier("modifier_mage_staff_6_datadriven") then
-       caster.sp=2.0
-       caster.manaCostIns=0.15
+        local ability = caster:FindModifierByName("modifier_mage_staff_6_datadriven"):GetAbility();
+        caster.sp = ability:GetSpecialValueFor("spell_power")
+        --caster.manaCostIns = ability:GetSpecialValueFor("mana_increase")
     elseif caster:HasModifier("modifier_mage_staff_5_datadriven") then
-       caster.sp=1.8
-       caster.manaCostIns=0.12
-      elseif caster:HasModifier("modifier_mage_staff_4_datadriven") then
-         caster.sp=1.6
-         caster.manaCostIns=0.19
-        elseif caster:HasModifier("modifier_mage_staff_3_datadriven") then
-            caster.sp=1.3
-            caster.manaCostIns=0.09
-           elseif caster:HasModifier("modifier_mage_staff_2_datadriven") then 
-       	      caster.sp=1.0
-              caster.manaCostIns=0.05
-             elseif caster:HasModifier("modifier_mage_staff_1_datadriven") then
-               caster.sp=0.6
-               caster.manaCostIns=0 
-              else
-               caster.sp=nil
-               caster.manaCostIns=nil 
-    end            
-    if caster.sp~=nil then
-      print(caster:GetUnitName().. "'sp: " ..caster.sp)
+        local ability = caster:FindModifierByName("modifier_mage_staff_5_datadriven"):GetAbility();
+        caster.sp = ability:GetSpecialValueFor("spell_power")
+        --caster.manaCostIns = ability:GetSpecialValueFor("mana_increase")
+    elseif caster:HasModifier("modifier_mage_staff_4_datadriven") then
+        local ability = caster:FindModifierByName("modifier_mage_staff_4_datadriven"):GetAbility();
+        caster.sp = ability:GetSpecialValueFor("spell_power")
+        --caster.manaCostIns = ability:GetSpecialValueFor("mana_increase")
+    elseif caster:HasModifier("modifier_mage_staff_3_datadriven") then
+        local ability = caster:FindModifierByName("modifier_mage_staff_3_datadriven"):GetAbility();
+        caster.sp = ability:GetSpecialValueFor("spell_power")
+        --caster.manaCostIns = ability:GetSpecialValueFor("mana_increase")
+    elseif caster:HasModifier("modifier_mage_staff_2_datadriven") then
+        local ability = caster:FindModifierByName("modifier_mage_staff_2_datadriven"):GetAbility();
+        caster.sp = ability:GetSpecialValueFor("spell_power")
+        --caster.manaCostIns = ability:GetSpecialValueFor("mana_increase")
+    elseif caster:HasModifier("modifier_mage_staff_1_datadriven") then
+        local ability = caster:FindModifierByName("modifier_mage_staff_1_datadriven"):GetAbility();
+        caster.sp = ability:GetSpecialValueFor("spell_power")
+        --caster.manaCostIns = ability:GetSpecialValueFor("mana_increase")
     else
-      print(caster:GetUnitName().. "'sp: nil")
+        caster.sp = nil
+        --caster.manaCostIns = nil
+    end
+    if caster.sp ~= nil then
+        print(caster:GetUnitName() .. "'sp: " .. caster.sp)
+    else
+        print(caster:GetUnitName() .. "'sp: nil")
     end
 end

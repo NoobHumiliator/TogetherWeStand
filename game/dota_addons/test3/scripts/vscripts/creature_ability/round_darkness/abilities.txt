@@ -1,0 +1,453 @@
+"DOTAAbilities"
+{
+    "light_ball_die"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass" 					"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"Level"							"1"
+		"AbilityTextureName"            "modifier_light"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"				"0"
+
+		"OnOwnerDied"
+		{
+			"FireSound"
+			{
+				"EffectName"		"Hero_Morphling.ReplicateEnd"
+				"Target"
+				 {
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				 }
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"creature_ability/round_darkness/light_ball_die.lua"
+				"Function"		"LightBallDie"
+			}
+		}
+
+		"Modifiers"
+		{
+	        "modifier_light_ball_provide_vision"
+	        {
+	        	"Passive"			"1"
+	        	"IsHidden"			"0"
+	        	"IsDebuff"			"0"
+	            "States"
+			    {
+					"MODIFIER_STATE_PROVIDES_VISION"	"MODIFIER_STATE_VALUE_ENABLED"
+			    }
+	        }
+        }
+	}
+
+    "light_ball_dummy_aura"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+
+		"precache"
+		{
+			"particle"  "particles/econ/events/ti6/teleport_start_ti6_lvl3_rays.vpcf"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				   "FIELD_INTEGER"
+				"radius"				   "1000"
+			}
+			"02"
+			{
+				"var_type"				    "FIELD_INTEGER"
+				"bad_damage_percentage"	    "10000"
+			}
+			"03"
+			{
+				"var_type"				    "FIELD_INTEGER"
+				"good_damage_percentage"    "50"
+			}
+			"04"
+			{
+				"var_type"				    "FIELD_INTEGER"
+				"vision_reduce"             "-20000"
+			}
+		}
+
+		"Modifiers"
+		{
+           "modifier_light_ball_dummy_provide_vision"
+	        {
+	        	"Passive"			"1"
+	        	"IsHidden"			"0"
+	        	"IsDebuff"			"0"
+	            "States"
+			     {
+					"MODIFIER_STATE_PROVIDES_VISION"	"MODIFIER_STATE_VALUE_ENABLED"
+			     }
+	        }
+
+			"modifier_light_ball_dummy_aura_good"
+			{
+				"Passive"					"1"
+				"IsPurgable"				"0"
+				"IsHidden"					"1"
+
+				"Aura"						"modifier_light_ball_dummy_aura_good_effect"
+				"Aura_Radius"				"%radius"
+				"Aura_Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"				"DOTA_UNIT_TARGET_ALL"
+                "Aura_ApplyToCaster"	    "0"
+                "OnCreated"
+                {
+                	"AttachEffect"
+                	{
+                		"EffectName"		"particles/econ/events/ti6/teleport_start_ti6_lvl3_rays.vpcf"
+                		"EffectAttachType"	"follow_origin"
+                		"Target"		    "CASTER"
+                		"ControlPoints"
+                		{
+                			"00"		"0 0 0"
+                		}
+                	}
+                }
+
+			}
+
+			"modifier_light_ball_dummy_aura_good_effect"
+			{
+				"IsHidden"					"0"
+				"TextureName"	            "modifier_light"
+				"Properties"
+	             {
+		               "MODIFIER_PROPERTY_BONUS_DAY_VISION"	        "%vision_reduce"
+                       "MODIFIER_PROPERTY_BONUS_NIGHT_VISION"       "%vision_reduce"
+                       "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%good_damage_percentage"
+	             }
+			}
+
+		    "modifier_light_ball_dummy_aura_bad"
+			{
+				"Passive"					"1"
+				"IsPurgable"				"0"
+				"IsHidden"					"1"
+
+
+				"Aura"						"modifier_light_ball_dummy_aura_bad_effect"
+				"Aura_Radius"				"%radius"
+				"Aura_Teams"				"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"				"DOTA_UNIT_TARGET_ALL"
+				"Aura_Flags"			    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+
+			"modifier_light_ball_dummy_aura_bad_effect"
+			{
+				"IsHidden"					"0"
+				"TextureName"	            "modifier_light"
+				"IsDebuff"                  "1"
+				"Properties"
+	            {
+                    "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%bad_damage_percentage"
+	            }
+			}
+		}
+    }
+
+    "night_creature_increase_damage"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "night_stalker_hunter_in_the_night"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				           "FIELD_INTEGER"
+				"damage_per_stack"		           "20"
+			}
+		    "02"
+			{
+				"var_type"				           "FIELD_INTEGER"
+				"magic_enhance_ptc_per_stack"      "20"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_night_damage_think"
+			{
+				"IsPurgable"                        "0"
+			    "Passive"                           "1"
+			    "IsHidden"                          "1"
+				"ThinkInterval"			           "3.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"         "creature_ability/round_darkness/night_damage.lua"
+						"Function"           "IncreaseDamage"
+					}
+				}
+			}
+			"modifier_night_damage_stack"
+			{
+				"IsPurgable"                        "0"
+				"ModifierAttributes"               "MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%damage_per_stack"
+				}
+			}
+		}
+    }
+
+    "night_terror_lua"
+	{
+		"BaseClass"						 "ability_lua"
+		"ScriptFile"					 "creature_ability/round_darkness/night_terror_lua.lua"
+		"AbilityName"		             "night_terror_lua"
+		"AbilityTextureName"             "bane_enfeeble"
+		"AbilityBehavior"	          	 "DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitDamageType"          "DAMAGE_TYPE_PURE"
+		"AbilityCastPoint"				 "0.2"
+		"AbilityCastRange"				 "10000"
+		"AbilityManaCost"				 "50"
+		"AbilityCooldown"				 "4"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"	            "60"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"	                "400"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"search_radius"	        "275"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stun_duration"	        "3.0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_tick"	    "50.0"
+			}
+		}
+		"precache"
+		{
+		    "soundfile"				"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts"
+			"particle"  "particles/units/heroes/hero_bane/bane_fiends_grip.vpcf"
+			"particle"  "particles/units/heroes/hero_bane/bane_fiendsgrip_blob.vpcf"
+		    "particle"  "particles/units/heroes/hero_bane/bane_projectile.vpcf"
+		    "particle"  "particles/units/heroes/hero_bane/bane_nightmare_slime.vpcf"
+		    "particle"  "particles/units/heroes/hero_night_stalker/nightstalker_void.vpcf"
+		    "particle"  "particles/units/heroes/hero_night_stalker/nightstalker_void_hit.vpcf"
+		    "particle"  "particles/units/heroes/hero_enigma/enigma_midnight_pulse.vpcf"
+		    "particle"  "particles/units/heroes/hero_enigma/enigma_midnight_pulse_d.vpcf"
+		}
+	}
+
+    "creature_night_stalker_void"
+	{
+		"BaseClass"			        	"night_stalker_void"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+
+		// Unit Targeting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"525"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"8"
+		"AbilityManaCost"				"50"
+		"AbilityDamage"					"90"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.5"	// applies 2 modifiers
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration_day"			"1.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration_night"		"1.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movespeed_slow"		"-50"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attackspeed_slow"		"-50"
+			}
+		}
+	}
+
+    "night_midnight_pulse"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				        "ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AoERadius" 					"200"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"enigma_midnight_pulse"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_enigma/enigma_midnight_pulse.vpcf"
+			"soundfile"		"sounds/weapons/hero/enigma/midnight_pulse.vsnd"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"20000"
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"200"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"damage_percent"			"5"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"30"
+			}
+			"04"
+			{
+				"var_type"				    "FIELD_FLOAT"
+				"tick_rate"				    "1.0"
+			}
+		}
+
+		"OnSpellStart"
+		{
+		 	"CreateThinker"
+		 	{
+		 		"ModifierName"	"modifier_midnight_pulse_datadriven"
+		 		"Target" 		"POINT"
+		 	}
+		}
+
+		"Modifiers"
+		{
+			"modifier_midnight_pulse_datadriven"
+			{
+				"Aura"					"modifier_midnight_pulse_debuff"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_ALL"
+				"Duration"				"%duration"
+
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_Enigma.Midnight_Pulse"
+						"Target"		"TARGET"
+					}
+
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_enigma/enigma_midnight_pulse.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%radius %radius %radius"
+						}
+					}
+
+					"DestroyTrees"
+					{
+						"Target"	"TARGET"
+						"Radius"	"%radius"
+					}
+				}
+			}
+
+			"modifier_midnight_pulse_debuff"
+			{
+				"IsDebuff"		"1"
+
+				"ThinkInterval"	"%tick_rate"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"creature_ability/round_dark_citadel/midnight_pulse.lua"
+						"Function"	    "ApplyDPS"
+					}
+				}
+			}
+		}
+	}
+}

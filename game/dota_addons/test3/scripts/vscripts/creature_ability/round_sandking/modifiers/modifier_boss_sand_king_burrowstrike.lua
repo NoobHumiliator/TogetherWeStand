@@ -36,7 +36,7 @@ function modifier_boss_sand_king_burrowstrike:OnCreated( kv )
 		self.nFXIndex3 = -1
 		self:OnIntervalThink()
 		self:StartIntervalThink( 0.33 )
-		if self:ApplyHorizontalMotionController() == false then 
+		if self:ApplyHorizontalMotionController() == false then
 			self:Destroy()
 			return
 		end
@@ -49,7 +49,7 @@ function modifier_boss_sand_king_burrowstrike:OnDestroy()
 	if IsServer() then
 		self:GetParent():RemoveHorizontalMotionController( self )
 		self:GetParent():RemoveEffects( EF_NODRAW )
-		local kv = 
+		local kv =
 		{
 			x = self.vDir.x,
 			y = self.vDir.y,
@@ -85,7 +85,7 @@ function modifier_boss_sand_king_burrowstrike:OnIntervalThink()
 
 		EmitSoundOn( "Hero_NyxAssassin.Burrow.In", self:GetParent() )
 
-		local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), self:GetParent():GetOrigin(), self:GetParent(), self.radius / 2, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+		local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), self:GetParent():GetOrigin(), self:GetParent(), self.radius / 2, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		if #enemies > 0 then
 			self:Destroy()
 		end

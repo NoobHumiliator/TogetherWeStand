@@ -1,81 +1,81 @@
 <root>
-	 <styles>
-        <include src="file://{resources}/styles/dotastyles.css" />
-        <include src="file://{resources}/styles/custom_game/tws_rank_panel.css" />
-    </styles>
-    <scripts>
-        <include src="file://{resources}/scripts/custom_game/tws_rank_panel.js" />
-    </scripts>
-    <Panel class="LadderInfoRoot">
-        <Panel id="Title">
-            <Label id="TitleName" text="#world_rank" />
-        </Panel>
-        <!--类型选择按钮-->
-        <Panel id="HardOrTrailChoose">
-             <RadioButton  id="HardRankPrimaryTabButton"  class="PrimaryTabButton Activated" onactivate="ShowHardRank()">
-                 <Panel class="RadioBox"/>
-                 <Label text="#hard_mode"/>
-              </RadioButton>
-              <Label class="SecondaryTabSeparator" text="/"/>
-              <RadioButton class="PrimaryTabButton" onactivate="ShowTrailRank()">
-                 <Panel class="RadioBox"/>
-                 <Label text="#trail_mode"/>
-              </RadioButton>
-        </Panel>
-        <Panel id="RankPlayerNumberTabs" hittest="false">  <!--Tab按钮-->
-              <!--1人-->
-              <RadioButton class="SecondaryTabButton" onactivate="SwitchPanel(1)">
-                 <Panel class="RadioBox"/>
-                 <Label text="#one_player"/>
-              </RadioButton>
-              <Label class="SecondaryTabSeparator" text="/"/>
-              <!--2人-->
-              <RadioButton class="SecondaryTabButton" onactivate="SwitchPanel(2)">
-                 <Panel class="RadioBox"/>
-                 <Label text="#two_player"/>
-              </RadioButton>
-              <Label class="SecondaryTabSeparator" text="/"/>
-              <!--3人-->
-              <RadioButton class="SecondaryTabButton" onactivate="SwitchPanel(3)">
-                 <Panel class="RadioBox"/>
-                 <Label text="#three_player"/>
-              </RadioButton>
-              <Label class="SecondaryTabSeparator" text="/"/>
-              <!--4人-->
-              <RadioButton class="SecondaryTabButton" onactivate="SwitchPanel(4)">
-                 <Panel class="RadioBox"/>
-                 <Label text="#four_player"/>
-              </RadioButton>
-              <Label class="SecondaryTabSeparator" text="/"/>
-              <!--5人-->
-              <RadioButton id ="SecondaryTabButton_5" class="SecondaryTabButton Activated" onactivate="SwitchPanel(5)">
-                 <Panel class="RadioBox"/>
-                 <Label text="#five_player"/>
-              </RadioButton>
-        </Panel>
-        <Panel id="CollumInformerPanel" class="CollumInformerPanel">
-               <Panel id="TopHorizonLine" class="TopHorizonLine"/>
-               <Panel id="Informers" class="Informers">
-                   <Label text="#rank" id="InformerLabelRank"/>
-                   <Label text="#player" id="InformerLabelPlayer"/>
-                   <Label text="#round" id="InformerLabelRound"/>
-                   <Label text="#timeCost" id="InformerLabelTimeCost"/>
-               </Panel>
-               <Panel id="NavigeteButtonPanel" class="NavigeteButtonPanel">
-                   <Button id="NavigetePreButton" class="NavigetePreButtonPic NavigeteButton" onactivate="ShowPrePage()"/>
-                   <Button id="NavigeteNextButton" class="NavigeteNextButtonPic NavigeteButton" onactivate="ShowNextPage()"/>          
-               </Panel>
-        </Panel>
-         <Panel id="OnePlayerPanel" class="PlayerNumberPanel Hidden"/>
-         <Panel id="TwoPlayerPanel" class="PlayerNumberPanel Hidden"/>
-         <Panel id="ThreePlayerPanel" class="PlayerNumberPanel Hidden"/>
-         <Panel id="FourPlayerPanel" class="PlayerNumberPanel Hidden"/>
-         <Panel id="FivePlayerPanel" class="PlayerNumberPanel"/>
-         <Panel id="TrailOnePlayerPanel" class="PlayerNumberPanel Hidden"/>
-         <Panel id="TrailTwoPlayerPanel" class="PlayerNumberPanel Hidden"/>
-         <Panel id="TrailThreePlayerPanel" class="PlayerNumberPanel Hidden"/>
-         <Panel id="TrailFourPlayerPanel" class="PlayerNumberPanel Hidden"/>
-         <Panel id="TrailFivePlayerPanel" class="PlayerNumberPanel Hidden"/>
+   <styles>
+      <include src="file://{resources}/styles/dotastyles.css" />
+      <include src="file://{resources}/styles/custom_game/tws_rank_panel.css" />
+   </styles>
+   <scripts>
+      <include src="file://{resources}/scripts/custom_game/tws_rank_panel.js" />
+   </scripts>
+   <Panel class="LadderInfoRoot">
+      <Panel id="Title">
+         <Label id="TitleName" text="#world_rank" />
+      </Panel>
+      <!--类型选择按钮-->
+      <Panel id="HardOrTrailChoose">
+         <RadioButton id="HardRankPrimaryTabButton" class="PrimaryTabButton Activated" onactivate="ShowHardRank()">
+            <Panel class="RadioBox"/>
+            <Label text="#hard_mode"/>
+         </RadioButton>
+         <Label class="SecondaryTabSeparator" text="/"/>
+         <RadioButton class="PrimaryTabButton" onactivate="ShowTrailRank()">
+            <Panel class="RadioBox"/>
+            <Label text="#trail_mode"/>
+         </RadioButton>
+      </Panel>
+      <Panel id="RankPlayerNumberTabs" hittest="false">         <!--Tab按钮-->
+         <!--1人-->
+         <RadioButton class="SecondaryTabButton" onactivate="SwitchPanel(1)">
+            <Panel class="RadioBox"/>
+            <Label text="#one_player"/>
+         </RadioButton>
+         <Label class="SecondaryTabSeparator" text="/"/>
+         <!--2人-->
+         <RadioButton class="SecondaryTabButton" onactivate="SwitchPanel(2)">
+            <Panel class="RadioBox"/>
+            <Label text="#two_player"/>
+         </RadioButton>
+         <Label class="SecondaryTabSeparator" text="/"/>
+         <!--3人-->
+         <RadioButton class="SecondaryTabButton" onactivate="SwitchPanel(3)">
+            <Panel class="RadioBox"/>
+            <Label text="#three_player"/>
+         </RadioButton>
+         <Label class="SecondaryTabSeparator" text="/"/>
+         <!--4人-->
+         <RadioButton class="SecondaryTabButton" onactivate="SwitchPanel(4)">
+            <Panel class="RadioBox"/>
+            <Label text="#four_player"/>
+         </RadioButton>
+         <Label class="SecondaryTabSeparator" text="/"/>
+         <!--5人-->
+         <RadioButton id ="SecondaryTabButton_5" class="SecondaryTabButton Activated" onactivate="SwitchPanel(5)">
+            <Panel class="RadioBox"/>
+            <Label text="#five_player"/>
+         </RadioButton>
+      </Panel>
+      <Panel id="CollumInformerPanel" class="CollumInformerPanel">
+         <Panel id="TopHorizonLine" class="TopHorizonLine"/>
+         <Panel id="Informers" class="Informers">
+            <Label text="#rank" id="InformerLabelRank"/>
+            <Label text="#player" id="InformerLabelPlayer"/>
+            <Label text="#round" id="InformerLabelRound"/>
+            <Label text="#timeCost" id="InformerLabelTimeCost"/>
+         </Panel>
+         <Panel id="NavigeteButtonPanel" class="NavigeteButtonPanel">
+            <Button id="NavigetePreButton" class="NavigetePreButtonPic NavigeteButton" onactivate="ShowPrePage()"/>
+            <Button id="NavigeteNextButton" class="NavigeteNextButtonPic NavigeteButton" onactivate="ShowNextPage()"/>
+         </Panel>
+      </Panel>
+      <Panel id="OnePlayerPanel" class="PlayerNumberPanel Hidden"/>
+      <Panel id="TwoPlayerPanel" class="PlayerNumberPanel Hidden"/>
+      <Panel id="ThreePlayerPanel" class="PlayerNumberPanel Hidden"/>
+      <Panel id="FourPlayerPanel" class="PlayerNumberPanel Hidden"/>
+      <Panel id="FivePlayerPanel" class="PlayerNumberPanel"/>
+      <Panel id="TrailOnePlayerPanel" class="PlayerNumberPanel Hidden"/>
+      <Panel id="TrailTwoPlayerPanel" class="PlayerNumberPanel Hidden"/>
+      <Panel id="TrailThreePlayerPanel" class="PlayerNumberPanel Hidden"/>
+      <Panel id="TrailFourPlayerPanel" class="PlayerNumberPanel Hidden"/>
+      <Panel id="TrailFivePlayerPanel" class="PlayerNumberPanel Hidden"/>
 
-    </Panel>
+   </Panel>
 </root>

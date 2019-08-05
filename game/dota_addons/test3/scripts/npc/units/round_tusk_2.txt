@@ -1,0 +1,353 @@
+"DOTAUnits"
+{
+	"npc_dota_creature_kobold_overboss"
+	{
+		// General
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/neutral_creeps/n_creep_kobold/kobold_c/n_creep_kobold_frost.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
+		"ModelScale"				"1"
+		"Level"						"1"
+		"vscripts"					"creature_ai/round_tusk_2/void_jumping_ai.lua"
+		"ConsideredHero"			"0"
+		"IsAncient"					"0"
+		"CanBeDominated"			"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+
+		"Ability1"					"kobold_overboss_detonator_receiver"
+		"Ability2"					"creature_faceless_void_time_walk"
+		"Ability3"					"necronomicon_warrior_sight"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"30"
+		"MagicalResistance"			"25"
+
+		// Attack
+		//----------------------------------------------------------------
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"320"
+		"AttackDamageMax"			"345"
+		"AttackRate"				"1.5"
+		"AttackAnimationPoint"		"0.33"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"120"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"300"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"35"
+		"HealthBarOffset"			"145"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"80000"
+		"StatusHealthRegen"			"1.5"
+		"StatusMana"				"400"
+		"StatusManaRegen"			"1.0"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
+
+		// Pathing
+		//----------------------------------------------------------------
+		"PathfindingSearchDepthScale"		"0.25"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"
+			"DisableResistance"         "90"
+
+			//Basic AI State
+			//-----------------------------------------------------------------
+			"DefaultState"				"Invade"
+			"States"
+			{
+				"Invade"
+				{
+					"Name"				"Invade"
+					"Aggression"		"100.0"
+					"Avoidance"			"0.0"
+					"Support"			"60.0"
+				}
+			}
+
+		}
+	}
+
+	"npc_dota_creature_snowball_tuskar"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/tuskarr/tuskarr.vmdl"
+		"SoundSet"					"Hero_Tuskarr"
+		"Level"						"1"
+		"ModelScale" 				"1.4"
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_spectre.vsndevts"
+		"vscripts"					"creature_ai/round_tusk_2/snowball_tuskarr_ai.lua"
+		"ConsideredHero"			"1"
+		"IsAncient"					"1"
+		"CanBeDominated"			"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"tusk_snowball_meteor"
+		"Ability2"					"frostivus2018_tusk_walrus_kick"
+		"Ability3"					"necronomicon_warrior_sight"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"46"
+		"MagicalResistance"			"25"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"300"
+		"AttackDamageMax"			"320"
+		"AttackRate"				"1.7"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"180"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			""
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"300"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"275"
+		"MovementTurnRate"			"0.5"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"380000"
+		"StatusHealthRegen"			"5.0"
+		"StatusMana"				"1800"
+		"StatusManaRegen"			"10.0"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		//Inventory
+		"HasInventory"				"1"
+
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			//Basic AI State
+			//-----------------------------------------------------------------
+			"DefaultState"			"Invade"
+			"DisableResistance"			"90.0"
+			"States"
+			{
+				"Invade"
+				{
+					"Name"			"Invade"
+					"Aggression"	"60.0"
+					"Avoidance"		"0.0"
+					"Support"		"0.0"
+				}
+			}
+
+//			"OffensiveAbilities"
+//			{
+//				"Ability1"
+//				{
+//					"Name"				"tusk_snowball_meteor"
+//					"AOE"				"1"
+//					"Radius"			"1200"
+//					"MinimumTargets"	"1"
+//				}
+//				"Ability2"
+//				{
+//					"Name"				"frostivus2018_tusk_walrus_kick"
+//					"AOE"				"1"
+//					"Radius"			"200"
+//					"MinimumTargets"	"1"
+//				}
+//			}
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"9826" // weapon
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"9825" // arms
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"9824" // head
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"9823" // shoulder
+				}
+				"Wearable5"
+				{
+					"ItemDef"			"8200" // back
+				}
+				"Wearable6"
+				{
+					"ItemDef"			"8185" // back
+				}
+			}
+			"EquippedItems"
+			{
+
+				"UltimateScepter"
+				{
+					"Item"					"item_ultimate_scepter"
+				}
+			}
+		}
+	}
+
+	"npc_dota_creature_big_bomb"
+	{
+		// General
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"ModelScale"				"2.75"
+		"Level"						"1"
+		"vscripts"					"creature_ai/round_tusk_2/holdout_ai_big_bomb.lua"
+
+		"ConsideredHero"			"1"
+		"IsAncient"					"1"
+		"CanBeDominated"			"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"creature_big_bomb_explode"
+		"Ability2"					"creature_big_bomb_passive"
+		"Ability3"					"necronomicon_warrior_sight"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"50"
+		"MagicalResistance"			"30"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"2350"
+		"AttackDamageMax"			"2450"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.65"
+		"AttackAnimationPoint"		"0.467"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			""
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"HealthBarOffset"			"550"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"325"
+		"MovementTurnRate"			"0.25"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"650000"
+		"StatusHealthRegen"			"5"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"500"
+		"VisionNighttimeRange"		"500"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"
+			"DisableResistance"         "90"
+			"DisableClumpingBehavior"	"1"
+			//"DefaultState"				"Invade"
+			//"States"
+			//{
+			//	"Invade"
+			//	{
+			//		"Name"				"Invade"
+			//		"Aggression"		"100.0"
+			//		"Avoidance"			"0.0"
+			//		"Support"			"0.0"
+			//	}
+			//}
+		}
+	}
+}

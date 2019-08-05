@@ -3,7 +3,7 @@
         <include src="file://{resources}/styles/custom_game/util.css" />
         <include src="file://{resources}/styles/custom_game/tws_hero_ability_list.css" />
     </styles>
-     <Panel class="HeroPanel">
+    <Panel class="HeroPanel">
         <DOTAHeroImage id="HeroImage" heroname="" />
         <Panel id="Abilities" />
     </Panel>

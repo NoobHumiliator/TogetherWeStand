@@ -5,7 +5,7 @@ boss_sand_king_sandstorm = class({})
 
 function boss_sand_king_sandstorm:OnAbilityPhaseStart()
 	if IsServer() then
-		self.nPreviewFX = ParticleManager:CreateParticle( "particles/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
+		self.nPreviewFX = ParticleManager:CreateParticle( "particles/dark_moon/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
 		ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetCaster():GetOrigin(), true )
 		ParticleManager:SetParticleControl( self.nPreviewFX, 1, Vector( 325, 325, 325 ) )
 		ParticleManager:SetParticleControl( self.nPreviewFX, 15, Vector( 255, 140, 0 ) )
@@ -53,16 +53,16 @@ function boss_sand_king_sandstorm:OnSpellStart()
 		self.storm_angle_step = self:GetSpecialValueFor( "storm_angle_step" )
 		self.storm_speed = self:GetSpecialValueFor( "storm_speed" ) + self:GetSpecialValueFor( "storm_speed_step" ) * self.nCastCount
 		self.spiral_storm_count = self:GetSpecialValueFor( "spiral_storm_count" )
-		
+
 		local bReverse = RandomInt( 0, 1 )
 		if bReverse == 1 then
 			self.storm_angle_step = self.storm_angle_step * -1
 		end
 
 		self.Storms = {}
-		
+
 		local angle = QAngle( 0, 0, 0 )
-		
+
 		local Heroes = HeroList:GetAllHeroes()
 		for _,Hero in pairs( Heroes ) do
 			if Hero ~= nil then
@@ -73,19 +73,19 @@ function boss_sand_king_sandstorm:OnSpellStart()
 							self:GetCaster().zone:AddEnemyToZone( hStorm )
 						end
 						hStorm.hParent = self:GetCaster()
-						
+
 						hStorm.nFXIndex = ParticleManager:CreateParticle( "particles/test_particle/sand_king_cyclone.vpcf", PATTACH_ABSORIGIN_FOLLOW, hStorm )
-						
+
 						hStorm:SetForceAttackTarget( Hero )
 						hStorm.Target = Hero
 						hStorm.storm_speed = self.storm_speed
 						local vSpawnPoint = Hero:GetOrigin() + RandomVector( 1 ) * 2000
 						FindClearSpaceForUnit( hStorm, vSpawnPoint, true )
-				
-				
+
+
 
 						hStorm:AddNewModifier( hStorm, hStorm:FindAbilityByName( "sand_king_vest_sandstorm_passive" ), "modifier_boss_sand_king_sandstorm", {} )
-						
+
 						table.insert( self.Storms, hStorm )
 					end
 				end
@@ -99,12 +99,12 @@ function boss_sand_king_sandstorm:OnSpellStart()
 					self:GetCaster().zone:AddEnemyToZone( hStorm )
 				end
 				hStorm.hParent = self:GetCaster()
-				
+
 				hStorm.nFXIndex = ParticleManager:CreateParticle( "particles/test_particle/sand_king_cyclone.vpcf", PATTACH_ABSORIGIN_FOLLOW, hStorm )
 				local vSpawnPoint = self:GetCaster():GetOrigin()
 				FindClearSpaceForUnit( hStorm, vSpawnPoint, true )
 
-				local info = 
+				local info =
 				{
 					EffectName = "",
 					Ability = self,
@@ -121,12 +121,12 @@ function boss_sand_king_sandstorm:OnSpellStart()
 				hStorm.y = angle.y
 				angle.y = angle.y + self.storm_angle_step
 
-				hStorm.flAngleUpdate = 3.0 
+				hStorm.flAngleUpdate = 3.0
 				if bReverse then
 					hStorm.flAngleUpdate = hStorm.flAngleUpdate * -1
 					hStorm.bReverse = bReverse
 				end
-				hStorm:AddNewModifier( hStorm, hStorm:FindAbilityByName( "sand_king_vest_sandstorm_passive" ), "modifier_boss_sand_king_sandstorm", {} )	
+				hStorm:AddNewModifier( hStorm, hStorm:FindAbilityByName( "sand_king_vest_sandstorm_passive" ), "modifier_boss_sand_king_sandstorm", {} )
 				table.insert( self.Storms, hStorm )
 			end
 		end
@@ -153,7 +153,7 @@ function boss_sand_king_sandstorm:OnProjectileThinkHandle( iProjectileHandle )
 				local angle = QAngle( 0, Storm.y, 0 )
 				local vVelocity = ( RotatePosition( Vector( 0, 0, 0 ), angle, Vector( 1, 0, 0 ) ) ) * self.storm_speed
 				ProjectileManager:UpdateLinearProjectileDirection( iProjectileHandle, vVelocity, 5000 )
-				
+
 			end
 		end
 	end
@@ -166,7 +166,7 @@ function boss_sand_king_sandstorm:OnChannelFinish( bInterrupted )
 		for _,Storm in pairs( self.Storms ) do
 			if Storm ~= nil then
 				if Storm.nProjHandle ~= nil then
-					ProjectileManager:DestroyLinearProjectile( Storm.nProjHandle )				 
+					ProjectileManager:DestroyLinearProjectile( Storm.nProjHandle )
 				end
 
 				ParticleManager:DestroyParticle( Storm.nFXIndex, false )

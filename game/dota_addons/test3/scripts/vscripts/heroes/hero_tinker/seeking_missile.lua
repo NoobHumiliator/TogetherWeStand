@@ -6,9 +6,9 @@ function concussive_shot_seek_target( keys )
 	local radius = ability:GetLevelSpecialValueFor( "launch_radius", ability:GetLevel() - 1 )
 	local speed = ability:GetLevelSpecialValueFor( "speed", ability:GetLevel() - 1 )
 	local targetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY
-	local targetType = DOTA_UNIT_TARGET_ALL  
+	local targetType = DOTA_UNIT_TARGET_ALL
 	local targetFlag = DOTA_UNIT_TARGET_FLAG_NO_INVIS
-	
+
 	-- pick up x nearest target heroes and create tracking projectile targeting the number of targets
 	local units = FindUnitsInRadius(
 		caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, radius, targetTeam,

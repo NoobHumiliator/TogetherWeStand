@@ -48,7 +48,7 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_boss_sand_king_burrow:DeclareFunctions()
-	local funcs = 
+	local funcs =
 	{
 		MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS,
 		MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE,
@@ -87,10 +87,10 @@ function modifier_boss_sand_king_burrow:OnIntervalThink()
 				self:GetCaster().zone:AddEnemyToZone( hMinion )
 			end
 			hMinion.hParent = self:GetCaster()
-			
+
 			local vCasterPos = self:GetCaster():GetAbsOrigin()
 			local vSpawnPoint = vCasterPos + RandomVector( 1 ) * 2500
-            
+
             while(vSpawnPoint.x<world_left_x or vSpawnPoint.x>world_right_x or vSpawnPoint.y<world_left_y or vSpawnPoint.y>world_right_y )
 			do
 			   vSpawnPoint = vCasterPos + RandomVector( 1 ) * 2500

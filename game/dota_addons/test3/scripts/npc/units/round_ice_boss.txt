@@ -1,0 +1,270 @@
+"DOTAUnits"
+{
+    "npc_dota_creature_ice_boss_egg"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/ice_boss/ice_boss_egg_dest.vmdl"
+		"SoundSet"					"Creep_Good_Melee"
+		"Level"						"1"
+		"ModelScale" 				"3.0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"ice_boss_egg_passive"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"90"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"0"
+		"AttackAnimationPoint"		"0"
+		"AttackAcquisitionRange"	"0"
+		"AttackRange"				"0"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Attributes
+		//----------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"0"
+		"AttributeStrengthGain"		"0"
+		"AttributeBaseIntelligence"	"0"
+		"AttributeIntelligenceGain"	"0"
+		"AttributeBaseAgility"		"0"
+		"AttributeAgilityGain"		"0"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"60"
+		"HealthBarOffset"			"215"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"1.0"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2500"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusStartingMana"		"0"
+		"StatusManaRegen"			"0"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+	}
+
+    "npc_dota_creature_baby_ice_dragon"
+	{
+		// Script
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/courier/baby_winter_wyvern/baby_winter_wyvern.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"1"
+		"ModelScale" 				"1.5"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"spider_fly"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"185"
+		"AttackDamageMax"			"190"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"5000"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"60"
+		"HealthBarOffset"			"160"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"30"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"522"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"8800"
+		"StatusHealthRegen"			"0.5"
+		"StatusMana"				"100"
+		"StatusManaRegen"			"1"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"5000"
+		"VisionNighttimeRange"		"5000"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+	}
+
+    "npc_dota_creature_ice_boss"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_ice_boss/ice_boss_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/winterwyvern/winterwyvern.vmdl"
+		"SoundSet"					"Hero_Winter_Wyvern"
+		"Level"						"10"
+		"ModelScale" 				"2.5"
+		"ConsideredHero"			"1"
+		"IsBossMonster"				"1"
+
+		"MinimapIcon"				"minimap_enemyicon"
+		"MinimapIconSize"			"300"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"ice_boss_shatter_projectile"
+		"Ability2"					"ice_boss_flying_shatter_blast"
+		"Ability3"					"ice_boss_take_flight"
+		"Ability4"					"ice_boss_land"
+		"Ability5"					"ice_boss_projectile_curse"
+		"Ability6"					"ice_boss_multi_curse"
+		"Ability7"					"generic_gold_bag_fountain_5000"
+		"Ability8"					""
+		"Ability9"					""
+		"Ability10"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"25"
+		"MagicalResistance"			"20"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"240"
+		"AttackDamageMax"			"260"
+		"AttackRate"				"1.7"
+		"AttackAnimationPoint"		"0.33"
+		"AttackAcquisitionRange"	"1200"
+		"AttackRange"				"600"
+		"ProjectileModel"			"particles/units/heroes/hero_winter_wyvern/winter_wyvern_base_attack.vpcf"
+		"ProjectileSpeed"			"700"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"100"
+		"HealthBarOffset"			"450"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"1000"
+		"BountyGoldMin"				""
+		"BountyGoldMax"				""
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"				"400"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"36000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"7000"
+		"StatusManaRegen"			"30"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"PathfindingSearchDepthScale"		"0.1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"DisableResistance"			"100.0"
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					//"ItemDef"			"9035" // head: Diadem of the Elder Myth
+					"ItemDef"			"7291" // head: Crown of the Iceburnt Elegy
+					//"ItemDef"			"8281" // head: Crown of Frostheart
+					//"ItemDef"			"8516" // head: Noble Crown of Frostheart
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"9036" // back: Wings of the Elder Myth
+					//"ItemDef"			"7292" // back: Wings of the Iceburnt Elegy
+					//"ItemDef"			"8286" // back: Wings of Frostheart
+					//"ItemDef"			"8517" // back: Noble Wings of Frostheart
+				}
+			}
+		}
+	}
+}

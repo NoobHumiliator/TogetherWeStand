@@ -24,20 +24,13 @@ end
 function BehaviorNone:Begin()
 	self.target=nil
 	self.endTime = GameRules:GetGameTime() + 1
-	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 		if #allEnemies > 0 then
-			local minDistance = 10000000
-			for _,enemy in pairs(allEnemies) do
-				local distance = ( thisEntity:GetOrigin() - enemy:GetOrigin() ):Length()
-				if distance < minDistance then
-				  minDistance=distance
-                  self.target=enemy
-				end
-			end
+			self.target = allEnemies[1]
 		end
 
 
-	if self.target then 
+	if self.target then
 		self.order =
 		{
 			UnitIndex = thisEntity:entindex(),
@@ -81,7 +74,7 @@ function BehaviorConcoction:Evaluate()
 			self.phaseAbility = item
 		end
 	end
-	
+
 	if self.concoctionAbility and self.concoctionAbility:IsFullyCastable() then
 		self.target = AICore:ClosestEnemyHeroInRange( thisEntity, self.concoctionAbility:GetCastRange() )
 		if self.target and self.target:IsAlive() then
@@ -93,7 +86,7 @@ function BehaviorConcoction:Evaluate()
 			end
 		end
 	end
-	
+
 	return desire
 end
 
@@ -198,7 +191,7 @@ function BehaviorAcidSpray:Evaluate()
 	if currentBehavior == self then return desire end
 
 	self.acidSprayAbility = thisEntity:FindAbilityByName( "tws_alchemist_acid_spray" )
-	
+
 	if self.acidSprayAbility and self.acidSprayAbility:IsFullyCastable() then
 		self.target = AICore:RandomEnemyHeroInRange( thisEntity, self.acidSprayAbility:GetCastRange() )
 		if self.target and self.target:IsAlive() then
@@ -209,7 +202,7 @@ function BehaviorAcidSpray:Evaluate()
 			end
 		end
 	end
-	
+
 	return desire
 end
 

@@ -1,34 +1,34 @@
 <root>
-    <styles>
-    	<include src="file://{resources}/styles/custom_game/util.css" />
-        <include src="file://{resources}/styles/custom_game/tws_particle_save_panel.css" />
-    </styles>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/util.css" />
+		<include src="file://{resources}/styles/custom_game/tws_particle_save_panel.css" />
+	</styles>
 
-    <Panel class="hBlock DetailPanel">
-	      <DOTAHeroImage  id="HeroImage" heroname="" />
-	      <Panel class="LoadDetail" >
-	          <Label id="difficulty_label" class="LabelLeft" text="#difficulty" />
-	          <Label id="difficulty_value" class="LabelRight" text="Normal" />
-	      </Panel>
-	      <Panel class="LoadDetail" >
-	          <Label id="player_number_label" class="LabelLeft" text="#player_number" />
-	          <Label id="player_number_value" class="LabelRight" text="1" />
-	      </Panel>
-	      <Panel class="LoadDetail" >
-	          <Label id="round_label" class="LabelLeft" text="Round" />
-	          <Label id="round_value" class="LabelRight" text="25" />
-	      </Panel>
-	      <Panel class="LoadDetail" >
-	          <Label id="time_cost_lable" class="LabelLeft" text="#timeCost" />
-	          <Label id="time_cost_value" class="LabelRight" text="1" />
-	      </Panel>
-	      <Panel class="LoadDetail" >
-	          <Label id="avg_level_lable" class="LabelLeft" text="#avg_hero_level" />
-	          <Label id="avg_level_value" class="LabelRight" text="Normal" />
-	      </Panel>
-	      <Panel class="LoadDetail" >
-	          <Label id="avg_gold_lable" class="LabelLeft" text="#avg_gold_lable" />
-	          <Label id="avg_gold_value" class="LabelRight" text="Normal" />
-	      </Panel>
-    </Panel>
+	<Panel class="hBlock DetailPanel">
+		<DOTAHeroImage id="HeroImage" heroname="" />
+		<Panel class="LoadDetail">
+			<Label id="difficulty_label" class="LabelLeft" text="#difficulty" />
+			<Label id="difficulty_value" class="LabelRight" text="Normal" />
+		</Panel>
+		<Panel class="LoadDetail">
+			<Label id="player_number_label" class="LabelLeft" text="#player_number" />
+			<Label id="player_number_value" class="LabelRight" text="1" />
+		</Panel>
+		<Panel class="LoadDetail">
+			<Label id="round_label" class="LabelLeft" text="Round" />
+			<Label id="round_value" class="LabelRight" text="25" />
+		</Panel>
+		<Panel class="LoadDetail">
+			<Label id="time_cost_lable" class="LabelLeft" text="#timeCost" />
+			<Label id="time_cost_value" class="LabelRight" text="1" />
+		</Panel>
+		<Panel class="LoadDetail">
+			<Label id="avg_level_lable" class="LabelLeft" text="#avg_hero_level" />
+			<Label id="avg_level_value" class="LabelRight" text="Normal" />
+		</Panel>
+		<Panel class="LoadDetail">
+			<Label id="avg_gold_lable" class="LabelLeft" text="#avg_gold_lable" />
+			<Label id="avg_gold_value" class="LabelRight" text="Normal" />
+		</Panel>
+	</Panel>
 </root>

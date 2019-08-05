@@ -22,17 +22,17 @@ function mystic_flare_start( keys )
 	local total_damage = ability:GetLevelSpecialValueFor( "damage", ability:GetLevel() - 1 )
 	local targetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY
 	local targetType = DOTA_UNIT_TARGET_HERO
-	local targetFlag = DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS 
+	local targetFlag = DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS
 	local damageType = DAMAGE_TYPE_MAGICAL
 	local soundTarget = "Hero_SkywrathMage.MysticFlare.Target"
-	
+
 	-- Create for VFX particles on ground
 	local dummy = CreateUnitByName( "npc_dummy_blank", target, false, caster, caster, caster:GetTeamNumber() )
 	ability:ApplyDataDrivenModifier( caster, dummy, dummyModifierName, {} )
-	
+
 	-- Referencing total damage done per interval
 	local damage_per_interval = total_damage / max_instances
-	
+
 	-- Deal damage per interval equally
 	Timers:CreateTimer( function()
 			local units = FindUnitsInRadius(
@@ -54,14 +54,14 @@ function mystic_flare_start( keys )
 						damage_type = damageType
 					}
 					ApplyDamage( damageTable )
-					
+
 					-- Fire sound
 					StartSoundEvent( soundTarget, v )
 				end
 			end
-			
+
 			current_instance = current_instance + 1
-			
+
 			-- Check if maximum instances reached
 			if current_instance >= max_instances then
 				dummy:Destroy()

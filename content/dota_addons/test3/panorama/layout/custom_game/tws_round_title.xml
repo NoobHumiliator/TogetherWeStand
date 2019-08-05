@@ -1,20 +1,17 @@
 <root>
-    <styles>
-       <include src="file://{resources}/styles/custom_game/tws_round_title.css" />
-    </styles>
+   <styles>
+      <include src="file://{resources}/styles/custom_game/tws_round_title.css" />
+   </styles>
 
-    <scripts>
-        <include src="file://{resources}//scripts/custom_game/tws_round_title.js" />
-    </scripts>
+   <scripts>
+      <include src="file://{resources}//scripts/custom_game/tws_round_title.js" />
+   </scripts>
 
-
-    <Panel hittest="false" class="RoundTitleHudRoot">
-       <Panel id="RoundTitleHUDContents" hittest="false" class="RoundTitleHudContents">
-          <Panel hittest="false" id="RoundTitleToastPanel" always-cache-composition-layer="true" require-composition-layer="true" >
-             <Label hittest="false" id="RoundTitleLabel" text="" class="TitleFont"/>
-          </Panel>
-       </Panel>
-    </Panel>
-
-
+   <Panel hittest="false" class="RoundTitleHudRoot">
+      <Panel id="RoundTitleHUDContents" hittest="false" class="RoundTitleHudContents">
+         <Panel hittest="false" id="RoundTitleToastPanel" always-cache-composition-layer="true" require-composition-layer="true">
+            <Label hittest="false" id="RoundTitleLabel" text="" class="TitleFont"/>
+         </Panel>
+      </Panel>
+   </Panel>
 </root>

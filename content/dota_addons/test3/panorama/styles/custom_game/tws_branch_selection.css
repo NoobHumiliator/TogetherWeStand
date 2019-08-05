@@ -1,67 +1,50 @@
-.BranchSelectionPanel
-{
-   width: 60%;
-   height: 67%;
-   horizontal-align: middle;
-   position: 0 6% 0; 
-   flow-children: down;
-   transition-property: opacity;
-   transition-duration: 0.75s;
+.BranchSelectionPanel {
+    width: 60%;
+    height: 70%;
+    horizontal-align: middle;
+    position: 0 6% 0;
+    flow-children: down;
+    transition-property: opacity;
+    transition-duration: 0.75s;
 }
 
-.BranchCenterPanel
-{
-   width: 100%;
-   height: 50%;
-   horizontal-align: middle;
+.BranchCenterPanel {
+    width: 100%;
+    height: 50%;
+    horizontal-align: middle;
 }
 
-
-
-
-
-.TrailLevelPanel
-{
-   width: 60%;
-   height: 800%;
-   horizontal-align: middle;
-   position: 0 6% 0; 
-   flow-children: down;
-   transition-property: opacity;
-   transition-duration: 0.75s;
+.TrailLevelPanel {
+    width: 60%;
+    height: 800%;
+    horizontal-align: middle;
+    position: 0 6% 0;
+    flow-children: down;
+    transition-property: opacity;
+    transition-duration: 0.75s;
 }
 
-
-
-
-
-
-
-.VoteLable
-{
+.VoteLable {
     horizontal-align: middle;
     color: #78F6FE;
     font-size: 65px;
     text-shadow: 0px 0px 10px #15F9FF;
     margin-top: 50px;
-    font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+    font-family: Goudy Trajan Medium, FZKai-Z03, TH Sarabun New, YDYGO 540;
 }
 
-.BranchPanel
-{
+.BranchPanel {
     flow-children: down;
     horizontal-align: middle;
-    width:  80%;
+    width: 80%;
 }
 
-.BranchGroupPanel
-{
+.BranchGroupPanel {
     flow-children: right;
     horizontal-align: middle;
 }
 
-.TrialLevelPanel
-{
+.TrialLevelPanel {
     horizontal-align: middle;
     height: 500px;
     width: 328px;
@@ -69,54 +52,43 @@
     overflow: scroll;
 }
 
-.TrialLevelLinePanel:selected
-{
-    background-color: gradient( linear, 0% 0%, 100% 100%, from( #568e2658 ), to( #24420a58 ) );
+.TrialLevelLinePanel:selected {
+    background-color: gradient( linear, 0% 0%, 100% 100%, from( #568e2658), to( #24420a58));
     box-shadow: #7fe22a 0px 0px 10px 0px;
 }
-
-
-
 
 #TrialLevelContainer #VerticalScrollBar {
     width: 20px;
 }
 
-
 #TrialLevelContainer #VerticalScrollBar #ScrollThumb {
     width: 15px;
-    min-height:50px;
-    background-color:gradient( linear, 0% 100%, 0% 0%, from( #145b7db8 ), to( #11264fb8 ) );
+    min-height: 50px;
+    background-color: gradient( linear, 0% 100%, 0% 0%, from( #145b7db8), to( #11264fb8));
 }
 
-
-.BranchRadioButton
-{
+.BranchRadioButton {
     flow-children: down;
     padding: 10px;
-    background-color: gradient( linear, 0% 0%, 100% 100%, from( #0f475a58 ), to( #20253058 ) );
+    background-color: gradient( linear, 0% 0%, 100% 100%, from( #0f475a58), to( #20253058));
     box-shadow: #3AD5FF 0px 0px 10px 0px;
     margin-top: 15px;
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 15px;
-    width:  350px;
+    width: 300px;
 }
 
-
-.BranchTitlePanel
-{
+.BranchTitlePanel {
     width: 100%;
 }
 
-.BranchRadioButton:hover
-{
+.BranchRadioButton:hover {
     box-shadow: #FEE38C 0px 0px 3px 0px;
 }
 
-.BranchRadioButton:selected
-{
-    background-color: gradient( linear, 0% 0%, 100% 100%, from( #568e2658 ), to( #24420a58 ) );
+.BranchRadioButton:selected {
+    background-color: gradient( linear, 0% 0%, 100% 100%, from( #568e2658), to( #24420a58));
     box-shadow: #7fe22a 0px 0px 10px 0px;
 }
 
@@ -124,8 +96,7 @@
     horizontal-align: middle;
     color: #fff;
     font-size: 30px;
-    font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
-
+    font-family: Goudy Trajan Medium, FZKai-Z03, TH Sarabun New, YDYGO 540;
     text-shadow: #000 0px 0px 2px 1.2;
 }
 
@@ -156,119 +127,94 @@
     visibility: collapse;
 }
 
-.TrialLevelLinePanel
-{
-   background-color: gradient( linear, 0% 0%, 100% 100%, from( #145b7db8 ), to( #11264fb8 ) );
-   box-shadow: #3AD5FF 0px 0px 5px 0px;
-   width: 300px;
-   height: 40px;
-   margin-bottom:6px; 
-   margin-top:6px; 
+.TrialLevelLinePanel {
+    background-color: gradient( linear, 0% 0%, 100% 100%, from( #145b7db8), to( #11264fb8));
+    box-shadow: #3AD5FF 0px 0px 5px 0px;
+    width: 300px;
+    height: 40px;
+    margin-bottom: 6px;
+    margin-top: 6px;
 }
 
-
-
-.TrialLevelLinePanel:hover
-{
-  box-shadow: #FEE38C 0px 0px 3px 0px;
+.TrialLevelLinePanel:hover {
+    box-shadow: #FEE38C 0px 0px 3px 0px;
 }
 
-
-
-
-
-.TrialLevelLineText
-{
+.TrialLevelLineText {
     vertical-align: middle;
     horizontal-align: middle;
-    margin:5%;
+    margin: 5%;
     color: #fff;
     font-size: 30px;
-    font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+    font-family: Goudy Trajan Medium, FZKai-Z03, TH Sarabun New, YDYGO 540;
 }
 
-
-.ConfirmButton
-{
-
-    background-color: gradient( linear, 0% 0%, 100% 100%, from( #145b7db8 ), to( #11264fb8 ) );
+.ConfirmButton {
+    background-color: gradient( linear, 0% 0%, 100% 100%, from( #145b7db8), to( #11264fb8));
     box-shadow: #3AD5FF 0px 0px 8px 0px;
     width: 300px;
     height: 75px;
     margin: 20px;
     horizontal-align: middle;
-    transition-property:background-color, box-shadow, color, brightness;
+    transition-property: background-color, box-shadow, color, brightness;
     transition-duration: 0.25s;
     transition-timing-function: ease-in-out;
 }
 
-.ConfirmText
-{
+.ConfirmText {
     vertical-align: middle;
-    margin:5%;
+    margin: 5%;
     color: #fff;
-    font-size: 30px;
-    font-family: Goudy Trajan Medium,FZKai-Z03,TH Sarabun New,YDYGO 540;
+    font-size: 35px;
+    font-family: Goudy Trajan Medium, FZKai-Z03, TH Sarabun New, YDYGO 540;
 }
 
-
 .RemainingBranchSelectTime {
-    
     horizontal-align: right;
     vertical-align: middle;
-    margin:5%;
+    margin: 5%;
     font-size: 40px;
     color: #78F6FE;
     text-shadow: 0px 0px 2px #15F9FF;
 }
 
 #RemainingTrialLevelTime {
-    
     horizontal-align: right;
     vertical-align: middle;
-    margin:5%;
+    margin: 5%;
     font-size: 40px;
     color: #78F6FE;
     text-shadow: 0px 0px 2px #15F9FF;
 }
 
-
-
-
-
-.ConfirmButtonCenter
-{
+.ConfirmButtonCenter {
     flow-children: right;
     horizontal-align: middle;
     vertical-align: middle;
+    width: 50%;
 }
 
-.Opacity
-{
+.Opacity {
     opacity: 0;
 }
 
-
-.ConfirmButton:hover
-{
-    box-shadow:  #FEE38C 0px 0px 5px 0px;
+.ConfirmButton:hover {
+    box-shadow: #FEE38C 0px 0px 5px 0px;
 }
 
-
-.line-1{
+.line-1 {
     width: 100%;
     height: 6px;
     margin-bottom: 10px;
     margin-top: 10px;
     horizontal-align: right;
-    background-color: gradient( linear, 100% 0%, 0% 0%, from( #78F6FE ), to( #4DF2FF00 ) );
+    background-color: gradient( linear, 100% 0%, 0% 0%, from( #78F6FE), to( #4DF2FF00));
 }
 
-.BranchSelect{
+.BranchSelect {
     width: 100%;
     height: 100%;
 }
-
 
 .ConfirmButton:active {
     margin-top: 24px;
@@ -276,20 +222,16 @@
     height: 68px;
 }
 
-.NumberAndAvatar
-{
+.NumberAndAvatar {
     horizontal-align: middle;
-    flow-children:right;
+    flow-children: right;
 }
 
-.Avatar
-{
+.Avatar {
     flow-children: down;
 }
 
-
-.DifficultyAnnouncePanel
-{
+.DifficultyAnnouncePanel {
     horizontal-align: center;
     position: 0px 15% 0px;
 }
@@ -300,7 +242,7 @@
     text-shadow: 0px 0px 3px 3.0 #000;
     text-align: center;
     vertical-align: center;
-    color: gradient( linear, 0% 0%, 0% 100%, from( #C0D631 ), color-stop( 0.25, #C0D631 ), color-stop( 0.5, #FFC684 ), color-stop( 0.75, #C0D631 ), to( #879626 ) );
+    color: gradient( linear, 0% 0%, 0% 100%, from( #C0D631), color-stop( 0.25, #C0D631), color-stop( 0.5, #FFC684), color-stop( 0.75, #C0D631), to( #879626));
     transition-property: opacity;
     transition-duration: 0.75s;
 }

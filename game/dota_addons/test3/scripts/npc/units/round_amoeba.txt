@@ -1,0 +1,301 @@
+"DOTAUnits"
+{
+	"npc_dota_creature_amoeba_boss"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_amoeba/amoeba_boss_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/darkreef/blob/darkreef_blob_01.vmdl"
+		"SoundSet"					"Hero_Venomancer"
+		"Level"						"50"
+		"ModelScale" 				"0.5"
+		"ConsideredHero"			"1"
+		"IsAncient"					"1"
+		"CanBeDominated"			"0"
+
+		// Minimap
+		//----------------------------------------------------------------
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"250"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"amoeba_boss_passive"
+		"Ability2"					"amoeba_fuse"
+		"Ability3"					"amoeba_blob_launch"
+		"Ability4"					"amoeba_boss_jump_splatter"
+		"Ability5"					"amoeba_boss_split"
+		"Ability6"					"generic_gold_bag_fountain_6500"
+		"Ability7"					""
+		"Ability8"					""
+		"Ability9"					""
+		"Ability10"					""
+		"Ability11"					""
+		"Ability12"					""
+		"Ability13"					""
+		"Ability14"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"35"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"300"
+		"AttackDamageMax"			"350"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.53"
+		"AttackAcquisitionRange"	"1800"
+		"AttackRange"				"150"
+		"ProjectileModel"			"particles/act_2/amoeba_blob_launch_no_arc.vpcf"
+		"ProjectileSpeed"			"600"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"75"
+		"HealthBarOffset"			"150"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"4000"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"100"
+		"MovementTurnRate"			"0.5"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"52500"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"10000"
+		"StatusManaRegen"			"500"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"HasInventory"				"1"
+		"PathfindingSearchDepthScale"		"0.1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"DisableClumpingBehavior"	"1"
+		}
+	}
+
+	"npc_dota_creature_sub_amoeba_boss"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_amoeba/amoeba_boss_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/darkreef/blob/darkreef_blob_02_small.vmdl"
+		"SoundSet"					"Hero_Venomancer"
+		"Level"						"50"
+		"ModelScale" 				"0.80"
+		"ConsideredHero"			"1"
+		"IsAncient"					"1"
+		"CanBeDominated"			"0"
+
+		// Minimap
+		//----------------------------------------------------------------
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"250"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"amoeba_boss_passive"
+		"Ability2"					"amoeba_fuse"
+		"Ability3"					"amoeba_blob_launch"
+		"Ability4"					"amoeba_boss_jump_splatter"
+		"Ability5"					"amoeba_boss_split"
+		"Ability6"					""
+		"Ability7"					""
+		"Ability8"					""
+		"Ability9"					""
+		"Ability10"					""
+		"Ability11"					""
+		"Ability12"					""
+		"Ability13"					""
+		"Ability14"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"250"
+		"AttackDamageMax"			"275"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.53"
+		"AttackAcquisitionRange"	"1800"
+		"AttackRange"				"150"
+		"ProjectileModel"			"particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"
+		"ProjectileSpeed"			"600"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"75"
+		"HealthBarOffset"			"150"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"100"
+		"MovementTurnRate"			"0.5"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"10000"
+		"StatusManaRegen"			"500"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"HasInventory"				"1"
+		"PathfindingSearchDepthScale"		"0.1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"DisableClumpingBehavior"	"1"
+		}
+	}
+
+    "npc_dota_creature_summoned_amoeba"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_amoeba/amoeba_boss_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/darkreef/blob/darkreef_blob_02_small.vmdl"
+		"SoundSet"					"Hero_Venomancer"
+		"Level"						"50"
+		"ModelScale" 				"0.80"
+		"ConsideredHero"			"0"
+		"IsAncient"					"0"
+		"CanBeDominated"			"0"
+
+		// Minimap
+		//----------------------------------------------------------------
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"250"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					""
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"120"
+		"AttackDamageMax"			"150"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.53"
+		"AttackAcquisitionRange"	"1800"
+		"AttackRange"				"150"
+		"ProjectileModel"			"particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"
+		"ProjectileSpeed"			"600"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"75"
+		"HealthBarOffset"			"150"
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"250"
+		"MovementTurnRate"			"0.5"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"500"
+		"StatusManaRegen"			"20"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1100"
+		"VisionNighttimeRange"		"1100"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"HasInventory"				"1"
+		"PathfindingSearchDepthScale"		"0.1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"DisableClumpingBehavior"	"1"
+		}
+	}
+}

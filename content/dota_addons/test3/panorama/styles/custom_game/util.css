@@ -1,7 +1,7 @@
-
 .hBlock {
-    width: 100%; 
+    width: 100%;
 }
+
 .vBlock {
     height: 100%;
 }
@@ -11,6 +11,7 @@
 .hidden {
     visibility: collapse;
 }
+
 .invisible {
     opacity: 0;
 }
@@ -28,15 +29,11 @@
     /*animation-fill-mode: forwards;*/
 }
 
-@keyframes 'fadeOut'
-{
-    0%
-    {
+@keyframes 'fadeOut' {
+    0% {
         opacity: 1;
     }
-
-    100%
-    {
+    100% {
         opacity: 0;
     }
 }

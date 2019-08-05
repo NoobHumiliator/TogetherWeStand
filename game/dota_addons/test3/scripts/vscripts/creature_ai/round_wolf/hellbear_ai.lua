@@ -10,7 +10,7 @@ function Spawn( entityKeyValues )
 	if  thisEntity:GetTeam()==DOTA_TEAM_BADGUYS then
 		thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
 		smashAbility = thisEntity:FindAbilityByName( "hellbear_smash" )
-	    behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone, BehaviorSmash} ) 
+	    behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone, BehaviorSmash} )
     end
 end
 
@@ -42,16 +42,9 @@ end
 function BehaviorNone:Begin()
 	self.endTime = GameRules:GetGameTime() + 1
 	self.target=nil
-	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 		if #allEnemies > 0 then
-			local minDistance = 10000000
-			for _,enemy in pairs(allEnemies) do
-				local distance = ( thisEntity:GetOrigin() - enemy:GetOrigin() ):Length()
-				if distance < minDistance then
-				  minDistance=distance
-                  self.target=enemy
-				end
-			end
+			self.target = allEnemies[1]
 		end
 
 
@@ -88,21 +81,21 @@ function BehaviorSmash:Evaluate()
 		if target then
 			desire = 3
 		end
-	end	
+	end
 	return desire
 
 end
 
 function BehaviorSmash:Begin()
 
-	self.endTime = GameRules:GetGameTime() + 1	
+	self.endTime = GameRules:GetGameTime() + 1
 	self.order =
 	{
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
 		AbilityIndex = smashAbility:entindex()
 	}
-	
+
 end
 
 BehaviorSmash.Continue = BehaviorSmash.Begin

@@ -9,7 +9,7 @@ function big_exploding_burrower_big_explosion:OnAbilityPhaseStart()
 		--self.duration = self:GetSpecialValueFor( "duration" )
 		self.damage = self:GetSpecialValueFor( "damage" )
 
-		self.nPreviewFX = ParticleManager:CreateParticle( "particles/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
+		self.nPreviewFX = ParticleManager:CreateParticle( "particles/dark_moon/darkmoon_creep_warning.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
 		ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetCaster(), PATTACH_ABSORIGIN_FOLLOW, nil, self:GetCaster():GetOrigin(), true )
 		ParticleManager:SetParticleControl( self.nPreviewFX, 1, Vector( radius, radius, radius ) )
 		ParticleManager:SetParticleControl( self.nPreviewFX, 15, Vector( 255, 26, 26 ) )
@@ -25,7 +25,7 @@ end
 function big_exploding_burrower_big_explosion:OnAbilityPhaseInterrupted()
 	if IsServer() then
 		ParticleManager:DestroyParticle( self.nPreviewFX, false )
-	end 
+	end
 end
 
 --------------------------------------------------------------------------------
@@ -44,8 +44,8 @@ function big_exploding_burrower_big_explosion:OnSpellStart()
 
 		local enemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), self:GetCaster():GetOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
 		for _,hEnemy in pairs( enemies ) do
-			if hEnemy ~= nil and hEnemy:IsAlive() and hEnemy:IsInvulnerable() == false then
-				local damageInfo = 
+			if hEnemy:IsAlive() and hEnemy:IsInvulnerable() == false then
+				local damageInfo =
 				{
 					victim = hEnemy,
 					attacker = self:GetCaster(),

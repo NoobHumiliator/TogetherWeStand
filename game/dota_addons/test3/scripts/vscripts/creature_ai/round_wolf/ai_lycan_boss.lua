@@ -82,7 +82,7 @@ function LycanBossThink()
 	end
 
 	if hClawAttackAbility ~= nil and hClawAttackAbility:IsFullyCastable() then
-		return CastClawAttack( hEnemies[ 1 ] ) 
+		return CastClawAttack( hEnemies[ 1 ] )
 	end
 
 	return 0.5

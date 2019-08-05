@@ -30,9 +30,9 @@ function modifier_healing_burrower_suicide_heal:OnDeath( params )
 			local radius = self:GetAbility():GetSpecialValueFor( "radius" )
 
 			if self:GetParent().nFXIndex ~= nil then
-				ParticleManager:DestroyParticle( self:GetParent().nFXIndex, true )	
+				ParticleManager:DestroyParticle( self:GetParent().nFXIndex, true )
 			end
-			
+
 			EmitSoundOn( "Burrower.HealExplosion", self:GetParent() )
 
 			local nFXIndex2 = ParticleManager:CreateParticle( "particles/nyx_swarm_explosion/nyx_swarm_explosion.vpcf", PATTACH_CUSTOMORIGIN, nil )
@@ -43,7 +43,7 @@ function modifier_healing_burrower_suicide_heal:OnDeath( params )
 
 			local entities = FindUnitsInRadius( self:GetParent():GetTeamNumber(), self:GetParent():GetOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_CLOSEST, false )
 			for _,entity in pairs( entities ) do
-				if entity ~= nil and entity:IsAlive() then
+				if entity:IsAlive() then
 					entity:Heal( heal, self:GetAbility() )
 					ParticleManager:ReleaseParticleIndex( ParticleManager:CreateParticle( "particles/items3_fx/fish_bones_active.vpcf", PATTACH_ABSORIGIN_FOLLOW, entity ) )
 				end

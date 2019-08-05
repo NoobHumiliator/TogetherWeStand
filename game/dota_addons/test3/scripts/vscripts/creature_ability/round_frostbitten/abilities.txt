@@ -1,0 +1,141 @@
+"DOTAAbilities"
+{
+    "large_frostbitten_icicle"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/round_frostbitten/large_frostbitten_icicle"
+        "AbilityTextureName"            "centaur_double_edge"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_YES_STRONG"
+        "FightRecapLevel"               "1"
+
+        "IsOnCastBar"                   "0"
+
+        "AbilityCastAnimation"          "ACT_DOTA_ABILITY_1"
+        "AbilityCastRange"              "700"
+        "AbilityCastPoint"              "0.5"
+        "precache"
+        {
+        	"particle"  "particles/units/heroes/hero_winter_wyvern/wyvern_arctic_burn_slow.vpcf"
+        	"particle"  "particles/status_fx/status_effect_wyvern_arctic_burn.vpcf"
+        }
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "7.0"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "delay"                     "1.2"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "radius"                    "250"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage"                    "250"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "freeze_duration"           "1.0"
+            }
+        }
+    }
+
+	"frostbitten_freezing_blast"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "creature_ability/round_frostbitten/frostbitten_freezing_blast"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellDispellableType"          "SPELL_DISPELLABLE_YES"
+        "FightRecapLevel"               "1"
+        "AbilitySound"                  "hero_Crystal.frostbite"
+        "precache"
+        {
+        	"particle"  "particles/act_2/troll_projectile_gale.vpcf"
+        }
+
+
+        "IsOnCastBar"                   "0"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "750"
+        "AbilityCastPoint"              "0.4"
+
+        // Time
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "4.0"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Stats
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportValue"   "0.5"   // Applies multiple modifiers
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "impact_damage"     "150"
+            }
+            "02"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "projectile_speed"  "500"
+            }
+            "03"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "projectile_radius"  "100"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "projectile_distance"   "1000"
+            }
+            "05"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "movespeed_slow"        "-15"
+            }
+            "06"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "attackspeed_slow"      "-125"
+            }
+            "07"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "slow_duration"         "1.3"
+            }
+        }
+    }
+}
