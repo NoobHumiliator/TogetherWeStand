@@ -25,20 +25,16 @@ function FixSpellShopPosition() {
     //1.6   16:10
     //1.33  4:3
     var radio = width / height
-    if (3.0 <= radio) {
-        $("#triggerButtonPanel").style.position = "2920px 1020px 0"
-    }
-    if (2.0 <= radio < 3.0) {
-        $("#triggerButtonPanel").style.position = "1940px 1020px 0"
-    }
-    if (1.7 <= radio < 2.0) {
-        $("#triggerButtonPanel").style.position = "1500px 1020px 0"
-    }
-    if (1.5 <= radio && radio < 1.7) {
-        $("#triggerButtonPanel").style.position = "1380px 1020px 0"
-    }
     if (radio < 1.5) {
         $("#triggerButtonPanel").style.position = "1050px 1020px 0"
+    } else if (radio < 1.7) {
+        $("#triggerButtonPanel").style.position = "1380px 1020px 0"
+    } else if (radio < 2.0) {
+        $("#triggerButtonPanel").style.position = "1500px 1020px 0"
+    } else if (radio < 3.0) {
+        $("#triggerButtonPanel").style.position = "2170px 1020px 0"
+    } else {
+        $("#triggerButtonPanel").style.position = "2920px 1020px 0"
     }
 
     $.DispatchEvent("DOTAShowTitleTextTooltip", $("#triggerButtonPanel"), "#spell_trigger_notice_title", "#spell_trigger_notice_detail");

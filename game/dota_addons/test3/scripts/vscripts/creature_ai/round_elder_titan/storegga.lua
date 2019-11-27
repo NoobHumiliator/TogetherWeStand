@@ -41,7 +41,7 @@ function StoreggaThink()
     if thisEntity.hThrowAbility and thisEntity.hThrowAbility:IsFullyCastable() then
 	
 		local rocks = Entities:FindAllByName("npc_dota_creature_small_storegga")
-		if #rocks < 128 then
+		if #rocks < 96 then
 			local fThrowRockAtPlayerChance = 0.75
 			local fThrowRockSearchRadius = 15000
 			local nFlags = thisEntity.nHeroFlags

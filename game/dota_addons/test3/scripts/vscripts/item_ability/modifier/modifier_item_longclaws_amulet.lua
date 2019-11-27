@@ -24,7 +24,7 @@ function modifier_item_longclaws_amulet:DeclareFunctions()
         MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE_STACKING,
         MODIFIER_PROPERTY_MANACOST_PERCENTAGE,
         MODIFIER_PROPERTY_UNIT_STATS_NEEDS_REFRESH,
-        MODIFIER_EVENT_ON_TAKEDAMAGE,
+        MODIFIER_EVENT_ON_TAKEDAMAGE
     }
     return funcs
 end
@@ -52,7 +52,7 @@ function modifier_item_longclaws_amulet:OnTakeDamage(params)
         local Ability = params.inflictor
         local flDamage = params.damage
 
-        if Attacker ~= self:GetParent() or Ability == nil or Target == nil then
+        if Attacker ~= self:GetParent() or Target:GetTeamNumber() == self:GetParent():GetTeamNumber() or Ability == nil or Target == nil then
             return 0
         end
 

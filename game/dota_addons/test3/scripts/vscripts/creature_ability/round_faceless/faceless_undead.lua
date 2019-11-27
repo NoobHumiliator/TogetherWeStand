@@ -3,7 +3,11 @@ LinkLuaModifier("modifier_health_damage_buff", "creature_ability/round_faceless/
 function InitDamageBuff(event)
     local caster = event.caster
     local ability = event.ability
-    caster:AddNewModifier(caster, ability, "modifier_health_damage_buff", {})
+    if caster:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+        caster:AddNewModifier(caster, ability, "modifier_health_damage_buff", {})
+    elseif not GameRules:IsCheatMode() then
+        caster:RemoveModifierByName("modifier_faceless_undie")
+    end
 end
 
 function Onthink(event)

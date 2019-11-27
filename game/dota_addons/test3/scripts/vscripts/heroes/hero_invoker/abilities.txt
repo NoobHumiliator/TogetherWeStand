@@ -8,7 +8,7 @@
 		"ScriptFile"					"heroes/hero_invoker/invoker_sun_strike_lua"
 		"AbilityTextureName"			"invoker_sun_strike"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
         "RequiredLevel"                 "1"
 		"MaxLevel"						"8"
@@ -19,7 +19,7 @@
 		"AbilityCastPoint"				"0.05"
 
 		"AbilityCooldown"				"25"
-		"AbilityManaCost"				"175"
+		"AbilityManaCost"				"175 200 225 250 275 300 325 350"
 			
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -93,7 +93,7 @@
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.05"
 
-		"AbilityCooldown"				"55"
+		"AbilityCooldown"				"12"
 		"AbilityManaCost"				"200"
 
 		// Stats

@@ -31,9 +31,11 @@ function modifier_affixes_dilation:DeclareFunctions()
     }
     return funcs
 end
+
 ----------------------------------------
 function modifier_affixes_dilation:OnAbilityFullyCast(params)
     if not IsServer() then return end
+    if params.unit ~= self:GetParent() then return end
     local casted_ability = params.ability
     casted_ability:StartCooldown(casted_ability:GetCooldownTimeRemaining() * 3)
 end

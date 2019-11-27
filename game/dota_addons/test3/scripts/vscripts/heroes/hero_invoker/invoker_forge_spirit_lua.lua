@@ -11,6 +11,7 @@ function invoker_forge_spirit_lua:OnSpellStart()
     -- load data
     local damage = self:GetSpecialValueFor("spirit_damage")
     local health = self:GetSpecialValueFor("spirit_hp")
+    local mana = self:GetSpecialValueFor("spirit_mana")
     local duration = self:GetSpecialValueFor("spirit_duration")
 
     local spirit_count = 1
@@ -21,19 +22,16 @@ function invoker_forge_spirit_lua:OnSpellStart()
 
     if self.forged_spirits then
         for _, unit in pairs(self.forged_spirits) do
-            if v and IsValidEntity(v) then
+            if unit and unit:IsAlive() then
                 unit:ForceKill(true)
             end
         end
     end
+
     self.forged_spirits = {}
 
     for i = 1, spirit_count do
         local forged_spirit = CreateUnitByName("npc_dota_creature_invoker_forged_spirit", caster:GetAbsOrigin() + RandomVector(100), false, caster, caster, caster:GetTeamNumber())
-        -- CDOTA_BaseNPC 类居然没有 SetMaxMana 这样的 API
-        -- MODIFIER_PROPERTY_MANA_BONUS 在 npc_dota_creature 类上也是残的
-        -- 只能通过设置 ManaGain 加升级来 workaround 我也是惊了 Σ(っ °Д °;)っ
-        forged_spirit:CreatureLevelUp(self:GetLevel())
 
         for i = 0, 30 - 1 do
             local hAbility = forged_spirit:FindAbilityByName("forged_spirit_melting_strike")
@@ -46,6 +44,7 @@ function invoker_forge_spirit_lua:OnSpellStart()
         forged_spirit:SetControllableByPlayer(caster:GetPlayerID(), true)
 
         forged_spirit:SetBaseMaxHealth(health)
+        forged_spirit:SetMaxMana(mana)
         forged_spirit:SetBaseDamageMin(damage)
         forged_spirit:SetBaseDamageMax(damage)
 

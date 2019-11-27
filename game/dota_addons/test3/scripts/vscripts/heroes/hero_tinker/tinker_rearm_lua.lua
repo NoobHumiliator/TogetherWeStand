@@ -21,6 +21,7 @@ function tinker_rearm_lua:OnSpellStart()
     caster:RemoveModifierByName("modifier_dazzle_shallow_grave")
     caster:RemoveModifierByName("modifier_juggernaut_omnislash")
     caster:RemoveModifierByName("modifier_phantom_assassin_blur_active")
+    caster:RemoveModifierByName("modifier_ember_spirit_fire_remnant")
 end
 
 --------------------------------------------------------------------------------

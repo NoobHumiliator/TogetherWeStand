@@ -64,7 +64,7 @@
     		}
     		"RunScript"
     		{
-    			"ScriptFile"						"heroes/hero_drow_ranger/drow_ranger_marksmanship_lua"
+    			"ScriptFile"						"heroes/hero_drow_ranger/drow_ranger_marksmanship"
     			"Function"							"MarksmanshipHit"
     			"modifier_dmg_penalty"				"modifier_marksmanship_splinter_dmg_penalty"
     		}

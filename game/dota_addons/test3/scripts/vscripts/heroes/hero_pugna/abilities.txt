@@ -6,7 +6,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
 		"AbilityTextureName"			"frostivus2018_pugna_nether_ward"
-		"ScriptFile"					"heroes/hero_pugna/pugna_ward_winter_2018_lua"
+		"ScriptFile"					"heroes/hero_pugna/pugna_ward_winter_2018"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"

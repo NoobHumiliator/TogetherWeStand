@@ -89,7 +89,6 @@ function HexModelChange(keys)
     target:SetModel(model_frog)
     --target:SetModelScale(1.5)
     target:EmitSound("Hero_Lion.Hex.Target")
-    target:AddNewModifier(nil, nil, "modifier_life_time_show", {["duration"] = 12 })
 
     local countDownParticle = ParticleManager:CreateParticle("particles/hw_fx/candy_carrying_stack.vpcf", PATTACH_OVERHEAD_FOLLOW, target)
     target.countDownParticle = countDownParticle
@@ -121,16 +120,11 @@ end
 function LifeExtension(event)  --吃符
     local caster = event.caster
 
-    local modifier = caster:FindModifierByName("modifier_life_time_show")
-
-
-    if modifier == nil then
+    if not caster:HasModifier("modifier_disable_damage_lua") then
         return
     end
 
     caster.life_time = caster.life_time + 1  -- +1s
-
-    modifier:SetDuration(caster.life_time, true)
 
     if caster.life_time < 10 and caster.life_time >= 0 then
         ParticleManager:SetParticleControl(caster.countDownParticle, 2, Vector(0, caster.life_time, 0))

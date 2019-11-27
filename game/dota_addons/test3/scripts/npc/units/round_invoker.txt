@@ -40,21 +40,21 @@
 		"Ability18"		"special_bonus_unique_invoker_1"
 		"Ability19"		"special_bonus_unique_invoker_2"
 		"Ability20"		"necronomicon_warrior_sight"
-		"Ability21"		""
+		"Ability21"		"generic_gold_bag_fountain_10000"
 		"Ability22"		""
 		"Ability23"		""
 		"Ability24"		""
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"90"
-		"MagicalResistance"			"60"
+		"ArmorPhysical"				"210"
+		"MagicalResistance"			"90"
 
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"7000"
-		"AttackDamageMax"			"9000"
+		"AttackDamageMin"			"9000"
+		"AttackDamageMax"			"11000"
 		"AttackRate"				"1.2"
 		"AttackAnimationPoint"		"0.4"
 		"AttackAcquisitionRange"	"800"
@@ -81,8 +81,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"10000000"
-		"StatusHealthRegen"			"200"
+		"StatusHealth"				"12000000"
+		"StatusHealthRegen"			"2000"
 		"StatusMana"				"65000"
 		"StatusManaRegen"			"1000.0"
 		
@@ -99,8 +99,8 @@
 		// Team
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
 		// Creature Data
@@ -181,7 +181,7 @@
 		//"SelectionGroup"			"Invoker_Forged_Spirits"
 		//"wearable"				"8625"
 		//"UnitLabel"				"forged_spirits"
-		"ConsideredHero"			"0"
+		"ConsideredHero"			"1"
 		"IsAncient"					"0"
 		"CanBeDominated"			"0"
 
@@ -246,8 +246,8 @@
 		// Team
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
 		// Creature Data
@@ -295,7 +295,7 @@
 		"HasInventory"				"1"
 		"UsesConstantGesture"		"1"
 		"ConsideredHero"			"1"
-		"IsAncient"					"1"
+		"IsAncient"					"0"
 		"CanBeDominated"			"0"
 
 		// Minimap
@@ -328,8 +328,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"65"
-		"MagicalResistance"			"40"			// Magical protection.
+		"ArmorPhysical"				"115"
+		"MagicalResistance"			"75"			// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -375,8 +375,8 @@
 		// Team
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
 		// Creature Data
@@ -458,7 +458,7 @@
 		"HasInventory"				"1"
 		"UsesConstantGesture"		"1"
 		"ConsideredHero"			"1"
-		"IsAncient"					"1"
+		"IsAncient"					"0"
 		"CanBeDominated"			"0"
 
 		// Minimap
@@ -491,8 +491,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"60"
-		"MagicalResistance"			"40"			// Magical protection.
+		"ArmorPhysical"				"110"
+		"MagicalResistance"			"80"			// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -538,8 +538,8 @@
 		// Team
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
 		// Creature Data
@@ -620,7 +620,7 @@
 		"HasInventory"				"1"
 		"UsesConstantGesture"		"1"
 		"ConsideredHero"			"1"
-		"IsAncient"					"1"
+		"IsAncient"					"0"
 		"CanBeDominated"			"0"
 
 		// Abilities
@@ -654,8 +654,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"60"
-		"MagicalResistance"			"35"			// Magical protection.
+		"ArmorPhysical"				"110"
+		"MagicalResistance"			"85"			// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -701,8 +701,8 @@
 		// Team
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_BADGUYS"
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
 		// Creature Data

@@ -3,6 +3,7 @@ alreadyCached = {}
 
 pairedAbility = {
     shredder_chakram = "shredder_return_chakram",
+    shredder_chakram_2 = "shredder_return_chakram_2",
     morphling_replicate = "morphling_morph_replicate",
     elder_titan_ancestral_spirit = "elder_titan_return_spirit",
     phoenix_icarus_dive = "phoenix_icarus_dive_stop",
@@ -15,7 +16,6 @@ pairedAbility = {
     bane_nightmare = "bane_nightmare_end",
     ancient_apparition_ice_blast = "ancient_apparition_ice_blast_release",
     lone_druid_true_form = "lone_druid_true_form_druid",
-    shredder_chakram_2 = "shredder_return_chakram_2",
     nyx_assassin_burrow = "nyx_assassin_unburrow",
     wisp_tether = "wisp_tether_break",
     wisp_spirits = "wisp_spirits_in",
@@ -25,6 +25,40 @@ pairedAbility = {
     tiny_craggy_exterior = "tiny_toss_tree"
 }
 
+-- 卖技能的面板中不显示这些技能
+hideAbility = {
+	["damage_counter"] = true,
+	["attribute_bonus"] = true,
+	["attribute_bonus_lua"] = true,
+	["keeper_of_the_light_illuminate_end"] = true,
+	["keeper_of_the_light_spirit_form_illuminate"] = true,
+	["morphling_morph_replicate"] = true,
+	["shredder_return_chakram"] = true,
+	["shredder_return_chakram_2"] = true,
+	["shredder_return_chakram_lua"] = true,
+	["shredder_return_chakram_2_lua"] = true,
+	["elder_titan_return_spirit"] = true,
+	["phoenix_icarus_dive_stop"] = true,
+	["phoenix_sun_ray_stop"] = true,
+	["phoenix_launch_fire_spirit"] = true,
+	["abyssal_underlord_cancel_dark_rift"] = true,
+	["alchemist_unstable_concoction_throw"] = true,
+	["naga_siren_song_of_the_siren_cancel"] = true,
+	["rubick_telekinesis_land"] = true,
+	["bane_nightmare_end"] = true,
+	["ancient_apparition_ice_blast_release"] = true,
+	["lone_druid_true_form_druid"] = true,
+	["nyx_assassn_unburrow"] = true,
+	["morphling_morph"] = true,
+	["nyx_assassin_unburrow"] = true,
+	["pangolier_gyroshell_stop"] = true,
+	["tiny_toss_tree"] = true,
+	["generic_hidden"] = true,
+	["wisp_tether_break"] = true,
+	["wisp_spirits_in"] = true,
+	["wisp_spirits_out"] = true,
+};
+
 brokenModifierCounts = {
     modifier_shadow_demon_demonic_purge_charge_counter = 3,
     modifier_bloodseeker_rupture_charge_counter = 2,
@@ -32,14 +66,15 @@ brokenModifierCounts = {
     modifier_ember_spirit_fire_remnant_charge_counter = 3,
     modifier_obsidian_destroyer_astral_imprisonment_charge_counter = 1
 }
+
 brokenModifierAbilityMap = {
     shadow_demon_demonic_purge = "modifier_shadow_demon_demonic_purge_charge_counter",
     bloodseeker_rupture = "modifier_bloodseeker_rupture_charge_counter",
     earth_spirit_stone_caller = "modifier_earth_spirit_stone_caller_charge_counter",
     ember_spirit_fire_remnant = "modifier_ember_spirit_fire_remnant_charge_counter",
     obsidian_destroyer_astral_imprisonment = "modifier_obsidian_destroyer_astral_imprisonment_charge_counter"
-
 }
+
 noReturnAbility = {    --不退回升级点数的技能
     puck_ethereal_jaunt = true,
     beastmaster_call_of_the_wild_boar = true,
@@ -103,6 +138,20 @@ function CHoldoutGameMode:HeroListRefill()
     end
 end
 
+function GetPlayerAbilityNumber(hero)
+	local abilityNumber = 0
+	for i = 0, 30 do
+        local ability = hero:GetAbilityByIndex(i)
+        if ability ~= nil then
+            local abilityName = ability:GetAbilityName()
+            if hideAbility[abilityName] ~= true and not string.match(abilityName, "special_bonus_") then
+                abilityNumber = abilityNumber + 1
+            end
+        end
+	end
+	return abilityNumber
+end
+
 function CHoldoutGameMode:AddAbility(keys)
     --PrintTable(keys)
     if PlayerResource:HasSelectedHero(keys.playerId) then
@@ -111,7 +160,17 @@ function CHoldoutGameMode:AddAbility(keys)
         if hero then
             removeAllGenericHiddenAbility(hero)
             --hero:RemoveAbility("generic_hidden")
-            if keys.enough == 1 then
+            local maxSlotNumber = 6
+            if hero:HasModifier("modifier_extra_slot_9_consume") then
+                maxSlotNumber = 9
+            elseif hero:HasModifier("modifier_extra_slot_8_consume") then
+                maxSlotNumber = 8
+            elseif hero:HasModifier("modifier_extra_slot_7_consume") then
+                maxSlotNumber = 7
+            end
+            
+            local p = hero:GetAbilityPoints()
+            if keys.enough == 1 and keys.abilityCost <= p and GetPlayerAbilityNumber(hero) < maxSlotNumber then
                 if isMeleeHero(hero:GetUnitName()) and meleeMap[abilityName] then
                     abilityName = meleeMap[abilityName]
                 end
@@ -145,11 +204,11 @@ function CHoldoutGameMode:AddAbility(keys)
                     PrecacheUnitByNameAsync('npc_precache_' .. abilityName, function() end)    --自定义的技能需要单独加载
                 end
                 ------------------------------------------------------
-                local p = hero:GetAbilityPoints()
                 hero:SetAbilityPoints(p - keys.abilityCost)
                 local ability = hero:FindAbilityByName(abilityName)
                 ability:SetLevel(1)
                 ability:SetHidden(false)
+                
                 CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId), "UpdateAbilityList", keys)
                 EmitSoundOn("General.Buy", PlayerResource:GetPlayer(keys.playerId))
                 if brokenModifierAbilityMap[abilityName] ~= nil then
@@ -186,7 +245,8 @@ function CHoldoutGameMode:LevelUpAttribute(keys)
         local hero = PlayerResource:GetSelectedHeroEntity(keys.playerId)
         keys.heroName = false
         if hero then
-            if keys.enough == 1 then
+            local p = hero:GetAbilityPoints()
+            if keys.enough == 1 and p > 0 then
                 if hero:HasAbility("attribute_bonus_lua") then
                     local level = hero:FindAbilityByName("attribute_bonus_lua"):GetLevel()
                     level = level + 1
@@ -196,7 +256,6 @@ function CHoldoutGameMode:LevelUpAttribute(keys)
                     hero:FindAbilityByName("attribute_bonus_lua"):SetLevel(1)  --默认升一级
                 end
                 ------------------------------------------------------
-                local p = hero:GetAbilityPoints()
                 hero:SetAbilityPoints(p - 1)
                 CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId), "UpdateAbilityList", keys)
                 EmitSoundOn("General.Buy", PlayerResource:GetPlayer(keys.playerId))
@@ -214,9 +273,9 @@ function CHoldoutGameMode:PointToGold(keys)
         local hero = PlayerResource:GetSelectedHeroEntity(keys.playerId)
         keys.heroName = false
         if hero then
-            if keys.enough == 1 then
+            local p = hero:GetAbilityPoints()
+            if keys.enough == 1 and p > 0 then
                 hero:ModifyGold(1400, true, 0)
-                local p = hero:GetAbilityPoints()
                 hero:SetAbilityPoints(p - 1)
                 CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId), "UpdateAbilityList", keys)
                 EmitSoundOn("General.CoinsBig", PlayerResource:GetPlayer(keys.playerId))
@@ -241,10 +300,14 @@ function CHoldoutGameMode:RemoveAbility(keys)
                 end
                 local pointsReturn = keys.abilityCost + abilityLevel - 1
                 local expense = PlayerResource:GetLevel(keys.playerId) * pointsReturn * 30
-                if hero:HasModifier("modifier_item_mulberry") then  --如果有桑葚效果
-                    RemoveModifierOneStack(hero, "modifier_item_mulberry", hero.mulberryAbility) --移除一层桑葚效果
-                    if not hero:HasModifier("modifier_item_mulberry") then --若果没有桑葚效果,通知前台
+                if expense > 0 and hero:HasModifier("modifier_item_mulberry") then  --如果有桑葚效果
+                    local modifier = hero:FindModifierByName("modifier_item_mulberry")
+                    local stack_count = modifier:GetStackCount()
+                    if stack_count == 1 then
+                        hero:RemoveModifierByName("modifier_item_mulberry")
                         CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId), "UpdateFreeToSell", { free = false, playerId = keys.playerId })
+                    else
+                        modifier:SetStackCount(stack_count - 1)
                     end
                     expense = 0  --卖技能不要钱
                 end
@@ -286,16 +349,15 @@ end
 
 
 function CHoldoutGameMode:GrantCourierAbility(keys)
-    PrintTable(keys)
     if PlayerResource:HasSelectedHero(keys.playerId) then
         local hero = PlayerResource:GetSelectedHeroEntity(keys.playerId)
         keys.heroName = false
         if hero then
-            if keys.enough == 1 then
+            local p = hero:GetAbilityPoints()
+            if keys.enough == 1 and p > 0 then
                 local item = CreateItem(keys.item, hero, hero)
                 item:SetPurchaser(hero)
-                hero:AddItem(item)
-                local p = hero:GetAbilityPoints()
+                AddItem(hero, item)
                 hero:SetAbilityPoints(p - 1)
                 CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId), "UpdateAbilityList", keys)
             else

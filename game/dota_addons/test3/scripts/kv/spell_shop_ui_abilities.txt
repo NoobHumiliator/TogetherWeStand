@@ -56,7 +56,7 @@
   "1"    "drow_ranger_frost_arrows"
   "2"    "drow_ranger_wave_of_silence"
   "3"    "drow_ranger_trueshot"
-  "4"    "drow_ranger_marksmanship_lua"
+  "4"    "drow_ranger_marksmanship"
   }
   "juggernaut" {
   "1"    "juggernaut_blade_fury"
@@ -268,14 +268,14 @@
   "2"    "ogre_magi_ignite"
   "3"    "ogre_magi_bloodlust"
   "4"    "ogre_magi_unrefined_fireblast"
-  "5"    "ogre_magi_multicast"
+  "5"    "ogre_magi_multicast_lua"
   }
   "shredder" {
   "1"    "shredder_whirling_death"
   "2"    "shredder_timber_chain"
   "3"    "shredder_reactive_armor"
-  "4"    "shredder_chakram"
-  "5"    "shredder_chakram_2"
+  "4"    "shredder_chakram_lua"
+  "5"    "shredder_chakram_2_lua"
   }
   "bristleback" {
   "1"    "bristleback_viscous_nasal_goo"
@@ -393,7 +393,7 @@
   "axe" {
   "1"    "axe_berserkers_call"
   "2"    "axe_battle_hunger"
-  "3"    "axe_counter_helix"
+  "3"    "axe_counter_helix_lua"
   "4"    "axe_culling_blade"
   }
   "pudge" {
@@ -438,12 +438,9 @@
   "4"    "bloodseeker_rupture"
   }
   "nevermore" {
-  "1"    "nevermore_shadowraze1"
-  "2"    "nevermore_shadowraze2"
-  "3"    "nevermore_shadowraze3"
-  "4"    "nevermore_necromastery"
-  "5"    "nevermore_dark_lord"
-  "6"    "nevermore_requiem"
+  "1"    "nevermore_necromastery"
+  "2"    "nevermore_dark_lord"
+  "3"    "nevermore_requiem"
   }
   "razor" {
   "1"    "razor_plasma_field"
@@ -611,7 +608,7 @@
   "4"    "slark_shadow_dance"
   }
   "queenofpain" {
-  "1"    "queenofpain_shadow_strike"
+  "1"    "queenofpain_shadow_strike_lua"
   "2"    "queenofpain_blink"
   "3"    "queenofpain_scream_of_pain"
   "4"    "queenofpain_sonic_wave"
@@ -754,6 +751,18 @@
   "2"    "mars_gods_rebuke"
   "3"    "mars_bulwark"
   "4"    "mars_arena_of_blood"
+  }
+  "void_spirit" {
+  "1"    "void_spirit_aether_remnant"
+  "2"    "void_spirit_dissimilate"
+  "3"    "void_spirit_resonant_pulse"
+  "4"    "void_spirit_astral_step"
+  }
+  "snapfire" {
+  "1"    "snapfire_scatterblast"
+  "2"    "snapfire_firesnap_cookie"
+  "3"    "snapfire_lil_shredder"
+  "4"    "snapfire_mortimer_kisses"
   }
 
 }

@@ -20,11 +20,12 @@ function modifier_smoke_breaking_aura:OnCreated(kv)
     self:StartIntervalThink(0.2)
 end
 
-function modifier_smoke_breaking_aura:OnDestroy(kv)
+function modifier_smoke_breaking_aura:OnDestroy()
     self:StartIntervalThink(-1)
 end
 
 function modifier_smoke_breaking_aura:OnIntervalThink()
+    if not IsServer() then return end
     local enemies = FindUnitsInRadius(
     self:GetParent():GetTeamNumber(),
     self:GetParent():GetOrigin(),

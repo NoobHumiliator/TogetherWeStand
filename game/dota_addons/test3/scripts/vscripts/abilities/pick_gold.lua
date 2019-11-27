@@ -23,8 +23,9 @@ function CheckToPickGold(keys)
                 --print(caster:GetUnitName())
                 --print(string.find(caster:GetUnitName(),"npc_dota_lone_druid_bear"))
                 for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-                    if PlayerResource:IsValidPlayer(nPlayerID) then
-                        if PlayerResource:HasSelectedHero(nPlayerID) then
+                    if PlayerResource:IsValidPlayer(nPlayerID) and PlayerResource:HasSelectedHero(nPlayerID) then
+                        local state = PlayerResource:GetConnectionState(nPlayerID)
+                        if state == DOTA_CONNECTION_STATE_CONNECTED then
                             local hero = PlayerResource:GetSelectedHeroEntity(nPlayerID)
                             SendOverheadEventMessage(hero, OVERHEAD_ALERT_GOLD, hero, value, nil)
                             PlayerResource:ModifyGold(nPlayerID, value, true, DOTA_ModifyGold_Unspecified)

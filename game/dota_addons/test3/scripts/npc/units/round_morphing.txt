@@ -4,6 +4,7 @@
 	{
 		// General
 		//----------------------------------------------------------------
+        "vscripts" 				    "creature_ai/round_morphing/water_1_ai.lua"
 		"Model"						"models/heroes/morphling/morphling.vmdl"
 		"BaseClass"					"npc_dota_creature"
 		"ModelScale"				        "0.7"
@@ -89,7 +90,6 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
-        "vscripts" 				    "creature_ai/round_morphing/water_1_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -117,6 +117,7 @@
 	{
 		// General
 		//----------------------------------------------------------------
+        "vscripts" 					"creature_ai/round_morphing/water_2_ai.lua"
 		"Model"						"models/heroes/morphling/morphling.vmdl"
 		"BaseClass"					"npc_dota_creature"
 		"ModelScale"				        "1.0"
@@ -202,7 +203,6 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
-        "vscripts" 				"creature_ai/round_morphing/water_2_ai.lua"
 
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
@@ -248,6 +248,7 @@
 	{
 		// General
 		//----------------------------------------------------------------
+        "vscripts"                  "creature_ai/round_morphing/water_3_ai.lua"
 		"Model"						"models/heroes/morphling/morphling.vmdl"
 		"BaseClass"					"npc_dota_creature"
 		"ModelScale"				        "1.6"
@@ -333,8 +334,7 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
-               
-        "vscripts"                    "creature_ai/round_morphing/water_3_ai.lua"
+        
 		// Creature Data
 		//----------------------------------------------------------------------------------------------------------------------
 		"Creature"

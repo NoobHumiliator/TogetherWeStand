@@ -1,19 +1,5 @@
 modifier_invoker_alacrity_lua = class({})
-LinkLuaModifier("modifier_special_bonus_unique_invoker_5", "heroes/hero_invoker/modifier_invoker_alacrity_lua", LUA_MODIFIER_MOTION_NONE)
 
-modifier_special_bonus_unique_invoker_5 = class({})
-
-function modifier_special_bonus_unique_invoker_5:IsHidden()
-    return true
-end
-
-function modifier_special_bonus_unique_invoker_5:IsPurgable()
-    return false
-end
-
-function modifier_special_bonus_unique_invoker_5:RemoveOnDeath()
-    return false
-end
 --------------------------------------------------------------------------------
 -- Classifications
 function modifier_invoker_alacrity_lua:IsHidden()
@@ -52,7 +38,7 @@ function modifier_invoker_alacrity_lua:OnRefresh(kv)
     end
 end
 
-function modifier_invoker_alacrity_lua:OnDestroy(kv)
+function modifier_invoker_alacrity_lua:OnDestroy()
 end
 
 --------------------------------------------------------------------------------

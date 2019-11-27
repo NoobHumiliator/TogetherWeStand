@@ -97,6 +97,10 @@ end
 
 
 function CHoldoutGameSpawner:End()
+    if self._bAlreadyCountTeem then
+        self._nTotalUnitsToSpawn = self._nTotalUnitsToSpawn / 2
+        self._bAlreadyCountTeem = false
+    end
     if self._sg ~= nil then
         UnloadSpawnGroupByHandle(self._sg)
         self._sg = nil

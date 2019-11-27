@@ -54,7 +54,7 @@ function LaserStart(keys)
                             attacker = caster,
                             damage    = unit:GetMaxHealth() * 0.003,
                             damage_type = DAMAGE_TYPE_PURE,
-                            damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
+                            damage_flags = DOTA_DAMAGE_FLAG_NONE
                         })
                         local burnParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_phoenix/phoenix_sunray_beam_enemy.vpcf", PATTACH_ABSORIGIN, unit)
                         ParticleManager:SetParticleControlEnt(burnParticle, 1, unit, PATTACH_POINT_FOLLOW, "attach_hitloc", unit:GetAbsOrigin(), true)

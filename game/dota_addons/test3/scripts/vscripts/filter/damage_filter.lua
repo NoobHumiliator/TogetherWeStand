@@ -24,6 +24,7 @@ sp_exempt_table["witch_doctor_maledict"] = true
 sp_exempt_table["undying_flesh_golem"] = true
 sp_exempt_table["viper_corrosive_skin"] = true
 sp_exempt_table["nyx_assassin_spiked_carapace"] = true
+sp_exempt_table["enigma_midnight_pulse"] = true
 
 re_table = {} --反伤类技能  折射单独处理
 re_table["bristleback_quill_spray"] = true
@@ -32,12 +33,38 @@ re_table["centaur_return"] = true
 re_table["centaur_return_lua"] = true
 re_table["viper_corrosive_skin"] = true
 re_table["item_blade_mail"] = true
-re_table["axe_counter_helix"] = true
+re_table["axe_counter_helix_lua"] = true
 re_table["nyx_assassin_spiked_carapace"] = true
+
+function DamageAmplify(attacker, ability, damage_type, damage)
+    if ability and ability.GetAbilityName then --有明确来源技能
+        if attacker.sp and damage_type == DAMAGE_TYPE_MAGICAL and not sp_exempt_table[ability:GetAbilityName()] then
+            if ability:IsToggle() or ability:IsPassive() then
+                return damage * (1 + attacker.sp * 0.3 * attacker:GetIntellect() / 100)
+            else
+                return damage * (1 + attacker.sp * attacker:GetIntellect() / 100)
+            end
+        elseif re_table[ability:GetAbilityName()] then
+            if attacker.pysical_return and damage_type == DAMAGE_TYPE_PHYSICAL then --物理类反伤处理技能
+                return damage * (1 + attacker.pysical_return * attacker:GetStrength() / 100)
+            end
+            if attacker.magical_return and damage_type == DAMAGE_TYPE_MAGICAL then --魔法类反伤处理技能
+                return damage * (1 + attacker.magical_return * attacker:GetStrength() / 100)
+            end
+            if attacker.pure_return and damage_type == DAMAGE_TYPE_PURE then --神圣类反伤处理技能
+                return damage * (1 + attacker.pure_return * attacker:GetStrength() / 100)
+            end
+        end
+    else
+        if attacker.sp and damage_type == DAMAGE_TYPE_MAGICAL then --无明确来源技能
+            return damage * (1 + attacker.sp * attacker:GetIntellect() / 100)
+        end
+    end
+    return damage
+end
 
 -- DamageFilter不应滥用  只处理两种问题 1 是否造成伤害 2 伤害来源是具体哪个技能 其余问题都不应该从这里处理
 function CHoldoutGameMode:DamageFilter(damageTable)
-
     --DeepPrint( damageTable )
     if damageTable.entindex_attacker_const == nil then
         return true
@@ -55,29 +82,7 @@ function CHoldoutGameMode:DamageFilter(damageTable)
     if attacker:GetTeam() == DOTA_TEAM_GOODGUYS then
         local playerid = attacker:GetPlayerOwnerID()
         if attacker:IsRealHero() then
-            if ability ~= nil then --有明确来源技能
-                if attacker.sp ~= nil and damage_type == DAMAGE_TYPE_MAGICAL and not sp_exempt_table[ability:GetAbilityName()] then
-                    if ability:IsToggle() or ability:IsPassive() then
-                        damageTable.damage = damageTable.damage * (1 + attacker.sp * 0.3 * attacker:GetIntellect() / 100)
-                    else
-                        damageTable.damage = damageTable.damage * (1 + attacker.sp * attacker:GetIntellect() / 100)
-                    end
-                elseif ability.GetAbilityName and re_table[ability:GetAbilityName()] then
-                    if attacker.pysical_return ~= nil and damage_type == DAMAGE_TYPE_PHYSICAL then --物理类反伤处理技能
-                        damageTable.damage = damageTable.damage * (1 + attacker.pysical_return * attacker:GetStrength() / 100)
-                    end
-                    if attacker.magical_return ~= nil and damage_type == DAMAGE_TYPE_MAGICAL then --魔法类反伤处理技能
-                        damageTable.damage = damageTable.damage * (1 + attacker.magical_return * attacker:GetStrength() / 100)
-                    end
-                    if attacker.pure_return ~= nil and damage_type == DAMAGE_TYPE_PURE then --神圣类反伤处理技能
-                        damageTable.damage = damageTable.damage * (1 + attacker.pure_return * attacker:GetStrength() / 100)
-                    end
-                end
-            else
-                if attacker.sp ~= nil and damage_type == DAMAGE_TYPE_MAGICAL then --无明确来源技能
-                    damageTable.damage = damageTable.damage * (1 + attacker.sp * attacker:GetIntellect() / 100)
-                end
-            end
+            damageTable.damage = DamageAmplify(attacker, ability, damage_type, damageTable.damage)
         end
 
         if victim:HasModifier("modifier_refraction_affect") then  --如果有折光，移除一层此伤害不起作用

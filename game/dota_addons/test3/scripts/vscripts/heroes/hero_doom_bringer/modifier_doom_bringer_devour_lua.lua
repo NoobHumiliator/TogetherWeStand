@@ -11,15 +11,17 @@ end
 
 --------------------------------------------------------------------------------
 function modifier_doom_bringer_devour_lua:OnCreated(kv)
-end
---------------------------------------------------------------------------------
-function modifier_doom_bringer_devour_lua:OnRefresh(kv)
     self.regen = self:GetAbility():GetSpecialValueFor("regen")
     self.bonus_gold = self:GetAbility():GetSpecialValueFor("bonus_gold")
+    if not IsServer() then return end
 	local talent = self:GetCaster():FindAbilityByName("special_bonus_unique_doom_3")
     if talent and talent:GetLevel() ~= 0 then
         self.bonus_gold = self.bonus_gold + talent:GetSpecialValueFor("value")
     end
+end
+--------------------------------------------------------------------------------
+function modifier_doom_bringer_devour_lua:OnRefresh(kv)
+    self:OnCreated(kv)
 end
 --------------------------------------------------------------------------------
 function modifier_doom_bringer_devour_lua:DeclareFunctions()

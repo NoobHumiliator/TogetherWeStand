@@ -167,6 +167,9 @@
 		"DOTA_Tooltip_ability_item_mulberry"						            "魔法桑葚"
 		"DOTA_Tooltip_ability_item_mulberry_Description"				        "使用: 吃下桑葚，下一次卖技能不再消耗金币。\n<font color='#FF7800'>通行证玩家获得桑葚数量翻倍</font>"
 
+		"DOTA_Tooltip_modifier_item_mulberry"	                                "魔法桑葚"
+		"DOTA_Tooltip_modifier_item_mulberry_Description"	                    "出售技能不消耗金币。"
+
 		"DOTA_Tooltip_ability_item_pineapple"									"魔法菠萝"
 		"DOTA_Tooltip_ability_item_pineapple_Description"						"使用: 吃下菠萝，获得一个额外的技能点"
 		"DOTA_Tooltip_ability_item_pineapple_Lore"								"菠萝（学名：Ananas comosus）为凤梨俗称，是著名热带水果之一"
@@ -220,6 +223,7 @@
         "affixes_silver"                                                        "银锋  "
         "affixes_dilation"                                                      "膨胀  "
         "affixes_laser"                                                         "激光  "
+		"affixes_fragile"                                                       "易碎  "
 
 
         "DOTA_Tooltip_ability_affixes_ability_tooltip_laser"					"激光"
@@ -261,9 +265,6 @@
 		"DOTA_Tooltip_ability_affixes_ability_fortify"	                   		"强韧"
 		"DOTA_Tooltip_ability_affixes_ability_fortify_Description"	       		"敌人的生命值提高20%%，造成的伤害提高40%%。"
 
-		"DOTA_Tooltip_modifier_bolstering_stack"						   		"激励"
-		"DOTA_Tooltip_modifier_bolstering_stack_Description"			   		"受到盟友的临死哀嚎的强化，最大生命值及伤害提高。"
-
 
 		"DOTA_Tooltip_ability_affixes_ability_necrotic"	                   		"死疽"
 		"DOTA_Tooltip_ability_affixes_ability_necrotic_Description"	       		"所有敌人的普通攻击都将造成可叠加的枯萎效果，每层降低1%%所受到的治疗效果。"
@@ -293,7 +294,16 @@
         "DOTA_Tooltip_ability_affixes_ability_spike_Description"                "当尖刺生效时，反弹<font color='#FF7800'>60%%</font>受到的伤害。"
         "DOTA_Tooltip_ability_affixes_ability_spike_active_interval"            "生效间隔："
         "DOTA_Tooltip_ability_affixes_ability_spike_spike_duration"             "尖刺持续时间："
-        "DOTA_Tooltip_modifier_nxy_spike"                                       "反弹60%%受到的伤害"
+        "DOTA_Tooltip_modifier_nyx_spike"                                       "反弹60%%受到的伤害"
+
+		"DOTA_Tooltip_ability_affixes_ability_tooltip_fragile"					"易碎"
+        "DOTA_Tooltip_ability_affixes_ability_tooltip_fragile_Description"		"本轮受到所有伤害提高100%%"
+
+        "DOTA_Tooltip_modifier_affixes_fragile"					       			"易碎"
+		"DOTA_Tooltip_modifier_affixes_fragile_Description"			   			"受到所有伤害提高100%%"
+
+        "DOTA_Tooltip_modifier_particle_model_scale"					       	"伟岸"
+		"DOTA_Tooltip_modifier_particle_model_scale_Description"			   	"确认过眼神，是个大佬"
 		
 		"save_game"                                                             "保存"
         "load_game"                                                             "载入"
@@ -717,6 +727,7 @@
 		"DOTA_Tooltip_ability_item_heart_2_health_regen_rate"							"+$hp_regen"
 		"DOTA_Tooltip_ability_item_heart_2_bonus_strength"								"+$str"
 		"DOTA_Tooltip_ability_item_heart_2_bonus_health"								"+$health"
+		"DOTA_Tooltip_ability_item_heart_2_hp_regen_amp"								"%+生命恢复增强"
 		"DOTA_Tooltip_ability_item_recipe_heart_2"										"凤凰之心卷轴"
 
 
@@ -729,8 +740,6 @@
 
 		"DOTA_Tooltip_ability_witch_doctor_death_ward"	                "死亡守卫 (不可出售)"
 		"DOTA_Tooltip_ability_meepo_divided_we_stand"			        "分则能成 (不可出售)"
-		"DOTA_Tooltip_ability_shredder_chakram_2"	                    "锯齿飞轮 (不可出售)"
-		"DOTA_Tooltip_ability_shredder_chakram"	                        "锯齿飞轮 (不可出售)"
 		"DOTA_Tooltip_ability_broodmother_spin_web"	                    "织网 (不可出售)"
 		"DOTA_Tooltip_ability_treant_eyes_in_the_forest"	            "丛林之眼 (不可出售)"
 		"DOTA_Tooltip_ability_batrider_sticky_napalm"	                "粘性燃油 (不可出售)"
@@ -738,10 +747,11 @@
 		"DOTA_Tooltip_ability_crown_summoned_buff"							        "狂野支配"
 		"DOTA_Tooltip_ability_crown_summoned_buff_Description"				        "<h1>被动：狂野支配</h1> 根据英雄的属性被动地提升召唤生物的强度。"
 		"DOTA_Tooltip_ability_crown_summoned_buff_Lore"						        "树人们想起了被支配的恐惧"
-		"DOTA_Tooltip_ability_crown_summoned_buff_hp_bonus_per_str"	        		"每点力量提升血量"
-		"DOTA_Tooltip_ability_crown_summoned_buff_damage_bonus_per_int"	    		"每点智力提升攻击力"
+		"DOTA_Tooltip_ability_crown_summoned_buff_hp_bonus_per_str"	        		"%每点力量提升血量"
+		"DOTA_Tooltip_ability_crown_summoned_buff_damage_bonus_per_int"	    		"%每点智力提升攻击力"
 		"DOTA_Tooltip_ability_crown_summoned_buff_speed_bonus_per_agi"	            "每点敏捷提高攻速"
 		"DOTA_Tooltip_ability_crown_summoned_buff_armor_bonus_per_agi"	            "每点敏捷提高护甲"
+		"DOTA_Tooltip_ability_crown_summoned_buff_model_scale_per_att"	            "%每点属性增大体型"
 		"DOTA_Tooltip_modifier_add_summon_buff"                                     "狂野支配"
 		"DOTA_Tooltip_modifier_add_summon_buff_Description"                         "被动提升召唤生物的强度"
 
@@ -752,10 +762,11 @@
 		"DOTA_Tooltip_ability_item_summon_crown_1_bonus_str"	                    "+$str"
 		"DOTA_Tooltip_ability_item_summon_crown_1_bonus_agi"	                    "+$agi"
 		"DOTA_Tooltip_ability_item_summon_crown_1_bonus_mana_regen"	                "+$mana_regen"
-		"DOTA_Tooltip_ability_item_summon_crown_1_hp_bonus_per_str"	        		"每点力量提升血量"
-		"DOTA_Tooltip_ability_item_summon_crown_1_damage_bonus_per_int"	    		"每点智力提升攻击力"
+		"DOTA_Tooltip_ability_item_summon_crown_1_hp_bonus_per_str"	        		"%每点力量提升血量"
+		"DOTA_Tooltip_ability_item_summon_crown_1_damage_bonus_per_int"	    		"%每点智力提升攻击力"
 		"DOTA_Tooltip_ability_item_summon_crown_1_speed_bonus_per_agi"	            "每点敏捷提高攻速"
 		"DOTA_Tooltip_ability_item_summon_crown_1_armor_bonus_per_agi"	            "每点敏捷提高护甲"
+		"DOTA_Tooltip_ability_item_summon_crown_1_model_scale_per_att"	            "%每点属性增大体型"
 
 		"DOTA_Tooltip_ability_item_summon_crown_2"							        "青色统御水晶"
 		"DOTA_Tooltip_ability_item_summon_crown_2_Description"				        "<h1>被动：狂野支配</h1> 根据英雄的属性被动地提升召唤生物的强度。"
@@ -763,10 +774,11 @@
 		"DOTA_Tooltip_ability_item_summon_crown_2_bonus_str"	                    "+$str"
 		"DOTA_Tooltip_ability_item_summon_crown_2_bonus_agi"	                    "+$agi"
 		"DOTA_Tooltip_ability_item_summon_crown_2_bonus_mana_regen"	                "+$mana_regen"
-		"DOTA_Tooltip_ability_item_summon_crown_2_hp_bonus_per_str"	        		"每点力量提升血量"
-		"DOTA_Tooltip_ability_item_summon_crown_2_damage_bonus_per_int"	    		"每点智力提升攻击力"
+		"DOTA_Tooltip_ability_item_summon_crown_2_hp_bonus_per_str"	        		"%每点力量提升血量"
+		"DOTA_Tooltip_ability_item_summon_crown_2_damage_bonus_per_int"	    		"%每点智力提升攻击力"
 		"DOTA_Tooltip_ability_item_summon_crown_2_speed_bonus_per_agi"	            "每点敏捷提高攻速"
 		"DOTA_Tooltip_ability_item_summon_crown_2_armor_bonus_per_agi"	            "每点敏捷提高护甲"
+		"DOTA_Tooltip_ability_item_summon_crown_2_model_scale_per_att"	            "%每点属性增大体型"
 
 		"DOTA_Tooltip_ability_item_summon_crown_3"							        "红色统御水晶"
 		"DOTA_Tooltip_ability_item_summon_crown_3_Description"				        "<h1>被动：狂野支配</h1> 根据英雄的属性被动地提升召唤生物的强度。"
@@ -774,10 +786,11 @@
 		"DOTA_Tooltip_ability_item_summon_crown_3_bonus_str"	                    "+$str"
 		"DOTA_Tooltip_ability_item_summon_crown_3_bonus_agi"	                    "+$agi"
 		"DOTA_Tooltip_ability_item_summon_crown_3_bonus_mana_regen"	                "+$mana_regen"
-		"DOTA_Tooltip_ability_item_summon_crown_3_hp_bonus_per_str"	        		"每点力量提升血量"
-		"DOTA_Tooltip_ability_item_summon_crown_3_damage_bonus_per_int"	    		"每点智力提升攻击力"
+		"DOTA_Tooltip_ability_item_summon_crown_3_hp_bonus_per_str"	        		"%每点力量提升血量"
+		"DOTA_Tooltip_ability_item_summon_crown_3_damage_bonus_per_int"	    		"%每点智力提升攻击力"
 		"DOTA_Tooltip_ability_item_summon_crown_3_speed_bonus_per_agi"	            "每点敏捷提高攻速"
 		"DOTA_Tooltip_ability_item_summon_crown_3_armor_bonus_per_agi"	            "每点敏捷提高护甲"
+		"DOTA_Tooltip_ability_item_summon_crown_3_model_scale_per_att"	            "%每点属性增大体型"
 
 		"DOTA_Tooltip_ability_item_summon_crown_4"							        "紫色统御皇冠"
 		"DOTA_Tooltip_ability_item_summon_crown_4_Description"				        "<h1>被动：狂野支配</h1> 根据英雄的属性被动地提升召唤生物的强度。"
@@ -785,10 +798,11 @@
 		"DOTA_Tooltip_ability_item_summon_crown_4_bonus_str"	                    "+$str"
 		"DOTA_Tooltip_ability_item_summon_crown_4_bonus_agi"	                    "+$agi"
 		"DOTA_Tooltip_ability_item_summon_crown_4_bonus_mana_regen"	                "+$mana_regen"
-		"DOTA_Tooltip_ability_item_summon_crown_4_hp_bonus_per_str"	        		"每点力量提升血量"
-		"DOTA_Tooltip_ability_item_summon_crown_4_damage_bonus_per_int"	    		"每点智力提升攻击力"
+		"DOTA_Tooltip_ability_item_summon_crown_4_hp_bonus_per_str"	        		"%每点力量提升血量"
+		"DOTA_Tooltip_ability_item_summon_crown_4_damage_bonus_per_int"	    		"%每点智力提升攻击力"
 		"DOTA_Tooltip_ability_item_summon_crown_4_speed_bonus_per_agi"	            "每点敏捷提高攻速"
 		"DOTA_Tooltip_ability_item_summon_crown_4_armor_bonus_per_agi"	            "每点敏捷提高护甲"
+		"DOTA_Tooltip_ability_item_summon_crown_4_model_scale_per_att"	            "%每点属性增大体型"
 
 		"DOTA_Tooltip_ability_item_summon_crown_5"						        	"青色统御皇冠"
 		"DOTA_Tooltip_ability_item_summon_crown_5_Description"				        "<h1>被动：狂野支配</h1> 根据英雄的属性被动地提升召唤生物的强度"
@@ -796,10 +810,11 @@
 		"DOTA_Tooltip_ability_item_summon_crown_5_bonus_str"	                    "+$str"
 		"DOTA_Tooltip_ability_item_summon_crown_5_bonus_agi"	                    "+$agi"
 		"DOTA_Tooltip_ability_item_summon_crown_5_bonus_mana_regen"	                "+$mana_regen"
-		"DOTA_Tooltip_ability_item_summon_crown_5_hp_bonus_per_str"	        		"每点力量提升血量"
-		"DOTA_Tooltip_ability_item_summon_crown_5_damage_bonus_per_int"	    		"每点智力提升攻击力"
+		"DOTA_Tooltip_ability_item_summon_crown_5_hp_bonus_per_str"	        		"%每点力量提升血量"
+		"DOTA_Tooltip_ability_item_summon_crown_5_damage_bonus_per_int"	    		"%每点智力提升攻击力"
 		"DOTA_Tooltip_ability_item_summon_crown_5_speed_bonus_per_agi"	            "每点敏捷提高攻速"
 		"DOTA_Tooltip_ability_item_summon_crown_5_armor_bonus_per_agi"	            "每点敏捷提高护甲"
+		"DOTA_Tooltip_ability_item_summon_crown_5_model_scale_per_att"	            "%每点属性增大体型"
 
         "DOTA_Tooltip_ability_item_summon_crown_6"						        	"红色统御皇冠"
 		"DOTA_Tooltip_ability_item_summon_crown_6_Description"				        "<h1>被动：狂野支配</h1> 根据英雄的属性被动地提升召唤生物的强度"
@@ -807,23 +822,32 @@
 		"DOTA_Tooltip_ability_item_summon_crown_6_bonus_str"	                    "+$str"
 		"DOTA_Tooltip_ability_item_summon_crown_6_bonus_agi"	                    "+$agi"
 		"DOTA_Tooltip_ability_item_summon_crown_6_bonus_mana_regen"	                "+$mana_regen"
-		"DOTA_Tooltip_ability_item_summon_crown_6_hp_bonus_per_str"	        		"每点力量提升血量"
-		"DOTA_Tooltip_ability_item_summon_crown_6_damage_bonus_per_int"	    		"每点智力提升攻击力"
+		"DOTA_Tooltip_ability_item_summon_crown_6_hp_bonus_per_str"	        		"%每点力量提升血量"
+		"DOTA_Tooltip_ability_item_summon_crown_6_damage_bonus_per_int"	    		"%每点智力提升攻击力"
 		"DOTA_Tooltip_ability_item_summon_crown_6_speed_bonus_per_agi"	            "每点敏捷提高攻速"
 		"DOTA_Tooltip_ability_item_summon_crown_6_armor_bonus_per_agi"	            "每点敏捷提高护甲"
+		"DOTA_Tooltip_ability_item_summon_crown_6_model_scale_per_att"	            "%每点属性增大体型"
 
 
 		"DOTA_Tooltip_ability_item_rapier_1_datadriven"							"圣剑 Ⅰ"
-		"DOTA_Tooltip_ability_item_rapier_1_datadriven_Description"				"<font color='#FF7800'>死亡后摧毁</font>"
+		"DOTA_Tooltip_ability_item_rapier_1_datadriven_Description"				"<font color='#FF7800'>第一次死亡后破损（攻击力减半），第二次死亡后摧毁</font>"
 		"DOTA_Tooltip_ability_item_rapier_1_datadriven_bonus_damage"            "+$damage"
+		"DOTA_Tooltip_ability_item_rapier_1_datadriven_Lore"	 				"能力越大，责任越大。"
 
 		"DOTA_Tooltip_ability_item_rapier_2_datadriven"							"圣剑 Ⅱ"
-		"DOTA_Tooltip_ability_item_rapier_2_datadriven_Description"				"<font color='#FF7800'>死亡后摧毁</font>"
+		"DOTA_Tooltip_ability_item_rapier_2_datadriven_Description"				"<font color='#FF7800'>第一次死亡后破损（攻击力减半），第二次死亡后摧毁</font>"
 		"DOTA_Tooltip_ability_item_rapier_2_datadriven_bonus_damage"            "+$damage"
+		"DOTA_Tooltip_ability_item_rapier_2_datadriven_Lore"	 				"能力越大，责任越大。"
 
 		"DOTA_Tooltip_ability_item_rapier_3_datadriven"							"圣剑 Ⅲ"
-		"DOTA_Tooltip_ability_item_rapier_3_datadriven_Description"				"<font color='#FF7800'>死亡后摧毁</font>"
+		"DOTA_Tooltip_ability_item_rapier_3_datadriven_Description"				"<font color='#FF7800'>第一次死亡后破损（攻击力减半），第二次死亡后摧毁</font>"
 		"DOTA_Tooltip_ability_item_rapier_3_datadriven_bonus_damage"            "+$damage"
+		"DOTA_Tooltip_ability_item_rapier_3_datadriven_Lore"	 				"能力越大，责任越大。"
+
+		"DOTA_Tooltip_ability_item_rapier_4_datadriven"							"圣剑 Ⅳ"
+		"DOTA_Tooltip_ability_item_rapier_4_datadriven_Description"				"<font color='#FF7800'>第一次死亡后破损（攻击力减半），第二次死亡后摧毁</font>"
+		"DOTA_Tooltip_ability_item_rapier_4_datadriven_bonus_damage"            "+$damage"
+		"DOTA_Tooltip_ability_item_rapier_4_datadriven_Lore"	 				"能力越大，责任越大。"
 
 		"DOTA_Tooltip_Ability_item_ultimate_orb_2"	     			"极限法球Ⅱ"
 		"DOTA_Tooltip_ability_item_ultimate_orb_2_Lore"	 			"蕴含生命本质的神秘法球。"
@@ -954,6 +978,60 @@
 		"DOTA_Tooltip_ability_keeper_of_the_light_recall_lua_Note2"							"可以选择禁用帮助，防止光之守卫对你使用此技能。"
 		"DOTA_Tooltip_ability_keeper_of_the_light_recall_lua_Note3"							"可以点击小地图施放，将会选择施放点最近的友方英雄。"
 
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_lua"	"暗影突袭"
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_lua_Description"	"猛投一把淬毒匕首造成大量初始伤害，并造成3秒一次的后续伤害。中毒单位移动速度降低15秒。"
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_lua_Lore"	"阿卡莎的淬毒匕首让她从受害者的痛苦中得到愉悦。"
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_lua_movement_slow"	"%移动速度减缓："
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_lua_strike_damage"	"初始伤害："
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_lua_duration_damage"	"每次伤害："
+		"DOTA_Tooltip_modifier_queenofpain_shadow_strike_lua"	"暗影突袭"
+		"DOTA_Tooltip_modifier_queenofpain_shadow_strike_lua_Description"	"受到持续伤害并且移动速度被减缓 %fMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_lua_Note0"	"受到作用单位在持续时间内将逐秒缓慢地恢复初始移动速度。"
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_lua_Note1"	"受到暗影突袭作用的单位在生命值低于最大值25%时可以被队友反补。"
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_lua_cast_range_tooltip"	"施法距离："
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_lua_duration_tooltip"	"持续时间："
+
+		"DOTA_Tooltip_ability_shredder_chakram_lua"	"锯齿飞轮 (不可出售)"
+		"DOTA_Tooltip_ability_shredder_chakram_lua_Description"	"伐木机将主锯刃射向目标区域，锯刃会高速旋转，对周围的敌方单位造成伤害。在锯刃作用范围内的敌方单位每损失最大生命值的5%%，他们的移动速度都会进一步被降低。锯刃在发射和收回的过程中都将造成伤害并砍倒碰到的树木。在发射锯刃后伐木机将无法攻击，同时会持续消耗魔法。"
+		"DOTA_Tooltip_ability_shredder_chakram_lua_Lore"	"消灭植物的终极武器。"
+		"DOTA_Tooltip_ability_shredder_chakram_lua_radius"	"作用范围："
+		"DOTA_Tooltip_ability_shredder_chakram_lua_pass_damage"	"飞行伤害："
+		"DOTA_Tooltip_ability_shredder_chakram_lua_damage_per_second"	"每秒造成伤害："
+		"DOTA_Tooltip_ability_shredder_chakram_lua_slow"	"%移动速度减缓："
+		"DOTA_Tooltip_ability_shredder_chakram_lua_mana_per_second"	"每秒消耗魔法："
+		"DOTA_Tooltip_modifier_shredder_chakram_lua_debuff"	"锯齿飞轮"
+		"DOTA_Tooltip_modifier_shredder_chakram_lua_debuff_Description"	"受到锯齿飞轮作用，不断受到伤害并被减速。"
+		"DOTA_Tooltip_modifier_shredder_chakram_lua_disarm"	"锯齿飞轮的缴械状态"
+		"DOTA_Tooltip_modifier_shredder_chakram_lua_disarm_Description"	"在锯齿飞轮收回之前伐木机不能进行攻击。"
+		"DOTA_Tooltip_ability_shredder_chakram_lua_Note0"	"如果伐木机魔法不足或移动超过2000码，锯齿飞轮将会飞回。"
+
+
+		"DOTA_Tooltip_ability_shredder_chakram_2_lua"	"锯齿飞轮 (不可出售)"
+		"DOTA_Tooltip_ability_shredder_chakram_2_lua_Description"	"伐木机将次锯刃射向目标区域，锯刃会高速旋转，对周围的敌方单位造成伤害。在锯刃作用范围内的敌方单位每损失最大生命值的5%%，他们的移动速度都会进一步被降低。锯刃在发射和收回的过程中都将造成伤害并砍倒碰到的树木。在发射锯刃后伐木机将无法攻击，同时会持续消耗魔法。"
+		"DOTA_Tooltip_ability_shredder_chakram_2_lua_Lore"	"我砍砍砍砍砍砍砍砍砍！"
+		"DOTA_Tooltip_ability_shredder_chakram_2_lua_Note0"	"如果伐木机魔法不足或移动超过2000码，锯齿飞轮将会飞回。"
+		"DOTA_Tooltip_ability_shredder_chakram_2_lua_radius"	"作用范围："
+		"DOTA_Tooltip_ability_shredder_chakram_2_lua_pass_damage"	"飞行伤害："
+		"DOTA_Tooltip_ability_shredder_chakram_2_lua_damage_per_second"	"每秒造成伤害："
+		"DOTA_Tooltip_ability_shredder_chakram_2_lua_slow"	"%移动速度减缓："
+		"DOTA_Tooltip_ability_shredder_chakram_2_lua_mana_per_second"	"每秒消耗魔法："
+		
+		"DOTA_Tooltip_ability_shredder_return_chakram_lua"	"收回锯齿飞轮"
+		"DOTA_Tooltip_ability_shredder_return_chakram_lua_Description"	"让伐木机收回锯齿飞轮。"
+
+		"DOTA_Tooltip_ability_shredder_return_chakram_2_lua"	"收回锯齿飞轮"
+		"DOTA_Tooltip_ability_shredder_return_chakram_2_lua_Description"	"让伐木机收回锯齿飞轮。"
+		
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"	"多重施法"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"	"使食人魔魔法师可以迅速施法，有一定概率在一次施法中多次施放同一法术或物品。"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Lore"	"尽管很大程度上受到智商的制约，食人魔魔法师仍能依靠纯熟的技巧在战斗中取胜。"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Note0"							"只有指向性技能和物品有几率触发多重施法。"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Note1"							"指向性技能和物品额外对食人魔周围一定作用范围内敌人和中立生物生效。火焰爆轰和未精通的火焰爆轰将对同个目标生效多次。"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_2_times"	"%2X施放概率："
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"	"%3X施放概率："
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"	"%4X施放概率："
+		"DOTA_Tooltip_modifier_ogre_magi_item_multicast_lua"	"多重施法"
+		"DOTA_Tooltip_modifier_ogre_magi_item_multicast_lua_Description"	"每次施放技能或使用物品都可以触发。"
 
 		"DOTA_Tooltip_ability_invoker_sun_strike_lua"								"阳炎冲击"
 		"DOTA_Tooltip_ability_invoker_sun_strike_lua_Description"					"向目标区域释放毁灭性的阳炎之光能量，一旦能量着陆，将对区域内的敌人进行灼烧。区域内敌人将平摊所有伤害。"
@@ -1154,6 +1232,16 @@
 		"DOTA_Tooltip_ability_zeus_thundergods_wrath_nb2017_cloud_duration"			"雷云持续时间："
 		"DOTA_Tooltip_ability_zeus_thundergods_wrath_nb2017_cloud_bolt_interval"	"雷云打击间隔："
 
+		"DOTA_Tooltip_ability_axe_counter_helix_lua"								"反击螺旋"
+		"DOTA_Tooltip_ability_axe_counter_helix_lua_Description"					"受攻击时，斧王做出螺旋反击，对附近所有敌方单位造成纯粹伤害。"
+		"DOTA_Tooltip_ability_axe_counter_helix_lua_Lore"							"这支军队只要有斧王就不需要援军了。"
+		"DOTA_Tooltip_ability_axe_counter_helix_lua_damage"							"伤害："
+		"DOTA_Tooltip_ability_axe_counter_helix_lua_radius"							"作用范围："
+		"DOTA_Tooltip_ability_axe_counter_helix_lua_trigger_chance"					"%反击概率："
+		"DOTA_Tooltip_modifier_axe_counter_helix_lua"								"反击螺旋"
+		"DOTA_Tooltip_modifier_axe_counter_helix_lua_Description"					"20%%的概率对即将受到的攻击进行反击"
+		"DOTA_Tooltip_ability_axe_counter_helix_lua_Note0"							"反击螺旋会在斧王受到攻击时触发。"
+
 
 		"DOTA_Tooltip_ability_dark_seer_wall_of_replica_nb2017"											"复制之墙"
 		"DOTA_Tooltip_ability_dark_seer_wall_of_replica_nb2017_Description"								"制造一堵扭曲的光墙，对穿过的任意<font color='#70EA72'>敌方单位</font>造成减速，并复制一个其自身的幻象，幻象由黑暗贤者控制，<font color='#70EA72'>同一时间每个单位只会存在一个幻象。</font>幻象持续到光墙消失，或者被敌人消灭。\n\n可用神杖升级。"
@@ -1327,7 +1415,7 @@
         "DOTA_Tooltip_Ability_item_mage_shield_1_bonus_int"                                         "+$int"
         "DOTA_Tooltip_Ability_item_mage_shield_1_bonus_mana_regen"                                  "+$mana_regen"
         "DOTA_Tooltip_Ability_item_mage_shield_1_damage_per_mana"                                   "每点法力阻挡伤害："
-        "DOTA_Tooltip_modifier_mage_shield_active"                                                  "奥术护体"
+        "DOTA_Tooltip_modifier_item_mage_shield_buff"                                                  	"奥术护体"
 
 
         "DOTA_Tooltip_Ability_item_mage_shield_2"                                                   "奥术法球Ⅱ"
@@ -1570,19 +1658,19 @@
         "DOTA_Tooltip_ability_item_eagle_3_Lore"	                                        "这只神秘的号角捕捉有雄鹰嘹亮的呼啸，能给予听见这声音的英雄几近无限的敏捷度。"
         "DOTA_Tooltip_Ability_item_eagle_3_bonus_agility"	                                "+$agi"
 
-        "DOTA_Tooltip_ability_rubick_null_field_level_2"	                                        "失效力场"
-		"DOTA_Tooltip_ability_rubick_null_field_level_2_Description"	                            "拉比克对奥术的精通能够影响周围敌人的感知，降低他们的魔法抗性。可以在防御和进攻之间切换，选择降低敌人的魔法抗性或提升队友的魔法抗性。"
-		"DOTA_Tooltip_ability_rubick_null_field_level_2_Lore"	                                    "不是每一个魔导师都能成为大魔导师..."
-		"DOTA_Tooltip_ability_rubick_null_field_level_2_magic_damage_reduction_pct"	                "%魔法抗性加成："
-		"DOTA_Tooltip_ability_rubick_null_field_level_2_Note0"	                                     "与其他提高魔法抗性的物品和技能叠加。"
-		"DOTA_Tooltip_ability_rubick_null_field_level_2_radius"                                      "作用范围："
+        "DOTA_Tooltip_ability_rubick_null_field_level_2"	                                "失效力场"
+		"DOTA_Tooltip_ability_rubick_null_field_level_2_Description"	                    "拉比克对奥术的精通能够影响周围敌人的感知，降低他们的魔法抗性。可以在防御和进攻之间切换，选择降低敌人的魔法抗性或提升队友的魔法抗性。"
+		"DOTA_Tooltip_ability_rubick_null_field_level_2_Lore"	                            "不是每一个魔导师都能成为大魔导师..."
+		"DOTA_Tooltip_ability_rubick_null_field_level_2_magic_damage_reduction_pct"	        "%魔法抗性加成："
+		"DOTA_Tooltip_ability_rubick_null_field_level_2_Note0"	                            "与其他提高魔法抗性的物品和技能叠加。"
+		"DOTA_Tooltip_ability_rubick_null_field_level_2_radius"                             "作用范围："
 
-		"DOTA_Tooltip_ability_rubick_null_field_level_3"	                                        "失效力场"
-		"DOTA_Tooltip_ability_rubick_null_field_level_3_Description"	                            "拉比克对奥术的精通能够影响周围敌人的感知，降低他们的魔法抗性。可以在防御和进攻之间切换，选择降低敌人的魔法抗性或提升队友的魔法抗性。"
-		"DOTA_Tooltip_ability_rubick_null_field_level_3_Lore"	                                    "不是每一个魔导师都能成为大魔导师..."
-		"DOTA_Tooltip_ability_rubick_null_field_level_3_magic_damage_reduction_pct"	                "%魔法抗性加成："
-		"DOTA_Tooltip_ability_rubick_null_field_level_3_Note0"	                                     "与其他提高魔法抗性的物品和技能叠加。"
-		"DOTA_Tooltip_ability_rubick_null_field_level_3_radius"                                      "作用范围："
+		"DOTA_Tooltip_ability_rubick_null_field_level_3"	                                "失效力场"
+		"DOTA_Tooltip_ability_rubick_null_field_level_3_Description"	                    "拉比克对奥术的精通能够影响周围敌人的感知，降低他们的魔法抗性。可以在防御和进攻之间切换，选择降低敌人的魔法抗性或提升队友的魔法抗性。"
+		"DOTA_Tooltip_ability_rubick_null_field_level_3_Lore"	                            "不是每一个魔导师都能成为大魔导师..."
+		"DOTA_Tooltip_ability_rubick_null_field_level_3_magic_damage_reduction_pct"	        "%魔法抗性加成："
+		"DOTA_Tooltip_ability_rubick_null_field_level_3_Note0"	                            "与其他提高魔法抗性的物品和技能叠加。"
+		"DOTA_Tooltip_ability_rubick_null_field_level_3_radius"                             "作用范围："
 
 
 	    "DOTA_Tooltip_modifier_zombie_explode_debuff"                                    	"死亡阴影"
@@ -1692,13 +1780,13 @@
 		"DOTA_Tooltip_ability_frostivus2018_clinkz_burning_army_attack_rate"			"攻击频率："
 		"DOTA_Tooltip_ability_frostivus2018_clinkz_burning_army_spawn_interval"			"产生间隔："
 
-		"DOTA_Tooltip_ability_pugna_ward_winter_2018_lua"	                        	"腐生守卫(凌霜圣地)"
-		"DOTA_Tooltip_ability_pugna_ward_winter_2018_lua_Description"	            	"帕格纳在目标地点放置一个腐生守卫。每次他们消耗魔法都会治疗友军。"
-		"DOTA_Tooltip_ability_pugna_ward_winter_2018_lua_aura_radius"	            	"光环作用范围："
-		"DOTA_Tooltip_ability_pugna_ward_winter_2018_lua_mana_multiplier"	        	"每点魔法治疗生命："
-		"DOTA_Tooltip_ability_pugna_ward_winter_2018_lua_aura_mana_regen"	        	"光环魔法回复："
-		"DOTA_Tooltip_ability_pugna_ward_winter_2018_lua_attacks_to_destroy_tooltip"	"摧毁所需攻击次数："
-		"DOTA_Tooltip_ability_pugna_ward_winter_2018_lua_ward_duration"	            	"守卫持续时间："
+		"DOTA_Tooltip_ability_pugna_ward_winter_2018"	                        		"腐生守卫(凌霜圣地)"
+		"DOTA_Tooltip_ability_pugna_ward_winter_2018_Description"	            		"帕格纳在目标地点放置一个腐生守卫。每次他们消耗魔法都会治疗友军。"
+		"DOTA_Tooltip_ability_pugna_ward_winter_2018_aura_radius"	            		"光环作用范围："
+		"DOTA_Tooltip_ability_pugna_ward_winter_2018_mana_multiplier"	        		"每点魔法治疗生命："
+		"DOTA_Tooltip_ability_pugna_ward_winter_2018_aura_mana_regen"	        		"光环魔法回复："
+		"DOTA_Tooltip_ability_pugna_ward_winter_2018_attacks_to_destroy_tooltip"		"摧毁所需攻击次数："
+		"DOTA_Tooltip_ability_pugna_ward_winter_2018_ward_duration"	            		"守卫持续时间："
 		"npc_dota_pugna_ward_winter_2018"	                                            "腐生守卫"
 		"DOTA_Tooltip_modifier_pugna_ward_winter_2018_effect"                           "腐生守卫"
 
@@ -1762,8 +1850,8 @@
 		"DOTA_Tooltip_ability_earthshaker_aftershock_ward_winter_2018_aura_radius"				"守卫作用范围："
 		"DOTA_Tooltip_ability_earthshaker_aftershock_ward_winter_2018_tooltip_duration"			"守卫持续时间："
 
-		"DOTA_Tooltip_modifier_earthshaker_aftershock_ward_winter_2018"                        "余震图腾"
-		"DOTA_Tooltip_modifier_ward_earthshaker_aftershock"                                    "余震图腾"
+		"DOTA_Tooltip_modifier_earthshaker_aftershock_ward_winter_2018"                         "余震图腾"
+		"DOTA_Tooltip_modifier_ward_earthshaker_aftershock"                                     "余震图腾"
 
 		"DOTA_Tooltip_ability_faceless_void_backtrack"	                    					"回到过去"
 		"DOTA_Tooltip_ability_faceless_void_backtrack_Description" 	    						"虚空假面可以在时间上向后跳跃，躲避物理和魔法攻击造成的伤害。"
@@ -1880,7 +1968,7 @@
 		"DOTA_Tooltip_Ability_item_recipe_lifestone"									"生命之石卷轴"
 
 		"DOTA_Tooltip_Ability_item_corrupting_blade"	                				"紫罗兰战刃"
-		"DOTA_Tooltip_Ability_item_corrupting_blade_Description"	    				"<h1>被动：黯寂</h1>每次攻击将降低目标%corruption_armor%点护甲，持续%corruption_duration%秒。"
+		"DOTA_Tooltip_Ability_item_corrupting_blade_Description"	    				"<h1>被动：黯寂</h1>每次攻击将降低目标%corruption_armor%点护甲（不叠加），持续%corruption_duration%秒。"
 		"DOTA_Tooltip_ability_item_corrupting_blade_Lore"	            				"一件可怕的武器，其铸造图纸早已遗失在紫罗兰档案馆。"
 		"DOTA_Tooltip_Ability_item_corrupting_blade_bonus_damage"	    				"+$damage"
 		"DOTA_Tooltip_modifier_item_corrupting_blade_buff"	            				"黯寂"
@@ -2014,7 +2102,7 @@
 		"DOTA_Tooltip_Ability_item_recipe_ice_dragon_maw"								"冰龙之喉卷轴"
 
 		"DOTA_Tooltip_ability_item_precious_egg"	                     				"珍稀龙蛋"
-		"DOTA_Tooltip_ability_item_precious_egg_Description"	         				"受到致死伤害时有%chance_to_resist_death%%%几率使佩戴者以1点生命生还。\n"
+		"DOTA_Tooltip_ability_item_precious_egg_Description"	         				"受到致死伤害时有%chance_to_resist_death%%%��率使佩戴者以1点生命生还。\n"
 		"DOTA_Tooltip_ability_item_precious_egg_Lore"	                 				"在探索学识的研习之际，古龙掌握了延缓生命之息流失的诀窍。"
 		"DOTA_Tooltip_ability_item_precious_egg_bonus_all_stats"	     				"+$all"
 		"DOTA_Tooltip_Ability_item_recipe_precious_egg"									"珍稀龙蛋卷轴"
@@ -2378,13 +2466,13 @@
 		"DOTA_Tooltip_ability_water_die_Description"				        			"死亡后留下一滩活水"
 
 		"DOTA_Tooltip_Ability_water_evolve_to_2"										"进化至成长态"
-		"DOTA_Tooltip_ability_water_evolve_to_2_Description"							"当最大血量高于3000以后，水人自动进化，进化后生命值全满，获得新的技能--复制，移动速度，护甲，生命恢复速度提高"
+		"DOTA_Tooltip_ability_water_evolve_to_2_Description"							"当最大血量高于4500以后，水人自动进化，进化后生命值全满，获得新的技能--洪流，移动速度，护甲，生命恢复速度提高"
 
 		"DOTA_Tooltip_Ability_water_evolve_to_3"										"进化至收割态"
-		"DOTA_Tooltip_ability_water_evolve_to_3_Description"							"当最大血量高于5000以后，水人自动进化，进化后生命值全满，收割态是水人进化的终极形态，收割态的水人停止进化，变得极富有攻击性，获得新的技能波浪形态"
+		"DOTA_Tooltip_ability_water_evolve_to_3_Description"							"当最大血量高于7000以后，水人自动进化，进化后生命值全满，收割态是水人进化的终极形态，收割态的水人停止进化，变得极富有攻击性，获得新的技能波浪形态"
 
-		"DOTA_Tooltip_ability_water_turrent"			                				"洪流"
-		"DOTA_Tooltip_ability_water_turrent_Description"		        				"召唤喷涌的洪流，短暂延迟后，将敌人冲上天，造成伤害、眩晕和减速。"
+		"DOTA_Tooltip_ability_water_torrent"			                				"洪流"
+		"DOTA_Tooltip_ability_water_torrent_Description"		        				"召唤喷涌的洪流，短暂延迟后，将敌人冲上天，造成伤害、眩晕和减速。"
 
 
 		// Round 6-2
@@ -2822,6 +2910,9 @@
 		"dark_debuff_simple"                                                            "暗影献祭"
 		"fire_debuff_simple"                                                            "火焰献祭"
 
+		"npc_dota_boss_fire_twin"														"火王"
+		"npc_dota_boss_dark_twin"														"暗王"
+
 		"DOTA_Tooltip_ability_fire_twin_fire_debuff_datadriven"							"火焰献祭"
 		"DOTA_Tooltip_ability_fire_twin_fire_debuff_datadriven_Description"				"火王对近战范围内的一名随机英雄释放火焰献祭，献祭会灼烧这名英雄以及附近的单位，并且燃烧掉等同于伤害的魔法值，献祭持续时间越长伤害与范围越大，<font color='#70EA72'>靠近非链接状态下的暗王可以移除献祭效果</font>"
 		"DOTA_Tooltip_ability_fire_twin_fire_debuff_datadriven_initial_damage"			"初始伤害："
@@ -2875,10 +2966,10 @@
 		"round12_acheivement_fail_note"					                                "场上同时存在20个满级水元素, 特殊挑战成功!"
 
 		"DOTA_Tooltip_Ability_water_evolve_to_2s"										"进化至成长态"
-		"DOTA_Tooltip_ability_water_evolve_to_2s_Description"							"当最大血量高于3000以后，水人自动进化，进化后生命值全满，获得新的技能--复制，移动速度，护甲，生命恢复速度提高"
+		"DOTA_Tooltip_ability_water_evolve_to_2s_Description"							"当最大血量高于30000以后，水人自动进化，进化后生命值全满，获得新的技能--洪流，移动速度，护甲，生命恢复速度提高"
 
 		"DOTA_Tooltip_Ability_water_evolve_to_3s"										"进化至收割态"
-		"DOTA_Tooltip_ability_water_evolve_to_3s_Description"							"当最大血量高于5000以后，水人自动进化，进化后生命值全满，收割态是水人进化的终极形态，收割态的水人停止进化，变得极富有攻击性，获得新的技能波浪形态"
+		"DOTA_Tooltip_ability_water_evolve_to_3s_Description"							"当最大血量高于50000以后，水人自动进化，进化后生命值全满，收割态是水人进化的终极形态，收割态的水人停止进化，变得极富有攻击性，获得新的技能波浪形态"
 
 
 		// Round 15-2

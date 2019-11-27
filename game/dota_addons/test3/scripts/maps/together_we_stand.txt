@@ -8,7 +8,6 @@
 	"TowerRewardAmount"				"18"
 	"TowerScalingRewardPerRound"	"2"
 
-
 	"RandomSpawns"
 	{
 		"1"
@@ -254,10 +253,10 @@
 	    //两关成就相同
 		"round_quest_title"			"#TWS_Round_Skeleton_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Bandit"
-		"MaxGold"					"1900"
+		"MaxGold"					"2400"
 		"BagCount"					"70"
 		"BagVariance"			    "30"
-		"FixedXP"					"8000"
+		"FixedXP"					"10000"
 		"ShortTitle"                "#bandit_short_title"
 		"alias"                     "bandit"
 		"ExpectedGold"              "2900"
@@ -5445,7 +5444,7 @@
 		{
 			"NPCName"				"npc_dota_creature_kobold_overboss"
 			"TotalUnitsToSpawn"		"30"
-			"UnitsPerSpawn"			"10"
+			"UnitsPerSpawn"			"5"
 			"SpawnInterval"			"25"
 		}
 
@@ -5453,7 +5452,7 @@
 		{
 			"NPCName"				"npc_dota_creature_kobold_overboss"
 			"TotalUnitsToSpawn"		"30"
-			"UnitsPerSpawn"			"10"
+			"UnitsPerSpawn"			"5"
 			"SpawnInterval"			"25"
 		}
 
@@ -5461,7 +5460,7 @@
 		{
 			"NPCName"				"npc_dota_creature_kobold_overboss"
 			"TotalUnitsToSpawn"		"30"
-			"UnitsPerSpawn"			"10"
+			"UnitsPerSpawn"			"5"
 			"SpawnInterval"			"25"
 		}
 
@@ -5470,7 +5469,7 @@
 		{
 			"NPCName"				"npc_dota_creature_kobold_overboss"
 			"TotalUnitsToSpawn"		"30"
-			"UnitsPerSpawn"			"10"
+			"UnitsPerSpawn"			"5"
 			"SpawnInterval"			"25"
 		}
 
@@ -5478,7 +5477,7 @@
 		{
 			"NPCName"				"npc_dota_creature_snowball_tuskar"
 			"TotalUnitsToSpawn"		"6"
-			"UnitsPerSpawn"			"2"
+			"UnitsPerSpawn"			"1"
 			"SpawnInterval"			"25"
 		}
 
@@ -5486,7 +5485,7 @@
 		{
 			"NPCName"				"npc_dota_creature_snowball_tuskar"
 			"TotalUnitsToSpawn"		"6"
-			"UnitsPerSpawn"			"2"
+			"UnitsPerSpawn"			"1"
 			"SpawnInterval"			"25"
 		}
 
@@ -5494,7 +5493,7 @@
 		{
 			"NPCName"				"npc_dota_creature_snowball_tuskar"
 			"TotalUnitsToSpawn"		"6"
-			"UnitsPerSpawn"			"2"
+			"UnitsPerSpawn"			"1"
 			"SpawnInterval"			"25"
 		}
 
@@ -5998,13 +5997,13 @@
 	"Round24-1"
 	{
 		"round_title"				"#DOTA_Holdout_Round_ElderTitan_Title"
-		"MaxGold"					"22250"
+		"MaxGold"					"15000"
 		"BagCount"					"40"
 		"BagVariance"				"100"
-		"FixedXP"					"15000"
+		"FixedXP"					"13000"
 		"alias"                     "titan"
 		"ShortTitle"                "#titan_short_title"
-		"ExpectedGold"              "30000"
+		"ExpectedGold"              "16000"
 
 		"Unit1"
 		{
@@ -6067,62 +6066,14 @@
 			"NPCName"				"npc_dota_creature_storegga"
 			"TotalUnitsToSpawn"		"3"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"30"
+			"SpawnInterval"			"50"
 		}
 		"Unit10"
 		{
-			"WaitForTime"			"30"
-			"NPCName"				"npc_dota_creature_storegga"
-			"TotalUnitsToSpawn"		"3"
-			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"30"
-		}
-		"Unit11"
-		{
-			"WaitForTime"			"60"
-			"NPCName"				"npc_dota_creature_storegga"
-			"TotalUnitsToSpawn"		"3"
-			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"30"
-		}
-		"Unit12"
-		{
-			"WaitForTime"			"90"
-			"NPCName"				"npc_dota_creature_storegga"
-			"TotalUnitsToSpawn"		"3"
-			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"30"
-		}
-		"Unit13"
-		{
 			"NPCName"				"npc_dota_creature_large_elder_titan"
 			"TotalUnitsToSpawn"		"3"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"30"
-		}
-		"Unit14"
-		{
-			"WaitForTime"			"30"
-			"NPCName"				"npc_dota_creature_large_elder_titan"
-			"TotalUnitsToSpawn"		"3"
-			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"30"
-		}
-		"Unit15"
-		{
-			"WaitForTime"			"60"
-			"NPCName"				"npc_dota_creature_large_elder_titan"
-			"TotalUnitsToSpawn"		"3"
-			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"30"
-		}
-		"Unit16"
-		{
-			"WaitForTime"			"90"
-			"NPCName"				"npc_dota_creature_large_elder_titan"
-			"TotalUnitsToSpawn"		"3"
-			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"30"
+			"SpawnInterval"			"50"
 		}
 	}
 
@@ -6174,7 +6125,7 @@
 		}
 	}
 
-	"Round25-2"
+	"Round26-1"
 	{
 		"round_title"				"#DOTA_Holdout_Round_TA_Title"
 		"MaxGold"					"16000"
@@ -6234,13 +6185,32 @@
 		}
 	}
 
-	"Round26-1"
+	"Round27-1"
+	{
+		"round_title"				"#DOTA_Holdout_Round_Tinker_Title"
+		"MaxGold"					"0"  //20000金币在金币泉技能里面
+		"BagCount"					"0"
+		"BagVariance"				"0"
+		"FixedXP"					"15000"
+		"alias"                     "tinker"
+		"type"                      "boss"
+		"ExpectedGold"              "20000"
+		
+		"Unit1"
+		{
+			"NPCName"				"npc_dota_boss_tinker"
+			"TotalUnitsToSpawn"		"1"
+			"UnitsPerSpawn"			"1"
+		}
+	}
+
+	"Round28-1"
 	{
 		"round_title"				"#DOTA_Holdout_Round_Lightning_Title"
 		"MaxGold"					"18000"
 		"BagCount"					"40"
 		"BagVariance"				"100"
-		"FixedXP"					"15000"
+		"FixedXP"					"16000"
 		"alias"                     "lightning"
 		"ShortTitle"                "#lightning_short_title"
 		"ExpectedGold"              "22000"
@@ -6256,8 +6226,8 @@
 		"Unit2"
 		{
 			"NPCName"				"npc_dota_creature_storm_brewling"
-			"TotalUnitsToSpawn"		"100"
-			"UnitsPerSpawn"			"10"
+			"TotalUnitsToSpawn"		"80"
+			"UnitsPerSpawn"			"8"
 			"SpawnInterval"			"18"
 			"ChampionChance"		"100"
 			"ChampionNPCName" 		"npc_dota_creature_mini_zeus"
@@ -6288,49 +6258,13 @@
 		"Unit6"
 		{
 			"NPCName"				"npc_dota_creature_arc_warden_support"
-			"TotalUnitsToSpawn"		"5"
+			"TotalUnitsToSpawn"		"3"
 			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"40"
-			"GroupWithUnit"			"Unit3"
-		}
-		"Unit7"
-		{
-			"NPCName"				"npc_dota_creature_arc_warden_support"
-			"TotalUnitsToSpawn"		"5"
-			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"40"
-			"GroupWithUnit"			"Unit4"
-		}
-		"Unit8"
-		{
-			"NPCName"				"npc_dota_creature_arc_warden_support"
-			"TotalUnitsToSpawn"		"5"
-			"UnitsPerSpawn"			"1"
-			"SpawnInterval"			"40"
-			"GroupWithUnit"			"Unit5"
+			"SpawnInterval"			"50"
 		}
 	}
 
-	"Round27-1"
-	{
-		"round_title"				"#DOTA_Holdout_Round_Tinker_Title"
-		"MaxGold"					"0"  //20000金币在金币泉技能里面
-		"BagCount"					"0"
-		"BagVariance"				"0"
-		"FixedXP"					"15000"
-		"alias"                     "tinker"
-		"type"                      "boss"
-		"ExpectedGold"              "20000"
-		
-		"Unit1"
-		{
-			"NPCName"				"npc_dota_boss_tinker"
-			"TotalUnitsToSpawn"		"1"
-			"UnitsPerSpawn"			"1"
-		}
-	}
-
-	"Round28-1"
+	"Round29-1"
 	{
 		"round_title"				"#DOTA_Holdout_Round_Invoker_Title"
 		"MaxGold"					"23000"
@@ -6364,7 +6298,7 @@
 		}
 	}
 
-	"Round29-1"
+	"Round30-1"
 	{
 		"round_title"				"#DOTA_Holdout_Round_Rubick_Title"
 		"MaxGold"					"28000"

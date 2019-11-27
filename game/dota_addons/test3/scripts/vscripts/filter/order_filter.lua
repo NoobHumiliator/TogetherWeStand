@@ -1,5 +1,5 @@
 function CHoldoutGameMode:OrderFilter(orderTable)
-
+    
     if orderTable.units["0"] == nil then
         return true
     end

@@ -6,14 +6,14 @@
 		//----------------------------------------------------------------
 		"Model"						"models/heroes/magnataur/magnataur.vmdl"
 		"BaseClass"					"npc_dota_creature"
-		"ModelScale"				        "2.0"
+		"ModelScale"				"2.0"
 		"Level"						"18"
-		"ConsideredHero"			        "1"
+		"ConsideredHero"			"1"
 
 		"MinimapIcon"				"minimap_roshancamp"
 		"MinimapIconSize"			"350"
 
-		"SoundSet"				"Hero_SkywrathMage"								// Name of sound set.
+		"SoundSet"					"Hero_SkywrathMage"								// Name of sound set.
 		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts"
 
 		// Inventory

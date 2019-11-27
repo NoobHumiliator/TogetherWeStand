@@ -1,20 +1,5 @@
 invoker_sun_strike_lua = class({})
 LinkLuaModifier("modifier_invoker_sun_strike_lua_thinker", "heroes/hero_invoker/modifier_invoker_sun_strike_lua_thinker", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_special_bonus_unique_invoker_4", "heroes/hero_invoker/invoker_sun_strike_lua", LUA_MODIFIER_MOTION_NONE)
-
-modifier_special_bonus_unique_invoker_4 = class({})
-
-function modifier_special_bonus_unique_invoker_4:IsHidden()
-    return true
-end
-
-function modifier_special_bonus_unique_invoker_4:IsPurgable()
-    return false
-end
-
-function modifier_special_bonus_unique_invoker_4:RemoveOnDeath()
-    return false
-end
 
 --------------------------------------------------------------------------------
 -- Custom KV
@@ -28,7 +13,7 @@ function invoker_sun_strike_lua:GetAOERadius()
 end
 
 function invoker_sun_strike_lua:GetBehavior()
-    if self:GetCaster():HasModifier("modifier_special_bonus_unique_invoker_4") then
+    if self:GetCaster():HasScepter() then
         return self.BaseClass.GetBehavior(self) + DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
     end
     return self.BaseClass.GetBehavior(self)
@@ -52,7 +37,7 @@ end
 function invoker_sun_strike_lua:CastFilterResultTarget(hTarget)
     self.bCataclysm = false
     if self:GetCaster() == hTarget then
-        if not hTarget:HasModifier("modifier_special_bonus_unique_invoker_4") then
+        if not hTarget:HasScepter() then
             return UF_FAIL_OTHER
         end
         self.bCataclysm = true
@@ -68,7 +53,7 @@ function invoker_sun_strike_lua:OnSpellStart()
     self.delay = self:GetSpecialValueFor("delay")
     self.vision_distance = self:GetSpecialValueFor("vision_distance")
     self.vision_duration = self:GetSpecialValueFor("vision_duration")
-    
+    ListModifiers(self:GetCaster())
     if self.bCataclysm then
 
         local units = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), Vector(0, 0, 0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)

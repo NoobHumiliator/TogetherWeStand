@@ -233,10 +233,6 @@
 
         "VisionDaytimeRange"		"0"		// Range of vision during day light.
 		"VisionNighttimeRange"		"0"		// Range of vision at night time.
-		"Creature"
-		{                    
-			"DisableResistance"			"100.0"
-		}
  	}
 
     "npc_dota_creature_affixes_laser_turret"
@@ -248,6 +244,7 @@
 		"ModelScale"				"3.0"								// old 1.0
 		"Level"						"1"
 		"ConsideredHero"			"1"
+		"IsAncient"					"1"
 		"MinimapIcon"				"minimap_roshancamp"
 		"MinimapIconSize"			"200"
 
@@ -804,10 +801,9 @@
 #base "units/round_faceless.txt"
 
 // 25 - 2
-#base "units/round_refraction.txt"
 
 // 26 - 1
-#base "units/round_lightning.txt"
+#base "units/round_refraction.txt"
 
 // 26 - 2
 
@@ -817,9 +813,16 @@
 // 27- 2
 
 // 28 - 1
-#base "units/round_invoker.txt"
+#base "units/round_lightning.txt"
 
 // 28 - 2
 
 // 29 - 1
+#base "units/round_invoker.txt"
+
+// 29 - 2
+
+// 30 - 1
 #base "units/round_rubick.txt"
+
+// 30 - 2

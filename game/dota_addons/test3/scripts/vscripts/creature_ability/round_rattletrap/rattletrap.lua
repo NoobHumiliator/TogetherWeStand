@@ -425,13 +425,13 @@ function CheckForMaze(keys)
     local ability = keys.ability
 
     if caster:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-      return
+        return
     end
-    
+
     if caster.maze_switch == nil then
         caster.maze_switch = 0
     end
-    
+
     if caster:GetHealth() < caster:GetMaxHealth() * 0.8 and caster:GetHealth() > caster:GetMaxHealth() * 0.5 and caster.maze_switch == 0 then
 
         Notifications:TopToAll({ ability = "rattletrap_power_cogs" })
@@ -466,11 +466,16 @@ function CheckForMaze(keys)
                     local unit_location = unit:GetAbsOrigin()
                     unit:SetAbsOrigin(unit_location + direction * unit.pull_speed)
                     if GameRules:GetGameTime() > pull_end_time then
+                        -- 技能停止后，防止单位模型重叠
+                        local units = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector(0, 0, 0), nil, -1, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
+                        for _, unit in pairs(units) do
+                            FindClearSpaceForUnit(unit, unit:GetOrigin(), false)
+                        end
                         return nil
                     else
                         return 0.03
                     end
-                end 
+                end
             })
         end
         caster.maze_switch = 1
@@ -480,7 +485,9 @@ function CheckForMaze(keys)
         caster:EmitSound("Hero_Rattletrap.Power_Cog.Destroy")
         local units = FindUnitsInRadius(caster:GetTeamNumber(), Vector(0, 0, 0), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
         for _, unit in ipairs(units) do
-            unit:ForceKill(true)
+            if unit:GetUnitName() ~= "npc_dota_courier" then
+                unit:ForceKill(true)
+            end
         end
         local traps = FindUnitsInRadius(caster:GetTeamNumber(), Vector(0, 0, 0), nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
         for _, trap in ipairs(traps) do
@@ -527,7 +534,7 @@ function CheckForMaze(keys)
                     else
                         return 0.03
                     end
-                end 
+                end
             })
         end
         caster.maze_switch = 3
@@ -546,10 +553,11 @@ function CheckMyDied(keys)
     Timers:CreateTimer({
         endTime = 1,
         callback = function()
-
             local units = FindUnitsInRadius(caster:GetTeamNumber(), Vector(0, 0, 0), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
             for _, unit in ipairs(units) do
-                unit:ForceKill(true)
+                if unit:GetUnitName() ~= "npc_dota_courier" then
+                    unit:ForceKill(true)
+                end
             end
             local traps = FindUnitsInRadius(caster:GetTeamNumber(), Vector(0, 0, 0), nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
             for _, trap in ipairs(traps) do
@@ -557,7 +565,7 @@ function CheckMyDied(keys)
                     trap:ForceKill(true)
                 end
             end
-        end 
+        end
     })
 end
 
@@ -616,13 +624,13 @@ function BehaviorNone:Begin()
 
 
     if self.target then
-        self.order =         {
+        self.order =        {
             UnitIndex = thisEntity:entindex(),
             OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
             Position = self.target:GetOrigin()
         }
     else
-        self.order =         {
+        self.order =        {
             UnitIndex = thisEntity:entindex(),
             OrderType = DOTA_UNIT_ORDER_STOP
         }
@@ -639,7 +647,7 @@ BehaviorRun = {}
 
 function BehaviorRun:Evaluate()
     if self.oreder == nil then
-        self.order =         {
+        self.order =        {
             UnitIndex = thisEntity:entindex(),
             OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
             Position = POSITIONS_retreat[RandomInt(1, #POSITIONS_retreat)],
@@ -684,7 +692,7 @@ function BehaviorLaunchMissile:Evaluate()
     desire = 0
     if self.ability and self.ability:IsFullyCastable() then
         desire = 5
-        self.order =         {
+        self.order =        {
             OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
             UnitIndex = thisEntity:entindex(),
             AbilityIndex = self.ability:entindex()

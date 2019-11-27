@@ -544,6 +544,7 @@
 		"DOTA_Tooltip_ability_item_heart_2_health_regen_rate"		"+$hp_regen"
 		"DOTA_Tooltip_ability_item_heart_2_bonus_strength"			"+$str"
 		"DOTA_Tooltip_ability_item_heart_2_bonus_health"			"+$health"
+		"DOTA_Tooltip_ability_item_heart_2_hp_regen_amp"			"%+Health Regen Amplification"
 		"DOTA_Tooltip_Ability_item_recipe_heart_2"					"Phoenix heart Recipe"
 
 		"not_enough_ability_points"                        "Not Enough Ability Points"
@@ -570,8 +571,6 @@
 		"DOTA_Tooltip_ability_mirana_arrow_lua_arrow_bonus_damage"							"MAXIMUM BONUS DAMAGE:"
 		"DOTA_Tooltip_ability_witch_doctor_death_ward"			    	"Death Ward (Unsellable)"
 		"DOTA_Tooltip_ability_meepo_divided_we_stand"			        "Divided We Stand (Unsellable)"
-		"DOTA_Tooltip_ability_shredder_chakram"	                        "Chakram (Unsellable)"
-		"DOTA_Tooltip_ability_shredder_chakram_2"	                    "Chakram (Unsellable)"
 		"DOTA_Tooltip_ability_broodmother_spin_web"	                    "Spin Web (Unsellable)"
 		"DOTA_Tooltip_ability_treant_eyes_in_the_forest"	            "Eyes in the Forest (Unsellable)"
 		"DOTA_Tooltip_ability_batrider_sticky_napalm"	                "Sticky Napalm (Unsellable)"
@@ -580,14 +579,15 @@
 		"DOTA_Tooltip_ability_item_pineapple_Description"				"Use: Consume the pineapple to grant an extra ability point"
 		"DOTA_Tooltip_ability_item_pineapple_Lore"						"The pineapple (Ananas comosus) is a tropical plant with edible multiple fruit consisting of coalesced berries."
 
-		"DOTA_Tooltip_ability_crown_summoned_buff"							"Wild Domination"
-		"DOTA_Tooltip_ability_crown_summoned_buff_Description"				"Passiv: Wild Domination-Enhance the summoned creature's power based on hero attribute"
+		"DOTA_Tooltip_ability_crown_summoned_buff"									"Wild Domination"
+		"DOTA_Tooltip_ability_crown_summoned_buff_Description"						"Passiv: Wild Domination-Enhance the summoned creature's power based on hero attribute"
 		"DOTA_Tooltip_ability_crown_summoned_buff_hp_bonus_per_str_tooltip"		    "%Each strength increase health"
 		"DOTA_Tooltip_ability_crown_summoned_buff_damage_bonus_per_int_tooltip"		"%Each intelligence increase damage"
-		"DOTA_Tooltip_ability_crown_summoned_buff_speed_bonus_per_agi"	    "Each agility increase attack speed"
-		"DOTA_Tooltip_ability_crown_summoned_buff_armor_bonus_per_agi"	    "Each agility increase attack armor"
-		"DOTA_Tooltip_modifier_add_summon_buff"                         "Wild Domination"
-		"DOTA_Tooltip_modifier_add_summon_buff_Description"             "Passively enhance the summoned creature's power based on hero attribute"
+		"DOTA_Tooltip_ability_crown_summoned_buff_speed_bonus_per_agi"	    		"Each agility increase attack speed"
+		"DOTA_Tooltip_ability_crown_summoned_buff_armor_bonus_per_agi"	    		"Each agility increase attack armor"
+		"DOTA_Tooltip_ability_crown_summoned_buff_model_scale_per_att"	    		"%Each attributes increase model scale"
+		"DOTA_Tooltip_modifier_add_summon_buff"                         			"Wild Domination"
+		"DOTA_Tooltip_modifier_add_summon_buff_Description"             			"Passively enhance the summoned creature's power based on hero attribute"
 
 
 
@@ -601,6 +601,7 @@
 		"DOTA_Tooltip_ability_item_summon_crown_1_damage_bonus_per_int_tooltip"	    "%Each intelligence increase damage"
 		"DOTA_Tooltip_ability_item_summon_crown_1_speed_bonus_per_agi"	            "Each agility increase attack speed"
 		"DOTA_Tooltip_ability_item_summon_crown_1_armor_bonus_per_agi"	            "Each agility increase attack armor"
+		"DOTA_Tooltip_ability_item_summon_crown_1_model_scale_per_att"	    		"%Each attributes increase model scale"
 
 		"DOTA_Tooltip_ability_item_summon_crown_2"							        "Cyan Dominator Crystal"
 		"DOTA_Tooltip_ability_item_summon_crown_2_Description"				        "Passiv: Wild Domination-Enhance the summoned creature's power based on hero attribute.\n<font color='#FF7800'> Does not work on ultimate abilities</font>"
@@ -612,6 +613,7 @@
 		"DOTA_Tooltip_ability_item_summon_crown_2_damage_bonus_per_int_tooltip"	    "%Each intelligence increase damage"
 		"DOTA_Tooltip_ability_item_summon_crown_2_speed_bonus_per_agi"	            "Each agility increase attack speed"
 		"DOTA_Tooltip_ability_item_summon_crown_2_armor_bonus_per_agi"	            "Each agility increase attack armor"
+		"DOTA_Tooltip_ability_item_summon_crown_2_model_scale_per_att"	    		"%Each attributes increase model scale"
 
 		"DOTA_Tooltip_ability_item_summon_crown_3"							        "Red Dominator Crystal"
 		"DOTA_Tooltip_ability_item_summon_crown_3_Description"				        "Passiv: Wild Domination-Enhance the summoned creature's power based on hero attribute.\n<font color='#FF7800'> Does not work on ultimate abilities</font>"
@@ -623,17 +625,19 @@
 		"DOTA_Tooltip_ability_item_summon_crown_3_damage_bonus_per_int_tooltip"	    "%Each intelligence increase damage"
 		"DOTA_Tooltip_ability_item_summon_crown_3_speed_bonus_per_agi"	            "Each agility increase attack speed"
 		"DOTA_Tooltip_ability_item_summon_crown_3_armor_bonus_per_agi"	            "Each agility increase attack armor"
+		"DOTA_Tooltip_ability_item_summon_crown_3_model_scale_per_att"	    		"%Each attributes increase model scale"
 
-		"DOTA_Tooltip_ability_item_summon_crown_4"							          "Purple Dominator Crown"
-		"DOTA_Tooltip_ability_item_summon_crown_4_Description"				          "Passiv: Wild Domination-Enhance the summoned creature's power based on hero attribute.\n<font color='#FF7800'> Does not work on ultimate abilities</font>"
-		"DOTA_Tooltip_ability_item_summon_crown_4_bonus_int"	                      "+$int"
-		"DOTA_Tooltip_ability_item_summon_crown_4_bonus_str"	                      "+$str"
-		"DOTA_Tooltip_ability_item_summon_crown_4_bonus_agi"	                      "+$agi"
-		"DOTA_Tooltip_ability_item_summon_crown_4_bonus_mana_regen"	                  "+$mana_regen"
-		"DOTA_Tooltip_ability_item_summon_crown_4_hp_bonus_per_str_tooltip"	          "%Each strength increase health"
-		"DOTA_Tooltip_ability_item_summon_crown_4_damage_bonus_per_int_tooltip"	      "%Each intelligence increase damage"
-		"DOTA_Tooltip_ability_item_summon_crown_4_speed_bonus_per_agi"	              "Each agility increase attack speed"
-		"DOTA_Tooltip_ability_item_summon_crown_4_armor_bonus_per_agi"	              "Each agility increase attack armor"
+		"DOTA_Tooltip_ability_item_summon_crown_4"							        "Purple Dominator Crown"
+		"DOTA_Tooltip_ability_item_summon_crown_4_Description"				        "Passiv: Wild Domination-Enhance the summoned creature's power based on hero attribute.\n<font color='#FF7800'> Does not work on ultimate abilities</font>"
+		"DOTA_Tooltip_ability_item_summon_crown_4_bonus_int"	                    "+$int"
+		"DOTA_Tooltip_ability_item_summon_crown_4_bonus_str"	                    "+$str"
+		"DOTA_Tooltip_ability_item_summon_crown_4_bonus_agi"	                    "+$agi"
+		"DOTA_Tooltip_ability_item_summon_crown_4_bonus_mana_regen"	                "+$mana_regen"
+		"DOTA_Tooltip_ability_item_summon_crown_4_hp_bonus_per_str_tooltip"	        "%Each strength increase health"
+		"DOTA_Tooltip_ability_item_summon_crown_4_damage_bonus_per_int_tooltip"	    "%Each intelligence increase damage"
+		"DOTA_Tooltip_ability_item_summon_crown_4_speed_bonus_per_agi"	            "Each agility increase attack speed"
+		"DOTA_Tooltip_ability_item_summon_crown_4_armor_bonus_per_agi"	            "Each agility increase attack armor"
+		"DOTA_Tooltip_ability_item_summon_crown_4_model_scale_per_att"	    		"%Each attributes increase model scale"
 
 
 		"DOTA_Tooltip_ability_item_summon_crown_5"							        "Cyan Dominator Crown"
@@ -641,11 +645,12 @@
 		"DOTA_Tooltip_ability_item_summon_crown_5_bonus_int"	                    "+$int"
 		"DOTA_Tooltip_ability_item_summon_crown_5_bonus_str"	                    "+$str"
 		"DOTA_Tooltip_ability_item_summon_crown_5_bonus_agi"	                    "+$agi"
-		"DOTA_Tooltip_ability_item_summon_crown_5_bonus_mana_regen"	                  "+$mana_regen"
+		"DOTA_Tooltip_ability_item_summon_crown_5_bonus_mana_regen"	                "+$mana_regen"
 		"DOTA_Tooltip_ability_item_summon_crown_5_hp_bonus_per_str_tooltip"	        "%Each strength increase health"
 		"DOTA_Tooltip_ability_item_summon_crown_5_damage_bonus_per_int_tooltip"	    "%Each intelligence increase damage"
 		"DOTA_Tooltip_ability_item_summon_crown_5_speed_bonus_per_agi"	            "Each agility increase attack speed"
 		"DOTA_Tooltip_ability_item_summon_crown_5_armor_bonus_per_agi"	            "Each agility increase attack armor"
+		"DOTA_Tooltip_ability_item_summon_crown_5_model_scale_per_att"	    		"%Each attributes increase model scale"
 
 
 
@@ -659,16 +664,24 @@
 		"DOTA_Tooltip_ability_item_summon_crown_6_damage_bonus_per_int_tooltip"	    "%Each intelligence increase damage"
 		"DOTA_Tooltip_ability_item_summon_crown_6_speed_bonus_per_agi"	            "Each agility increase attack speed"
 		"DOTA_Tooltip_ability_item_summon_crown_6_armor_bonus_per_agi"	            "Each agility increase attack armor"
+		"DOTA_Tooltip_ability_item_summon_crown_6_model_scale_per_att"	    		"%Each attributes increase model scale"
 
 		"DOTA_Tooltip_ability_item_rapier_1_datadriven"							"DIVINE RAPIER Ⅰ"
-		"DOTA_Tooltip_ability_item_rapier_1_datadriven_Description"				"<font color='#FF7800'>Destorys on death</font>"
+		"DOTA_Tooltip_ability_item_rapier_1_datadriven_Description"				"<font color='#FF7800'>Broken(half damage) on first death and destroyed on second death.</font>"
 		"DOTA_Tooltip_ability_item_rapier_1_datadriven_bonus_damage"            "+$damage"
+		"DOTA_Tooltip_ability_item_rapier_1_datadriven_Lore"	 				"With great power comes great responsibility."
 		"DOTA_Tooltip_ability_item_rapier_2_datadriven"							"DIVINE RAPIER Ⅱ"
-		"DOTA_Tooltip_ability_item_rapier_2_datadriven_Description"				"<font color='#FF7800'>Destorys on death</font>"
+		"DOTA_Tooltip_ability_item_rapier_2_datadriven_Description"				"<font color='#FF7800'>Broken(half damage) on first death and destroyed on second death.</font>"
 		"DOTA_Tooltip_ability_item_rapier_2_datadriven_bonus_damage"            "+$damage"
+		"DOTA_Tooltip_ability_item_rapier_2_datadriven_Lore"	 				"With great power comes great responsibility."
 		"DOTA_Tooltip_ability_item_rapier_3_datadriven"							"DIVINE RAPIER Ⅲ"
-		"DOTA_Tooltip_ability_item_rapier_3_datadriven_Description"				"<font color='#FF7800'>Destorys on death</font>"
+		"DOTA_Tooltip_ability_item_rapier_3_datadriven_Description"				"<font color='#FF7800'>Broken(half damage) on first death and destroyed on second death.</font>"
 		"DOTA_Tooltip_ability_item_rapier_3_datadriven_bonus_damage"            "+$damage"
+		"DOTA_Tooltip_ability_item_rapier_3_datadriven_Lore"	 				"With great power comes great responsibility."
+		"DOTA_Tooltip_ability_item_rapier_3_datadriven"							"DIVINE RAPIER Ⅳ"
+		"DOTA_Tooltip_ability_item_rapier_3_datadriven_Description"				"<font color='#FF7800'>Broken(half damage) on first death and destroyed on second death.</font>"
+		"DOTA_Tooltip_ability_item_rapier_3_datadriven_bonus_damage"            "+$damage"
+		"DOTA_Tooltip_ability_item_rapier_4_datadriven_Lore"	 				"With great power comes great responsibility."
 
 		"round_fail"                                                            "Round fail! "
 		"chance_left"                                                           "life left"
@@ -811,6 +824,7 @@
 		"affixes_silver"                                                                 "Silver  "
         "affixes_dilation"                                                               "Dilation  "
         "affixes_laser"                                                                  "Laser  "
+		"affixes_fragile"                                                                "Fragile  "
 
         "DOTA_Tooltip_ability_affixes_ability_tooltip_laser"					        "Laser"
         "DOTA_Tooltip_ability_affixes_ability_tooltip_laser_Description"		        "Random laser turret around heroes."
@@ -828,6 +842,11 @@
         "DOTA_Tooltip_modifier_affixes_silver_effect"					                "Sliver Edge"
 		"DOTA_Tooltip_modifier_affixes_silver_effect_Description"			            "Disbale passive abilities."
 
+		"DOTA_Tooltip_ability_affixes_ability_tooltip_fragile"					        "Fragile"
+        "DOTA_Tooltip_ability_affixes_ability_tooltip_fragile_Description"		        "Amplify 100%% all damage take."
+
+        "DOTA_Tooltip_modifier_affixes_fragile"					       "Fragile"
+		"DOTA_Tooltip_modifier_affixes_fragile_Description"			   "Amplify 100%% all damage take."
 
 
 		"DOTA_Tooltip_modifier_overflow_show"						   "Overflow"
@@ -878,8 +897,10 @@
         "DOTA_Tooltip_ability_affixes_ability_spike_Description"                   "When Spike active, enemies reflects <font color='#FF7800'>60%%</font> damage taken back to the unit that dealt the damage."
         "DOTA_Tooltip_ability_affixes_ability_spike_active_interval"               "Active Interval"
         "DOTA_Tooltip_ability_affixes_ability_spike_spike_duration"                "Spike Duration"
-        "DOTA_Tooltip_modifier_nxy_spike"                                          "Reflects <font color='#FF7800'>60%%</font> damage"
+        "DOTA_Tooltip_modifier_nyx_spike"                                          "Reflects <font color='#FF7800'>60%%</font> damage"
 
+        "DOTA_Tooltip_modifier_particle_model_scale"					       		""
+		"DOTA_Tooltip_modifier_particle_model_scale_Description"			   		""
 
 		"DOTA_Tooltip_ability_drow_ranger_marksmanship_lua"									"Marksmanship"
 		"DOTA_Tooltip_ability_drow_ranger_marksmanship_lua_Description"						"Drow's experiences in battle improve her accuracy and effectiveness in combat, providing a passive bonus to Agility. Grants no bonus if there are enemy heroes within 400 range.\n\nUpgradable by Aghanim's Scepter."
@@ -909,6 +930,60 @@
 		"DOTA_Tooltip_ability_keeper_of_the_light_recall_lua_Note2"					"You can disable help to prevent Keeper from casting this spell on you."
 		"DOTA_Tooltip_ability_keeper_of_the_light_recall_lua_Note3"					"Can be cast through the minimap, choosing the nearest friendly hero."
 		"DOTA_Tooltip_ability_keeper_of_the_light_recall_lua_teleport_delay"		"TELEPORT DELAY:"
+
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_lua"	"Shadow Strike"
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_lua_Description"	"Hurls a poisoned dagger which deals large initial damage, and then deals damage over time. The poisoned unit has its movement speed slowed for 15 seconds.  An instance of damage is dealt every 3 seconds."
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_lua_Lore"	"Akasha's envenomed dagger allows her to delight in the drawn out suffering of her victims."
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_lua_movement_slow"	"%MOVEMENT SLOW:"
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_lua_strike_damage"	"INITIAL DAMAGE:"
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_lua_duration_damage"	"DAMAGE PER TICK:"
+		"DOTA_Tooltip_modifier_queenofpain_shadow_strike_lua"	"Shadow Strike"
+		"DOTA_Tooltip_modifier_queenofpain_shadow_strike_lua_Description"	"Taking periodic damage and moving %fMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% slower."
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_Note0"	"The affected unit slowly regains its original movement speed every second during the duration."
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_lua_Note1"	"Units afflicted by Shadow Strike can be denied by their allies when their HP drops below 25% of their maximum health."
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_lua_cast_range_tooltip"	"CAST RANGE:"
+		"DOTA_Tooltip_ability_queenofpain_shadow_strike_lua_duration_tooltip"	"DURATION:"
+
+		"DOTA_Tooltip_ability_shredder_chakram_lua"	"Chakram (Unsellable)"
+		"DOTA_Tooltip_ability_shredder_chakram_lua_Description"	"Fires your main saw blade at the target location where it will spin in place, dealing damage in an area around it.  Enemies caught in the saw blade will move more slowly for every 5%% of health missing. The blade deals damage and cuts down trees in its path when fired and retracted.  While active the ability costs mana, and you lose the ability to attack."
+		"DOTA_Tooltip_ability_shredder_chakram_lua_Lore"	"The ultimate in anti-flora weaponry."
+		"DOTA_Tooltip_ability_shredder_chakram_lua_radius"	"RADIUS:"
+		"DOTA_Tooltip_ability_shredder_chakram_lua_pass_damage"	"PASS DAMAGE:"
+		"DOTA_Tooltip_ability_shredder_chakram_lua_damage_per_second"	"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_shredder_chakram_lua_slow"	"%SLOW:"
+		"DOTA_Tooltip_ability_shredder_chakram_lua_mana_per_second"	"MANA COST PER SECOND:"
+		"DOTA_Tooltip_modifier_shredder_chakram_lua_debuff"	"Chakram"
+		"DOTA_Tooltip_modifier_shredder_chakram_lua_debuff_Description"	"Taking damage over time and being slowed by the Chakram."
+		"DOTA_Tooltip_modifier_shredder_chakram_lua_disarm"	"Chakram Disarm"
+		"DOTA_Tooltip_modifier_shredder_chakram_lua_disarm_Description"	"You cannot attack while Chakram is in the air."
+		"DOTA_Tooltip_ability_shredder_chakram_lua_Note0"	"The Chakram will return if Timbersaw runs out of mana or moves over 2000 distance away."
+
+		"DOTA_Tooltip_ability_shredder_chakram_2_lua"	"Chakram (Unsellable)"
+		"DOTA_Tooltip_ability_shredder_chakram_2_lua_Description"	"Fires a secondary saw blade at the target location where it will spin in place, dealing damage in an area around it.  Additionally, for each 5%% of health missing, enemies caught in the saw blade move more slowly. The blade deals damage and cuts down trees in its path when fired and retracted.  While active the ability costs mana, and you lose the ability to attack."
+		"DOTA_Tooltip_ability_shredder_chakram_2_lua_Lore"	"Cut cut cut cut cut cut cut cut cut cut cut!"
+		"DOTA_Tooltip_ability_shredder_chakram_2_lua_Note0"	"The Chakram will return if Timbersaw runs out of mana or moves over 2000 distance away."
+		"DOTA_Tooltip_ability_shredder_chakram_2_lua_radius"	"RADIUS:"
+		"DOTA_Tooltip_ability_shredder_chakram_2_lua_pass_damage"	"PASS DAMAGE:"
+		"DOTA_Tooltip_ability_shredder_chakram_2_lua_damage_per_second"	"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_shredder_chakram_2_lua_slow"	"%SLOW:"
+		"DOTA_Tooltip_ability_shredder_chakram_2_lua_mana_per_second"	"MANA COST PER SECOND:"
+
+		"DOTA_Tooltip_ability_shredder_return_chakram_lua"	"Return Chakram"
+		"DOTA_Tooltip_ability_shredder_return_chakram_lua_Description"	"Returns the Chakram to Timbersaw."
+		"DOTA_Tooltip_ability_shredder_return_chakram_2_lua"	"Return Chakram"
+		"DOTA_Tooltip_ability_shredder_return_chakram_2_lua_Description"	"Returns the Chakram to Timbersaw."
+
+
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"	"Multicast"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"	"Enables Ogre Magi to cast his abilities and items multiple times with each use."
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Lore"	"Despite being largely incapacitated by his IQ, the Ogre Magi's success in battle is attributed to pure skill."
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Note0"							"Only targeted abilities and items have a chance to be multicast."
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Note1"							"Targeted abilities and items apply to additional enemies and neutrals in an AoE around Ogre. Fireblast and Unrefined Fireblast hit the same target multiple times."
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_2_times"	"%2X CAST CHANCE:"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"	"%3X CAST CHANCE:"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"	"%4X CAST CHANCE:"
+		"DOTA_Tooltip_modifier_ogre_magi_item_multicast_lua"	"Multicast"
+		"DOTA_Tooltip_modifier_ogre_magi_item_multicast_lua_Description"	"Able to cast abilities and items multiple times with each use."
 
 		"DOTA_Tooltip_ability_invoker_sun_strike_lua"								"Sun Strike"
 		"DOTA_Tooltip_ability_invoker_sun_strike_lua_Description"					"Sends a catastrophic ray of fierce energy from the sun at any targeted location, incinerating all enemies standing beneath it once it reaches the earth. However this damage is spread evenly over all enemies hit."
@@ -1408,7 +1483,7 @@
         "DOTA_Tooltip_Ability_item_mage_shield_1_bonus_int"                                         "+$int"
         "DOTA_Tooltip_Ability_item_mage_shield_1_bonus_mana_regen"                                  "+$mana_regen"
         "DOTA_Tooltip_Ability_item_mage_shield_1_damage_per_mana"                                   "DAMAGE PER MANA:"
-        "DOTA_Tooltip_modifier_mage_shield_active"                                                  "Arcane Protection"
+        "DOTA_Tooltip_modifier_item_mage_shield_buff"                                               "Arcane Protection"
 
 
         "DOTA_Tooltip_Ability_item_mage_shield_2"                                                   "Arcane Sphere Ⅱ"
@@ -1695,6 +1770,16 @@
 		"DOTA_Tooltip_ability_rubick_null_field_level_3_radius"	                     	"RADIUS:"
 
 
+		"DOTA_Tooltip_ability_axe_counter_helix_lua"									"Counter Helix"
+		"DOTA_Tooltip_ability_axe_counter_helix_lua_Description"						"When attacked, Axe performs a helix counter attack, dealing pure damage to all nearby enemies."
+		"DOTA_Tooltip_ability_axe_counter_helix_lua_Lore"								"Axe is the only reinforcement this army needs."
+		"DOTA_Tooltip_ability_axe_counter_helix_lua_damage"								"DAMAGE:"
+		"DOTA_Tooltip_ability_axe_counter_helix_lua_radius"								"RADIUS:"
+		"DOTA_Tooltip_ability_axe_counter_helix_lua_trigger_chance"						"%CHANCE TO HELIX:"
+		"DOTA_Tooltip_modifier_axe_counter_helix_lua"									"Counter Helix"
+		"DOTA_Tooltip_modifier_axe_counter_helix_lua_Description"						"20%% chance to counter incoming attacks"
+		"DOTA_Tooltip_ability_axe_counter_helix_lua_Note0"								"Counter Helix triggers when the attack hits."
+
 
         "save_game"                                                                      "SAVE"
         "load_game"                                                                      "LOAD"
@@ -1868,15 +1953,15 @@
 		"DOTA_Tooltip_ability_frostivus2018_clinkz_burning_army_attack_rate"	"ATTACK RATE:"
 		"DOTA_Tooltip_ability_frostivus2018_clinkz_burning_army_spawn_interval"	"SPAWN INTERVAL:"
 
-		"DOTA_Tooltip_ability_pugna_ward_winter_2018_lua"	                        "Saprophytic Ward"
-		"DOTA_Tooltip_ability_pugna_ward_winter_2018_lua_Description"	            "Pugna places a Saprophytic Ward at the target location. Heals allies whenever they spend mana."
-		"DOTA_Tooltip_ability_pugna_ward_winter_2018_lua_aura_radius"	            "AURA RADIUS:"
-		"DOTA_Tooltip_ability_pugna_ward_winter_2018_lua_mana_multiplier"            "HEAL PER MANA:"
-		"DOTA_Tooltip_ability_pugna_ward_winter_2018_lua_aura_mana_regen"	        "AURA MANA REGEN:"
-		"DOTA_Tooltip_ability_pugna_ward_winter_2018_lua_attacks_to_destroy_tooltip"	"ATTACKS TO DESTROY:"
-		"DOTA_Tooltip_ability_pugna_ward_winter_2018_lua_ward_duration"	            "WARD DURATION:"
-        "npc_dota_pugna_ward_winter_2018"	"Saprophytic Ward"
-        "DOTA_Tooltip_modifier_pugna_ward_winter_2018_effect"                               "Saprophytic Ward"
+		"DOTA_Tooltip_ability_pugna_ward_winter_2018"	                        	"Saprophytic Ward"
+		"DOTA_Tooltip_ability_pugna_ward_winter_2018_Description"	            	"Pugna places a Saprophytic Ward at the target location. Heals allies whenever they spend mana."
+		"DOTA_Tooltip_ability_pugna_ward_winter_2018_aura_radius"	            	"AURA RADIUS:"
+		"DOTA_Tooltip_ability_pugna_ward_winter_2018_mana_multiplier"            	"HEAL PER MANA:"
+		"DOTA_Tooltip_ability_pugna_ward_winter_2018_aura_mana_regen"	        	"AURA MANA REGEN:"
+		"DOTA_Tooltip_ability_pugna_ward_winter_2018_attacks_to_destroy_tooltip"	"ATTACKS TO DESTROY:"
+		"DOTA_Tooltip_ability_pugna_ward_winter_2018_ward_duration"	            	"WARD DURATION:"
+        "npc_dota_pugna_ward_winter_2018"											"Saprophytic Ward"
+        "DOTA_Tooltip_modifier_pugna_ward_winter_2018_effect"                       "Saprophytic Ward"
 
         "DOTA_Tooltip_ability_frostivus2018_omniknight_purification"									"Purification(Frosthaven)"
 		"DOTA_Tooltip_ability_frostivus2018_omniknight_purification_Description"						"Instantly heals <font color='#70EA72'>all friendly units in an area </font> and damages all enemy units near them."
@@ -2499,10 +2584,10 @@
 		"DOTA_Tooltip_ability_water_die_Description"				        			"when dies, leave a living water pool"
 
 		"DOTA_Tooltip_Ability_water_evolve_to_2"										"Evovle to growing form "
-		"DOTA_Tooltip_ability_water_evolve_to_2_Description"							"When MaxHP higher than 3000,it evolve，restore to full health，gain new ability Replicate ，speed，armor，HP-regen increase"
+		"DOTA_Tooltip_ability_water_evolve_to_2_Description"							"When MaxHP higher than 4500,it evolve，restore to full health，gain new ability Torrent ，speed，armor，HP-regen increase"
 
 		"DOTA_Tooltip_Ability_water_evolve_to_3"										"Evovle to reaper form"
-		"DOTA_Tooltip_ability_water_evolve_to_3_Description"							"When MaxHP higher than 5000,it evolve，restore to full health，gain new ability Waveform ，speed，armor，HP-regen increase,<font color='#70EA72'>being highly aggressive</font>"
+		"DOTA_Tooltip_ability_water_evolve_to_3_Description"							"When MaxHP higher than 7000,it evolve，restore to full health，gain new ability Waveform ，speed，armor，HP-regen increase,<font color='#70EA72'>being highly aggressive</font>"
 
 		"DOTA_Tooltip_ability_water_torrent"			                				"Torrent"
 		"DOTA_Tooltip_ability_water_torrent_Description"		        				"Summons a rising torrent that, after a short delay, hurls enemy units into the sky, stunning, dealing damage and slowing movement speed."
@@ -2940,6 +3025,9 @@
 		"dark_debuff_simple"                                                            "DARK IMMOLATE"
 		"fire_debuff_simple"                                                            "FIRE IMMOLATE"
 
+		"npc_dota_boss_fire_twin"														"Fire Lord"
+		"npc_dota_boss_dark_twin"														"Dark Lord"
+
 		"DOTA_Tooltip_ability_fire_twin_fire_debuff_datadriven"							"Fire Immolate"
 		"DOTA_Tooltip_ability_fire_twin_fire_debuff_datadriven_Description"				"Fire lord inflicts a curse to a hero burning the hero nearby units and drain their mana. The radius and damage increase over the duration of the curse，<font color='#70EA72'>get close to Dark Lord (Not effected down BloodLink)will remove the curse</font>"
 		"DOTA_Tooltip_ability_fire_twin_fire_debuff_datadriven_initial_damage"			"INITIAL DAMAGE: "
@@ -2996,10 +3084,10 @@
 		"round12_acheivement_fail_note"					                                "Twenty Reaper Morphings Exist, Acheivemnet Succeed!"
 
 		"DOTA_Tooltip_Ability_water_evolve_to_2s"										"Evovle to growing form "
-		"DOTA_Tooltip_ability_water_evolve_to_2s_Description"							"When MaxHP higher than 3000,it evolve，restore to full health，gain new ability Replicate ，speed，armor，HP-regen increase"
+		"DOTA_Tooltip_ability_water_evolve_to_2s_Description"							"When MaxHP higher than 30000,it evolve，restore to full health，gain new ability Torrent ，speed，armor，HP-regen increase"
 
 		"DOTA_Tooltip_Ability_water_evolve_to_3s"										"Evovle to reaper form"
-		"DOTA_Tooltip_ability_water_evolve_to_3s_Description"							"When MaxHP higher than 5000,it evolve，restore to full health，gain new ability Waveform ，speed，armor，HP-regen increase,<font color='#70EA72'>being highly aggressive</font>"
+		"DOTA_Tooltip_ability_water_evolve_to_3s_Description"							"When MaxHP higher than 50000,it evolve，restore to full health，gain new ability Waveform ，speed，armor，HP-regen increase,<font color='#70EA72'>being highly aggressive</font>"
 
 
 		// Round 15-2

@@ -1,21 +1,3 @@
-function AddItem(owner, item)
-    for i = 0, 14 do
-        local currentSlotItem = owner:GetItemInSlot(i);
-        if currentSlotItem == nil or (currentSlotItem:GetName() == item:GetName() and item:IsStackable()) then
-            owner:AddItem(item)
-            return
-        end
-    end
-    local entities_dummy = Entities:FindByName(nil, "dummy_entities")
-    local spawnPoint = entities_dummy:GetAbsOrigin()
-    local drop = CreateItemOnPositionForLaunch(spawnPoint, item)
-    item:LaunchLootInitialHeight(false, 0, 200, 0.25, spawnPoint)
-end
-
-function AddItemByName(owner, item_name)
-    AddItem(owner, CreateItem(item_name, owner, owner))
-end
-
 function OpenTreasureBox1(keys)
     local caster = keys.caster
     local map_difficulty = GameRules:GetGameModeEntity().CHoldoutGameMode.map_difficulty

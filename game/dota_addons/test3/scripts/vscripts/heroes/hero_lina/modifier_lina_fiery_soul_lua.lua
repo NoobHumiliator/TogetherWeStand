@@ -1,19 +1,4 @@
 modifier_lina_fiery_soul_lua = class({})
-LinkLuaModifier("modifier_special_bonus_unique_lina_2", "heroes/hero_lina/modifier_lina_fiery_soul_lua", LUA_MODIFIER_MOTION_NONE)
-
-modifier_special_bonus_unique_lina_2 = class({})
-
-function modifier_special_bonus_unique_lina_2:IsHidden()
-    return true
-end
-
-function modifier_special_bonus_unique_lina_2:IsPurgable()
-    return false
-end
-
-function modifier_special_bonus_unique_lina_2:RemoveOnDeath()
-    return false
-end
 
 --------------------------------------------------------------------------------
 -- Classifications

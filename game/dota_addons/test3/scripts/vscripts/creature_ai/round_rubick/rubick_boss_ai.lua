@@ -262,71 +262,73 @@ SPELL_BEHAVIORS = {
     end,
 }
 
-BLACKLISTED_ABILITIES = {
-    beastmaster_call_of_the_wild_boar = true,
-    beastmaster_call_of_the_wild_hawk = true,
-    storm_spirit_ball_lightning = true,
-    brewmaster_primal_split = true,
-    doom_bringer_devour_lua = true,
-    earth_spirit_stone_caller = true,
-    earth_spirit_boulder_smash = true,
-    earth_spirit_geomagnetic_grip = true,
-    earth_spirit_petrify = true,
-    earth_spirit_magnetize = true,
-    phoenix_fire_spirits = true,
-    phoenix_sun_ray = true,
-    --phoenix_supernova = true,
-    elder_titan_ancestral_spirit = true,
-    wisp_tether = true,
-    pudge_rot = true,
-    pudge_dismember = true,
-    shredder_timber_chain = true,
-    shredder_chakram = true,
-    shredder_chakram_2 = true,
-    tiny_craggy_exterior = true,
-    treant_eyes_in_the_forest = true,
-    abyssal_underlord_dark_rift = true,
-    broodmother_spin_web = true,
-    ember_spirit_flame_guard = true,
-    juggernaut_blade_futruery = true,
-    lone_druid_true_form = true,
-    morphling_morph_agi = true,
-    morphling_morph_str = true,
-    nyx_assassin_burrow = true,
-    pangolier_swashbuckle = true,
-    pangolier_gyroshell = true,
-    nevermore_requiem = true,
-    ancient_apparition_chilling_touch = true,
-    ancient_apparition_ice_blast = true,
-    bane_fiends_grip = true,
-    dark_seer_wall_of_replica_nb2017 = true,
-    enigma_demonic_conversion = true,
-    keeper_of_the_light_illuminate = true,
-    keeper_of_the_light_recall_lua = true,
-    leshrac_pulse_nova = true,
-    lich_dark_ritual_lua = true,
-    furion_teleportation = true,
-    furion_force_of_nature = true,
-    ogre_magi_unrefined_fireblast = true,
-    oracle_fortunes_end = true,
-    oracle_fates_edict = true,
-    oracle_false_promise = true,
-    shadow_shaman_shackles = true,
-    techies_remote_mines = true,
-    witch_doctor_voodoo_restoration = true,
-    witch_doctor_death_ward = true,
-    warlock_upheaval = true,
-    troll_warlord_berserkers_rage = true,
-    sandking_sand_storm = true,
-    frostivus2018_dark_willow_shadow_realm = true,
-    pugna_life_drain = true,
-    earthshaker_enchant_totem = true,
-    frostivus2018_centaur_stampede = true,
-    tinker_rearm_lua = true,
-}
+BLACKLISTED_ABILITIES = {}
+BLACKLISTED_ABILITIES["beastmaster_call_of_the_wild_boar"] = true
+BLACKLISTED_ABILITIES["beastmaster_call_of_the_wild_hawk"] = true
+BLACKLISTED_ABILITIES["storm_spirit_ball_lightning"] = true
+BLACKLISTED_ABILITIES["brewmaster_primal_split"] = true
+BLACKLISTED_ABILITIES["doom_bringer_devour_lua"] = true
+BLACKLISTED_ABILITIES["earth_spirit_stone_caller"] = true
+BLACKLISTED_ABILITIES["earth_spirit_boulder_smash"] = true
+BLACKLISTED_ABILITIES["earth_spirit_geomagnetic_grip"] = true
+BLACKLISTED_ABILITIES["earth_spirit_petrify"] = true
+BLACKLISTED_ABILITIES["earth_spirit_magnetize"] = true
+BLACKLISTED_ABILITIES["phoenix_fire_spirits"] = true
+BLACKLISTED_ABILITIES["phoenix_sun_ray"] = true
+BLACKLISTED_ABILITIES["phoenix_supernova"] = true
+BLACKLISTED_ABILITIES["elder_titan_ancestral_spirit"] = true
+BLACKLISTED_ABILITIES["wisp_tether"] = true
+BLACKLISTED_ABILITIES["pudge_rot"] = true
+BLACKLISTED_ABILITIES["pudge_dismember"] = true
+BLACKLISTED_ABILITIES["shredder_timber_chain"] = true
+BLACKLISTED_ABILITIES["shredder_chakram"] = true
+BLACKLISTED_ABILITIES["shredder_chakram_2"] = true
+BLACKLISTED_ABILITIES["tiny_craggy_exterior"] = true
+BLACKLISTED_ABILITIES["treant_eyes_in_the_forest"] = true
+BLACKLISTED_ABILITIES["abyssal_underlord_dark_rift"] = true
+BLACKLISTED_ABILITIES["broodmother_spin_web"] = true
+BLACKLISTED_ABILITIES["ember_spirit_flame_guard"] = true
+BLACKLISTED_ABILITIES["juggernaut_blade_futruery"] = true
+BLACKLISTED_ABILITIES["lone_druid_true_form"] = true
+BLACKLISTED_ABILITIES["morphling_morph_agi"] = true
+BLACKLISTED_ABILITIES["morphling_morph_str"] = true
+BLACKLISTED_ABILITIES["nyx_assassin_burrow"] = true
+BLACKLISTED_ABILITIES["pangolier_swashbuckle"] = true
+BLACKLISTED_ABILITIES["pangolier_gyroshell"] = true
+BLACKLISTED_ABILITIES["nevermore_requiem"] = true
+BLACKLISTED_ABILITIES["ancient_apparition_chilling_touch"] = true
+BLACKLISTED_ABILITIES["ancient_apparition_ice_blast"] = true
+BLACKLISTED_ABILITIES["bane_fiends_grip"] = true
+BLACKLISTED_ABILITIES["dark_seer_wall_of_replica_nb2017"] = true
+BLACKLISTED_ABILITIES["enigma_demonic_conversion"] = true
+BLACKLISTED_ABILITIES["keeper_of_the_light_illuminate"] = true
+BLACKLISTED_ABILITIES["keeper_of_the_light_recall_lua"] = true
+BLACKLISTED_ABILITIES["leshrac_pulse_nova"] = true
+BLACKLISTED_ABILITIES["lich_dark_ritual_lua"] = true
+BLACKLISTED_ABILITIES["furion_teleportation"] = true
+BLACKLISTED_ABILITIES["furion_force_of_nature"] = true
+BLACKLISTED_ABILITIES["ogre_magi_unrefined_fireblast"] = true
+BLACKLISTED_ABILITIES["oracle_fortunes_end"] = true
+BLACKLISTED_ABILITIES["oracle_fates_edict"] = true
+BLACKLISTED_ABILITIES["oracle_false_promise"] = true
+BLACKLISTED_ABILITIES["shadow_shaman_shackles"] = true
+BLACKLISTED_ABILITIES["techies_remote_mines"] = true
+BLACKLISTED_ABILITIES["witch_doctor_voodoo_restoration"] = true
+BLACKLISTED_ABILITIES["witch_doctor_death_ward"] = true
+BLACKLISTED_ABILITIES["warlock_upheaval"] = true
+BLACKLISTED_ABILITIES["troll_warlord_berserkers_rage"] = true
+BLACKLISTED_ABILITIES["sandking_sand_storm"] = true
+BLACKLISTED_ABILITIES["frostivus2018_dark_willow_shadow_realm"] = true
+BLACKLISTED_ABILITIES["pugna_life_drain"] = true
+BLACKLISTED_ABILITIES["earthshaker_enchant_totem"] = true
+BLACKLISTED_ABILITIES["frostivus2018_centaur_stampede"] = true
+BLACKLISTED_ABILITIES["tinker_rearm_lua"] = true
+BLACKLISTED_ABILITIES["arc_warden_tempest_double"] = true
+BLACKLISTED_ABILITIES["frostivus2018_huskar_life_break"] = true
+BLACKLISTED_ABILITIES["huskar_life_break"] = true
 
 function IsAbilityBlacklisted(szAbilityName)
-    return BLACKLISTED_ABILITIES[szAbilityName]
+    return BLACKLISTED_ABILITIES[szAbilityName] == true
 end
 
 function Spawn(entityKeyValues)
@@ -455,7 +457,7 @@ function Spawn(entityKeyValues)
 end
 
 
-function CheckToChangePhase()    
+function CheckToChangePhase()
     local OldPhase = thisEntity.Phase
     local NewPhase = thisEntity.Phase
     local nHealthPct = thisEntity:GetHealthPercent()
@@ -593,7 +595,7 @@ function BossRubickThink()
             CastSheep(thisEntity, s_Sheep)
             return 0.1
         end
-        
+
         if s_Blink ~= nil and s_Blink:IsFullyCastable() and thisEntity:GetAggroTarget() ~= nil then
             return CastBlink()
         end

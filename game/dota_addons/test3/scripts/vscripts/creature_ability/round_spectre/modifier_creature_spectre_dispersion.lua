@@ -21,7 +21,6 @@ function modifier_creature_spectre_dispersion:OnCreated()
     if talent and talent:GetLevel() > 0 then
         self.damage_reflect_pct = self.damage_reflect_pct + talent:GetSpecialValueFor("value")
     end
-    self.damage_reflect_pct = self.damage_reflect_pct * 0.01
     self.max_radius = self:GetAbility():GetSpecialValueFor("max_radius")
     self.min_radius = self:GetAbility():GetSpecialValueFor("min_radius")
 end
@@ -35,7 +34,6 @@ function modifier_creature_spectre_dispersion:OnRefresh()
     if talent and talent:GetLevel() > 0 then
         self.damage_reflect_pct = self.damage_reflect_pct + talent:GetSpecialValueFor("value")
     end
-    self.damage_reflect_pct = self.damage_reflect_pct * 0.01
     self.max_radius = self:GetAbility():GetSpecialValueFor("max_radius")
     self.min_radius = self:GetAbility():GetSpecialValueFor("min_radius")
 end
@@ -47,26 +45,18 @@ function modifier_creature_spectre_dispersion:DeclareFunctions()
     return funcs
 end
 
-function modifier_creature_spectre_dispersion:OnTakeDamage(event)
+function modifier_creature_spectre_dispersion:OnTakeDamage(params)
 
-    local re_table = {
-        item_blade_mail = true,
-        nyx_assassin_spiked_carapace = true,
-        spectre_dispersion = true,
-        spectre_dispersion_lua = true,
-        creature_spectre_dispersion = true,
-        affixes_ability_spike = true,
-        creature_nyx_spike = true,
-        frostivus2018_spectre_active_dispersion = true,
-    }
-
-    -- PrintTable(event)
+    -- PrintTable(params)
     local caster = self:GetParent()
-    local original_damage = event.original_damage
-    local attacker = event.attacker
-    local ability = event.inflictor
+    local original_damage = params.original_damage
+    local attacker = params.attacker
+    local ability = params.inflictor
+    local damage_type = params.damage_type
 
-    if event.unit ~= self:GetParent() or attacker:GetTeamNumber() == caster:GetTeamNumber() or ability and re_table[ability:GetAbilityName()] then
+    original_damage = DamageAmplify(attacker, ability, damage_type, original_damage)
+
+    if params.unit ~= caster or FlagExist(params.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) then
         return
     end
 
@@ -86,37 +76,34 @@ function modifier_creature_spectre_dispersion:OnTakeDamage(event)
         local vCaster = caster:GetAbsOrigin()
         local vUnit = unit:GetAbsOrigin()
 
-        local reflect_damage
+        local distance = math.max((vUnit - vCaster):Length2D(), self.min_radius)
 
-        local distance = (vUnit - vCaster):Length2D()
+        local reflect_damage = original_damage * self.damage_reflect_pct / 100
+        reflect_damage = reflect_damage * (1 - (distance - self.min_radius) / (self.max_radius - self.min_radius))
 
-        --取消掉全部的效果粒子特效
-        --Within 300 radius
-        if distance <= self.min_radius then
-            reflect_damage = original_damage * self.damage_reflect_pct
+        if reflect_damage > (original_damage * 2 / 3) then
             --particle_name = "particles/units/heroes/hero_spectre/spectre_dispersion.vpcf"
-            --Between 301 and 475 radius
-        elseif distance <= (self.min_radius + 175) then
-            reflect_damage = original_damage * (self.damage_reflect_pct * (1 - (distance - 300) * 0.00142857))
+        elseif reflect_damage > (original_damage / 3) then
             --particle_name = "particles/units/heroes/hero_spectre/spectre_dispersion_fallback_mid.vpcf"
-            --Same formula as previous statement but different particle
         else
-            reflect_damage = original_damage * (self.damage_reflect_pct * (1 - (distance - 300) * 0.00142857))
             --particle_name = "particles/units/heroes/hero_spectre/spectre_dispersion_b_fallback_low.vpcf"
         end
 
-        if caster.pure_return ~= nil then
-            reflect_damage = reflect_damage * (1 + caster.pure_return * caster:GetStrength() / 100)
-        end
-
-        --particle_name = "particles/units/heroes/hero_spectre/spectre_dispersion.vpcf"
         --Create particle
         --[[				local particle = ParticleManager:CreateParticle( particle_name, PATTACH_POINT_FOLLOW, caster )
 				ParticleManager:SetParticleControl(particle, 0, vCaster)
 				ParticleManager:SetParticleControl(particle, 1, vUnit)
 				ParticleManager:SetParticleControl(particle, 2, vCaster)
-				]]
-        ApplyDamage({ victim = unit, attacker = caster, ability = self:GetAbility(), damage = reflect_damage, damage_type = event.damage_type })
+                ]]
+                
+        ApplyDamage({
+            victim = unit,
+            attacker = caster,
+            ability = self:GetAbility(),
+            damage = reflect_damage,
+            damage_type = params.damage_type,
+            damage_flags = DOTA_DAMAGE_FLAG_REFLECTION,
+            })
 
     end
 end

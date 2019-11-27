@@ -23,7 +23,6 @@ require("spell_shop_UI")
 require("loot_controller")
 require("difficulty_select_UI")
 require("global_setting")
-require("tws_util")
 require("libraries/notifications")
 require("filter/damage_filter")
 require("filter/order_filter")
@@ -37,7 +36,9 @@ require("server/vip")
 require("server/taobao")
 require("server/gamesaver")
 require("vip/econ_manager")
-require('vip/vip_reward')
+require("vip/vip_reward")
+require("talent_modifiers")
+require("item_ability/item_mulberry")
 
 if IsClient() then	-- Load clientside utility lib
     require("client_util")
@@ -199,55 +200,52 @@ function Precache(context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts", context)
 
     -- Boss Rubick
-    PrecacheResource("particle_folder", "particles/units/heroes/hero_windrunner", context)
-    PrecacheResource("particle_folder", "particles/units/heroes/hero_rubick", context)
-    PrecacheResource("particle_folder", "particles/units/heroes/keeper_of_the_light", context)
-    PrecacheResource("particle_folder", "particles/rubick_boss", context)
-    PrecacheResource("model", "models/heroes/rubick/rubick_staff.vmdl", context)
-    PrecacheResource("model", "models/heroes/rubick/cape.vmdl", context)
-
-    PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_keeper_of_the_light.vsndevts", context)
-
-    PrecacheUnitByNameSync("npc_dota_creature_rubick_melee_creep", context, -1)
-    PrecacheUnitByNameSync("npc_dota_boss_rubick", context, -1)
-    PrecacheResource("particle", "particles/status_fx/status_effect_dark_seer_illusion.vpcf", context)
-    PrecacheResource("particle", "particles/units/heroes/hero_windrunner/windrunner_spell_powershot_rubick.vpcf", context)
-    PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_rubick.vsndevts", context)
-    PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_rubick.vsndevts", context)
-    PrecacheResource("model", "models/items/rubick/rubick_arcana/rubick_arcana_back.vmdl", context)
-    PrecacheResource("model", "models/items/rubick/rubick_arcana/rubick_arcana_base.vmdl", context)
-    PrecacheResource("model", "models/items/rubick/rubick_ti8_immortal_shoulders/rubick_ti8_immortal_shoulders.vmdl", context)
-    PrecacheResource("model", "models/items/rubick/force_staff/force_staff.vmdl", context)
-    PrecacheResource("model", "models/heroes/rubick/shoulder.vmdl", context)
-    PrecacheResource("model", "models/heroes/rubick/rubick_head.vmdl", context)
-    PrecacheResource("particle", "particles/units/heroes/hero_rubick/rubick_chaos_meteor_fly.vpcf", context)
-    PrecacheResource("particle", "particles/units/heroes/hero_rubick/rubick_thundergods_wrath.vpcf", context)
-    PrecacheResource("particle", "particles/units/heroes/hero_rubick/rubick_freezing_field_snow.vpcf", context)
-    PrecacheResource("particle", "particles/units/heroes/heroes_underlord/abyssal_underlord_darkrift_target.vpcf", context)
-    PrecacheResource("particle", "particles/units/heroes/hero_rubick/rubick_rain_of_chaos_start.vpcf", context)
-    PrecacheResource("particle", "particles/units/heroes/hero_rubick/rubick_rain_of_chaos.vpcf", context)
-    PrecacheResource("particle", "particles/units/heroes/hero_queenofpain/queen_blink_start.vpcf", context)
-    PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts", context)
-    PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_abyssal_underlord.vsndevts", context)
-    PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts", context)
-    PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts", context)
-    PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts", context)
-    PrecacheResource("particle", "particles/econ/items/rubick/rubick_arcana/rubick_arc_spell_steal_default.vpcf", context)
-    PrecacheResource("particle", "particles/econ/items/rubick/rubick_arcana/rubick_arc_ambient_lines.vpcf", context)
-    PrecacheResource("particle", "particles/econ/items/rubick/rubick_arcana/rubick_arc_ambient_default.vpcf", context)
-    PrecacheResource("particle", "particles/econ/items/rubick/rubick_force_ambient/rubick_force_ambient.vpcf", context)
-    PrecacheResource("particle", "particles/econ/items/rubick/rubick_force_ambient/rubick_staff_ambient_kill.vpcf", context)
-    PrecacheResource("particle", "particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_force.vpcf", context)
-    PrecacheResource("particle", "particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_land_force.vpcf", context)
-    PrecacheResource("particle", "particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_marker_force.vpcf", context)
-    PrecacheResource("particle", "particles/econ/items/rubick/rubick_arcana/rbck_arc_kunkka_ghost_ship.vpcf", context)
-    PrecacheResource("particle", "particles/units/heroes/hero_kunkka/kunkka_ghostship_marker.vpcf", context)
-    PrecacheResource("particle", "particles/econ/items/rubick/rubick_arcana/rbck_arc_skywrath_mage_mystic_flare_ambient.vpcf", context)
-    PrecacheResource("particle", "particles/rubick/rubick_frosthaven_cube_projectile.vpcf", context)
-    PrecacheResource("particle", "particles/rubick/rubick_frosthaven_spellsteal.vpcf", context)
-
-
-
+    if GameRules:IsCheatMode() then
+        PrecacheResource("particle_folder", "particles/units/heroes/hero_windrunner", context)
+        PrecacheResource("particle_folder", "particles/units/heroes/hero_rubick", context)
+        PrecacheResource("particle_folder", "particles/units/heroes/keeper_of_the_light", context)
+        PrecacheResource("particle_folder", "particles/rubick_boss", context)
+        PrecacheResource("model", "models/heroes/rubick/rubick_staff.vmdl", context)
+        PrecacheResource("model", "models/heroes/rubick/cape.vmdl", context)
+        PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_keeper_of_the_light.vsndevts", context)
+        PrecacheUnitByNameSync("npc_dota_creature_rubick_melee_creep", context, -1)
+        PrecacheUnitByNameSync("npc_dota_boss_rubick", context, -1)
+        PrecacheResource("particle", "particles/status_fx/status_effect_dark_seer_illusion.vpcf", context)
+        PrecacheResource("particle", "particles/units/heroes/hero_windrunner/windrunner_spell_powershot_rubick.vpcf", context)
+        PrecacheResource("soundfile", "soundevents/voscripts/game_sounds_vo_rubick.vsndevts", context)
+        PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_rubick.vsndevts", context)
+        PrecacheResource("model", "models/items/rubick/rubick_arcana/rubick_arcana_back.vmdl", context)
+        PrecacheResource("model", "models/items/rubick/rubick_arcana/rubick_arcana_base.vmdl", context)
+        PrecacheResource("model", "models/items/rubick/rubick_ti8_immortal_shoulders/rubick_ti8_immortal_shoulders.vmdl", context)
+        PrecacheResource("model", "models/items/rubick/force_staff/force_staff.vmdl", context)
+        PrecacheResource("model", "models/heroes/rubick/shoulder.vmdl", context)
+        PrecacheResource("model", "models/heroes/rubick/rubick_head.vmdl", context)
+        PrecacheResource("particle", "particles/units/heroes/hero_rubick/rubick_chaos_meteor_fly.vpcf", context)
+        PrecacheResource("particle", "particles/units/heroes/hero_rubick/rubick_thundergods_wrath.vpcf", context)
+        PrecacheResource("particle", "particles/units/heroes/hero_rubick/rubick_freezing_field_snow.vpcf", context)
+        PrecacheResource("particle", "particles/units/heroes/heroes_underlord/abyssal_underlord_darkrift_target.vpcf", context)
+        PrecacheResource("particle", "particles/units/heroes/hero_rubick/rubick_rain_of_chaos_start.vpcf", context)
+        PrecacheResource("particle", "particles/units/heroes/hero_rubick/rubick_rain_of_chaos.vpcf", context)
+        PrecacheResource("particle", "particles/units/heroes/hero_queenofpain/queen_blink_start.vpcf", context)
+        PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts", context)
+        PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_abyssal_underlord.vsndevts", context)
+        PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts", context)
+        PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts", context)
+        PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts", context)
+        PrecacheResource("particle", "particles/econ/items/rubick/rubick_arcana/rubick_arc_spell_steal_default.vpcf", context)
+        PrecacheResource("particle", "particles/econ/items/rubick/rubick_arcana/rubick_arc_ambient_lines.vpcf", context)
+        PrecacheResource("particle", "particles/econ/items/rubick/rubick_arcana/rubick_arc_ambient_default.vpcf", context)
+        PrecacheResource("particle", "particles/econ/items/rubick/rubick_force_ambient/rubick_force_ambient.vpcf", context)
+        PrecacheResource("particle", "particles/econ/items/rubick/rubick_force_ambient/rubick_staff_ambient_kill.vpcf", context)
+        PrecacheResource("particle", "particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_force.vpcf", context)
+        PrecacheResource("particle", "particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_land_force.vpcf", context)
+        PrecacheResource("particle", "particles/econ/items/rubick/rubick_force_ambient/rubick_telekinesis_marker_force.vpcf", context)
+        PrecacheResource("particle", "particles/econ/items/rubick/rubick_arcana/rbck_arc_kunkka_ghost_ship.vpcf", context)
+        PrecacheResource("particle", "particles/units/heroes/hero_kunkka/kunkka_ghostship_marker.vpcf", context)
+        PrecacheResource("particle", "particles/econ/items/rubick/rubick_arcana/rbck_arc_skywrath_mage_mystic_flare_ambient.vpcf", context)
+        PrecacheResource("particle", "particles/rubick/rubick_frosthaven_cube_projectile.vpcf", context)
+        PrecacheResource("particle", "particles/rubick/rubick_frosthaven_spellsteal.vpcf", context)
+    end
     -- 修复对海民放链接闪退
     PrecacheResource("model", "models/heroes/tuskarr/tuskarr_sigil.vmdl", context)
 end
@@ -291,6 +289,13 @@ function CHoldoutGameMode:InitGameMode()
         return 1
     end)
 
+    -- 暂时只在测试模式放出奥术神符
+    if not GameRules:IsCheatMode() then
+        GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_ARCANE, false)
+    end
+    GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_BOUNTY, false)
+    GameRules:SetRuneMinimapIconScale(0.7)
+    GameRules:SetRuneSpawnTime(240)
 
     GameRules:SetTimeOfDay(0.75)
     GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, 0)
@@ -360,8 +365,8 @@ function CHoldoutGameMode:InitGameMode()
     ListenToGameEvent("npc_spawned", Dynamic_Wrap(CHoldoutGameMode, "OnNPCSpawned"), self)
     --ListenToGameEvent( "npc_replaced", Dynamic_Wrap( CHoldoutGameMode, "OnNPCReplaced" ), self )
     --ListenToGameEvent( "dota_player_used_ability", Dynamic_Wrap( CHoldoutGameMode, "OnUseAbility" ), self )
-    --ListenToGameEvent( "player_reconnected", Dynamic_Wrap( CHoldoutGameMode, 'OnPlayerReconnected' ), self )
-    ListenToGameEvent("entity_killed", Dynamic_Wrap(CHoldoutGameMode, 'OnEntityKilled'), self)
+    ListenToGameEvent("player_reconnected", Dynamic_Wrap(CHoldoutGameMode, "OnPlayerReconnected"), self)
+    ListenToGameEvent("entity_killed", Dynamic_Wrap(CHoldoutGameMode, "OnEntityKilled"), self)
     ListenToGameEvent("game_rules_state_change", Dynamic_Wrap(CHoldoutGameMode, "OnGameRulesStateChange"), self)
     ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(CHoldoutGameMode, "OnItemPickUp"), self)
     ListenToGameEvent("dota_player_gained_level", Dynamic_Wrap(CHoldoutGameMode, "OnHeroLevelUp"), self)
@@ -388,18 +393,9 @@ function CHoldoutGameMode:InitGameMode()
 
     -- 玩家可买物品最大数目，不限制
     SendToServerConsole("dota_max_physical_items_purchase_limit 9999")
-    -- 血条不显示竖线
-    SendToServerConsole("dota_hud_healthbars 1")
     --self._vHeroList={}
     self:CreateNetTablesSettings()
     self:HeroListRefill()
-
-    for _, shrine in pairs(Entities:FindAllByClassname("npc_dota_healer")) do
-        --print( "Setting respawn flag on shrine" )
-        shrine:SetUnitCanRespawn(true)
-        shrine:RemoveModifierByName("modifier_invulnerable")
-        shrine:ForceKill(true)
-    end
 end
 
 
@@ -517,16 +513,10 @@ function CHoldoutGameMode:OnHeroLearnAbility(keys)
     local playerId = hero:GetPlayerID()
     local abilityname = keys.abilityname
 
-    local talents = {
-        special_bonus_unique_invoker_4 = true, -- 毁天灭地
-        special_bonus_unique_invoker_5 = true, -- 灵动迅捷
-        special_bonus_unique_lina_2 = true, -- 炽魂
-    }
-
-    if talents[abilityname] then
-        hero:AddNewModifier(hero, nil, "modifier_" .. abilityname, {})
+    if mapTalentModifier[abilityname] then
+        AddModifierHelper(hero, "modifier_" .. abilityname)
+        -- hero:AddNewModifier(hero, nil, "modifier_" .. abilityname, {})
     end
-
 
     CustomGameEventManager:Send_ServerToPlayer(player, "UpdateAbilityList", { heroName = false, playerId = playerId })
 end
@@ -710,6 +700,12 @@ function CHoldoutGameMode:OnThink()
             self:AddHeroDifficultyModifier()
             --如果第一关未开始
             if not self.bGameStarted then
+                if self.map_difficulty <= 2 then
+                    self.last_live = self.last_live + 1
+                    if self.map_difficulty == 1 then
+                        self.last_live = self.last_live + 1
+                    end
+                end
                 -- 第一关选择分支
                 self:PlayerSelectBranch()
                 self.bGameStarted = true
@@ -761,6 +757,7 @@ function CHoldoutGameMode:_RefreshPlayers()
                     hero:RemoveModifierByName("modifier_random_exp_bonus")
                     hero:RemoveModifierByName("modifier_affixes_dilation")
                     hero:RemoveModifierByName("modifier_affixes_silver")
+                    hero:RemoveModifierByName("modifier_affixes_fragile")
                     hero:SetHealth(hero:GetMaxHealth())
                     hero:SetMana(hero:GetMaxMana())
                 end
@@ -785,19 +782,27 @@ function CHoldoutGameMode:_GrantMulberry()  --给予桑葚
             if PlayerResource:HasSelectedHero(nPlayerID) then
                 local hero = PlayerResource:GetSelectedHeroEntity(nPlayerID)
                 if hero then
-                    hero:AddItemByName("item_mulberry")
+                    AddItemByName(hero, "item_mulberry")
+                    if self.map_difficulty == 1 then
+                        local modifier = hero:FindModifierByName("modifier_item_mulberry")
+                        local stack_count = 0
+                        if modifier then
+                            stack_count = modifier:GetStackCount()
+                        else
+                            modifier = hero:AddNewModifier(hero, CreateItem("item_mulberry", hero, hero), "modifier_item_mulberry", {})
+                        end
+                        modifier:SetStackCount(stack_count + 1)
+                    end
                     local steamID = PlayerResource:GetSteamAccountID(nPlayerID)
                     local vipMap = GameRules:GetGameModeEntity().CHoldoutGameMode.vipMap
                     if vipMap[tonumber(steamID)].level > 1 then  --VIP给俩
-                        hero:AddItemByName("item_mulberry")
+                        AddItemByName(hero, "item_mulberry")
                     end
                 end
             end
         end
     end
 end
-
-
 
 
 function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正  --测试模式补充技能点
@@ -857,13 +862,13 @@ function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正  --测
             Notifications:BottomToAll({ text = tostring(self.last_live), duration = 3, style = { color = "Red" }, continue = true })
             Notifications:BottomToAll({ text = "#chance_left", duration = 3, style = { color = "Fuchsia" }, continue = true })
             if self._currentRound then
-                self:_GrantMulberry() --给予桑葚
                 self._currentRound.achievement_flag = false
                 self._currentRound:End()
                 Detail:InsertPlayerStatusSnapshot(false)
             end
             self._currentRound = nil
             self:_RefreshPlayers()
+            self:_GrantMulberry() --给予桑葚
             self._flPrepTimeEnd = GameRules:GetGameTime() + self._flPrepTimeBetweenRounds
         end
     end
@@ -960,11 +965,18 @@ function CHoldoutGameMode:OnNPCSpawned(event)
 
     local spawnedUnit = EntIndexToHScript(event.entindex)
 
-    if spawnedUnit == nil or spawnedUnit:GetClassname() == "npc_dota_thinker" or spawnedUnit:IsPhantom() then
+    if spawnedUnit == nil or spawnedUnit:IsNull() or spawnedUnit:GetClassname() == "npc_dota_thinker" or spawnedUnit:IsPhantom() then
         return
     end
 
-    if not spawnedUnit:IsNull() and spawnedUnit:IsSummoned() and not spawnedUnit:IsRealHero() then
+    if spawnedUnit:IsRealHero() then
+        if spawnedUnit.modifier_to_be_added ~= nil then
+            for _, fn in pairs(spawnedUnit.modifier_to_be_added) do
+                fn()
+            end
+            spawnedUnit.modifier_to_be_added = {}
+        end
+    elseif spawnedUnit:IsSummoned() then
         spawnedUnit:AddNewModifier(nil, nil, "modifier_invulnerable", { duration = 0.35 })
     end
 
@@ -1031,7 +1043,6 @@ function CHoldoutGameMode:OnNPCSpawned(event)
                     if not spawnedUnit:HasAbility("monster_endless_stack_show") then
                         spawnedUnit:AddAbility("monster_endless_stack_show")
                     end
-
                     spawnedUnit.damageMultiple = self.flDDadjust   --这个值可能变的
 
                     local ability = spawnedUnit:FindAbilityByName("monster_endless_stack_show")
@@ -1043,6 +1054,7 @@ function CHoldoutGameMode:OnNPCSpawned(event)
                     end
                     spawnedUnit:SetBaseHealthRegen(healthRegen)
                     spawnedUnit:SetBaseMaxHealth(newMaxHealth)
+
                     if self.map_difficulty == 1 then
                         ability:ApplyDataDrivenModifier(spawnedUnit, spawnedUnit, "modifier_monster_debuff", {})
                     elseif self.map_difficulty == 3 then
@@ -1054,7 +1066,7 @@ function CHoldoutGameMode:OnNPCSpawned(event)
 
                     spawnedUnit:AddNewModifier(spawnedUnit, ability, "modifier_increase_total_damage_lua", {})
 
-                    if self.map_difficulty > 5 and self._currentRound ~= nil then
+                    if self.map_difficulty > 5 and self._currentRound ~= nil and spawnedUnit:GetUnitName() ~= "npc_dota_creature_affixes_laser_turret" then
                         if self._currentRound.vAffixes.necrotic then
                             spawnedUnit:AddAbility("affixes_ability_necrotic")
                             spawnedUnit:FindAbilityByName("affixes_ability_necrotic"):SetLevel(1)
@@ -1193,8 +1205,7 @@ function CHoldoutGameMode:RoundEnd()
             end)
         end
     end
-
-    if self._nRoundNumber > #self._vRounds then
+    if self._nRoundNumber > (#self._vRounds - 1) then
         if self.map_difficulty >= 3 and not GameRules:IsCheatMode() and not self.bLoadFlag then
             Rank:RecordGame(self._nRoundNumber - 1, DOTA_TEAM_BADGUYS) --储存游戏
             return false
@@ -1311,7 +1322,29 @@ function SettleBranchIndex() --确定分支选择
 end
 
 
+function CHoldoutGameMode:OnPlayerReconnected(event)
 
+    Timers:CreateTimer({
+        endTime = 8,
+        callback = function()
+            -- 需要为重连的玩家更新技能列表，因为玩家也许吃了无限法球
+            local player = PlayerResource:GetPlayer(event.PlayerID)
+            local hero = player:GetAssignedHero()
+
+            local maxSlotNumber = 6
+
+            if hero:HasModifier("modifier_extra_slot_9_consume") then
+                maxSlotNumber = 9
+            elseif hero:HasModifier("modifier_extra_slot_8_consume") then
+                maxSlotNumber = 8
+            elseif hero:HasModifier("modifier_extra_slot_7_consume") then
+                maxSlotNumber = 7
+            end
+
+            CustomGameEventManager:Send_ServerToPlayer(player, "UpdateAbilityList", { heroName = false, playerId = event.PlayerID, maxSlotNumber = maxSlotNumber })
+        end
+    })
+end
 
 
 function CHoldoutGameMode:OnEntityKilled(event)
@@ -1321,25 +1354,15 @@ function CHoldoutGameMode:OnEntityKilled(event)
         return
     end
     if self._currentRound and killedUnit:GetTeam() == DOTA_TEAM_BADGUYS and killedUnit.removedByMech == nil then
-        if self._currentRound._alias == "warlock" then
-            if killedUnit:GetUnitName() == "npc_dota_warlock_boss_2" then
+        if self._currentRound._alias == "warlock" and killedUnit:GetUnitName() == "npc_dota_warlock_boss_2" or
+        self._currentRound._alias == "tree" and killedUnit:GetUnitName() == "npc_dota_boss_enchantress" or
+        self._currentRound._alias == "tinker" and killedUnit:GetUnitName() == "npc_dota_boss_tinker" or
+        self._currentRound._alias == "invoker" and killedUnit:GetUnitName() == "npc_dota_creature_boss_invoker" or
+        self._currentRound._alias == "rubick" and killedUnit:GetUnitName() == "npc_dota_boss_rubick" then
+            if self._currentRound.vAffixes.teeming == false or self.firstBossDead == true then
                 self:RoundEnd()
-            end
-        elseif self._currentRound._alias == "tree" then
-            if killedUnit:GetUnitName() == "npc_dota_boss_enchantress" then
-                self:RoundEnd()
-            end
-        elseif self._currentRound._alias == "tinker" then
-            if killedUnit:GetUnitName() == "npc_dota_boss_tinker" then
-                self:RoundEnd()
-            end
-        elseif self._currentRound._alias == "invoker" then
-            if killedUnit:GetUnitName() == "npc_dota_creature_boss_invoker" then
-                self:RoundEnd()
-            end
-        elseif self._currentRound._alias == "rubick" then
-            if killedUnit:GetUnitName() == "npc_dota_boss_rubick" then
-                self:RoundEnd()
+            else
+                self.firstBossDead = self._currentRound.vAffixes.teeming
             end
         end
     end

@@ -92,6 +92,11 @@ FADE_BOLT_POSITIONS = {
 CHAOTIC_MODE = false
 
 --------------------------------------------------------------------------------
+function modifier_rubick_boss_passive:AllowIllusionDuplicate()
+    return false
+end
+
+--------------------------------------------------------------------------------
 function modifier_rubick_boss_passive:GetPriority()
     return MODIFIER_PRIORITY_SUPER_ULTRA
 end

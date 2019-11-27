@@ -221,7 +221,6 @@ function ShowSaveBlock(bReloadFlag) {
 }
 
 function InitParticle() {
-
     for (var i = 1; i <= 10; i++) {
         var code_equip =
             "require 'vip/econ'\n" +

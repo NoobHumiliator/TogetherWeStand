@@ -24,7 +24,7 @@ function modifier_invoker_emp_lua_thinker:OnCreated(kv)
     end
 end
 
-function modifier_invoker_emp_lua_thinker:OnDestroy(kv)
+function modifier_invoker_emp_lua_thinker:OnDestroy()
     if IsServer() then
         -- find caught units
         local enemies = FindUnitsInRadius(

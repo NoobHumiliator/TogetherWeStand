@@ -74,7 +74,7 @@ function DotDamage( keys )  --造成伤害
                             attacker = caster, --造成伤害的单位
                             damage = math.pow(2, stack_count)*basic_damage,
                             damage_type = DAMAGE_TYPE_PURE,
-                            damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
+                            damage_flags = DOTA_DAMAGE_FLAG_NONE
                         }
     ApplyDamage(damageTable)    --造成伤害
 

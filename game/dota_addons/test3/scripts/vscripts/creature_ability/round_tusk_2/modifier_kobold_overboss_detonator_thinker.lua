@@ -25,7 +25,7 @@ function modifier_kobold_overboss_detonator_thinker:OnDestroy()
                 damage = self:GetParent():GetHealth(),
                 damage_type = DAMAGE_TYPE_PURE,
                 ability = self:GetAbility(),
-                damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
+                damage_flags = DOTA_DAMAGE_FLAG_NONE
             }
             ApplyDamage(damage)
             EmitSoundOn("Hero_Pudge.AttackHookImpact", self:GetParent())

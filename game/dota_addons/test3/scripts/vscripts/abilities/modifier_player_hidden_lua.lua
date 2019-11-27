@@ -52,12 +52,9 @@ function modifier_player_hidden_lua:OnTakeDamage(event)
 
 end
 
-
-
 function modifier_player_hidden_lua:OnHealReceived(keys)
 
     if IsServer() and keys.unit == self:GetParent() then
-
         local parent = self:GetParent()
         local unit = keys.unit
         local gain = keys.gain
@@ -175,7 +172,7 @@ function modifier_player_hidden_lua:OnHealReceived(keys)
             damage_table.damage_type = DAMAGE_TYPE_PURE
             damage_table.ability = self:GetAbility()
             damage_table.damage = damage
-            damage_table.damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
+            damage_table.damage_flags = DOTA_DAMAGE_FLAG_NONE
             if unit:GetHealth() / unit:GetMaxHealth() < 0.999 then
                 ApplyDamage(damage_table)  --满血不造成伤害
             end

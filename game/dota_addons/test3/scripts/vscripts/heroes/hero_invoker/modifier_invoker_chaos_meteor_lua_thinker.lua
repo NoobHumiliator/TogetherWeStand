@@ -57,7 +57,7 @@ function modifier_invoker_chaos_meteor_lua_thinker:OnRefresh(kv)
 
 end
 
-function modifier_invoker_chaos_meteor_lua_thinker:OnDestroy(kv)
+function modifier_invoker_chaos_meteor_lua_thinker:OnDestroy()
     if IsServer() then
         -- add vision
         AddFOWViewer(self:GetCaster():GetTeamNumber(), self:GetParent():GetOrigin(), self.vision, self.vision_duration, false)

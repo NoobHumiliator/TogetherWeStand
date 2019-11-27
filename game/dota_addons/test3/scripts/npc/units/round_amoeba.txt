@@ -13,7 +13,7 @@
 		"Level"						"50"
 		"ModelScale" 				"0.5"
 		"ConsideredHero"			"1"
-		"IsAncient"					"1"
+		"IsAncient"					"0"
 		"CanBeDominated"			"0"
 
 		// Minimap
@@ -116,7 +116,7 @@
 		"Level"						"50"
 		"ModelScale" 				"0.80"
 		"ConsideredHero"			"1"
-		"IsAncient"					"1"
+		"IsAncient"					"0"
 		"CanBeDominated"			"0"
 
 		// Minimap

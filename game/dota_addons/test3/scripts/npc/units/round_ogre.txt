@@ -9,7 +9,7 @@
 		"GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
 		"SoundSet"					"n_creep_Melee"
 		"Level"						"1"
-		"ModelScale" 				".90"
+		"ModelScale" 				".9"
 		"IsNeutralUnitType"			"1"
 
 		// Abilities
@@ -75,7 +75,7 @@
 		//----------------------------------------------------------------
 		"Creature"
 		{
-			//Basic AI State
+			// Basic AI State
 			//------------------------------------------------------------
 			"DefaultState"				"Invade"
 			"States"

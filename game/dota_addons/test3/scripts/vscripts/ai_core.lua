@@ -254,7 +254,7 @@ function AttackNearestEnemy(hThisEntity)  --攻击最近的目标
 
     if not hThisEntity:IsAttacking() then
 
-        local targets = FindUnitsInRadius(hThisEntity:GetTeamNumber(), hThisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+        local targets = FindUnitsInRadius(hThisEntity:GetTeamNumber(), hThisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD, FIND_CLOSEST, false)
 
         if #targets > 0 then  --避免打断攻击动作
             ExecuteOrderFromTable({
@@ -265,7 +265,8 @@ function AttackNearestEnemy(hThisEntity)  --攻击最近的目标
         end
 
     end
-
-    return 0.5
+    
+    local fFuzz = RandomFloat(-0.1, 0.1)
+    return 0.5 + fFuzz
 end
 --------------------------------------------------------------------------------

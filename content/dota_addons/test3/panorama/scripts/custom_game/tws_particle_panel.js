@@ -27,7 +27,6 @@ function CancleParticle()  //取消粒子特效，向Lua传递
     var playerId = Game.GetLocalPlayerInfo().player_id;     //玩家ID
     GameEvents.SendCustomGameEventToServer("CancleParticle", { playerId: playerId });
 
-
     var container = $("#ParticlePanelHub");
 
     container.RemoveAndDeleteChildren();

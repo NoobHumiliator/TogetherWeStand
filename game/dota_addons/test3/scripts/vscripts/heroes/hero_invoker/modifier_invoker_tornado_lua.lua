@@ -73,7 +73,7 @@ function modifier_invoker_tornado_lua:OnIntervalThink()
     self:HorizontalMotion(self:GetParent(), FrameTime())
 end
 
-function modifier_invoker_tornado_lua:OnDestroy(kv)
+function modifier_invoker_tornado_lua:OnDestroy()
     local sound_lift = "Hero_Invoker.Tornado.Target"
     StopSoundOn(sound_lift, self:GetParent())
     if not IsServer() then return end

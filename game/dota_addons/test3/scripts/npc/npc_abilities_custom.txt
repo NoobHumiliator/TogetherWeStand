@@ -30,6 +30,30 @@
 		}
 	}
 	
+    "dummy_normal"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+		"Modifiers"
+		{
+			"modifier_dummy_normal"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+
+				"States"
+				{
+				    "MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				    // "MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				    "MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				    "MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				    "MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	
 	"no_health_bar"
 	{
 		"AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -805,7 +829,7 @@
                 "IsPurgable"			     	"0"
                 "TextureName"	                "silver"
                 "ThinkInterval"                 "15.00"
-               "OnIntervalThink"
+               	"OnIntervalThink"
 				{
 					"ApplyModifier"
 					{
@@ -827,6 +851,19 @@
 					"MODIFIER_STATE_PASSIVES_DISABLED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			
+			"modifier_affixes_fragile"
+			{
+				"Attributes"	                "MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"						"0"
+                "IsDebuff"						"1"
+                "IsPurgable"			     	"0"
+                "TextureName"	                "fragile"
+               	"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	     "100"
+				}
+			}
 
 			"modifier_silence_show"
 			{
@@ -841,107 +878,6 @@
 					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-		   	"modifier_affixes_falling_rock"
-	        {
-	        	"Attributes"	                "MODIFIER_ATTRIBUTE_PERMANENT"
-	            "IsDebuff"                      "1"
-	            "Passive"                       "0"
-	            "IsHidden"                      "1"
-	            "IsPurgable"                    "0"
-	            "ThinkInterval"                 "1.8"
-	            "TextureName"	                "silence"
-	            "OnIntervalThink"
-	            {
-	                "SpawnUnit"
-					{
-						"UnitName"			"npc_falling_rock_dummy"
-						"Target"			"CASTER"
-						"UnitCount"			"1"
-						"Duration"			"5.0"
-						"SpawnRadius"		"?50 900"
-						"GrantsGold"		"0"
-						"GrantsXP"			"0"
-						"OnSpawn"
-						{
-							"ApplyModifier"
-							{
-								"ModifierName"	"modifier_phased"
-								"Target"		"TARGET"
-								"Duration"		"5"
-							}
-							"ApplyModifier"
-							{
-								"ModifierName"	"modifier_affixes_falling_rock_particle"
-								"Target" 		"TARGET"
-								"Duration"		"5"
-							}
-							"ApplyModifier"
-							{
-								"ModifierName"	"modifier_affixes_falling_rock_damage"
-								"Target" 		"TARGET"
-								"Duration"		"3.0"
-							}
-						}
-					}
-	            }
-	        }
-	        "modifier_affixes_falling_rock_particle"
-	        {
-	        	"Passive"			"0"
-	        	"IsHidden"			"1"
-	        	"IsDebuff"			"0"
-
-	        	"EffectName"		"particles/dire_fx/dire_lava_falling_rocks.vpcf"
-	        	"EffectAttachType"	"follow_hitloc"
-
-	        	"OnCreated"
-	        	{
-	        		"AttachEffect"
-	        		{
-	        			"EffectName"        "particles/units/heroes/hero_shadow_demon/shadow_demon_soul_catcher_v2_ground01.vpcf"
-	        			"EffectAttachType"  "follow_hitloc"
-	        			"Target"            "TARGET"
-	        			"ControlPointEntities"
-	        			{
-	        				"TARGET"	"attach_hitloc"
-	        				"TARGET"	"attach_hitloc"
-	        				"TARGET"	"attach_hitloc"
-	        			}
-	        		}
-	        		"FireSound"
-					{
-						"EffectName"	"DOTA_Item.Butterfly"
-						"Target" 		"CASTER"
-					}
-	        	}
-	        }
-	        "modifier_affixes_falling_rock_damage"
-	        {
-	        	"Passive"			"0"
-	        	"IsHidden"			"1"
-	        	"IsDebuff"			"0"
-	        	"ThinkInterval"     "2.25"
-	        	"OnIntervalThink"
-        		{
-        			"RunScript"
-        			{
-        				"ScriptFile"	"abilities/falling_rocks.lua"
-        				"Function"		"FallingRockDamage"
-        				"Target"		 "TARGET"
-        			}
-					"FireEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_ember_spirit/ember_spirit_hit_fire.vpcf"
-						"EffectAttachType"  "follow_hitloc"
-						"Target"            "TARGET"
-					}
-					"FireSound"
-					{
-						"EffectName"	"Ability.TossImpact"
-						"Target" 		"CASTER"
-					}
-        		}
-	        }
 	        "modifier_random_exp_bonus"
 			{
 				"Attributes"	                "MODIFIER_ATTRIBUTE_PERMANENT"
@@ -1013,27 +949,27 @@
 			"01"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"hp_bonus_per_str"		"0.02 0.024 0.028 0.032 0.036 0.04"
+				"hp_bonus_per_str"		"2 2.4 2.8 3.2 3.6 4"
 			}
 			"02"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"damage_bonus_per_int"	"0.04 0.05 0.06 0.07 0.08 0.09"
+				"damage_bonus_per_int"	"2 3 4 5 6 7"
 			}
 			"03"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"speed_bonus_per_agi"   "0.3 0.4 0.5 0.6 0.7 0.8"
+				"speed_bonus_per_agi"   "0.1 0.2 0.3 0.4 0.5 0.6"
 			}
 			"04"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"armor_bonus_per_agi"	"0.025 0.03 0.035 0.04 0.045 0.05"
+				"armor_bonus_per_agi"	"0.005 0.01 0.015 0.02 0.025 0.03"
 			}
 		   	"05"
 			{
 				"var_type"			    "FIELD_FLOAT"
-				"model_scale_per_att"	"0.0005"
+				"model_scale_per_att"	"0.02"
 			}
 		}
 		"Modifiers"
@@ -1169,6 +1105,15 @@
 		"AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"                                       "ability_datadriven"
 		"AbilityTextureName"                              "earth_spirit_rolling_boulder"
+		"MaxLevel"                                        "1"
+	}
+	
+    "affixes_ability_tooltip_fragile"  //UI显示用 无实际效果
+	{
+
+		"AbilityBehavior"                                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"                                       "ability_datadriven"
+		"AbilityTextureName"                              "fragile"
 		"MaxLevel"                                        "1"
 	}
 
@@ -1521,9 +1466,9 @@
 
 	"affixes_ability_spike"
 	{
-
+		"BaseClass"                                       "ability_lua"
+		"ScriptFile"									  "creature_ability/affixes/affixes_ability_spike"
 		"AbilityBehavior"                                "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"                                       "ability_datadriven"
 		"AbilityTextureName"                              "nyx_assassin_spiked_carapace"
 		"MaxLevel"                                        "1"
 	    "AbilitySpecial"
@@ -1549,63 +1494,10 @@
 		     "particle"               "particles/items_fx/blademail.vpcf"
 		     "particle"               "particles/econ/courier/courier_greevil_blue/courier_greevil_blue_ambient_1.vpcf"
 		}
-		"Modifiers"
-		{
-			"modifier_affixes_spike_permanent"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"ThinkInterval"     "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"creature_ability/affixes/spike.lua"
-						"Function"		"ApplySpike"
-					}
-				}
-			}
-	        "modifier_affixes_spike_warning"
-			{
-	            "IsHidden"		                       "1"
-	            "EffectName"		                   "particles/econ/courier/courier_greevil_blue/courier_greevil_blue_ambient_1.vpcf"
-				"EffectAttachType"	                   "follow_origin"
-	            "OnDestroy"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	               "modifier_affixes_spike"
-						"Target" 		               "CASTER"
-					}
-				}
-			}
-			"modifier_affixes_spike"
-			{
-	            "IsBuff"                               "1"
-	            "Duration"                             "%spike_duration"
-	            "TextureName"	                       "nyx_assassin_spiked_carapace"
-	            "EffectName"		                   "particles/items_fx/blademail.vpcf"
-				"EffectAttachType"	                   "follow_origin"
-	            "OnTakeDamage"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Ability.ReflectDamage"
-						"Target"		"UNIT"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"creature_ability/affixes/spike.lua"
-						"Function"		"TakeDamage"
-						"Damage"		"%attack_damage"
-					}
-				}
-			}
-		}
 	}
 
     "courier_fortitude_datadriven"
-	{
+	{	
 		"BaseClass"			     	"ability_datadriven"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"                         "8"
@@ -1631,9 +1523,9 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"%damage_reduce"
-				}
-			}
-		}
+				}    
+			}            
+		}	
 	}
 
 	"courier_shield_datadriven"
@@ -1899,6 +1791,7 @@
 				"var_type"		        "FIELD_INTEGER"
 				"bonus_damage_pct"	    "12 18 24 30 36 42 48 54"
 				"LinkedSpecialBonus"	"special_bonus_unique_vengeful_spirit_2"
+				"CalculateSpellDamageTooltip"	"0"
 			}
 			"02"
 			{
@@ -1921,6 +1814,7 @@
 				"var_type"			    "FIELD_INTEGER"
 				"bonus_damage_pct"     	"12 18 24 30 36 42 48 54 60 66 72 78"
 				"LinkedSpecialBonus"	"special_bonus_unique_vengeful_spirit_2"
+				"CalculateSpellDamageTooltip"	"0"
 			}
 			"02"
 			{
@@ -2237,11 +2131,13 @@
 			{
 				"var_type"						 "FIELD_FLOAT"
 				"bonus_damage_duration_scepter"	 "70 80 90 100 110 120 130 140"
+				"RequiresScepter"	"1"
 			}
 			"07"
 			{
 				"var_type"						"FIELD_INTEGER"
 				"permanent_bonus"		        "2 3 4 5 6 7 8 9"
+				"LinkedSpecialBonus"			"special_bonus_unique_underlord_3"
 			}
 		}
 	}
@@ -2291,11 +2187,13 @@
 			{
 				"var_type"						"FIELD_FLOAT"
 				"bonus_damage_duration_scepter"	 "70 80 90 100 110 120 130 140 150 160 170 180"
+				"RequiresScepter"	"1"
 			}
 			"07"
 			{
 				"var_type"						"FIELD_INTEGER"
 				"permanent_bonus"		        "2 3 4 5 6 7 8 9 10 11 12 13"
+				"LinkedSpecialBonus"			"special_bonus_unique_underlord_3"
 			}
 		}
 	}
@@ -2321,6 +2219,7 @@
 			{
 				"var_type"						"FIELD_INTEGER"
 				"presence_armor_reduction"		"-3 -4 -5 -6 -10 -14 -18 -22"
+				"LinkedSpecialBonus"			"special_bonus_unique_nevermore_5"
 			}
 			"02"
 			{
@@ -2351,6 +2250,7 @@
 			{
 				"var_type"						"FIELD_INTEGER"
 				"presence_armor_reduction"		"-3 -4 -5 -6 -10 -14 -18 -22 -30 -38 -46 -54"
+				"LinkedSpecialBonus"			"special_bonus_unique_nevermore_5"
 			}
 			"02"
 			{
@@ -2435,7 +2335,6 @@
 
     "crystal_maiden_brilliance_aura_level_3"
 	{
-
         "BaseClass"                     "crystal_maiden_brilliance_aura"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -2460,10 +2359,12 @@
 		}
 	}
 
-    "luna_lunar_blessing_level_2"
+	"luna_lunar_blessing_level_2"
 	{
 	    "BaseClass"                     "luna_lunar_blessing"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+
 		"MaxLevel"                      "8"
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -2491,6 +2392,8 @@
 	{
 	    "BaseClass"                     "luna_lunar_blessing"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+
 		"MaxLevel"                      "12"
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -2590,11 +2493,13 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"	        "15 26 37 48 59 70 81 92"
+				"LinkedSpecialBonus"	"special_bonus_unique_lycan_4"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_hp_regen"		"1 4 7 10 13 16 19 22"
+				"LinkedSpecialBonus"	"special_bonus_unique_lycan_3"
 			}
 		}
 	}
@@ -2616,11 +2521,13 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"	        "15 26 37 48 59 70 81 92 103 114 125 136"
+				"LinkedSpecialBonus"	"special_bonus_unique_lycan_4"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_hp_regen"		"1 4 7 10 13 16 19 22 25 28 31 34"
+				"LinkedSpecialBonus"	"special_bonus_unique_lycan_3"
 			}
 		}
 	}
@@ -2828,23 +2735,16 @@
 	    }
     }
 
-	"no_health_bar"
+    "special_bonus_mana_reduction_11"
 	{
-		"AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-
-		"BaseClass"             "ability_datadriven"
-
-		"IsOnCastBar"                   "0"
-
-		"Modifiers"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
 		{
-			"modifier_no_health_bar"
+			"01"
 			{
-				"Passive" "1"
-				"States"
-				{
-					"MODIFIER_STATE_NO_HEALTH_BAR"          "MODIFIER_STATE_VALUE_ENABLED"
-				}
+				"var_type"					"FIELD_INTEGER"
+				"value"				        "11"
 			}
 		}
 	}
@@ -2852,6 +2752,7 @@
 
 // 以下是技能商店中重写的技能，以及部分旧技能
 
+#base "../vscripts/heroes/hero_axe/abilities.txt"
 #base "../vscripts/heroes/hero_centaur/abilities.txt"
 #base "../vscripts/heroes/hero_clinkz/abilities.txt"
 #base "../vscripts/heroes/hero_dark_seer/abilities.txt"
@@ -2869,9 +2770,12 @@
 #base "../vscripts/heroes/hero_mirana/abilities.txt"
 #base "../vscripts/heroes/hero_necrolyte/abilities.txt"
 #base "../vscripts/heroes/hero_obsidian_destroyer/abilities.txt"
+#base "../vscripts/heroes/hero_ogre_magi/abilities.txt"
 #base "../vscripts/heroes/hero_omniknight/abilities.txt"
 #base "../vscripts/heroes/hero_phantom_assassin/abilities.txt"
 #base "../vscripts/heroes/hero_pugna/abilities.txt"
+#base "../vscripts/heroes/hero_queenofpain/abilities.txt"
+#base "../vscripts/heroes/hero_shredder/abilities.txt"
 #base "../vscripts/heroes/hero_skywrath_mage/abilities.txt"
 #base "../vscripts/heroes/hero_spectre/abilities.txt"
 #base "../vscripts/heroes/hero_techies/abilities.txt"
@@ -3023,22 +2927,28 @@
 #base "../vscripts/creature_ability/round_faceless/abilities.txt"
 
 // 25 - 2
-#base "../vscripts/creature_ability/round_refraction/abilities.txt"
 
 // 26 - 1
-#base "../vscripts/creature_ability/round_lightning/abilities.txt"
+#base "../vscripts/creature_ability/round_refraction/abilities.txt"
 
 // 26 - 2
 
-// 27- 1
+// 27 - 1
 #base "../vscripts/creature_ability/round_tinker/abilities.txt"
 
-// 27- 2
+// 27 - 2
 
 // 28 - 1
-#base "../vscripts/creature_ability/round_invoker/abilities.txt"
+#base "../vscripts/creature_ability/round_lightning/abilities.txt"
 
-// 28 - 2
+// 28- 2
 
 // 29 - 1
+#base "../vscripts/creature_ability/round_invoker/abilities.txt"
+
+// 29 - 2
+
+// 30 - 1
 #base "../vscripts/creature_ability/round_rubick/abilities.txt"
+
+// 30 - 2

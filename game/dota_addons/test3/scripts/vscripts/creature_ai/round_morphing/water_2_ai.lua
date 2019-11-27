@@ -59,7 +59,7 @@ end
 
 function BehaviorNone:Begin()
     self.endTime = GameRules:GetGameTime() + 1
-    self.order =     {
+    self.order =    {
         UnitIndex = thisEntity:entindex(),
         OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
         Position = self.happytogo
@@ -75,19 +75,21 @@ function BehaviorPlasma_Field:Evaluate()
     -- let's not choose this twice in a row
     local j = 1
     self.plasmaAbility = thisEntity:FindAbilityByName("water_grow")
+    if self.plasmaAbility and self.plasmaAbility:IsFullyCastable() then
     while POSITIONS_retreat[j] do
         local distance = (thisEntity:GetOrigin() - POSITIONS_retreat[j]):Length()
-        if distance < 510 and self.plasmaAbility and self.plasmaAbility:IsFullyCastable() then   --距离其中一个不超过500,并且成长这个技能CD好了
+        if distance < 510 then   --距离其中一个不超过500,并且成长这个技能CD好了
             desire = 4
         end
         j = j + 1
     end
+end
     return desire
 end
 
 function BehaviorPlasma_Field:Begin()
     self.endTime = GameRules:GetGameTime() + 1
-    self.order =     {
+    self.order =    {
         UnitIndex = thisEntity:entindex(),
         OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
         AbilityIndex = self.plasmaAbility:entindex()
@@ -105,6 +107,7 @@ function BehaviorHold:Evaluate()
     local j = 1
     local target
     self.plasmaAbility = thisEntity:FindAbilityByName("water_grow")
+    if self.plasmaAbility and self.plasmaAbility:IsFullyCastable() then
     while POSITIONS_retreat[j] do
         local distance = (thisEntity:GetOrigin() - POSITIONS_retreat[j]):Length()
         if distance < 500 then   --距离其中一个不超过500
@@ -112,12 +115,13 @@ function BehaviorHold:Evaluate()
         end
         j = j + 1
     end
+end
     return desire
 end
 
 function BehaviorHold:Begin()
     self.endTime = GameRules:GetGameTime() + 1
-    self.order =     {
+    self.order =    {
         UnitIndex = thisEntity:entindex(),
         DOTA_UNIT_ORDER_HOLD_POSITION
     }
@@ -131,7 +135,7 @@ function BehaviorWishFuse:Evaluate()
     local targets = FindUnitsInRadius(DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 
     for _, unit in pairs(targets) do
-        if unit:GetUnitName() == ("npc_majia_water_1") then
+        if unit:GetUnitName() == "npc_majia_water_1" then
             self.target = unit
             desire = 9
             break
@@ -142,13 +146,13 @@ end
 function BehaviorWishFuse:Begin()
     self.endTime = GameRules:GetGameTime() + 1
     if self.target and self.target:IsAlive() then
-        self.order =         {
+        self.order =        {
             UnitIndex = thisEntity:entindex(),
             OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
             Position = self.target:GetOrigin()
         }
     else
-        self.order =         {
+        self.order =        {
             UnitIndex = thisEntity:entindex(),
             OrderType = DOTA_UNIT_ORDER_STOP
         }
@@ -170,10 +174,11 @@ function BehaviorFusing:Evaluate()
     if currentBehavior == self then return desire end
 
     self.plasmaAbility = thisEntity:FindAbilityByName("water_fuse")
-    local targets = FindUnitsInRadius(DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     if self.plasmaAbility and self.plasmaAbility:IsFullyCastable() then
+    local targets = FindUnitsInRadius(DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+
         for _, unit in pairs(targets) do
-            if unit:GetUnitName() == ("npc_majia_water_1") then
+            if unit:GetUnitName() == "npc_majia_water_1" then
                 desire = 10
                 break
             end
@@ -183,7 +188,7 @@ function BehaviorFusing:Evaluate()
 end
 function BehaviorFusing:Begin()
     self.endTime = GameRules:GetGameTime() + 1
-    self.order =     {
+    self.order =    {
         UnitIndex = thisEntity:entindex(),
         OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
         AbilityIndex = self.plasmaAbility:entindex()
@@ -199,15 +204,18 @@ function BehaviorEvolve:Evaluate()
 
     if currentBehavior == self then return desire end
     self.plasmaAbility = thisEntity:FindAbilityByName("water_evolve_to_3")
-    if thisEntity:GetMaxHealth() > 5000 * flDHPadjust and self.plasmaAbility and self.plasmaAbility:IsFullyCastable() then
+    if self.plasmaAbility and self.plasmaAbility:IsFullyCastable() then
+    if thisEntity:GetMaxHealth() > 7000 * flDHPadjust then
         desire = 15
+        print("xiuzheng: " ..flDHPadjust)
     end
+end
     return desire
 end
 function BehaviorEvolve:Begin()
     self.endTime = GameRules:GetGameTime() + 1
 
-    self.order =     {
+    self.order =    {
         UnitIndex = thisEntity:entindex(),
         OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
         AbilityIndex = self.plasmaAbility:entindex()
@@ -218,7 +226,7 @@ BehaviorEvolve.Continue = BehaviorEvolve.Begin
 BehaviorDismember = {}          ------------------洪流
 
 function BehaviorDismember:Evaluate()
-    self.dismemberAbility = thisEntity:FindAbilityByName("holdout_current")
+    self.dismemberAbility = thisEntity:FindAbilityByName("water_torrent")
     local target
     local desire = 0
 
@@ -244,7 +252,7 @@ function BehaviorDismember:Begin()
     local targetPoint = self.target:GetOrigin() + RandomVector(50)
     self.endTime = GameRules:GetGameTime() + 1
 
-    self.order =     {
+    self.order =    {
         UnitIndex = thisEntity:entindex(),
         OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
         AbilityIndex = self.dismemberAbility:entindex(),

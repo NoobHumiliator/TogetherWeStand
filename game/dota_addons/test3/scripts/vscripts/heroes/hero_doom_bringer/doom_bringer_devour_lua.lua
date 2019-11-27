@@ -1,6 +1,5 @@
-LinkLuaModifier("modifier_doom_bringer_devour_lua", "heroes/hero_doom_bringer/modifier_doom_bringer_devour_lua", LUA_MODIFIER_MOTION_NONE)
 doom_bringer_devour_lua = class({})
-
+LinkLuaModifier("modifier_doom_bringer_devour_lua", "heroes/hero_doom_bringer/modifier_doom_bringer_devour_lua", LUA_MODIFIER_MOTION_NONE)
 
 function doom_bringer_devour_lua:OnSpellStart()
 

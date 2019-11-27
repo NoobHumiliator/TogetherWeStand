@@ -35,9 +35,9 @@ function creature_big_bomb_explode:OnSpellStart()
                     local damage = {
                         victim = enemy,
                         attacker = self:GetCaster(),
-                        damage = enemy:GetMaxHealth() / 3,
+                        damage = enemy:GetMaxHealth() / 4,
                         damage_type = DAMAGE_TYPE_PURE,
-                        damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+                        damage_flags = DOTA_DAMAGE_FLAG_NONE,
                         ability = self
                     }
                     ApplyDamage(damage)

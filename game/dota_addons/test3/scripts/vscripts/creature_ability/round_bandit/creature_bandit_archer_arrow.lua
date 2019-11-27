@@ -59,7 +59,7 @@ function creature_bandit_archer_arrow:OnSpellStart()
         self.attack_speed = self.attack_speed * (self.attack_distance / (self.attack_distance - self.attack_width_initial))
 
         local info = {
-            EffectName = "particles/round_bandit/dungeon_bandit_archer_crescent_arrow.vpcf",
+            EffectName = "particles/dungeon_bandit_archer_crescent_arrow.vpcf",
             Ability = self,
             vSpawnOrigin = self:GetCaster():GetOrigin(),
             fStartRadius = self.attack_width_initial,

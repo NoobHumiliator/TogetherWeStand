@@ -46,7 +46,7 @@ function modifier_invoker_chaos_meteor_lua_burn:OnRefresh(kv)
 
 end
 
-function modifier_invoker_chaos_meteor_lua_burn:OnDestroy(kv)
+function modifier_invoker_chaos_meteor_lua_burn:OnDestroy()
 
 end
 

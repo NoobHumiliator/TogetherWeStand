@@ -90,7 +90,7 @@ function modifier_invoker_ghost_walk_lua:OnRefresh(kv)
     end
 end
 
-function modifier_invoker_ghost_walk_lua:OnDestroy(kv)
+function modifier_invoker_ghost_walk_lua:OnDestroy()
 
 end
 

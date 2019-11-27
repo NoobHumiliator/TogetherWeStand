@@ -12,7 +12,11 @@ end
 
 --------------------------------------------------------------------------------
 function modifier_item_guardian_shell:CheckState()
-    local state =     {
+    -- local state = {}
+    -- if not self:GetParent():HasModifier("modifier_nyx_assassin_burrow") then
+    --     state[MODIFIER_STATE_ROOTED] = false
+    -- end
+    local state = {
         [MODIFIER_STATE_ROOTED] = false,
     }
     return state

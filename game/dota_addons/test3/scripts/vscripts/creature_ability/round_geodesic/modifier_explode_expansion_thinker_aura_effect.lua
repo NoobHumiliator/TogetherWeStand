@@ -30,7 +30,7 @@ function modifier_explode_expansion_thinker_aura_effect:OnIntervalThink()
             attacker = self:GetCaster(),
             damage_type = DAMAGE_TYPE_PURE,
             damage = self.damage_per_tick,
-            damage_flags = DOTA_DAMAGE_FLAG_HPLOSS,
+            damage_flags = DOTA_DAMAGE_FLAG_NONE,
             ability = self:GetAbility()
         }
 

@@ -54,7 +54,6 @@ vToRemoveAbilityOnRemoveMap = {
     npc_dota_water_1 = "water_die",
     npc_dota_water_2 = "water_die",
     npc_dota_water_3 = "water_die",
-    npc_dota_water_3 = "water_die",
     npc_dota_water_1s = "water_die",
     npc_dota_water_2s = "water_die",
     npc_dota_water_3s = "water_die"

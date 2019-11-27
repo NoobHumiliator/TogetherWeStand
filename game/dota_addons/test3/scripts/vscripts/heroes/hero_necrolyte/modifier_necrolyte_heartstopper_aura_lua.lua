@@ -83,7 +83,7 @@ function modifier_necrolyte_heartstopper_aura_lua:OnRefresh(kv)
     end
 end
 
-function modifier_necrolyte_heartstopper_aura_lua:OnDestroy(kv)
+function modifier_necrolyte_heartstopper_aura_lua:OnDestroy()
     if IsServer() then
         self:GetParent():RemoveModifierByName("modifier_necrolyte_heartstopper_aura_lua_counter")
     end

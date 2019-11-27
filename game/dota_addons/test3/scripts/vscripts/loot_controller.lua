@@ -48,7 +48,7 @@ bonusItems = {
 function LootController:ReadConfigration()
 
     self._vHardLevelItemValue = {
-        400, 300, 200
+        285, 225, 150
     }
     self._itemCost = {}
     self._itemCostSort = {} --排序版

@@ -11,11 +11,11 @@ var config = {
 };
 
 var unsellableAbility = {
-	"shredder_chakram": true,
+	"shredder_chakram_lua": true,
+	"shredder_chakram_2_lua": true,
 	"witch_doctor_death_ward": true,
 	"meepo_divided_we_stand": true,
 	"broodmother_spin_web": true,
-	"shredder_chakram_2": true,
 	"treant_eyes_in_the_forest": true,
 	"batrider_sticky_napalm": true
 };
@@ -29,6 +29,9 @@ var hideAbility = {
 	"keeper_of_the_light_spirit_form_illuminate": true,
 	"morphling_morph_replicate": true,
 	"shredder_return_chakram": true,
+	"shredder_return_chakram_2": true,
+	"shredder_return_chakram_lua": true,
+	"shredder_return_chakram_2_lua": true,
 	"elder_titan_return_spirit": true,
 	"phoenix_icarus_dive_stop": true,
 	"phoenix_sun_ray_stop": true,
@@ -40,7 +43,6 @@ var hideAbility = {
 	"bane_nightmare_end": true,
 	"ancient_apparition_ice_blast_release": true,
 	"lone_druid_true_form_druid": true,
-	"shredder_return_chakram_2": true,
 	"nyx_assassn_unburrow": true,
 	"morphling_morph": true,
 	"nyx_assassin_unburrow": true,
@@ -370,7 +372,8 @@ function UpdateCourierButtons() {
 
 	var playerId = Game.GetLocalPlayerInfo().player_id;
 
-	if (!AbilityPointEnough(1, playerId)) {
+	if (!AbilityPointEnough(1, playerId))
+	{
 		fortitudeButton.SetHasClass("notEnoughDark", true);
 		fortitudeButton.enough = 0;
 		burstButton.SetHasClass("notEnoughDark", true);
@@ -386,7 +389,8 @@ function UpdateCourierButtons() {
 		synButton.SetHasClass("notEnoughDark", true);
 		synButton.enough = 0;
 	}
-	else {
+	else
+	{
 		fortitudeButton.SetHasClass("notEnoughDark", false);
 		fortitudeButton.enough = 1;
 		burstButton.SetHasClass("notEnoughDark", false);
@@ -402,7 +406,6 @@ function UpdateCourierButtons() {
 		synButton.SetHasClass("notEnoughDark", false);
 		synButton.enough = 1;
 	}
-
 }
 
 function GetAbilityCost(abilityName) {
@@ -419,12 +422,7 @@ function GetAbilityCost(abilityName) {
 
 function AbilityPointEnough(abilityCost, playerId) {
 	var playerHeroIndex = Players.GetPlayerHeroEntityIndex(playerId);
-	if (abilityCost <= Entities.GetAbilityPoints(playerHeroIndex)) {
-		return true;
-	}
-	{
-		return false;
-	}
+	return abilityCost <= Entities.GetAbilityPoints(playerHeroIndex);
 }
 
 function CheckAbilityButtonAvailable(Button, abilityName, playerId) {
@@ -662,11 +660,28 @@ function ChangeToCourierPanel() {
 	courierPanel.SetHasClass("hidden", false);
 	Game.EmitSound("ui.switchview");
 
+	var playerId = Players.GetLocalPlayer();
+	var steam_id = Game.GetPlayerInfo(playerId).player_steamid;
+	var tables = CustomNetTables.GetTableValue("vipMap", "" + ConvertToSteamId32(steam_id));
+	var vipLevel = tables ? tables.level : 0;
+	if (vipLevel >= 1)  //vip等级大于1 可以选后面的技能
+	{
+		var shieldButton = $("#ShieldButton")
+		shieldButton.enabled = true;
+		var blinkButton = $("#BlinkButton")
+		blinkButton.enabled = true;
+		var hookButton = $("#HookButton")
+		hookButton.enabled = true;
+		var sellItemsButton = $("#SellItemsButton")
+		sellItemsButton.enabled = true;
+		var synButton = $("#SynButton")
+		synButton.enabled = true;
+	}
 	UpdateCourierButtons();
 }
 
 function SetAllAbilityUnabled(abPanel) {
-	for (var i = 1; i <= 6; i++) {
+	for (var i = 1; i <= 7; i++) {
 		var abButtonId = "_ability_new_" + i;
 		var abButton = abPanel.GetParent().GetParent().FindChild(abButtonId);
 		if (abButton) {
@@ -676,7 +691,7 @@ function SetAllAbilityUnabled(abPanel) {
 }
 
 function SetAllAbilityEnabled(abPanel) {
-	for (var i = 1; i <= 6; i++) {
+	for (var i = 1; i <= 7; i++) {
 		var abButtonId = "#_ability_new_" + i;
 		var abButton = $(abButtonId)
 		if (abButton) {
@@ -702,14 +717,14 @@ var PreviewHero = (function (rButton) {
 var AddAbility = (function (abPanel) {
 	//$.Msg(abPanel.data)
 	return function () {
-		if (abPanel.data.enough) {
+		if (abPanel.data.enough && !buySpellLocking) {
 			abPanel.GetParent().enabled = false;
 			//直接禁用所有 等待后台回传再解锁
 			SetAllAbilityUnabled(abPanel);
 			//加锁 禁止期间所有操作
 			buySpellLocking = true;
+			GameEvents.SendCustomGameEventToServer("AddAbility", abPanel.data);
 		}
-		GameEvents.SendCustomGameEventToServer("AddAbility", abPanel.data);
 	}
 });
 
@@ -794,7 +809,6 @@ function UpdateAbilityList(keys) {
 
 	if (GetPlayerAbilityNumber(keys.playerId) <= maxAbilitySlotNo) //如果技能数未到达最大限制
 	{
-
 		SetAllAbilityEnabled();
 	}
 

@@ -12,19 +12,20 @@
 		"ModelScale" 				"1.4"
 		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_spectre.vsndevts"
 		"ConsideredHero"			"1"
-		"IsAncient"					"1"
+		"IsAncient"					"0"
 		"CanBeDominated"			"0"
 
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"creature_spectre_desolate"
 		"Ability2"					"creature_spectre_dispersion"
-		"Ability3"					"necronomicon_warrior_sight"
+		"Ability3"					"special_bonus_unique_spectre_5"
+		"Ability4"					"necronomicon_warrior_sight"
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"15"
-		"MagicalResistance"			"25"
+		"ArmorPhysical"				"65"
+		"MagicalResistance"			"45"
 
 		// Attack
 		//----------------------------------------------------------------

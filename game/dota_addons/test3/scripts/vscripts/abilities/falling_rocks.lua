@@ -3,9 +3,9 @@ function FallingRockDamage(keys)
     local target = keys.target
     local ability = keys.ability
 
-    local victims = FindUnitsInRadius(DOTA_TEAM_BADGUYS, target:GetOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+    local victims = FindUnitsInRadius(DOTA_TEAM_BADGUYS, target:GetOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
     for _, victim in pairs(victims) do
-        if victim:GetUnitName() ~= 'npc_falling_rock_dummy' then
+        if victim:GetUnitName() ~= 'npc_falling_rock_dummy' or victim:GetUnitName() ~= 'npc_dota_courier' then
             local damage = victim:GetMaxHealth() * 0.25
             local damage_table = {}
             damage_table.attacker = target
@@ -23,9 +23,9 @@ function FallingRockDamage(keys)
     Timers:CreateTimer({
         endTime = 0.25,
         callback = function()
-            local victims = FindUnitsInRadius(DOTA_TEAM_BADGUYS, target:GetOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+            local victims = FindUnitsInRadius(DOTA_TEAM_BADGUYS, target:GetOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
             for _, victim in pairs(victims) do
-                if victim:GetUnitName() ~= 'npc_falling_rock_dummy' then
+                if victim:GetUnitName() ~= 'npc_falling_rock_dummy' or victim:GetUnitName() ~= 'npc_dota_courier' then
                     local damage = victim:GetMaxHealth() * 0.05
                     local damage_table = {}
                     damage_table.attacker = target
@@ -43,7 +43,7 @@ function FallingRockDamage(keys)
             else
                 return 0.25
             end
-        end
+        end 
     })
 
 end

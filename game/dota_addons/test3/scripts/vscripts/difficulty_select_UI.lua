@@ -133,6 +133,13 @@ function CHoldoutGameMode:SetTrialMapDifficulty()
 
     self.flDDadjust = 1.5 * (1 + (self.map_difficulty - 3) * 0.1)
     self.flDHPadjust = 1.5 * (1 + (self.map_difficulty - 3) * 0.16)
+    
+    -- 作弊模式暂时关闭试炼难度的血量以及伤害调整，与困难保持一致
+    -- TODO: 将来移除
+    if GameRules:IsCheatMode() then
+        self.flDDadjust = 1.4
+        self.flDHPadjust = 1.5
+    end
 
     CustomGameEventManager:Send_ServerToAllClients("AnnounceDifficulty", { difficulty = "trial", level = tostring(math.floor(average)) })
 end

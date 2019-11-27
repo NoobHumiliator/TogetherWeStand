@@ -27,7 +27,7 @@ function modifier_invoker_sun_strike_lua_thinker:OnCreated(kv)
     end
 end
 
-function modifier_invoker_sun_strike_lua_thinker:OnDestroy(kv)
+function modifier_invoker_sun_strike_lua_thinker:OnDestroy()
     if IsServer() then
         -- Damage enemies
         local damageTable = {

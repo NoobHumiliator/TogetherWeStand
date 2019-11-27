@@ -40,13 +40,13 @@ function BehaviorNone:Begin()
 
 
     if self.target and self.target:IsAlive() then
-        self.order =         {
+        self.order =        {
             UnitIndex = thisEntity:entindex(),
             OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
             Position = self.target:GetOrigin()
         }
     else
-        self.order =         {
+        self.order =        {
             UnitIndex = thisEntity:entindex(),
             OrderType = DOTA_UNIT_ORDER_STOP
         }
@@ -61,7 +61,7 @@ function BehaviorWishFuse:Evaluate()
     local targets = FindUnitsInRadius(DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 
     for _, unit in pairs(targets) do
-        if unit:GetUnitName() == ("npc_majia_water_1") then
+        if unit:GetUnitName() == "npc_majia_water_1" then
             self.target = unit
             desire = 9
             break
@@ -72,13 +72,13 @@ end
 function BehaviorWishFuse:Begin()
     self.endTime = GameRules:GetGameTime() + 1
     if self.target and self.target:IsAlive() then
-        self.order =         {
+        self.order =        {
             UnitIndex = thisEntity:entindex(),
             OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
             Position = self.target:GetOrigin()
         }
     else
-        self.order =         {
+        self.order =        {
             UnitIndex = thisEntity:entindex(),
             OrderType = DOTA_UNIT_ORDER_STOP
         }
@@ -100,10 +100,10 @@ function BehaviorFusing:Evaluate()
     if currentBehavior == self then return desire end
 
     self.plasmaAbility = thisEntity:FindAbilityByName("water_fuse")
-    local targets = FindUnitsInRadius(DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     if self.plasmaAbility and self.plasmaAbility:IsFullyCastable() then
+    local targets = FindUnitsInRadius(DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, 200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
         for _, unit in pairs(targets) do
-            if unit:GetUnitName() == ("npc_majia_water_1") then
+            if unit:GetUnitName() == "npc_majia_water_1" then
                 desire = 10
                 break
             end
@@ -113,7 +113,7 @@ function BehaviorFusing:Evaluate()
 end
 function BehaviorFusing:Begin()
     self.endTime = GameRules:GetGameTime() + 1
-    self.order =     {
+    self.order =    {
         UnitIndex = thisEntity:entindex(),
         OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
         AbilityIndex = self.plasmaAbility:entindex()
@@ -144,7 +144,7 @@ function BehaviorThrowHook:Begin()
 
     local targetPoint = self.target:GetOrigin() + RandomVector(50)
 
-    self.order =     {
+    self.order =    {
         UnitIndex = thisEntity:entindex(),
         OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
         AbilityIndex = self.hookAbility:entindex(),
@@ -184,7 +184,7 @@ function BehaviorDismember:Begin()
     local targetPoint = self.target:GetOrigin() + RandomVector(50)
     self.endTime = GameRules:GetGameTime() + 1
 
-    self.order =     {
+    self.order =    {
         UnitIndex = thisEntity:entindex(),
         OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
         AbilityIndex = self.dismemberAbility:entindex(),

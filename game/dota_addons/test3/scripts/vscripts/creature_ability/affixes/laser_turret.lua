@@ -63,7 +63,7 @@ function AffixesLaserStart(keys)
                     -- 现在激光会被最近距离的敌方单位遮挡
                     local minDistance = pathLength
                     for _, unit in pairs(units) do
-                        if not string.match(unit:GetUnitName(), "dummy") then
+                        if not string.match(unit:GetUnitName(), "dummy") or unit:GetUnitName() ~= 'npc_dota_courier' then
                             local distance = (casterOrigin - unit:GetOrigin()):Length()
                             if distance < minDistance then
                                 minDistance = distance
@@ -75,14 +75,14 @@ function AffixesLaserStart(keys)
                     units = FindUnitsInLine(DOTA_TEAM_BADGUYS, endPos1, endPos2, nil, thinkerRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
 
                     for _, unit in pairs(units) do
-                        if not string.match(unit:GetUnitName(), "dummy") then
+                        if not string.match(unit:GetUnitName(), "dummy") or unit:GetUnitName() ~= 'npc_dota_courier' then
                             ability:ApplyDataDrivenModifier(caster, unit, "modifier_affixes_laser_think_datadriven", { duration = 0.5 })
                             ApplyDamage({
                                 victim    = unit,
                                 attacker = caster,
-                                damage    = unit:GetMaxHealth() * 0.007,
+                                damage    = unit:GetMaxHealth() * 0.0035,
                                 damage_type = DAMAGE_TYPE_PURE,
-                                damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
+                                damage_flags = DOTA_DAMAGE_FLAG_NONE
                             })
                             local burnParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_phoenix/phoenix_sunray_beam_enemy.vpcf", PATTACH_ABSORIGIN, unit)
                             ParticleManager:SetParticleControlEnt(burnParticle, 1, unit, PATTACH_POINT_FOLLOW, "attach_hitloc", unit:GetAbsOrigin(), true)

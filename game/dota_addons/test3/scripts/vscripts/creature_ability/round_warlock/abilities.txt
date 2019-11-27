@@ -51,8 +51,8 @@
 			"RunScript"
 			{
 				"Target"				"CASTER"
-				"ScriptFile"			"creature_ability/round_morphing/water.lua"
-				"Function"			    "water_remove_self"
+				"ScriptFile"			"creature_ability/round_warlock/tiny_die.lua"
+				"Function"			    "tiny_remove_self"
 			}
 
 		}
@@ -109,8 +109,8 @@
 			"RunScript"
 			{
 				"Target"				"CASTER"
-				"ScriptFile"			"creature_ability/round_morphing/water.lua"
-				"Function"			    "water_remove_self"
+				"ScriptFile"			"creature_ability/round_warlock/tiny_die.lua"
+				"Function"			    "tiny_remove_self"
 			}
 
 		}
@@ -167,8 +167,8 @@
 			"RunScript"
 			{
 				"Target"				"CASTER"
-				"ScriptFile"			"creature_ability/round_morphing/water.lua"
-				"Function"			"water_remove_self"
+				"ScriptFile"			"creature_ability/round_warlock/tiny_die.lua"
+				"Function"			    "tiny_remove_self"
 			}
 
 		}
@@ -225,8 +225,8 @@
 			"RunScript"
 			{
 				"Target"				"CASTER"
-				"ScriptFile"			"creature_ability/round_morphing/water.lua"
-				"Function"			"water_remove_self"
+				"ScriptFile"			"creature_ability/round_warlock/tiny_die.lua"
+				"Function"			    "tiny_remove_self"
 			}
 		}
 	}
@@ -1422,15 +1422,6 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0 0 0 0"
-		"OnOwnerSpawned"
-		{
-			"ApplyModifier"
-			{
-				"Target" "CASTER"
-				"ModifierName"  "tiny_hurt"
-			}
-
-		}
 
 		"Modifiers"
 		{
@@ -1448,20 +1439,6 @@
 				}
 
 			}
-			"tiny_hurt"
-			{
-				"Passive"    "1"
-				"IsHidden"   "0"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"Target"			"CASTER"
-						"ScriptFile"		"creature_ability/round_warlock/warlock_rain.lua"
-						"Function"			"warlock_rain"
-					}
-				}
-			}
 		}
 	}
 
@@ -1477,7 +1454,7 @@
          {
             "RunScript"
             {
-                "ScriptFile"         "creature_ability/round_warlock/remove_wake_ability.lua"
+                "ScriptFile"         "creature_ability/round_warlock/tiny.lua"
                 "Function"           "remove_wake_ability"
                 "Target"             "CASTER"
             }

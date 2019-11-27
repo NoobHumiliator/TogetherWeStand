@@ -26,10 +26,10 @@ if not IsServer() then return end
 end
 
 function modifier_necrolyte_heartstopper_aura_lua_effect:OnRefresh(kv)
-    OnCreated(kv)
+    self:OnCreated(kv)
 end
 
-function modifier_necrolyte_heartstopper_aura_lua_effect:OnDestroy(kv)
+function modifier_necrolyte_heartstopper_aura_lua_effect:OnDestroy()
     self:StartIntervalThink(-1)
 end
 

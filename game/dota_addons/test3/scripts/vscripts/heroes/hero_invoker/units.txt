@@ -65,7 +65,7 @@
 		//----------------------------------------------------------------
 		"StatusHealth"				"5"			// Base health.
 		"StatusHealthRegen"			"0.25"		// Health regeneration rate.
-		"StatusMana"				"50"			// Base mana.
+		"StatusMana"				"5"			// Base mana.
 		"StatusManaRegen"			"4.0"		// Mana regeneration rate.
 
 		// Team
@@ -79,12 +79,5 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"1200"		// Range of vision during day light.
 		"VisionNighttimeRange"		"800"		// Range of vision at night time.
-
-		// Creature Data
-		//----------------------------------------------------------------------------------------------------------------------
-		"Creature"
-		{
-			"ManaGain"					"50"
-		}
 	}
 }

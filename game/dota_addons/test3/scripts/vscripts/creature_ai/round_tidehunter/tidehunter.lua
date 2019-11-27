@@ -123,7 +123,7 @@ function BehaviorStatic_Link:Evaluate()
     if target then
         desire = 8
         self.target = target
-        self.order =         {
+        self.order = {
             OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
             UnitIndex = thisEntity:entindex(),
             TargetIndex = target:entindex(),

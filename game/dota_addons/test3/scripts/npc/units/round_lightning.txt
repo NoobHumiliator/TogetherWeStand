@@ -31,11 +31,12 @@
 		"Ability4"		"special_bonus_unique_storm_spirit_4"
 		"Ability5"		"creature_large_storm_spirit_passive"
 		"Ability6"		"necronomicon_warrior_sight"
+		"Ability7"		"generic_gold_bag_fountain_2000"
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"50"
-		"MagicalResistance"			"50"
+		"ArmorPhysical"				"120"
+		"MagicalResistance"			"90"
 
 		// Attack
 		//----------------------------------------------------------------
@@ -93,7 +94,7 @@
 		//----------------------------------------------------------------------------------------------------------------------
 		"Creature"
 		{
-			"DisableResistance"			"95"
+			"DisableResistance"			"100"
 			//Basic AI State
 			//-----------------------------------------------------------------
 			"DisableClumpingBehavior"	"1"
@@ -432,11 +433,12 @@
 		"Ability2"					"fireball_ray_gun"
 		"Ability3"					"fireball_machine_gun"
 		"Ability4"					"necronomicon_warrior_sight"
+		"Ability5"					"generic_gold_bag_fountain_1000"
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"65"
-		"MagicalResistance"			"35"
+		"ArmorPhysical"				"90"
+		"MagicalResistance"			"85"
 
 		// Attack
 		//----------------------------------------------------------------
@@ -469,7 +471,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2200000"
+		"StatusHealth"				"3000000"
 		"StatusHealthRegen"			"500.0"
 		"StatusMana"				"2000"
 		"StatusManaRegen"			"300.0"
@@ -493,7 +495,7 @@
 		//----------------------------------------------------------------------------------------------------------------------
 		"Creature"
 		{
-			"DisableResistance"		"95"
+			"DisableResistance"		"100"
 			//Basic AI State
 			//-----------------------------------------------------------------
 			"DefaultState"			"Invade"
@@ -672,7 +674,7 @@
 		//----------------------------------------------------------------------------------------------------------------------
 		"Creature"
 		{
-			"DisableResistance"			"30"
+			"DisableResistance"			"50"
 			//Basic AI State
 			//-----------------------------------------------------------------
 			"DefaultState"			"Invade"

@@ -3,10 +3,10 @@
 {
 	"Version"		"1"
 	
-
 	"item_courier"
 	{
 		"ItemPurchasable"				"1"
+		"ItemStockTime"					"180.0"
 	}
 
 	"item_refresher_shard"
@@ -26,8 +26,12 @@
 	"item_aegis"
 	{
 		"ItemPurchasable"				"1"
-		"ItemCost"						"10000"
+		"ItemCost"						"15000"
 		"AllowedInBackpack"				"1"
+		"ItemStockTime"					"300.0"
+		"ItemStockMax"					"5"
+		"ItemStockInitial"				"0"
+		"ItemInitialStockTime"			"1800.0"
 		"CustomShop"					"1"
 
 		//-------------------------------------------------------------------------------------------------------------
@@ -81,64 +85,6 @@
 	{
 		"MaxLevel"                             "200"
 		"LevelsBetweenUpgrades"       			"0"
-	}
-
-	"filler_ability"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"1"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"180"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hp_heal"				"120"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mp_heal"				"40"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hp_heal_growth"		"2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mp_heal_growth"		"1"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hp_heal_pct"			"6"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mp_heal_pct"			"6"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"5"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"500"
-			}
-		}
 	}
 
    	"ursa_fury_swipes"
@@ -227,8 +173,20 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"hp_leech_percent"		"0.05 0.1 0.15 0.2"
+				"hp_leech_percent"		"0.025 0.05 0.75 0.1"
 				"LinkedSpecialBonus"	"special_bonus_unique_lifestealer_3"
+			}
+		}
+	}
+
+	"special_bonus_unique_lifestealer_3"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"0.3"
 			}
 		}
 	}
@@ -284,11 +242,13 @@
 			{
 				"var_type"							"FIELD_INTEGER"
 				"tooltip_health_damage_scepter"		"5 8 11"
+				"RequiresScepter"		"1"
 			}
 			"10"
 			{
 				"var_type"					"FIELD_FLOAT"
 				"cooldown_scepter"			"6"
+				"RequiresScepter"		"1"
 			}
 		}
 	}
@@ -393,6 +353,7 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"scepter_duration"		"0.0"
+				"RequiresScepter"			"1"
 			}
 			"08"
 			{
@@ -403,6 +364,7 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"aura_radius_tooltip_scepter"	"0"
+				"RequiresScepter"			"1"
 			}
 		}
 	}
@@ -451,231 +413,195 @@
 	}
 	"earthshaker_echo_slam"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"sven_gods_strength"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"tiny_grow"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
     "omniknight_guardian_angel"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"kunkka_ghostship"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"beastmaster_primal_roar"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
     "dragon_knight_elder_dragon_form"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
     "rattletrap_hookshot"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"antimage_mana_void"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"drow_ranger_marksmanship"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"juggernaut_omni_slash"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"mirana_invis"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
     "morphling_replicate"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"phantom_lancer_juxtapose"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
     "vengefulspirit_nether_swap"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"crystal_maiden_freezing_field"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"puck_dream_coil"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
 	"storm_spirit_ball_lightning"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"windrunner_focusfire"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"lina_laguna_blade"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"alchemist_chemical_rage"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"brewmaster_primal_split"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"treant_overgrowth"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
 	"centaur_stampede"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
    "riki_tricks_of_the_trade"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"sniper_assassinate"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"templar_assassin_psionic_trap"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"luna_eclipse"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 
 	"ursa_enrage"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"gyrocopter_call_down"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"furion_wrath_of_nature"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"enchantress_impetus"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"jakiro_macropyre"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"chen_hand_of_god"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"silencer_global_silence"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
 	"bristleback_warpath"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"tusk_walrus_punch"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
+	
 	"legion_commander_duel"
 	{
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -738,32 +664,28 @@
 	}
 	"juggernaut_omni_slash"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"sandking_epicenter"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"slardar_amplify_damage"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"tidehunter_ravage"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
 
-    "shadow_demon_soul_catcher"{
-
+    "shadow_demon_soul_catcher"
+	{
        	"AbilitySpecial"
 		{
 			"01"
@@ -772,13 +694,10 @@
 				"health_lost"			"12 15 17 20"
 			}
 		}
-
     }
-
 
     "bloodseeker_rupture"
 	{
-
 		"MaxLevel"                      "3"
 		"AbilitySpecial"
 		{
@@ -786,37 +705,33 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"movement_damage_pct"		"1"
+				"CalculateSpellDamageTooltip"	"0"
 			}
 		}
 	}
 	"razor_eye_of_the_storm"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"venomancer_poison_nova"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"faceless_void_chronosphere"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
     "phantom_assassin_coup_de_grace"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"viper_viper_strike"
 	{
-
 		"MaxLevel"                      "3"
 	}
     "bane_fiends_grip"
@@ -824,64 +739,54 @@
 		"MaxLevel"                      "3"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
-   "lich_chain_frost"
+    "lich_chain_frost"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
     "lion_finger_of_death"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"witch_doctor_death_ward"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
     "enigma_black_hole"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 	}
 	"razor_eye_of_the_storm"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"necrolyte_reapers_scythe"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"warlock_rain_of_chaos"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"night_stalker_darkness"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"spirit_breaker_nether_strike"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
 	"lycan_shapeshift"
 	{
-
 		"LevelsBetweenUpgrades"			"15"
 		"MaxLevel"                      "3"
 	}
@@ -966,13 +871,13 @@
 	}
     "leshrac_lightning_storm"
 	{
-
 		"AbilitySpecial"
 		{
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"radius_scepter"	    "0"
+				"RequiresScepter"		"1"
 			}
 		}
 	}
@@ -1163,30 +1068,14 @@
 		}
 	}
 
-	"special_bonus_spell_lifesteal_70"
+	"special_bonus_unique_doom_3"
 	{
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"value"				        "28"
-			}
-		}
-	}
-
-    "special_bonus_spell_lifesteal_20"
-	{
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"				        "8"
+				"value"				        "80"
 			}
 		}
 	}
@@ -1326,8 +1215,44 @@
 				"var_type"					"FIELD_FLOAT"
 				"duration"		        	"10"
 			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"scepter_cooldown"			"25"
+				"RequiresScepter"		"1"
+			}
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+
+	"special_bonus_unique_bounty_hunter_3"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"						"150"
+			}
+		}
+	}
+
+	"bounty_hunter_track"
+	{
+		"AbilitySpecial"
+		{
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_gold_self"		"50 100 150"
+				"LinkedSpecialBonus"	"special_bonus_unique_bounty_hunter_3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_gold"			"40 80 120"
+				"LinkedSpecialBonus"	"special_bonus_unique_bounty_hunter_3"
+			}
+		}
 	}
 
 	"invoker_quas"
@@ -1444,7 +1369,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"2000 3250 4500 5750 700 8250 9500 10750"
+				"damage"				"4000 6500 9000 11500 14000 16500 19000 21500"
 				"levelkey"				"exortlevel"
 			}
 			"04"
@@ -1526,7 +1451,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"main_damage"			"6000"
+				"main_damage"			"12000"
 				"LinkedSpecialBonus"	"special_bonus_unique_invoker_6"
 				"levelkey"				"exortlevel"
 			}
@@ -1538,7 +1463,7 @@
 			"10"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"burn_dps"				"460 600 740 880 1020 1160 1300 1440"
+				"burn_dps"				"920 1200 1480 1760 2040 2320 2600 2880"
 				"levelkey"				"exortlevel"
 				"CalculateSpellDamageTooltip"	"1"
 			}
@@ -1579,13 +1504,13 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_burned"			"2000 3500 5000 6500 8000 9500 11000 12500"
+				"mana_burned"			"4000 7000 10000 13000 16000 19000 22000 25000"
 				"levelkey"				"wexlevel"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_mana_pct"	"2"
+				"damage_per_mana_pct"	"1"
 			}
 		}
 	}
@@ -1658,7 +1583,7 @@
 			"09"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"wex_damage"			"900 1800 2700 3600 4500 5400 6300 7200"
+				"wex_damage"			"1800 3600 5400 7200 9000 10800 13600 14400"
 				"levelkey"				"wexlevel"
 			}
 		}
@@ -1762,7 +1687,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"freeze_damage"			"140 280 420 560 700 840 980 1120"
+				"freeze_damage"			"280 560 840 1120 1400 1680 1960 2240"
 				"levelkey"				"quaslevel"	
 			}
 			"05"
@@ -1871,7 +1796,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_per_second"		"60 120 180 240 300 360 420 480"
+				"damage_per_second"		"300 600 900 1200 1500 1800 2100 2400"
 				"levelkey"				"exortlevel"
 			}
 			"05"
@@ -1948,7 +1873,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"400 800 1200 1600 2000 2400 2800 3200"
+				"damage"				"800 1600 2400 3200 4000 4800 5600 6400"
 				"levelkey"				"exortlevel"
 			}
 			"07"

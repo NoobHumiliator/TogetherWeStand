@@ -58,7 +58,7 @@ function modifier_invoker_ghost_walk_lua_debuff:OnRefresh(kv)
     end
 end
 
-function modifier_invoker_ghost_walk_lua_debuff:OnDestroy(kv)
+function modifier_invoker_ghost_walk_lua_debuff:OnDestroy()
 
 end
 

@@ -653,6 +653,11 @@ function AddRedundantCourierAbility(caster) --移除多余的信使技能，直�
     end
 end
 
+
+function FlagExist(a, b)--Bitwise Exist
+    return bit.band(a, b) == b
+end
+
 --Load ability KVs
 local AbilityKV = LoadKeyValues("scripts/npc/npc_abilities.txt")
 
@@ -665,4 +670,46 @@ function FindTalentValue(talentName, key)
         end
     end
     return 0
+end
+
+function AddItem(owner, item)
+    for i = 0, 14 do
+        local currentSlotItem = owner:GetItemInSlot(i);
+        if currentSlotItem == nil or (currentSlotItem:GetName() == item:GetName() and item:IsStackable()) then
+            owner:AddItem(item)
+            return
+        end
+    end
+    local entities_dummy = Entities:FindByName(nil, "dummy_entities")
+    local spawnPoint = entities_dummy:GetAbsOrigin()
+    local drop = CreateItemOnPositionForLaunch(spawnPoint, item)
+    item:LaunchLootInitialHeight(false, 0, 200, 0.25, spawnPoint)
+end
+
+function AddItemByName(owner, item_name)
+    AddItem(owner, CreateItem(item_name, owner, owner))
+end
+
+-- 英雄死亡时，buff 可能无法加上，记下来复活后第一时间加上
+function AddDataDrivenModifierHelper(hero, ability, modifier_name)
+    if hero:IsAlive() then
+        ability:ApplyDataDrivenModifier(hero, hero, modifier_name, {})
+    else
+        if hero.modifier_to_be_added == nil then
+            hero.modifier_to_be_added = {}
+        end
+        table.insert(hero.modifier_to_be_added, function() ability:ApplyDataDrivenModifier(hero, hero, modifier_name, {}) end)
+    end
+end
+
+-- 英雄死亡时，buff 可能无法加上，记下来复活后第一时间加上
+function AddModifierHelper(hero, modifier_name)
+    if hero:IsAlive() then
+        hero:AddNewModifier(hero, nil, modifier_name, {})
+    else
+        if hero.modifier_to_be_added == nil then
+            hero.modifier_to_be_added = {}
+        end
+        table.insert(hero.modifier_to_be_added, function() hero:AddNewModifier(hero, nil, modifier_name, {}) end)
+    end
 end

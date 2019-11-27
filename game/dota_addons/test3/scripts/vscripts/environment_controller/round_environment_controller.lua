@@ -87,7 +87,8 @@ function EnvironmentController:SpawnTombStone()
                     local x = RandomInt(-1500, 1500) + hero:GetAbsOrigin().x
                     local y = RandomInt(-1500, 1500) + hero:GetAbsOrigin().y
                     local position = GetGroundPosition(Vector(x, y, 0), nil)
-                    CreateUnitByName(unitName, position, true, nil, nil, DOTA_TEAM_BADGUYS)
+                    local tombStone = CreateUnitByName(unitName, position, true, nil, nil, DOTA_TEAM_BADGUYS)
+                    tombStone:AddNewModifier(tombStone, nil, "modifier_invulnerable", {})
                 end
             end
 
@@ -139,18 +140,21 @@ function EnvironmentController:AffixesSpawnLaser()
     Timers:CreateTimer({
         endTime = 3,
         callback = function()
+
+            if CHoldoutGameMode._currentRound == nil or CHoldoutGameMode._currentRound.vAffixes.laser ~= true then
+                return nil
+            end
+
             local hero = RandomHeroIgnoreImmnueAndInvulnerable()
 
             if hero then
                 local randomX = RandomInt(-500, 500)
                 local randomY = RandomInt(-500, 500)
                 local turret = CreateUnitByName("npc_dota_creature_affixes_laser_turret", GetGroundPosition(Vector(hero:GetOrigin().x + randomX, hero:GetOrigin().y + randomY, 0), nil), true, nil, nil, DOTA_TEAM_BADGUYS)
-            end
-
-            if CHoldoutGameMode._currentRound == nil or CHoldoutGameMode._currentRound.vAffixes.laser ~= true then
-                return nil
-            else
+                turret:AddNewModifier(turret, nil, "modifier_invulnerable", {})
                 return 10
+            else
+                return 3
             end
         end
     })

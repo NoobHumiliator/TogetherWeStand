@@ -1,3 +1,5 @@
+require("util")
+
 modifier_centaur_return_lua = class({})
 
 --------------------------------------------------------------------------------
@@ -19,7 +21,7 @@ function modifier_centaur_return_lua:OnRefresh(kv)
     self.strength_pct = self:GetAbility():GetSpecialValueFor("strength_pct") -- special value
 end
 
-function modifier_centaur_return_lua:OnDestroy(kv)
+function modifier_centaur_return_lua:OnDestroy()
 
 end
 
@@ -35,24 +37,24 @@ end
 
 function modifier_centaur_return_lua:OnAttacked(params)
     if IsServer() then
+        local target = params.target
+        local attacker = params.attacker
 
-        if self:GetParent():IsIllusion() or self:GetParent():PassivesDisabled() then
+        if attacker:IsIllusion() or not target:IsConsideredHero() or target:PassivesDisabled() then
             return
         end
 
-        if params.unit == self:GetParent() or self:FlagExist(params.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) then
+        if target ~= self:GetParent() or FlagExist(params.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) then
             return
         end
 
         -- get damage
         local damage = self.base_damage + self:GetParent():GetStrength() * (self.strength_pct / 100)
 
-        print(damage)
-
         -- Apply Damage
         local damageTable = {
-            victim = params.attacker,
-            attacker = self:GetParent(),
+            victim = attacker,
+            attacker = target,
             damage = damage,
             damage_type = DAMAGE_TYPE_PHYSICAL,
             damage_flags = DOTA_DAMAGE_FLAG_REFLECTION,
@@ -61,21 +63,10 @@ function modifier_centaur_return_lua:OnAttacked(params)
         ApplyDamage(damageTable)
 
         -- Play effects
-        if params.attacker:IsConsideredHero() then
-            self:PlayEffects(params.attacker)
+        if attacker:IsConsideredHero() then
+            self:PlayEffects(target, attacker)
         end
     end
-end
-
--- Helper: Flag operations
-function modifier_centaur_return_lua:FlagExist(a, b)--Bitwise Exist
-    local p, c, d = 1, 0, b
-    while a > 0 and b > 0 do
-        local ra, rb = a % 2, b % 2
-        if ra + rb > 1 then c = c + p end
-        a, b, p = (a - ra) / 2, (b - rb) / 2, p * 2
-    end
-    return c == d
 end
 
 --------------------------------------------------------------------------------
@@ -86,26 +77,26 @@ end
 -- function modifier_centaur_return_lua:GetEffectAttachType()
 -- 	return PATTACH_ABSORIGIN_FOLLOW
 -- end
-function modifier_centaur_return_lua:PlayEffects(target)
+function modifier_centaur_return_lua:PlayEffects(target, attacker)
     local particle_cast = "particles/units/heroes/hero_centaur/centaur_return.vpcf"
 
-    local effect_cast = ParticleManager:CreateParticle(particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local effect_cast = ParticleManager:CreateParticle(particle_cast, PATTACH_ABSORIGIN_FOLLOW, target)
     ParticleManager:SetParticleControlEnt(
     effect_cast,
     0,
-    self:GetParent(),
+    target,
     PATTACH_POINT_FOLLOW,
     "attach_hitloc",
-    self:GetParent():GetOrigin(), -- unknown
+    target:GetOrigin(), -- unknown
     true -- unknown, true
     )
     ParticleManager:SetParticleControlEnt(
     effect_cast,
     1,
-    target,
+    attacker,
     PATTACH_POINT_FOLLOW,
     "attach_hitloc",
-    target:GetOrigin(), -- unknown
+    attacker:GetOrigin(), -- unknown
     true -- unknown, true
     )
 end

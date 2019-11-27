@@ -220,7 +220,7 @@
 			"07"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"5000"
+				"damage"					"2000"
 			}
 			"08"
 			{
@@ -319,7 +319,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.75"
-		"AbilityCastRange"				"300"
+		"AbilityCastRange"				"200"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 
 		// Time

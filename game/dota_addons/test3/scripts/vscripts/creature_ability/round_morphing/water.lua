@@ -33,15 +33,13 @@ function water_fuse(keys)
     local radius = 210
     local targets = FindUnitsInRadius(c_team, caster:GetOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     for i, unit in pairs(targets) do
-        unitName = unit:GetUnitName()
-        if unit:GetUnitName() == ("npc_majia_water_1") then
+        if unit:GetUnitName() == "npc_majia_water_1" then
             unit:ForceKill(true)
         end
     end
     local targets = FindUnitsInRadius(c_team, caster:GetOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     for i, unit in pairs(targets) do
-        unitName = unit:GetUnitName()
-        if unit:GetUnitName() == ("npc_majia_water_1") then
+        if unit:GetUnitName() == "npc_majia_water_1" then
             unit:ForceKill(true)
         end
     end
@@ -50,18 +48,18 @@ end
 function water_remove_self(keys)
     local caster = keys.caster
     caster.removedByMech = true
-    caster:RemoveAbility('water_die')
+    caster:RemoveAbility("water_die")
     if caster:FindAbilityByName("generic_gold_bag_fountain_500") then
-        caster:RemoveAbility('generic_gold_bag_fountain_500')
+        caster:RemoveAbility("generic_gold_bag_fountain_500")
     end
     if caster:FindAbilityByName("generic_gold_bag_fountain_200") then
-        caster:RemoveAbility('generic_gold_bag_fountain_200')
+        caster:RemoveAbility("generic_gold_bag_fountain_200")
     end
     if caster:FindAbilityByName("generic_gold_bag_fountain_100") then
-        caster:RemoveAbility('generic_gold_bag_fountain_100')
+        caster:RemoveAbility("generic_gold_bag_fountain_100")
     end
     if caster:FindAbilityByName("generic_gold_bag_fountain_50") then
-        caster:RemoveAbility('generic_gold_bag_fountain_50')
+        caster:RemoveAbility("generic_gold_bag_fountain_50")
     end
     local casterOrigin = caster:GetOrigin()
     caster.removedByMech = true
