@@ -1,0 +1,114 @@
+"DOTAAbilities"
+{
+	"gold_zombie_straight_wave"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"					    "ability_datadriven"
+		"AbilityTextureName"	        "nevermore_shadowraze1"
+		"precache"
+		{
+			"particle"                  "particles/econ/items/earthshaker/earthshaker_gravelmaw/earthshaker_fissure_gravelmaw_gold.vpcf"
+
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"creature_ability/round_tombstone/zombie_wave.lua"
+				"Function"		"LaunchWave"
+				"Type"          "1"
+			}
+		}
+	}
+
+    "red_zombie_lean_wave"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"					    "ability_datadriven"
+		"AbilityTextureName"	        "nevermore_shadowraze1"
+		"precache"
+		{
+			"particle"                  "particles/econ/items/earthshaker/egteam_set/hero_earthshaker_egset/earthshaker_fissure_egset.vpcf"
+		    "soundfile"				    "soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"creature_ability/round_tombstone/zombie_wave.lua"
+				"Function"		"LaunchWave"
+				"Type"          "2"
+			}
+		}
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_percent"		"50"
+			}
+		}
+	}
+
+	"creature_general_count_down"  //通用型 倒计时死亡
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass" 					"ability_datadriven"
+		"AbilityTextureName"			"faceless_void_chronosphere"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+        "precache"
+		{
+		     "particle"          "particles/hw_fx/candy_carrying_stack.vpcf"
+		}
+
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"init_time"		        "3"
+			}
+		}
+
+        "Modifiers"
+	    {
+			"modifier_general_count_down"
+			{
+				"IsHidden"           "1"
+				"Passive"            "1"
+				"IsPurgable"		 "0"
+				"ThinkInterval"		 "1.0"
+                "OnCreated"
+                {
+					"RunScript"
+					{
+						"ScriptFile"	 "creature_ability/general_count_down.lua"
+						"Function"		 "InitCountDown"
+					}
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	 "creature_ability/general_count_down.lua"
+						"Function"		 "Onthink"
+					}
+				}
+			}
+			"modifier_provide_vision"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+
+		         "States"
+		         {
+		         	"MODIFIER_STATE_PROVIDES_VISION"		"MODIFIER_STATE_VALUE_ENABLED"
+		         }
+			}
+	    }
+	}
+}

@@ -27,8 +27,8 @@ function modifier_boss_sand_king_burrowstrike_end:OnCreated( kv )
 		local flHealthPct = self:GetParent():GetHealthPercent() / 100
 		self.speed = self:GetAbility():GetSpecialValueFor( "speed" ) + ( self:GetAbility():GetSpecialValueFor( "scaling_speed" ) * ( 1 - flHealthPct ) )
 
-		self.delay = self:GetAbility():GetSpecialValueFor( "delay" ) 
-		self.damage = self:GetAbility():GetSpecialValueFor( "damage" ) 
+		self.delay = self:GetAbility():GetSpecialValueFor( "delay" )
+		self.damage = self:GetAbility():GetSpecialValueFor( "damage" )
 		self.radius = self:GetAbility():GetSpecialValueFor( "radius" )
 		self.stun_duration = self:GetAbility():GetSpecialValueFor( "stun_duration" )
 		self.knockback_distance = self:GetAbility():GetSpecialValueFor( "knockback_distance" )
@@ -37,9 +37,9 @@ function modifier_boss_sand_king_burrowstrike_end:OnCreated( kv )
 		self.bExitGround = false
 
 		self:StartIntervalThink( 0.1 )
-		
 
-		if self:ApplyHorizontalMotionController() == false then 
+
+		if self:ApplyHorizontalMotionController() == false then
 			self:Destroy()
 			return
 		end
@@ -52,11 +52,11 @@ function modifier_boss_sand_king_burrowstrike_end:OnIntervalThink()
 	if IsServer() then
 		if self.bExitGround == false then
 			EmitSoundOn( "SandKingBoss.BurrowStrike", self:GetParent() )
-			
-			local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), self:GetParent():GetOrigin(), self:GetParent(), self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+
+			local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), self:GetParent():GetOrigin(), self:GetParent(), self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 			for _,enemy in pairs( enemies ) do
-				if enemy ~= nil and enemy:IsInvulnerable() == false then
-					local damageInfo = 
+				if enemy:IsInvulnerable() == false then
+					local damageInfo =
 					{
 						victim = enemy,
 						attacker = self:GetCaster(),
@@ -71,7 +71,7 @@ function modifier_boss_sand_king_burrowstrike_end:OnIntervalThink()
 						center_x = self:GetParent():GetOrigin().x,
 						center_y = self:GetParent():GetOrigin().y,
 						center_z = self:GetParent():GetOrigin().z,
-						should_stun = true, 
+						should_stun = true,
 						duration = self.stun_duration,
 						knockback_duration = self.stun_duration,
 						knockback_distance = self.knockback_distance,
@@ -88,7 +88,7 @@ function modifier_boss_sand_king_burrowstrike_end:OnIntervalThink()
 					ParticleManager:SetParticleControlForward( nFXIndex, 1, vDirection )
 					ParticleManager:ReleaseParticleIndex( nFXIndex )
 				end
-			end	
+			end
 			self.bExitGround = true
 			self:StartIntervalThink( self.delay - 0.1 )
 		else
@@ -97,10 +97,10 @@ function modifier_boss_sand_king_burrowstrike_end:OnIntervalThink()
 			ParticleManager:ReleaseParticleIndex( nFXCastIndex )
 			EmitSoundOn( "Burrower.Explosion", self:GetCaster() )
 
-			local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), self:GetParent():GetOrigin(), self:GetParent(), self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+			local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), self:GetParent():GetOrigin(), self:GetParent(), self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 			for _,enemy in pairs( enemies ) do
-				if enemy ~= nil and enemy:IsInvulnerable() == false then
-					local damageInfo = 
+				if enemy:IsInvulnerable() == false then
+					local damageInfo =
 					{
 						victim = enemy,
 						attacker = self:GetCaster(),
@@ -115,7 +115,7 @@ function modifier_boss_sand_king_burrowstrike_end:OnIntervalThink()
 						center_x = self:GetParent():GetOrigin().x,
 						center_y = self:GetParent():GetOrigin().y,
 						center_z = self:GetParent():GetOrigin().z,
-						should_stun = true, 
+						should_stun = true,
 						duration = self.stun_duration,
 						knockback_duration = self.stun_duration,
 						knockback_distance = self.knockback_distance,
@@ -134,7 +134,7 @@ function modifier_boss_sand_king_burrowstrike_end:OnIntervalThink()
 				end
 			end
 			self:Destroy()
-		end	
+		end
 	end
 end
 
@@ -180,7 +180,7 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_boss_sand_king_burrowstrike_end:DeclareFunctions()
-	local funcs = 
+	local funcs =
 	{
 		MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
 		MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE,
@@ -205,7 +205,7 @@ end
 -------------------------------------------------------------------------------
 
 function modifier_boss_sand_king_burrowstrike_end:GetOverrideAnimationRate( params )
-	return 0.5 
+	return 0.5
 end
 
 -------------------------------------------------------------------------------

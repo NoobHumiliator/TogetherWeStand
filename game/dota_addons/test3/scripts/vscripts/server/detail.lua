@@ -3,7 +3,7 @@ if Detail == nil then Detail = class({}) end
 require('libraries/json')
 require('util')
 
-vTotalDamageTable={} --全局变量统计总伤害 
+vTotalDamageTable={} --全局变量统计总伤害
 vTotalHealTable={} --全局变量统计总治疗
 vFailedRound={} --失败关卡
 vPlayerStatusSnapshots={} --每关状态快照
@@ -17,12 +17,12 @@ end
 
 --记录游戏细节
 function Detail:RecordDetail()
-     
+
     local nRoundNumber = GameRules:GetGameModeEntity().CHoldoutGameMode._nRoundNumber-1
     local nDifficulty = GameRules:GetGameModeEntity().CHoldoutGameMode.map_difficulty
 
-    local playerSteamIDs="";
-    local player_number=0;
+    local playerSteamIDs=""
+    local player_number=0
     local steamGameId=GameRules:GetMatchID()
     if tostring(steamGameId)=="0" then
        steamGameId=GetSystemTime().."_"..RandomInt(0,99999999)
@@ -50,30 +50,30 @@ function Detail:RecordDetail()
     request:SetHTTPRequestGetOrPostParameter("player_number",tostring(player_number))
     request:SetHTTPRequestGetOrPostParameter("difficulty",tostring(nDifficulty))
     request:SetHTTPRequestGetOrPostParameter("auth","K4gN+u422RN2X4DubcLylw==")
-    request:SetHTTPRequestGetOrPostParameter("fail_details",JSON:encode(vFailedRound))  
+    request:SetHTTPRequestGetOrPostParameter("fail_details",JSON:encode(vFailedRound))
     request:SetHTTPRequestGetOrPostParameter("player_details",JSON:encode(vPlayerStatusSnapshots))
-    request:SetHTTPRequestGetOrPostParameter("dedicated_server_key",GetDedicatedServerKey("K4gN+u422RN2X4DubcLylw=="));
+    request:SetHTTPRequestGetOrPostParameter("dedicated_server_key",GetDedicatedServerKey("K4gN+u422RN2X4DubcLylw=="))
 
     print("Fail details: "..tostring(JSON:encode(vFailedRound)))
     request:Send(function(result)
         print("Detail result arrived: "..result.Body)
         if result.StatusCode == 200 then
-            if result.Body=="Dupulicate game id" then                  
-               print("dupulicate game id", result.StatusCode, result.Body);                   
+            if result.Body=="Dupulicate game id" then
+               print("dupulicate game id", result.StatusCode, result.Body)
             else
-               print("record detail success", result.StatusCode, result.Body);                                   
+               print("record detail success", result.StatusCode, result.Body)
             end
         else
-            print("Server return", result.StatusCode, result.Body);
+            print("Server return", result.StatusCode, result.Body)
         end
     end)
 end
 
 
 
---记录玩家状态快照   bPass是否过关 
+--记录玩家状态快照   bPass是否过关
 function Detail:InsertPlayerStatusSnapshot(bPass)
-     
+
     local nRoundNumber = GameRules:GetGameModeEntity().CHoldoutGameMode._nRoundNumber
     local nDifficulty = GameRules:GetGameModeEntity().CHoldoutGameMode.map_difficulty
     local nBranchIndex = GameRules:GetGameModeEntity().CHoldoutGameMode._nBranchIndex
@@ -93,11 +93,11 @@ function Detail:InsertPlayerStatusSnapshot(bPass)
             if  PlayerResource:HasSelectedHero( nPlayerID ) then
               local playerDetail={}
               playerDetail.steam_id=PlayerResource:GetSteamAccountID(nPlayerID)
-              local itemNames="";
+              local itemNames=""
               local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
               for i=0,8 do --遍历物品
                   local current_item = hero:GetItemInSlot(i)
-                  if current_item ~= nil then         
+                  if current_item ~= nil then
                       itemNames=itemNames..current_item:GetName()..";"
                   end
               end

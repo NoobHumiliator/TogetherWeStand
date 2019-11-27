@@ -120,16 +120,16 @@ function modifier_boss_sand_king_passive:OnAttackLanded( params )
 					hCausticBuff = Target:AddNewModifier( self:GetParent(), self:GetAbility(), "modifier_boss_sand_king_caustic_finale", { duration = caustic_duration } )
 					if hCausticBuff ~= nil then
 						hCausticBuff:SetStackCount( 0 )
-					end	
+					end
 				end
 				if hCausticBuff ~= nil then
-					hCausticBuff:SetStackCount( hCausticBuff:GetStackCount() + 1 )  
+					hCausticBuff:SetStackCount( hCausticBuff:GetStackCount() + 1 )
 					hCausticBuff:SetDuration( caustic_duration, true )
-				end		
+				end
 			end
 		end
 	end
-	return 0 
+	return 0
 end
 
 -----------------------------------------------------------------------------------------
@@ -147,7 +147,7 @@ function modifier_boss_sand_king_passive:OnTakeDamage( params )
 		if hAttacker ~= nil and hVictim ~= nil and hVictim == self:GetParent() then
 			if hVictim:FindModifierByName( "modifier_provide_vision" ) == nil then
 				print( "Provide Vision" )
-				hVictim:AddNewModifier( hAttacker, self:GetAbility(), "modifier_provide_vision", { duration = -1 } ) 
+				hVictim:AddNewModifier( hAttacker, self:GetAbility(), "modifier_provide_vision", { duration = -1 } )
 			end
 		end
 	end

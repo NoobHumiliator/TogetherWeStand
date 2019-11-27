@@ -1,0 +1,76 @@
+"DOTAAbilities"
+{
+	"frostivus2018_windrunner_shackleshot"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityTextureName"			"frostivus2018_windrunner_shackleshot"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Windrunner.ShackleshotCast"
+		"MaxLevel"                      "8"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.15"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20 18 16 14 12 10 8 6"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0 0 0 0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"70 85 100 115 130 145 160 175"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"fail_stun_duration"	"1.75 1.75 1.75 1.75 1.75 1.75 1.75 1.75"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shackle_distance"		"350"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"arrow_speed"			"1650"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shackle_count"			"2 3 4 5 6 7 8 9"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"shackle_angle"			"42"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"subtarget_amount"			"2"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+}

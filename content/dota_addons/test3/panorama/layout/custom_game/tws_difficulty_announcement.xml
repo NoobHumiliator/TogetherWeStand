@@ -6,7 +6,7 @@
   <scripts>
     <include src="s2r://panorama/scripts/custom_game/tws_difficulty_selection.js" />
   </scripts>
-   <Panel hittest="false" class="DifficultyAnnouncePanel">
-          <Label hittest="false" id="DifficultyAnnounceText" class="DifficultyAnnounceText hidden" text=""/>
-   </Panel>
+  <Panel hittest="false" class="DifficultyAnnouncePanel">
+    <Label hittest="false" id="DifficultyAnnounceText" class="DifficultyAnnounceText hidden" text=""/>
+  </Panel>
 </root>

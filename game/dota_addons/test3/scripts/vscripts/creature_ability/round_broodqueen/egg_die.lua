@@ -5,7 +5,7 @@ function announce_egg_die(key)
     if caster.removedByMech~=true then
       if  GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag==true then
 
-        QuestSystem:RefreshAchQuest("Achievement",0,1) 
+        QuestSystem:RefreshAchQuest("Achievement",0,1)
         Notifications:BottomToTeam(DOTA_TEAM_GOODGUYS, {text="#round7_acheivement_fail_note", duration=4, style = {color = "Orange"}})
       end
       GameRules:GetGameModeEntity().CHoldoutGameMode._currentRound.achievement_flag=false

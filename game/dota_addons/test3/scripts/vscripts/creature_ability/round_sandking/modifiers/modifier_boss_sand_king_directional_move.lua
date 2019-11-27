@@ -16,9 +16,9 @@ end
 
 function modifier_boss_sand_king_directional_move:OnCreated( kv )
 	if IsServer() then
-		
+
 		self.speed = self:GetAbility():GetSpecialValueFor( "speed" )
-		if self:ApplyHorizontalMotionController() == false then 
+		if self:ApplyHorizontalMotionController() == false then
 			self:Destroy()
 			return
 		end
@@ -69,7 +69,7 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_boss_sand_king_directional_move:DeclareFunctions()
-	local funcs = 
+	local funcs =
 	{
 		MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS,
 		MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE,

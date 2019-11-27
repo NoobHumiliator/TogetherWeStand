@@ -7,7 +7,7 @@ function NetherWardZap( event )
 	local caster = event.caster
 	local target = event.unit -- The unit that spent mana
 	local ability = event.ability
-	if ability then 
+	if ability then
 	   local ward = ability.nether_ward -- Keep track of the ward to attach the particle
 	   local AbilityDamageType = ability:GetAbilityDamageType()
 
@@ -28,7 +28,9 @@ function NetherWardZap( event )
 		ParticleManager:SetParticleControl(attack, 1, target:GetAbsOrigin())
 
 		target:EmitSound("Hero_Pugna.NetherWard.Target")
-		caster:EmitSound("Hero_Pugna.NetherWard.Attack")
+		if caster then
+			caster:EmitSound("Hero_Pugna.NetherWard.Attack")
+		end
 	  end
     end
 end
@@ -44,7 +46,7 @@ function GetFrontPoint( event )
 	local fv = caster:GetForwardVector()
 	local origin = caster:GetAbsOrigin()
 	local distance = event.Distance
-	
+
 	local front_position = origin + fv * distance
 	local result = {}
 	table.insert(result, front_position)

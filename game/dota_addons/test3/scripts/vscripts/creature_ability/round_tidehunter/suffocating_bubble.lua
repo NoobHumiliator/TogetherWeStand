@@ -29,12 +29,12 @@ function BubbleDamage( keys )
 
     if target~=nil and target.suffocating_bubble_damage~=nil and target.suffocating_bubble_damage>0 then
     	local increaseDamage = ability:GetLevelSpecialValueFor("increase_damage", ability:GetLevel()-1)
-    	local damageTable = 
+    	local damageTable =
         {
             victim=target,
             attacker=caster,
             damage_type=DAMAGE_TYPE_PURE,
-            damage_flag=DOTA_DAMAGE_FLAG_HPLOSS,
+            damage_flag=DOTA_DAMAGE_FLAG_NONE,
             damage=target.suffocating_bubble_damage
         }
         ApplyDamage(damageTable)
@@ -42,7 +42,7 @@ function BubbleDamage( keys )
            target.suffocating_bubble_damage=target.suffocating_bubble_damage+increaseDamage
         end
     end
-    
+
 end
 
 

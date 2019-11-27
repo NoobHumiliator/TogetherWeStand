@@ -1,0 +1,35 @@
+"DOTAAbilities"
+{
+	"spectre_dispersion_lua"   //折射卡掉队友 重写
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"heroes/hero_spectre/spectre_dispersion_lua"
+		"AbilityTextureName"		"spectre_dispersion"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"min_radius"		"300"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_radius"		"700"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_reflection_pct"		"7 12 17 22"
+        		"LinkedSpecialBonus"        "special_bonus_unique_spectre_5"
+			}
+		}
+	}
+}

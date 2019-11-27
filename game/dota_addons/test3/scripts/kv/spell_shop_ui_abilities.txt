@@ -4,8 +4,8 @@
   "earthshaker" {
   "1"    "earthshaker_fissure"
   "2"    "earthshaker_enchant_totem"
-  "3"    "earthshaker_aftershock_datadriven"
-  "4"    "earthshaker_aftershock_ward_winter_datadriven"
+  "3"    "earthshaker_aftershock_lua"
+  "4"    "earthshaker_aftershock_ward_winter_2018"
   "5"    "earthshaker_echo_slam"
   }
   "sven" {
@@ -56,18 +56,18 @@
   "1"    "drow_ranger_frost_arrows"
   "2"    "drow_ranger_wave_of_silence"
   "3"    "drow_ranger_trueshot"
-  "4"    "drow_ranger_marksmanship_datadriven"
+  "4"    "drow_ranger_marksmanship"
   }
   "juggernaut" {
   "1"    "juggernaut_blade_fury"
   "2"    "juggernaut_healing_ward"
-  "3"    "juggernaut_blade_dance_datadriven"
+  "3"    "juggernaut_blade_dance"
   "4"    "juggernaut_omni_slash"
   "5"    "holdout_omnislash"
   }
   "mirana" {
-  "1"    "mirana_starfall_datadriven"
-  "2"    "mirana_arrow_datadriven"
+  "1"    "mirana_starfall_lua"
+  "2"    "mirana_arrow_lua"
   "3"    "mirana_leap"
   "4"    "mirana_invis"
   }
@@ -119,14 +119,14 @@
   "zuus" {
   "1"    "zuus_arc_lightning"
   "2"    "zuus_lightning_bolt"
-  "3"    "zuus_static_field_datadriven"
+  "3"    "zuus_static_field_lua"
   "4"    "zuus_thundergods_vengeance"
   "5"    "zeus_thundergods_wrath_nb2017"
   }
   "lina" {
   "1"    "lina_dragon_slave"
   "2"    "lina_light_strike_array"
-  "3"    "lina_fiery_soul_datadriven"
+  "3"    "lina_fiery_soul_lua"
   "4"    "lina_laguna_blade"
   }
   "shadow_shaman" {
@@ -182,7 +182,7 @@
   "1"    "centaur_hoof_stomp"
   "2"    "centaur_double_edge"
   "3"    "centaur_return"
-  "4"    "centaur_return_datadriven"
+  "4"    "centaur_return_lua"
   "5"    "centaur_stampede"
   }
   "riki" {
@@ -230,9 +230,9 @@
   }
   "tinker" {
   "1"    "tinker_laser"
-  "2"    "tinker_heat_seeking_missile_datadriven"
+  "2"    "tinker_heat_seeking_missile_lua"
   "3"    "tinker_march_of_the_machines"
-  "4"    "tinker_rearm_datadriven"
+  "4"    "tinker_rearm_lua"
   }
   "furion" {
   "1"    "furion_sprout"
@@ -268,14 +268,14 @@
   "2"    "ogre_magi_ignite"
   "3"    "ogre_magi_bloodlust"
   "4"    "ogre_magi_unrefined_fireblast"
-  "5"    "ogre_magi_multicast"
+  "5"    "ogre_magi_multicast_lua"
   }
   "shredder" {
   "1"    "shredder_whirling_death"
   "2"    "shredder_timber_chain"
   "3"    "shredder_reactive_armor"
-  "4"    "shredder_chakram"
-  "5"    "shredder_chakram_2"
+  "4"    "shredder_chakram_lua"
+  "5"    "shredder_chakram_2_lua"
   }
   "bristleback" {
   "1"    "bristleback_viscous_nasal_goo"
@@ -300,10 +300,11 @@
   "legion_commander" {
   "1"    "legion_commander_overwhelming_odds"
   "2"    "legion_commander_press_the_attack"
-  "3"    "legion_commander_duel"
+  "3"    "legion_commander_moment_of_courage"
+  "4"    "legion_commander_duel"
   }
   "earth_spirit" {
-  "1"    "earth_spirit_stone_caller" 
+  "1"    "earth_spirit_stone_caller"
   "2"    "earth_spirit_boulder_smash"
   "3"    "earth_spirit_rolling_boulder"
   "4"    "earth_spirit_geomagnetic_grip"
@@ -351,10 +352,9 @@
   "4"     "arc_warden_tempest_double"
   }
   "rubick" {
-  "1"    "rubick_telekinesis"
-  "2"    "rubick_fade_bolt"
-  "3"    "rubick_null_field"
-  "4"    "rubick_arcane_supremacy"
+  "1"    "rubick_fade_bolt"
+  "2"    "rubick_null_field"
+  "3"    "rubick_arcane_supremacy"
   }
   "disruptor" {
   "1"    "disruptor_thunder_strike"
@@ -366,13 +366,13 @@
   "1"    "keeper_of_the_light_illuminate"
   "2"    "keeper_of_the_light_mana_leak"
   "3"    "keeper_of_the_light_chakra_magic"
-  "4"    "keeper_of_the_light_recall_tws"
+  "4"    "keeper_of_the_light_recall_lua"
   "5"    "keeper_of_the_light_blinding_light"
   "6"    "keeper_of_the_light_will_o_wisp"
   }
   "skywrath_mage" {
   "1"    "skywrath_mage_arcane_bolt"
-  "2"    "skywrath_mage_concussive_shot_datadriven"
+  "2"    "skywrath_mage_concussive_shot_lua"
   "3"    "skywrath_mage_ancient_seal"
   "4"    "skywrath_mage_mystic_flare"
   }
@@ -386,14 +386,14 @@
   "1"    "techies_land_mines"
   "2"    "techies_stasis_trap"
   "3"    "techies_suicide"
-  "4"    "techies_suicide_datadriven"
+  "4"    "techies_suicide_lua"
   "5"    "techies_remote_mines"
   "6"    "techies_focused_detonate"
   }
   "axe" {
   "1"    "axe_berserkers_call"
   "2"    "axe_battle_hunger"
-  "3"    "axe_counter_helix_datadriven"
+  "3"    "axe_counter_helix_lua"
   "4"    "axe_culling_blade"
   }
   "pudge" {
@@ -423,7 +423,7 @@
   "skeleton_king" {
   "1"    "skeleton_king_hellfire_blast"
   "2"    "skeleton_king_vampiric_aura"
-  "3"    "skeleton_king_mortal_strike_datadriven"
+  "3"    "skeleton_king_mortal_strike"
   "4"    "skeleton_king_reincarnation"
   }
   "life_stealer" {
@@ -456,7 +456,7 @@
   }
   "faceless_void" {
   "1"    "faceless_void_time_walk"
-  "2"    "faceless_void_time_lock_datadriven"
+  "2"    "faceless_void_time_lock_lua"
   "3"    "faceless_void_backtrack"
   "4"    "faceless_void_chronosphere"
   }
@@ -485,7 +485,7 @@
   "3"    "lich_sinister_gaze"
   "4"    "lich_frost_shield"
   "5"    "lich_frost_aura"
-  "6"    "lich_dark_ritual_datadriven"
+  "6"    "lich_dark_ritual_lua"
   "7"    "lich_chain_frost"
   }
   "lion" {
@@ -508,10 +508,9 @@
   }
   "necrolyte" {
   "1"    "necrolyte_death_pulse"
-  "2"    "necrolyte_heartstopper_aura_datadriven"
+  "2"    "necrolyte_heartstopper_aura_lua"
   "3"    "necrolyte_sadist"
-  "4"    "necrolyte_sadist_datadriven"
-  "5"    "necrolyte_reapers_scythe_datadriven"
+  "4"    "necrolyte_reapers_scythe_lua"
   }
   "warlock" {
   "1"    "warlock_fatal_bonds"
@@ -526,10 +525,10 @@
   "4"    "night_stalker_darkness"
   }
   "doom_bringer" {
-  "1"    "doom_bringer_devour_datadriven"
+  "1"    "doom_bringer_devour_lua"
   "2"    "doom_bringer_scorched_earth"
   "3"    "doom_bringer_infernal_blade"
-  "4"    "doom_bringer_doom_datadriven"
+  "4"    "doom_bringer_doom_lua"
   }
   "spirit_breaker" {
   "1"    "spirit_breaker_charge_of_darkness"
@@ -568,7 +567,7 @@
   "3"    "frostivus2018_clinkz_searing_arrows"
   "4"    "clinkz_wind_walk"
   "5"    "frostivus2018_clinkz_wind_walk"
-  "6"    "death_pact_datadriven"
+  "6"    "clinkz_burning_army"
   "7"    "frostivus2018_clinkz_burning_army"
   }
   "broodmother" {
@@ -586,7 +585,7 @@
   "spectre" {
   "1"    "spectre_spectral_dagger"
   "2"    "spectre_desolate"
-  "3"    "spectre_dispersion_datadriven"
+  "3"    "spectre_dispersion_lua"
   }
   "meepo" {
   "1"    "meepo_earthbind"
@@ -609,7 +608,7 @@
   "4"    "slark_shadow_dance"
   }
   "queenofpain" {
-  "1"    "queenofpain_shadow_strike"
+  "1"    "queenofpain_shadow_strike_lua"
   "2"    "queenofpain_blink"
   "3"    "queenofpain_scream_of_pain"
   "4"    "queenofpain_sonic_wave"
@@ -618,15 +617,14 @@
   "1"    "death_prophet_carrion_swarm"
   "2"    "death_prophet_silence"
   "3"    "death_prophet_spirit_siphon"
-  "4"    "death_prophet_witchcraft"
-  "5"    "death_prophet_exorcism"
+  "4"    "death_prophet_exorcism"
   }
   "pugna" {
   "1"    "pugna_nether_blast"
   "2"    "pugna_decrepify"
   "3"    "pugna_nether_ward"
   "4"    "pugna_life_drain"
-  "5"    "pugna_ward_winter_datadriven"
+  "5"    "pugna_ward_winter_2018"
   }
   "dazzle" {
   "1"    "dazzle_poison_touch"
@@ -668,14 +666,14 @@
   "medusa" {
   "1"    "medusa_split_shot"
   "2"    "medusa_mystic_snake"
-  "3"    "medusa_mana_shield"
+  "3"    "medusa_mana_shield_lua"
   "4"    "medusa_stone_gaze"
   }
   "terrorblade" {
   "1"    "terrorblade_reflection"
   "2"    "terrorblade_conjure_image"
   "3"    "terrorblade_metamorphosis"
-  "4"    "terrorblade_sunder_datadriven"
+  "4"    "terrorblade_sunder_lua"
   }
   "ancient_apparition" {
   "1"    "ancient_apparition_cold_feet"
@@ -684,19 +682,18 @@
   "4"    "ancient_apparition_ice_blast"
   }
   "invoker" {
-  "1"    "invoker_forge_spirit_lod"
-  "2"    "invoker_deafening_blast_lod"
-  "3"    "invoker_chaos_meteor_lod"
-  "4"    "invoker_alacrity_lod"
-  "5"    "invoker_ice_wall_lod"
-  "6"    "invoker_tornado_lod"
-  "7"    "invoker_emp_lod"
+  "1"    "invoker_sun_strike_lua"
+  "2"    "invoker_chaos_meteor_lua"
+  "3"    "invoker_tornado_lua"
+  "4"    "invoker_forge_spirit_lua"
+  "5"    "invoker_emp_lua"
+  "6"    "invoker_alacrity_lua"
   }
   "obsidian_destroyer" {
   "1"    "obsidian_destroyer_arcane_orb"
   "2"    "obsidian_destroyer_astral_imprisonment"
   "3"    "obsidian_destroyer_equilibrium"
-  "4"    "obsidian_destroyer_essence_aura_datadriven"
+  "4"    "obsidian_destroyer_essence_aura_lua"
   }
   "shadow_demon" {
   "1"    "shadow_demon_disruption"
@@ -748,12 +745,24 @@
   "2"    "grimstroke_ink_creature"
   "3"    "grimstroke_spirit_walk"
   "4"    "grimstroke_soul_chain"
-   }
+  }
   "mars" {
   "1"    "mars_spear"
   "2"    "mars_gods_rebuke"
   "3"    "mars_bulwark"
   "4"    "mars_arena_of_blood"
-   }
+  }
+  "void_spirit" {
+  "1"    "void_spirit_aether_remnant"
+  "2"    "void_spirit_dissimilate"
+  "3"    "void_spirit_resonant_pulse"
+  "4"    "void_spirit_astral_step"
+  }
+  "snapfire" {
+  "1"    "snapfire_scatterblast"
+  "2"    "snapfire_firesnap_cookie"
+  "3"    "snapfire_lil_shredder"
+  "4"    "snapfire_mortimer_kisses"
+  }
 
 }

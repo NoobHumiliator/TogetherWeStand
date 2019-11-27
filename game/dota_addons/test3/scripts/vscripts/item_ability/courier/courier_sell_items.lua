@@ -5,7 +5,7 @@ function LevelupSellItems( keys )
 
 
   RemoveRedundantCourierAbility(target)
-    
+
 	if not target:HasAbility("courier_sell_items_datadriven") then  --如果没有技能，赋予技能
 		target:AddAbility("courier_sell_items_datadriven")
 		target:FindAbilityByName("courier_sell_items_datadriven"):SetLevel(1)
@@ -15,6 +15,6 @@ function LevelupSellItems( keys )
 			target:FindAbilityByName("courier_sell_items_datadriven"):SetLevel(abilityLevel+1)
 	    end
 	end
-  AddRedundantCourierAbility(target)	
+  AddRedundantCourierAbility(target)
 end
 

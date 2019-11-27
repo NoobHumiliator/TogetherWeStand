@@ -11,7 +11,7 @@ behaviorSystem = {} -- create the global so we can assign to it
 function Spawn( entityKeyValues )
 	if  thisEntity:GetTeam()==DOTA_TEAM_BADGUYS then
 	  thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
-      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone,BehaviorHex,BehaviorImpale,BehaviorFinger} ) 
+      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone,BehaviorHex,BehaviorImpale,BehaviorFinger} )
       if thisEntity:HasAbility("lion_boss_hex") then
       	 local ability=thisEntity:FindAbilityByName("lion_boss_hex")
       	 ability:StartCooldown(20)
@@ -32,16 +32,9 @@ end
 function BehaviorNone:Begin()
 	self.endTime = GameRules:GetGameTime() + 1
 	self.target=nil
-	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 		if #allEnemies > 0 then
-			local minDistance = 10000000
-			for _,enemy in pairs(allEnemies) do
-				local distance = ( thisEntity:GetOrigin() - enemy:GetOrigin() ):Length()
-				if distance < minDistance then
-				  minDistance=distance
-                  self.target=enemy
-				end
-			end
+			self.target = allEnemies[1]
 		end
 
 
@@ -71,12 +64,12 @@ function BehaviorHex:Evaluate()  --妖术
 	self.plasmaAbility = thisEntity:FindAbilityByName("lion_boss_hex")
 	if self.plasmaAbility and self.plasmaAbility:IsFullyCastable() then
 		desire = 7
-	end	
+	end
 	return desire
 end
 
 function BehaviorHex:Begin()
-	self.endTime = GameRules:GetGameTime() + 0.5	
+	self.endTime = GameRules:GetGameTime() + 0.5
 	self.order =
 	{
 		UnitIndex = thisEntity:entindex(),
@@ -91,23 +84,23 @@ BehaviorImpale = {}
 
 function BehaviorImpale:Evaluate()    --旋转尖刺
 	local desire = 0
-	
+
 	-- let's not choose this twice in a row
 	if currentBehavior == self then return desire end
 
 	self.impaleAbility = thisEntity:FindAbilityByName( "lion_boss_impale_circular" )
-	
+
 	if self.impaleAbility and self.impaleAbility:IsFullyCastable() then
 		self.target = AICore:RandomEnemyHeroInRange( thisEntity, 1000)
 		if self.target then
 			desire = 5
 		end
-	end	
+	end
 	return desire
 end
 
 function BehaviorImpale:Begin()
-	self.endTime = GameRules:GetGameTime() + 1	
+	self.endTime = GameRules:GetGameTime() + 1
 	self.order =
 	{
 		UnitIndex = thisEntity:entindex(),
@@ -126,12 +119,12 @@ function BehaviorFinger:Evaluate()    --死亡一指
 	self.fingerAbility = thisEntity:FindAbilityByName("lion_boss_finger_of_death")
 	if self.fingerAbility and self.fingerAbility:IsFullyCastable() then
 		desire = 3
-	end	
+	end
 	return desire
 end
 
 function BehaviorFinger:Begin()
-	self.endTime = GameRules:GetGameTime() + 0.5	
+	self.endTime = GameRules:GetGameTime() + 0.5
 	self.order =
 	{
 		UnitIndex = thisEntity:entindex(),

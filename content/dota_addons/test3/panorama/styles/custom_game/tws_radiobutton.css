@@ -5,6 +5,7 @@
     saturation: 0;
     brightness: 0.005;
 }
+
 .cm_heroes_group RadioButton:enabled DOTAHeroImage {
     saturation: 1;
     brightness: 1;
@@ -20,6 +21,7 @@
     margin: 1px;
     border: 1px solid #000;
 }
+
 #Heroes RadioButton.disableHero DOTAHeroImage {
     saturation: 0.25;
     brightness: 0.25;
@@ -27,12 +29,10 @@
 
 /*------------------------------*/
 
-RadioButton:enabled DOTAHeroImage:hover,
-RadioButton:selected DOTAHeroImage {
+RadioButton:enabled DOTAHeroImage:hover, RadioButton:selected DOTAHeroImage {
     box-shadow: inset #ffffff80 2px 2px 0px 4px;
 }
 
-.currentSelection{
+.currentSelection {
     box-shadow: inset #66ff6650 2px 2px 4px 4px;
 }
-

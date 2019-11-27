@@ -1,6 +1,6 @@
 function volly(args)
 	local caster = args.caster
-	local info = 
+	local info =
 	   {
 	    Ability = args.ability,
         EffectName = args.EffectName,

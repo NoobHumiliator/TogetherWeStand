@@ -1,0 +1,53 @@
+"DOTAAbilities"
+{
+	"centaur_return_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_centaur/centaur_return_lua"
+		"AbilityTextureName"			"centaur_return"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"4"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts"
+			"particle"	"particles/units/heroes/hero_centaur/centaur_return.vpcf"
+		}
+
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Damage
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"return_damage"				"16 18 20 22"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"strength_pct"				"30 45 60 75"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aura_radius"				"1200"
+			}
+		}
+	}
+}

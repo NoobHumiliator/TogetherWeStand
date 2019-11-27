@@ -16,7 +16,7 @@ function Aftershock( keys )
     local chance_pass=true  --某些技能概率不通过
 
     if RandomInt(0,100)<25 and ability_exempt_table[cast_ability:GetAbilityName()] then  --25% 概率不通过
-       chance_pass=false 
+       chance_pass=false
     end
 
 	-- Parameters
@@ -25,16 +25,16 @@ function Aftershock( keys )
 	local stun_duration = ability:GetLevelSpecialValueFor("stun_duration", ability_level)
     if cast_ability and cast_ability:GetManaCost( cast_ability:GetLevel() - 1 ) > 0 and cast_ability:GetCooldown( cast_ability:GetLevel() - 1 ) > 0.05  and chance_pass then
 	      local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-	      --print(#enemies)	
+	      --print(#enemies)
 	     -- local after_shock_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_earthshaker/earthshaker_loadout.vpcf", PATTACH_ABSORIGIN_FOLLOW, cater)
 	      --ParticleManager:SetParticleControl(after_shock_particle, 1, caster:GetAbsOrigin())
 	      ability:ApplyDataDrivenModifier(caster, caster, "modifier_shock_particle", {})
-	      for _,enemy in pairs(enemies) do		
-		  -- Fire impact particle	
+	      for _,enemy in pairs(enemies) do
+		  -- Fire impact particle
 		  enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
 		  -- Apply damage
 		  ApplyDamage({attacker = caster, victim = enemy, ability = ability, damage = damage, damage_type = ability:GetAbilityDamageType()})
-	      end      
+	      end
 	end
 end
 

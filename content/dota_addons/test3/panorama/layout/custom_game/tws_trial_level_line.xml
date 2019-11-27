@@ -4,6 +4,6 @@
         <include src="file://{resources}/styles/custom_game/tws_difficulty_selection.css" />
     </styles>
     <RadioButton class="TrialLevelLinePanel">
-        <Label  id="TrialLevelLineText" class="TrialLevelLineText" text="" />
+        <Label id="TrialLevelLineText" class="TrialLevelLineText" text="" />
     </RadioButton>
 </root>

@@ -1,0 +1,160 @@
+"DOTAAbilities"
+{
+    "phantom_assassin_stifling_dagger_nb2017"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"phantom_assassin_stifling_dagger_nb2017"
+		"ScriptFile"					"heroes/hero_phantom_assassin/phantom_assassin_stifling_dagger_nb2017"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"10000"
+		"AbilityCastPoint"				"0.3"
+		"AbilityChannelTime"			"0.45 0.6 0.75 0.9"
+
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
+			"particle"				"particles/phantom_assassin_linear_dagger.vpcf"
+		}
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDuration"				"1 2 3 4"
+		"AbilityCooldown"				"12"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"30 40 50 60"
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"move_slow"					"-50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dagger_speed"			"1200"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"1 2 3 4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_damage"			"65"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_factor"			"-75 -60 -45 -30"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_factor_tooltip"	"25 40 55 70"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dagger_count"			"3 4 5 6"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dagger_offset"			"100"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"dagger_rate"			"0.14"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dagger_range"			"525 750 975 1200"
+			}
+		}
+	}
+    "holdout_omnislash"     //这类技能写在底层了，名字不能改 就是PVE版的无敌斩
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityTextureName"			"holdout_omnislash"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"MaxLevel"                      "3"
+		"LevelsBetweenUpgrades"			"15"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"3000"
+		"AbilityCastPoint"				"0.3 0.3 0.3"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"40.0 30.0 20.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.25"	// mostly about the blink
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"image_travel_speed"	"850"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"image_radius"			"250 300 350"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"jugg_travel_speed"		"1200 1300 1400"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1200 1300 1400"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"animation_rate"		"0.2"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"80 115 150"
+			}
+		}
+	}
+}

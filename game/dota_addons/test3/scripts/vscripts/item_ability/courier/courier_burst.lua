@@ -2,7 +2,7 @@
 function LevelupBurst( keys )
 	local caster = keys.caster
     local target = keys.target
-    
+
     --移除掉这个多余技能
     if target:HasAbility("courier_go_to_secretshop") then
        target:RemoveAbility("courier_go_to_secretshop")

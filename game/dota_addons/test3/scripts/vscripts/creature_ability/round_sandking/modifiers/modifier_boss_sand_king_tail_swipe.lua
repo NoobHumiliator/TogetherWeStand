@@ -18,7 +18,7 @@ function modifier_boss_sand_king_tail_swipe:OnCreated( kv )
 	if IsServer() then
 		self.nPreviewFX = ParticleManager:CreateParticle( "particles/units/heroes/hero_sandking/sandking_epicenter_tell.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster() )
 		ParticleManager:SetParticleControlEnt( self.nPreviewFX, 0, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_tail", self:GetCaster():GetOrigin(), true )
-		
+
 		self.damage_radius = self:GetAbility():GetSpecialValueFor( "damage_radius" )
 		self.damage = self:GetAbility():GetSpecialValueFor( "damage" )
 		self.stun_duration = self:GetAbility():GetSpecialValueFor( "stun_duration" )
@@ -51,7 +51,7 @@ function modifier_boss_sand_king_tail_swipe:OnIntervalThink()
 		table.insert( Locations, vLocation2 )
 		table.insert( Locations, vLocation3 )
 		table.insert( Locations, vLocation4 )
-			
+
 		if self:GetParent():FindModifierByName( "modifier_sand_king_boss_burrow" ) ~= nil then
 			for _,vPos in pairs ( Locations ) do
 				local nFXIndex = ParticleManager:CreateParticle( "particles/test_particle/ogre_melee_smash.vpcf", PATTACH_WORLDORIGIN,  self:GetCaster()  )
@@ -59,11 +59,11 @@ function modifier_boss_sand_king_tail_swipe:OnIntervalThink()
 				ParticleManager:SetParticleControl( nFXIndex, 1, Vector( self.damage_radius, self.damage_radius, self.damage_radius ) )
 				ParticleManager:ReleaseParticleIndex( nFXIndex )
 
-				local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), vPos, self:GetParent(), self.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+				local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), vPos, self:GetParent(), self.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 				for _,enemy in pairs( enemies ) do
-					if enemy ~= nil and enemy:IsInvulnerable() == false and self:HasHitTarget( enemy ) == false then
+					if enemy:IsInvulnerable() == false and self:HasHitTarget( enemy ) == false then
 						self:AddHitTarget( enemy )
-						
+
 						local passive = self:GetCaster():FindAbilityByName( "sand_king_boss_passive" )
 						local caustic_duration = passive:GetSpecialValueFor( "caustic_duration" )
 						local hCausticBuff = enemy:FindModifierByName( "modifier_boss_sand_king_caustic_finale" )
@@ -71,10 +71,10 @@ function modifier_boss_sand_king_tail_swipe:OnIntervalThink()
 							hCausticBuff = enemy:AddNewModifier( self:GetCaster(), passive, "modifier_boss_sand_king_caustic_finale", { duration = caustic_duration } )
 							hCausticBuff:SetStackCount( 0 )
 						end
-						hCausticBuff:SetStackCount( hCausticBuff:GetStackCount() + 1 )  
+						hCausticBuff:SetStackCount( hCausticBuff:GetStackCount() + 1 )
 						hCausticBuff:SetDuration( caustic_duration, true )
 
-						local damageInfo = 
+						local damageInfo =
 						{
 							victim = enemy,
 							attacker = self:GetCaster(),
@@ -96,9 +96,9 @@ function modifier_boss_sand_king_tail_swipe:OnIntervalThink()
 			self:StartIntervalThink( 0.01 )
 			for _,vPos in pairs( Locations ) do
 				--DebugDrawCircle( vPos, Vector( 0, 255, 0 ), 255, self.damage_radius, false, 1.0 )
-				local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), vPos, self:GetParent(), self.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+				local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), vPos, self:GetParent(), self.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 				for _,enemy in pairs( enemies ) do
-					if enemy ~= nil and enemy:IsInvulnerable() == false and self:HasHitTarget( enemy ) == false then
+					if enemy:IsInvulnerable() == false and self:HasHitTarget( enemy ) == false then
 						self:AddHitTarget( enemy )
 
 						local passive = self:GetCaster():FindAbilityByName( "boss_sand_king_passive" )
@@ -108,10 +108,10 @@ function modifier_boss_sand_king_tail_swipe:OnIntervalThink()
 							hCausticBuff = enemy:AddNewModifier( self:GetCaster(), passive, "modifier_boss_sand_king_caustic_finale", { duration = caustic_duration } )
 							hCausticBuff:SetStackCount( 0 )
 						end
-						hCausticBuff:SetStackCount( hCausticBuff:GetStackCount() + 1 )  
+						hCausticBuff:SetStackCount( hCausticBuff:GetStackCount() + 1 )
 						hCausticBuff:SetDuration( caustic_duration, true )
 
-						local damageInfo = 
+						local damageInfo =
 						{
 							victim = enemy,
 							attacker = self:GetParent(),
@@ -126,7 +126,7 @@ function modifier_boss_sand_king_tail_swipe:OnIntervalThink()
 							center_x = self:GetParent():GetOrigin().x,
 							center_y = self:GetParent():GetOrigin().y,
 							center_z = self:GetParent():GetOrigin().z,
-							should_stun = true, 
+							should_stun = true,
 							duration = self.stun_duration,
 							knockback_duration = self.stun_duration,
 							knockback_distance = self.knockback_distance,
@@ -145,7 +145,7 @@ end
 --------------------------------------------------------------------------------
 
 function modifier_boss_sand_king_tail_swipe:DeclareFunctions()
-	local funcs = 
+	local funcs =
 	{
 		MODIFIER_PROPERTY_DISABLE_TURNING,
 	}
@@ -166,7 +166,7 @@ function modifier_boss_sand_king_tail_swipe:HasHitTarget( hTarget )
 	    	return true
 	    end
 	end
-	
+
 	return false
 end
 

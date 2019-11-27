@@ -12,7 +12,7 @@
 			<Panel class="EndBoard RightTop LightDarkBackground">
 				<Panel class="MapInfo HCenter">
 				</Panel>
-				
+
 				<Panel class="BoardTitle">
 					<Label class="HCenter" id="board_title" text="#end_board_title" />
 				</Panel>
@@ -25,7 +25,7 @@
 				</Panel>
 
 				<Panel class="BoardLines " id="BoardLines">
-					
+
 				</Panel>
 			</Panel>
 		</Panel>

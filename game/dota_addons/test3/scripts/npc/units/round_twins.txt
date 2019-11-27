@@ -1,0 +1,217 @@
+"DOTAUnits"
+{
+	"npc_dota_boss_fire_twin"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/items/terrorblade/dotapit_s3_fallen_light_metamorphosis/dotapit_s3_fallen_light_metamorphosis.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"ModelScale"				        "1.2"
+		"Level"						"35"
+		"ConsideredHero"			        "1"
+
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"350"
+
+		"SoundSet"				    "Hero_Terrorblade"								// Name of sound set.
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_terrorblade.vsndevts"
+
+		// Inventory
+		//----------------------------------------------------------------
+		"HasInventory"				"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"				"4"
+		"Ability1"					"twins_bloodlink_datadriven"
+		"Ability2"					"fire_twin_fire_debuff_datadriven"
+		"Ability3"					"fire_twin_attack_immune_datadriven"
+		"Ability4"					""
+		"Ability5"					""
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"25"		// Physical protection.
+		"MagicalResistance"			"25"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"32"		// Damage range min.
+		"AttackDamageMax"			"48"		// Damage range max.
+		"AttackRate"				"0.8"		// Speed of attack.
+		"AttackAnimationPoint"		        "0.2"		// Normalized time in animation cycle to attack.
+		"AttackRange"				"155"		// Range within a target can be attacked.
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"				"100"		// Experience earn.
+		"BountyGoldMin"				"200"		// Gold earned min.
+		"BountyGoldMax"				"200"		// Gold earned max.
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"300"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"	              "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"400"		// Speed
+		"MovementTurnRate"			"0.4"		// Turning rate.
+
+		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_terrorblade.vsndevts"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"62000"		// Base health.
+		"StatusHealthRegen"			"0.0"		// Health regeneration rate.
+		"StatusMana"				"1500"		// Base mana.
+		"StatusManaRegen"			"25.0"		// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"3400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"3400"		// Range of vision at night time.
+
+		"vscripts"					"creature_ai/round_twins/twin_fire_ai.lua"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"EquippedItems"
+			{
+				"DivineRapierDatadriven"
+				{
+					"Item"					"item_urn_of_shadows"
+				}
+			}
+			"CanRespawn"				"0"
+			"DisableResistance"			"100.0"
+
+			//Level Up Parameters
+			//-----------------------------------------------------------------
+			"HPGain"				"500"
+			"DamageGain"				"25"
+			"ArmorGain"				"1"
+			"MagicResistGain"			"1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"100"
+
+			"DefaultState"				"Invade"
+		}
+	}
+
+    "npc_dota_boss_dark_twin"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/items/terrorblade/corrupted_form/corrupted_form.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"ModelScale"				        "1.2"
+		"Level"						"35"
+		"ConsideredHero"			        "1"
+
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"350"
+
+		"SoundSet"				"Hero_Terrorblade"								// Name of sound set.
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_terrorblade.vsndevts"
+
+		// Inventory
+		//----------------------------------------------------------------
+		"HasInventory"				"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"				        "4"
+		"Ability1"					"twins_bloodlink_datadriven"
+		"Ability2"					"dark_twin_dark_debuff_datadriven"
+		"Ability3"					"dark_twin_spell_immune_datadriven"
+        "Ability4"					""
+        "Ability5"					""
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"25"			// Physical protection.
+		"MagicalResistance"			"25"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"32"		// Damage range min.
+		"AttackDamageMax"			"48"		// Damage range max.
+		"AttackRate"				"0.8"		// Speed of attack.
+		"AttackAnimationPoint"		        "0.2"		// Normalized time in animation cycle to attack.
+		"AttackRange"				"155"		// Range within a target can be attacked.
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"			    	"100"		// Experience earn.
+		"BountyGoldMin"				"200"		// Gold earned min.
+		"BountyGoldMax"				"200"		// Gold earned max.
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"300"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"	              "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"400"		// Speed
+		"MovementTurnRate"			"0.4"		// Turning rate.
+
+		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_terrorblade.vsndevts"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"110000"		// Base health.
+		"StatusHealthRegen"			"0.0"		// Health regeneration rate.
+		"StatusMana"				"1500"		// Base mana.
+		"StatusManaRegen"			"25.0"		// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		        "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"3400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"3400"		// Range of vision at night time.
+
+		 "vscripts"					"creature_ai/round_twins/twin_dark_ai.lua"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"EquippedItems"
+			{
+                              "DivineRapierDatadriven"
+				{
+					"Item"					"item_urn_of_shadows"
+				}
+			}
+			"CanRespawn"				"0"					                       
+			"DisableResistance"			"100.0"
+			//Level Up Parameters
+			//-----------------------------------------------------------------
+			"HPGain"				"500"
+			"DamageGain"				"25"
+			"ArmorGain"				"1"
+			"MagicResistGain"			"1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"				"100"
+
+			"DefaultState"				"Invade"
+		}
+	}
+}

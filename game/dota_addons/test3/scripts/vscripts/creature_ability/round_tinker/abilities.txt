@@ -1,0 +1,541 @@
+"DOTAAbilities"
+{
+    "tinker_boss_spawn_laser_turret"
+    {
+    	// General
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    	"BaseClass" 					"ability_datadriven"
+    	"AbilityTextureName"            "tinker_laser"
+    	"AbilityCastPoint"				"0.1"
+    	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+    	"AbilityCooldown"               "6"
+
+    	// Item Info
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityManaCost"				"0"
+
+    	"OnSpellStart"
+    	{
+    		"Random"
+    		{
+    			"Chance"			"33"
+    			"OnSuccess"
+    			{
+    				"FireSound"
+    				{
+    					"Target"		"CASTER"
+    					"EffectName"	"tinker_tink_ability_laser_01"
+    				}
+    			}
+    			"OnFailure"
+    			{
+    				"Random"
+    				{
+    					"Chance"			"50"
+    					"OnSuccess"
+    					{
+    						"FireSound"
+    						{
+    							"Target"		"CASTER"
+    							"EffectName"	"tinker_tink_ability_laser_02"
+    						}
+    					}
+    					"OnFailure"
+    					{
+    						"FireSound"
+    						{
+    							"Target"		"CASTER"
+    							"EffectName"	"tinker_tink_ability_laser_04"
+    						}
+    					}
+    				}
+    			}
+    		}
+
+    		"SpawnUnit"
+    		{
+    			"UnitName"			"npc_dota_creature_tinker_laser_turret"
+    			"UnitCount"			"1"
+    			"UnitLimit"			"500"
+    			"SpawnRadius"		"600"
+    			"Target"			"CASTER"
+    		}
+    	}
+    }
+
+    "tinker_boss_invulnerable"
+    {
+    	// General
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    	"BaseClass" 					"ability_datadriven"
+    	"AbilityTextureName"            "shredder_reactive_armor"
+    
+    	"Modifiers"
+    	{
+    		"modifier_tinker_boss_invulnerable"
+    		{
+    			"Passive"			"1"
+    			"IsHidden"			"0"
+    			"IsDebuff"			"0"
+    		}
+    	}
+    }
+
+    "tinker_boss_heatmissile"
+    {
+		"BaseClass"				        "ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"tinker_heat_seeking_missile"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+		"AbilityCastRange"				"1000"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"25"
+
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"launch_radius"		"700"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"targets"			"20"
+			}
+	        "03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speed"			    "550"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"500"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movement_slow_pct"	"-80"
+			}
+		}
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
+			"particle"			"particles/units/heroes/hero_tinker/tinker_missile.vpcf"
+		}
+
+        "OnSpellStart"
+        {
+        	"ApplyModifier"
+        	{
+        		"ModifierName"	"modifier_heatmissile_thinker"
+				"Target" 		"CASTER"
+        	}
+        	"RunScript"
+			{
+				"ScriptFile"	"creature_ability/round_tinker/seeking_missile.lua"
+				"Function"		"MissileDBM"
+			}
+        }
+
+		"OnProjectileHitUnit"
+		{
+			"FireSound"
+			{
+				"Target"		"CASTER"
+				"EffectName"	"Hero_Tinker.Heat-Seeking_Missile.Impact"
+			}
+
+
+           "RunScript"
+			{
+				"ScriptFile"	"creature_ability/round_tinker/seeking_missile.lua"
+				"Function"		"MissileStack"
+				"Target"		"TARGET"
+			}
+
+		}
+		"Modifiers"
+    	{
+    		"modifier_heatmissile_thinker"
+    		{
+    			"Duration"        "8"
+    			"ThinkInterval"   "0.4"
+    			"OnIntervalThink"
+    			{
+		    		"FireSound"
+					{
+						"Target"		    "CASTER"
+						"EffectName"		"Hero_Tinker.Heat-Seeking_Missile"
+					}
+
+					"RunScript"
+					{
+						"ScriptFile"	"creature_ability/round_tinker/seeking_missile.lua"
+						"Function"		"MissileSeekTarget"
+					}
+    			}
+    			"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%movement_slow_pct"
+				}
+    		}
+    		"modifier_missile_stack"
+    		{
+    			"Duration"        "8"
+    			"IsDebuff"        "1"
+    			"IsHidden"        "0"
+    		}
+    	}
+    }
+
+    "tinker_boss_spawn_techies"
+    {
+		// General
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    	"BaseClass" 					"ability_datadriven"
+    	"AbilityTextureName"            "rattletrap_power_cogs"
+    	"AbilityCastPoint"				"0.2"
+    	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+
+    	// Stats
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityCooldown"				"4.0"
+
+    	// Item Info
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityManaCost"				"0"
+
+    	"OnSpellStart"
+    	{
+    		"FireSound"
+			{
+				"Target"		"CASTER"
+				"EffectName"	"tinker_tink_ability_marchofthemachines_05"
+			}
+
+    		"SpawnUnit"
+    		{
+    			"UnitName"			"npc_dota_creature_techies_suicider"
+    			"UnitCount"			"2"
+    			"UnitLimit"			"100"
+    			"SpawnRadius"		"450"
+    			"Target"			"CASTER"
+    		}
+    	}
+    }
+
+    "tinker_creature_techies_suicide" //炸弹人自爆
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"techies_suicide"
+		"ScriptFile"					"creature_ability/round_tinker/techies_suicide"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"FightRecapLevel"				"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.8"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"8"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"285"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"8000"
+				"LinkedSpecialBonus"		"special_bonus_unique_techies"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"silence_duration"			"0"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hp_cost"					"50"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"0.0"
+			}
+		}
+	}
+
+    "creature_techies_passive"
+    {
+    	// General
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    	"BaseClass" 					"ability_datadriven"
+    	"AbilityTextureName"            "item_gem"
+    
+       	"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
+			"particle"			"particles/econ/events/ti5/blink_dagger_end_ti5.vpcf"
+		}
+
+    	"Modifiers"
+    	{
+    		"modifier_techies_true_sigh"
+			{
+				"Passive"            "1"
+				"IsHidden"           "1"
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_tower_truesight_aura"
+						"Target" 		"CASTER"
+					}
+					"FireSound"
+					{
+						"EffectName"	"Hero_Antimage.Blink_in"
+						"Target"		"CASTER"
+					}
+
+					"AttachEffect"
+					{
+						"EffectName"	    "particles/econ/events/ti5/blink_dagger_end_ti5.vpcf"
+						"Target"		    "CASTER"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+
+			}
+    	}
+    }
+
+    "tinker_laser_turret_passive"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass" 					"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityTextureName"            "tinker_laser"
+
+        "precache"
+	     {
+		 	"soundfile"		"soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
+			"particle"		"particles/units/heroes/hero_phoenix/phoenix_sunray.vpcf"
+			"particle"		"particles/units/heroes/hero_phoenix/phoenix_sunray_beam_enemy.vpcf"
+	    }
+
+        "AbilitySpecial"
+    	{
+		   "01"
+	    	{
+				"var_type"						"FIELD_INTEGER"
+				"thinker_radius"		        "120"
+		    }
+		    "02"
+	    	{
+				"var_type"						"FIELD_FLOAT"
+				"tick_interval"		            "0.3"
+		    }
+		    "03"
+		    {
+				"var_type"		            	"FIELD_INTEGER"
+				"radius"			            "130"
+	     	}
+	     	"04"
+		    {
+				"var_type"			            "FIELD_INTEGER"
+				"beam_range"		            "1300"
+		    }
+	    }
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"Modifiers"
+		{
+	        "modifier_laser_turret_passive"
+		    {
+			    "IsHidden"		"1"
+			    "Passive"       "1"
+			    "IsPurgable"	"0"
+
+			  "OnCreated"
+			  {
+		         "RunScript"
+		          {
+		        	"ScriptFile"	"creature_ability/round_tinker/laser_turret"
+		        	"Function"		"LaserStart"
+		          }
+		      }
+	        }
+
+		   "modifier_laser_think_datadriven"
+			{
+				"IsHidden"	        "0"
+				"IsDebuff"          "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_HEALING"    	   "1"
+					"MODIFIER_PROPERTY_MISS_PERCENTAGE"        "100"
+				}
+			}
+	    }
+    }
+
+    "tinker_boss_march_of_the_machines"
+	{
+		"BaseClass"             		"tinker_march_of_the_machines"
+		"MaxLevel" 						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilitySound"					"Hero_Tinker.March_of_the_Machines"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.53"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"35.0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"3500"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"900"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"collision_radius"		"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"splash_radius"			"150"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"120.0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"180"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"machines_per_sec"		"4"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"distance"				"1200"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"distance_scepter"		"1200"
+			}
+		}
+	}
+
+    "tinker_gold_bag_fountain"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"					    "ability_datadriven"
+		"AbilityTextureName"	        "item_hand_of_midas"
+		"OnOwnerDied"
+		{
+			"CreateItem"
+			{
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+				"ItemName"			"item_bag_of_gold_tws"
+				"ItemCount"			"%bag_count"
+				"SpawnRadius"		"25"
+				"ItemChargeCount"	"%gold_value"
+				"AutoUse"			"1"
+				"LaunchHeight"		"300"
+				"LaunchDistance"	"?50 1050"
+				"LaunchDuration"	"0.75"
+			}
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"gold_value"		    "50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bag_count"				"300"
+			}
+		}
+	}
+}

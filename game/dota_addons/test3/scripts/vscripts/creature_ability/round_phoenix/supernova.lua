@@ -22,14 +22,14 @@ function OnDestroyEgg( keys )  --取消血线，移除BUFF
 
 	local caster=keys.caster
 	local ability=keys.ability
-    
+
     ParticleManager:DestroyParticle(caster.bloodLinkParticle,true)
     ParticleManager:ReleaseParticleIndex(caster.bloodLinkParticle)
 
-    local units = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector( 0, 0, 0 ) , nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
+    local units = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector( 0, 0, 0 ) , nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
     for _,unit in pairs(units) do
          if not unit:HasModifier("modifier_supernova_egg_die_dot") then --蛋蛋爆炸,全团上Debuff
-            ability:ApplyDataDrivenModifier(caster, unit, "modifier_supernova_egg_die_dot", {Duration = 15}) 
+            ability:ApplyDataDrivenModifier(caster, unit, "modifier_supernova_egg_die_dot", {Duration = 15})
             unit:SetModifierStackCount("modifier_supernova_egg_die_dot",ability,1)
             if max_stack_number==0 then
                 QuestSystem:RefreshAchQuest("Achievement",1,6)
@@ -37,7 +37,7 @@ function OnDestroyEgg( keys )  --取消血线，移除BUFF
          else
             local stack_count = unit:GetModifierStackCount("modifier_supernova_egg_die_dot",ability)
             unit:RemoveModifierByName("modifier_supernova_egg_die_dot")
-            ability:ApplyDataDrivenModifier(caster, unit, "modifier_supernova_egg_die_dot", {Duration = 15}) 
+            ability:ApplyDataDrivenModifier(caster, unit, "modifier_supernova_egg_die_dot", {Duration = 15})
             unit:SetModifierStackCount("modifier_supernova_egg_die_dot",ability,stack_count+1)
             if stack_count+1>max_stack_number then
                QuestSystem:RefreshAchQuest("Achievement",stack_count+1,6)
@@ -65,7 +65,7 @@ function DotDamage( keys )  --造成伤害
 	local target = keys.target
 	local caster = keys.caster
 	local ability = keys.ability
-	
+
 	local stack_count = target:GetModifierStackCount("modifier_supernova_egg_die_dot",ability)
     local basic_damage = ability:GetSpecialValueFor("dot_basic_damage")
 
@@ -74,7 +74,7 @@ function DotDamage( keys )  --造成伤害
                             attacker = caster, --造成伤害的单位
                             damage = math.pow(2, stack_count)*basic_damage,
                             damage_type = DAMAGE_TYPE_PURE,
-                            damage_flags = DOTA_DAMAGE_FLAG_HPLOSS
+                            damage_flags = DOTA_DAMAGE_FLAG_NONE
                         }
     ApplyDamage(damageTable)    --造成伤害
 

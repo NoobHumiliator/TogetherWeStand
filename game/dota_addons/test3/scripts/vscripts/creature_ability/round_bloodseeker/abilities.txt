@@ -1,0 +1,319 @@
+"DOTAAbilities"
+{
+    "bloodseeker_blood_bath_holdout"
+	{
+		"BaseClass"                     "bloodseeker_blood_bath"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1500"
+		"AbilityCastPoint"				"0.4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"180"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"silence_duration"			        "2"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"120"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"delay"						"2.6"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"delay_plus_castpoint_tooltip"			"3.0"
+			}
+		}
+	}
+
+    "creature_bloodseeker_rupture"
+	{
+		"BaseClass"                     "bloodseeker_rupture"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"hero_bloodseeker.rupture"
+
+		"HasScepterUpgrade"			     "1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+
+		// Cast Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"900"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.0"	// Only does damage
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"10"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movement_damage_pct"		"4"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_cap_amount"			"200"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"cast_range_tooltip"		"900"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_charges_scepter"		"2"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"charge_restore_time_scepter"		"40"
+			}
+		}
+	}
+
+    "firefly_holdout"
+	{
+		"BaseClass"                             "batrider_firefly"													// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"90"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 100 100 100"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_second"	            	"45"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"200 200 200 200"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"90"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"tick_interval"			"0.5 0.5 0.5 0.5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tree_radius"			"100 100 100 100"
+			}
+		}
+	}
+
+	"invoker_metor_holdout"
+	{
+		"AbilityBehavior"                        "DOTA_ABILITY_BEHAVIOR_POINT"
+		"BaseClass"                              "ability_datadriven"
+		"SpellImmunityType"	                     "SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityCastAnimation"                   "ACT_DOTA_ATTACK"
+		"MaxLevel"                               "1"
+		"AbilityTextureName"                     "invoker_chaos_meteor"
+		"AbilityManaCost"                        "60"
+		"AbilityCastPoint"                       "0"
+		"AbilityCooldown"                        "12"
+		"AbilityUnitDamageType"                  "DAMAGE_TYPE_MAGICAL"
+		"AbilityCastPoint"		                 "0.6"
+		"AnimationPlaybackRate"                  "0.5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_tooltip"	        "260"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"impact_radius"	          	"200"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_for_summon"	       	"500"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius_for_summon"	        "350"
+			}
+		}
+		"precache"
+		{
+			"particle"			            "particles/units/heroes/hero_invoker/invoker_chaos_meteor.vpcf"
+			"particle"		            	"particles/units/heroes/hero_invoker/invoker_chaos_meteor_fly.vpcf"
+			"particle"                      "particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf"
+			"soundfile"		            	"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+			"particle"                      "particles/units/heroes/hero_invoker/invoker_forge_spirit_ambient.vpcf"
+			"particle_folder"               "particles/units/heroes/hero_bloodseeker"
+			"soundfile"                     "soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
+			"particle"                      "particles/units/heroes/hero_batrider/batrider_firefly.vpcf"
+			"particle"                      "particles/units/heroes/hero_batrider/batrider_firefly_debuff.vpcf"
+			"particle"                      "particles/units/heroes/hero_batrider/batrider_firefly_ember.vpcf"
+			"particle"                      "particles/units/heroes/hero_batrider/batrider_firefly_headglow.vpcf"
+			"soundfile"                     "soundevents/game_sounds_heroes/game_sounds_batrider.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"                    "creature_ability/round_bloodseeker/meteor.lua"
+				"Function"                      "volly"
+				"Target"                        "CASTER"
+				"FixedDistance"                 "12000"
+				"EffectName"                    "particles/units/heroes/hero_invoker/invoker_chaos_meteor.vpcf"
+				"MoveSpeed"                     "250"
+				"StartRadius"                   "150"
+				"EndRadius"                     "150"
+				"TargetTeams"                   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"TargetTypes"                   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP |DOTA_UNIT_TARGET_OTHER"
+				"HasFrontalCone"                "1"
+				"ProvidesVision"                "1"
+				"VisionRadius"                  "400"
+			}
+			"FireSound"
+			{
+				"EffectName"                    "Hero_Invoker.ChaosMeteor.Impact"
+			}
+
+		}
+		"OnProjectileHitUnit"
+		{
+			"Damage"
+			{
+				"Type"			"DAMAGE_TYPE_PURE"
+				"Damage"		"%damage_tooltip"
+				"Target"
+				{
+					"Center"	"TARGET"
+					"Radius"	"%impact_radius"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_OTHER"
+					"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				}
+			}
+			"Damage"
+			{
+				"Type"			"DAMAGE_TYPE_PURE"
+				"Damage"		"%damage_for_summon"
+				"Target"
+				{
+					"Center"	"TARGET"
+					"Radius"	"%radius_for_summon"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_OTHER"
+					"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				}
+			}
+			"FireSound"
+			{
+				"EffectName"        "Hero_Invoker.ChaosMeteor.Destroy"
+				"Target"
+				{
+					"Center"	"TARGET"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types"		"DOTA_UNIT_TARGET_BASIC |DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_OTHER"
+					"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				}
+			}
+			"FireEffect"
+			{
+				"EffectName"			"particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf"
+				"Target"
+				{
+					"Center"	"TARGET"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_OTHER"
+					"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				}
+				"EffectAttachType"      "follow_origin"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_firearound_datadriven"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"EffectName" 	   "particles/units/heroes/hero_invoker/invoker_forge_spirit_ambient.vpcf"
+				"EffectAttachType" "follow_chest"
+			}
+		}
+	}
+}

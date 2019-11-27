@@ -16,16 +16,16 @@ end
 
 
 function modifier_environment_blind_lua:IsDebuff()
-	return true;
+	return true
 end
 
 --------------------------------------------------------------------------------
 function modifier_environment_blind_lua:GetBonusDayVision()
-	return -20000;
+	return -20000
 end
 --------------------------------------------------------------------------------
 function modifier_environment_blind_lua:GetBonusNightVision()
-	return -20000;
+	return -20000
 end
 ---------------------------------------------------------------------------------
 function modifier_environment_blind_lua:GetTexture()

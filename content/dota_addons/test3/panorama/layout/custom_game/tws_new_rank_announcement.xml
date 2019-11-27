@@ -6,7 +6,7 @@
   <scripts>
     <include src="s2r://panorama/scripts/custom_game/tws_new_rank_announcement.js" />
   </scripts>
-   <Panel hittest="false" class="NewRankAnnouncePanel">
-          <Label hittest="false" id="NewRankAnnounceText" class="NewRankAnnounceText hidden" text=""/>
-   </Panel>
+  <Panel hittest="false" class="NewRankAnnouncePanel">
+    <Label hittest="false" id="NewRankAnnounceText" class="NewRankAnnounceText hidden" text=""/>
+  </Panel>
 </root>

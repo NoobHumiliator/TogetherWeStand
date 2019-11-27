@@ -1,0 +1,122 @@
+"DOTAUnits"
+{
+	"npc_dota_creature_medium_spectre"
+	{
+		// General
+		//----------------------------------------------------------------
+		"vscripts"					"creature_ai/zombie_ai.lua"
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/spectre/spectre.vmdl"
+		"SoundSet"					"Hero_Spectre"
+		"Level"						"11"
+		"ModelScale" 				"1.4"
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_spectre.vsndevts"
+		"ConsideredHero"			"1"
+		"IsAncient"					"0"
+		"CanBeDominated"			"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"creature_spectre_desolate"
+		"Ability2"					"creature_spectre_dispersion"
+		"Ability3"					"special_bonus_unique_spectre_5"
+		"Ability4"					"necronomicon_warrior_sight"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"65"
+		"MagicalResistance"			"45"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"2300"
+		"AttackDamageMax"			"2500"
+		"AttackRate"				"1.7"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"180"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			""
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"300"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"425"
+		"MovementTurnRate"			"0.5"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"360000"
+		"StatusHealthRegen"			"50.0"
+		"StatusMana"				"1800"
+		"StatusManaRegen"			"10.0"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"DisableResistance"			"100"
+			//Basic AI State
+			//-----------------------------------------------------------------
+			"DefaultState"			"Invade"
+			"States"
+			{
+				"Invade"
+				{
+					"Name"			"Invade"
+					"Aggression"	"100.0"
+					"Avoidance"		"0.0"
+					"Support"		"0.0"
+				}
+			}
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"8913" // belt: Flow of the Flowering Shade
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"8914" // shoulder: Drape of the Flowering Shade
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"8915" // weapon: Edge of the Flowering Shade
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"8916" // head: Crest of the Flowering shade
+				}
+				"Wearable5"
+				{
+					"ItemDef"			"539" // ambient_effects: default
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,592 @@
+"DOTAAbilities"
+{
+    "boss_great_gush"
+	{
+        "BaseClass"             "ability_datadriven"
+        "AbilityTextureName"    "tidehunter_gush"
+
+        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+
+        "AbilityType"            "DOTA_ABILITY_TYPE_BASIC"
+	    "MaxLevel"               "1"
+	    "RequiredLevel"          "0"
+	    "LevelsBetweenUpgrades"  "2"
+
+	    "AbilityCastPoint"       "0.2"
+	    "AbilityCastAnimation"   "ACT_DOTA_ATTACK"
+	    "AnimationPlaybackRate"  "1.0"
+	    "AnimationIgnoresModelScale" "1"
+
+
+	    // Stats
+	    //----------------------------------------------------------------------------------------
+	    "AbilityDamage"           "0"
+	    "AbilityManaCost"         "0"
+	    "AbilityCooldown"         "15"
+	    "AbilityCastRange"        "2500"
+	    "AbilityCastRangeBuffer"  "250"
+	    "AbilityDuration"         "0.0 0.0 0.0 0.0"
+	    //"AbilityChannelTime"      "0.0"
+	    "AoERadius"               "2500"
+
+        "precache"
+		{
+			"particle"				"particles/units/heroes/hero_morphling/morphling_adaptive_strike.vpcf"
+			"particle"				"particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_skills/kunkka_spell_torrent_bubbles_swirl_fxset.vpcf"
+			"particle"				"particles/econ/items/kunkka/kunkka_torrent_base/kunkka_spell_torrent_splash_econ.vpcf"
+			"particle"              "particles/units/heroes/hero_morphling/morphling_waveform.vpcf"
+		}
+
+
+	    "AbilitySpecial"
+	    {
+		    "01"
+		    {
+		        "var_type"  "FIELD_FLOAT"
+		        "radius"      "2500"
+		    }
+		    "02"
+		    {
+		        "var_type"         "FIELD_FLOAT"
+		        "acting_duration"  "5.1"
+		    }
+		    "03"
+		    {
+		        "var_type"         "FIELD_INTEGER"
+		        "damage"           "8000"
+		    }
+	    }
+
+        "OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+
+	        "Damage"
+			{
+				"Target"		"TARGET"
+				"Type"			"DAMAGE_TYPE_PURE"
+				"Damage"		"%damage"
+			}
+
+			"FireSound"
+			{
+				"EffectName"		"Ability.GushCast"
+				"Target"			"CASTER"
+			}
+		}
+
+
+        "OnSpellStart"
+        {
+        		"ApplyModifier"
+        		{
+        			"ModifierName"	"modifier_gush_start_delay"
+        			"Duration"		"%acting_duration"
+        			"Target"	    "CASTER"
+        		}
+
+				"FireSound"
+				{
+					"EffectName"		"DOTA_Item.HeavensHalberd.Activate"
+					"Target"			"CASTER"
+				}
+				"FireEffect"
+				{
+					"EffectName"        "particles/units/heroes/hero_morphling/morphling_adaptive_strike.vpcf"
+					"EffectAttachType"  "follow_origin"
+					"Target"            "CASTER"
+					"ControlPointEntities"
+					{
+						"CASTER"	"attach_origin"
+						"CASTER"	"attach_origin"
+					}
+				}
+				"RunScript"
+                {
+                   "ScriptFile"    "libraries/notifications.lua"
+				   "Function"      "BossAbilityDBM"
+                }
+        }
+
+        "Modifiers"
+        {
+            "modifier_true_sight_1"
+		    {
+		           "Passive"            "1"
+		           "IsHidden"           "1"
+		           "OnCreated"
+		         {
+		           "ApplyModifier"
+		            {
+		                 "ModifierName"	"modifier_tower_truesight_aura"
+		                 "Target" 		"CASTER"
+		            }
+		        }
+		    }
+
+        	"modifier_gush_start_delay"
+        	{
+        		"Duration"			"1.2"
+        		"Passive"			"0"
+        		"IsHidden"			"0"
+        		"IsDebuff"			"0"
+        		"States"
+        		{
+        			"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+        		}
+        		"OnCreated"
+        		{
+        			"FireEffect"
+        			{
+        				"EffectName"        "particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_skills/kunkka_spell_torrent_bubbles_swirl_fxset.vpcf"
+        				"EffectAttachType"  "follow_origin"
+        				"Target"            "TARGET"
+        			}
+        			"FireEffect"
+        			{
+        				"EffectName"        "particles/econ/items/kunkka/kunkka_torrent_base/kunkka_spell_torrent_splash_econ.vpcf"
+        				"EffectAttachType"  "follow_origin"
+        				"Target"            "TARGET"
+        			}
+        		}
+        		"OnDestroy"
+        		{
+        			"ApplyModifier"
+	        		{
+	        			"ModifierName"	"modifier_gush_acting"
+	        			"Duration"		"%acting_duration"
+	        			"Target"	    "CASTER"
+	        		}
+        		}
+        	}
+        	"modifier_gush_acting"
+        	{
+        		"Passive"			"0"
+        		"IsHidden"			"0"
+        		"IsPurgable"		"0"
+        		"IsBuff"			"1"
+        		"IsDebuff"			"0"
+        		"IsStunDebuff"		"0"
+
+        		"States"
+        		{
+        			"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+        		}
+        
+        		"ThinkInterval"  "1.0"
+        		"OnIntervalThink"
+        		{
+        			"FireSound"
+					{
+						"EffectName"		"Ability.GushCast"
+						"Target"			"CASTER"
+					}
+        			"FireEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_morphling/morphling_adaptive_strike.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+						}
+					}
+        			"ActOnTargets"
+        			{
+        				"Target"
+        				{
+        					"Center"  	"TARGET"
+        					"Radius" 	"%radius"
+        					"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        					"Types" 	"DOTA_UNIT_TARGET_HERO"
+        					"MaxTargets" "4"
+        					"Random"     "3"
+        				}
+        
+        				"Action"
+        				{
+        					"LinearProjectile"
+							{
+							    "Target"        "TARGET"
+							    "EffectName"     "particles/units/heroes/hero_morphling/morphling_waveform.vpcf"
+							    "MoveSpeed"      "600"
+							    "StartPosition"  "attach_attack1"
+							    "StartRadius"    "110"
+							    "EndRadius"      "110"
+							    "FixedDistance"  "3000"
+							    "TargetTeams"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+							    "TargetTypes"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+							    "TargetFlags"    "DOTA_UNIT_TARGET_FLAG_NONE"
+							    "HasFrontalCone" "0"
+							    "ProvidesVision" "1"
+							    "VisionRadius"   "650"
+							    "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+							}
+        				}
+        			}
+        		}
+        	}
+        }
+	}
+
+    "boss_current_storm"
+	{
+        "BaseClass"             "ability_datadriven"
+        "AbilityTextureName"    "kunkka_torrent"
+
+        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+
+        "AbilityType"            "DOTA_ABILITY_TYPE_BASIC"
+	    "MaxLevel"               "1"
+	    "RequiredLevel"          "0"
+	    "LevelsBetweenUpgrades"  "2"
+
+	    "AbilityCastPoint"       "0.2"
+	    "AbilityCastAnimation"   "ACT_DOTA_ATTACK"
+	    "AnimationPlaybackRate"  "1.0"
+	    "AnimationIgnoresModelScale" "1"
+
+	    // Stats
+	    //----------------------------------------------------------------------------------------
+	    "AbilityDamage"           "0"
+	    "AbilityManaCost"         "0"
+	    "AbilityCooldown"         "9"
+	    "AbilityCastRange"        "2500"
+	    "AbilityCastRangeBuffer"  "250"
+	    "AbilityDuration"         "0.0"
+	    "AoERadius"               "2500"
+
+        "precache"
+		{
+			"particle"				"particles/temple/water_torrent_2.vpcf"
+			"particle"	            "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture_nuke.vpcf"
+		}
+
+
+	    "AbilitySpecial"
+	    {
+	    	"01"
+	    	{
+	    		"var_type"			"FIELD_INTEGER"
+	    		"duration"			"20"
+	    	}
+	    	"01"
+	    	{
+	    		"var_type"			"FIELD_INTEGER"
+	    		"radius"			"2500"
+	    	}
+	    	"01"
+	    	{
+	    		"var_type"			"FIELD_INTEGER"
+	    		"radius_aoe"		"250"
+	    	}
+	    	"01"
+	    	{
+	    		"var_type"			"FIELD_INTEGER"
+	    		"count"		    	"7"
+	    	}
+	    }
+
+        "OnSpellStart"
+        {
+        	"FireSound"
+        	{
+        		"EffectName"	"DOTA_Item.Cyclone.Activate"
+        		"Target" 		"CASTER"
+        	}
+        	"SpawnUnit"
+			{
+				"UnitName"			"npc_falling_rock_dummy"
+				"Target"			"CASTER"
+				"UnitCount"			"%count"
+				"Duration"			"%duration"
+				"SpawnRadius"		"?50 50"
+				"GrantsGold"		"0"
+				"GrantsXP"			"0"
+
+				"OnSpawn"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_phased"
+						"Target"		"TARGET"
+						"Duration"		"%duration"
+					}
+					"RunScript"
+		        	{
+		        		"ScriptFile"	"util.lua"
+		        		"Function"		"RandomPosition"
+		        		"range"	        "1200"
+		        	}
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_current_storm_poolfx"
+						"Target" 		"TARGET"
+						"Duration"		"%duration"
+					}
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_force_linear"
+						"Target" 		"TARGET"
+						"Duration"		"%duration"
+					}
+					"RunScript"
+					{
+					    "ScriptFile"    "creature_ability/round_tidehunter/current_storm.lua"
+					    "Function"      "KnockBack"
+					    "fixedforce"		"75"
+					    "random"		    "1"
+					    "friction"	        "0.0"
+					    "forever"	        "1"
+					}
+				}
+			}
+			"FireSound"
+			{
+				"EffectName"		"Hero_Lich.preAttack"
+				"Target"			"CASTER"
+			}
+            "RunScript"
+            {
+                   "ScriptFile"    "libraries/notifications.lua"
+				   "Function"      "BossAbilityDBM"
+            }
+        }
+
+        "Modifiers"
+        {
+        	"modifier_force_linear"
+        	{
+        		"Passive"			"0"
+        		"IsHidden"			"1"
+        		"IsDebuff"			"0"
+        
+        		"ThinkInterval"  "10"
+        		"OnIntervalThink"
+        		{
+        			"RunScript"
+					{
+					    "ScriptFile"    "creature_ability/round_tidehunter/current_storm.lua"
+					    "Function"      "KnockBack"
+					    "fixedforce"	   "75"
+					    "random"		   "1"
+					    "friction"	       "0.0"
+					    "forever"	       "1"
+					}
+        		}
+        	}
+        	"modifier_current_storm_poolfx"
+        	{
+        		"Passive"			"0"
+        		"IsHidden"			"1"
+        		"IsDebuff"			"0"
+        		"IsPurgable"		"0"
+        		"IsBuff"			"1"
+        		"IsStunDebuff"		"0"
+
+        		"OnCreated"
+        		{
+        			"AttachEffect"
+        			{
+        				"EffectName"        "particles/temple/water_torrent_2.vpcf"
+        				"EffectAttachType"  "follow_origin"
+        				"Target"            "TARGET"
+        			}
+        		}
+        		"Aura"          	"modifier_current_storm_damage_aura"
+        		"Aura_Radius"   	"%radius_aoe"
+        		"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        		"Aura_Types"    	"DOTA_UNIT_TARGET_ALL"
+        		"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+        		"Aura_ApplyToCaster" "0"
+        	}
+        	"modifier_current_storm_damage_aura"
+        	{
+        		"Passive"			"0"
+        		"IsHidden"			"1"
+        		"IsDebuff"			"0"
+        
+        		"ThinkInterval"     "0.5"
+        		"OnIntervalThink"
+        		{
+        			 "Damage"
+					{
+						"Target"		"TARGET"
+						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Damage"		"5333"
+					}
+					"FireEffect"
+				    {
+				    	"EffectName"        "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture_nuke.vpcf"
+				    	"EffectAttachType"  "follow_origin"
+				    	"Target"            "TARGET"
+				    }
+        		}
+        	}
+        }
+	}
+
+    "boss_suffocating_bubble"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"					        "ability_datadriven"
+        "AbilityBehavior"                   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityTextureName"                "medusa_mana_shield"
+        "AbilityUnitTargetType"             "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitDamageType"             "DAMAGE_TYPE_PURE"
+        "AbilityUnitTargetTeam"             "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetFlags"		    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	    "SpellImmunityType"				    "SPELL_IMMUNITY_ENEMIES_YES"
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"                  "0.0"
+        "AbilityCastRange"				    "1000"
+
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"                   "10"
+
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"                    "0"
+        "precache"
+        {
+	       "particle"          	 "particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+        }
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"init_damage"		    "350"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"take_damage"			"12000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"increase_damage"		"50"
+			}
+		}
+        "OnSpellStart"
+        {
+        	"ApplyModifier"
+        	{
+        		"ModifierName"	        "modifier_suffocating_bubble"
+        		"Target"		        "TARGET"
+        	}
+        	"RunScript"
+            {
+                   "ScriptFile"    "libraries/notifications.lua"
+				   "Function"      "BossAbilityDBM"
+            }
+        }
+        "Modifiers"
+        {
+            "modifier_true_sight_1"
+		    {
+		           "Passive"            "1"
+		           "IsHidden"           "1"
+		           "OnCreated"
+		         {
+		           "ApplyModifier"
+		            {
+		                 "ModifierName"	"modifier_tower_truesight_aura"
+		                 "Target" 		"CASTER"
+		            }
+		        }
+		    }
+
+        	"modifier_suffocating_bubble"
+        	{
+        		"IsDebuff"		"1"
+        		"EffectName"		"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+			    "EffectAttachType"	"follow_origin"
+        		"OnCreated"
+        		{
+                    "RunScript"
+                    {
+                    	"ScriptFile"	"creature_ability/round_tidehunter/suffocating_bubble.lua"
+                    	"Function"		"BubbleCreate"
+                        "Target"		"TARGET"
+                    }
+        		}
+        		"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+                        "ScriptFile"	"creature_ability/round_tidehunter/suffocating_bubble.lua"
+                    	"Function"		"BubbleDamage"
+						"Target"		"TARGET"
+					}
+				}
+        		"OnDestroy"
+        		{
+        			"RunScript"
+                    {
+                    	"ScriptFile"	"creature_ability/round_tidehunter/suffocating_bubble.lua"
+                    	"Function"		"BubbleDestroy"
+                    	"Target"		"TARGET"
+                    }
+        		}
+        	}
+        }
+	}
+
+    "tidehunter_gold_bag_fountain"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"					    "ability_datadriven"
+		"AbilityTextureName"			"item_hand_of_midas"
+        "precache"
+		{
+             "particle" 	"particles/units/heroes/hero_magnataur/magnataur_reverse_polarity.vpcf"
+		}
+		"OnOwnerDied"
+		{
+			"CreateItem"
+			{
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+				"ItemName"			"item_bag_of_gold_tws"
+				"ItemCount"			"%bag_count"
+				"SpawnRadius"		"25"
+				"ItemChargeCount"	"%gold_value"
+				"AutoUse"			"1"
+				"LaunchHeight"		"300"
+				"LaunchDistance"	"?50 1050"
+				"LaunchDuration"	"0.75"
+			}
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			   "FIELD_INTEGER"
+				"gold_value"		   "360"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bag_count"				"50"
+			}
+		}
+	}
+}

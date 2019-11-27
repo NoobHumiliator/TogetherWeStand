@@ -46,7 +46,7 @@ end
 
 function modifier_boss_sand_king_sandstorm:OnCreated( kv )
 	if IsServer() then
-		if self:ApplyHorizontalMotionController() == false then 
+		if self:ApplyHorizontalMotionController() == false then
 			self:Destroy()
 			return
 		end

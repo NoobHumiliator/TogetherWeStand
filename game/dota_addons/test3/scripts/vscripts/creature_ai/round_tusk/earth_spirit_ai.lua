@@ -9,7 +9,7 @@ behaviorSystem = {} -- create the global so we can assign to it
 function Spawn( entityKeyValues )
 	if  thisEntity:GetTeam()==DOTA_TEAM_BADGUYS then
 	  thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
-      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone,BehaviorSnowBall,BehaviorSigil} ) 
+      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone,BehaviorSnowBall,BehaviorSigil} )
       thisEntity:FindAbilityByName("tws_tusk_snowball"):StartCooldown(20.0)  --雪球初始20s CD
     end
 end
@@ -27,16 +27,9 @@ end
 function BehaviorNone:Begin()
 	self.endTime = GameRules:GetGameTime() + 1
 	self.target=nil
-	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 		if #allEnemies > 0 then
-			local minDistance = 10000000
-			for _,enemy in pairs(allEnemies) do
-				local distance = ( thisEntity:GetOrigin() - enemy:GetOrigin() ):Length()
-				if distance < minDistance then
-				  minDistance=distance
-                  self.target=enemy
-				end
-			end
+			self.target = allEnemies[1]
 		end
 
 	if self.target and self.target:IsAlive() then
@@ -59,7 +52,7 @@ end
 --------------------------------------------------------------------------------------------------------
 BehaviorSnowBall = {}     --雪球技能
 
-function BehaviorSnowBall:Evaluate() 
+function BehaviorSnowBall:Evaluate()
 	local desire = 1
 
 	if currentBehavior == self then return desire end
@@ -67,12 +60,12 @@ function BehaviorSnowBall:Evaluate()
 
 	if self.snowBallAbility and self.snowBallAbility:IsFullyCastable() then
 	   desire = 5
-	end	
+	end
 	return desire
 end
 
 function BehaviorSnowBall:Begin()
-	self.endTime = GameRules:GetGameTime() + 1.0	
+	self.endTime = GameRules:GetGameTime() + 1.0
 	self.order =
 	{
 		UnitIndex = thisEntity:entindex(),
@@ -85,7 +78,7 @@ BehaviorSnowBall.Continue = BehaviorSnowBall.Begin
 --------------------------------------------------------------------------------------------------------
 BehaviorSigil = {}     --冰封魔印
 
-function BehaviorSigil:Evaluate() 
+function BehaviorSigil:Evaluate()
 	local desire = 1
 
 	if currentBehavior == self then return desire end
@@ -93,12 +86,12 @@ function BehaviorSigil:Evaluate()
 
 	if self.sigilAbility and self.sigilAbility:IsFullyCastable() then
 	   desire = 5
-	end	
+	end
 	return desire
 end
 
 function BehaviorSigil:Begin()
-	self.endTime = GameRules:GetGameTime() + 1.0	
+	self.endTime = GameRules:GetGameTime() + 1.0
 	self.order =
 	{
 		UnitIndex = thisEntity:entindex(),

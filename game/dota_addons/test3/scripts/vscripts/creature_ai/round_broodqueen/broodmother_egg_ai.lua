@@ -4,18 +4,19 @@ Broodmother Egg Hatching Logic
 
 function Spawn( entityKeyValues )
   if  thisEntity:GetTeam()==DOTA_TEAM_BADGUYS then
-    local argets = FindUnitsInRadius(DOTA_TEAM_BADGUYS, Vector( 0, 0, 0 ) , nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, 0, false)
+    local argets = FindUnitsInRadius(DOTA_TEAM_BADGUYS, Vector( 0, 0, 0 ) , nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     for i,nit in pairs(argets) do
       if nit:GetUnitName()==("npc_dota_creature_broodking") then
         hbroodmother=nit
+		break
       end
     end
-    
+
     if  hbroodmother then
       	--print("mother found")
       	if hbroodmother:GetContext("mothernumber")==nil then
-          hbroodmother:SetContextNum("mothernumber", 0, 0) 
-          hbroodmother:SetContextNum("warriornumber", 0, 0) 
+          hbroodmother:SetContextNum("mothernumber", 0, 0)
+          hbroodmother:SetContextNum("warriornumber", 0, 0)
           --print("mothernumber first")
         end
       end
@@ -42,25 +43,26 @@ function WaitToHatch()
 	end
 	local mothernumber=0
 	local warriornumber=0
-	local argets = FindUnitsInRadius(DOTA_TEAM_BADGUYS, Vector( 0, 0, 0 ) , nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, 0, false)
+	local argets = FindUnitsInRadius(DOTA_TEAM_BADGUYS, Vector( 0, 0, 0 ) , nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
         for i,nit in pairs(argets) do
                 if nit:GetUnitName()==("npc_dota_creature_broodking") then
                 hbroodmother=nit
+				break
                 end
         end
 	       if hbroodmother then
 	              mothernumber=hbroodmother:GetContext("mothernumber")
-           end     
+           end
     print(mothernumber)
     if RandomInt(1, 65)>mothernumber-15
-    then 
+    then
 	ExecuteOrderFromTable({
 		UnitIndex = thisEntity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
 		AbilityIndex = ABILITY_hatch_broodmother:entindex()
 	})
 	       if hbroodmother then
-	            hbroodmother:SetContextNum("mothernumber", hbroodmother:GetContext("mothernumber") + 1, 0) 
+	            hbroodmother:SetContextNum("mothernumber", hbroodmother:GetContext("mothernumber") + 1, 0)
            end
     else
     ExecuteOrderFromTable({
@@ -74,49 +76,49 @@ function WaitToHatch()
        end
        print("warriornumber"..warriornumber)
 	   if warriornumber==15 then
-		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )	  
+		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )
        end
        if warriornumber==20 then
-		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )	  
+		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )
        end
        if warriornumber==25 then
-		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )	  
+		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )
        end
        if warriornumber==29 then
-		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )	  
+		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )
        end
        if warriornumber==33 then
-		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )	  
+		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )
        end
        if warriornumber==36 then
-		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )	  
+		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )
        end
        if warriornumber==39 then
-		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )	  
+		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )
        end
        if warriornumber==41 then
-       local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )   
+       local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )
        end
        if warriornumber==43 then
-       local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )   
+       local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )
        end
        if warriornumber==45 then
-       local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )   
+       local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )
        end
        if warriornumber==47 then
-       local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )   
+       local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )
        end
        if warriornumber >47  and warriornumber <=62 then
-		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )	  
+		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )
        end
        if warriornumber >62 and  warriornumber <=88 then
 		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )
-		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )		  
+		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )
        end
        if warriornumber >88 then
 		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )
-		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )	
-		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )	  
+		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )
+		   local entUnit = CreateUnitByName( "npc_dota_creature_spider_killer", hbroodmother:GetOrigin()+RandomVector( 300 ), true, nil, nil, DOTA_TEAM_BADGUYS )
        end
    end
 end

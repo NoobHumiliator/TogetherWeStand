@@ -12,7 +12,7 @@ function Blink(keys)
 
 	FindClearSpaceForUnit(caster, point, false)
 	ProjectileManager:ProjectileDodge(caster)
-	
+
 	local blinkIndex = ParticleManager:CreateParticle("particles/units/heroes/hero_antimage/antimage_blink_start.vpcf", PATTACH_ABSORIGIN, caster)
 	Timers:CreateTimer( 1, function()
 		ParticleManager:DestroyParticle( blinkIndex, false )

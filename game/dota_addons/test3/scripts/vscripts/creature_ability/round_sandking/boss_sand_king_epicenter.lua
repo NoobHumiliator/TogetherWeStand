@@ -65,7 +65,7 @@ function boss_sand_king_epicenter:OnProjectileThinkHandle( nProjectileHandle )
 		if projectile ~= nil then
 			local flRadius = ProjectileManager:GetLinearProjectileRadius( nProjectileHandle )
 			ParticleManager:SetParticleControl( projectile.nFXIndex, 2, Vector( flRadius, flRadius, 0 ) )
-		end	
+		end
 	end
 end
 
@@ -120,17 +120,17 @@ function boss_sand_king_epicenter:OnProjectileHitHandle( hTarget, vLocation, nPr
 				table.insert(self:GetCaster().vFissures,hThinker3)
 			end
 			EmitSoundOn( "SandKingBoss.Epicenter.Impact", hTarget )
-			
 
-			local enemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), hTarget:GetOrigin(), self:GetCaster(), blocker_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+
+			local enemies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(), hTarget:GetOrigin(), self:GetCaster(), blocker_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 			for _,enemy in pairs( enemies ) do
-				if enemy ~= nil and enemy:IsInvulnerable() == false and enemy:IsMagicImmune() == false then
+				if enemy:IsInvulnerable() == false and enemy:IsMagicImmune() == false then
 					local kv =
 					{
 						center_x = hTarget:GetOrigin().x,
 						center_y = hTarget:GetOrigin().y,
 						center_z = hTarget:GetOrigin().z,
-						should_stun = true, 
+						should_stun = true,
 						duration = 0.25,
 						knockback_duration = 0.25,
 						knockback_distance = 250,
@@ -158,7 +158,7 @@ function boss_sand_king_epicenter:OnProjectileHitHandle( hTarget, vLocation, nPr
 		end
 		if projectile ~= nil then
 			ParticleManager:DestroyParticle( projectile.nFXIndex, false )
-		end	
+		end
 	end
 
 	return true

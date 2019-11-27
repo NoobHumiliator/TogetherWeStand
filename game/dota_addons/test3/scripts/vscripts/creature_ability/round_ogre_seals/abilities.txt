@@ -1,0 +1,161 @@
+"DOTAAbilities"
+{
+    "small_ogreseal_flop"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "ogreseal_flop"
+        "ScriptFile"                    "creature_ability/round_ogre_seals/ogreseal_flop"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "FightRecapLevel"               "1"
+
+        "IsOnCastBar"                   "0"
+
+        "MaxLevel"                      "2"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "400"
+        "AbilityCastPoint"              "0.4"
+
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "16"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "radius"                    "175"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage"                    "100"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "stun_duration"             "0.2"
+            } 
+        }
+    }
+
+    "ogreseal_flop"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "ogreseal_flop"
+        "ScriptFile"                    "creature_ability/round_ogre_seals/ogreseal_flop"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "FightRecapLevel"               "1"
+
+        "IsOnCastBar"                   "0"
+
+        "MaxLevel"                      "2"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "1000"
+        "AbilityCastPoint"              "0.4"
+
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "8"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "radius"                    "275"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage"                    "1400"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "stun_duration"             "0.4"
+            } 
+        }
+    }
+    
+    "boss_ogreseal_flop"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "AbilityTextureName"            "ogreseal_flop"
+        "ScriptFile"                    "creature_ability/round_ogre_seals/ogreseal_flop"
+
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+        "FightRecapLevel"               "1"
+
+        "IsOnCastBar"                   "0"
+
+        "MaxLevel"                      "2"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "1200"
+        "AbilityCastPoint"              "0.4"
+
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "8"
+
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "radius"                    "375"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage"                    "8000"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "stun_duration"             "2"
+            } 
+        }
+    }
+}

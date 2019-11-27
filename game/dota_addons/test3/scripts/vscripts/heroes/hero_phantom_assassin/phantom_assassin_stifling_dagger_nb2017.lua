@@ -2,7 +2,7 @@ phantom_assassin_stifling_dagger_nb2017 = class({})
 
 --------------------------------------------------------------------------------
 
-function phantom_assassin_stifling_dagger_nb2017:OnSpellStart()	
+function phantom_assassin_stifling_dagger_nb2017:OnSpellStart()
 	self.duration = self:GetSpecialValueFor( "duration" )
 	self.dagger_speed = self:GetSpecialValueFor( "dagger_speed" )
 	self.dagger_offset = self:GetSpecialValueFor( "dagger_offset" )
@@ -12,26 +12,26 @@ function phantom_assassin_stifling_dagger_nb2017:OnSpellStart()
 
 	self.vTargetLocation = self:GetCursorPosition()
 	self.flAccumulatedTime = 0.0
-	self.vDirection = self.vTargetLocation - self:GetCaster():GetOrigin() 
+	self.vDirection = self.vTargetLocation - self:GetCaster():GetOrigin()
 	self.nDaggersThrown = 0
 
 	local vDirection = self.vTargetLocation  - self:GetCaster():GetOrigin()
 	vDirection.z = 0.0
 	vDirection = vDirection:Normalized()
-	
+
 	self:ThrowDagger( vDirection )
 end
 
 --------------------------------------------------------------------------------
 
 function phantom_assassin_stifling_dagger_nb2017:OnChannelThink( flInterval )
-	self.flAccumulatedTime = self.flAccumulatedTime + flInterval 
+	self.flAccumulatedTime = self.flAccumulatedTime + flInterval
 	if self.flAccumulatedTime >= self.dagger_rate then
 		self.flAccumulatedTime = self.flAccumulatedTime - self.dagger_rate
 
 		local vOffset = RandomVector( self.dagger_offset )
 		vOffset.z = 0.0
-		
+
 		local vDirection = ( self.vTargetLocation + vOffset ) - self:GetCaster():GetOrigin()
 		vDirection.z = 0.0
 		vDirection = vDirection:Normalized()
@@ -64,11 +64,11 @@ end
 --------------------------------------------------------------------------------
 
 function phantom_assassin_stifling_dagger_nb2017:ThrowDagger( vDirection )
-	local info = 
+	local info =
 	{
 		EffectName = "particles/phantom_assassin_linear_dagger.vpcf",
 		Ability = self,
-		vSpawnOrigin = self:GetCaster():GetOrigin(), 
+		vSpawnOrigin = self:GetCaster():GetOrigin(),
 		fStartRadius = 50.0,
 		fEndRadius = 50.0,
 		vVelocity = vDirection * self.dagger_speed,
@@ -77,7 +77,7 @@ function phantom_assassin_stifling_dagger_nb2017:ThrowDagger( vDirection )
 		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
 		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 	}
-	
+
 	ProjectileManager:CreateLinearProjectile( info )
 	EmitSoundOn( "Hero_PhantomAssassin.Dagger.Cast", self:GetCaster() )
 

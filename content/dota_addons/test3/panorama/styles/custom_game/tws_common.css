@@ -1,69 +1,68 @@
-
-.DarkBackground{
-	background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111 ), color-stop( 0.01, #202327 ), color-stop( 0.2, #141619 ), to( #000000 ) );
+.DarkBackground {
+	background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111), color-stop( 0.01, #202327), color-stop( 0.2, #141619), to( #000000));
 }
 
-.LightDarkBackground{
-	background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111 ), color-stop( 0.00, #272b30 ), color-stop( 0.6, #181a1e ), to( #181a1e ) );
+.LightDarkBackground {
+	background-color: gradient( linear, 100% 0%, 100% 100%, from( #111111), color-stop( 0.00, #272b30), color-stop( 0.6, #181a1e), to( #181a1e));
 }
 
-.CountDownProgressBar{
-	horizontal-align:center;
+.CountDownProgressBar {
+	horizontal-align: center;
 	background-color: gray;
 	height: 10px;
 	border-radius: 5px;
 }
 
-.CountDownProgressBarInner{
+.CountDownProgressBarInner {
 	height: 100%;
 	width: 100%;
-	background-color: gradient( linear , 0% 0% ,100% 0%,from(#121212), color-stop(0.4 , #104E8B) , to(#87CEFA) );
+	background-color: gradient( linear, 0% 0%, 100% 0%, from(#121212), color-stop(0.4, #104E8B), to(#87CEFA));
 	border-radius: 5px;
 }
 
-.Box{
+.Box {
 	padding: 20px;
 	box-shadow: 0px 0px 10px #888888;
 }
 
-.H0{
+.H0 {
 	font-size: 35px;
 }
 
-.H1{
+.H1 {
 	font-size: 30px;
 }
 
-.H2{
+.H2 {
 	font-size: 25px;
 }
 
-.H3{
+.H3 {
 	font-size: 20px;
 }
 
-.HCenter{
-	horizontal-align:center;
+.HCenter {
+	horizontal-align: center;
 }
 
-.VCenter{
+.VCenter {
 	vertical-align: center;
 }
 
-.Center{
-	horizontal-align:center;
+.Center {
+	horizontal-align: center;
 	vertical-align: center;
 }
 
-.RightTop{
-	horizontal-align:right;
+.RightTop {
+	horizontal-align: right;
 	vertical-align: top;
 }
 
-.White{
+.White {
 	color: white;
 }
 
-.Hidden{
-	visibility :collapse;
+.Hidden {
+	visibility: collapse;
 }

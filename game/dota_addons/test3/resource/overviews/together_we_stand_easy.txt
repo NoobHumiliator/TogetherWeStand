@@ -1,8 +1,0 @@
-together_we_stand_easy
-{
-	material materials/overviews/together_we_stand_easy.vmat
-	pos_x -5120
-	pos_y 5376
-	scale 10.000
-}
-

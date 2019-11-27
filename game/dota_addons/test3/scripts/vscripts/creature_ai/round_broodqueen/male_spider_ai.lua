@@ -74,7 +74,7 @@ function BehaviorLaunchMissile:Evaluate()
 		self.order =
 		{
             OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-		    UnitIndex = thisEntity:entindex(),	
+		    UnitIndex = thisEntity:entindex(),
 			AbilityIndex = self.ability:entindex()
 		}
 	end

@@ -1,0 +1,108 @@
+"DOTAAbilities"
+{
+	"frostivus2018_huskar_life_break"
+	{
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_Huskar.Life_Break"
+		"AbilityTextureName"			"frostivus2018_huskar_life_break"
+		"HasScepterUpgrade"		     	"1"
+		"MaxLevel"                      "6"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3 0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"16 15 14 13 12 11"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0 0 0"
+
+		// Cast Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"550"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDuration"				"4 5 6 7 8 9"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"health_cost_percent"		"0.32 0.35 0.38 0.41 0.44 0.48"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"health_damage"				"1.50 2.00 2.50 3.00 3.50 4.00"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"health_damage_scepter"		"0.55"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"charge_speed"				"1200"
+			}
+			"05"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"tooltip_health_damage"				"150 200 250 300 350 400"
+			}
+			"06"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"tooltip_health_cost_percent"		"32 35 38 41 44 48"
+				"CalculateSpellDamageTooltip"		"1"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed"					"-40 -50 -60 -70 -80 -90"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"slow_durtion_tooltip"		"4 5 6 7 8 9"
+			}
+			"09"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"tooltip_health_damage_scepter"		"52"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"cooldown_scepter"			"9"
+			}
+			"11"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_self_damage"			"999999"
+			}
+			"12"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_damage"				"99999999"
+			}
+		}
+	}
+
+}

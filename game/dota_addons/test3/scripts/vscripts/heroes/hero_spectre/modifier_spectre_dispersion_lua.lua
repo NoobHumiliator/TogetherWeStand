@@ -1,115 +1,121 @@
-require( "util" )
+require("util")
 --[[Author: Nightborn
 	Date: August 27, 2016
 ]]
-
 modifier_spectre_dispersion_lua = class({})
 
-function modifier_spectre_dispersion_lua:DeclareFunctions()
-	local funcs = {
-		MODIFIER_EVENT_ON_TAKEDAMAGE
-	}
-	return funcs
-end
-
-function modifier_spectre_dispersion_lua:OnTakeDamage (event)
-
-	if event.unit == self:GetParent() then
-        
-        --PrintTable(event)
-
-		local caster = self:GetParent()
-		local post_damage = event.damage
-		local original_damage = event.original_damage
-		local ability = self:GetAbility()
-		local damage_reflect_pct = ( ability:GetLevelSpecialValueFor( "damage_reflection_pct", ability:GetLevel()-1 ) ) * 0.01
-
-		--Ignore damage
-		if caster:IsAlive() then
-			caster:SetHealth(caster:GetHealth() + (post_damage * damage_reflect_pct) )
-		end
-
-		local max_radius = ability:GetSpecialValueFor("max_radius")
-		local min_radius = ability:GetSpecialValueFor("min_radius")
-
-		units = FindUnitsInRadius(
-						caster:GetTeamNumber(),
-                        caster:GetAbsOrigin(),
-                        nil,
-                        max_radius,
-                        DOTA_UNIT_TARGET_TEAM_ENEMY,
-                        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-                        DOTA_UNIT_TARGET_FLAG_NONE,
-                        FIND_ANY_ORDER,
-                        false
-        )
-		
-		for _,unit in pairs(units) do
-
-			if unit:GetTeam() ~= caster:GetTeam() then
-
-				local vCaster = caster:GetAbsOrigin()
-				local vUnit = unit:GetAbsOrigin()
-
-				local reflect_damage = 0.0
-				--local particle_name = ""
-                
-                reflect_damage = original_damage * damage_reflect_pct
-                    
-				local distance = (vUnit - vCaster):Length2D()
-				
-                --取消掉全部的效果粒子特效
-				--Within 300 radius		
-								
-				if distance <= min_radius then
-					reflect_damage = original_damage * damage_reflect_pct
-					--particle_name = "particles/units/heroes/hero_spectre/spectre_dispersion.vpcf"
-				--Between 301 and 475 radius
-				elseif distance <= (min_radius+175) then
-					reflect_damage = original_damage * ( damage_reflect_pct * (1- (distance-300) * 0.00142857 ) )
-					--particle_name = "particles/units/heroes/hero_spectre/spectre_dispersion_fallback_mid.vpcf"
-				--Same formula as previous statement but different particle
-				else
-					reflect_damage = original_damage * ( damage_reflect_pct * (1- (distance-300) * 0.00142857 ) )				
-					--particle_name = "particles/units/heroes/hero_spectre/spectre_dispersion_b_fallback_low.vpcf"
-				end
-
-                if caster.pure_return~=nil then
-                	reflect_damage=reflect_damage*(1+caster.pure_return*caster:GetStrength()/100)
-                end
-                
-                --particle_name = "particles/units/heroes/hero_spectre/spectre_dispersion.vpcf"
-				--Create particle
-				--[[
-				local particle = ParticleManager:CreateParticle( particle_name, PATTACH_POINT_FOLLOW, caster )
-				ParticleManager:SetParticleControl(particle, 0, vCaster)
-				ParticleManager:SetParticleControl(particle, 1, vUnit)
-				ParticleManager:SetParticleControl(particle, 2, vCaster)
-				]]
-				
-
-                if caster.pure_return~=nil then
-                	reflect_damage=reflect_damage*(1+caster.pure_return*caster:GetStrength()/100)
-                end
-
-                ApplyDamage({ victim = unit, attacker = caster, ability=ability, damage = reflect_damage, damage_type = event.damage_type })
-
-			end
-
-		end
-
-	end
-
-end
-
 function modifier_spectre_dispersion_lua:IsHidden()
-	return true
-end
-
-function modifier_spectre_dispersion_lua:RemoveOnDeath()
-	return false
+    return true
 end
 
 function modifier_spectre_dispersion_lua:IsPurgable()
-	return false
+    return false
+end
+
+function modifier_spectre_dispersion_lua:OnCreated()
+    if not IsServer() then
+        return
+    end
+    self.damage_reflect_pct = self:GetAbility():GetSpecialValueFor("damage_reflection_pct")
+    local talent = self:GetCaster():FindAbilityByName("special_bonus_unique_spectre_5")
+    if talent and talent:GetLevel() > 0 then
+        self.damage_reflect_pct = self.damage_reflect_pct + talent:GetSpecialValueFor("value")
+    end
+    self.max_radius = self:GetAbility():GetSpecialValueFor("max_radius")
+    self.min_radius = self:GetAbility():GetSpecialValueFor("min_radius")
+end
+
+function modifier_spectre_dispersion_lua:OnRefresh()
+    if not IsServer() then
+        return
+    end
+    self.damage_reflect_pct = self:GetAbility():GetSpecialValueFor("damage_reflection_pct")
+    local talent = self:GetCaster():FindAbilityByName("special_bonus_unique_spectre_5")
+    if talent and talent:GetLevel() > 0 then
+        self.damage_reflect_pct = self.damage_reflect_pct + talent:GetSpecialValueFor("value")
+    end
+    self.max_radius = self:GetAbility():GetSpecialValueFor("max_radius")
+    self.min_radius = self:GetAbility():GetSpecialValueFor("min_radius")
+end
+
+function modifier_spectre_dispersion_lua:DeclareFunctions()
+    local funcs = {
+        MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+        MODIFIER_EVENT_ON_TAKEDAMAGE
+    }
+    return funcs
+end
+
+function modifier_spectre_dispersion_lua:GetModifierIncomingDamage_Percentage(params)
+    if self:GetParent():PassivesDisabled() then
+        return 0
+    end
+    return -self.damage_reflect_pct
+end
+
+function modifier_spectre_dispersion_lua:OnTakeDamage(params)
+
+    -- PrintTable(params)
+    local caster = self:GetParent()
+    if caster:PassivesDisabled() then
+        return
+    end
+    local attacker = params.attacker
+    local original_damage = params.original_damage
+
+    if attacker == nil or params.unit ~= caster or FlagExist(params.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) then
+        return
+    end
+
+    -- 我方所造成的伤害减少大半
+    if attacker:GetTeamNumber() == caster:GetTeamNumber() then
+        original_damage = original_damage / 3
+    end
+
+    local units = FindUnitsInRadius(
+    caster:GetTeamNumber(),
+    caster:GetAbsOrigin(),
+    nil,
+    self.max_radius,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+    DOTA_UNIT_TARGET_FLAG_NONE,
+    FIND_ANY_ORDER,
+    false
+    )
+
+    for _, unit in pairs(units) do
+        local vCaster = caster:GetAbsOrigin()
+        local vUnit = unit:GetAbsOrigin()
+
+        local distance = math.max((vUnit - vCaster):Length2D(), self.min_radius)
+
+        local reflect_damage = original_damage * self.damage_reflect_pct / 100
+        reflect_damage = reflect_damage * (1 - (distance - self.min_radius) / (self.max_radius - self.min_radius))
+
+        if reflect_damage > (original_damage * 2 / 3) then
+            --particle_name = "particles/units/heroes/hero_spectre/spectre_dispersion.vpcf"
+        elseif reflect_damage > (original_damage / 3) then
+            --particle_name = "particles/units/heroes/hero_spectre/spectre_dispersion_fallback_mid.vpcf"
+        else
+            --particle_name = "particles/units/heroes/hero_spectre/spectre_dispersion_b_fallback_low.vpcf"
+        end
+
+        --Create particle
+        --[[local particle = ParticleManager:CreateParticle( particle_name, PATTACH_POINT_FOLLOW, caster )
+			ParticleManager:SetParticleControl(particle, 0, vCaster)
+			ParticleManager:SetParticleControl(particle, 1, vUnit)
+			ParticleManager:SetParticleControl(particle, 2, vCaster)
+        ]]
+        
+        ApplyDamage({
+            victim = unit,
+            attacker = caster,
+            ability = self:GetAbility(),
+            damage = reflect_damage,
+            damage_type = params.damage_type,
+            damage_flags = DOTA_DAMAGE_FLAG_HPLOSS + DOTA_DAMAGE_FLAG_REFLECTION,
+        })
+
+    end
 end

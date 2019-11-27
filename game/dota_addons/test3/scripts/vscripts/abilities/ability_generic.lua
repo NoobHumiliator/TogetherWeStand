@@ -1,5 +1,4 @@
 -- 这个文件里面是一些技能通用的东西
--- 比如说在单位身上查找A杖
 -- 在某个位置播放某个粒子特效
 -- 或者各种创建马甲释放各种技能
 -- 注释很详细，慢慢看即可
@@ -15,22 +14,6 @@ function tableCount(tbl)
 	return count
 end
 
--- 判定单位是否拥有阿哈利姆神杖
--- caster: 要判定的单位
--- 返回 true: 有神杖 false:没有神杖
---
-function FindScepter(caster)
-	for i = 0,5 do
-		local item = caster:GetItemInSlot(i)
-		if item then
-			print(item:GetName())
-			if item:GetName() == "item_ultimate_scepter" then
-				return true
-			end
-		end
-	end
-	return false
-end
 -- 在某个位置播放一个粒子特效，其中target表示拥有这个特效的单位
 -- particlename: string 粒子特效字符串 ***/****/****.vpcf
 -- target: handle 单位
@@ -47,7 +30,7 @@ end
 -- ability: handle 拥有这个Modifier的自定义技能
 -- modifier_name: string Modifier名称
 -- duration: float or int 可选，Modifier的持续时间，nil时表示永久
--- 
+--
 function AddModifier(source, target, ability, modifier_name, duration)
 	local modifier_data = {}
 	if duration ~= nil and type(duration) ==  "number" and duration > 0 then
@@ -105,7 +88,7 @@ function CreateDummyAndCastAbilityAtPosition(owner, ability_name, ability_level,
 			ability:SetOverrideCastPoint(0)
 
 			if scepter then
-				local item = CreateItem("item_ultimate_scepter", unit, unit)	
+				local item = CreateItem("item_ultimate_scepter", unit, unit)
 				unit:AddItem(item)
 			end
 
@@ -140,7 +123,7 @@ function CreateDummyAndCastAbilityOnTarget(owner, ability_name, ability_level, t
 			ability:SetOverrideCastPoint(0)
 
 			if scepter then
-				local item = CreateItem("item_ultimate_scepter", unit, unit)	
+				local item = CreateItem("item_ultimate_scepter", unit, unit)
 				unit:AddItem(item)
 			end
 
@@ -177,7 +160,7 @@ function CreateDummyAtPositionAndCastAbilityAtPosition(owner, ability_name, abil
 			ability:SetOverrideCastPoint(0)
 
 			if scepter then
-				local item = CreateItem("item_ultimate_scepter", unit, unit)	
+				local item = CreateItem("item_ultimate_scepter", unit, unit)
 				unit:AddItem(item)
 			end
 
@@ -213,7 +196,7 @@ function CreateDummyAtPositionAndCastAbilityOnTarget(owner, ability_name, abilit
 			ability:SetOverrideCastPoint(0)
 
 			if scepter then
-				local item = CreateItem("item_ultimate_scepter", unit, unit)	
+				local item = CreateItem("item_ultimate_scepter", unit, unit)
 				unit:AddItem(item)
 			end
 
@@ -249,7 +232,7 @@ function CreateDummyAtPositionAndCastAbilityNoTarget(owner, ability_name, abilit
 			ability:SetOverrideCastPoint(0)
 
 			if scepter then
-				local item = CreateItem("item_ultimate_scepter", unit, unit)	
+				local item = CreateItem("item_ultimate_scepter", unit, unit)
 				unit:AddItem(item)
 			end
 

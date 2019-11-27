@@ -1,0 +1,93 @@
+"DOTAAbilities"
+{
+    "geodesic_explode_expansion"  //23关  扩散爆炸
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass" 					"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE"
+		"SpellImmunityType"			   "SPELL_IMMUNITY_ENEMIES_YES"
+	    "AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"			"faceless_void_chronosphere"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"900"
+        "precache"
+		{
+		     "particle"          "particles/econ/items/faceless_void/faceless_void_mace_of_aeons/fv_chronosphere_aeons.vpcf"
+		     "particle"          "particles/hw_fx/candy_carrying_stack.vpcf"
+		}
+		"OnOwnerDied"
+		{
+
+			"FireSound"
+			{
+				"EffectName"		"Hero_Broodmother.SpawnSpiderlings"
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+			}
+		    "RunScript"
+			{
+				"ScriptFile"		"creature_ability/round_geodesic/explode_expansion.lua"
+				"Function"			"ThinkerCreate"
+			}
+		}
+
+       "Modifiers"
+	   {
+			"modifier_geodesic_explode_think"
+			{
+				"IsHidden"           "1"
+				"Passive"            "1"
+				"IsPurgable"		 "0"
+				"ThinkInterval"		 "1.0"
+                "OnCreated"
+                {
+					"RunScript"
+					{
+						"ScriptFile"	 "creature_ability/round_geodesic/explode_expansion.lua"
+						"Function"		 "InitCountDown"
+					}
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	 "creature_ability/round_geodesic/explode_expansion.lua"
+						"Function"		 "Onthink"
+					}
+				}
+			}
+	    }
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"init_radius"			"190"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius_increase"		"20"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_reduce"			"-100"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_sec"	    "1000"
+			}
+		}
+	}
+}

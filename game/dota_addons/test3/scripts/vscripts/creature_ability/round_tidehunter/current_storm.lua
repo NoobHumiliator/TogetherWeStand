@@ -84,7 +84,7 @@ function KnockBack ( event )
  		return
 	end
 
-	
+
 	npc:PreventDI(false)
 	npc:SetAutoUnstuck(true)
 	npc:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
@@ -113,7 +113,7 @@ function KnockBack ( event )
 	end
 
 	npc:SetPhysicsVelocity(vec)
-    
+
 	Timers:CreateTimer(jumpdur, function()
 		if npc.isunderforce <= 1 then
             if not event.forever then

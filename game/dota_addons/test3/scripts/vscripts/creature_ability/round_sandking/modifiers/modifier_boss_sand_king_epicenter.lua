@@ -17,9 +17,9 @@ end
 function modifier_boss_sand_king_epicenter:OnCreated( kv )
 	if IsServer() then
 		if self:GetAbility().nCastCount == nil then
-			self:GetAbility().nCastCount = 1 
+			self:GetAbility().nCastCount = 1
 		else
-			self:GetAbility().nCastCount = self:GetAbility().nCastCount + 1 
+			self:GetAbility().nCastCount = self:GetAbility().nCastCount + 1
 		end
 		self.damage = self:GetAbility():GetSpecialValueFor( "damage" )
 		self.interval = self:GetAbility():GetSpecialValueFor( "interval" )
@@ -45,17 +45,16 @@ end
 function modifier_boss_sand_king_epicenter:OnIntervalThink()
 	if IsServer() then
 		EmitSoundOn( "SandKing.Epicenter.PulsesBegin", self:GetCaster() )
-		local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), self:GetParent():GetOrigin(), self:GetCaster(), FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+		local enemies = FindUnitsInRadius( self:GetParent():GetTeamNumber(), self:GetParent():GetOrigin(), self:GetCaster(), FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 		for _,enemy in pairs( enemies ) do
-			if enemy ~= nil then
 				local vDirection = ( enemy:GetOrigin() + RandomVector( 1 ) * self.pulse_width ) - self:GetCaster():GetOrigin()
 				vDirection.z = 0.0
 				vDirection = vDirection:Normalized()
 
-				local info = 
+				local info =
 				{
 					Ability = self:GetAbility(),
-					vSpawnOrigin = self:GetCaster():GetOrigin(), 
+					vSpawnOrigin = self:GetCaster():GetOrigin(),
 					fStartRadius = self.pulse_width,
 					fEndRadius = self.pulse_end_width,
 					vVelocity = vDirection * self.pulse_speed,
@@ -75,18 +74,17 @@ function modifier_boss_sand_king_epicenter:OnIntervalThink()
 
 				table.insert( self:GetAbility().Projectiles, proj )
 				EmitSoundOn( "SandKing.Epicenter.Pulse", self:GetParent() )
-			end
 		end
 
-		for i=1,self.random_pulses do 
+		for i=1,self.random_pulses do
 			local vDirection = ( self:GetCaster():GetOrigin() + ( RandomVector( 1 ) * self.pulse_distance ) ) - self:GetCaster():GetOrigin()
 			vDirection.z = 0.0
 			vDirection = vDirection:Normalized()
 
-			local info = 
+			local info =
 			{
 				Ability = self:GetAbility(),
-				vSpawnOrigin = self:GetCaster():GetOrigin(), 
+				vSpawnOrigin = self:GetCaster():GetOrigin(),
 				fStartRadius = self.pulse_width,
 				fEndRadius = self.pulse_end_width,
 				vVelocity = vDirection * self.pulse_speed,

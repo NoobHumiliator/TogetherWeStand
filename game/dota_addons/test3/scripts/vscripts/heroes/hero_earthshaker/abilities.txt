@@ -1,0 +1,137 @@
+"DOTAAbilities"
+{
+    "earthshaker_aftershock_ward_winter_2018"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"frostivus2018_earthshaker_aftershock_totem"
+		"ScriptFile"					"heroes/hero_earthshaker/earthshaker_aftershock_ward_winter_2018"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Pugna.NetherWard"
+		"LinkedAbility"					"earthshaker_aftershock"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2 0.2 0.2 0.2"
+		"AbilityCastRange"				"150"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"50.0 45.0 40.0 35.0"
+		"AbilityDuration"				"10 15 20 25"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"80 90 100 110"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					    "FIELD_FLOAT"
+				"tooltip_duration"			    "10.0 15.0 20.0 25.0"
+			}
+			"02"
+			{
+				"var_type"					    "FIELD_INTEGER"
+				"aura_radius"					"1600"
+			}
+			"03"
+			{
+				"var_type"					    "FIELD_INTEGER"
+				"attacks_to_destroy_tooltip"    "4 4 4 4"
+			}
+			"04"
+			{
+				"var_type"					    "FIELD_INTEGER"
+				"ward_duration"				    "10 15 20 25"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+
+
+	"earthshaker_aftershock_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"earthshaker_aftershock"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+			"particle"					"particles/units/heroes/hero_centaur/centaur_warstomp.vpcf"
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"300"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"			    "50 75 100 125"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"		    "0.6 0.9 1.2 1.5"
+			}
+		}
+
+		"Modifiers"
+		{
+
+			"modifier_after_shock_buff"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"OnSpentMana"
+			   {
+				  "RunScript"
+				  {
+					  "ScriptFile"		"heroes/hero_earthshaker/hero_earthshaker.lua"
+				      "Function"		"Aftershock"
+					  "Target"			"UNIT"
+				  }
+			   }
+			}
+			"modifier_shock_particle"
+			{
+			   "Duration"   "0.1"
+			  "OnCreated"
+			   {
+			        "FireEffect"
+	         	     {
+		         	    "EffectName"		"particles/units/heroes/hero_centaur/centaur_warstomp.vpcf"
+			            "EffectAttachType" 	"follow_origin"
+			            "EffectRadius"		"%radius"
+			            "Target" 			"CASTER"
+			            "ControlPoints"
+			             {
+			        	   "01"	"%radius 0 %radius"
+			             }
+	         	     }
+	            }
+		    }
+	    }
+	}
+}

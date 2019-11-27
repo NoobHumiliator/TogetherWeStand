@@ -1,6 +1,6 @@
 --[[ 	Author: D2imba
 		Date: 25.04.2015	]]
-		
+
 function FrostNova( keys )
 	local caster = keys.caster
 	local ability = keys.ability
@@ -25,11 +25,11 @@ function FrostNova( keys )
 
 	-- Rolls for the chance of casting Frost Nova
 	if RandomInt(1, 100) <= proc_chance then
-		
+
 		-- Casts the spell
 		target:EmitSound(sound)
 		local pfx = ParticleManager:CreateParticle(particle, PATTACH_ABSORIGIN_FOLLOW, target)
-		local targets = FindUnitsInRadius(caster:GetTeamNumber(), target_pos, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), 0, false )
+		local targets = FindUnitsInRadius(caster:GetTeamNumber(), target_pos, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
 		for _,v in pairs(targets) do
 			ApplyDamage({victim = v, attacker = caster, damage = aoe_damage, damage_type = ability:GetAbilityDamageType()})
 			ability:ApplyDataDrivenModifier(caster, v, modifier_slow, {duration = ability:GetDuration()})
@@ -64,13 +64,13 @@ function DarkRitual( keys )
 	local ability = keys.ability
 	local xp_radius = ability:GetLevelSpecialValueFor("xp_radius", ability:GetLevel() - 1 )
 
-	-- Mana to give	
+	-- Mana to give
 	local target_health = target:GetMaxHealth()
 	local rate = ability:GetLevelSpecialValueFor("health_conversion", ability:GetLevel() - 1 ) * 0.01
 	local mana_gain = target_health * rate * FRANTIC_MULTIPLIER
-	
+
 	-- Heroes to share XP
-	local heroes = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, xp_radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
+	local heroes = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, xp_radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
 
 	-- XP to share
 	local XP = target:GetDeathXP()

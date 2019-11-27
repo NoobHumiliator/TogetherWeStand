@@ -5,7 +5,7 @@ behaviorSystem = {} -- create the global so we can assign to it
 function Spawn( entityKeyValues )
 	if  thisEntity:GetTeam()==DOTA_TEAM_BADGUYS then
 	  thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
-      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone ,  BehaviorStatic_Link} ) 
+      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone ,  BehaviorStatic_Link} )
     end
 end
 
@@ -23,16 +23,9 @@ end
 function BehaviorNone:Begin()
 	self.endTime = GameRules:GetGameTime() + 1
 	self.target=nil
-	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 		if #allEnemies > 0 then
-			local minDistance = 10000000
-			for _,enemy in pairs(allEnemies) do
-				local distance = ( thisEntity:GetOrigin() - enemy:GetOrigin() ):Length()
-				if distance < minDistance then
-				  minDistance=distance
-                  self.target=enemy
-				end
-			end
+			self.target = allEnemies[1]
 		end
 
 
@@ -62,24 +55,23 @@ function BehaviorStatic_Link:Evaluate()
 	self.staticlinkAbility = thisEntity:FindAbilityByName("holdout_impale")    --对技能进行定义
 	local desire = 0
 	local range = self.staticlinkAbility:GetCastRange()
-    local enemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, 0, false )
+    local enemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	local minHP = nil
 	local target = nil
 
 	for _,enemy in pairs(enemies) do
-		local distanceToEnemy = (thisEntity:GetOrigin() - enemy:GetOrigin()):Length()
 		local HP = enemy:GetHealth()
-		if enemy:IsAlive() and (minHP == nil or HP < minHP) and distanceToEnemy < range then
+		if enemy:IsAlive() and (minHP == nil or HP < minHP) then
 			minHP = HP
 			target = enemy
 		end
 	end
-         
+
 	if self.staticlinkAbility and self.staticlinkAbility:IsFullyCastable() and target then   --找到生命值最少的单位，直接穿
 		desire = 7
 		self.target = target
         local targetPoint = self.target:GetOrigin() + RandomVector(50)
-	
+
 	    self.order =
 	{
 		UnitIndex = thisEntity:entindex(),
@@ -104,7 +96,7 @@ function BehaviorStatic_Link:Begin()
 		AbilityIndex = self.staticlinkAbility:entindex()
 	}
     --]]
-end 
+end
 
 BehaviorStatic_Link.Continue = BehaviorStatic_Link.Begin --if we re-enter this ability, we might have a different target; might as well do a full reset
 --------------------------------------------------------------------------------------------------------

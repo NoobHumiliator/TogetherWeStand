@@ -1,7 +1,7 @@
 <root>
     <styles>
-       <include src="file://{resources}/styles/custom_game/util.css" />
-       <include src="file://{resources}/styles/custom_game/tws_spell_shop_ui.css" />
+        <include src="file://{resources}/styles/custom_game/util.css" />
+        <include src="file://{resources}/styles/custom_game/tws_spell_shop_ui.css" />
     </styles>
 
     <scripts>
@@ -9,10 +9,10 @@
         <include src="file://{resources}/scripts/custom_game/tws_spell_shop_trigger_button.js" />
     </scripts>
     <Panel hittest="false" class="TriggerButtonPanelHud">
-       <Panel class="triggerButtonPanel" id="triggerButtonPanel">
-              <Button id="triggerButton"  onactivate="ShowMainBlock()">
-                     <Label text="#spell_shop_hotkey" />
-              </Button>
-       </Panel>
+        <Panel class="triggerButtonPanel" id="triggerButtonPanel">
+            <Button id="triggerButton" onactivate="ShowMainBlock()">
+                <Label text="#spell_shop_hotkey" />
+            </Button>
+        </Panel>
     </Panel>
 </root>

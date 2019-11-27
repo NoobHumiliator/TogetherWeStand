@@ -1,0 +1,240 @@
+"DOTAUnits"
+{
+	"npc_dota_creature_bandit_archer"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_bandit/creature_bandit_archer_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/thief/thief_01_archer.vmdl"
+		"SoundSet"					"Hero_DrowRanger"
+		"Level"						"15"
+		"ModelScale" 				"1.32"
+		"ConsideredHero"			"0"
+		"IsAncient"					"0"
+		"CanBeDominated"			"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"creature_bandit_archer_arrow"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"15"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.700000"
+		"AttackAcquisitionRange"	"750"
+		"AttackRange"				"0"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"65"
+		"HealthBarOffset"			"180"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"200"
+		"BountyGoldMin"				"40"
+		"BountyGoldMax"				"40"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"380"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"280"
+		"StatusHealthRegen"			"6"
+		"StatusMana"				"1500"
+		"StatusManaRegen"			"20"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		//Inventory
+		"HasInventory"				"1"
+	}
+
+	"npc_dota_creature_bandit"
+	{
+		// Script
+		"vscripts"				    "creature_ai/zombie_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/thief/thief_01.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"1"
+		"ModelScale" 				"0.9"
+		"ConsideredHero"			"0"
+		"IsAncient"					"0"
+		"CanBeDominated"			"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					""
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"15"
+		"AttackDamageMax"			"20"
+		"AttackRate"				"1.2"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"750"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"45"
+		"HealthBarOffset"			"140"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"380"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"150"
+		"StatusHealthRegen"			"2"
+		"StatusMana"				"1000"
+		"StatusManaRegen"			"10"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		//Inventory
+		"HasInventory"				"1"
+
+	}
+
+	"npc_dota_creature_bandit_captain"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_bandit/creature_bandit_captain_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/thief/thief_01_leader.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"15"
+		"ModelScale" 				"1.3"
+		"ConsideredHero"			"1"
+		"IsAncient"					"0"
+		"CanBeDominated"			"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"creature_bandit_stifling_dagger"
+		"Ability2"					"creature_blink_strike"
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"25"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"42"
+		"AttackDamageMax"			"45"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"750"
+		"AttackRange"				"120"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"65"
+		"HealthBarOffset"			"230"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"200"
+		"BountyGoldMin"				"150"
+		"BountyGoldMax"				"150"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"380"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1200"
+		"StatusHealthRegen"			"3"
+		"StatusMana"				"1500"
+		"StatusManaRegen"			"20"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		//Inventory
+		"HasInventory"				"1"
+	}
+}

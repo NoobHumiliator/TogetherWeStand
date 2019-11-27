@@ -5,7 +5,7 @@ function Concussive_damage( keys )
         local target = keys.target
         local c_team = caster:GetTeam()         --获取施法者所在的队伍
         local vec = target:GetOrigin()                --获取施法者的位置，就是三维坐标
-        local radius = 330        
+        local radius = 330
 
         local teams = DOTA_UNIT_TARGET_TEAM_ENEMY
         local types = DOTA_UNIT_TARGET_HERO

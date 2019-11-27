@@ -1,0 +1,510 @@
+"DOTAUnits"
+{
+	"npc_dota_creature_dire_hound"
+	{
+		// Script
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/lycan/wolves/ambry_summon/ambry_summon.vmdl" // precache issue with this asset
+		"SoundSet"					"DireHound"
+		"Level"						"1"
+		"ModelScale" 				".67"
+		"IsNeutralUnitType"			"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					""
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"55"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"35"
+		"AttackDamageMax"			"40"
+		"AttackRate"				"1.45"
+		"AttackAnimationPoint"		"0.33"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"45"
+		"HealthBarOffset"			"90"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"20"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"310"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"55"
+		"StatusHealthRegen"			"0.5"
+		"StatusMana"				"100"
+		"StatusManaRegen"			"1"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "vscripts"					"creature_ai/zombie_ai.lua"
+	}
+
+    "npc_dota_creature_dire_hound_boss"
+	{
+		// Script
+		"vscripts"					"creature_ai/zombie_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/lycan/lycan_wolf.vmdl"
+		"SoundSet"					"Hero_Lycan"
+		"Level"						"1"
+		"ModelScale" 				"0.9"
+		"IsNeutralUnitType"			"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					""
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"33"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"25"
+		"AttackDamageMax"			"35"
+		"AttackRate"				"1.35"
+		"AttackAnimationPoint"		"0.33"
+		"AttackAcquisitionRange"	"600"
+		"AttackRange"				"750"
+	    "ProjectileModel"			"particles/units/heroes/hero_beastmaster/beastmaster_boar_attack.vpcf" // Particle system model for projectile.
+		"ProjectileSpeed"			"1200"		// Speed of projectile.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"160"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"35"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"310"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"950"
+		"StatusHealthRegen"			"0.5"
+		"StatusMana"				"350"
+		"StatusManaRegen"			"1"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+	}
+
+    "npc_dota_creature_small_hellbear"
+	{
+		// Script
+		"vscripts"					"creature_ai/zombie_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/creeps/neutral_creeps/n_creep_beast/n_creep_beast.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"4"
+		"ModelScale" 				".60"
+		"IsNeutralUnitType"			"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					""
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"20"
+		"AttackDamageMax"			"32"
+		"AttackRate"				"1.5"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"50"
+		"HealthBarOffset"			"140"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"25"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"330"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"260"
+		"StatusHealthRegen"			"0.5"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"1.0"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		"vscripts"					"creature_ai/zombie_ai.lua"
+	}
+
+    "npc_dota_creature_hellbear"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"5"
+		"ModelScale" 				"1.1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"hellbear_smash"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"2"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"25"
+		"AttackDamageMax"			"36"
+		"AttackRate"				"1.55"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"170"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"55"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"250"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"600"
+		"StatusHealthRegen"			"1"
+		"StatusMana"				"300"
+		"StatusManaRegen"			"1.0"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+
+		// Script
+		"vscripts"					"creature_ai/round_wolf/hellbear_ai.lua"
+
+	}
+
+    "npc_dota_creature_werewolf"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_wolf/werewolf_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/knoll_1/knoll_1.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"1"
+		"ModelScale" 				"1.7"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"werewolf_howl"
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"3"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"50"
+		"AttackDamageMax"			"55"
+		"AttackRate"				"1.7"
+		"AttackAnimationPoint"		"0.43"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"128"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"180"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"60"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"310"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1000"
+		"StatusHealthRegen"			"1"
+		"StatusMana"				"300"
+		"StatusManaRegen"			"3"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"DefensiveAbilities"
+			{
+				"Ability3"
+				{
+					"Name"				"werewolf_howl"
+					"AOE"				"1"
+					"Heal"				"1"
+					"Radius"			"300"
+					"MinimumTargets"	"2"
+				}
+			}
+		}
+	}
+
+    "npc_dota_creature_lycan_boss"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_wolf/ai_lycan_boss.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/lycan/lycan.vmdl"
+		"SoundSet"					"Hero_Lycan"
+		"Level"						"1"
+		"ModelScale" 				"1.6"
+		"ConsideredHero"			"1"
+		"IsAncient"					"1"
+		"IsBossMonster"				"1"
+
+		// Minimap
+		//----------------------------------------------------------------
+		"MinimapIcon"				"minimap_roshancamp"
+		"MinimapIconSize"			"250"
+
+        "precache"
+		{
+			"soundfile"				"soundevents/voscripts/game_sounds_vo_lycan.vsndevts"
+		}
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"lycan_boss_summon_wolves"
+		"Ability2"					"lycan_boss_shapeshift"
+		"Ability3"					"lycan_boss_claw_lunge"
+		"Ability4"					"lycan_boss_claw_attack"
+		"Ability5"					"lycan_boss_rupture_ball"
+		"Ability6"					"generic_gold_bag_fountain_500"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"28"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"300"
+		"AttackDamageMax"			"320"
+		"AttackRate"				"1.45"
+		"AttackAnimationPoint"		"0.55"
+		"AttackAcquisitionRange"	"600"
+		"AttackRange"				"200"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"75"
+		"HealthBarOffset"			"300"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"900"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"500"
+		"MovementTurnRate"			"0.5"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"10500"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"2500"
+		"StatusManaRegen"			"5"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"DisableResistance"			"80.0"
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"7851" // back: default
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"7852" // misc: default
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"7853" // legs: default
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"7854" // arms: default
+				}
+				"Wearable5"
+				{
+					"ItemDef"			"7855" // weapon: default
+				}
+				"Wearable6"
+				{
+					"ItemDef"			"207" // weapon: head
+				}
+			}
+		}
+	}
+}

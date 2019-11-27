@@ -1,0 +1,293 @@
+"DOTAUnits"
+{
+	"npc_dota_creature_small_ogre_seal"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_ogre_seals/small_ogre_seal.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/ice_biome/ogreseal/ogreseal.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"1"
+		"ModelScale" 				"0.45"
+		"ConsideredHero"			"0"
+		"IsAncient"					"0"
+		"CanBeDominated"			"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"				"1"
+		"Ability1"					"small_ogreseal_flop"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"25"
+		"MagicalResistance"			"10"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"265"
+		"AttackDamageMax"			"270"
+		"AttackRate"				"1.5"
+		"AttackAnimationPoint"		"0.5714"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"130"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"45"
+		"HealthBarOffset"			"150"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"280"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"9600"
+		"StatusHealthRegen"			"1"
+		"StatusMana"				"400"
+		"StatusManaRegen"			"1.0"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"900"
+		"VisionNighttimeRange"		"900"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"PathfindingSearchDepthScale"		"0.5"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"
+			"DisableResistance"			"30"
+
+			"States"
+			{
+				"Invade"
+				{
+					"Name"				"Invade"
+					"Aggression"		"100.0"
+					"Avoidance"			"0.0"
+					"Support"			"0.0"
+				}
+			}
+
+			"DefaultState"				"Invade"
+		}
+	}
+
+	"npc_dota_creature_large_ogre_seal"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_ogre_seals/ogre_seal.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/ice_biome/ogreseal/ogreseal_rednose.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"1"
+		"ModelScale" 				"1.0"
+		"ConsideredHero"			"1"
+		"IsAncient"					"0"
+		"CanBeDominated"			"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"				"1"
+		"Ability1"					"ogreseal_flop"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"40"
+		"MagicalResistance"			"25"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"565"
+		"AttackDamageMax"			"575"
+		"AttackRate"				"1.8"
+		"AttackAnimationPoint"		"0.5714"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"180"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"65"
+		"HealthBarOffset"			"250"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"280"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"30000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"600"
+		"StatusManaRegen"			"5.0"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"900"
+		"VisionNighttimeRange"		"900"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"PathfindingSearchDepthScale"		"1.0"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"
+			"DisableResistance"			"85.0"
+
+			"States"
+			{
+				"Invade"
+				{
+					"Name"				"Invade"
+					"Aggression"		"100.0"
+					"Avoidance"			"0.0"
+					"Support"			"0.0"
+				}
+			}
+
+			"DefaultState"				"Invade"
+		}
+	}
+
+	"npc_dota_boss_ogre_seal"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_ogre_seals/boss_ogre_seal"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/creeps/ice_biome/ogreseal/ogreseal_undead.vmdl"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"1"
+		"ModelScale" 				"2.0"
+		"ConsideredHero"			"1"
+		"IsAncient"					"1"
+		"CanBeDominated"			"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"				"2"
+		"Ability1"					"boss_ogreseal_flop"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"40"
+		"MagicalResistance"			"25"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"1650"
+		"AttackDamageMax"			"1750"
+		"AttackRate"				"1.8"
+		"AttackAnimationPoint"		"0.5714"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"180"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"65"
+		"HealthBarOffset"			"250"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"380"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"250000"
+		"StatusHealthRegen"			"30"
+		"StatusMana"				"1500"
+		"StatusManaRegen"			"5.0"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"900"
+		"VisionNighttimeRange"		"900"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"PathfindingSearchDepthScale"		"1.0"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"1"
+			"DisableResistance"         "95"
+
+			"States"
+			{
+				"Invade"
+				{
+					"Name"				"Invade"
+					"Aggression"		"100.0"
+					"Avoidance"			"0.0"
+					"Support"			"0.0"
+				}
+			}
+
+			"DefaultState"				"Invade"
+		}
+	}
+}

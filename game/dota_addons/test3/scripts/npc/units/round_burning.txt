@@ -1,0 +1,632 @@
+"DOTAUnits"
+{
+	"npc_dota_creature_multiplying_eidelon"
+	{
+		// Script
+		"vscripts"					"creature_ai/zombie_ai.lua"
+
+		// General
+		//
+		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
+		"Model"						"models/items/enigma/eidolon/tentacular_conqueror_tentacular_conqueror_eidolons/tentacular_conqueror_tentacular_conqueror_eidolons.vmdl"
+		"SoundSet"					"Hero_Enigma"
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
+		"ModelScale"				".8"
+		"Level"						"1"
+		"ConsideredHero"			"0"
+		"IsAncient"					"0"
+		"CanBeDominated"			"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+
+		"Ability1"					"multiplying_eidelon_counter"			// Ability 1
+		"Ability2"					""			// Ability 2.
+		"Ability3"					""			// Ability 3.
+		"Ability4"					""			// Ability 4.
+		"Ability5"					""			// Ability 5.
+		"Ability6"					""			// Ability 6 - Extra.
+		"Ability7"					""			// Ability 7 - Extra.
+		"Ability8"					""			// Ability 8 - Extra.
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"50"			// Physical protection.
+		"MagicalResistance"			"25"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"120"
+		"AttackDamageMax"			"180"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.7"
+		"AttackAnimationPoint"		"0.5"
+		"AttackAcquisitionRange"	"450"
+		"AttackRange"				"185"
+		"ProjectileModel"			"particles/units/heroes/hero_enigma/enigma_base_attack_eidolon.vpcf"
+		"ProjectileSpeed"			"600"
+
+				// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"35"
+		"HealthBarOffset"			"135"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"280"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"8000"
+		"StatusHealthRegen"			"1.5"
+		"StatusMana"				"400"
+		"StatusManaRegen"			"1.0"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1400"		// Range of vision at night time.
+
+		// Pathing
+		//----------------------------------------------------------------
+		"PathfindingSearchDepthScale"		"0.1"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"
+			"DisableResistance"         "30"
+
+			//Basic AI State
+			//-----------------------------------------------------------------
+			"DefaultState"				"Invade"
+			"States"
+			{
+				"Invade"
+				{
+					"Name"				"Invade"
+					"Aggression"		"100.0"
+					"Avoidance"			"0.0"
+					"Support"			"60.0"
+				}
+			}
+
+			//Level Up Parameters
+			//-----------------------------------------------------------------
+			"HPGain"					"75"
+			"DamageGain"				"10"
+			"ArmorGain"					"1"
+			"MagicResistGain"			"1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"5"
+			"XPGain"					"20"
+		}
+	}
+
+	"npc_dota_creature_jakiro"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/jakiro/jakiro.vmdl"
+		"SoundSet"					"soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
+		"Level"						"1"
+		"ModelScale" 				"1.3"
+		"vscripts"					"creature_ai/round_burning/jakiro_icepath_ai.lua"
+		"ConsideredHero"			"1"
+		"IsAncient"					"0"
+		"CanBeDominated"			"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"jakiro_ice_path"
+		"Ability2"					"jakiro_macropyre"
+		"Ability3"					"creature_doomling_doom_passive"
+		"Ability4"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"30"
+		"MagicalResistance"			"25"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"350"			// Damage range min.
+		"AttackDamageMax"			"450"			// Damage range max.
+		"AttackRate"				"1.7"
+		"AttackAnimationPoint"		"0.4"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"500"
+		"ProjectileModel"			"particles/units/heroes/hero_jakiro/jakiro_base_attack.vpcf"
+		"ProjectileSpeed"			"1200"
+
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"300"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"330"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"40000"
+		"StatusHealthRegen"			"1"
+		"StatusMana"				"300"
+		"StatusManaRegen"			"1.0"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			//Basic AI State
+			//-----------------------------------------------------------------
+			"DefaultState"			"Invade"
+			"DisableResistance"			"80"
+			"States"
+			{
+				"Invade"
+				{
+					"Name"			"Invade"
+					"Aggression"	"100.0"
+					"Avoidance"		"0.0"
+					"Support"		"0.0"
+				}
+			}
+
+			"OffensiveAbilities"
+			{
+				"Ability1"
+				{
+					"Name"				"jakiro_ice_path"
+					"Linear"			"1"
+					"AOE"				"1"
+					"Radius"			"300"
+					"MinimumTargets"	"1"
+				}
+				"Ability2"
+				{
+					"Name"				"jakiro_macropyre"
+					"Linear"			"1"
+					"AOE"				"1"
+					"Radius"			"800"
+					"MinimumTargets"	"2"
+				}
+			}
+
+			//Level Up Parameters
+			//-----------------------------------------------------------------
+			"HPGain"					"75"
+			"DamageGain"				"5"
+			"ArmorGain"					"0.25"
+			"MagicResistGain"			"0.1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"13"
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"9262"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"9296"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"9297"
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"9298"
+				}
+			}
+		}
+	}
+
+	"npc_dota_creature_forge_tank"
+	{
+		// Script
+		"vscripts"					"creature_ai/zombie_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/items/invoker/forge_spirit/infernus/infernus.vmdl"
+		"SoundSet"					"Creep_Good_Range"
+		"Level"						"1"
+		"ModelScale" 				"2.2"
+		"ConsideredHero"			"1"
+		"IsAncient"					"1"
+		"CanBeDominated"			"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"infernal_siege_fireball"			// Ability 1.
+		"Ability2"					"creature_doomling_doom_passive"			// Ability 2.
+		"Ability3"					""			// Ability 3.
+		"Ability4"					""			// Ability 4.
+		"Ability5"					""			// Ability 5.
+		"Ability6"					""			// Ability 6 - Extra.
+		"Ability7"					""			// Ability 7 - Extra.
+		"Ability8"					""			// Ability 8 - Extra.
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"35"
+		"MagicalResistance"			"25"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"1200"			// Damage range min.
+		"AttackDamageMax"			"1300"			// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"2.5"		// Speed of attack.
+		"AttackAnimationPoint"		"0.4"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"700"		// Range within a target can be acquired.
+		"AttackRange"				"700"			// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_invoker/invoker_forged_spirit_projectile.vpcf"// Particle system model for projectile.
+		"ProjectileSpeed"			"700"		// Speed of projectile.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"35"
+		"HealthBarOffset"			"430"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"300"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"80000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1900"
+		"VisionNighttimeRange"		"1900"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"PathfindingSearchDepthScale"		"0.5"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"
+			//"DisableClumpingBehavior"	"1"
+			"DefaultState"				"Invade"
+			"DisableResistance"			"80"
+
+			"States"
+			{
+				"Invade"
+				{
+					"Name"				"Invade"
+					"Aggression"		"30.0"
+					"Avoidance"			"0.0"
+					"Support"			"0.0"
+				}
+			}
+
+			"OffensiveAbilities"
+			{
+				"Ability1"
+				{
+					"Name"				"infernal_siege_fireball"
+					"AOE"				"1"
+					"Radius"			"1800"
+					"MinimumTargets"	"1"
+				}
+			}
+
+		}
+	}
+
+	"npc_dota_creature_doomling"
+	{
+		"vscripts"				"creature_ai/round_burning/holdout_ai_doomling.lua"
+
+		// General
+		"BaseClass"				"npc_dota_creature"
+		"Model"					"models/items/warlock/golem/ahmhedoq/ahmhedoq.vmdl"
+		"Portrait"				"vgui/hud/heroportraits/portrait_doom_bringer"
+		"SoundSet"				"Hero_DoomBringer"
+		"IdleSoundLoop"			"Hero_DoomBringer.IdleLoop"
+		"ModelScale"			"0.46"
+		"Level"					"2"
+		"ConsideredHero"		"1"
+		"IsAncient"				"0"
+		"CanBeDominated"		"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"creature_doomling_doom_passive"
+		"Ability2"					"doomling_doom"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"45"
+		"MagicalResistance"			"28"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"650"
+		"AttackDamageMax"			"850"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.2"
+		"AttackAnimationPoint"		"0.26"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"150"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			""
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"HealthBarOffset"			"150"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"310"
+		"MovementTurnRate"			"0.5"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"80000"
+		"StatusHealthRegen"			"5"
+		"StatusMana"				"200"
+		"StatusManaRegen"			"0"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"500"
+		"VisionNighttimeRange"		"500"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"
+			//"DisableClumpingBehavior"	"1"
+			"DefaultState"				"Invade"
+			"DisableResistance"             "90"
+
+			"States"
+			{
+				"Invade"
+				{
+					"Name"				"Invade"
+					"Aggression"		"100.0"
+					"Avoidance"			"0.0"
+					"Support"			"0.0"
+				}
+			}
+		}
+	}
+
+	"npc_dota_creature_doomling_champion"
+	{
+		// Scripts
+		"vscripts"				"creature_ai/round_burning/holdout_ai_doomling.lua"
+
+		// General
+		"BaseClass"				"npc_dota_creature"
+		"Model"					"models/heroes/doom/doom.vmdl"
+		"Portrait"				"vgui/hud/heroportraits/portrait_doom_bringer"
+		"SoundSet"				"Hero_DoomBringer"
+		"IdleSoundLoop"			"Hero_DoomBringer.IdleLoop"
+		"ModelScale"			"1.0"
+		"Level"					"1"
+		"ConsideredHero"		"1"
+		"IsAncient"				"0"
+		"CanBeDominated"		"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"creature_doomling_doom_passive"
+		"Ability2"					"creature_doomling_scorched_earth"
+		"Ability3"					"doomling_doom"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"45"
+		"MagicalResistance"			"20"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"1650"
+		"AttackDamageMax"			"1750"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.5"
+		"AttackAnimationPoint"		"0.767"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			""
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"HealthBarOffset"			"290"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"280"
+		"MovementTurnRate"			"0.5"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"100000"
+		"StatusHealthRegen"			"20"
+		"StatusMana"				"200"
+		"StatusManaRegen"			"0"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"500"
+		"VisionNighttimeRange"		"500"
+
+
+		"HasInventory"				"1"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"
+			//"DisableClumpingBehavior"	"1"
+			"DefaultState"				"Invade"
+			"DisableResistance"			"90"
+
+			"States"
+			{
+				"Invade"
+				{
+					"Name"				"Invade"
+					"Aggression"		"100.0"
+					"Avoidance"			"0.0"
+					"Support"			"0.0"
+				}
+			}
+
+			"EquippedItems"
+			{
+				"Phase"
+				{
+					"Item"					"item_phase_boots"
+				}
+			}
+
+			"OffensiveAbilities"
+			{
+				"Ability1"
+				{
+					"Name"				"creature_doomling_scorched_earth"
+					"AOE"				"1"
+					"Radius"			"700"
+					"MinimumTargets"	"1"
+				}
+			}
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"6501"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"237"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"6503"
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"6504"
+				}
+				"Wearable5"
+				{
+					"ItemDef"			"6505"
+				}
+				"Wearable6"
+				{
+					"ItemDef"			"6506"
+				}
+				"Wearable7" // weapon
+				{
+					"ItemDef"			"4788"
+				}
+			}
+		}
+	}
+}

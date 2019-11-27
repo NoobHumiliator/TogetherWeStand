@@ -1,0 +1,120 @@
+"DOTAUnits"
+{
+	"npc_dota_creature_temple_guardian"
+	{
+		// Script
+		"vscripts"					"creature_ai/round_guardians/temple_guardian_ai.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/creeps/omniknight_golem/omniknight_golem.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"SoundSet"					"n_creep_Melee"
+		"GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
+		"Level"						"1"
+		"ModelScale" 				"2.3072"
+		"ConsideredHero"			"1"
+		"IsAncient"					"1"
+		"IsBossMonster"				"1"
+
+		"MinimapIcon"				"minimap_enemyicon"
+		"MinimapIconSize"			"275"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"temple_guardian_purification"
+		"Ability2"					"temple_guardian_hammer_throw"
+		"Ability3"					"temple_guardian_hammer_smash"
+		"Ability4"					"temple_guardian_rage_hammer_smash"
+		"Ability5"					"temple_guardian_wrath"
+		"Ability6"					"generic_gold_bag_fountain_850"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"55"
+		"MagicalResistance"			"20"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"175"
+		"AttackDamageMax"			"225"
+		"AttackRate"				"2.8"
+		"AttackAnimationPoint"		"0.3"
+		"AttackAcquisitionRange"	"1500"
+		"AttackRange"				"1"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
+		"RingRadius"				"100"
+		"HealthBarOffset"			"500"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"700"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"300"
+		"MovementTurnRate"			"0.2"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"58000"
+		"StatusHealthRegen"			"15"
+		"StatusMana"				"5000"
+		"StatusManaRegen"			"30"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1500"
+		"VisionNighttimeRange"		"1500"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			//Basic AI State
+			//------------------------------------------------------------
+			"DefaultState"				"Invade"
+			"States"
+			{
+				"Invade"
+				{
+					"Name"				"Invade"
+					"Aggression"		"100.0"
+					"Avoidance"			"0.0"
+					"Support"			"0.0"
+				}
+			}
+
+			//Level Up Parameters
+			//------------------------------------------------------------
+			"HPGain"					"800"
+			"DamageGain"				"30"
+			"ArmorGain"					"1"
+			"MagicResistGain"			"5"
+			"MoveSpeedGain"				"0"
+			"BountyGain"				"0"
+			"XPGain"					"20"
+
+			"DefaultState"				"Invade"
+
+			"DisableResistance"			"100.0"
+
+		}
+	}
+}

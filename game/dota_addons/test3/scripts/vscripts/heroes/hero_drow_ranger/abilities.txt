@@ -1,0 +1,125 @@
+"DOTAAbilities"
+{
+    "drow_ranger_marksmanship_lua"
+    {
+    	// General
+    	//-------------------------------------------------------------------------------------------------------------
+    	"BaseClass"			         	"ability_datadriven"
+    	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    	"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+    	"AbilityTextureName"			"drow_ranger_marksmanship"
+    	"LevelsBetweenUpgrades"			"15"
+    	"MaxLevel"                      "3"
+
+    	// Special
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilitySpecial"
+    	{
+    		"01"
+    		{
+    			"var_type"						"FIELD_INTEGER"
+    			"marksmanship_agility_bonus"	"40 60 80"
+    		}
+    		"02"
+    		{
+    			"var_type"						"FIELD_INTEGER"
+    			"damage_modifier_tooltip"		"50"
+    	    }
+    	    "03"
+    		{
+    			"var_type"						"FIELD_INTEGER"
+    			"split_count_scepter"			"2"
+    		}
+    		"04"
+    		{
+    			"var_type"						"FIELD_INTEGER"
+    			"scepter_range"					"375"
+    		}
+    		"05"
+    		{
+    			"var_type"						"FIELD_INTEGER"
+    			"damage_reduction_scepter"		"-50"
+    		}
+    		"06"
+    		{
+    			"var_type"				       "FIELD_INTEGER"
+    			"projectile_speed"		       "1000"
+    		}
+    	}
+
+    	// Data driven
+    	//-------------------------------------------------------------------------------------------------------------
+    	"precache"
+    	{
+    		"particle"							"particles/units/heroes/hero_drow/drow_marksmanship.vpcf"
+    		"particle"							"particles/units/heroes/hero_drow/drow_base_attack.vpcf"
+    	}
+    	"OnProjectileHitUnit"
+    	{
+    		"DeleteOnHit"	"1"
+    		"FireSound"
+    		{
+    			"EffectName"	"Hero_DrowRanger.ProjectileImpact"
+    			"Target" 		"TARGET"
+    		}
+    		"RunScript"
+    		{
+    			"ScriptFile"						"heroes/hero_drow_ranger/drow_ranger_marksmanship"
+    			"Function"							"MarksmanshipHit"
+    			"modifier_dmg_penalty"				"modifier_marksmanship_splinter_dmg_penalty"
+    		}
+    	}
+
+    	"Modifiers"
+    	{
+    		"modifier_marksmanship_passive_datadriven"
+    		{
+    			"Passive"						"1"
+    			"IsHidden"						"1"
+    			"IsPurgable"					"0"
+    			"AllowIllusionDuplicate"	    "1"
+    			"OnAttackLanded"
+    			{
+    				"RunScript"
+    				{
+    					"ScriptFile"	         "heroes/hero_drow_ranger/drow_ranger_marksmanship"
+    					"Function"		         "SplitShotLaunch"
+    					"Target"			     "TARGET"
+    					"split_shot_projectile"	 "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
+    				}
+    			}
+    			"Properties"
+    			{
+    				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%marksmanship_agility_bonus"
+    			}
+    			"OnCreated"
+    			{
+    				"AttachEffect"
+    				{
+    					"Target"				"CASTER"
+    					"EffectName"			"particles/units/heroes/hero_drow/drow_marksmanship.vpcf"
+    					"EffectAttachType"		"follow_origin"
+    					"ControlPoints"
+    					{
+    						"02"				"150 150 150"
+    					}
+    				}
+    			}
+    		}
+    		"modifier_marksmanship_splinter_dmg_penalty"
+    		{
+    			"Passive"						"0"
+    			"IsPurgable"					"0"
+    			"IsHidden"						"1"
+    			"IsDebuff"						"1"
+
+    			"Duration"						"0.01"
+
+    			"Properties"
+    			{
+    				"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"%damage_reduction_scepter"
+    			}
+    		}
+    	}
+    }
+}

@@ -10,7 +10,7 @@ behaviorSystem = {} -- create the global so we can assign to it
 function Spawn( entityKeyValues )
 	if  thisEntity:GetTeam()==DOTA_TEAM_BADGUYS then
 	  thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
-      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone , BehaviorStatic_Link,BehaviorDeath_Decay} ) 
+      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone , BehaviorStatic_Link,BehaviorDeath_Decay} )
     end
 end
 
@@ -27,16 +27,9 @@ end
 function BehaviorNone:Begin()
 	self.endTime = GameRules:GetGameTime() + 1
 	self.target=nil
-	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 		if #allEnemies > 0 then
-			local minDistance = 10000000
-			for _,enemy in pairs(allEnemies) do
-				local distance = ( thisEntity:GetOrigin() - enemy:GetOrigin() ):Length()
-				if distance < minDistance then
-				  minDistance=distance
-                  self.target=enemy
-				end
-			end
+			self.target = allEnemies[1]
 		end
 
 
@@ -63,11 +56,11 @@ BehaviorStatic_Link = {}
 function BehaviorStatic_Link:Evaluate()
 	-- let's not choose this twice in a row
 	if AICore.currentBehavior == self then return desire end
-	self.staticlinkAbility = thisEntity:FindAbilityByName("lich_boss_nova")    
+	self.staticlinkAbility = thisEntity:FindAbilityByName("lich_boss_nova")
 	local desire = 0
 	local range = self.staticlinkAbility:GetCastRange()
 	local target = AICore:RandomEnemyHeroInRangeNotIllusion(thisEntity,range)   --范围对内随机非幻象英雄使用死亡缠绕
-	if self.staticlinkAbility and self.staticlinkAbility:IsFullyCastable() and target then   
+	if self.staticlinkAbility and self.staticlinkAbility:IsFullyCastable() and target then
 		desire = 6
 		self.target = target
 	else
@@ -89,7 +82,7 @@ function BehaviorStatic_Link:Begin()
 	if thisEntity:IsAlive() then
 	  Notifications:BossAbilityDBM("lich_boss_nova")
 	end
-end 
+end
 
 BehaviorStatic_Link.Continue = BehaviorStatic_Link.Begin
 
@@ -105,11 +98,11 @@ BehaviorDeath_Decay = {}
 function BehaviorDeath_Decay:Evaluate()
 	-- let's not choose this twice in a row
 	if AICore.currentBehavior == self then return desire end
-	self.staticlinkAbility = thisEntity:FindAbilityByName("lich_boss_death_and_dacay")    
+	self.staticlinkAbility = thisEntity:FindAbilityByName("lich_boss_death_and_dacay")
 	local desire = 0
 	local range = self.staticlinkAbility:GetCastRange()
 	local target = AICore:RandomEnemyHeroInRangeNotIllusion(thisEntity,range)   --范围对内随机非幻象英雄 死亡凋零
-	if self.staticlinkAbility and self.staticlinkAbility:IsFullyCastable() and target then   
+	if self.staticlinkAbility and self.staticlinkAbility:IsFullyCastable() and target then
 		desire = 4
 		self.targetPoint=target:GetOrigin()
 	else
@@ -132,7 +125,7 @@ function BehaviorDeath_Decay:Begin()
 	if thisEntity:IsAlive() then
 	   Notifications:BossAbilityDBM("lich_boss_death_and_dacay")
 	end
-end 
+end
 
 BehaviorDeath_Decay.Continue = BehaviorDeath_Decay.Begin
 

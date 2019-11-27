@@ -1,0 +1,393 @@
+"DOTAAbilities"
+{
+	"creature_large_storm_spirit_passive"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"creature_ability/round_lightning/creature_large_storm_spirit_passive"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	}
+
+	"creature_large_storm_spirit_ball_lightning"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"storm_spirit_ball_lightning"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilitySound"					"Hero_StormSpirit.BallLightning"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"300"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"50"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"										"FIELD_INTEGER"
+				"ball_lightning_initial_mana_percentage"		"1"
+			}
+			"02"
+			{
+				"var_type"										"FIELD_INTEGER"
+				"ball_lightning_initial_mana_base"				"30"
+			}
+			"03"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"ball_lightning_move_speed"			"2000"
+			}
+			"04"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"ball_lightning_aoe"				"400"
+			}
+			"05"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"ball_lightning_travel_cost_base"	"5"
+			}
+			"06"
+			{
+				"var_type"								"FIELD_FLOAT"
+				"ball_lightning_travel_cost_percent"	"0.1"
+			}
+			"07"
+			{
+				"var_type"								"FIELD_INTEGER"
+				"ball_lightning_vision_radius"			"400"
+			}
+			"08"
+			{
+				"var_type"								"FIELD_FLOAT"
+				"blocker_duration"			"5"
+			}
+			"09"
+			{
+				"var_type"								"FIELD_INTEGER"
+				"scepter_remnant_interval"			"800"
+			}
+		}
+	}
+
+	"creature_large_storm_spirit_electric_vortex"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"storm_spirit_electric_vortex"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"FightRecapLevel"				"1"
+		"HasScepterUpgrade"				"1"
+		"AbilitySound"					"Hero_StormSpirit.ElectricVortex"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.5"
+		"AbilityCastRange"				"1200"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"40"
+		"AbilityDuration"				"1.5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"85"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"electric_vortex_pull_distance"			"500"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"electric_vortex_pull_tether_range"			"1200.0"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"electric_vortex_self_slow"	"0"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"electric_vortex_self_slow_duration"	"0"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration_tooltip"	"1.0 1.5 2.0 2.5"
+				"LinkedSpecialBonus"	"special_bonus_unique_storm_spirit"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius_scepter"	"1600"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+
+	"creature_mini_zeus_static_field"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"zuus_static_field"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilitySound"					"Hero_Zuus.StaticField"
+		"IsOnCastBar"					"0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1500"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"1200"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"damage_health_pct"			"1"
+				"LinkedSpecialBonus"		"special_bonus_unique_zeus"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+
+	"creature_mini_zeus_lightning_bolt"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"zuus_lightning_bolt"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Zuus.LightningBolt"
+		"IsOnCastBar"					"0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1500"
+		"AbilityCastPoint"				"0.1"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"1400"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.1"	// just a ministun
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range_tooltip"	"1500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"true_sight_radius"		"750"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"sight_radius_day"		"750"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"sight_radius_night"	"750"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"sight_duration"		"4.5"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"spread_aoe"			"100"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+    }
+
+	"fireball_ray_gun"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Mirana.ArrowCast"
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"monkey_king_jingu_mastery"
+		"ScriptFile"					"creature_ability/round_lightning/fireball_ray_gun"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"1"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15.0"
+		"AbilityDuration"				"5"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"2500"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage"			"2000.0"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"5"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"projectile_speed"	"480"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"projectile_distance"	"1000"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"attack_interval"	"1"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+
+	"fireball_machine_gun"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Mirana.ArrowCast"
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"monkey_king_jingu_mastery"
+		"ScriptFile"					"creature_ability/round_lightning/fireball_machine_gun"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"3000"
+		"AbilityCastPoint"				"2"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18.0"
+		"AbilityDuration"				"5"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"1080"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage"			"800.0"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"6"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"projectile_speed"		"610"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"projectile_distance"	"2400"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"attack_interval"	"0.075"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+}

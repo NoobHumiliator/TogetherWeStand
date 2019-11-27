@@ -1,0 +1,305 @@
+"DOTAAbilities"
+{
+	"creature_split_a"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass" 					"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"mud_golem_rock_destroy"
+
+		"OnOwnerDied"
+		{
+			"FireEffect"
+			{
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+				"EffectName"			"particles/creature_splitter/splitter_a.vpcf"
+				"EffectAttachType"		"follow_origin"
+			}
+
+			"FireSound"
+			{
+				"EffectName"			"Ability.SplitA"
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+			}
+
+			"SpawnUnit"
+			{
+				"UnitName"				"npc_dota_splitter_b"
+				"UnitCount"				"3"
+				"SpawnRadius"			"50"
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+				"GrantsGold"			"1"
+				"GrantsXP"				"1"
+				"OnSpawn"
+				{
+					"Knockback"
+					{
+						"Target"		"TARGET"
+						"Center"		"CASTER"
+						"Duration"		"0.75"
+						"Distance"		"275"
+						"Height"		"200"
+					}
+				}
+			}
+		}
+	}
+
+	"creature_split_b"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass" 					"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"mud_golem_rock_destroy"
+
+		"OnOwnerDied"
+		{
+			"FireEffect"
+			{
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+				"EffectName" "particles/units/heroes/hero_life_stealer/life_stealer_infest_cast_mid.vpcf"
+				"EffectAttachType" "follow_origin"
+				"EffectRadius" "100"
+				"EffectDurationScale" "1"
+				"EffectLifeDurationScale" "1"
+				"EffectColorA" "100 100 100"
+				"EffectColorB" "200 200 200"
+			}
+
+			"FireSound"
+			{
+				"EffectName"			"Ability.SplitA"
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+			}
+
+			"SpawnUnit"
+			{
+				"UnitName"		"npc_dota_splitter_c"
+				"UnitCount"		"4"
+				"SpawnRadius"	"25"
+				"Target"
+				{
+					"Center" 	"CASTER"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+				"GrantsGold"	"1"
+				"GrantsXP"		"1"
+				"OnSpawn"
+				{
+					"Knockback"
+					{
+						"Target"	"TARGET"
+						"Center"	"CASTER"
+						"Duration"	"0.6"
+						"Distance"	"275"
+						"Height"	"200"
+					}
+				}
+			}
+		}
+	}
+
+	"base_attack_immune_datadriven"
+	{
+		"BaseClass"				    "ability_datadriven"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"		"pugna_nether_blast"
+		"MaxLevel"                  "1"
+		"precache"
+		{
+			"particle" 	"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+		}
+		"Modifiers"
+		{
+			"base_attack_immune_datadriven"
+			{
+				"IsBuff"			           "1"
+				"EffectName"		  "particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+				"EffectAttachType"	  "follow_origin"
+				"IsPurgable"		           "0"
+				"Passive"                      "1"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"splitter_attack_passive"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				        "ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"mud_golem_hurl_boulder"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0 0 0 0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"20 20 20 20"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"interrupt_chance"				"20"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage"						"180"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_splitter_attack_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+
+                "OnAttackLanded"
+                {
+                	"Random"
+			        {
+			            "Chance" 	"%interrupt_chance"
+			            "OnSuccess"
+			            {
+						    "ApplyModifier"
+							{
+								"ModifierName"	"modifier_splitter_attack_interrupt"
+								"Target"
+								{
+									"Center"	"TARGET"
+									"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+								}
+								"Duration"      "0.01"
+							}
+					    }
+					}
+					"Damage"
+					{
+						"Target"	"TARGET"
+						"Type"		"DAMAGE_TYPE_MAGICAL"
+						"Damage"	"%damage"
+					}
+                }
+			}
+
+			"modifier_splitter_attack_interrupt"
+			{
+				"IsDebuff"	"1"
+				"Duration"	"%duration"
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"splitter_slow_aura_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				        "ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"granite_golem_hp_aura"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"350"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed_bonus"			"-4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"450"
+			}
+		}
+
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_omniknight/omniknight_degen_aura_debuff.vpcf"
+		}
+
+		"Modifiers"
+		{
+			"modifier_slow_aura"
+			{
+				"Passive" 			"1"
+				"IsHidden" 			"1"
+				"IsBuff"			"1"
+
+				"Aura" 				"modifier_slow_aura_effect"
+				"Aura_Radius" 		"%radius"
+				"Aura_Teams" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types" 		"DOTA_UNIT_TARGET_ALL"
+				"Aura_Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+
+			"modifier_slow_aura_effect"
+			{
+				"IsDebuff"			"1"
+				"IsHidden"          "1"
+				"EffectName"		"particles/units/heroes/hero_omniknight/omniknight_degen_aura_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Attributes"	    "MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%speed_bonus"
+				}
+			}
+		}
+	}
+}

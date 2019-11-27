@@ -9,7 +9,7 @@ behaviorSystem = {} -- create the global so we can assign to it
 function Spawn( entityKeyValues )
 	if  thisEntity:GetTeam()==DOTA_TEAM_BADGUYS then
 	  thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
-      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone ,BehaviorStatic_Link} ) 
+      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone ,BehaviorStatic_Link} )
     end
 end
 
@@ -27,16 +27,9 @@ end
 function BehaviorNone:Begin()
 	self.endTime = GameRules:GetGameTime() + 1
 	self.target=nil
-	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 		if #allEnemies > 0 then
-			local minDistance = 10000000
-			for _,enemy in pairs(allEnemies) do
-				local distance = ( thisEntity:GetOrigin() - enemy:GetOrigin() ):Length()
-				if distance < minDistance then
-				  minDistance=distance
-                  self.target=enemy
-				end
-			end
+			self.target = allEnemies[1]
 		end
 
 
@@ -68,18 +61,12 @@ function BehaviorStatic_Link:Evaluate()
 	self.staticlinkAbility = thisEntity:FindAbilityByName("invoker_metor_holdout")    --对技能进行定义
 	local range = self.staticlinkAbility:GetCastRange()
 
-    local targets = FindUnitsInRadius(DOTA_TEAM_BADGUYS, thisEntity:GetOrigin() , nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
-	local MinDistance = 10000
-    if #targets > 0 then
-       for i,unit in pairs(targets) do                            
-           local distance = ( thisEntity:GetOrigin() - unit:GetOrigin() ):Length()
-             if distance < MinDistance and self.staticlinkAbility and self.staticlinkAbility:IsFullyCastable() then
-				     MinDistance=distance
-                     self.target=unit
+    local targets = FindUnitsInRadius(DOTA_TEAM_BADGUYS, thisEntity:GetOrigin() , nil, 10000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+
+    if #targets > 0 and self.staticlinkAbility and self.staticlinkAbility:IsFullyCastable() then
+                     self.target=targets[1]
                      desire=6
-             end
-       end
-    end   	
+    end   
 	return desire
 end
 
@@ -93,7 +80,7 @@ function BehaviorStatic_Link:Begin()
 		Position = targetPoint
 	}
 	self.endTime = GameRules:GetGameTime() + 1
-end 
+end
 
 BehaviorStatic_Link.Continue = BehaviorStatic_Link.Begin --if we re-enter this ability, we might have a different target; might as well do a full reset
 --------------------------------------------------------------------------------------------------------

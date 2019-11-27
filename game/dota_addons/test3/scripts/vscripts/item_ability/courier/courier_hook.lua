@@ -2,14 +2,14 @@
 function LevelupHook( keys )
 	local caster = keys.caster
   local target = keys.target
-    
+
 
   if alreadyCached['npc_precache_courier_hook_datadriven']==true then
-  else				
+  else
       alreadyCached['npc_precache_courier_hook_datadriven'] = true
       PrecacheUnitByNameAsync('npc_precache_courier_hook_datadriven', function() end)
   end
-  
+
   RemoveRedundantCourierAbility(target)
 
 	if not target:HasAbility("courier_hook_datadriven") then  --如果没有技能，赋予技能
@@ -21,6 +21,6 @@ function LevelupHook( keys )
 			  target:FindAbilityByName("courier_hook_datadriven"):SetLevel(abilityLevel+1)
 	    end
 	end
-  AddRedundantCourierAbility(target)	
+  AddRedundantCourierAbility(target)
 end
 

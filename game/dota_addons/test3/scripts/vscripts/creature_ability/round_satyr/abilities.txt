@@ -1,0 +1,266 @@
+"DOTAAbilities"
+{
+    "blue_satyr_mana_burn_datadriven"
+    {
+	    // General
+	    //-------------------------------------------------------------------------------------------------------------
+	    "BaseClass"				        "ability_datadriven"
+	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	    "AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+	    "AbilityTextureName"			"nyx_assassin_mana_burn"
+	    "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
+        "AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+	    // Unit Targeting
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+
+	    // Casting
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityCastRange"				"1500"
+	    "AbilityCastPoint"				"0.3"
+
+	    // Time
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityCooldown"				"5.0"
+
+	    // Cost
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityManaCost"				"100"
+
+	    // Special
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+	    	"01"
+	    	{
+	    		"var_type"				"FIELD_FLOAT"
+	    		"float_multiplier"		"2.8"
+	    	}
+	    }
+
+	    // Data drive
+	    //-------------------------------------------------------------------------------------------------------------
+	    "precache"
+	    {
+	    	"particle"					"particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn_msg.vpcf"
+	    	"particle"					"particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn.vpcf"
+	    }
+
+	    "OnSpellStart"
+	    {
+	    	"RunScript"
+	    	{
+	    		"ScriptFile"			"creature_ability/round_satyr/mana_burn.lua"
+	    		"Function"				"mana_burn_function"
+	    	}
+	    }
+    }
+
+    "range_satyr_mana_break"
+	{
+		"BaseClass"                     "antimage_mana_break"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_per_burn"		"0.6"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_per_hit"			"50"
+			}
+		}
+	}
+
+	"creature_aoe_spikes"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName" 			"leshrac_split_earth"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"950"
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+
+		"OnSpellStart"
+		{
+			"CreateThinker"
+			{
+				"ModifierName"	"target_telegraph_fx"
+				"Target"		"POINT"
+			}
+
+			"CreateThinker"
+			{
+				"ModifierName"	"aoe_spike_thinker"
+				"Target"		"POINT"
+			}
+		}
+		"precache"
+		{
+			"particle"  "particles/econ/generic/generic_aoe_shockwave_1/generic_aoe_shockwave_1.vpcf"
+			"particle"  "particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
+		}
+		// Modifiers
+		//-------------------------------------------------------------------------------------------------------------
+		"Modifiers"
+		{
+			"target_telegraph_fx"
+			{
+				"Duration"				"2.5"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/econ/generic/generic_aoe_shockwave_1/generic_aoe_shockwave_1.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%impact_radius 0 0"
+							"02" "6 0 1" // telegraph
+							"03" "200 0 0"
+							"04" "0 0 0"
+						}
+					}
+				}
+			}
+
+			"aoe_spike_thinker"
+			{
+				"Duration"					"2.5" // Should work without the added time but appears to have a off by one error so time added so it doesn't destroy itself before occuring
+				"ThinkInterval"				"%think_time"
+
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Damage"		"%damage"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Radius"	"%impact_radius"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_OTHER"
+						}
+					}
+
+					"Damage"
+					{
+						"Type"			"DAMAGE_TYPE_PURE"
+						"Damage"		"%damage_for_summon"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Radius"	"%radius_for_summon"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_BASIC |DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_OTHER"
+							"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+						}
+					}
+
+					"Stun"
+					{
+						"Duration"		"%duration_stun"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Radius"	"%impact_radius"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_OTHER"
+						}
+					}
+
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+
+						"ControlPoints"
+						{
+							"00"		"0 0 0"
+							"01"		"%impact_radius 0 0"
+							"02"		"0 0 0"
+						}
+					}
+
+					"DestroyTrees"
+					{
+						"Target"			"TARGET"
+						"Radius"			"%impact_radius"
+					}
+
+					"FireSound"
+					{
+						"EffectName"		"Creature.AOESpikes.Cast"
+						"Target"			"TARGET"
+					}
+				}
+			}
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"impact_radius"			"200"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration_stun"			"1.4"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"158"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"think_time"			"2.0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_for_summon"		"1500"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius_for_summon"	    "360"
+			}
+		}
+	}
+}

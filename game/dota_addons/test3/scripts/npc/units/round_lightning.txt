@@ -1,0 +1,742 @@
+"DOTAUnits"
+{
+	"npc_dota_creature_large_storm_spirit"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"				"npc_dota_creature"
+		"Model"					"models/heroes/storm_spirit/storm_spirit.vmdl"
+		"Portrait"				"vgui/hud/heroportraits/portrait_stormspirit"
+		"IdleExpression"		"scenes/stormspirit/stormspirit_exp_idle_01.vcd"
+		"SoundSet"				"Hero_StormSpirit"
+		"vscripts"				"creature_ai/round_lightning/holdout_ai_storm_spirit.lua"
+
+		"Level"						"25"
+		"ModelScale" 				"2.5"
+
+		"particle_folder"	"particles/units/heroes/hero_stormspirit"
+		"GameSoundsFile"	"soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
+		"VoiceFile"			"soundevents/voscripts/game_sounds_vo_stormspirit.vsndevts"
+
+		"ConsideredHero"			"1"
+		"IsAncient"					"0"
+		"CanBeDominated"			"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"		"creature_large_storm_spirit_ball_lightning"
+		"Ability2"		"creature_large_storm_spirit_electric_vortex"
+		"Ability3"		"storm_spirit_static_remnant"
+		// remnant on ball lightning
+		"Ability4"		"special_bonus_unique_storm_spirit_4"
+		"Ability5"		"creature_large_storm_spirit_passive"
+		"Ability6"		"necronomicon_warrior_sight"
+		"Ability7"		"generic_gold_bag_fountain_2000"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"120"
+		"MagicalResistance"			"90"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"1275"
+		"AttackDamageMax"			"1325"
+		"AttackRate"				"1.2"
+		"AttackAnimationPoint"		"0.500000"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"700"
+		"ProjectileModel"			"particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
+		"ProjectileSpeed"			"1100"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"250"
+		"HealthBarOffset"			"390"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"400"
+		"MovementTurnRate"			"0.5"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2800000"
+		"StatusHealthRegen"			"80.0"
+		"StatusMana"				"10000"
+		"StatusManaRegen"			"200.0"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		//Inventory
+		"HasInventory"				"1"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"DisableResistance"			"100"
+			//Basic AI State
+			//-----------------------------------------------------------------
+			"DisableClumpingBehavior"	"1"
+			"DefaultState"			"Invade"
+			"States"
+			{
+				"Invade"
+				{
+					"Name"			"Invade"
+					"Aggression"	"100.0"
+					"Avoidance"		"0.0"
+					"Support"		"0.0"
+				}
+			}
+
+			"OffensiveAbilities"
+			{
+				"Ability1"
+				{
+					"Name"				"creature_large_storm_spirit_electric_vortex"
+					"AOE"				"1"
+					"Radius"			"1200"
+					"MinimumTargets"	"1"
+				}
+
+				"Ability2"
+				{
+					"Name"				"spirit_static_remnant"
+					"AOE"				"1"
+					"Radius"			"700"
+					"MinimumTargets"	"2"
+				}
+			}
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"8166"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"8167"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"12415"
+				}
+			}
+
+			"EquippedItems"
+			{
+				"Bloodthorn"
+				{
+					"Item"					"item_bloodthorn"
+				}
+
+				"Sheep"
+				{
+					"Item"					"item_sheepstick"
+				}
+
+				"Veil"
+				{
+					"Item"					"item_veil_of_discord"
+				}
+
+				"Dagon"
+				{
+					"Item"					"item_dagon_5"
+				}
+
+				"Shivas"
+				{
+					"Item"					"item_shivas_guard"
+				}
+
+				"UltimateScepter"
+				{
+					"Item"					"item_ultimate_scepter"
+				}
+			}
+		}
+	}
+
+	"npc_dota_creature_mini_zeus"
+	{
+		"vscripts"				"creature_ai/round_lightning/holdout_ai_mini_zeus.lua"
+
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/zeus/zeus.vmdl"
+		"ModelScale"				"2.15"
+		"Portrait"					"vgui/hud/heroportraits/portrait_zuus"
+		"IdleExpression"			"scenes/zuus/zuus_exp_idle_01.vcd"
+		"SoundSet"					"Hero_zuus"
+		"ConsideredHero"			"1"
+		"IsAncient"					"0"
+		"CanBeDominated"			"0"
+
+		"Level"						"1"
+
+		"particle_folder"		"particles/units/heroes/hero_zuus,particles/units/heroes/hero_zeus"
+		"GameSoundsFile"		"soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
+		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_zuus.vsndevts"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"		"creature_mini_zeus_static_field"
+		"Ability2"		"creature_mini_zeus_lightning_bolt"
+		"Ability3"		"necronomicon_warrior_sight"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"30"
+		"MagicalResistance"			"25"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"100"
+		"AttackDamageMax"			"120"
+		"AttackRate"				"1.8"
+		"AttackAnimationPoint"		"0.630000"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"400"
+		"ProjectileModel"		"particles/units/heroes/hero_zuus/zuus_base_attack.vpcf"
+		"ProjectileSpeed"		"1100"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"320"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"300"
+		"MovementTurnRate"			"0.5"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"450000"
+		"StatusHealthRegen"			"1.0"
+		"StatusMana"				"2000"
+		"StatusManaRegen"			"50"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1500"
+		"VisionNighttimeRange"		"1500"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"DisableResistance"			"90"
+			//Basic AI State
+			//-----------------------------------------------------------------
+			"DisableClumpingBehavior"	"1"
+			"DefaultState"			"Invade"
+			"States"
+			{
+				"Invade"
+				{
+					"Name"			"Invade"
+					"Aggression"	"100.0"
+					"Avoidance"		"0.0"
+					"Support"		"0.0"
+				}
+			}
+
+			"OffensiveAbilities"
+			{
+				"Ability1"
+				{
+					"Name"				"creature_mini_zeus_arc_lightning"
+					"Radius"			"600"
+					"MinimumTargets"	"1"
+				}
+			}
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"8692"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"593"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"604"
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"605"
+				}
+				"Wearable5"
+				{
+					"ItemDef"			"606"
+				}
+				"Wearable6"
+				{
+					"ItemDef"			"8693"
+				}
+			}
+		}
+	}
+
+	"npc_dota_creature_storm_brewling"
+	{
+		// General
+		"BaseClass"					"npc_dota_creature"
+        "vscripts"					"creature_ai/zombie_ai.lua"
+		"Model"						"models/heroes/brewmaster/brewmaster_windspirit.vmdl"
+		"SoundSet"					"Brewmaster_Storm"			// Name of sound set.
+		"IdleSoundLoop"				"Brewmaster_Storm.Move_Loop"
+		"ModelScale"				"0.65"
+		"Level"						"2"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					""
+		"Ability2"					""
+		"Ability3"					""
+		"Ability4"					""
+		"Ability5"					""
+		"Ability6"					""
+		"Ability7"					""
+		"Ability8"					""
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"20"
+		"MagicalResistance"			"20"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"1200"
+		"AttackDamageMax"			"1400"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1.65"
+		"AttackAnimationPoint"		"0.467"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"100"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			""
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"HealthBarOffset"			"170"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"275"
+		"MovementTurnRate"			"0.75"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"110000"
+		"StatusHealthRegen"			"1.5"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"500"
+		"VisionNighttimeRange"		"500"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+		{
+			"DisableResistance"			"50"
+			"CanRespawn"				"0"
+			"DisableClumpingBehavior"	"1"
+			"DefaultState"				"Invade"
+			"States"
+			{
+				"Invade"
+				{
+					"Name"				"Invade"
+					"Aggression"		"100.0"
+					"Avoidance"			"0.0"
+					"Support"			"0.0"
+				}
+			}
+		}
+	}
+
+	"npc_dota_creature_arc_warden_support"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"vscripts"					"creature_ai/round_lightning/arc_warden_support_ai.lua"
+		"Model"						"models/heroes/arc_warden/arc_warden.vmdl"
+		"SoundSet"					"Hero_ArcWarden"
+		"Level"						"1"
+		"ModelScale" 				"2"
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts"
+		"ConsideredHero"			"1"
+		"IsAncient"					"1"
+		"CanBeDominated"			"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"arc_warden_magnetic_field"
+		"Ability2"					"fireball_ray_gun"
+		"Ability3"					"fireball_machine_gun"
+		"Ability4"					"necronomicon_warrior_sight"
+		"Ability5"					"generic_gold_bag_fountain_1000"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"90"
+		"MagicalResistance"			"85"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"500"
+		"AttackDamageMax"			"525"
+		"AttackRate"				"1.2"
+		"AttackAnimationPoint"		"0.32"
+		"AttackAcquisitionRange"	"600"
+		"AttackRange"				"470"
+		"ProjectileModel"			"particles/units/heroes/hero_arc_warden/arc_warden_base_attack.vpcf"
+		"ProjectileSpeed"			"1000"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"300"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"280"
+		"MovementTurnRate"			"1.0"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"3000000"
+		"StatusHealthRegen"			"500.0"
+		"StatusMana"				"2000"
+		"StatusManaRegen"			"300.0"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		//Inventory
+		"HasInventory"				"1"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"DisableResistance"		"100"
+			//Basic AI State
+			//-----------------------------------------------------------------
+			"DefaultState"			"Invade"
+			"States"
+			{
+				"Invade"
+				{
+					"Name"			"Invade"
+					"Aggression"	"80.0"
+					"Avoidance"		"0.0"
+					"Support"		"60.0"
+				}
+			}
+			"OffensiveAbilities"
+			{
+				"Ability2"
+				{
+					"Name"				"fireball_ray_gun"
+					"AOE"				"800"
+					"Radius"			"800"
+					"MinimumTargets"	"1"
+
+				}
+				"Ability3"
+				{
+					"Name"				"fireball_machine_gun"
+					"AOE"				"1200"
+					"Radius"			"1200"
+					"MinimumTargets"	"1"
+
+				}
+			}
+
+			"DefensiveAbilities"
+			{
+				"Ability1"
+				{
+					"Name"				"arc_warden_magnetic_field"
+					"Buff"				"1"
+				}
+			}
+
+			"EquippedItems"
+			{
+			//	"Mjollnir"
+			//	{
+			//		"Item"					"item_mjollnir"
+			//	}
+				"LotusOrb"
+				{
+					"Item"					"item_lotus_orb"
+				}
+				"Linkens"
+				{
+					"Item"					"item_sphere"
+				}
+				//"BlackKingBar"
+				//{
+					//"Item"					"item_black_king_bar"
+				//}
+			}
+
+			//Level Up Parameters
+			//-----------------------------------------------------------------
+			"HPGain"					"300"
+			"DamageGain"				"30"
+			"ArmorGain"					"0.25"
+			"MagicResistGain"			"0.1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"13"
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"9621" // arms: default
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"9622" // shoulder: default
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"9623" // back: default
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"601" // ambient_effects: default
+				}
+				"Wearable5"
+				{
+					"ItemDef"			"9671" // head: default
+				}
+			}
+		}
+	}
+
+	"npc_dota_creature_arc_warden_attacker"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+        "vscripts"					"creature_ai/zombie_ai.lua"
+		"Model"						"models/heroes/arc_warden/arc_warden.vmdl"
+		"SoundSet"					"Hero_ArcWarden"
+		"Level"						"1"
+		"ModelScale" 				"0.8"
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts"
+		"ConsideredHero"			"0"
+		"IsAncient"					"0"
+		"CanBeDominated"			"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		//"Ability1"					"arc_warden_flux"
+		//"Ability2"					"arc_warden_spark_wraith"
+		"Ability1"						"necronomicon_warrior_sight"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"50"
+		"MagicalResistance"			"25"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"3150"
+		"AttackDamageMax"			"3250"
+		"AttackRate"				"0.8"
+		"AttackAnimationPoint"		"0.35"
+		"AttackAcquisitionRange"	"1200"
+		"AttackRange"				"320"
+		"ProjectileModel"			"particles/units/heroes/hero_arc_warden/arc_warden_base_attack.vpcf"
+		"ProjectileSpeed"			"1000"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"50"
+		"HealthBarOffset"			"150"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"310"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"480000"
+		"StatusHealthRegen"			"10.0"
+		"StatusMana"				"1000"
+		"StatusManaRegen"			"10.0"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		//Inventory
+		"HasInventory"				"1"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"DisableResistance"			"50"
+			//Basic AI State
+			//-----------------------------------------------------------------
+			"DefaultState"			"Invade"
+			"States"
+			{
+				"Invade"
+				{
+					"Name"			"Invade"
+					"Aggression"	"60.0"
+					"Avoidance"		"0.0"
+					"Support"		"0.0"
+				}
+			}
+//			"OffensiveAbilities"
+//			{
+//
+//				"Ability2"
+//				{
+//					"Name"				"arc_warden_spark_wraith"
+//					"AOE"				"1"
+//					"Radius"			"400"
+//					"MinimumTargets"	"1"
+//				}
+//			}
+
+			"EquippedItems"
+			{
+				"MaelStrom"
+				{
+					"Item"					"item_maelstrom"
+				}
+			}
+
+			//Level Up Parameters
+			//-----------------------------------------------------------------
+			"HPGain"					"300"
+			"DamageGain"				"30"
+			"ArmorGain"					"0.25"
+			"MagicResistGain"			"0.1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"13"
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"556" // arms: default
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"557" // shoulder: default
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"598" // back: default
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"656" // head: default
+				}
+			}
+		}
+	}
+}

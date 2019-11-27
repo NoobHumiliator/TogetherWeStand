@@ -1,0 +1,495 @@
+"DOTAAbilities"
+{
+	"creature_ancient_apparition_cold_feet"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ancient_apparition_cold_feet"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Ancient_Apparition.ColdFeetCast"
+		"IsOnCastBar"					"0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_COLD_FEET"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.01"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12"
+		"AbilityDuration"				"4.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.5"	// Does two modifiers
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"				"2000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"break_distance"		"740"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"4.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range_tooltip"	"700"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"charge_restore_time"	"10"
+			}
+		}
+	}
+
+	"creature_elder_titan_echo_stomp"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"elder_titan_echo_stomp"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_ElderTitan.EchoStomp"
+		"IsOnCastBar"					"0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+ 		"AbilityCastAnimation"			"ACT_INVALID"
+		"AbilityCastPoint"				"0.4"
+ 		"AbilityCastRange"				"500"
+		"AbilityChannelTime"			"1.3"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18"
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"cast_time"						"1.7"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"radius"						"500"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"sleep_duration"				"3.0"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"stomp_damage"					"3000"
+				"LinkedSpecialBonus"			"special_bonus_unique_elder_titan_2"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"initial_stun_duration"			"0.2"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"animation_rate"				"0.0"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"wake_damage_limit"				"100"
+				"LinkedSpecialBonus"			"special_bonus_unique_elder_titan_4"
+			}
+		}
+	}
+
+	"creature_elder_titan_earth_splitter"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"elder_titan_earth_splitter"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_ElderTitan.EarthSplitter.Cast"
+		"IsOnCastBar"					"0"
+
+		"HasScepterUpgrade"				"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"20000"
+		"AbilityCastPoint"				"0.4"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"19.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"crack_time"				"3.14"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crack_width"				"315"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crack_distance"			"20000"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow_pct"					"40"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"slow_duration"				"4.0"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed"						"910"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_pct"				"200"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"vision_width"				"500"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"vision_interval"			"0.22"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"vision_duration"			"4.0"
+			}
+			"11"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"vision_step"				"200"
+			}
+			"12"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"total_steps"				"12"
+			}
+			"13"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"slow_duration_scepter"		"5.0"
+			}
+		}
+	}
+
+	"storegga_passive"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"creature_ability/round_elder_titan/storegga_passive"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"IsOnCastBar"					"0"
+	}
+
+	"storegga_melee_smash"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"creature_ability/round_elder_titan/storegga_melee_smash"
+		"AbilityTextureName"			"centaur_double_edge"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+
+		"IsOnCastBar"					"0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_7"	// Activity
+		"AnimationPlaybackRate"			"0.5"	// Animation speed multiplier
+		"AnimationIgnoresModelScale"	"1"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2.5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"impact_radius"			"275"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"1.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"2000"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"swing_anim_duration"	"1.2666"
+			}
+		}
+	}
+
+	"storegga_ground_pound"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"creature_ability/round_elder_titan/storegga_ground_pound"
+		"AbilityTextureName"			"omniknight_guardian_angel"
+
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"2"
+
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationIgnoresModelScale"	"1"
+
+		"IsOnCastBar"					"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20"
+		"AbilityChannelTime"			"5.0"
+		"AbilityCastPoint"				"2.5"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"pound_interval"		"1.4" // based on storegga_avalanche_channel anim
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"			"0.2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"3000"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"500"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movespeed_slow"		"-75"
+			}
+		}
+	}
+
+	"storegga_throw_rock"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"creature_ability/round_elder_titan/storegga_throw_rock"
+		"AbilityTextureName"			"storegga_throw_rock"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+
+		"IsOnCastBar"					"0"
+		"MaxLevel"						"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"15000"
+		"AbilityCastPoint"				"1.4"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
+		"AnimationPlaybackRate"			"0.5"	// Animation speed multiplier
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"13"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"throw_speed"		"1000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"impact_radius"		"400"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"2.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"knockback_duration"	"0.65"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"knockback_distance"	"300"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"knockback_damage"	"2000"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"knockback_height"	"75"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"children_to_spawn"	"8"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_children"		"56"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"building_dmg_multiplier"	"0.0"
+			}
+		}
+	}
+
+	"storegga_create_spawner"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"creature_ability/round_elder_titan/storegga_create_spawner"
+		"AbilityTextureName"			"broodmother_spawn_spiderlings"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"IsOnCastBar"					"0"
+
+		"AbilityCastPoint"				"1.0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
+
+		"AbilityCooldown"				"25"
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"amount_to_spawn"		"8"
+			}
+		}
+	}
+
+	"storegga_rock_passive"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"creature_ability/round_elder_titan/storegga_rock_passive"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"IsOnCastBar"				"0"
+
+	}
+}

@@ -1,333 +1,408 @@
-
-.ARight{
-    flow-children:right;
-}
-.row{
-    flow-children:right;
+.ARight {
+    flow-children: right;
 }
 
-.ADown{
-    flow-children:down;
-}
-.col{
-    flow-children:down;
+.row {
+    flow-children: right;
 }
 
-.AHToLeft{
+.ADown {
+    flow-children: down;
+}
+
+.col {
+    flow-children: down;
+}
+
+.AHToLeft {
     horizontal-align: left;
 }
-.left{
+
+.left {
     horizontal-align: left;
 }
 
-.AHToMid{
-    horizontal-align: middle;
-}
-.center{
+.AHToMid {
     horizontal-align: middle;
 }
 
-.AHToRight{
+.center {
+    horizontal-align: middle;
+}
+
+.AHToRight {
     horizontal-align: right;
 }
-.right{
+
+.right {
     horizontal-align: right;
 }
 
-.AVToTop{
-    vertical-align: top;
-}
-.top{
+.AVToTop {
     vertical-align: top;
 }
 
-.AVToMid{
-    vertical-align: middle;
+.top {
+    vertical-align: top;
 }
-.middle{
+
+.AVToMid {
     vertical-align: middle;
 }
 
-.AVToBottom{
-    vertical-align: bottom;
+.middle {
+    vertical-align: middle;
 }
-.bottom{
+
+.AVToBottom {
     vertical-align: bottom;
 }
 
-.AHVToMid{
+.bottom {
+    vertical-align: bottom;
+}
+
+.AHVToMid {
     vertical-align: middle;
     horizontal-align: middle;
 }
 
-.AWidthHeight{
+.AWidthHeight {
     width: 100%;
     height: 100%;
 }
-.full{
+
+.full {
     width: 100%;
     height: 100%;
 }
 
-.AWidth{
+.AWidth {
     width: 100%;
 }
-.width-1{
+
+.width-1 {
     width: 10%;
 }
-.width-2{
+
+.width-2 {
     width: 20%;
 }
-.width-3{
+
+.width-3 {
     width: 30%;
 }
-.width-4{
+
+.width-4 {
     width: 40%;
 }
-.width-5{
+
+.width-5 {
     width: 50%;
 }
-.width-6{
+
+.width-6 {
     width: 60%;
 }
-.width-7{
+
+.width-7 {
     width: 70%;
 }
-.width-8{
+
+.width-8 {
     width: 80%;
 }
-.width-9{
+
+.width-9 {
     width: 90%;
 }
-.width-f{
+
+.width-f {
     width: 100%;
 }
 
-.AHeight{
+.AHeight {
     height: 100%;
 }
-.height-1{
+
+.height-1 {
     height: 10%;
 }
-.height-2{
+
+.height-2 {
     height: 20%;
 }
-.height-3{
+
+.height-3 {
     height: 30%;
 }
-.height-4{
+
+.height-4 {
     height: 40%;
 }
-.height-5{
+
+.height-5 {
     height: 50%;
 }
-.height-6{
+
+.height-6 {
     height: 60%;
 }
-.height-7{
+
+.height-7 {
     height: 70%;
 }
-.height-8{
+
+.height-8 {
     height: 80%;
 }
-.height-9{
+
+.height-9 {
     height: 90%;
 }
-.height-f{
+
+.height-f {
     height: 100%;
 }
 
-.AShow{
-    visibility: visible;
-}
-.show{
+.AShow {
     visibility: visible;
 }
 
-.AHide{
-    visibility: collapse;
+.show {
+    visibility: visible;
 }
-.hide{
+
+.AHide {
     visibility: collapse;
 }
 
-.text-center{
+.hide {
+    visibility: collapse;
+}
+
+.text-center {
     text-align: center;
 }
 
-.text-right{
+.text-right {
     text-align: right;
 }
 
-.text-left{
+.text-left {
     text-align: left;
 }
 
-.text-uppercase{
+.text-uppercase {
     text-transform: uppercase;
 }
 
-.text-lowercase{
+.text-lowercase {
     text-transform: lowercase;
 }
 
-.tooltip-left{
+.tooltip-left {
     tooltip-position: left;
 }
-.tooltip-top{
+
+.tooltip-top {
     tooltip-position: top;
 }
-.tooltip-right{
+
+.tooltip-right {
     tooltip-position: right;
 }
-.tooltip-bottom{
+
+.tooltip-bottom {
     tooltip-position: bottom;
 }
 
-.AWidthFill{
+.AWidthFill {
     width: fill-parent-flow(1);
 }
 
-.AHeightFill{
+.AHeightFill {
     height: fill-parent-flow(1);
 }
 
 /*é•¿å®½æ¯”é‡*/
-.row-w-1{
+
+.row-w-1 {
     width: fill-parent-flow(0.1);
 }
-.row-w-2{
+
+.row-w-2 {
     width: fill-parent-flow(0.2);
 }
-.row-w-3{
+
+.row-w-3 {
     width: fill-parent-flow(0.3);
 }
-.row-w-4{
+
+.row-w-4 {
     width: fill-parent-flow(0.4);
 }
-.row-w-5{
+
+.row-w-5 {
     width: fill-parent-flow(0.5);
 }
-.row-w-6{
+
+.row-w-6 {
     width: fill-parent-flow(0.6);
 }
-.row-w-7{
+
+.row-w-7 {
     width: fill-parent-flow(0.7);
 }
-.row-w-8{
+
+.row-w-8 {
     width: fill-parent-flow(0.8);
 }
-.row-w-9{
+
+.row-w-9 {
     width: fill-parent-flow(0.9);
 }
-.row-w-f{
+
+.row-w-f {
     width: fill-parent-flow(1);
 }
-.col-w-1{
+
+.col-w-1 {
     height: fill-parent-flow(0.1);
 }
-.col-w-2{
+
+.col-w-2 {
     height: fill-parent-flow(0.2);
 }
-.col-w-3{
+
+.col-w-3 {
     height: fill-parent-flow(0.3);
 }
-.col-w-4{
+
+.col-w-4 {
     height: fill-parent-flow(0.4);
 }
-.col-w-5{
+
+.col-w-5 {
     height: fill-parent-flow(0.5);
 }
-.col-w-6{
+
+.col-w-6 {
     height: fill-parent-flow(0.6);
 }
-.col-w-7{
+
+.col-w-7 {
     height: fill-parent-flow(0.7);
 }
-.col-w-8{
+
+.col-w-8 {
     height: fill-parent-flow(0.8);
 }
-.col-w-9{
+
+.col-w-9 {
     height: fill-parent-flow(0.9);
 }
-.col-w-f{
+
+.col-w-f {
     height: fill-parent-flow(1);
 }
 
-.color-white{
+.color-white {
     color: white;
 }
-.color-red{
+
+.color-red {
     color: red;
 }
-.color-yellow{
+
+.color-yellow {
     color: yellow;
 }
-.color-green{
+
+.color-green {
     color: green;
 }
-.color-black{
+
+.color-black {
     color: black;
 }
-.color-blue{
+
+.color-blue {
     color: blue;
 }
-.color-gold{
+
+.color-gold {
     color: gold;
 }
-.color-orange{
+
+.color-orange {
     color: orange;
 }
 
-.background-white{
+.background-white {
     background-color: white;
 }
-.background-red{
+
+.background-red {
     background-color: red;
 }
-.background-yellow{
+
+.background-yellow {
     background-color: yellow;
 }
-.background-green{
+
+.background-green {
     background-color: green;
 }
-.background-black{
+
+.background-black {
     background-color: black;
 }
-.background-blue{
+
+.background-blue {
     background-color: blue;
 }
-.background-gold{
+
+.background-gold {
     background-color: gold;
 }
-.background-orange{
+
+.background-orange {
     background-color: orange;
 }
 
-.opacity-1{
+.opacity-1 {
     opacity: 0.1;
 }
-.opacity-2{
+
+.opacity-2 {
     opacity: 0.2;
 }
-.opacity-3{
+
+.opacity-3 {
     opacity: 0.3;
 }
-.opacity-4{
+
+.opacity-4 {
     opacity: 0.4;
 }
-.opacity-5{
+
+.opacity-5 {
     opacity: 0.5;
 }
-.opacity-6{
+
+.opacity-6 {
     opacity: 0.6;
 }
-.opacity-7{
+
+.opacity-7 {
     opacity: 0.7;
 }
-.opacity-8{
+
+.opacity-8 {
     opacity: 0.8;
 }
-.opacity-9{
+
+.opacity-9 {
     opacity: 0.9;
 }

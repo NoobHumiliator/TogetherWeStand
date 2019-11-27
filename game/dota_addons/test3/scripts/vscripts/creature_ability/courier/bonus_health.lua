@@ -4,7 +4,7 @@ function SetHealth( keys )
 	local ability = keys.ability
 
 	local bonus_health = ability:GetLevelSpecialValueFor( "bonus_health", ( ability:GetLevel() - 1 ) )
-  
+
   if caster.courierBaseMaxHp==nil then
      caster.courierBaseMaxHp=caster:GetMaxHealth()
   end

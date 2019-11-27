@@ -1,32 +1,31 @@
-
 modifier_boss_ancient_apparition_frozen = class({})
 
 function modifier_boss_ancient_apparition_frozen:GetTexture()
-	return "crystal_maiden_frostbite"
+    return "crystal_maiden_frostbite"
 end
 
 -----------------------------------------------------------------------------
 function modifier_boss_ancient_apparition_frozen:CheckState()
-	local state = {
-		[MODIFIER_STATE_STUNNED] = true,
-		[MODIFIER_STATE_FROZEN] = true,
-	}
-	return state
+    local state = {
+        [MODIFIER_STATE_STUNNED] = true,
+        [MODIFIER_STATE_FROZEN] = true,
+    }
+    return state
 end
 
 -----------------------------------------------------------------------------
 function modifier_boss_ancient_apparition_frozen:OnCreated()
-	 if IsServer() then
-          self.particleIndex = ParticleManager:CreateParticle("particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf", PATTACH_ABSORIGIN  , self:GetParent())
-	 end
+    if IsServer() then
+        self.particleIndex = ParticleManager:CreateParticle("particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf", PATTACH_ABSORIGIN, self:GetParent())
+    end
 end
 ----------------------------------------------------------------------------
 function modifier_boss_ancient_apparition_frozen:OnDestroy()
 
-	 if IsServer() then
-       ParticleManager:DestroyParticle(self.particleIndex, true)
-       ParticleManager:ReleaseParticleIndex(self.particleIndex)
-	 end
+    if IsServer() then
+        ParticleManager:DestroyParticle(self.particleIndex, true)
+        ParticleManager:ReleaseParticleIndex(self.particleIndex)
+    end
 
 end
 ----------------------------------------------------------------------------

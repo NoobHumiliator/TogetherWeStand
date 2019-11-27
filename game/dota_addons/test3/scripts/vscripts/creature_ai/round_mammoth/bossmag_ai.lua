@@ -11,7 +11,7 @@ behaviorSystem = {} -- create the global so we can assign to it
 function Spawn( entityKeyValues )
 	if  thisEntity:GetTeam()==DOTA_TEAM_BADGUYS then
 	  thisEntity:SetContextThink( "AIThink", AIThink, 0.25 )
-      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone , BehaviorThrowHook , BehaviorPlasma_Field , BehaviorStrike , BehaviorFreeze} ) 
+      behaviorSystem = AICore:CreateBehaviorSystem( { BehaviorNone , BehaviorThrowHook , BehaviorPlasma_Field , BehaviorStrike , BehaviorFreeze} )
     end
 end
 
@@ -41,23 +41,21 @@ function BehaviorThrowHook:Evaluate()
 	-- let's not choose this twice in a row
 	if currentBehavior == self then return desire end
 	self.hookAbility = thisEntity:FindAbilityByName( "charge_to_unit" )
-	local targets = FindUnitsInRadius(DOTA_TEAM_BADGUYS, thisEntity:GetOrigin() , nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS+DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
-	local MaxDistance = 10
-	    if #targets > 0 then
-           for i,unit in pairs(targets) do                            
+	local targets = FindUnitsInRadius(DOTA_TEAM_BADGUYS, thisEntity:GetOrigin() , nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS+DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_FARTHEST, false)
+
+           for _,unit in pairs(targets) do
                 local distance = ( thisEntity:GetOrigin() - unit:GetOrigin() ):Length()
-                if distance > MaxDistance and self.hookAbility and self.hookAbility:IsFullyCastable() and not(distance>1000 and unit:IsInvisible()==true) then
-				     MaxDistance=distance
+                if self.hookAbility and self.hookAbility:IsFullyCastable() and (distance < 1000 or unit:IsInvisible()==false) then
                      self.target=unit
                      desire=10
+					 break
                 end
            end
-       end   	
 	return desire
 end
 
 function BehaviorThrowHook:Begin()
-	if self.target then 
+	if self.target then
 	 self.endTime = GameRules:GetGameTime() + 2
      self.order =
 	 {
@@ -77,23 +75,16 @@ end
 BehaviorThrowHook.Continue = BehaviorThrowHook.Begin
 --------------------------------------------------------------------------------------------------------
 BehaviorNone = {}
-function BehaviorNone:Evaluate()	
+function BehaviorNone:Evaluate()
 	return 2 -- must return a value > 0, so we have a default 控制大方向，往一个最近的英雄处靠近
 end
 
 function BehaviorNone:Begin()
 	self.target=nil
 	self.endTime = GameRules:GetGameTime() + 1
-	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
+	local allEnemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
 		if #allEnemies > 0 then
-			local minDistance = 10000000
-			for _,enemy in pairs(allEnemies) do
-				local distance = ( thisEntity:GetOrigin() - enemy:GetOrigin() ):Length()
-				if distance < minDistance then
-				  minDistance=distance
-                  self.target=enemy
-				end
-			end
+			self.target = allEnemies[1]
 		end
 
 
@@ -119,23 +110,23 @@ BehaviorPlasma_Field = {}
 
 function BehaviorPlasma_Field:Evaluate()    --两极反转
 	local desire = 0
-	
+
 	-- let's not choose this twice in a row
 	if currentBehavior == self then return desire end
 
 	self.plasmaAbility = thisEntity:FindAbilityByName( "creature_reverse_polarity" )
-	
+
 	if self.plasmaAbility and self.plasmaAbility:IsFullyCastable() then
 		self.target = AICore:RandomEnemyHeroInRange( thisEntity, 3000 )
 		if self.target then
 			desire = 7
 		end
-	end	
+	end
 	return desire
 end
 
 function BehaviorPlasma_Field:Begin()
-	self.endTime = GameRules:GetGameTime() + 1	
+	self.endTime = GameRules:GetGameTime() + 1
 	self.order =
 	{
 		UnitIndex = thisEntity:entindex(),
@@ -192,7 +183,7 @@ function BehaviorStrike:Begin()
 		AbilityIndex = self.staticlinkAbility:entindex()
 	}
     --]]
-end 
+end
 
 BehaviorStrike.Continue = BehaviorStrike.Begin --if we re-enter this ability, we might have a different target; might as well do a full reset
 
@@ -215,20 +206,20 @@ function BehaviorFreeze:Evaluate()
     local enemies = FindUnitsInRadius( DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
 	local target = nil
 	for _,enemy in pairs(enemies) do
-		local distanceToEnemy = (thisEntity:GetOrigin() - enemy:GetOrigin()):Length()
-		if enemy:IsAlive() and enemy:IsStunned() and distanceToEnemy < range then
+		if enemy:IsAlive() and enemy:IsStunned() then
 			target = enemy
+			break
 		end
 	end
 	self.freezeAbility = thisEntity:FindAbilityByName( "mag_kill_them_all" )
 	if self.freezeAbility and self.freezeAbility:IsFullyCastable() and target then
 			desire = 70
-	end	
+	end
 	return desire
 end
 
 function BehaviorFreeze:Begin()
-	self.endTime = GameRules:GetGameTime() + 3	
+	self.endTime = GameRules:GetGameTime() + 3
 	Notifications:TopToAll({ability="mag_kill_them_all"})
 	Notifications:TopToTeam(DOTA_TEAM_GOODGUYS, {text="#power_release_dbm_simple", duration=1.5, style = {color = "Azure"},continue=true})
 	self.order =

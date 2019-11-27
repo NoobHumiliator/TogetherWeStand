@@ -10,7 +10,7 @@ nAcceptLoadPlayerNumber=0
 
 
 function CHoldoutGameMode:SaveGame(keys)
-  
+
 
   local slotIndex= keys.slotIndex
   local playerId= keys.playerId
@@ -20,26 +20,26 @@ function CHoldoutGameMode:SaveGame(keys)
 
   if gameMode._currentRound~=nil then
     Notifications:Bottom(keys.playerId, {text="#only_save_in_prepare", duration=2, style={color="Red"}})
-    return 
+    return
   end
-  
-  if type(slotIndex)~="number" then  
+
+  if type(slotIndex)~="number" then
     Notifications:Bottom(keys.playerId, {text="#please_select_one_slot", duration=2, style={color="Red"}})
-    return 
+    return
   end
 
 
   if GameRules:IsCheatMode() and  IsDedicatedServer() then  --本机模式无视此项，随便存档
     Notifications:Bottom(keys.playerId, {text="#cheat_mode_can_not_save", duration=2, style={color="Red"}})
-    return 
+    return
   end
 
   local request = CreateHTTPRequestScriptVM("GET", server_address .. "savegame")
-  request:SetHTTPRequestGetOrPostParameter("saver_steam_id",tostring(steamId)); --游戏保存者的steamId
-  request:SetHTTPRequestGetOrPostParameter("slot_index",tostring(slotIndex));  --存档槽的编号
-  request:SetHTTPRequestGetOrPostParameter("json_data",tostring(jsonData));  --数据
-  request:SetHTTPRequestGetOrPostParameter("auth","K4gN+u422RN2X4DubcLylw=="); --校验
-  request:SetHTTPRequestGetOrPostParameter("dedicated_server_key",GetDedicatedServerKey("K4gN+u422RN2X4DubcLylw=="));
+  request:SetHTTPRequestGetOrPostParameter("saver_steam_id",tostring(steamId)) --游戏保存者的steamId
+  request:SetHTTPRequestGetOrPostParameter("slot_index",tostring(slotIndex))  --存档槽的编号
+  request:SetHTTPRequestGetOrPostParameter("json_data",tostring(jsonData))  --数据
+  request:SetHTTPRequestGetOrPostParameter("auth","K4gN+u422RN2X4DubcLylw==") --校验
+  request:SetHTTPRequestGetOrPostParameter("dedicated_server_key",GetDedicatedServerKey("K4gN+u422RN2X4DubcLylw=="))
 
 
 
@@ -50,7 +50,7 @@ function CHoldoutGameMode:SaveGame(keys)
               CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerId),"ReloadSavePanel",keys)
           end
       else
-          print("Server return", result.StatusCode, result.Body);
+          print("Server return", result.StatusCode, result.Body)
           Notifications:BottomToAll( {text="Server Error, Try agian", duration=3, style={color="Red"}})
       end
   end)
@@ -61,7 +61,7 @@ end
 
 
 function CHoldoutGameMode:PrepareToLoadGame(keys) --准备读取游戏
-  
+
   prepareJsonData = keys.jsonData --向全局变量中存储玩家准备读取的信息
   nAcceptLoadPlayerNumber=0 --有几个玩家确认
 
@@ -69,7 +69,7 @@ function CHoldoutGameMode:PrepareToLoadGame(keys) --准备读取游戏
 
   if data.playerNumber<GetValidPlayerNumber() then
      Notifications:Bottom(keys.playerId, {text="#player_number_should_less_than_save", duration=2, style={color="Red"}})
-     return 
+     return
   end
 
 
@@ -78,10 +78,10 @@ function CHoldoutGameMode:PrepareToLoadGame(keys) --准备读取游戏
          if  PlayerResource:HasSelectedHero( nPlayerID ) then
              local playerDetail = data[nPlayerID.."_playerData"]
              if alreadyCached[playerDetail.hero_name]==true then
-             else        
+             else
                 alreadyCached[playerDetail.hero_name] = true
-                print('Precaching unit: '.. playerDetail.hero_name) 
-                if unitExists('npc_precache_'.. playerDetail.hero_name) then     
+                print('Precaching unit: '.. playerDetail.hero_name)
+                if unitExists('npc_precache_'.. playerDetail.hero_name) then
                   PrecacheUnitByNameAsync('npc_precache_'.. playerDetail.hero_name, function() end)
                 else
                   print('Failed to precache unit: npc_precache_'.. playerDetail.hero_name)
@@ -102,14 +102,14 @@ function CHoldoutGameMode:AcceptToLoadGame(keys) --准备读取游戏
   if nAcceptLoadPlayerNumber > nAcceptLoadPlayerNumber/2 then --如果超过半数玩家同意
       GameSaver:LoadGame(prepareJsonData)
   end
-  
+
 end
 
 
 
 --记录用时关卡用时等级
 function GameSaver:GameInfoToJson(playerId)
-    
+
     local result={}
     result.vDropItems={}
     result.vBearItems={}
@@ -119,7 +119,7 @@ function GameSaver:GameInfoToJson(playerId)
     result.last_live = gameMode.last_live --剩余团队生命值
     result.vRoundSkip = gameMode.vRoundSkip --跳关记录
     result.map_difficulty = gameMode.map_difficulty --地图难度
-    result.flDDadjust = gameMode.flDDadjust 
+    result.flDDadjust = gameMode.flDDadjust
     result.flDHPadjust = gameMode.flDHPadjust
     result.nTimeCost = gameMode.nTimeCost --记录用时
     result.nMaxAttackSpeed=GameRules:GetGameModeEntity():GetMaximumAttackSpeed()
@@ -223,7 +223,7 @@ function GameSaver:GameInfoToJson(playerId)
         end
     end
     --记录小熊
-    local targets = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector( 0, 0, 0 ) , nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
+    local targets = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector( 0, 0, 0 ) , nil, -1, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
     for _,unit in pairs(targets) do
         if string.find(unit:GetUnitName(),"npc_dota_lone_druid_bear") then --如果是小熊
             print("bearbearbear")
@@ -243,7 +243,7 @@ function GameSaver:GameInfoToJson(playerId)
             end
         end
     end
-    
+
     return tostring(JSON:encode(result))
 end
 
@@ -267,7 +267,7 @@ function GameSaver:LoadGame(sJsonData)   --从Json串读取数据
   gameMode.last_live = data.last_live --剩余团队生命值
   gameMode.vRoundSkip = data.vRoundSkip --跳关记录
   gameMode.map_difficulty = data.map_difficulty --地图难度
-  gameMode.flDDadjust = data.flDDadjust 
+  gameMode.flDDadjust = data.flDDadjust
   gameMode.flDHPadjust = data.flDHPadjust
   gameMode.nTimeCost = data.nTimeCost --还原用时
   gameMode.nLoadTime = gameMode.nLoadTime+1 --记录第几次读档
@@ -421,8 +421,8 @@ function GameSaver:LoadGame(sJsonData)   --从Json串读取数据
             local newItem = CreateItem(item.item_name,owner,owner)
             newItem:SetCurrentCharges(item.charges)
             hero:AddItem(newItem)
-          end 
-      end      
+          end
+      end
    end
    --还原鸟的物品 技能
    print("Step4")
@@ -432,7 +432,7 @@ function GameSaver:LoadGame(sJsonData)   --从Json串读取数据
         local courier=PlayerResource:GetNthCourierForTeam(i-1,DOTA_TEAM_GOODGUYS)
         if courier then
             for _,itemInfo in pairs(data[i.."_courierData"].itemsDetail) do
-               local owner = nil 
+               local owner = nil
                if itemInfo.purchaserPid then
                   owner = PlayerResource:GetSelectedHeroEntity( itemInfo.purchaserPid )
                end
@@ -480,7 +480,7 @@ function GameSaver:LoadGame(sJsonData)   --从Json串读取数据
           if  PlayerResource:HasSelectedHero( nPlayerID ) then
               local hero = PlayerResource:GetSelectedHeroEntity( nPlayerID )
               local playerDetail = data[nPlayerID.."_playerData"]
-              PlayerResource:ResetTotalEarnedGold(nPlayerID) --重置经济            
+              PlayerResource:ResetTotalEarnedGold(nPlayerID) --重置经济
               hero:SetGold(playerDetail.gold,true)
               hero:SetAbilityPoints(playerDetail.abilityPoints)
           end
@@ -493,7 +493,7 @@ end
 
 function UnitAddAbility(unit,abilityName,level,index,isHidden)
 
-     unit:AddAbility(abilityName)          
+     unit:AddAbility(abilityName)
      if manualActivate[abilityName] then  --激活光法的两个技能
        local ab = unit:FindAbilityByName(abilityName)
        if ab then
@@ -504,19 +504,19 @@ function UnitAddAbility(unit,abilityName,level,index,isHidden)
      ------------------------------------------------
      if  CHoldoutGameMode._vHeroList[abilityName]~=nil then
       if alreadyCached[ CHoldoutGameMode._vHeroList[abilityName]]==true then
-      else        
+      else
         alreadyCached[ CHoldoutGameMode._vHeroList[abilityName]] = true
-        print('Precaching unit: '.. CHoldoutGameMode._vHeroList[abilityName]) 
-        if unitExists('npc_precache_'.. CHoldoutGameMode._vHeroList[abilityName]) then     
+        print('Precaching unit: '.. CHoldoutGameMode._vHeroList[abilityName])
+        if unitExists('npc_precache_'.. CHoldoutGameMode._vHeroList[abilityName]) then
           PrecacheUnitByNameAsync('npc_precache_'.. CHoldoutGameMode._vHeroList[abilityName], function() end)
         else
           print('Failed to precache unit: npc_precache_'.. CHoldoutGameMode._vHeroList[abilityName])
         end
       end
      else
-      PrecacheUnitByNameAsync('npc_precache_'..abilityName, function() end)    --自定义的技能需要单独加载         
-     end 
-     --处理等级位置------------------------------------------------------ 
+      PrecacheUnitByNameAsync('npc_precache_'..abilityName, function() end)    --自定义的技能需要单独加载
+     end
+     --处理等级位置------------------------------------------------------
      local ability = unit:FindAbilityByName(abilityName)
      ability:SetLevel(level)
      if isHidden then
@@ -525,7 +525,7 @@ function UnitAddAbility(unit,abilityName,level,index,isHidden)
        ability:SetHidden(false)
      end
      ability:SetAbilityIndex(index)
-             
+
      if brokenModifierAbilityMap[abilityName]~=nil then
          local modifier = unit:FindModifierByName(brokenModifierAbilityMap[abilityName])
          if modifier then

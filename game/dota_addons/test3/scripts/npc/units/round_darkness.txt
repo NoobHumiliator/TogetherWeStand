@@ -1,0 +1,386 @@
+"DOTAUnits"
+{
+    "npc_dota_creature_night_stalker"
+    {
+	    "BaseClass"					"npc_dota_creature"
+	    "Model"						"models/heroes/nightstalker/nightstalker_night.vmdl"
+	    "ModelScale"				"0.8"
+	    "Level"						"4"
+	    "HealthBarOffset"			"140"
+	    "HasInventory"				"1"
+	    "SoundSet"                  "Hero_NightStalker"
+        "GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_nightstalker.vsndevts"
+
+
+	    // Abilities
+	    //----------------------------------------------------------------
+	    "AbilityLayout"				"4"
+	    "Ability1"					"creature_night_stalker_void"
+        "Ability2"					"night_creature_increase_damage"
+
+	    // Armor
+	    //----------------------------------------------------------------
+	    "ArmorPhysical"				"150"		// Physical protection.
+	    "MagicalResistance"			"90"		// Magical protection.
+
+	    // Attack
+	    //----------------------------------------------------------------
+	    "AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+	    "AttackDamageMin"			"156.0"
+	    "AttackDamageMax"			"194.0"
+	    "AttackRate"				"1.9"
+	    "AttackAnimationPoint"		"0.5"
+	    "AttackAcquisitionRange"	"500"
+	    "AttackRange"				"128"
+
+	    // Bounds
+	    //----------------------------------------------------------------
+	    "BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+	    "RingRadius"				"70"
+
+	    // Movement
+	    //----------------------------------------------------------------
+	    "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"				"340"
+	    "MovementTurnRate"			"0.4"
+
+	    // Status
+	    //----------------------------------------------------------------
+	    "StatusHealth"				"225000"
+	    "StatusHealthRegen"			"10"
+	    "StatusMana"				"1500"
+	    "StatusManaRegen"			"20"
+
+	    // Vision
+	    //----------------------------------------------------------------
+	    "VisionDaytimeRange"		"1400"
+	    "VisionNighttimeRange"		"1400"
+	    "vscripts"					"creature_ai/round_night/night_stalker_ai.lua"
+
+	    // Creature Data
+	    //----------------------------------------------------------------
+	    "Creature"
+	     {
+	    	"CanRespawn"				"0"                       
+	    	"DisableResistance"			"0.0"
+	    	"AttachWearables"
+	    	{
+	    		"Wearable1"		{	"ItemDef"		"337"		}
+	    		"Wearable2"		{	"ItemDef"		"338"		}
+	    		"Wearable3" 	{	"ItemDef"		"339"		}
+	    	}
+	    }
+    }
+
+	"npc_dota_night_bane"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/bane/bane.vmdl"
+		"ModelScale"				"0.9"
+		"Level"						"6"
+		"HealthBarOffset"			"180"
+		"SoundSet"                  "Hero_Bane"
+	   	"GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
+
+
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"				"4"
+		"Ability1"					"night_terror_lua"	                 //Reference: Afrz
+		"Ability2"					"night_creature_increase_damage"	 //Reference: Afrz
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"150"
+		"MagicalResistance"			"90"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackDamageMin"			"20.0"
+		"AttackDamageMax"			"20.0"
+		"AttackRate"				"2.5"
+		"AttackAnimationPoint"		"0.5"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"950"
+		"ProjectileModel"			"particles/econ/items/enigma/enigma_geodesic/enigma_base_attack_eidolon_geodesic.vpcf"	 //Add projectile
+		"ProjectileSpeed"			"800"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"40"
+
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"380"
+		"MovementTurnRate"			"0.4"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"123000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"1500"
+		"StatusManaRegen"			"20"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1600"
+		"VisionNighttimeRange"		"1600"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"vscripts"					"creature_ai/round_night/night_bane_ai.lua"
+		"Creature"
+		{
+			"AttachWearables"
+			{
+				"Wearable1"		{	"ItemDef"		"503"		} //"Winter Wyvern's Pelt"
+				"Wearable2"		{	"ItemDef"		"612"		} //"Winter Wyvern's Headdress"
+				"Wearable3"		{	"ItemDef"		"613"		} //"Winter Wyvern''s Ambient Effects"
+			    "Wearable4"		{	"ItemDef"		"614"		} //"Winter Wyvern's Headdress"
+				"Wearable5"		{	"ItemDef"		"615"		} //"Winter Wyvern''s Ambient Effects"
+			}
+		}
+	}
+
+	"npc_dota_night_enigma"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/enigma/enigma.vmdl"
+		"ModelScale"				"1.2"
+		"Level"						"6"
+		"HealthBarOffset"			"180"
+		"SoundSet"                  "Hero_Enigma"
+	   	"GameSoundsFile"            "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
+
+
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"				"4"
+		"Ability1"					"night_midnight_pulse"	             //Reference: Afrz
+		"Ability2"					"night_creature_increase_damage"	 //Reference: Afrz
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"160"
+		"MagicalResistance"			"90"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackDamageMin"			"20.0"
+		"AttackDamageMax"			"20.0"
+		"AttackRate"				"2.5"
+		"AttackAnimationPoint"		"0.5"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"950"
+		"ProjectileModel"			"particles/units/heroes/hero_enigma/enigma_base_attack.vpcf"	 //Add projectile
+		"ProjectileSpeed"			"800"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"
+		"RingRadius"				"40"
+
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"380"
+		"MovementTurnRate"			"0.4"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"263000"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"1500"
+		"StatusManaRegen"			"20"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1600"
+		"VisionNighttimeRange"		"1600"
+
+		// Creature Data
+		//----------------------------------------------------------------
+		"vscripts"					"creature_ai/round_night/night_enigma_ai.lua"
+		"Creature"
+		{
+			"AttachWearables"
+			{
+				"Wearable1"		{	"ItemDef"		"498"		} //"Winter Wyvern's Pelt"
+				"Wearable2"		{	"ItemDef"		"559"		} //"Winter Wyvern's Headdress"
+			}
+		}
+	}
+
+    "npc_dota_creature_light_ball"
+	{
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/heroes/wisp/wisp.vmdl"
+		"BaseClass"					"npc_dota_creature"
+		"ModelScale"				"0.7"
+		"Level"						"6"
+		"ConsideredHero"			"0"
+
+		"MinimapIcon"				"minimap_enemyicon"
+		"MinimapIconSize"			"250"
+
+		"SoundSet"			 	    "Hero_Morphling"								// Name of sound set.
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
+
+		// Inventory
+		//----------------------------------------------------------------
+		"HasInventory"				"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"AbilityLayout"				       "4"
+		"Ability1"					"light_ball_die"	    // Ability 1.
+		"Ability2"					""              // Ability 2.
+		"Ability3"					""	            // Ability 3.
+		"Ability4"					""			    // Ability 4.
+		"Ability5"					""			    // Ability 5.
+		"Ability6"					""		        // Ability 6 - Extra.
+		"Ability7"					""			    // Ability 7 - Extra.
+		"Ability8"					""			    // Ability 8 - Extra.
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"10"			// Physical protection.
+		"MagicalResistance"			"25"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		     "DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"1"		     // Damage range min.
+		"AttackDamageMax"			"1"		    // Damage range max.
+		"AttackRate"				"1.5"		// Speed of attack.
+		"AttackAnimationPoint"		        "0.3"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	        "600"		// Range within a target can be acquired.
+		"AttackRange"				"700"		// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_morphling/morphling_base_attack.vpcf"			// Particle system model for projectile.
+		"ProjectileSpeed"			"1600"			// Speed of projectile.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"				"100"		// Experience earn.
+		"BountyGoldMin"				"200"		// Gold earned min.
+		"BountyGoldMax"				"200"		// Gold earned max.
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"300"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		  "DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"100"		// Speed
+		"MovementTurnRate"			"0.4"		// Turning rate.
+
+
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
+		"VoiceFile"				"soundevents/voscripts/game_sounds_vo_morphling.vsndevts"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"6000"		// Base health.
+		"StatusHealthRegen"			"2.0"		// Health regeneration rate.
+		"StatusMana"				"1000"		// Base mana.
+		"StatusManaRegen"			"50.0"		// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"3"		// Range of vision during day light.
+		"VisionNighttimeRange"		"3"		// Range of vision at night time.
+        "vscripts" 			  	    "creature_ai/round_night/light_ball_ai.lua"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			"CanRespawn"				"0"		                    
+			"DisableResistance"			"0.0"
+
+			"AttachWearables"
+			{
+				"Wearable1"		{	"ItemDef"		"536"		}
+			}
+		}
+	}
+
+    "npc_light_ball_dummy"
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models\development\invisiblebox.vmdl"
+		"SoundSet"					""
+		"ModelScale" 				"0.9"
+
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		//----------------------------------------------------------------
+		"Ability1"					"majia"
+		"Ability2"					"light_ball_dummy_aura"
+		"Ability3"					""
+		"Ability4"					""
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"  
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1"
+		"AttackAcquisitionRange"	"0"
+		"AttackRange"				"0"
+
+
+		//----------------------------------------------------------------
+		"BountyXP"				    "0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"0"
+		"HealthBarOffset"			"0"
+
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"3"
+
+		//----------------------------------------------------------------
+		"StatusHealth"				"100000"
+		"StatusHealthRegen"			"0"
+        "TeamName"		            "DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+
+        "VisionDaytimeRange"		"1000"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+	}
+}

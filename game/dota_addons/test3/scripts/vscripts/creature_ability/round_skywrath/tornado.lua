@@ -1,12 +1,12 @@
 -- Used to keep track of projectiles after creation
 require('libraries/notifications')
 require('quest_system')
-ProjectileHolder = {} 
+ProjectileHolder = {}
 --This function will create the 7 projectiles to volly, in a 57.5 degree cone
 function volly(args)
 	local caster = args.caster
 	--A Liner Projectile must have a table with projectile info
-	local info = 
+	local info =
 	{
 		Ability = args.ability,
         EffectName = args.EffectName,
@@ -34,15 +34,15 @@ function vollyHit(args)
 
 	local target = args.target
 	local caster = args.caster
-	local totalDamage = args.BonusDamage 
-	
+	local totalDamage = args.BonusDamage
+
 	local damageTable = {
 			victim = target,
 			attacker = caster,
 			damage = totalDamage,
 			damage_type = DAMAGE_TYPE_PHYSICAL,}
 			--PrintTable(damageTable)
-		ApplyDamage(damageTable)	
+		ApplyDamage(damageTable)
 end
 
 
@@ -50,15 +50,15 @@ function big_blow_dot( keys )
     local caster = keys.caster
     local target = nil
     local c_team = caster:GetTeam()
-    local allEnemies = FindUnitsInRadius( c_team, caster:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, 0, false )  --全地图所有英雄
+    local allEnemies = FindUnitsInRadius( c_team, caster:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )  --全地图所有英雄
 		if #allEnemies > 0 then
 			for _,enemy in pairs(allEnemies) do
                   target=enemy
                       if target:GetContext("big_blow_dot")==nil then    --dot计数器初始化
-                         target:SetContextNum("big_blow_dot", 0, 0) 
+                         target:SetContextNum("big_blow_dot", 0, 0)
                       end
                        target:SetContextNum("big_blow_dot", target:GetContext("big_blow_dot") + 8, 0)  --每次叠加增加10点伤害
-                        local damageTable = 
+                        local damageTable =
                         {victim=target,
                         attacker=caster,
                         damage_type=DAMAGE_TYPE_PHYSICAL,
@@ -72,12 +72,12 @@ function big_blow_dot_over( keys )
     local caster = keys.caster
     local target = nil
     local c_team = caster:GetTeam()
-    local allEnemies = FindUnitsInRadius( c_team, caster:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, 0, false )  --全地图所有英雄
+    local allEnemies = FindUnitsInRadius( c_team, caster:GetOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )  --全地图所有英雄
 		if #allEnemies > 0 then
 			for _,enemy in pairs(allEnemies) do
                   target=enemy
                       if target:GetContext("big_blow_dot")==nil then    --dot计数器初始化
-                         target:SetContextNum("big_blow_dot", 0, 0) 
+                         target:SetContextNum("big_blow_dot", 0, 0)
                       end
                       target:SetContextNum("big_blow_dot", 0, 0) ---dot计数器清0
 			end

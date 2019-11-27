@@ -22,7 +22,7 @@ function modifier_increase_total_damage_lua:OnCreated( kv )
 	    if caster~=nil and caster.damageMultiple~=nil then
 	    	percentage = (caster.damageMultiple-1)*100
 	    end
-		self.percentage=percentage		
+		self.percentage=percentage
     end
 end
 

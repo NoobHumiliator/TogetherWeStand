@@ -1,0 +1,160 @@
+"DOTAUnits"
+{
+    "npc_dota_creature_alchemist"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/alchemist/alchemist.vmdl"
+		"SoundSet"					"Hero_Alchemist"
+		"Level"						"1"
+		"ModelScale" 				"1.4"
+		"GameSoundsFile"			"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
+		"ConsideredHero"			"1"
+		"IsAncient"					"1"
+		"CanBeDominated"			"0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"tws_alchemist_acid_spray"
+		"Ability2"					"tws_alchemist_unstable_concoction"
+		"Ability3"					"tws_alchemist_chemical_rage"
+		"Ability4"					"tws_alchemist_unstable_concoction_throw"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"30"
+		"MagicalResistance"			"35"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"3800"
+		"AttackDamageMax"			"4200"
+		"AttackRate"				"1.2"
+		"AttackAnimationPoint"		"0.35"
+		"AttackAcquisitionRange"	"1200"
+		"AttackRange"				"170"
+		"ProjectileModel"			""
+		"ProjectileSpeed"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"70"
+		"HealthBarOffset"			"210"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"380"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"150000"
+		"StatusHealthRegen"			"50.0"
+		"StatusMana"				"2000"
+		"StatusManaRegen"			"30.0"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"
+		"VisionNighttimeRange"		"800"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		//Inventory
+		"HasInventory"				"1"
+
+		"vscripts"					"creature_ai/round_alchemist/alchemist_ai.lua"
+
+		// Creature Data
+		//----------------------------------------------------------------------------------------------------------------------
+		"Creature"
+		{
+			//Basic AI State
+			//-----------------------------------------------------------------
+			"DefaultState"			    "Invade"
+			"DisableResistance"			"80"
+
+			"States"
+			{
+				"Invade"
+				{
+					"Name"			"Invade"
+					"Aggression"	"70.0"
+					"Avoidance"		"0.0"
+					"Support"		"0.0"
+				}
+			}
+
+			"EquippedItems"
+			{
+				"ShivasGuard"
+				{
+					"Item"					"item_shivas_guard"
+				}
+				"PhaseBoots"
+				{
+					"Item"					"item_phase_boots"
+				}
+			}
+
+			//Level Up Parameters
+			//-----------------------------------------------------------------
+			"HPGain"					"300"
+			"DamageGain"				"30"
+			"ArmorGain"					"0.25"
+			"MagicResistGain"			"0.1"
+			"MoveSpeedGain"				"1"
+			"BountyGain"				"3"
+			"XPGain"					"13"
+
+			"AttachWearables"
+			{
+				"Wearable1"
+				{
+					"ItemDef"			"117"
+				}
+				"Wearable2"
+				{
+					"ItemDef"			"118"
+				}
+				"Wearable3"
+				{
+					"ItemDef"			"119"
+				}
+				"Wearable4"
+				{
+					"ItemDef"			"120"
+				}
+				"Wearable5"
+				{
+					"ItemDef"			"121"
+				}
+				"Wearable6"
+				{
+					"ItemDef"			"122"
+				}
+				"Wearable7"
+				{
+					"ItemDef"			"123"
+				}
+				"Wearable8"
+				{
+					"ItemDef"			"124"
+				}
+			}
+		}
+	}
+}

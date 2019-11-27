@@ -1,0 +1,13 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{746dbe12-c97d-47a2-a445-9f9ceb7ef8f6} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 0
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/creatures/test/fireball_machine_gun_building_impact_mechanical.vpcf"
+		},
+	]
+	m_nBehaviorVersion = 8
+}

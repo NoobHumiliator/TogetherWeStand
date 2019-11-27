@@ -1,0 +1,591 @@
+"DOTAAbilities"
+{
+    "charge_to_unit"
+    {
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityBehavior"                                "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    	"BaseClass"                                       "ability_datadriven"
+    	"AbilityTextureName"                              "magnataur_skewer"
+    	"AbilityUnitTargetTeam"			                  "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    	"AbilityUnitTargetType"			                  "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    	"AbilityUnitTargetFlags"		                  "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    	"AbilityUnitDamageType"			                  "DAMAGE_TYPE_PHYSICAL"
+    	"AbilityCastAnimation"		                      "ACT_DOTA_MAGNUS_SKEWER_START"
+
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityCastPoint"                                "0.2"
+
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityCooldown"                                 "4.0"
+
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityManaCost"                                 "5"
+    	"precache"
+    	{
+    		"particle"          	        "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
+    		"particle"          	        "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+    		"particle"          	        "particles/units/heroes/hero_batrider/batrider_stickynapalm_stack.vpcf"
+    		"particle"                      "particles/items2_fx/mask_of_madness.vpcf"
+    		"soundfile"			            "soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts"
+    		"soundfile"			            "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
+    	}
+
+    	"OnSpellStart"
+    	{
+    		"FireSound"
+    		{
+    			"EffectName"                    "Hero_Magnataur.Skewer.Cast"
+    		}
+    		"RunScript"
+    		{
+    			"ScriptFile"         "creature_ability/round_mammoth/charge.lua"
+    			"Function"           "charge_unit"
+    			"Target"             "TARGET"
+    		}
+    	    "RunScript"
+            {
+                   "ScriptFile"    "libraries/notifications.lua"
+    			   "Function"      "BossAbilityDBM"
+            }
+            "Random"
+    		{
+    			"Chance"			"25"
+    			"OnSuccess"
+    			{
+    				"FireSound"
+    				{
+    					"Target"			"CASTER"
+    					"EffectName"		"magnataur_magn_skewer_01"
+    				}
+    			}
+    			"OnFailure"
+    			{
+    			   "Random"
+    			   {
+    			   	"Chance"			"50"
+    				   	"OnSuccess"
+    				   	{
+    				   		"FireSound"
+    						{
+    							"Target"			"CASTER"
+    							"EffectName"		"magnataur_magn_skewer_01"
+    						}
+    				   	}
+    				   	"OnFailure"
+    				   	{
+    		   				"FireSound"
+    						{
+    							"Target"			"CASTER"
+    							"EffectName"		"magnataur_magn_skewer_09"
+    						}
+    				   	}
+    			   }
+    			}
+    		}
+
+    		"ApplyModifier"
+    		{
+    			"ModifierName"                "modifier_phased"
+    			"Target"                        "CASTER"
+    		}
+    	}
+
+    	"Modifiers"
+    	{
+
+    		"modifier_true_sight_1"
+    		{
+    			"Passive"            "1"
+    			"IsHidden"           "1"
+    			"OnCreated"
+    			{
+    				"ApplyModifier"
+    				{
+    					"ModifierName"	"modifier_tower_truesight_aura"
+    					"Target" 		"CASTER"
+    				}
+    			}
+
+    		}
+
+    		"modifier_charge_dot"
+    		{
+    			"IsDebuff"                          "1"
+    			"IsPurgable"                        "0"
+    			"Duration"                         "14.0"
+    			"EffectName"        "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
+    			"ModifierAttributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
+    			"EffectAttachType"   "follow_chest"
+    			"OnDestroy"
+    			{
+    				"RunScript"
+    				{
+    					"ScriptFile"    "creature_ability/round_mammoth/charge.lua"
+    					"Target"        "TARGET"
+    					"Function"      "charge_dot_over"
+    				}
+    			}
+    			"ThinkInterval"			"1.0"
+    			"OnIntervalThink"
+    			{
+    				"RunScript"
+    				{
+    					"ScriptFile"         "creature_ability/round_mammoth/charge.lua"
+    					"Function"           "charge_dot_damage"
+    					"Target"             "TARGET"
+    				}
+    			}
+    			"OnCreated"
+    			{
+    				"AttachEffect"
+    				{
+    					"EffectName"		"particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
+    					"EffectAttachType"	"follow_chest"
+    					"Target"		"TARGET"
+    				}
+    				"AttachEffect"
+    				{
+    					"EffectName"		"particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+    					"EffectAttachType"	"follow_chest"
+    					"Target"		"TARGET"
+    				}
+
+    				"FireSound"
+    				{
+    					"EffectName"                    "Hero_Magnataur.Skewer.Target"
+    					"Target"			    "CASTER"
+    				}
+
+    			}
+    		}
+    		"modifier_charge_dot_show"
+    		{
+    			"IsDebuff"                          "1"
+    			"IsPurgable"                        "0"
+    			"Duration"                         "25.0"
+    			"ModifierAttributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
+    		}
+    	}
+    }
+
+    "creature_reverse_polarity"
+	{
+		"BaseClass" 				        "magnataur_reverse_polarity"												// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"2"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"0"
+		"AbilityCastRange"				"100000"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.5"	// Applies multiple modifiers
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"pull_radius"			"100000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"polarity_damage"		"200"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"hero_stun_duration"	"2.15"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"creep_stun_duration"	"5.0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"pull_duration"			"0.50"
+			}
+		}
+	}
+
+	"mag_melee_smash"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityTextureName" 			"centaur_double_edge"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"300"
+		//"AbilityCastPoint"				"0.1" 					// Time before spell goes off when cast
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"	// Activity
+		"AnimationPlaybackRate"			        "1"						// Animation speed multiplier
+		"AnimationIgnoresModelScale"	                "1"
+
+		"precache"
+		{
+			"particle"          	"particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap.vpcf"
+			"particle"                      "particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts"
+		}
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"9"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"300"
+
+		"OnSpellStart"
+		{
+			"CreateThinker"
+			{
+				"ModifierName"	"melee_impact_point"
+				"Target"		"POINT"
+			}
+			"CreateThinker"
+			{
+				"ModifierName"	"melee_impact_pre_particle"
+				"Target"		"POINT"
+			}
+			"CreateThinker"
+			{
+				"ModifierName"	"melee_impact_froze"
+				"Target"		"CASTER"
+			}
+			"RunScript"
+	        {
+	               "ScriptFile"    "libraries/notifications.lua"
+				   "Function"      "BossAbilityDBM"
+	        }
+		}
+
+		// Modifiers
+		//-------------------------------------------------------------------------------------------------------------
+		"Modifiers"
+		{
+			"melee_impact_point"
+			{
+				"Duration"					"1.85" // Should work without the added time but appears to have a off by one error so time added so it doesn't destroy itself before occuring
+				"ThinkInterval"				"%think_time"
+
+				"OnIntervalThink"
+				{
+					"IsCasterAlive"
+					{
+						"OnSuccess"
+						{
+							"RemoveModifier"
+							{
+								"Target"	"CASTER"
+								"ModifierName"	"half_behave_froze"
+							}
+							"Damage"
+							{
+								"Type"			"DAMAGE_TYPE_PHYSICAL"
+								"Damage"		"%damage"
+								"Target"
+								{
+									"Center"	"TARGET"
+									"Radius"	"%impact_radius"
+									"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+									"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_OTHER"
+									"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+								}
+							}
+
+							"Stun"
+							{
+								"Duration"		"%stun_duration"
+								"Target"
+								{
+									"Center"	"TARGET"
+									"Radius"	"%impact_radius"
+									"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+									"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_OTHER"
+								}
+							}
+
+							"AttachEffect"
+							{
+								"EffectName"		"particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf"
+								"EffectAttachType"	"follow_origin"
+								"Target"		"TARGET"
+
+								"ControlPoints"
+								{
+									"00"		"0 0 0"
+									"01"		"%impact_radius 0 0"
+									"02"		"0 0 0"
+								}
+							}
+
+							"DestroyTrees"
+							{
+								"Target"			"TARGET"
+								"Radius"			"%impact_radius"
+							}
+
+							"FireSound"
+							{
+								"EffectName"		"Hero_Centaur.HoofStomp"
+								"Target"		 "CASTER"
+							}
+						}
+					}
+				}
+			}
+			"melee_impact_froze"
+			{
+				"Duration"				    "0.3"
+				"ThinkInterval"				"0.25"
+				"OnIntervalThink"
+				{
+					"ApplyModifier"
+					{
+						"Target"	"CASTER"
+						"ModifierName"	"half_behave_froze"
+					}
+				}
+			}
+			"melee_impact_pre_particle"
+			{
+				"Duration"				"0.15" // Should work without the added time but appears to have a off by one error so time added so it doesn't destroy itself before occuring
+				"ThinkInterval"				"0.1"
+				"OnIntervalThink"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap.vpcf"
+						"Target"		"TARGET"
+						"EffectAttachType"	"follow_origin"
+						"ControlPoints"
+						{
+							"00"		"0 0 0"
+							"01"		"%impact_radius 0 0"
+							"02"		"0 0 0"
+						}
+					}
+				}
+			}
+			"half_behave_froze"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_FROZEN"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"impact_radius"			"250"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.7"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"1250"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"think_time"			"1.35"
+			}
+		}
+	}
+
+	"mag_kill_them_all"
+	{
+		"AbilityBehavior"             "DOTA_ABILITY_BEHAVIOR_NO_TARGET| DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"BaseClass"                   "ability_datadriven"
+		"AbilityUnitTargetFlags"	  "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"			  "SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityCastAnimation"        "ACT_DOTA_CAST_ABILITY_2"
+		"MaxLevel"                    "1"
+		"AbilityTextureName"          "magnataur_empower"
+		// Stats
+		//----------------------------------------------------------------
+		"AbilityChannelTime"	  "2.7"   //2.7--->3.5
+		"AbilityManaCost"         "0"
+		"AbilityCastPoint"        "0"
+		"AbilityCooldown"         "5"
+		"AbilityUnitDamageType"   "DAMAGE_TYPE_PURE"
+		"precache"
+		{
+			"particle"          	        "particles/units/heroes/hero_ursa/ursa_earthshock.vpcf"
+			"particle"          	        "particles/units/heroes/hero_centaur/centaur_dust_hit.vpcf"
+			"soundfile"		 	"soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+		    {
+				"Target"			"CASTER"
+				"EffectName"		"magnataur_magn_skewer_02"
+			}
+			"CreateThinker"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"half_behave_froze_think" 
+			}
+		}
+		"OnChannelSucceeded"
+		{
+			"Damage"
+			{
+				"Target"
+				{
+					"Radius"		"320"
+					"Center"		"CASTER"
+					"Types"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_OTHER"
+					"Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Flags"		    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				}
+				"Type"				 "DAMAGE_TYPE_PURE"
+				"Damage"			 "59999"
+			}
+			"Damage"
+			{
+				"Target"
+				{
+					"Radius"		"550"
+					"Center"		"CASTER"
+					"Types"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_OTHER | DOTA_UNIT_TARGET_CREEP"
+					"Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Flags"		    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				}
+				"Type"				 "DAMAGE_TYPE_PURE"
+				"Damage"			 "99999"
+			}
+
+			"AttachEffect"
+			{
+				"EffectName"		"particles/units/heroes/hero_ursa/ursa_earthshock.vpcf"
+				"EffectAttachType" 	"follow_origin"
+				"Target" 		"CASTER"
+				"ControlPoints"
+				{
+					"00"		"0 0 0"
+					"01"		"550 0 0"
+					"02"		"0 0 0"
+				}
+			}
+
+			"FireSound"
+			{
+				"EffectName"		"Hero_Ursa.Earthshock"
+				"Target"  			"CASTER"
+			}
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"power_finish_dur_act" 
+			}
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"half_behave_froze"
+			}
+		}
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"half_behave_froze"
+			}
+		}
+		"Modifiers"
+		{
+
+			"power_finish_dur_act"
+			{
+				"Duration"                "0.5"
+				"OverrideAnimation"       "ACT_DOTA_TELEPORT_END"
+			}
+			"half_behave_froze_think"
+			{
+				"Duration"				"0.55"
+				"ThinkInterval"			"0.5"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnIntervalThink"
+				{
+					"ApplyModifier"
+					{
+						"Target"	"CASTER"
+						"ModifierName"	"half_behave_froze"
+					}
+				}
+			}
+			"half_behave_froze"
+			{
+				"Duration"				"2.1"
+				"States"
+				{
+					"MODIFIER_STATE_FROZEN"	        "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+
+					"ApplyModifier"
+					{
+						"Target"	"CASTER"
+						"ModifierName"	"damage_immune_datadriven"
+					}
+					"AttachEffect"
+					{
+						"EffectName"   "particles/units/heroes/hero_centaur/centaur_dust_hit.vpcf"
+						"EffectAttachType"        "follow_origin"
+						"Target"                   "TARGET"
+						"ControlPoints"
+						{
+							"00"                "0 0 0"
+							"01"                "500 0 0"
+						}
+					}
+				}
+			}
+			"damage_immune_datadriven"
+			{
+				"Duration"				"2.6"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-100"
+				}
+			}
+		}
+	}
+}
