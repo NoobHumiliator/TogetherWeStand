@@ -51,7 +51,7 @@ function LootController:ReadConfigration()
         285, 225, 150
     }
     self._itemCost = {}
-    self._itemCostSort = {} --排序版
+    self.chestItems = {} --排序版
     local itemListKV = LoadKeyValues("scripts/kv/items_precache.txt")
     for k, v in pairs(itemListKV) do
         if type(v) == "table" and k ~= "item_rapier" and (v.ItemPurchasable == nil or v.ItemPurchasable == 1) then
@@ -60,9 +60,9 @@ function LootController:ReadConfigration()
                 if v.ItemRecipe == nil or cost >= 1000 then
                     self._itemCost[k] = cost
                 end
-                if cost > 1500 then --2000以下的装备不参与
-                    local sortItem = { itemName = k, itemCost = cost }
-                    table.insert(self._itemCostSort, sortItem)
+                if cost > 1500 then --高级装备参与宝箱掉落
+                    local chestItem = { itemName = k, itemCost = cost }
+                    table.insert(self.chestItems, chestItem)
                 end
             end
         end
@@ -75,15 +75,15 @@ function LootController:ReadConfigration()
                 if v.ItemRecipe == nil or cost >= 1000 then
                     self._itemCost[k] = cost
                 end
-                if cost > 2500 then --2000以下的装备不参与
-                    local sortItem = { itemName = k, itemCost = cost }
-                    table.insert(self._itemCostSort, sortItem)
+                if cost > 2500 then --高级装备参与宝箱掉落
+                    local chestItem = { itemName = k, itemCost = cost }
+                    table.insert(self.chestItems, chestItem)
                 end
             end
         end
     end
-    table.sort(self._itemCostSort, function(a, b) return a.itemCost < b.itemCost end) --对物品价格进行排序
-    --for k,v in pairs(self._itemCostSort) do
+    table.sort(self.chestItems, function(a, b) return a.itemCost < b.itemCost end) --对物品价格进行排序
+    --for k,v in pairs(self.chestItems) do
     --print("index: "..k.." itemName: "..v.itemName.."  itemCost: "..v.itemCost)
     --end
 end
@@ -105,17 +105,15 @@ function LootController:SetItemProbability(roundNumber, hardLevel)
     end
     for k, v in pairs(self._itemCost) do
         self._roundItemProbability[k] = NormalDistribution(v, average, stdDeviation) / denominator
-        --以下注释
         --table.insert(self._valuetable, self._roundItemProbability[k])
-        --self._reverttable[self._roundItemProbability[k]]=v
-        --以上注释
+        --self._reverttable[self._roundItemProbability[k]] =  v
     end
-    --以下注释
-    --table.sort(self._valuetable)
-    --for _,v in pairs(self._valuetable) do
-    --print(self._reverttable[v].."  "..v)
-    --end
-    --以上注释
+    --[[
+    table.sort(self._valuetable)
+    for _,v in pairs(self._valuetable) do
+    print(self._reverttable[v].."  "..v)
+    end
+    ]]
 end
 
 
@@ -183,8 +181,8 @@ function LootController:SpecialItemAdd(owner, level, nMaxRoundLevel)
     local addItemName = nil
 
     if bonusItems[level] == nil or #bonusItems[level] == 0 then  --如果奖励没定义 就从level/关卡数的分段里面取一个
-        local index = RandomInt((level - 1) / nMaxRoundLevel * (#self._itemCostSort), level / nMaxRoundLevel * (#self._itemCostSort))
-        addItemName = self._itemCostSort[index].itemName
+        local index = RandomInt((level - 1) / nMaxRoundLevel * (#self.chestItems), level / nMaxRoundLevel * (#self.chestItems))
+        addItemName = self.chestItems[index].itemName
     else
         local possibleItems = bonusItems[level]
         addItemName = PickRandom(possibleItems)
