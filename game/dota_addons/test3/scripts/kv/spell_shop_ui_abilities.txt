@@ -54,9 +54,10 @@
   }
   "drow_ranger" {
   "1"    "drow_ranger_frost_arrows"
-  "2"    "drow_ranger_wave_of_silence"
-  "3"    "drow_ranger_trueshot"
-  "4"    "drow_ranger_marksmanship"
+  "2"    "drow_ranger_multishot"
+  "3"    "drow_ranger_wave_of_silence"
+  "4"    "drow_ranger_trueshot"
+  "5"    "drow_ranger_marksmanship"
   }
   "juggernaut" {
   "1"    "juggernaut_blade_fury"
@@ -166,7 +167,7 @@
   "5"    "brewmaster_primal_split"
   }
   "treant" {
-  "1"    "treant_natures_guise"
+  "1"    "treant_natures_grasp"
   "2"    "treant_leech_seed"
   "3"    "treant_living_armor"
   "4"    "treant_eyes_in_the_forest"
@@ -188,8 +189,9 @@
   "riki" {
   "1"    "riki_smoke_screen"
   "2"    "riki_blink_strike"
-  "3"    "riki_permanent_invisibility"
-  "4"    "riki_tricks_of_the_trade"
+  "3"    "riki_tricks_of_the_trade"
+  "4"    "riki_backstab"
+  "5"    "riki_permanent_invisibility"
   }
   "sniper" {
   "1"    "sniper_shrapnel"
@@ -528,7 +530,8 @@
   "1"    "doom_bringer_devour_lua"
   "2"    "doom_bringer_scorched_earth"
   "3"    "doom_bringer_infernal_blade"
-  "4"    "doom_bringer_doom_lua"
+  //由于7.23 A帐改动 放出原技能
+  "4"    "doom_bringer_doom"
   }
   "spirit_breaker" {
   "1"    "spirit_breaker_charge_of_darkness"
@@ -563,11 +566,11 @@
   }
   "clinkz" {
   "1"    "clinkz_strafe"
-  "2"    "clinkz_searing_arrows"
-  "3"    "frostivus2018_clinkz_searing_arrows"
-  "4"    "clinkz_wind_walk"
-  "5"    "frostivus2018_clinkz_wind_walk"
-  "6"    "clinkz_burning_army"
+  "2"    "clinkz_death_pact"
+  "3"    "clinkz_searing_arrows"
+  "4"    "frostivus2018_clinkz_searing_arrows"
+  "5"    "clinkz_wind_walk"
+  "6"    "frostivus2018_clinkz_wind_walk"
   "7"    "frostivus2018_clinkz_burning_army"
   }
   "broodmother" {

@@ -1271,51 +1271,6 @@
 	}
 
 	//=================================================================================================================
-	// Gem
-	//=================================================================================================================
-	"item_gem"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"30"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Model"							"models/props_gameplay/gem01.vmdl"
-		"Effect"						"particles/generic_gameplay/dropped_gem.vpcf"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"900"
-		"ItemShopTags"					"see_invis"
-		"ItemQuality"					"component"
-		"ItemAliases"					"gem of true sight"
-		"ItemSellable"					"0"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemStockMax"					"1"
-		"ItemStockTime"					"600.0"
-		"ItemSupport"					"1"
-		"ItemKillable"					"0"
-		"ItemContributesToNetWorthWhenDropped"	"0"
-
-		// Sound
-		//-------------------------------------------------------------------------------------------------------------
-		"UIPickupSound"					"Item.PickUpGemShop"
-		"UIDropSound"					"Item.DropGemShop"
-		"WorldDropSound"				"Item.DropGemWorld"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"900"
-			}
-		}
-	}
-
-	//=================================================================================================================
 	// Cloak
 	//=================================================================================================================
 	"item_cloak"
@@ -1376,53 +1331,6 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_evasion"			"25"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Cheese
-	//=================================================================================================================
-	"item_cheese"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"33"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-
-		"Model"							"models/props_gameplay/cheese.vmdl"
-		"FightRecapLevel"				"2"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"40.0"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1000"
-		"ItemShopTags"					""
-		"ItemQuality"					"epic"
-		"ItemPurchasable"				"0"
-		"ItemStackable"					"1"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemPermanent"					"0"
-		"ItemInitialCharges"			"1"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemContributesToNetWorthWhenDropped"	"0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_restore"		"2500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_restore"			"1000"
 			}
 		}
 	}
@@ -2093,30 +2001,6 @@
 				"buff_duration"			"16.0"
 			}
 		}
-	}
-
-	//=================================================================================================================
-	// Courier
-	//=================================================================================================================
-	"item_courier"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"45"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"100"
-		"ItemShopTags"					"consumable"
-		"ItemQuality"					"consumable"
-		"ItemAliases"					"donkey;chicken;animal courier"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemStockMax"					"1"
-		"ItemStockTime"					"120.0"
-		"ItemSupport"					"1"
-
 	}
 
 	//=================================================================================================================
@@ -5761,52 +5645,6 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"model_scale"			"30"     // Percentage over model scale
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Aegis of Immortality
-	//=================================================================================================================
-	"item_aegis"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"117"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Model"							"models/props_gameplay/aegis.vmdl"
-		"FightRecapLevel"				"2"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
-		"ItemShopTags"					""
-		"ItemQuality"					"artifact"
-
-		// Items
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemPurchasable"				"0"
-		"ItemDroppable"					"0"
-		"ItemSellable"					"0"
-		"ItemKillable"					"1"
-		"ItemContributesToNetWorthWhenDropped"	"0"
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"reincarnate_time"		"5.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"disappear_time"		"300.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"disappear_time_minutes_tooltip"		"5"
 			}
 		}
 	}
@@ -11050,10 +10888,6 @@
 		}
 	}
 
-
-
-
-
 	"item_greater_purple_potion"
 	{
 		"ItemCost"						"150"
@@ -11078,7 +10912,5 @@
 	{
 		"ItemCost"						"100"
 	}
-
-
 
 }

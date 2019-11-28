@@ -552,6 +552,10 @@ function CHoldoutGameMode:OnPlayerSay(keys)
     if string.match(text, "^%-[s|S][a|A][v|V][e|E][t|T][e|E][s|S][t|T]") ~= nil then  --存档测试开后门
         CustomGameEventManager:Send_ServerToPlayer(player, "SaveTestBackDoor", { playerId = nPlayerID })
     end
+    --添加测试物品
+    if hero and string.find(text,"item_") == 1  and  GameRules:IsCheatMode() then
+       hero:AddItemByName(text)
+    end
 end
 
 function CHoldoutGameMode:ModifyGoldFilter(keys)
@@ -1430,6 +1434,9 @@ function CHoldoutGameMode:OnItemPickUp(event, level)
         if string.sub(event.itemname, 1, 20) == "item_treasure_chest_" then
             LootController:SpecialItemAdd(owner, tonumber(string.sub(event.itemname, 21, string.len(event.itemname))), #self._vRounds)
             UTIL_Remove(item)
+        else
+            --解决7.23掉落物品 无法出售的问题
+            item:SetPurchaser(owner)
         end
     end
 end

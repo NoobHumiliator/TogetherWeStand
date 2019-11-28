@@ -2107,13 +2107,6 @@
 		"DOTA_Tooltip_ability_item_precious_egg_bonus_all_stats"	     				"+$all"
 		"DOTA_Tooltip_Ability_item_recipe_precious_egg"									"珍稀龙蛋卷轴"
 
-		"DOTA_Tooltip_ability_item_craggy_coat"	                          				"崎岖外衣"
-		"DOTA_Tooltip_ability_item_craggy_coat_Description"         	  				"佩戴者受到伤害时有%boulder_chance%%%几率反击，扔出一块巨石，造成%boulder_damage%点伤害，并眩晕%boulder_stun_duration%秒。\n"
-		"DOTA_Tooltip_ability_item_craggy_coat_Lore"	                  				"只是一石之遥。"
-		"DOTA_Tooltip_ability_item_craggy_coat_bonus_strength"	          				"+$str"
-		"DOTA_Tooltip_ability_item_craggy_coat_bonus_armor"	              				"+$armor"
-		"DOTA_Tooltip_Ability_item_recipe_craggy_coat"									"崎岖外衣卷轴"
-
 		"DOTA_Tooltip_ability_item_stonework_pendant"	                   				"石制坠饰"
 		"DOTA_Tooltip_ability_item_stonework_pendant_Description"	       				"现在施放技能时消耗生命，数值为所需魔法的%health_multiple%倍，并且佩戴者获得额外的生命值和生命恢复，数值分别等于魔法值和魔法恢复。\n"
 		"DOTA_Tooltip_ability_item_stonework_pendant_Lore"	               				"石头里还是能榨出血的。"

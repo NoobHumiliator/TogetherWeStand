@@ -2306,16 +2306,6 @@
 		"DOTA_Tooltip_modifier_item_preserved_skull_effect"									"Conjuration Aura"
 		"DOTA_Tooltip_modifier_item_preserved_skull_effect_Description"						"Gaining bonus mana regen and cooldown reduction."
 
-
-		"DOTA_Tooltip_ability_item_craggy_coat"								"Craggy Coat"
-		"DOTA_Tooltip_ability_item_craggy_coat_Description"					"When the wearer takes damage, there is a %boulder_chance%%% to retaliate with a thrown boulder, which deals %boulder_damage% and stuns for %boulder_stun_duration% seconds.\n"
-		"DOTA_Tooltip_ability_item_craggy_coat_Lore"						"Just a stone's throw away."
-		"DOTA_Tooltip_ability_item_craggy_coat_bonus_strength"				"+$str"
-		"DOTA_Tooltip_ability_item_craggy_coat_bonus_armor"					"+$armor"
-		"DOTA_Tooltip_Ability_item_recipe_craggy_coat"						"Craggy Coat Recipe"
-
-
-
 		"DOTA_Tooltip_ability_lina_fiery_soul_lua"												"Fiery Soul"
 		"DOTA_Tooltip_ability_lina_fiery_soul_lua_Description"									"Grants bonus attack and movement speed each time Lina casts a spell. Stacks with itself. Lasts %fiery_soul_stack_duration% seconds."
 		"DOTA_Tooltip_ability_lina_fiery_soul_lua_Lore"											"Dancing flames embody Lina's playful nature, bringing out her true blazing self."

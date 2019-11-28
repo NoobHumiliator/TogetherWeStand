@@ -45,47 +45,46 @@ bonusItems = {
     }
 }
 
+
+--读取kv 加入掉落列表
+function LootController:AddItemIntoBucket(itemListKV)
+   
+      for k, v in pairs(itemListKV) do
+        --可以购买，或者可以出售 的物品加入掉落列表
+        if type(v) == "table" and k ~= "item_rapier" and (v.ItemPurchasable == nil or v.ItemPurchasable == 1 or v.ItemSellable == 1) then
+            local cost = GetItemCost(k)
+            if cost > 200 then
+                --1000 以上的物品 参与掉落
+                if v.ItemRecipe == nil or cost >= 1000 then
+                    self.dropItems[k] = cost
+                end
+                -- 高级物品 参与宝箱掉落
+                if cost > 2000 then --高级装备参与宝箱掉落
+                    local chestItem = { itemName = k, itemCost = cost }
+                    table.insert(self.chestItems, chestItem)
+                end
+            end
+        end
+    end
+end
+
+
 function LootController:ReadConfigration()
 
     self._vHardLevelItemValue = {
         285, 225, 150
     }
-    self._itemCost = {}
-    self.chestItems = {} --排序版
+    self.dropItems = {}
+    self.chestItems = {} 
+    
     local itemListKV = LoadKeyValues("scripts/kv/items_precache.txt")
-    for k, v in pairs(itemListKV) do
-        if type(v) == "table" and k ~= "item_rapier" and (v.ItemPurchasable == nil or v.ItemPurchasable == 1) then
-            local cost = GetItemCost(k)
-            if cost > 200 then
-                if v.ItemRecipe == nil or cost >= 1000 then
-                    self._itemCost[k] = cost
-                end
-                if cost > 1500 then --高级装备参与宝箱掉落
-                    local chestItem = { itemName = k, itemCost = cost }
-                    table.insert(self.chestItems, chestItem)
-                end
-            end
-        end
-    end
-    local itemCsmListKV = LoadKeyValues("scripts/npc/npc_items_custom.txt")
-    for k, v in pairs(itemCsmListKV) do
-        if type(v) == "table" and (v.ItemPurchasable == nil or v.ItemPurchasable == 1) then  --必须是有价钱并且能买到的物品
-            local cost = GetItemCost(k)
-            if cost >= 200 then
-                if v.ItemRecipe == nil or cost >= 1000 then
-                    self._itemCost[k] = cost
-                end
-                if cost > 2500 then --高级装备参与宝箱掉落
-                    local chestItem = { itemName = k, itemCost = cost }
-                    table.insert(self.chestItems, chestItem)
-                end
-            end
-        end
-    end
-    table.sort(self.chestItems, function(a, b) return a.itemCost < b.itemCost end) --对物品价格进行排序
-    --for k,v in pairs(self.chestItems) do
-    --print("index: "..k.." itemName: "..v.itemName.."  itemCost: "..v.itemCost)
-    --end
+    local itemCustomListKV = LoadKeyValues("scripts/npc/npc_items_custom.txt")
+    local itemOverrideListKV = LoadKeyValues("scripts/npc/npc_abilities_override.txt")
+    LootController:AddItemIntoBucket(itemListKV)
+    LootController:AddItemIntoBucket(itemCustomListKV)
+    LootController:AddItemIntoBucket(itemOverrideListKV)
+
+    table.sort(self.chestItems, function(a, b) return a.itemCost < b.itemCost end)
 end
 
 
@@ -96,29 +95,18 @@ function LootController:SetItemProbability(roundNumber, hardLevel)
         hardLevel = 3
     end
     self._roundItemProbability = {}
-    --self._valuetable={}
-    --self._reverttable={}
     local average = self._vHardLevelItemValue[hardLevel] * math.pow(1.19, roundNumber) --item value*1.2^roundNumer
     local stdDeviation = average * (4 - hardLevel) * 0.7
-    for k, v in pairs(self._itemCost) do
+    for k, v in pairs(self.dropItems) do
         denominator = denominator + NormalDistribution(v, average, stdDeviation)
     end
-    for k, v in pairs(self._itemCost) do
+    for k, v in pairs(self.dropItems) do
         self._roundItemProbability[k] = NormalDistribution(v, average, stdDeviation) / denominator
-        --table.insert(self._valuetable, self._roundItemProbability[k])
-        --self._reverttable[self._roundItemProbability[k]] =  v
     end
-    --[[
-    table.sort(self._valuetable)
-    for _,v in pairs(self._valuetable) do
-    print(self._reverttable[v].."  "..v)
-    end
-    ]]
 end
 
 
 function LootController:CheckForLootItemDrop(roundNumber, dropNum, creatureNum, killedUnit)
-    --print("dropNum"..dropNum.."creatureNum"..creatureNum)
     if dropNum / creatureNum > 2 then    --一个单位掉落多个物品
         local itemMultiNum = math.floor(dropNum / creatureNum)
         for i = 1, itemMultiNum do
@@ -144,7 +132,6 @@ function LootController:LaunchWorldItemFromUnit(sItemName, flLaunchHeight, flDur
     local newWorldItem = CreateItemOnPositionSync(hUnit:GetOrigin(), newItem)
     newWorldItem.Holdout_IsLootDrop = true
     newItem:LaunchLoot(false, flLaunchHeight, flDuration, hUnit:GetOrigin() + RandomVector(RandomFloat(200, 300)))
-    --print( "Launching " .. newItem:GetName() .. " near " .. hUnit:GetUnitName() )
     Timers:CreateTimer({
         endTime = flDuration,
         callback = function()

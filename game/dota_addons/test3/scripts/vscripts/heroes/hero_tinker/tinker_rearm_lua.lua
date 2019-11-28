@@ -80,6 +80,8 @@ tinker_rearm_lua.ItemException = {
     ["item_fallen_sword"] = true,
     ["item_arcane_boots2"] = true,
     ["item_tome_of_knowledge"] = true,
+    --7.23机械之心
+    ["item_ex_machina"] = true,
 }
 
 function tinker_rearm_lua:IsAbilityException(ability)
