@@ -1527,7 +1527,7 @@
 			}            
 		}	
 	}
-
+    //弃用
 	"courier_shield_datadriven"
 	{
 		"BaseClass"			     	"ability_datadriven"

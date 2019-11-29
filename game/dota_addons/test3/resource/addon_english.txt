@@ -1434,9 +1434,7 @@
         "DOTA_Tooltip_ability_courier_syn_datadriven"									          	"Courier Synergy (Pass Player Only)"
 		"DOTA_Tooltip_ability_courier_syn_datadriven_Description"							        "Make the courier can only be controlled by you."
 
-        "DOTA_Tooltip_ability_courier_shield_datadriven"									    	"Courier Shield (Pass Player Only)"
-		"DOTA_Tooltip_ability_courier_shield_datadriven_Description"							    "Makes the courier invulnerable."
-        "DOTA_Tooltip_ability_courier_shield_datadriven_invulnerable_duration"						"INVULNERABLE DURATION:"
+        "DOTA_Tooltip_ability_courier_shield"											            "Shield (Pass Player Only)"
 
 		"DOTA_Tooltip_ability_courier_blink_datadriven"									        	"Courier Blink (Pass Player Only)"
 		"DOTA_Tooltip_ability_courier_blink_datadriven_Description"							        "Short distance teleportation."

@@ -1105,18 +1105,29 @@
 		{
 			"01"
 			{
-				"var_type"		    "FIELD_FLOAT"
-				"duration"	    	"4.0"
+				"var_type"		     "FIELD_FLOAT"
+				"duration"		     "6.0"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"movement_speed"	"800"
+				"movement_speed"	"100"
 			}
-			"03"
+		}
+	}
+
+	"courier_shield"
+	{
+		"AbilityCooldown"				"200 28 14 7"
+		"MaxLevel"		                "4"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_absorb"  	"250"
+				"var_type"		       "FIELD_FLOAT"
+				"duration"		       "2.0 3.5 5.0 6.5"
 			}
 		}
 	}

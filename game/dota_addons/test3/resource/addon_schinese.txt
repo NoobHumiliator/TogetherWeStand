@@ -147,9 +147,7 @@
         "DOTA_Tooltip_ability_courier_syn_datadriven"							"信使协同(限通行证玩家)"
 		"DOTA_Tooltip_ability_courier_syn_datadriven_Description"				"使此信使无法被其他玩家控制。"
 
-        "DOTA_Tooltip_ability_courier_shield_datadriven"						"信使无敌(限通行证玩家)"
-		"DOTA_Tooltip_ability_courier_shield_datadriven_Description"			"短时间内无敌。"
-		"DOTA_Tooltip_ability_courier_shield_datadriven_invulnerable_duration"	"无敌持续时间："
+        "DOTA_Tooltip_ability_courier_shield"									"护盾(限通行证玩家)"
 
 		"DOTA_Tooltip_ability_courier_blink_datadriven"							"信使闪现(限通行证玩家)"
 		"DOTA_Tooltip_ability_courier_blink_datadriven_Description"				"闪现至目标位置。"

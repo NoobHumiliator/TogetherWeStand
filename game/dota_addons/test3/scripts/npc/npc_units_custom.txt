@@ -402,6 +402,84 @@
 		"VisionNighttimeRange"		"0"
 	}
 
+	"npc_dota_courier_30"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_courier"	// Class of entity of link to.
+		"Model"						"models/props_gameplay/donkey.vmdl"	// Model.
+		"SoundSet"					""					// Name of sound set.
+		"Level"						"5"
+		"IsAncient"					"1"
+		"ModelScale"				"1"
+		"UnitLabel"					"courier"
+
+		// Abilities
+		//----------------------------------------------------------------		
+		"Ability1"					"courier_take_stash_items"
+		"Ability2"					"courier_go_to_secretshop"		
+		"Ability3"					"courier_return_stash_items"
+		"Ability4"					"courier_burst"	
+		"Ability5"					"courier_transfer_items"	
+		"Ability6"					"courier_shield"		
+		"Ability7"					"courier_morph"
+		"Ability8"					"courier_take_stash_and_transfer_items"
+		"Ability9"					"courier_transfer_items_to_other_player"
+		"Ability10"					"courier_go_to_enemy_secretshop"
+		"Ability11"					"courier_go_to_sideshop"
+		"Ability12"					"courier_go_to_sideshop2"
+		"Ability13"					"courier_queue_pickup_from_stash"
+		"Ability14"					"courier_dequeue_pickup_from_stash"
+
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+		"HealthBarOffset"			"120"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"275"		// Speed
+		"MovementTurnRate"			"0.5"		// Turning rate.
+	
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyGoldMin"				"35"		// Gold earned min.
+		"BountyGoldMax"				"35"		// Gold earned max.
+
+			// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"70"		// Base health.
+		"StatusHealthRegen"			"0.5"			// Health regeneration rate.
+		"StatusMana"				"0"			// Base mana.
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_COURIER"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"200"		// Range of vision during day light.
+		"VisionNighttimeRange"		"200"		// Range of vision at night time.
+
+		// Bots
+		//----------------------------------------------------------------
+		"AttackDesire"				"1.5"		// How much bots want to attack them vs other non-hero things
+
+		//Inventory
+		"HasInventory"				"1"
+		
+		"IdleExpression"			"scenes/default_idle.vcd"
+		
+		"WakesNeutrals"				"0"
+	}
+
+
 	"npc_precache_always"
 	{
 		"BaseClass" "npc_dota_creep"

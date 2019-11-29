@@ -31,19 +31,21 @@ function Rank:GetRankDataFromServer()
         if result.StatusCode == 200 then
             local result_table_list = JSON:decode(result.Body)
             --PrintTable(result_table,nil,nil)
-            for i = 1, 10 do
-                local playerNumberTable = {}   --新建一个数据表
-                local result_table = result_table_list[i] --遍历1-10张表
-                for i, v in ipairs(result_table) do
-                    --PrintTable(v,nil,nil)
-                    local page = math.ceil(i / 30) --1到30是第一页 31-60 第二页 分页保存至表中
-                    if playerNumberTable[page] == nil then playerNumberTable[page] = {} end
-                    table.insert(playerNumberTable[page], v)
-                end
-                Rank.rankTable[i] = playerNumberTable
-                --PrintTable(Rank.rankTable,nil,nil)
-                if playerNumberTable[1] ~= nil and i == 5 then --显示困难模式5人排行榜的数据
-                    CustomGameEventManager:Send_ServerToAllClients("show_page", { player_number = i, page_number = 1, table = playerNumberTable[1] })
+            if result_table_list then
+                for i = 1, 10 do
+                    local playerNumberTable = {}   --新建一个数据表
+                    local result_table = result_table_list[i] --遍历1-10张表
+                    for i, v in ipairs(result_table) do
+                        --PrintTable(v,nil,nil)
+                        local page = math.ceil(i / 30) --1到30是第一页 31-60 第二页 分页保存至表中
+                        if playerNumberTable[page] == nil then playerNumberTable[page] = {} end
+                        table.insert(playerNumberTable[page], v)
+                    end
+                    Rank.rankTable[i] = playerNumberTable
+                    --PrintTable(Rank.rankTable,nil,nil)
+                    if playerNumberTable[1] ~= nil and i == 5 then --显示困难模式5人排行榜的数据
+                        CustomGameEventManager:Send_ServerToAllClients("show_page", { player_number = i, page_number = 1, table = playerNumberTable[1] })
+                    end
                 end
             end
         else
