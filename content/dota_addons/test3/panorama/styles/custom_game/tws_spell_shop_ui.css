@@ -289,8 +289,9 @@
     text-align: center;
     color: white;
     font-family: RadianceM, Radiance, FZLanTingHei-R-GBK, TH Sarabun New, YDYGO 540, Gulim, MingLiU;
-    font-size: 17;
+    font-size: 20;
     font-weight: bold;
+    text-overflow: shrink;
 }
 
 #triggerButton:hover {

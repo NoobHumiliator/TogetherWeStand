@@ -8,7 +8,8 @@ function CHoldoutGameMode:OrderFilter(orderTable)
 
     if caster:GetUnitName() == "npc_dota_courier" then --如果是信使
 
-        if caster.synPlayerId and caster.synPlayerId ~= orderTable.issuer_player_id_const then  --非专属玩家操作信使
+        --只允许拥有者控制信使
+        if caster.nCourierOwnerId and caster.nCourierOwnerId ~= orderTable.issuer_player_id_const then
             return false
         end
 

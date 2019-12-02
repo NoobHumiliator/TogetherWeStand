@@ -5,7 +5,9 @@
     GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_BADGUYS ] = "#F3C909;";
     GameUI.hub=$.GetContextPanel().GetParent().GetParent();
   </script>
-
+  <scripts>
+    <include src="s2r://panorama/scripts/custom_game/selection_filter.js" />
+  </scripts>
   <Panel>
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_round_title.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tws_round_end.xml" />

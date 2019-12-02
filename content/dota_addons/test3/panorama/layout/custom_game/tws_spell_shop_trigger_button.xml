@@ -11,7 +11,7 @@
     <Panel hittest="false" class="TriggerButtonPanelHud">
         <Panel class="triggerButtonPanel" id="triggerButtonPanel">
             <Button id="triggerButton" onactivate="ShowMainBlock()">
-                <Label text="#spell_shop_hotkey" />
+                <Label id="spell_shop_hotkey" text="#spell_shop_hotkey" />
             </Button>
         </Panel>
     </Panel>

@@ -2748,6 +2748,22 @@
 			}
 		}
 	}
+
+    "courier_shield_tip"
+    {
+        "BaseClass"                     "ability_datadriven"
+        "AbilityTextureName"            "courier_shield"
+        "AbilityCooldown"               "200 28 14 7"
+        "MaxLevel"                      "4"
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"             "FIELD_FLOAT"
+                "duration"             "2.0 3.5 5.0 6.5"
+            }
+        }
+    }
 }
 
 // 以下是技能商店中重写的技能，以及部分旧技能

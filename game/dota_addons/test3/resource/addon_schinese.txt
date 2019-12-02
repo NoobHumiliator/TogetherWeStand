@@ -141,13 +141,14 @@
 
         "DOTA_Tooltip_Ability_item_courier_syn"				                    "信使协同"
         "DOTA_Tooltip_Ability_item_courier_syn_Description"				        "主动：对友方信使使用，使此信使无法被其他玩家控制。"
-
-
-
+        
+        //废弃
         "DOTA_Tooltip_ability_courier_syn_datadriven"							"信使协同(限通行证玩家)"
 		"DOTA_Tooltip_ability_courier_syn_datadriven_Description"				"使此信使无法被其他玩家控制。"
 
-        "DOTA_Tooltip_ability_courier_shield"									"护盾(限通行证玩家)"
+        "DOTA_Tooltip_ability_courier_shield_tip"							    "护盾(限通行证玩家)"
+		"DOTA_Tooltip_ability_courier_shield_tip_Description"				    "在信使周围召唤一个护盾"
+		"DOTA_Tooltip_ability_courier_shield_tip_duration"					    "持续时间："
 
 		"DOTA_Tooltip_ability_courier_blink_datadriven"							"信使闪现(限通行证玩家)"
 		"DOTA_Tooltip_ability_courier_blink_datadriven_Description"				"闪现至目标位置。"
@@ -182,6 +183,7 @@
         "try_again"                                                             "成绩没有超过团队历史最佳，请再次尝试"
 
 		"not_enough_ability_points"                                             "技能点不足"
+		"spell_shop_points"     												"技能点:"
 		"spell_shop_hotkey"     												"技能商店(F6)"
 		"spell_shop"            												"技能商店"
 		"buy"                   												"买"
@@ -3354,5 +3356,12 @@
 		"npc_dota_creature_rubick_melee_creep"											"大魔导师傀儡"
 		"npc_dota_creature_broodmother"													"蜘蛛之母"
 		"npc_dota_creature_rubick_ogre_seal"											"大魔导师坐骑"
+         
+        // Loading 图的提示
+		"LoadingTip_1"                                                                  "右下角的按钮(快捷键F6)，可以开启技能面板并购买技能。"
+		"LoadingTip_2"                                                                  "左侧菜单处可以购买PASS(通行证)，从而获得额外奖励。"
+        "LoadingTip_3"                                                                  "选择随机关卡会获得额外40%的经验，金币奖励。" 
+        "LoadingTip_4"                                                                  "困难模式与无尽模式的成绩会记录至排行榜。" 
+
 	}
 }

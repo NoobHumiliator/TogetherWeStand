@@ -61,3 +61,64 @@
 	font-size: 32px;
 	color: #FF7800;
 }
+
+
+#TipContainer
+{
+
+    margin-top: 360px;
+    margin-left: 220px;
+    vertical-align: center;
+    width: 800px;
+    height: 130px;
+    border-radius: 8px;
+    padding: 8px;
+    /* background-color: gradient( linear, 0% 50%, 100% 50%, color-stop(0.0, #66666600 ), color-stop(0.15, #616161dd), color-stop(0.85, #616161dd), color-stop(1.0, #66666600 ) ); */
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #272d2eee ), to( #131617ee ) );
+    
+    /* border: 8px ; */
+    /* border-left: 0px; */
+    /* border-right: 0px; */
+    box-shadow: #868686a8 -2px -2px 4px 4px;
+    /* flow-children: right; */
+    z-index: 1;
+}
+#TipText
+{
+    horizontal-align:center;
+    /*min-width: 800px;*/
+    margin-right: 8px;
+    margin-left: 8px;
+    /*max-width: 500px;*/
+    height: 100%;
+    padding: 2px;
+    width: 90%;
+    font-size: 30px;
+}
+#TipText > Label
+{
+    /* horizontal-align:center; */
+  vertical-align: center;
+  color: #ffffff;
+  /*text-overflow:wrap;*/
+}
+#PrevTip
+{
+    horizontal-align:left;
+    background-image: url("s2r://panorama/images/control_icons/arrow_solid_left_png.vtex");
+}
+#NextTip
+{
+    horizontal-align:right;
+    background-image: url("s2r://panorama/images/control_icons/arrow_solid_right_png.vtex");
+}
+.TipButton
+{
+    vertical-align: center;
+    width: 18px;
+    height: 18px;
+    background-size: 80% 80%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    wash-color:white;
+}

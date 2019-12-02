@@ -368,7 +368,7 @@ function UpdateCourierButtons() {
 	var blinkButton = $("#BlinkButton");
 	var hookButton = $("#HookButton");
 	var sellItemsButton = $("#SellItemsButton");
-	var synButton = $("#SynButton");
+	//var synButton = $("#SynButton");
 
 	var playerId = Game.GetLocalPlayerInfo().player_id;
 
@@ -386,8 +386,8 @@ function UpdateCourierButtons() {
 		hookButton.enough = 0;
 		sellItemsButton.SetHasClass("notEnoughDark", true);
 		sellItemsButton.enough = 0;
-		synButton.SetHasClass("notEnoughDark", true);
-		synButton.enough = 0;
+		//synButton.SetHasClass("notEnoughDark", true);
+		//synButton.enough = 0;
 	}
 	else
 	{
@@ -403,8 +403,8 @@ function UpdateCourierButtons() {
 		hookButton.enough = 1;
 		sellItemsButton.SetHasClass("notEnoughDark", false);
 		sellItemsButton.enough = 1;
-		synButton.SetHasClass("notEnoughDark", false);
-		synButton.enough = 1;
+		//synButton.SetHasClass("notEnoughDark", false);
+		//synButton.enough = 1;
 	}
 }
 
@@ -674,8 +674,8 @@ function ChangeToCourierPanel() {
 		hookButton.enabled = true;
 		var sellItemsButton = $("#SellItemsButton")
 		sellItemsButton.enabled = true;
-		var synButton = $("#SynButton")
-		synButton.enabled = true;
+		//var synButton = $("#SynButton")
+		//synButton.enabled = true;
 	}
 	UpdateCourierButtons();
 }
@@ -786,12 +786,14 @@ function grantCourierAbility(key)   //赋予英雄信使物品
 		GameEvents.SendCustomGameEventToServer("GrantCourierAbility", { playerId: playerId, item: "item_courier_sell_items", enough: sellItemsButton.enough });
 		sellItemsButton.enough = 0;
 	}
+	/**
 	if (key == 7) {
 		var synButton = $("#SynButton")
 		var playerId = Game.GetLocalPlayerInfo().player_id;
 		GameEvents.SendCustomGameEventToServer("GrantCourierAbility", { playerId: playerId, item: "item_courier_syn", enough: synButton.enough });
 		synButton.enough = 0;
 	}
+	**/
 }
 
 function UpdateAbilityList(keys) {
@@ -858,7 +860,7 @@ function InitTooltips() {
 	burstButton.SetPanelEvent("onmouseout", HideAbilityTooltip(burstButton));
 
 	var shieldButton = $("#ShieldButton")
-	shieldButton.abilityname = "courier_shield_datadriven";
+	shieldButton.abilityname = "courier_shield_tip";
 	shieldButton.SetPanelEvent("onmouseover", ShowAbilityTooltip(shieldButton));
 	shieldButton.SetPanelEvent("onmouseout", HideAbilityTooltip(shieldButton));
 	shieldButton.enabled = false;
@@ -880,12 +882,14 @@ function InitTooltips() {
 	sellItemsButton.SetPanelEvent("onmouseover", ShowAbilityTooltip(sellItemsButton));
 	sellItemsButton.SetPanelEvent("onmouseout", HideAbilityTooltip(sellItemsButton));
 	sellItemsButton.enabled = false;
-
+    
+    /**
 	var synButton = $("#SynButton")
 	synButton.abilityname = "courier_syn_datadriven";
 	synButton.SetPanelEvent("onmouseover", ShowAbilityTooltip(synButton));
 	synButton.SetPanelEvent("onmouseout", HideAbilityTooltip(synButton));
 	synButton.enabled = false;
+	**/
 }
 
 (function () {

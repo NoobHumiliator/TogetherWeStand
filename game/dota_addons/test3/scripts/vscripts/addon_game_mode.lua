@@ -490,10 +490,17 @@ function CHoldoutGameMode:OnHeroLevelUp(keys)
 		end
 		]]
         end
+        --7.0以后不给技能点 需要补回来
         if keys.level == 17 or keys.level == 19 or keys.level == 21 or keys.level == 22 or keys.level == 23 or keys.level == 24 then --7.0以后不给技能点
             local p = hero:GetAbilityPoints()
-            hero:SetAbilityPoints(p + 1)   --不给技能点的这几级 先加回来
+            hero:SetAbilityPoints(p + 1)
         end
+        
+        if keys.level == 30  then --7.23 30级倒扣8个技能点 需要补回来
+            local p = hero:GetAbilityPoints()
+            hero:SetAbilityPoints(p + 8)
+        end
+
         -- 如果英雄的等级不是2的倍数，那么这个等级就不给技能点
         local _, l = math.modf((level - 1) / 2)
         if l ~= 0 then
@@ -560,11 +567,6 @@ function CHoldoutGameMode:OnPlayerSay(keys)
     --添加测试物品
     if hero and string.find(text,"item_") == 1  and  GameRules:IsCheatMode() then
        hero:AddItemByName(text)
-    end
-    if hero and string.find(text,"spawn_courier") == 1  and  GameRules:IsCheatMode() then
-      local courier = CreateUnitByName('npc_dota_courier', hero:GetOrigin(), true, hero, hero, hero:GetTeam())
-      courier:SetOwner(hero)
-      courier:SetControllableByPlayer(nPlayerID, true)
     end
 end
 
@@ -781,6 +783,7 @@ function CHoldoutGameMode:_RefreshPlayers()
             end
         end
     end
+    --[[ 7.23 信使复活速度足够快， 会造成信使重复活 废弃此代码 
     local couriersNumber = PlayerResource:GetNumCouriersForTeam(DOTA_TEAM_GOODGUYS)
     if couriersNumber > 0 then
         for i = 1, couriersNumber do
@@ -791,10 +794,10 @@ function CHoldoutGameMode:_RefreshPlayers()
             end
         end
     end
+    ]]
 end
 
---7.23 信使无效，设置
-
+--7.23 为玩家创建信使
 function CHoldoutGameMode:CreateCourierForPlayers()
     for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
         if PlayerResource:GetTeam(nPlayerID) == DOTA_TEAM_GOODGUYS then
@@ -808,6 +811,7 @@ function CHoldoutGameMode:CreateCourierForPlayers()
                     hCourier:SetOriginalModel('models/props_gameplay/donkey_wings.vmdl')
                     hCourier:FindAbilityByName('courier_burst'):SetLevel(1)
                     hCourier:FindAbilityByName('courier_shield'):SetLevel(1)
+                    hCourier.nCourierOwnerId =  nPlayerID
                     hHero.hCourier = hCourier
                 end
             end
@@ -1473,7 +1477,9 @@ function CHoldoutGameMode:OnItemPickUp(event, level)
             UTIL_Remove(item)
         else
             --解决7.23掉落物品 无法出售的问题
-            item:SetPurchaser(owner)
+            if event.itemname ~= "item_tombstone" then
+               item:SetPurchaser(owner)
+            end
         end
     end
 end

@@ -44,9 +44,17 @@ function HideTooltip() {
     $.DispatchEvent("DOTAHideTitleTextTooltip", $("#triggerButtonPanel"));
 }
 
+function UpdateAbilityList(keys) {
+   var playerId = keys.playerId
+   var playerHeroIndex = Players.GetPlayerHeroEntityIndex(playerId);
+   $("#spell_shop_hotkey").text = $.Localize("#spell_shop_points")+Entities.GetAbilityPoints(playerHeroIndex)+"(F6)";
+}
+
+
 (function () {
     FixSpellShopPosition();
     $.Schedule(7.0, HideTooltip);
+    GameEvents.Subscribe("UpdateAbilityList", UpdateAbilityList);
 })();
 
 

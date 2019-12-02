@@ -1161,21 +1161,6 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
    	}
 
-   	"courier_shield"
-	{
-	    "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"MaxLevel"                      "4"
-		"AbilityCooldown"			    "200 100 50 7"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"duration"		"2.0 3.5 5.0 6.5"
-			}
-		}
-	}
-
     "phoenix_supernova"
 	{
 		"MaxLevel"                      "3"
