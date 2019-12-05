@@ -136,6 +136,9 @@
         "DOTA_Tooltip_Ability_item_courier_hook"				                "信使抓钩"
         "DOTA_Tooltip_Ability_item_courier_hook_Description"				    "主动：对友方信使使用，提升信使抓钩技能的等级。"
 
+        "DOTA_Tooltip_Ability_item_courier_sell_items"				            "信使贩卖"
+        "DOTA_Tooltip_Ability_item_courier_sell_items_Description"		        "主动：对友方信使使用，提升信使贩卖技能的等级。"
+
         "DOTA_Tooltip_Ability_item_courier_blink"				                "信使闪现"
         "DOTA_Tooltip_Ability_item_courier_blink_Description"				    "主动：对友方信使使用，提升信使闪现技能的等级。"
 

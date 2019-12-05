@@ -13,7 +13,7 @@ function SellAllItems( keys )
        else
        	  --print((caster:GetAbsOrigin()-shopPosition):Length2D())
        	  if (caster:GetAbsOrigin()-shopPosition):Length2D()<500 then
-	       	  	for i=0, 10, 1 do
+	       	  	for i=0, 9, 1 do
 					local current_item = caster:GetItemInSlot(i)
 					if current_item ~= nil then
 					   caster:SellItem(current_item)

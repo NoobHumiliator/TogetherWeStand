@@ -1111,7 +1111,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"movement_speed"	"100"
+				"movement_speed"	"200"
 			}
 		}
 	}

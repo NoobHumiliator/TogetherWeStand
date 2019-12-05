@@ -50,8 +50,6 @@ function OgreSeerThink()
         end
     end
 
-    print("enemies number" .. #enemies)
-
     if bIgniteReady then
         return IgniteArea(enemies[RandomInt(1, #enemies)])
     end
@@ -90,7 +88,6 @@ end
 
 --------------------------------------------------------------------------------
 function IgniteArea(hEnemy)
-    print("Casting ignite")
 
     ExecuteOrderFromTable({
         UnitIndex = thisEntity:entindex(),

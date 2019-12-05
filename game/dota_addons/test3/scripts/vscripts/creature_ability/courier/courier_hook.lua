@@ -30,12 +30,15 @@ function HookItems(keys)
                 if containedItem:GetPurchaser() == nil then
                     local playerId = caster.nControlledPickPlayerId
                     local hero = PlayerResource:GetSelectedHeroEntity(playerId)
-                    containedItem:SetPurchaser(hero)
-                    caster:AddItem(containedItem)
-                    --UTIL_Remove( containedItem )
-                    UTIL_Remove(drop_item)
+                    --如果信使还能装载
+                    if CourierHasSlotForItem(caster,containedItem) then
+                        containedItem:SetPurchaser(hero)
+                        caster:AddItem(containedItem)
+                        UTIL_Remove(drop_item)
+                    end
                 end
             end
+            --金币不收影响 直接吃了
             if caster:GetUnitName() == "npc_dota_courier" and caster.nControlledPickPlayerId and containedItem:GetName() == "item_bag_of_gold_tws" then --如果是金币
                 local totalValue = containedItem:GetCurrentCharges()
                 if GameRules:GetGameModeEntity().CHoldoutGameMode.bRandomRound then --如果本轮随机，奖励提高
@@ -57,4 +60,15 @@ function HookItems(keys)
             end
         end)
     end
+end
+
+--判断信使是否还有格子装这个物品
+function CourierHasSlotForItem(hCourier,hItem)
+    for i = 0, 9 do
+        local hSlotItem = hCourier:GetItemInSlot(i);
+        if hSlotItem == nil or (hSlotItem:GetName() == hItem:GetName() and hItem:IsStackable()) then
+            return true
+        end
+    end
+    return false
 end

@@ -12,7 +12,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode = false
---testMode=true --减少刷兵间隔，增加初始金钱
+testMode=true --减少刷兵间隔，增加初始金钱
 goldTestMode = false
 --goldTestMode=true --需要测试金币相关的内容
 require("holdout_game_round")
@@ -870,7 +870,7 @@ function CHoldoutGameMode:_CheckForDefeat()  --无影拳CD的特殊修正  --测
                         end
                         ability:StartCooldown(ability:GetCooldown(ability:GetLevel() - 1) * octarine_adjust)
                     end
-                    if testMode and hero:GetAbilityPoints() < 50 then --测试模式保持20点技能点
+                    if testMode and hero:GetAbilityPoints() < 50 then --测试模式保持50点技能点
                         hero:SetAbilityPoints(50)
                     end
                     --local vModifier_table=hero:FindAllModifiers()
