@@ -1795,29 +1795,29 @@
             "02"
             {
                 "var_type"          "FIELD_INTEGER"
-                "bonus_attack_range"    "60 90 120 150 200 250 300 350"
+                "bonus_attack_range"    "60 90 120 150 180 210 240 270"
             }  
         }
     }
 
-    "vengefulspirit_command_aura_level_2"
+    "vengefulspirit_command_aura_level_3"
     {
         "BaseClass"                     "vengefulspirit_command_aura"
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "MaxLevel"                      "8"
+        "MaxLevel"                      "12"
         "AbilitySpecial"
         {
             "01"
             {
-                "var_type"          "FIELD_INTEGER"
-                "bonus_attributes"  "4 7 10 13 23 33 43 53"
+                "var_type"              "FIELD_INTEGER"
+                "bonus_attributes"      "4 7 10 13 23 33 43 53 83 113 143 173"
                 "LinkedSpecialBonus"    "special_bonus_unique_vengeful_spirit_2"
             }
             "02"
             {
                 "var_type"          "FIELD_INTEGER"
-                "bonus_attack_range"    "60 90 120 150 200 250 300 350"
+                "bonus_attack_range"    "60 90 120 150 180 210 240 270 300 330 360 390"
             }  
         }
     }
@@ -1837,11 +1837,11 @@
 				"radius"				"1200"
 			}
 			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"10 20 30 40 95 145 195 245"
-				"LinkedSpecialBonus"    "special_bonus_unique_beastmaster_4"
-			}
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_attack_speed"    "10 20 30 40 65 90 115 140"
+                "LinkedSpecialBonus"        "special_bonus_unique_beastmaster_4"
+            }
 		}
 	}
 
@@ -1855,15 +1855,16 @@
 		"AbilitySpecial"
 		{
 			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"15 25 35 45 95 145 195 245 345 445 545 645"
-			}
+            {
+                "var_type"              "FIELD_INTEGER"
+                "radius"                "1200"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_attack_speed"    "10 20 30 40 65 90 115 140 190 240 290 340"
+                "LinkedSpecialBonus"    "special_bonus_unique_beastmaster_4"
+            }
 		}
 	}
 
@@ -1876,7 +1877,7 @@
 		"MaxLevel"                      "8"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"350"
+		"AbilityCastRange"				"275"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -1897,7 +1898,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"350"
+				"radius"				"300"
 			}
 		}
 	}
@@ -1911,7 +1912,7 @@
 		"MaxLevel"                      "12"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"350"
+		"AbilityCastRange"				"275"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -1932,95 +1933,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"350"
-			}
-		}
-	}
-
-    "spirit_breaker_empowering_haste_level_2"
-	{
-		"BaseClass"                     "spirit_breaker_empowering_haste"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AURA"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"AbilitySound"					"Hero_Spirit_Breaker.EmpoweringHaste.Cast"
-        "MaxLevel"                      "8"
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed_pct_self"	"8 12 16 20 24 28 32 36"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed_pct_allies"	"4 6 8 10 12 14 16 18"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"1200"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed_pct_extra"		"3 4 5 6 7 8 9 10"
-			}
-			"05s"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"			"6"
-			}
-		}
-	}
-
-   	"spirit_breaker_empowering_haste_level_3"
-	{
-		"BaseClass"                     "spirit_breaker_empowering_haste"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AURA"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"AbilitySound"					"Hero_Spirit_Breaker.EmpoweringHaste.Cast"
-        "MaxLevel"                      "12"
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed_pct_self"	"8 12 16 20 24 28 32 36 40 44 48 52"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed_pct_allies"	"4 6 8 10 12 14 16 18 20 22 24 26"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"1200"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed_pct_extra"		"3 4 5 6 7 8 9 10 11 12 13 14"
-			}
-			"05s"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"			"6"
+				"radius"				"300"
 			}
 		}
 	}
@@ -2044,12 +1957,12 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"armor_reduction_pct"	    "40 60 80 100 120 140 160 180"
+				"armor_reduction_pct"	    "40 60 80 100 110 120 130 140"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"magic_resistance_pct"		"40 60 80 100 120 140 160 180"
+				"magic_resistance_pct"		"40 60 80 100 110 120 130 140"
 			}
 		}
 	}
@@ -2073,12 +1986,12 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"armor_reduction_pct"	    "40 60 80 100 120 140 160 180 200 220 240 260"
+				"armor_reduction_pct"	    "40 60 80 100 110 120 130 140 150 160 170 180"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"magic_resistance_pct"		"40 60 80 100 120 140 160 180 200 220 240 260"
+				"magic_resistance_pct"		"40 60 80 100 110 120 130 140 150 160 170 180"
 			}
 		}
 	}
@@ -2095,7 +2008,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900"
+		"AbilityCastRange"				"1200"
 
 		"AbilitySpecial"
 		{
@@ -2107,12 +2020,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage_reduction_pct"			"7 18 29 40 44 48 52 56"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_damage_from_creep"		"5"
+				"damage_reduction_pct"			"5 15 25 35 40 45 50 55"
 			}
 			"04"
 			{
@@ -2129,7 +2037,7 @@
 			{
 				"var_type"						 "FIELD_FLOAT"
 				"bonus_damage_duration_scepter"	 "70 80 90 100 110 120 130 140"
-				"RequiresScepter"	"1"
+				"RequiresScepter"	             "1"
 			}
 			"07"
 			{
@@ -2151,24 +2059,19 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900"
+		"AbilityCastRange"				"1200"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"radius"						"900"
+				"radius"						"1200"
 			}
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage_reduction_pct"			"7 18 29 40 44 48 52 56 60 64 68 72"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_damage_from_creep"		"5"
+				"damage_reduction_pct"			"5 15 25 35 40 45 50 55 60 65 70 75"
 			}
 			"04"
 			{

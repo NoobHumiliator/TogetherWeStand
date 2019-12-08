@@ -1491,23 +1491,6 @@
 	   "DOTA_Tooltip_ability_omniknight_degen_aura_level_3_attack_bonus_tooltip"	"攻击速度降低："
 	   "DOTA_Tooltip_ability_omniknight_degen_aura_level_3_Note0"	"不会作用于技能免疫单位。"
 
-	   "DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_2"	"神行太保"
-	   "DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_2_Description"	"裂魂人的高速移动给他带来力量，提高附近友军单位的移动速度。技能可以施放，施放后效果提升50%%，持续%duration%秒，然而技能在冷却过程中被动效果将会减半。"
-	   "DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_2_bonus_movespeed_pct"	"%移动速度提升："
-	   "DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_2_aura_radius"	"光环作用范围："
-	   "DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_2_Lore"	"英雄们只要留心观察裂魂人在战场上的支配地位，就能提高他们的速度与力量。"
-	   "DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_2_bonus_movespeed_pct_extra"	"%施放后额外速度加成："
-       "DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_2_duration"	"施放后额外速度加成持续时间："
-
-
-       "DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_3"	"神行太保"
-	   "DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_3_Description"	"裂魂人的高速移动给他带来力量，提高附近友军单位的移动速度。技能可以施放，施放后效果提升50%%，持续%duration%秒，然而技能在冷却过程中被动效果将会减半。"
-	   "DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_3_bonus_movespeed_pct"	"%移动速度提升："
-	   "DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_3_aura_radius"	"光环作用范围："
-	   "DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_3_Lore"	"英雄们只要留心观察裂魂人在战场上的支配地位，就能提高他们的速度与力量。"
-	   "DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_3_bonus_movespeed_pct_extra"	"%施放后额外速度加成："
-       "DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_3_duration"	"施放后额外速度加成持续时间："
-
         "DOTA_Tooltip_ability_elder_titan_natural_order_level_2"	"自然秩序"
 		"DOTA_Tooltip_ability_elder_titan_natural_order_level_2_Description"	"使所有元素降低至基础水平，移除附近敌方单位的基础物理护甲和魔法抗性。护甲降低效果以英雄为中心，魔法抗性降低效果以星体游魂为中心。"
 		"DOTA_Tooltip_ability_elder_titan_natural_order_level_2_Lore"	"上古巨神又让创世之初重现。"

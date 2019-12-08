@@ -1566,25 +1566,6 @@
 		"DOTA_Tooltip_ability_omniknight_degen_aura_level_3_speed_bonus"						"%MOVEMENT SLOW:"
 		"DOTA_Tooltip_ability_omniknight_degen_aura_level_3_attack_bonus_tooltip"				"ATTACK SLOW:"
 
-
-
-        "DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_2"						"Empowering Haste"
-		"DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_2_Lore"					"Aspiring heroes gain speed and power from simply observing the Spirit Breaker's dominance on the battle field."
-		"DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_2_Description"			"Causes Spirit Breaker to gain power with higher movement speed. His presence increases the movement speed of nearby allied units. Can be cast to improve the movement speed bonus for %duration% seconds, however afterward the passive bonus will be halved while the ability is on cooldown."
-		"DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_2_bonus_movespeed_pct"	"%BONUS MOVE SPEED:"
-		"DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_2_aura_radius"			"AURA RADIUS:"
-		"DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_2_bonus_movespeed_pct_extra"			"%CAST ADDED BONUS SPEED:"
-		"DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_2_duration"			    "CAST ADDED SPEED DURATION:"
-
-		"DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_3"						"Empowering Haste"
-		"DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_3_Lore"					"Aspiring heroes gain speed and power from simply observing the Spirit Breaker's dominance on the battle field."
-		"DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_3_Description"			"Causes Spirit Breaker to gain power with higher movement speed. His presence increases the movement speed of nearby allied units. Can be cast to improve the movement speed bonus for %duration% seconds, however afterward the passive bonus will be halved while the ability is on cooldown."
-		"DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_3_bonus_movespeed_pct"	"%BONUS MOVE SPEED:"
-		"DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_3_aura_radius"			"AURA RADIUS:"
-		"DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_3_bonus_movespeed_pct_extra"			"%CAST ADDED BONUS SPEED:"
-		"DOTA_Tooltip_ability_spirit_breaker_empowering_haste_level_3_duration"			    "CAST ADDED SPEED DURATION:"
-
-
 		"DOTA_Tooltip_ability_elder_titan_natural_order_level_2"						"Natural Order"
 		"DOTA_Tooltip_ability_elder_titan_natural_order_level_2_Description"			"Reduces all elements to their basic levels, removing base armor and magic damage resistance from nearby enemy units. The armor reduction is centered around the hero, while the magic armor reduction is centered around Astral Spirit."
 		"DOTA_Tooltip_ability_elder_titan_natural_order_level_2_Lore"					"As it was at the beginning, Elder Titan makes it so again."
