@@ -2108,10 +2108,6 @@
 		"OnCastbar"				    	"0"
 		"MaxLevel"                      "8"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1200"
-
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -2119,13 +2115,13 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"presence_armor_reduction"		"-3 -4 -5 -6 -10 -14 -18 -22"
+				"presence_armor_reduction"		"-4 -5 -6 -7 -11 -15 -19 -23"
 				"LinkedSpecialBonus"			"special_bonus_unique_nevermore_5"
 			}
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"presence_radius"				"900"
+				"presence_radius"				"1200"
 			}
 		}
 	}
@@ -2139,10 +2135,6 @@
 		"OnCastbar"				    	"0"
 		"MaxLevel"                      "12"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1200"
-
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -2150,13 +2142,13 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"presence_armor_reduction"		"-3 -4 -5 -6 -10 -14 -18 -22 -30 -38 -46 -54"
+				"presence_armor_reduction"		"-4 -5 -6 -7 -11 -15 -19 -23 -31 -39 -47 -55"
 				"LinkedSpecialBonus"			"special_bonus_unique_nevermore_5"
 			}
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"presence_radius"				"900"
+				"presence_radius"				"1200"
 			}
 		}
 	}
@@ -2170,17 +2162,17 @@
 
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vampiric_aura_radius"	"900"
-			}
 			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vampiric_aura"			"15 20 25 30 35 40 45 50"
-				"LinkedSpecialBonus"	"special_bonus_unique_wraith_king_2"
-			}
+            {
+                "var_type"              "FIELD_INTEGER"
+                "vampiric_aura"         "6 12 18 24 30 36 42 48"
+                "LinkedSpecialBonus"    "special_bonus_unique_wraith_king_2"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "damage"                "6 12 18 24 42 60 78 96"
+            }
 		}
 	}
 
@@ -2193,17 +2185,17 @@
 
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vampiric_aura_radius"	"900"
-			}
 			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vampiric_aura"			"15 20 25 30 35 40 45 50 55 60 65 70"
-				"LinkedSpecialBonus"	"special_bonus_unique_wraith_king_2"
-			}
+            {
+                "var_type"              "FIELD_INTEGER"
+                "vampiric_aura"         "6 12 18 24 30 36 42 48 54 60 66 72"
+                "LinkedSpecialBonus"    "special_bonus_unique_wraith_king_2"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "damage"                "6 12 18 24 42 60 78 96 132 168 204 240"
+            }
 		}
 	}
 
@@ -2220,18 +2212,18 @@
 		"AbilityCastPoint"				"0.2"
 
 		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"mana_regen"		"1 1.5 2 2.5 10 15 20 25"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"mana_regen_self"	"2.5 4.5 6.5 8.5 25 35 45 55"
-			}
-		}
+        {
+            "01"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "mana_regen"        "0.5 1 1.5 2 3 4 5 6"
+            }
+            "02"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "self_factor"       "2.0"
+            }
+        }
 	}
 
     "crystal_maiden_brilliance_aura_level_3"
@@ -2248,15 +2240,15 @@
 		"AbilitySpecial"
 		{
 			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"mana_regen"		"1 1.5 2 2.5 10 15 20 25 45 65 85 105"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"mana_regen_self"	"2.5 4.5 6.5 8.5 25 35 45 55 95 135 175 215"
-			}
+            {
+                "var_type"          "FIELD_FLOAT"
+                "mana_regen"        "0.5 1 1.5 2 3 4 5 6 8 10 12 14"
+            }
+            "02"
+            {
+                "var_type"          "FIELD_FLOAT"
+                "self_factor"       "2.0"
+            }
 		}
 	}
 
@@ -2271,21 +2263,21 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"1200"
-			}
 			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"primary_attribute"			"6 12 18 24 56 78 100 122"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_night_vision"		"200 400 600 800 1200 1600 1800 2000"
-			}
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage_pct"                "10 15 20 25 30 35 40 45"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "armor_pct"                 "10 15 20 25 30 35 40 45"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "bonus_night_vision"        "200 400 600 800 1000 1200 1400 1600"
+            }
 		}
 	}
 
@@ -2300,80 +2292,21 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"1200"
-			}
 			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"primary_attribute"			"6 12 18 24 56 78 100 122 170 218 266 314"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_night_vision"		"200 400 600 800 1200 1600 1800 2000 2200 2400 2600 2800"
-			}
-		}
-	}
-
-	"drow_ranger_trueshot_level_2"
-	{
-		"BaseClass"                     "drow_ranger_trueshot"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"MaxLevel"                      "8"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"0 0 0 0"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"100"
-		"AbilityDuration"				"30.0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				    	"FIELD_FLOAT"
-				"trueshot_ranged_attack_speed"	"20 40 60 80 100 120 140 160"
-				"LinkedSpecialBonus"	    	"special_bonus_unique_drow_ranger_1"
-			}
-		}
-	}
-
-    "drow_ranger_trueshot_level_3"
-	{
-		"BaseClass"                     "drow_ranger_trueshot"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-        "MaxLevel"                      "12"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"0 0 0 0"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"100"
-		"AbilityDuration"				"30.0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					    "FIELD_FLOAT"
-				"trueshot_ranged_attack_speed"	"20 40 60 80 100 120 140 160 180 200 220 240"
-				"LinkedSpecialBonus"		    "special_bonus_unique_drow_ranger_1"
-			}
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "damage_pct"                "10 15 20 25 30 35 40 45 50 55 60 65"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "armor_pct"                 "10 15 20 25 30 35 40 45 50 55 60 65"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "bonus_night_vision"        "200 400 600 800 1000 1200 1400 1600 1800 2000 2200 2400"
+            }
 		}
 	}
 

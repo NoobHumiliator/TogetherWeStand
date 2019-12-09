@@ -56,7 +56,7 @@
   "1"    "drow_ranger_frost_arrows"
   "2"    "drow_ranger_multishot"
   "3"    "drow_ranger_wave_of_silence"
-  "4"    "drow_ranger_trueshot"
+  "4"    "drow_ranger_trueshot_lua"
   "5"    "drow_ranger_marksmanship"
   }
   "juggernaut" {

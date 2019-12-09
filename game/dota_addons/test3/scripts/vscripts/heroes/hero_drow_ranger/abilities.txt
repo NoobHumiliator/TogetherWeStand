@@ -122,4 +122,41 @@
     		}
     	}
     }
+
+    "drow_ranger_trueshot_lua"
+    {
+        "BaseClass"                     "ability_lua"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityTextureName"            "drow_ranger_trueshot"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_3"
+        "AbilityCastGestureSlot"        "ABSOLUTE"
+        "AbilityCastRange"              "0"
+        "AbilityCastPoint"              "0 0 0 0"
+        "ScriptFile"                    "heroes/hero_drow_ranger/drow_ranger_trueshot_lua"
+
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "100"
+        "AbilityDuration"               "30.0"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "trueshot_ranged_damage"    "10 20 30 40"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "radius"                        "1200"
+            }
+        }
+    }
 }
