@@ -41,6 +41,10 @@ function modifier_drow_ranger_trueshot_lua_aura:GetAuraSearchType()
 end
 
 ----------------------------------------
+function modifier_drow_ranger_trueshot_lua_aura:GetAuraSearchFlags()
+	return DOTA_UNIT_TARGET_FLAG_RANGED_ONLY
+end
+----------------------------------------
 
 function modifier_drow_ranger_trueshot_lua_aura:GetAuraRadius()
 	return self.radius

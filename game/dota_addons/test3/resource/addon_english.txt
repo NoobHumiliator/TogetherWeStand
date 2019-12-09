@@ -3461,5 +3461,14 @@
 		"LoadingTip_2"                                                                  "Get Pass in Left-Top menu to grant extra bonus and lookout particle."
         "LoadingTip_3"                                                                  "In random round, player will gain extra 40% gold and experience."
         "LoadingTip_4"                                                                  "World Rank will record trail mode and hard mode record."
+
+        "DOTA_Tooltip_modifier_drow_ranger_trueshot_lua_aura_effect"				    "精准光环"
+		"DOTA_Tooltip_modifier_drow_ranger_trueshot_lua_aura_effect_Description"		"攻力速度提升%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%"
+
+		"DOTA_Tooltip_ability_drow_ranger_trueshot_lua"									"精准光环"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot_lua_Description"						"提高所有友方远程英雄的攻击力，提升数值是卓尔游侠敏捷值的一定百分比。施放后对所有普通单位生效，持续30秒。"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot_lua_Lore"							"崔希丝在卓尔族森林中独处的时光让她有时间教导其他弓箭手如何提高弓技。"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot_lua_trueshot_ranged_damage"			"%远程攻击力提升："
+		"DOTA_Tooltip_ability_drow_ranger_trueshot_lua_radius"							"作用范围："
 	}
 }
