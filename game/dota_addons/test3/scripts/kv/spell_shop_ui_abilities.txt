@@ -57,8 +57,7 @@
   "2"    "drow_ranger_multishot"
   "3"    "drow_ranger_wave_of_silence"
   "4"    "drow_ranger_trueshot_lua"
-  "5"    "drow_ranger_trueshot"
-  "6"    "drow_ranger_marksmanship"
+  "5"    "drow_ranger_marksmanship"
   }
   "juggernaut" {
   "1"    "juggernaut_blade_fury"
