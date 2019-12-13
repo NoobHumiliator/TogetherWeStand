@@ -658,7 +658,7 @@ function FlagExist(a, b)--Bitwise Exist
     return bit.band(a, b) == b
 end
 
---Load ability KVs
+--Load ability KVs  直接继承官方kv即可 不用复制一份到项目
 local AbilityKV = LoadKeyValues("scripts/npc/npc_abilities.txt")
 
 function FindTalentValue(talentName, key)

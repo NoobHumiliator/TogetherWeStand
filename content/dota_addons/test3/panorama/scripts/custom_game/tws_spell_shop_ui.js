@@ -52,6 +52,8 @@ var hideAbility = {
 	"wisp_tether_break": true,
 	"wisp_spirits_in": true,
 	"wisp_spirits_out": true,
+	//7.23多了这个技能 原因不详
+	"ability_capture": true,
 };
 
 var noReturnAbility = {    //不退回升级点数的技能

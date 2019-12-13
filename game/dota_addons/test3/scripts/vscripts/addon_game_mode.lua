@@ -74,6 +74,10 @@ function Precache(context)
     PrecacheResource('particle', 'particles/units/heroes/hero_huskar/huskar_berserkers_blood_glow.vpcf', context)
     PrecacheResource('particle', 'particles/units/heroes/hero_meepo/meepo_geostrike_ambient.vpcf', context)
     PrecacheResource('particle', 'particles/units/heroes/hero_luna/luna_ambient_lunar_blessing.vpcf', context)
+    
+    --自定义技能的 光环类特效也必须 提前预加载 否则闪退
+    PrecacheResource('particle', 'particles/units/heroes/hero_drow/drow_aura_buff.vpcf', context)
+
 
     PrecacheItemByNameSync("item_tombstone", context)
     PrecacheItemByNameSync("item_bag_of_gold_tws", context)
