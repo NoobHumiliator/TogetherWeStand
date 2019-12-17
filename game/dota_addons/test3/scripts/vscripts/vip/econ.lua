@@ -67,9 +67,30 @@ function RemoveAllParticlesOnHero(hero)  --移除全部VIP特效
         EconRemoveParticle(hero.nParticleLegionWingsPink)
         hero.nParticleLegionWingsPink = nil
     end
-    if hero.nParticleGoldenTI7 then
-        EconRemoveParticle(hero.nParticleGoldenTI7)
-        hero.nParticleGoldenTI7 = nil
+    
+    if hero.nParticleRich then
+        EconRemoveParticle(hero.nParticleRich)
+        hero.nParticleRich = nil
+    end
+
+    if hero.nParticleTI6 then
+        EconRemoveParticle(hero.nParticleTI6)
+        hero.nParticleTI6 = nil
+    end
+
+    if hero.nParticleTI7 then
+        EconRemoveParticle(hero.nParticleTI7)
+        hero.nParticleTI7 = nil
+    end
+
+    if hero.nParticleTI8 then
+        EconRemoveParticle(hero.nParticleTI8)
+        hero.nParticleTI8 = nil
+    end
+
+    if hero.nParticleTI9 then
+        EconRemoveParticle(hero.nParticleTI9)
+        hero.nParticleTI9 = nil
     end
 
 end
@@ -241,32 +262,81 @@ Econ.OnEquip_devourling_gold_client = Econ.OnEquip_devourling_gold_server
 Econ.OnRemove_devourling_gold_server = Econ.OnRemove_devourling_gold_server
 
 -----------------------------------------------------------------------------------------------------------------------------------
---Golden TI7  VIP
-Econ.OnEquip_golden_ti7_server = function(hero)
-    RemoveAllParticlesOnHero(hero)
-    hero.nParticleGoldenTI7 = EconCreateParticleOnHero(hero, "particles/econ/courier/courier_roshan_frost/courier_roshan_frost_ambient.vpcf")
-end
-
-Econ.OnRemove_golden_ti7_server = function(hero)
-    if hero.nParticleGoldenTI7 then
-        EconRemoveParticle(hero.nParticleGoldenTI7)
-    end
-end
-Econ.OnEquip_golden_ti7_client = Econ.OnEquip_golden_ti7_server
-Econ.OnEquip_golden_ti7_client = Econ.OnRemove_golden_ti7_server
--------------------------------------------------------------------------------------------------------------------------------------
-
 --富甲天下   VIP
 Econ.OnEquip_rich_server = function(hero)
     RemoveAllParticlesOnHero(hero)
-    hero.nParticleGoldenTI7 = EconCreateParticleOnHero(hero, "particles/econ/courier/courier_roshan_frost/courier_roshan_frost_ambient.vpcf")
+    hero.nParticleRich = EconCreateParticleOnHero(hero, "particles/econ/rich.vpcf")
 end
 
-Econ.OnRemove_golden_ti7_server = function(hero)
-    if hero.nParticleGoldenTI7 then
-        EconRemoveParticle(hero.nParticleGoldenTI7)
+Econ.OnRemove_rich_server = function(hero)
+    if hero.nParticleRich then
+        EconRemoveParticle(hero.nParticleRich)
     end
 end
-Econ.OnEquip_golden_ti7_client = Econ.OnEquip_golden_ti7_server
-Econ.OnEquip_golden_ti7_client = Econ.OnRemove_golden_ti7_server
+Econ.OnEquip_rich_client = Econ.OnEquip_rich_server
+Econ.OnRemove_rich_client = Econ.OnRemove_rich_server
+--------------------------------------------------------------------------------------------------------------------------------------
 
+--TI6  VIP
+Econ.OnEquip_ti6_server = function(hero)
+    RemoveAllParticlesOnHero(hero)
+    hero.nParticleTI6 = EconCreateParticleOnHero(hero, "particles/econ/events/ti6/radiance_owner_ti6.vpcf")
+end
+
+Econ.OnRemove_ti6_server = function(hero)
+    if hero.nParticleTI6 then
+        EconRemoveParticle(hero.nParticleTI6)
+    end
+end
+Econ.OnEquip_ti6_client = Econ.OnEquip_ti6_server
+Econ.OnRemove_ti6_client = Econ.OnRemove_ti6_server
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+-- TI7  VIP
+Econ.OnEquip_ti7_server = function(hero)
+    RemoveAllParticlesOnHero(hero)
+    hero.nParticleTI7 = EconCreateParticleOnHero(hero, "particles/econ/golden_ti7.vpcf")
+end
+
+Econ.OnRemove_ti7_server = function(hero)
+    if hero.nParticleTI7 then
+        EconRemoveParticle(hero.nParticleTI7)
+    end
+end
+Econ.OnEquip_ti7_client = Econ.OnEquip_ti7_server
+Econ.OnRemove_ti7_client = Econ.OnRemove_ti7_server
+
+------------------------------------------------------------------------------------------------------------------------------
+--TI8   VIP
+Econ.OnEquip_ti8_server = function(hero)
+    RemoveAllParticlesOnHero(hero)
+    hero.nParticleTI8 = EconCreateParticleOnHero(hero, "particles/econ/courier/courier_roshan_ti8/courier_roshan_ti8.vpcf")
+end
+
+Econ.OnRemove_ti8_server = function(hero)
+    if hero.nParticleTI8 then
+        EconRemoveParticle(hero.nParticleTI8)
+    end
+end
+Econ.OnEquip_ti8_client = Econ.OnEquip_ti8_server
+Econ.OnRemove_ti8_client = Econ.OnRemove_ti8_server
+
+------------------------------------------------------------------------------------------------------------------------------
+--Ti9   VIP
+Econ.OnEquip_ti9_server = function(hero)
+    RemoveAllParticlesOnHero(hero)
+    hero.nParticleTI9 = EconCreateParticleOnHero(hero, "particles/econ/courier/courier_babyroshan_ti9/courier_babyroshan_ti9_ambient.vpcf")
+end
+
+Econ.OnRemove_ti9_server = function(hero)
+    if hero.nParticleTI9 then
+        EconRemoveParticle(hero.nParticleTI9)
+    end
+end
+Econ.OnEquip_ti9_client = Econ.OnEquip_ti9_server
+Econ.OnRemove_ti9_client = Econ.OnRemove_ti9_server
+
+------------------------------------------------------------------------------------------------------------------------------

@@ -4,10 +4,11 @@ var serverAddress = 'http://106.12.3.136:8081/'
 
 var particleNameMap = [
 //1-5为天梯排名特效
-"legion_wings_vip","legion_wings_red"，"legion_wings"  "paltinum_baby_roshan", "lava_trail", 
-//6-15为PASS特效
+"legion_wings_vip","legion_wings_pink","legion_wings","paltinum_baby_roshan", "lava_trail", 
+//6 以后为PASS特效
 "rex", "frull", "black", "devourling_gold", "darkmoon",
-"sakura_trail", "golden_ti7"
+"rich","sakura_trail", "ti6","ti7","ti8",
+"ti9"
 ]
 
 

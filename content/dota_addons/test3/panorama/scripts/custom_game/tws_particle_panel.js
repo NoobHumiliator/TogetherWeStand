@@ -1,8 +1,5 @@
 "use strict";
 
-var particleNameMap = ["darkmoon", "sakura_trail", "rex", "frull", "black", "lava_trail", "paltinum_baby_roshan",
-    "devourling_gold", "legion_wings", "legion_wings_vip"];
-
 function ConfirmParticle()  //向Lua传递确认信息
 {
     var playerId = Game.GetLocalPlayerInfo().player_id;     //玩家ID
@@ -24,6 +21,7 @@ function CancleParticle()  //取消粒子特效，向Lua传递
 }
 
 function ShowParticleTooltip(index) {
+    //particleNameMap定义在utils里面
     var title = "#particle_title_" + particleNameMap[index - 1];
     var detail = "#particle_detail_" + particleNameMap[index - 1];
     $.DispatchEvent("DOTAShowTitleTextTooltip", $("#ParticleRadioButton_" + index), title, detail);
