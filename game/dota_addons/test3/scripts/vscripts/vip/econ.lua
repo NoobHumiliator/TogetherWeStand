@@ -63,13 +63,20 @@ function RemoveAllParticlesOnHero(hero)  --移除全部VIP特效
         EconRemoveParticle(hero.nParticleBlack)
         hero.nParticleBlack = nil
     end
+    if hero.nParticleLegionWingsPink then
+        EconRemoveParticle(hero.nParticleLegionWingsPink)
+        hero.nParticleLegionWingsPink = nil
+    end
+    if hero.nParticleGoldenTI7 then
+        EconRemoveParticle(hero.nParticleGoldenTI7)
+        hero.nParticleGoldenTI7 = nil
+    end
 
 end
 
 
 
 Econ = {}
-
 
 
 -----------------------------------------------------------------------------------------------------------------------
@@ -85,8 +92,22 @@ Econ.OnRemove_legion_wings_vip_server = function(hero)
 end
 Econ.OnEquip_legion_wings_vip_client = Econ.OnEquip_legion_wings_vip_server
 Econ.OnRemove_legion_wings_vip_client = Econ.OnRemove_legion_wings_vip_server
+----------------------------------------------------------------------------------------------------------------------- 
+-- 粉色军团之翼 前3
+Econ.OnEquip_legion_wings_pink_server = function(hero)
+    RemoveAllParticlesOnHero(hero)
+    hero.nParticleLegionWingsPink = EconCreateParticleOnHero(hero, "particles/econ/legion_wings/legion_wings_pink.vpcf")
+end
+Econ.OnRemove_legion_wings_pink_server = function(hero)
+    if hero.nParticleLegionWingsPink then
+        EconRemoveParticle(hero.nParticleLegionWingsPink)
+    end
+end
+Econ.OnEquip_legion_wings_pink_client = Econ.OnEquip_legion_wings_pink_server
+Econ.OnRemove_legion_wings_pink_client = Econ.OnRemove_legion_wings_pink_server
+
 -----------------------------------------------------------------------------------------------------------------------
--- 军团之翼 天梯前3
+-- 军团之翼 天梯前5
 Econ.OnEquip_legion_wings_server = function(hero)
     RemoveAllParticlesOnHero(hero)
     hero.nParticleLegionWings = EconCreateParticleOnHero(hero, "particles/econ/legion_wings/legion_wings.vpcf")
@@ -98,20 +119,6 @@ Econ.OnRemove_legion_wings_server = function(hero)
 end
 Econ.OnEquip_legion_wings_client = Econ.OnEquip_legion_wings_server
 Econ.OnRemove_legion_wings_client = Econ.OnRemove_legion_wings_server
------------------------------------------------------------------------------------------------------------------------
---冰冻气息  天梯前5
-Econ.OnEquip_devourling_gold_server = function(hero)
-    RemoveAllParticlesOnHero(hero)
-    hero.nParticleDevourlingGold = EconCreateParticleOnHero(hero, "particles/econ/courier/courier_roshan_frost/courier_roshan_frost_ambient.vpcf")
-end
-
-Econ.OnRemove_devourling_gold_server = function(hero)
-    if hero.nParticleDevourlingGold then
-        EconRemoveParticle(hero.nParticleDevourlingGold)
-    end
-end
-Econ.OnEquip_devourling_gold_client = Econ.OnEquip_devourling_gold_server
-Econ.OnRemove_devourling_gold_server = Econ.OnRemove_devourling_gold_server
 -----------------------------------------------------------------------------------------------------------------------
 -- 粒子之气   天梯前10
 Econ.OnEquip_paltinum_baby_roshan_server = function(hero)
@@ -140,7 +147,7 @@ end
 Econ.OnEquip_lava_trail_client = Econ.OnEquip_lava_trail_server
 Econ.OnRemove_lava_trail_client = Econ.OnRemove_lava_trail_server
 -----------------------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------------
+
 -- 暗月腐化 VIP
 Econ.OnEquip_darkmoon_server = function(hero)
     RemoveAllParticlesOnHero(hero)
@@ -219,3 +226,47 @@ end
 Econ.OnEquip_black_client = Econ.OnEquip_black_server
 Econ.OnRemove_black_server = Econ.OnRemove_black_server
 -----------------------------------------------------------------------------------------------------------------------------
+--冰冻气息  VIP
+Econ.OnEquip_devourling_gold_server = function(hero)
+    RemoveAllParticlesOnHero(hero)
+    hero.nParticleDevourlingGold = EconCreateParticleOnHero(hero, "particles/econ/courier/courier_roshan_frost/courier_roshan_frost_ambient.vpcf")
+end
+
+Econ.OnRemove_devourling_gold_server = function(hero)
+    if hero.nParticleDevourlingGold then
+        EconRemoveParticle(hero.nParticleDevourlingGold)
+    end
+end
+Econ.OnEquip_devourling_gold_client = Econ.OnEquip_devourling_gold_server
+Econ.OnRemove_devourling_gold_server = Econ.OnRemove_devourling_gold_server
+
+-----------------------------------------------------------------------------------------------------------------------------------
+--Golden TI7  VIP
+Econ.OnEquip_golden_ti7_server = function(hero)
+    RemoveAllParticlesOnHero(hero)
+    hero.nParticleGoldenTI7 = EconCreateParticleOnHero(hero, "particles/econ/courier/courier_roshan_frost/courier_roshan_frost_ambient.vpcf")
+end
+
+Econ.OnRemove_golden_ti7_server = function(hero)
+    if hero.nParticleGoldenTI7 then
+        EconRemoveParticle(hero.nParticleGoldenTI7)
+    end
+end
+Econ.OnEquip_golden_ti7_client = Econ.OnEquip_golden_ti7_server
+Econ.OnEquip_golden_ti7_client = Econ.OnRemove_golden_ti7_server
+-------------------------------------------------------------------------------------------------------------------------------------
+
+--富甲天下   VIP
+Econ.OnEquip_rich_server = function(hero)
+    RemoveAllParticlesOnHero(hero)
+    hero.nParticleGoldenTI7 = EconCreateParticleOnHero(hero, "particles/econ/courier/courier_roshan_frost/courier_roshan_frost_ambient.vpcf")
+end
+
+Econ.OnRemove_golden_ti7_server = function(hero)
+    if hero.nParticleGoldenTI7 then
+        EconRemoveParticle(hero.nParticleGoldenTI7)
+    end
+end
+Econ.OnEquip_golden_ti7_client = Econ.OnEquip_golden_ti7_server
+Econ.OnEquip_golden_ti7_client = Econ.OnRemove_golden_ti7_server
+

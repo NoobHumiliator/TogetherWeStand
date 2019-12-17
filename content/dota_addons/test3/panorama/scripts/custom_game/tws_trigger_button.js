@@ -1,8 +1,5 @@
 "use strict";
 
-var particleNameMap = ["darkmoon", "sakura_trail", "rex", "frull", "black", "lava_trail", "paltinum_baby_roshan",
-    "devourling_gold", "legion_wings", "legion_wings_vip"];
-
 var RecordSelect = (function (particleName) {
     return function () {
 
@@ -31,10 +28,10 @@ function ShowParticleBlock() {
     {
         particlePanelHub.BLoadLayoutSnippet("snippet_container");
         container = particlePanelHub.FindChild("ParticlePanelContainer");
-        for (var i = 1; i <= 10; i++) {
+        for (var i = 1; i <= 15; i++) {
             var radionButton = container.FindChildTraverse("ParticleRadioButton_" + i);
             var scenePanel = radionButton.BCreateChildren("<DOTAScenePanel style='width:290px;height:290px;' particleonly='false' id='scene_" + i + "' map='particle_model' camera='camera_" + i + "'/>");
-            //var scenePanel=radionButton.BCreateChildren("<DOTAScenePanel style='width:300px;height:300px;' unit='faceless_rex' />");
+            //particleNameMap 定义在 utils 里面
             radionButton.SetPanelEvent("onactivate", RecordSelect(particleNameMap[i - 1]));
             radionButton.group = "particleRadios"
 

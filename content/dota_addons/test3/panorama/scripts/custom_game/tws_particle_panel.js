@@ -11,14 +11,6 @@ function ConfirmParticle()  //向Lua传递确认信息
     GameEvents.SendCustomGameEventToServer("ConfirmParticle", { playerId: playerId, particleName: panelHub.particleName });
 
     var container = $("#ParticlePanelHub");
-
-    /**
-    for (var i = 1; i < 10; i++) {
-       var radionButton= $( "#ParticleRadioButton_"+i);
-       var scenePanel=radionButton.FindChild ("scene_"+i);
-       scenePanel.RemoveAndDeleteChildren()
-    }
-    **/
     container.RemoveAndDeleteChildren()
 }
 
@@ -28,15 +20,7 @@ function CancleParticle()  //取消粒子特效，向Lua传递
     GameEvents.SendCustomGameEventToServer("CancleParticle", { playerId: playerId });
 
     var container = $("#ParticlePanelHub");
-
     container.RemoveAndDeleteChildren();
-    /**
-      for (var i = 1; i < 10; i++) {
-         var radionButton= $( "#ParticleRadioButton_"+i);
-         var scenePanel=radionButton.FindChild ("scene_"+i);
-         scenePanel.RemoveAndDeleteChildren()
-      }
-     **/
 }
 
 function ShowParticleTooltip(index) {
@@ -51,23 +35,5 @@ function HideParticleTooltip(index) {
 }
 
 (function () {
-    var playerId = Game.GetLocalPlayerInfo().player_id;     //玩家ID
-    var heroIndex = Players.GetPlayerHeroEntityIndex(playerId);
-    var heroName = Entities.GetUnitName(heroIndex)
-    //$.Msg(heroName)
-
-    /**
-    for (var i = 1; i <= 10; i++) {
-        var radionButton= $( "#ParticleRadioButton_"+i );
-        var scenePanel=radionButton.BCreateChildren("<DOTAScenePanel style='width:290px;height:290px;' id='scene_"+i+"' map='particle_model' camera='camera_"+i+"'/>");
-        //var scenePanel=radionButton.BCreateChildren("<DOTAScenePanel style='width:300px;height:300px;' unit='faceless_rex' />");
-        radionButton.SetPanelEvent( "onactivate", RecordSelect(particleNameMap[i-1]));
-        radionButton.group="particleRadios"      
-    }
-    **/
-    //开始隐藏起来
-    //var container= $( "#ParticlePanelContainer");
-    //container.invisible=true;
-    //container.SetHasClass("Hidden", true);
-
+    
 })();

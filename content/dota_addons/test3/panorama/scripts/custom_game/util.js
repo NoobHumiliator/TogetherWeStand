@@ -1,6 +1,16 @@
 "use strict";
 
-var serverAddress = 'http://106.12.3.136:8090/'
+var serverAddress = 'http://106.12.3.136:8081/'
+
+var particleNameMap = [
+//1-5为天梯排名特效
+"legion_wings_vip","legion_wings_red"，"legion_wings"  "paltinum_baby_roshan", "lava_trail", 
+//6-15为PASS特效
+"rex", "frull", "black", "devourling_gold", "darkmoon",
+"sakura_trail", "golden_ti7"
+]
+
+
 
 function GetRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;

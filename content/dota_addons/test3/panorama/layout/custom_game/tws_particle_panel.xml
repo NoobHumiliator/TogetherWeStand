@@ -12,20 +12,22 @@
       <snippet name="snippet_container">
          <Panel>
             <Panel class="ParticlePanelContainer" id="ParticlePanelContainer" hittest="true">
-               <Panel class="ParticlePanel" id="ParticlePanelTop">
+               <Panel class="ParticlePanel" id="ParticlePanel_1">
                   <RadioButton id="ParticleRadioButton_1" class="ParticleRadioButton" onmouseover="ShowParticleTooltip(1)" onmouseout="HideParticleTooltip(1)" />
                   <RadioButton id="ParticleRadioButton_2" class="ParticleRadioButton" onmouseover="ShowParticleTooltip(2)" onmouseout="HideParticleTooltip(2)" />
                   <RadioButton id="ParticleRadioButton_3" class="ParticleRadioButton" onmouseover="ShowParticleTooltip(3)" onmouseout="HideParticleTooltip(3)" />
                   <RadioButton id="ParticleRadioButton_4" class="ParticleRadioButton" onmouseover="ShowParticleTooltip(4)" onmouseout="HideParticleTooltip(4)" />
                   <RadioButton id="ParticleRadioButton_5" class="ParticleRadioButton" onmouseover="ShowParticleTooltip(5)" onmouseout="HideParticleTooltip(5)" />
                </Panel>
-               <Panel class="ParticlePanel" id="ParticlePanelMiddle">
+               <Panel class="ParticlePanel" id="ParticlePanel_2">
                   <RadioButton id="ParticleRadioButton_6" class="ParticleRadioButton" onmouseover="ShowParticleTooltip(6)" onmouseout="HideParticleTooltip(6)"/>
                   <RadioButton id="ParticleRadioButton_7" class="ParticleRadioButton" onmouseover="ShowParticleTooltip(7)" onmouseout="HideParticleTooltip(7)"/>
                   <RadioButton id="ParticleRadioButton_8" class="ParticleRadioButton" onmouseover="ShowParticleTooltip(8)" onmouseout="HideParticleTooltip(8)"/>
                   <RadioButton id="ParticleRadioButton_9" class="ParticleRadioButton" onmouseover="ShowParticleTooltip(9)" onmouseout="HideParticleTooltip(9)"/>
                   <RadioButton id="ParticleRadioButton_10" class="ParticleRadioButton" onmouseover="ShowParticleTooltip(10)" onmouseout="HideParticleTooltip(10)"/>
                </Panel>
+         
+
                <Panel class="ParticlePanelDown" id="ParticlePanelDown">
                   <Button id="ParticleConfirmButton" onactivate="ConfirmParticle()">
                      <Label text="#particle_confirm" />
