@@ -486,9 +486,8 @@
   "2"    "lich_frost_armor"
   "3"    "lich_sinister_gaze"
   "4"    "lich_frost_shield"
-  "5"    "lich_frost_aura"
-  "6"    "lich_dark_ritual_lua"
-  "7"    "lich_chain_frost"
+  "5"    "lich_dark_ritual_lua"
+  "6"    "lich_chain_frost"
   }
   "lion" {
   "1"    "lion_impale"

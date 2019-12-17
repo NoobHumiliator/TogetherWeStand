@@ -1,7 +1,7 @@
 --[[ Global Variety
 ]]
 --持久化服务器ip 端口
-server_address = "http://106.12.3.136:8081/"
+server_address = "http://106.12.3.136:8090/"
 
 
 world_left_x = -3072

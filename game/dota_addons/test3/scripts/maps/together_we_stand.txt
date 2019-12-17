@@ -99,14 +99,14 @@
 		}
 	}
 
-    "Round1-1" // Kobolds
+    "Round1-1" // Skeleton
 	{
 		"round_quest_title"			"#TWS_Round_Skeleton_Quest_Title"
 		"round_title"				"#DOTA_Holdout_Round_Kobolds_Title"
 		"MaxGold"					"1900"
 		"BagCount"					"70"
 		"BagVariance"			    "30"
-		"FixedXP"					"8000"
+		"FixedXP"					"7500"
 		"ShortTitle"                "#skeleton_short_title"
 		"alias"                     "skeleton"
 		"ExpectedGold"              "2900"
@@ -256,7 +256,7 @@
 		"MaxGold"					"2400"
 		"BagCount"					"70"
 		"BagVariance"			    "30"
-		"FixedXP"					"10000"
+		"FixedXP"					"8000"
 		"ShortTitle"                "#bandit_short_title"
 		"alias"                     "bandit"
 		"ExpectedGold"              "2900"

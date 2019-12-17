@@ -12,7 +12,7 @@ if CHoldoutGameMode == nil then
 end
 
 testMode = false
-testMode=true --减少刷兵间隔，增加初始金钱
+--testMode=true --减少刷兵间隔，增加初始金钱
 goldTestMode = false
 --goldTestMode=true --需要测试金币相关的内容
 require("holdout_game_round")
