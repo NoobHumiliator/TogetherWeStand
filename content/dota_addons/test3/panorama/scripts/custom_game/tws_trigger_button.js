@@ -28,14 +28,41 @@ function ShowParticleBlock() {
     {
         particlePanelHub.BLoadLayoutSnippet("snippet_container");
         container = particlePanelHub.FindChild("ParticlePanelContainer");
-        for (var i = 1; i <= 15; i++) {
+        for (var i = 1; i <= particleNameMap.length; i++) {
             var radionButton = container.FindChildTraverse("ParticleRadioButton_" + i);
             var scenePanel = radionButton.BCreateChildren("<DOTAScenePanel style='width:290px;height:290px;' particleonly='false' id='scene_" + i + "' map='particle_model' camera='camera_" + i + "'/>");
             //particleNameMap 定义在 utils 里面
             radionButton.SetPanelEvent("onactivate", RecordSelect(particleNameMap[i - 1]));
             radionButton.group = "particleRadios"
 
-            if (i <= 5) //几个VIP的特效
+            if (i <= 5) //几个天梯等级的特效
+            {
+                radionButton.enabled = false
+                if (particlePanelHub.hasOwnProperty("rank") && particlePanelHub.rank != null) {
+                    if (particlePanelHub.rank <= 15 && i == 5)  //前15
+                    {
+                        radionButton.enabled = true
+                    }
+                    if (particlePanelHub.rank <= 10 && i == 4)  //前10
+                    {
+                        radionButton.enabled = true
+                    }
+                    if (particlePanelHub.rank <= 5 && i == 3)  //前5
+                    {
+                        radionButton.enabled = true
+                    }
+                    if (particlePanelHub.rank <= 3 && i == 2)  //前3
+                    {
+                        radionButton.enabled = true
+                    }
+                    if (particlePanelHub.rank <= 1 && i == 1)  //前1
+                    {
+                        radionButton.enabled = true
+                    }
+                }
+            }
+
+            if (i > 5) //VIP的特效
             {
                 radionButton.enabled = false
                 var playerId = Players.GetLocalPlayer();
@@ -46,39 +73,12 @@ function ShowParticleBlock() {
                     radionButton.enabled = true
                 }
             }
-
-            if (i >= 6) //几个天梯等级的特效
-            {
-                radionButton.enabled = false
-                if (particlePanelHub.hasOwnProperty("rank") && particlePanelHub.rank != null) {
-                    if (particlePanelHub.rank <= 15 && i <= 6)  //前15
-                    {
-                        radionButton.enabled = true
-                    }
-                    if (particlePanelHub.rank <= 10 && i <= 7)  //前10
-                    {
-                        radionButton.enabled = true
-                    }
-                    if (particlePanelHub.rank <= 5 && i <= 8)  //前5
-                    {
-                        radionButton.enabled = true
-                    }
-                    if (particlePanelHub.rank <= 3 && i <= 9)  //前3
-                    {
-                        radionButton.enabled = true
-                    }
-                    if (particlePanelHub.rank <= 1 && i <= 10)  //前1
-                    {
-                        radionButton.enabled = true
-                    }
-                }
-            }
         }
         $.Schedule(1.0, InitParticle);
     }
     else  //如果存在就删除
     {
-        for (var i = 1; i <= 10; i++) {
+        for (var i = 1; i <= particleNameMap.length; i++) {
             var radionButton = container.FindChildTraverse("ParticleRadioButton_" + i);
             radionButton.RemoveAndDeleteChildren();
         }
@@ -218,7 +218,7 @@ function ShowSaveBlock(bReloadFlag) {
 }
 
 function InitParticle() {
-    for (var i = 1; i <= 10; i++) {
+    for (var i = 1; i <= particleNameMap.length; i++) {
         var code_equip =
             "require 'vip/econ'\n" +
             "if Econ.OnEquip_" + particleNameMap[i - 1] + "_client then \n" +

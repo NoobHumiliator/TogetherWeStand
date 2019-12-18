@@ -1,3 +1,8 @@
+.ParticlePanelMain {
+   flow-children: down;
+}
+
+
 .ParticleTriggerButtonPanel {
     position: 595px 1000px 0;
     width: 30px;
@@ -24,10 +29,10 @@
     pre-transform-scale2d: 1;
     transition-property: opacity, box-shadow, pre-transform-scale2d;
     transition-duration: 0.37s;
-    position: 0 100px 0;
+    position: 0 20px 0;
     /*x,y,z position:absolute? auto?*/
     width: 100%;
-    height: 75%;
+    height: 90%;
     border-top: 0px solid #333;
     border-bottom: 0px solid #333;
     overflow: clip;
@@ -37,24 +42,24 @@
 
 .ParticlePanelContainer {
     width: 80%;
-    height: 100%;
-    margin-left: 14%;
+    height: 80%;
+    margin-left: 10%;
     background-color: #181818;
     flow-children: down;
-    overflow: squish scroll;
+    /*影响横向与纵向滚动条*/
+    overflow: clip scroll;
 }
 
 .ParticlePanel {
     pre-transform-scale2d: 1;
     transition-property: opacity, box-shadow, pre-transform-scale2d;
     transition-duration: 0.37s;
-    width: 100%;
-    height: 40%;
+    width: 95%;
+    height: 300px;
     border-top: 0px solid #333;
     border-bottom: 0px solid #333;
     margin-top: 2%;
     margin-left: 1%;
-    overflow: clip;
     flow-children: right;
 }
 
@@ -62,11 +67,13 @@
     pre-transform-scale2d: 1;
     transition-property: opacity, box-shadow, pre-transform-scale2d;
     transition-duration: 0.37s;
-    width: 100%;
+    margin-left: 10%;
+    width: 80%;
     height: 20%;
     border-top: 0px solid #333;
     border-bottom: 0px solid #333;
     overflow: clip;
+    background-color: #181818;
     /*overflow:hidden*/
 }
 

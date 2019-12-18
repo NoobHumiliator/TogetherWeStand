@@ -80,12 +80,12 @@
 
 		"particle_title_legion_wings_vip"                                       "光辉之翼"
         "particle_detail_legion_wings_vip"                                      "限天梯排名<font color='#FF7800'>第一</font>的玩家。"
+        
+        "particle_title_legion_wings_pink"                                      "粉色之翼"
+        "particle_detail_legion_wings_pink"                                     "限天梯排名<font color='#FF7800'>前三</font>的玩家。"
 
         "particle_title_legion_wings"                                           "勇者之翼"
-        "particle_detail_legion_wings"                                          "限天梯排名<font color='#FF7800'>前三</font>的玩家。"
-
-		"particle_title_devourling_gold"                                        "冰霜气息"
-		"particle_detail_devourling_gold"                                       "限天梯排名<font color='#FF7800'>前五</font>的玩家。"
+        "particle_detail_legion_wings"                                          "限天梯排名<font color='#FF7800'>前五</font>的玩家。"
 
         "particle_title_paltinum_baby_roshan"                                   "白金气息"
 		"particle_detail_paltinum_baby_roshan"                                  "限天梯排名<font color='#FF7800'>前十</font>的玩家。"
@@ -93,6 +93,10 @@
         "particle_title_lava_trail"                                             "熔岩之径"
 		"particle_detail_lava_trail"                                            "限天梯排名<font color='#FF7800'>前十五</font>的玩家。"
 
+        "particle_title_devourling_gold"                                        "冰霜气息"
+		"particle_detail_devourling_gold"                                       "限PASS(通行证)玩家。"
+
+    
         "particle_title_darkmoon"                                               "暗月"
 		"particle_detail_darkmoon"                                              "限PASS(通行证)玩家。"
 
@@ -108,6 +112,18 @@
 		"particle_title_black"                                                  "地狱之火"
 		"particle_detail_black"                                                 "限PASS(通行证)玩家。"
 
+		"particle_title_ti6"                                                    "TI6"
+		"particle_detail_ti6"                                                   "限PASS(通行证)玩家。"
+	    
+	    "particle_title_ti7"                                                    "TI7"
+		"particle_detail_ti7"                                                   "限PASS(通行证)玩家。"
+		
+		"particle_title_ti8"                                                    "TI8"
+		"particle_detail_ti8"                                                   "限PASS(通行证)玩家。"
+		
+		"particle_title_ti9"                                                    "TI9"
+		"particle_detail_ti9"                                                   "限PASS(通行证)玩家。"
+ 
 	    "spell_trigger_notice_title"                                            "点击打开技能商店"
         "spell_trigger_notice_detail"                                           "快捷键F6"
 
