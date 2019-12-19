@@ -1,3 +1,9 @@
+RadioButton > .RadioBox{
+
+  opacity: 0.0;
+
+}
+
 .ParticlePanelMain {
    flow-children: down;
 }
@@ -35,14 +41,14 @@
     height: 90%;
     border-top: 0px solid #333;
     border-bottom: 0px solid #333;
-    overflow: clip;
+    /*overflow: clip;*/
     /*overflow:hidden*/
     horizontal-align: center;
 }
 
 .ParticlePanelContainer {
     width: 80%;
-    height: 80%;
+    height: 800px;
     margin-left: 10%;
     background-color: #181818;
     flow-children: down;
@@ -58,8 +64,6 @@
     height: 300px;
     border-top: 0px solid #333;
     border-bottom: 0px solid #333;
-    margin-top: 2%;
-    margin-left: 1%;
     flow-children: right;
 }
 

@@ -112,6 +112,9 @@
 		"particle_title_black"                                                  "地狱之火"
 		"particle_detail_black"                                                 "限PASS(通行证)玩家。"
 
+		"particle_title_rich"                                                   "富甲天下"
+		"particle_detail_rich"                                                  "限PASS(通行证)玩家。"
+
 		"particle_title_ti6"                                                    "TI6"
 		"particle_detail_ti6"                                                   "限PASS(通行证)玩家。"
 	    
@@ -123,7 +126,19 @@
 		
 		"particle_title_ti9"                                                    "TI9"
 		"particle_detail_ti9"                                                   "限PASS(通行证)玩家。"
+
+		"particle_title_winter18"                                               "迎霜佳节"
+		"particle_detail_winter18"                                              "限PASS(通行证)玩家。"
  
+        "particle_title_onibi"                                                  "地狱鬼火"
+		"particle_detail_onibi"                                                 "限PASS(通行证)玩家。"
+
+		"particle_title_sand"                                                   "飞沙走石"
+		"particle_detail_sand"                                                  "限PASS(通行证)玩家。"
+
+		"particle_title_frost"                                                  "冰雪奇缘"
+		"particle_detail_frost"                                                 "限PASS(通行证)玩家。"
+
 	    "spell_trigger_notice_title"                                            "点击打开技能商店"
         "spell_trigger_notice_detail"                                           "快捷键F6"
 

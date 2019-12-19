@@ -1365,35 +1365,69 @@
 		"particle_confirm"                                                                       "CONFIRM"
 		"particle_cancle"                                                                        "CANCLE"
 
-		"particle_title_legion_wings_vip"                                                                       "GLORY WINGS"
-        "particle_detail_legion_wings_vip"                                                                      "Avialable for rank top <font color='#FF7800'>one</font> players."
+        "particle_title_legion_wings_vip"                                       "GLORY WINGS"
+        "particle_detail_legion_wings_vip"                                      "Avialable for rank top <font color='#FF7800'>ONE</font> players."
+        
+        "particle_title_legion_wings_pink"                                      "PINK WINGS"
+        "particle_detail_legion_wings_pink"                                     "Avialable for rank top <font color='#FF7800'>THREE</font> players."
 
-        "particle_title_legion_wings"                                                                           "ELITE WINGS"
-        "particle_detail_legion_wings"                                                                          "Avialable for rank top <font color='#FF7800'>three</font> players."
+        "particle_title_legion_wings"                                           "GLORY WINGS"
+        "particle_detail_legion_wings"                                          "Avialable for rank top <font color='#FF7800'>FIVE</font> players."
 
-		"particle_title_devourling_gold"                                                                        "FROST AMBIENT"
-		"particle_detail_devourling_gold"                                                                        "Avialable for rank top <font color='#FF7800'>five</font> players."
+        "particle_title_paltinum_baby_roshan"                                   "PLATINUM  AMBIENT"
+		"particle_detail_paltinum_baby_roshan"                                  "Avialable for rank top <font color='#FF7800'>TEN</font> players."
 
-        "particle_title_paltinum_baby_roshan"                                                                   "PLATINUM  AMBIENT"
-		"particle_detail_paltinum_baby_roshan"                                                                   "Avialable for rank top <font color='#FF7800'>ten</font> players."
+        "particle_title_lava_trail"                                             "LAVA TRIAL"
+		"particle_detail_lava_trail"                                            "Avialable for rank top <font color='#FF7800'>FIFTEEN</font> players."
 
-        "particle_title_lava_trail"                                                                             "LAVA  AMBIENT"
-		"particle_detail_lava_trail"                                                                             "Avialable for rank top <font color='#FF7800'>fifteen</font> players."
+        "particle_title_devourling_gold"                                        "FROST AMBIENT"
+		"particle_detail_devourling_gold"                                       "For Pass Players Only."
 
-        "particle_title_darkmoon"                                                                               "DARK MOON"
-		"particle_detail_darkmoon"                                                                              "Avialable for Patreon Supporters and Pass Players"
+    
+        "particle_title_darkmoon"                                               "Dark Moon"
+		"particle_detail_darkmoon"                                              "For Pass Players Only."
 
-        "particle_title_sakura_trail"                                                                           "SAKURA TRAIL"
-		"particle_detail_sakura_trail"                                                                          "Avialable for Patreon Supporters and Pass Players"
+        "particle_title_sakura_trail"                                           "Sakura Trail"
+		"particle_detail_sakura_trail"                                          "For Pass Players Only."
 
-        "particle_title_rex"                                                                                    "ORBIT TRAIL"
-		"particle_detail_rex"                                                                                   "Avialable for Patreon Supporters and Pass Players"
+        "particle_title_rex"                                                    "Rex"
+		"particle_detail_rex"                                                   "For Pass Players Only."
 
-        "particle_title_frull"                                                                                  "GREEN AMBIENT"
-		"particle_detail_frull"                                                                                 "Avialable for Patreon Supporters and Pass Players"
+        "particle_title_frull"                                                  "GREEN AMBIENT"
+		"particle_detail_frull"                                                 "For Pass Players Only."
 
-		"particle_title_black"                                                                                  "HELL FIRE"
-		"particle_detail_black"                                                                                 "Avialable for Patreon Supporters and Pass Players"
+		"particle_title_black"                                                  "HELL FIRE"
+		"particle_detail_black"                                                 "For Pass Players Only."
+
+		"particle_title_rich"                                                   "Rich"
+		"particle_detail_rich"                                                  "For Pass Players Only."
+
+		"particle_title_ti6"                                                    "TI6"
+		"particle_detail_ti6"                                                   "For Pass Players Only."
+	    
+	    "particle_title_ti7"                                                    "TI7"
+		"particle_detail_ti7"                                                   "For Pass Players Only."
+		
+		"particle_title_ti8"                                                    "TI8"
+		"particle_detail_ti8"                                                   "For Pass Players Only."
+		
+		"particle_title_ti9"                                                    "TI9"
+		"particle_detail_ti9"                                                   "For Pass Players Only."
+ 
+        "particle_title_axolotl"                                                "Axolotl"
+		"particle_detail_axolotl"                                               "For Pass Players Only."
+
+		"particle_title_winter18"                                               "Frostivus Festival"
+		"particle_detail_winter18"                                              "For Pass Players Only."
+ 
+        "particle_title_onibi"                                                  "Onibi Fire"
+		"particle_detail_onibi"                                                 "For Pass Players Only."
+
+		"particle_title_sand"                                                   "Desert Sand"
+		"particle_detail_sand"                                                  "For Pass Players Only."
+
+		"particle_title_frost"                                                  "Frozen"
+		"particle_detail_frost"                                                 "For Pass Players Only."
 
         "spell_trigger_notice_title"                                                                            "CLICK TO OPEN SPELL SHOP"
         "spell_trigger_notice_detail"                                                                           "Hotkey F6"

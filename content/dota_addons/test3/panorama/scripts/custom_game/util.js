@@ -8,7 +8,7 @@ var particleNameMap = [
 //6 以后为PASS特效
 "rex", "frull", "black", "devourling_gold", "darkmoon",
 "rich","sakura_trail", "ti6","ti7","ti8",
-"ti9"
+"ti9","winter18","onibi","sand","frost"
 ]
 
 

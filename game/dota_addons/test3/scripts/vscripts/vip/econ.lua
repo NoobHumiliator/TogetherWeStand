@@ -9,6 +9,13 @@ function EconCreateParticleOnHero(hero, particleName)
     return pid
 end
 
+
+function EconCreateParticleOnHeroOverhead(hero, particleName)
+    local pid = ParticleManager:CreateParticle(particleName, PATTACH_OVERHEAD_FOLLOW, hero)
+    ParticleManager:SetParticleControlEnt(pid, 0, hero, PATTACH_OVERHEAD_FOLLOW, "follow_origin", hero:GetAbsOrigin(), true)
+    return pid
+end
+
 function RemoveAllParticlesOnHero(hero)  --移除全部VIP特效
 
     if hero.nParticleLegionWingsVip then
@@ -91,6 +98,26 @@ function RemoveAllParticlesOnHero(hero)  --移除全部VIP特效
     if hero.nParticleTI9 then
         EconRemoveParticle(hero.nParticleTI9)
         hero.nParticleTI9 = nil
+    end
+
+    if hero.nParticleWinter18 then
+        EconRemoveParticle(hero.nParticleWinter18)
+        hero.nParticleWinter18 = nil
+    end
+
+    if hero.nParticleOnibi then
+        EconRemoveParticle(hero.nParticleOnibi)
+        hero.nParticleOnibi = nil
+    end
+
+    if hero.nParticleSand then
+        EconRemoveParticle(hero.nParticleSand)
+        hero.nParticleSand = nil
+    end
+
+    if hero.nParticleFrost then
+        EconRemoveParticle(hero.nParticleFrost)
+        hero.nParticleFrost = nil
     end
 
 end
@@ -265,7 +292,7 @@ Econ.OnRemove_devourling_gold_server = Econ.OnRemove_devourling_gold_server
 --富甲天下   VIP
 Econ.OnEquip_rich_server = function(hero)
     RemoveAllParticlesOnHero(hero)
-    hero.nParticleRich = EconCreateParticleOnHero(hero, "particles/econ/rich.vpcf")
+    hero.nParticleRich = EconCreateParticleOnHeroOverhead(hero, "particles/econ/rich.vpcf")
 end
 
 Econ.OnRemove_rich_server = function(hero)
@@ -290,8 +317,6 @@ Econ.OnRemove_ti6_server = function(hero)
 end
 Econ.OnEquip_ti6_client = Econ.OnEquip_ti6_server
 Econ.OnRemove_ti6_client = Econ.OnRemove_ti6_server
-
-
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
@@ -338,5 +363,69 @@ Econ.OnRemove_ti9_server = function(hero)
 end
 Econ.OnEquip_ti9_client = Econ.OnEquip_ti9_server
 Econ.OnRemove_ti9_client = Econ.OnRemove_ti9_server
+
+------------------------------------------------------------------------------------------------------------------------------
+--圣诞节   VIP
+Econ.OnEquip_winter18_server = function(hero)
+    RemoveAllParticlesOnHero(hero)
+    hero.nParticleWinter18 = EconCreateParticleOnHero(hero, "particles/econ/courier/courier_babyroshan_winter18/courier_babyroshan_winter18_ambient.vpcf")
+end
+
+Econ.OnRemove_winter18_server = function(hero)
+    if hero.nParticleWinter18 then
+        EconRemoveParticle(hero.nParticleWinter18)
+    end
+end
+Econ.OnEquip_winter18_client = Econ.OnEquip_winter18_server
+Econ.OnRemove_winter18_client = Econ.OnRemove_winter18_server
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+-- 地狱鬼火 VIP
+Econ.OnEquip_onibi_server = function(hero)
+    RemoveAllParticlesOnHero(hero)
+    hero.nParticleOnibi = EconCreateParticleOnHero(hero, "particles/econ/courier/courier_onibi/courier_onibi_black_lvl21_ambient.vpcf")
+end
+
+Econ.OnRemove_onibi_server = function(hero)
+    if hero.nParticleOnibi then
+        EconRemoveParticle(hero.nParticleOnibi)
+    end
+end
+Econ.OnEquip_onibi_client = Econ.OnEquip_onibi_server
+Econ.OnRemove_onibi_client = Econ.OnRemove_onibi_server
+
+------------------------------------------------------------------------------------------------------------------------------
+
+-- 飞沙走石 VIP
+Econ.OnEquip_sand_server = function(hero)
+    RemoveAllParticlesOnHero(hero)
+    hero.nParticleSand = EconCreateParticleOnHero(hero, "particles/econ/courier/courier_roshan_desert_sands/baby_roshan_desert_sands_ambient_flying.vpcf")
+end
+
+Econ.OnRemove_sand_server = function(hero)
+    if hero.nParticleSand then
+        EconRemoveParticle(hero.nParticleSand)
+    end
+end
+Econ.OnEquip_sand_client = Econ.OnEquip_sand_server
+Econ.OnRemove_sand_client = Econ.OnRemove_sand_server
+
+------------------------------------------------------------------------------------------------------------------------------
+
+-- 冰封 VIP
+Econ.OnEquip_frost_server = function(hero)
+    RemoveAllParticlesOnHero(hero)
+    hero.nParticleFrost = EconCreateParticleOnHero(hero, "particles/econ/courier/courier_roshan_frost/courier_roshan_frost_ambient.vpcf")
+end
+
+Econ.OnRemove_frost_server = function(hero)
+    if hero.nParticleFrost then
+        EconRemoveParticle(hero.nParticleFrost)
+    end
+end
+Econ.OnEquip_frost_client = Econ.OnEquip_frost_server
+Econ.OnRemove_frost_client = Econ.OnRemove_frost_server
 
 ------------------------------------------------------------------------------------------------------------------------------

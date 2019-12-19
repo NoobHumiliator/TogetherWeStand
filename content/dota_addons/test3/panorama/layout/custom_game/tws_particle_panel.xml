@@ -37,6 +37,10 @@
 
                <Panel class="ParticlePanel" id="ParticlePanel_4">
                   <RadioButton id="ParticleRadioButton_16" class="ParticleRadioButton" onmouseover="ShowParticleTooltip(16)" onmouseout="HideParticleTooltip(16)"/>
+                  <RadioButton id="ParticleRadioButton_17" class="ParticleRadioButton" onmouseover="ShowParticleTooltip(17)" onmouseout="HideParticleTooltip(17)"/>
+                  <RadioButton id="ParticleRadioButton_18" class="ParticleRadioButton" onmouseover="ShowParticleTooltip(18)" onmouseout="HideParticleTooltip(18)"/>
+                  <RadioButton id="ParticleRadioButton_19" class="ParticleRadioButton" onmouseover="ShowParticleTooltip(19)" onmouseout="HideParticleTooltip(19)"/>
+                  <RadioButton id="ParticleRadioButton_20" class="ParticleRadioButton" onmouseover="ShowParticleTooltip(20)" onmouseout="HideParticleTooltip(20)"/>
                </Panel>
             </Panel>
             <Panel class="ParticlePanelDown" id="ParticlePanelDown">

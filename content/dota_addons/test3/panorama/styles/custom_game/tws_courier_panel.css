@@ -1,0 +1,84 @@
+.CourierPanelMain {
+   flow-children: down;
+}
+
+.CourierPanelContainer {
+    width: 80%;
+    height: 800px;
+    margin-left: 10%;
+    background-color: #181818;
+    flow-children: right-wrap;
+    /*影响横向与纵向滚动条*/
+    overflow: clip scroll;
+}
+
+
+.CourierPanelDown {
+    pre-transform-scale2d: 1;
+    transition-property: opacity, box-shadow, pre-transform-scale2d;
+    transition-duration: 0.37s;
+    margin-left: 10%;
+    width: 80%;
+    height: 20%;
+    border-top: 0px solid #333;
+    border-bottom: 0px solid #333;
+    overflow: clip;
+    background-color: #181818;
+    /*overflow:hidden*/
+}
+
+.CourierConfirmButton{
+	horizontal-align: left;
+    vertical-align: center;
+    width: 200px;
+    height: 50px;
+    margin-left: 50px;
+    border: 1px solid #000;
+    background-color: gradient( linear, 0% 0%, 0% 100%, from(#a50a04), to(#670303));
+    box-shadow: inset #ffffff50 1px 1px 2px 2px;
+    margin-left: 400px;
+}
+
+.CourierConfirmButton:active {
+    background-color: gradient( linear, 0% 0%, 0% 100%, from(#880303), to(#b80803));
+    width: 192px;
+    height: 48px;
+    margin-left: 404px;
+}
+
+.CourierConfirmButton Label {
+    horizontal-align: center;
+    vertical-align: center;
+    font-size: 20;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+
+
+.CourierCancleButton {
+    horizontal-align: left;
+    vertical-align: center;
+    width: 200px;
+    height: 50px;
+    margin-left: 50px;
+    border: 1px solid #000;
+    background-color: gradient( linear, 0% 0%, 0% 100%, from(#a50a04), to(#670303));
+    box-shadow: inset #ffffff50 1px 1px 2px 2px;
+    margin-left: 900px;
+}
+
+.CourierCancleButton:active {
+    background-color: gradient( linear, 0% 0%, 0% 100%, from(#880303), to(#b80803));
+    width: 192px;
+    height: 48px;
+    margin-left: 904px;
+}
+
+.CourierCancleButton Label {
+    horizontal-align: center;
+    vertical-align: center;
+    font-size: 20;
+    color: #fff;
+    text-transform: uppercase;
+}

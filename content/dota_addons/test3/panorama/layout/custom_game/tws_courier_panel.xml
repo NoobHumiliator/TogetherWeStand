@@ -1,0 +1,35 @@
+<root>
+   <styles>
+      <include src="file://{resources}/styles/custom_game/util.css" />
+      <include src="file://{resources}/styles/custom_game/tws_courier_panel.css" />
+      <include src="file://{resources}/styles/dotastyles.css" />
+   </styles>
+   <scripts>
+      <include src="file://{resources}/scripts/custom_game/util.js" />
+      <include src="file://{resources}/scripts/custom_game/tws_courier_panel.js" />
+   </scripts>
+   
+   <snippets>
+      <snippet name="CourierItem">
+          <Panel class="CourierItemRoot">
+               <RadioButton id="courier_item_radio" class="CourierRadioButton">
+                  <Image id="courier_item_image" class="CourierItemImage" />
+                  <Label id="courier_item_label" class="CourierItemLabel" />
+               </RadioButton>
+          </Panel>
+      </snippet>
+   </snippets>
+
+   <Panel class="CourierPanelMain">
+      <Panel class="CourierPanelContainer" id="CourierPanelContainer" hittest="true">
+      </Panel>
+      <Panel class="CourierPanelDown" id="CourierPanelDown">
+            <Button id="CourierConfirmButton" onactivate="CourierConfirm()">
+               <Label text="#particle_confirm" />
+            </Button>
+            <Button id="CourierCancleButton" onactivate="CourierCancle()">
+               <Label text="#particle_cancle" />
+            </Button>
+      </Panel>
+   </Panel>
+</root> 
