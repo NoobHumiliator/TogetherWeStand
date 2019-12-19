@@ -19,6 +19,10 @@
          <Button id="ParticleTriggerButton" onactivate="ShowParticleBlock()">
          </Button>
       </Panel>
+      <Panel class="CourierTriggerButtonPanel" id="CourierTriggerButtonPanel">
+         <Button id="CourierTriggerButton" onactivate="ShowCourierBlock()">
+         </Button>
+      </Panel>
       <Panel class="SaveGameTriggerButtonPanel" id="SaveGameTriggerButtonPanel">
          <Button id="SaveTriggerButton" onactivate="ShowSaveBlock(false)">
          </Button>

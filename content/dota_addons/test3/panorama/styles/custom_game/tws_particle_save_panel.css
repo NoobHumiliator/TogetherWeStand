@@ -1,14 +1,22 @@
+
 .ParticleTriggerButtonPanel {
     position: 5px 200px 0;
     width: 35px;
     height: 35px;
 }
 
-.SaveGameTriggerButtonPanel {
+.CourierTriggerButtonPanel {
     position: 5px 250px 0;
     width: 35px;
     height: 35px;
 }
+
+.SaveGameTriggerButtonPanel {
+    position: 5px 300px 0;
+    width: 35px;
+    height: 35px;
+}
+
 
 #ParticleTriggerButton {
     height: 32px;
@@ -25,6 +33,24 @@
     tooltip-position: top;
     vertical-align: bottom;
 }
+
+
+#CourierTriggerButton {
+    height: 32px;
+    width: 32px;
+    background-image: url("s2r://panorama/images/control_icons/brackets_png.vtex");
+    background-size: 30px;
+    brightness: 1.0;
+    wash-color: #CDF;
+    opacity: 0.5;
+    z-index: -1;
+    transition-property: background-image;
+    transition-duration: .18s;
+    transition-timing-function: ease-in-out;
+    tooltip-position: top;
+    vertical-align: bottom;
+}
+
 
 #SaveTriggerButton {
     height: 32px;

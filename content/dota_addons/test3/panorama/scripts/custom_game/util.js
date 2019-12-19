@@ -11,6 +11,8 @@ var particleNameMap = [
 "ti9","winter18","onibi","sand","frost"
 ]
 
+//信使列表
+var couriersList = ["beetle_bark","beetle_jaws","dark_moon"]
 
 
 function GetRandomInt(min, max) {

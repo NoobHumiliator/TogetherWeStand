@@ -88,6 +88,7 @@ RadioButton > .RadioBox{
     padding-right: 5px;
     padding-top: 5px;
     padding-bottom: 4px;
+    flow-children: down;
 }
 
 .ParticleRadioButton:hover {
@@ -98,6 +99,7 @@ RadioButton > .RadioBox{
     background-color: gradient( linear, 0% 0%, 100% 100%, from( #568e2658), to( #24420a58));
     box-shadow: #7fe22a 0px 0px 10px 0px;
 }
+
 
 .attributeButtonLabel {
     vertical-align: bottom;
