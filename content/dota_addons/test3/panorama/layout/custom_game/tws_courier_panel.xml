@@ -19,7 +19,7 @@
           </Panel>
       </snippet>
    </snippets>
-   <Panel class="CourierPanelOutBlock">
+   <Panel class="CourierPanelOutBlock" hittest="false">
       <Panel class="CourierPanelMain hidden" id="CourierPanelMain">
          <Panel class="CourierPanelContainer" id="CourierPanelContainer" hittest="true">
          </Panel>

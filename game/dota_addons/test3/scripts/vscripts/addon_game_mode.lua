@@ -74,7 +74,7 @@ function Precache(context)
     PrecacheResource('particle', 'particles/units/heroes/hero_huskar/huskar_berserkers_blood_glow.vpcf', context)
     PrecacheResource('particle', 'particles/units/heroes/hero_meepo/meepo_geostrike_ambient.vpcf', context)
     PrecacheResource('particle', 'particles/units/heroes/hero_luna/luna_ambient_lunar_blessing.vpcf', context)
-    
+
     --自定义技能的 光环类特效也必须 提前预加载 否则闪退
     PrecacheResource('particle', 'particles/units/heroes/hero_drow/drow_aura_buff.vpcf', context)
 
@@ -494,28 +494,27 @@ function CHoldoutGameMode:OnHeroLevelUp(keys)
 		end
 		]]
         end
+        local abilityPoints = hero:GetAbilityPoints()
         --7.0以后不给技能点 需要补回来
         if keys.level == 17 or keys.level == 19 or keys.level == 21 or keys.level == 22 or keys.level == 23 or keys.level == 24 then --7.0以后不给技能点
-            local p = hero:GetAbilityPoints()
-            hero:SetAbilityPoints(p + 1)
-        end
-        
-        if keys.level == 30  then --7.23 30级倒扣8个技能点 需要补回来
-            local p = hero:GetAbilityPoints()
-            hero:SetAbilityPoints(p + 8)
+            abilityPoints = abilityPoints + 1
         end
 
-        -- 如果英雄的等级不是2的倍数，那么这个等级就不给技能点
-        local _, l = math.modf((level - 1) / 2)
-        if l ~= 0 then
-            local p = hero:GetAbilityPoints()
-            hero:SetAbilityPoints(p - 1)
-        else
-            --2的倍数 升级信使
+        -- 2019.12.19 更新后，25级后升级没有技能点
+        if level > 25 then
+            abilityPoints = abilityPoints + 1
+        end
+
+        -- 如果英雄的等级是偶数，那么这个等级就不给技能点
+        if math.mod(level, 2) == 0 then
+            abilityPoints = abilityPoints - 1
+            -- 升级信使
             if hero.hCourier then
-                hero.hCourier:SetBaseMoveSpeed(hero.hCourier:GetBaseMoveSpeed()+10)
+                hero.hCourier:SetBaseMoveSpeed(hero.hCourier:GetBaseMoveSpeed() + 5)
             end
         end
+
+        hero:SetAbilityPoints(abilityPoints)
     end
     CustomGameEventManager:Send_ServerToPlayer(player, "UpdateAbilityList", { heroName = false, playerId = _playerId })
 end
@@ -569,8 +568,8 @@ function CHoldoutGameMode:OnPlayerSay(keys)
         CustomGameEventManager:Send_ServerToPlayer(player, "SaveTestBackDoor", { playerId = nPlayerID })
     end
     --添加测试物品
-    if hero and string.find(text,"item_") == 1  and  GameRules:IsCheatMode() then
-       hero:AddItemByName(text)
+    if hero and string.find(text, "item_") == 1 and GameRules:IsCheatMode() then
+        hero:AddItemByName(text)
     end
 end
 
@@ -787,7 +786,7 @@ function CHoldoutGameMode:_RefreshPlayers()
             end
         end
     end
-    --[[ 7.23 信使复活速度足够快， 会造成信使重复活 废弃此代码 
+--[[ 7.23 信使复活速度足够快， 会造成信使重复活 废弃此代码 
     local couriersNumber = PlayerResource:GetNumCouriersForTeam(DOTA_TEAM_GOODGUYS)
     if couriersNumber > 0 then
         for i = 1, couriersNumber do
@@ -807,7 +806,7 @@ function CHoldoutGameMode:CreateCourierForPlayers()
         if PlayerResource:GetTeam(nPlayerID) == DOTA_TEAM_GOODGUYS then
             if PlayerResource:HasSelectedHero(nPlayerID) then
                 local hHero = PlayerResource:GetSelectedHeroEntity(nPlayerID)
-                if hHero  then     
+                if hHero then
                     local hCourier = CreateUnitByName('npc_dota_courier', hHero:GetOrigin(), true, hHero, hHero, hHero:GetTeam())
                     hCourier:SetOwner(hHero)
                     hCourier:SetControllableByPlayer(nPlayerID, true)
@@ -815,7 +814,7 @@ function CHoldoutGameMode:CreateCourierForPlayers()
                     hCourier:SetOriginalModel('models/props_gameplay/donkey_wings.vmdl')
                     hCourier:FindAbilityByName('courier_burst'):SetLevel(1)
                     hCourier:FindAbilityByName('courier_shield'):SetLevel(1)
-                    hCourier.nCourierOwnerId =  nPlayerID
+                    hCourier.nCourierOwnerId = nPlayerID
                     hHero.hCourier = hCourier
                 end
             end
@@ -1482,7 +1481,7 @@ function CHoldoutGameMode:OnItemPickUp(event, level)
         else
             --解决7.23掉落物品 无法出售的问题
             if event.itemname ~= "item_tombstone" then
-               item:SetPurchaser(owner)
+                item:SetPurchaser(owner)
             end
         end
     end
