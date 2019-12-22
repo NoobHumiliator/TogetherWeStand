@@ -57,6 +57,7 @@ hideAbility = {
 	["wisp_tether_break"] = true,
 	["wisp_spirits_in"] = true,
 	["wisp_spirits_out"] = true,
+	["ability_capture"] = true,
 };
 
 brokenModifierCounts = {
@@ -145,6 +146,7 @@ function GetPlayerAbilityNumber(hero)
         if ability ~= nil then
             local abilityName = ability:GetAbilityName()
             if hideAbility[abilityName] ~= true and not string.match(abilityName, "special_bonus_") then
+                print(abilityName)
                 abilityNumber = abilityNumber + 1
             end
         end

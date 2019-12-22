@@ -5,6 +5,9 @@ function HookItems(keys)
     local point = keys.target_points[1]
     local radius = ability:GetLevelSpecialValueFor("radius", (ability:GetLevel() - 1))
     local drop_items = Entities:FindAllByClassnameWithin("dota_item_drop", point, radius)
+    -- 信使装不下的扔到出生地
+    local entities_dummy = Entities:FindByName(nil, "dummy_entities")
+    local spawnPoint = entities_dummy:GetAbsOrigin()
 
     if #drop_items > 0 then
         EmitSoundOn("Hero_Rattletrap.Hookshot.Fire", caster)
@@ -31,11 +34,13 @@ function HookItems(keys)
                     local playerId = caster.nControlledPickPlayerId
                     local hero = PlayerResource:GetSelectedHeroEntity(playerId)
                     --如果信使还能装载
+                    containedItem:SetPurchaser(hero)
                     if CourierHasSlotForItem(caster,containedItem) then
-                        containedItem:SetPurchaser(hero)
                         caster:AddItem(containedItem)
-                        UTIL_Remove(drop_item)
+                    else
+                        CreateItemOnPositionForLaunch(spawnPoint, containedItem)
                     end
+                    UTIL_Remove(drop_item)
                 end
             end
             --金币不收影响 直接吃了
