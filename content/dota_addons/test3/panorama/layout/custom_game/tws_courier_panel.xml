@@ -19,12 +19,12 @@
           </Panel>
       </snippet>
    </snippets>
-   <Panel class="CourierPanelOutBlock">
+   <Panel class="CourierPanelOutBlock" hittest="false">
       <Panel class="CourierPanelMain hidden" id="CourierPanelMain">
          <Panel class="CourierPanelContainer" id="CourierPanelContainer" hittest="true">
          </Panel>
          <Panel class="CourierPanelDown" id="CourierPanelDown">
-               <Button id="CourierConfirmButton" onactivate="CourierConfirm()">
+               <Button id="CourierConfirmButton" onactivate="CourierConfirm()" onmouseover="ShowCourierConfirmTooltip()" onmouseout="HideCourierConfirmTooltip()">
                   <Label text="#particle_confirm" />
                </Button>
                <Button id="CourierCancleButton" onactivate="CourierCancle()">

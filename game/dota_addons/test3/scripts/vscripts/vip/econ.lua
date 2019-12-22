@@ -417,7 +417,7 @@ Econ.OnRemove_sand_client = Econ.OnRemove_sand_server
 -- 冰封 VIP
 Econ.OnEquip_frost_server = function(hero)
     RemoveAllParticlesOnHero(hero)
-    hero.nParticleFrost = EconCreateParticleOnHero(hero, "particles/econ/courier/courier_roshan_frost/courier_roshan_frost_ambient.vpcf")
+    hero.nParticleFrost = EconCreateParticleOnHero(hero, "particles/econ/courier/courier_jadehoof_ambient/jadehoof_ambient.vpcf")
 end
 
 Econ.OnRemove_frost_server = function(hero)

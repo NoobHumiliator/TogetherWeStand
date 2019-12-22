@@ -38,7 +38,7 @@
 #CourierTriggerButton {
     height: 32px;
     width: 32px;
-    background-image: url("s2r://panorama/images/control_icons/brackets_png.vtex");
+    background-image: url('s2r://panorama/images/icon_courier_psd.vtex');
     background-size: 30px;
     brightness: 1.0;
     wash-color: #CDF;

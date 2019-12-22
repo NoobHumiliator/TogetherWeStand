@@ -251,13 +251,22 @@ function HidePassTooltip() {
     $.DispatchEvent("DOTAHideTitleTextTooltip", $("#PayTriggerButtonPanel"));
 }
 
-function ShowSaveTooltip() {
-    $.DispatchEvent("DOTAShowTitleTextTooltip", $("#SaveGameTriggerButtonPanel"), "#save_trigger_notice_title", "");
+function ShowParticleTooltip() {
+    $.DispatchEvent("DOTAShowTitleTextTooltip", $("#ParticleTriggerButtonPanel"), "#particle_trigger_notice_title", "");
 }
 
-function HideSaveTooltip() {
-    $.DispatchEvent("DOTAHideTitleTextTooltip", $("#SaveGameTriggerButtonPanel"));
+function HideParticleTooltip() {
+    $.DispatchEvent("DOTAHideTitleTextTooltip", $("#ParticleTriggerButtonPanel"));
 }
+
+function ShowCourierTooltip() {
+    $.DispatchEvent("DOTAShowTitleTextTooltip", $("#CourierTriggerButtonPanel"), "#courier_trigger_notice_title", "");
+}
+
+function HideCourierTooltip() {
+    $.DispatchEvent("DOTAHideTitleTextTooltip", $("#CourierTriggerButtonPanel"));
+}
+
 
 
 
@@ -268,7 +277,8 @@ function ShowCourierBlock() {
     var courierPanelHub = button.GetParent().GetParent().GetParent().FindChild("CourierPanelHub");
     var courierPanelMain = courierPanelHub.FindChildTraverse("CourierPanelMain");
     var courierPanelContainer = courierPanelHub.FindChildTraverse("CourierPanelContainer");
-
+    var courierConfirmButton = courierPanelHub.FindChildTraverse("CourierConfirmButton");
+    
 
     if (courierPanelMain.BHasClass("hidden")) {
         courierPanelMain.SetHasClass("hidden", false);
@@ -290,6 +300,17 @@ function ShowCourierBlock() {
             courierPanel.FindChildTraverse("courier_item_radio").group = "courierRadios"
         }
     }
+     var playerId = Players.GetLocalPlayer();
+     var steam_id = Game.GetPlayerInfo(playerId).player_steamid;
+     var vipLevel = CustomNetTables.GetTableValue("vipMap", "" + ConvertToSteamId32(steam_id)).level;
+     if (vipLevel >= 1)  //vip等级大于1
+     {
+        courierConfirmButton.enabled = true;
+     }
+      else {
+        courierConfirmButton.enabled = false;
+    }
+
 }
 
 
@@ -301,9 +322,13 @@ function ShowCourierBlock() {
 
     $.Schedule(12.0, HidePassTooltip);
 
-    $.Schedule(14.0, ShowSaveTooltip);
+    $.Schedule(14.0, ShowParticleTooltip);
 
-    $.Schedule(18.0, HideSaveTooltip);
+    $.Schedule(18.0, HideParticleTooltip);
+
+    $.Schedule(20.0, ShowCourierTooltip);
+
+    $.Schedule(24.0, HideCourierTooltip);
 
 })();
 

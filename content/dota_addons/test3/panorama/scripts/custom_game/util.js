@@ -1,6 +1,6 @@
 "use strict";
 
-var serverAddress = 'http://106.12.3.136:8081/'
+var serverAddress = 'http://106.12.3.136:8090/'
 
 var particleNameMap = [
 //1-5为天梯排名特效
@@ -12,7 +12,14 @@ var particleNameMap = [
 ]
 
 //信使列表
-var couriersList = ["beetle_bark","beetle_jaws","dark_moon"]
+var couriersList = ["beetle_bark","beetle_jaws","dark_moon","desert_sand","doomling",
+"drodo","eimer","faceless","fezzle","gingerbread",
+"golden_roshan","golden_beetlejaws","golden_doomling","golden_greevil","golden_huntling",
+"golden_krobeling","golden_venoling","hakobi","huntling","ice_roshan",
+"krobeling","lava_roshan","lockjaw","murrissey","nian",
+"onibi","osky","pholi","platinum_roshan","stumpy",
+"trapjaw","mountain_yak","venoling","war_dog","jade_roshan"
+]
 
 
 function GetRandomInt(min, max) {

@@ -6,7 +6,7 @@ RadioButton > .RadioBox{
 
 .CourierPanelMain {
    flow-children: down;
-   width: 80%;
+   width: 100%;
    height: 100%;
 }
 
@@ -18,6 +18,7 @@ RadioButton > .RadioBox{
     flow-children: right-wrap;
     /*影响横向与纵向滚动条*/
     overflow: clip scroll;
+    padding-left: 1%;
 }
 
 
@@ -109,11 +110,12 @@ RadioButton > .RadioBox{
 
 .CourierRadioButton {
     width: 300px;
-    height: 300px;
+    height: 250px;
     padding-left: 5px;
     padding-right: 5px;
     padding-top: 5px;
     padding-bottom: 4px;
+    flow-children: down;
 }
 
 .CourierRadioButton:hover {
@@ -134,6 +136,72 @@ RadioButton > .RadioBox{
 
 }
 
+.CourierItemLabel {
+   width: 300px;
+   height: 50px;
+   font-size: 35px;
+   text-align: center;
+}
+
+#CourierConfirmButton {
+    horizontal-align: left;
+    vertical-align: center;
+    width: 200px;
+    height: 50px;
+    margin-left: 50px;
+    border: 1px solid #000;
+    background-color: gradient( linear, 0% 0%, 0% 100%, from(#a50a04), to(#670303));
+    box-shadow: inset #ffffff50 1px 1px 2px 2px;
+    margin-left: 400px;
+}
+
+#CourierConfirmButton:active {
+    background-color: gradient( linear, 0% 0%, 0% 100%, from(#880303), to(#b80803));
+    width: 192px;
+    height: 48px;
+    margin-left: 404px;
+}
+
+#CourierConfirmButton:disabled {
+      background-color: gradient( linear, 0% 0%, 0% 100%, from( #5A615Ecc), to( #879695cc));
+      background-image: url("s2r://panorama/images/backgrounds/background_play_button_large_2x_png.vtex");
+}
+
+
+#CourierConfirmButton Label {
+    horizontal-align: center;
+    vertical-align: center;
+    font-size: 20;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#CourierCancleButton {
+    horizontal-align: left;
+    vertical-align: center;
+    width: 200px;
+    height: 50px;
+    margin-left: 50px;
+    border: 1px solid #000;
+    background-color: gradient( linear, 0% 0%, 0% 100%, from(#a50a04), to(#670303));
+    box-shadow: inset #ffffff50 1px 1px 2px 2px;
+    margin-left: 900px;
+}
+
+#CourierCancleButton:active {
+    background-color: gradient( linear, 0% 0%, 0% 100%, from(#880303), to(#b80803));
+    width: 192px;
+    height: 48px;
+    margin-left: 904px;
+}
+
+#CourierCancleButton Label {
+    horizontal-align: center;
+    vertical-align: center;
+    font-size: 20;
+    color: #fff;
+    text-transform: uppercase;
+}
 
 
 
@@ -149,4 +217,116 @@ RadioButton > .RadioBox{
 
 .Temp {
     background-image: url("file://{images}/custom_game/couriers/dark_moon.png");
+}
+
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/desert_sand.png");
+}
+
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/doomling.png");
+}
+
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/drodo.png");
+}
+
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/eimer.png");
+}
+
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/faceless.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/fezzle.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/gingerbread.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/golden_roshan.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/golden_beetlejaws.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/golden_doomling.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/golden_greevil.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/golden_huntling.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/golden_krobeling.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/golden_venoling.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/hakobi.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/huntling.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/ice_roshan.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/krobeling.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/lava_roshan.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/lockjaw.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/murrissey.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/nian.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/onibi.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/osky.png");
+}
+
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/pholi.png");
+}
+
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/platinum_roshan.png");
+}
+
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/stumpy.png");
+}
+
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/trapjaw.png");
+}
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/mountain_yak.png");
+}
+
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/mountain_yak.png");
+}
+
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/venoling.png");
+}
+
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/war_dog.png");
+}
+
+.Temp {
+    background-image: url("file://{images}/custom_game/couriers/jade_roshan.png");
 }

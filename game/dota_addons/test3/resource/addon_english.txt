@@ -1437,6 +1437,9 @@
 
         "pass_trigger_notice_title"                                                                             "GET 30 DAYS PASS"
         "save_trigger_notice_title"                                                                             "SAVE&LOAD GAME"
+ 
+        "particle_trigger_notice_title"                                         "Get Hero Particle"
+        "courier_trigger_notice_title"                                          "Change Courier"
 
         "DOTA_Tooltip_Ability_item_courier_fortitude"				                                             "Courier Fortitude"
         "DOTA_Tooltip_Ability_item_courier_fortitude_Description"				                                 "Cast to a courier,level up Courier Fortitude level."
@@ -3521,5 +3524,42 @@
 		"DOTA_Tooltip_ability_drow_ranger_trueshot_lua_level_3_Lore"				    "Traxex' time spent alone in the forests of her Drow home has allowed her to teach other archers how to improve their bow skills."
 		"DOTA_Tooltip_ability_drow_ranger_trueshot_lua_level_3_trueshot_ranged_damage"	"%RANGE DAMAGE BONUS:"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot_lua_level_3_radius"					"RADIUS:"
-	}
+
+		"beetle_bark"                 "Beetlebark and Plod"
+		"beetle_jaws"                 "Beetlejaws the Boxhound"
+		"dark_moon"                   "Dark Moon Baby Roshan"
+		"desert_sand"                 "Desert Sands Baby Roshan"
+		"doomling"                    "Doomling"
+		"drodo"                       "Drodo the Druffin"
+		"eimer"                       "Eimer Hillburrow"
+		"faceless"                    "Faceless Rex"
+		"fezzle"                      "Fezzle-Feez the Magic Carpet Smeevil"
+		"gingerbread"                 "Gingerbread Baby Roshan"
+		"golden_roshan"               "Golden Baby Roshan"
+		"golden_beetlejaws"           "Golden Beetlejaws the Boxhound"
+		"golden_doomling"             "Golden Doomling"
+		"golden_greevil"              "Golden Greevil"
+		"golden_huntling"             "Golden Huntling"
+		"golden_krobeling"            "Golden Krobeling"
+		"golden_venoling"             "Golden Venoling"
+		"hakobi"                      "Hakobi and Tenneko"
+		"huntling"                    "Huntling"
+		"ice_roshan"                  "Ice Baby Roshan"
+		"krobeling"                   "Krobeling"
+		"lava_roshan"                 "Lava Baby Roshan"
+		"lockjaw"                     "Lockjaw the Boxhound"
+		"murrissey"                   "Murrissey the Smeevil"
+		"nian"                        "Nian Courier"
+		"onibi"                       "Onibi"
+		"osky"                        "Osky the Ottragon"
+		"pholi"                       "Pholi the Squire"
+		"platinum_roshan"             "Platinum Baby Roshan"
+		"stumpy"                      "Stumpy - Nature's Attendant"
+		"trapjaw"                     "Trapjaw the Boxhound"
+		"mountain_yak"                "Trusty Mountain Yak"
+		"venoling"                    "Venoling"
+		"war_dog"                     "The Defense Season 2 War Dog"
+		"jade_roshan"                 "Jade Baby Roshan"
+
+	} 
 }

@@ -35,6 +35,7 @@ require("server/patreon")
 require("server/vip")
 require("server/taobao")
 require("server/gamesaver")
+require("vip/courier")
 require("vip/econ_manager")
 require("vip/vip_reward")
 require("talent_modifiers")
@@ -352,6 +353,9 @@ function CHoldoutGameMode:InitGameMode()
     CustomGameEventManager:RegisterListener("PointToGold", Dynamic_Wrap(CHoldoutGameMode, 'PointToGold'))
     CustomGameEventManager:RegisterListener("ConfirmParticle", Dynamic_Wrap(CHoldoutGameMode, 'ConfirmParticle'))
     CustomGameEventManager:RegisterListener("CancleParticle", Dynamic_Wrap(CHoldoutGameMode, 'CancleParticle'))
+    
+    CustomGameEventManager:RegisterListener("ConfirmCourier", Dynamic_Wrap(CHoldoutGameMode, 'ConfirmCourier'))
+
     CustomGameEventManager:RegisterListener("GrantCourierAbility", Dynamic_Wrap(CHoldoutGameMode, 'GrantCourierAbility'))
     CustomGameEventManager:RegisterListener("SaveGame", Dynamic_Wrap(CHoldoutGameMode, 'SaveGame'))
     CustomGameEventManager:RegisterListener("AcceptToLoadGame", Dynamic_Wrap(CHoldoutGameMode, 'AcceptToLoadGame'))
@@ -672,7 +676,7 @@ function CHoldoutGameMode:OnGameRulesStateChange()
             endTime = 7,
             callback = function()
                 --为玩家创建信使
-                GameRules:GetGameModeEntity().CHoldoutGameMode:CreateCourierForPlayers()
+                Courier:CreateCourierForPlayers()
                 --初始化VIP奖励
                 InitVipReward()
             end
@@ -800,29 +804,6 @@ function CHoldoutGameMode:_RefreshPlayers()
     end
     ]]
 end
-
---7.23 为玩家创建信使
-function CHoldoutGameMode:CreateCourierForPlayers()
-    for nPlayerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-        if PlayerResource:GetTeam(nPlayerID) == DOTA_TEAM_GOODGUYS then
-            if PlayerResource:HasSelectedHero(nPlayerID) then
-                local hHero = PlayerResource:GetSelectedHeroEntity(nPlayerID)
-                if hHero  then     
-                    local hCourier = CreateUnitByName('npc_dota_courier', hHero:GetOrigin(), true, hHero, hHero, hHero:GetTeam())
-                    hCourier:SetOwner(hHero)
-                    hCourier:SetControllableByPlayer(nPlayerID, true)
-                    hCourier:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
-                    hCourier:SetOriginalModel('models/props_gameplay/donkey_wings.vmdl')
-                    hCourier:FindAbilityByName('courier_burst'):SetLevel(1)
-                    hCourier:FindAbilityByName('courier_shield'):SetLevel(1)
-                    hCourier.nCourierOwnerId =  nPlayerID
-                    hHero.hCourier = hCourier
-                end
-            end
-        end
-    end
-end
-
 
 
 function CHoldoutGameMode:_GrantMulberry()  --给予桑葚
