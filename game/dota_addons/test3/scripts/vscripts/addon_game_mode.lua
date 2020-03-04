@@ -480,7 +480,7 @@ end
 
 function CHoldoutGameMode:OnHeroLevelUp(keys)
 
-    local player = PlayerInstanceFromIndex(keys.player)
+    local player = PlayerInstanceFromIndex(keys.player_id)
     local hero = player:GetAssignedHero()
     local level = hero:GetLevel()
     local _playerId = hero:GetPlayerID()
