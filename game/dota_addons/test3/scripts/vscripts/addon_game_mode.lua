@@ -353,7 +353,7 @@ function CHoldoutGameMode:InitGameMode()
     CustomGameEventManager:RegisterListener("PointToGold", Dynamic_Wrap(CHoldoutGameMode, 'PointToGold'))
     CustomGameEventManager:RegisterListener("ConfirmParticle", Dynamic_Wrap(CHoldoutGameMode, 'ConfirmParticle'))
     CustomGameEventManager:RegisterListener("CancleParticle", Dynamic_Wrap(CHoldoutGameMode, 'CancleParticle'))
-    
+
     CustomGameEventManager:RegisterListener("ConfirmCourier", Dynamic_Wrap(CHoldoutGameMode, 'ConfirmCourier'))
 
     CustomGameEventManager:RegisterListener("GrantCourierAbility", Dynamic_Wrap(CHoldoutGameMode, 'GrantCourierAbility'))
@@ -476,11 +476,8 @@ function CHoldoutGameMode:_ReadRandomSpawnsConfiguration(kvSpawns, kvSpawnsBig)
 end
 
 
-
-
 function CHoldoutGameMode:OnHeroLevelUp(keys)
-
-    local player = PlayerInstanceFromIndex(keys.player_id)
+    local player = PlayerInstanceFromIndex(keys.player)
     local hero = player:GetAssignedHero()
     local level = hero:GetLevel()
     local _playerId = hero:GetPlayerID()
@@ -557,23 +554,40 @@ function CHoldoutGameMode:OnPlayerSay(keys)
     local nPlayerID = hero:GetPlayerID()
     local steamID = PlayerResource:GetSteamAccountID(nPlayerID)
     local text = string.trim(string.lower(keys.text))
+
     if string.match(text, "@") ~= nil then  --如果为邮件
         Patreon:GetPatrons(text, steamID, nPlayerID)
+        return
     end
+
     if string.match(text, "%w%w%w%w%-%w%w%w%w%-%w%w%w%w") ~= nil then  --如果为淘宝Code
         Taobao:RegisterVip(text, steamID, nPlayerID)
+        return
     end
-    if string.match(text, "^%-[r|R][o|O][u|U][n|N][d|D]%d+") ~= nil and GameRules:IsCheatMode() then  --如果为跳关码
-        local round = string.match(text, "%d+")
-        print("round" .. round)
-        self:TestRound(round, nil)
-    end
-    if string.match(text, "^%-[s|S][a|A][v|V][e|E][t|T][e|E][s|S][t|T]") ~= nil then  --存档测试开后门
+
+    local lowerText = string.lower(text)
+
+    if string.match(lowerText, "^%-savetest") ~= nil then  --存档测试开后门
         CustomGameEventManager:Send_ServerToPlayer(player, "SaveTestBackDoor", { playerId = nPlayerID })
+        return
     end
-    --添加测试物品
-    if hero and string.find(text, "item_") == 1 and GameRules:IsCheatMode() then
-        hero:AddItemByName(text)
+
+    if GameRules:IsCheatMode() then
+
+        --如果为跳关码
+        local round = string.match(lowerText, "^%-round ?(%d+)")
+        if round ~= nil then
+            print("round" .. round)
+            self:TestRound(round, nil)
+            return
+        end
+
+        --添加测试物品
+        if hero and string.find(text, "item_") == 1 then
+            hero:AddItemByName(text)
+            return
+        end
+
     end
 end
 
@@ -790,7 +804,7 @@ function CHoldoutGameMode:_RefreshPlayers()
             end
         end
     end
---[[ 7.23 信使复活速度足够快， 会造成信使重复活 废弃此代码 
+--[[ 7.23 信使复活速度足够快， 会造成信使重复活 废弃此代码
     local couriersNumber = PlayerResource:GetNumCouriersForTeam(DOTA_TEAM_GOODGUYS)
     if couriersNumber > 0 then
         for i = 1, couriersNumber do

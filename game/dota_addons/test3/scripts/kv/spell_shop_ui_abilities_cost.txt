@@ -5,7 +5,7 @@
     "tiny_grow"                               "2"
     "dragon_knight_elder_dragon_form"         "2"
     "sven_gods_strength"                      "2"
-    "drow_ranger_marksmanship"                "3"
+    "drow_ranger_marksmanship_lua"            "2"
     "morphling_hybrid"                        "3"
     "morphling_replicate"                     "2"
     "phantom_lancer_juxtapose"                "2"
