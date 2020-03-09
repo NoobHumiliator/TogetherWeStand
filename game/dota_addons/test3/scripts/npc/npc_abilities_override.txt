@@ -1064,23 +1064,23 @@
 		"ItemSellable"				"1"
 	}
 
-	"item_iron_talon"
-	{
-
-		"ItemCost"						"800"
-		"ItemSellable"				    "1"
-
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"creep_damage_pct"		"25"
-			}
-		}
-	}
+	//"item_iron_talon"
+	//{
+	//
+	//	"ItemCost"						"800"
+	//	"ItemSellable"				    "1"
+	//
+	//	// Special	
+	//	//-------------------------------------------------------------------------------------------------------------
+	//	"AbilitySpecial"
+	//	{
+	//		"05"
+	//		{
+	//			"var_type"				"FIELD_INTEGER"
+	//			"creep_damage_pct"		"25"
+	//		}
+	//	}
+	//}
 
 	"item_mango_tree"
 	{
