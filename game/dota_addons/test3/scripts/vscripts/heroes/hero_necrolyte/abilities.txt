@@ -177,7 +177,7 @@
     	{
     		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
     		"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_scythe.vpcf"
-    		"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_scythe_model.vpcf"
+    		"particle"			"particles/econ/items/necrolyte/necronub_scythe/necrolyte_scythe_ka_start.vpcf"
     		"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_scythe_orig.vpcf"
     		"particle"			"particles/generic_gameplay/generic_stunned.vpcf"
     	}
@@ -321,7 +321,7 @@
     					{
     						"FireEffect"
     						{
-    							"EffectName"	"particles/units/heroes/hero_necrolyte/necrolyte_scythe_model.vpcf"
+    							"EffectName"	"particles/econ/items/necrolyte/necronub_scythe/necrolyte_scythe_ka_start.vpcf"
     							"EffectAttachType"	"follow_origin"
 
     							"ControlPointEntities"
