@@ -25,7 +25,7 @@ function Rank:GetRankDataFromServer()
     --表1-5困难模式  6-10试炼模式排行版
     local request = CreateHTTPRequestScriptVM("GET", server_address .. "getrankdata")
     request:SetHTTPRequestGetOrPostParameter("player_number", player_number)
-    request:SetHTTPRequestGetOrPostParameter("dedicated_server_key", GetDedicatedServerKey("K4gN+u422RN2X4DubcLylw=="))
+    request:SetHTTPRequestGetOrPostParameter("dedicated_server_key", GetDedicatedServerKeyV2("K4gN+u422RN2X4DubcLylw=="))
     request:Send(function(result)
         print("Rank data arrived: " .. result.Body)
         if result.StatusCode == 200 then
@@ -97,7 +97,7 @@ function Rank:RecordGame(nRoundNumber, nLoser)
     request:SetHTTPRequestGetOrPostParameter("player_number", tostring(player_number))
     request:SetHTTPRequestGetOrPostParameter("map_difficulty", tostring(map_difficulty))
     request:SetHTTPRequestGetOrPostParameter("auth", "K4gN+u422RN2X4DubcLylw==")
-    request:SetHTTPRequestGetOrPostParameter("dedicated_server_key", GetDedicatedServerKey("K4gN+u422RN2X4DubcLylw=="))
+    request:SetHTTPRequestGetOrPostParameter("dedicated_server_key", GetDedicatedServerKeyV2("K4gN+u422RN2X4DubcLylw=="))
 
     print("Recording game: steam_game_id:" .. tostring(steamGameId) .. " max_round: " .. tostring(nRoundNumber) .. " time_cost: " .. tostring(nTimeCost) .. " player_number: " .. player_number)
     print("Player steam ids: " .. playerSteamIDs)

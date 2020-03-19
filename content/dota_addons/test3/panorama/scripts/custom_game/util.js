@@ -1,6 +1,6 @@
 "use strict";
 
-var serverAddress = 'http://106.12.3.136:8090/'
+var serverAddress = 'http://106.13.79.105:8090/'
 
 var particleNameMap = [
 //1-5为天梯排名特效

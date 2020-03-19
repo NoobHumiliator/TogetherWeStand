@@ -11,7 +11,7 @@ function Taobao:RegisterVip(code,steamID,nPlayerID)
     request:SetHTTPRequestGetOrPostParameter("code",tostring(code))
     request:SetHTTPRequestGetOrPostParameter("steam_id",tostring(steamID))
     request:SetHTTPRequestGetOrPostParameter("auth","K4gN+u422RN2X4DubcLylw==")
-    request:SetHTTPRequestGetOrPostParameter("dedicated_server_key",GetDedicatedServerKey("K4gN+u422RN2X4DubcLylw=="))
+    request:SetHTTPRequestGetOrPostParameter("dedicated_server_key",GetDedicatedServerKeyV2("K4gN+u422RN2X4DubcLylw=="))
     local sSteamID = tostring(steamID)
     request:Send(function(result)   --向服务器请求注册VIP
         print("Register result arrived: "..result.Body)

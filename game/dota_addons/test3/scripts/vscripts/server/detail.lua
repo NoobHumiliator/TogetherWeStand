@@ -52,7 +52,7 @@ function Detail:RecordDetail()
     request:SetHTTPRequestGetOrPostParameter("auth","K4gN+u422RN2X4DubcLylw==")
     request:SetHTTPRequestGetOrPostParameter("fail_details",JSON:encode(vFailedRound))
     request:SetHTTPRequestGetOrPostParameter("player_details",JSON:encode(vPlayerStatusSnapshots))
-    request:SetHTTPRequestGetOrPostParameter("dedicated_server_key",GetDedicatedServerKey("K4gN+u422RN2X4DubcLylw=="))
+    request:SetHTTPRequestGetOrPostParameter("dedicated_server_key",GetDedicatedServerKeyV2("K4gN+u422RN2X4DubcLylw=="))
 
     print("Fail details: "..tostring(JSON:encode(vFailedRound)))
     request:Send(function(result)
