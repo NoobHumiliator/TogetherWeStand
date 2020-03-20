@@ -24,7 +24,6 @@ function Rank:GetRankDataFromServer()
     if self.rankTable == nil then self.rankTable = {} end--创建玩家天梯数据集
     --表1-5困难模式  6-10试炼模式排行版
     local request = CreateHTTPRequestScriptVM("GET", server_address .. "getrankdata")
-    request:SetHTTPRequestGetOrPostParameter("player_number", player_number)
     request:SetHTTPRequestGetOrPostParameter("dedicated_server_key", GetDedicatedServerKeyV2("K4gN+u422RN2X4DubcLylw=="))
     request:Send(function(result)
         print("Rank data arrived: " .. result.Body)

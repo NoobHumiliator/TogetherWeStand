@@ -666,11 +666,7 @@ end
 function CHoldoutGameMode:OnGameRulesStateChange()
     local nNewState = GameRules:State_Get()
     if nNewState == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
-        --for i=1,5 do
-        --Rank:GetRankDataFromServer(i) --从服务器获取天梯数据
-        --end
-        --服务器压力过大转为逐页加载  初始化的时候只默认加载第五页数据
-        Rank:GetRankDataFromServer(5) --从服务器获取天梯数据
+        Rank:GetRankDataFromServer() --从服务器获取天梯数据
     elseif nNewState == DOTA_GAMERULES_STATE_HERO_SELECTION then
         PrecacheUnitByNameAsync('npc_precache_always', function() end)
         ShowGenericPopup("#holdout_instructions_title", "#holdout_instructions_body", "", "", DOTA_SHOWGENERICPOPUP_TINT_SCREEN)
