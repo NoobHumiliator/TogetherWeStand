@@ -1,6 +1,6 @@
 require("creature_ai/round_rubick/basic_spell_casting_ai")
 
-bRubickDebug = false
+bRubickDebug = true
 
 TAUNT_RATE = 20
 SPEECH_COOLDOWN = 3

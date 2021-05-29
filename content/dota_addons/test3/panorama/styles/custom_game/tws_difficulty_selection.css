@@ -48,7 +48,8 @@
 
 .TrialLevelLinePanel:selected {
     background-color: gradient( linear, 0% 0%, 100% 100%, from( #568e2658), to( #24420a58));
-    box-shadow: #7fe22a 0px 0px 10px 0px;
+    /* box-shadow: #7fe22a 0px 0px 10px 0px; */
+    border: 3px solid #7fe22a80;
 }
 
 #TrialLevelContainer #VerticalScrollBar {
@@ -65,7 +66,9 @@
     flow-children: down;
     padding: 10px;
     background-color: gradient( linear, 0% 0%, 100% 100%, from( #0f475a58), to( #20253058));
-    box-shadow: #3AD5FF 0px 0px 10px 0px;
+    /*box-shadow: #3AD5FF 0px 0px 10px 0px;*/
+    border-radius: 10px;
+    border: 5px solid #3AD5FF80;
     margin-top: 15px;
     margin-left: 30px;
     margin-right: 30px;
@@ -78,12 +81,14 @@
 }
 
 .DifficultyRadioButton:hover {
-    box-shadow: #FEE38C 0px 0px 3px 0px;
+    /* box-shadow: #FEE38C 0px 0px 3px 0px; */
+    border: 5px solid #FEE38C80;
 }
 
 .DifficultyRadioButton:selected {
     background-color: gradient( linear, 0% 0%, 100% 100%, from( #568e2658), to( #24420a58));
-    box-shadow: #7fe22a 0px 0px 10px 0px;
+    /* box-shadow: #7fe22a 0px 0px 10px 0px; */
+    border: 5px solid #7fe22a80;
 }
 
 .DifficultyRadioButton .title {
@@ -100,7 +105,7 @@
     border-radius: 50%;
     horizontal-align: middle;
     /*background-color: #00E6ED;*/
-    box-shadow: #fff -2px -2px 2px 4px;
+    border: 2px solid #fff;
     margin: 5px;
 }
 
@@ -123,7 +128,9 @@
 
 .TrialLevelLinePanel {
     background-color: gradient( linear, 0% 0%, 100% 100%, from( #145b7db8), to( #11264fb8));
-    box-shadow: #3AD5FF 0px 0px 5px 0px;
+    /* box-shadow: #3AD5FF 0px 0px 5px 0px; */
+    border: 3px solid #3AD5FF80;
+    border-radius: 10px;
     width: 300px;
     height: 40px;
     margin-bottom: 6px;
@@ -131,7 +138,8 @@
 }
 
 .TrialLevelLinePanel:hover {
-    box-shadow: #FEE38C 0px 0px 3px 0px;
+    /* box-shadow: #FEE38C 0px 0px 3px 0px; */
+    border: 3px solid #FEE38C80;
 }
 
 .TrialLevelLineText {
@@ -145,7 +153,9 @@
 
 .ConfirmButton {
     background-color: gradient( linear, 0% 0%, 100% 100%, from( #145b7db8), to( #11264fb8));
-    box-shadow: #3AD5FF 0px 0px 8px 0px;
+    /* box-shadow: #3AD5FF 0px 0px 8px 0px; */
+    border-radius: 10px;
+    border: 4px solid #3AD5FF80;
     width: 300px;
     height: 75px;
     margin: 20px;
@@ -157,7 +167,6 @@
 
 .ConfirmText {
     vertical-align: middle;
-    margin: 5%;
     color: #fff;
     font-size: 35px;
     font-family: Goudy Trajan Medium, FZKai-Z03, TH Sarabun New, YDYGO 540;
@@ -193,7 +202,8 @@
 }
 
 .ConfirmButton:hover {
-    box-shadow: #FEE38C 0px 0px 5px 0px;
+    /* box-shadow: #FEE38C 0px 0px 5px 0px; */
+    border: 5px solid #FEE38C80;
 }
 
 .line-1 {

@@ -60,7 +60,7 @@ RadioButton > .RadioBox{
     pre-transform-scale2d: 1;
     transition-property: opacity, box-shadow, pre-transform-scale2d;
     transition-duration: 0.37s;
-    width: 95%;
+    width: 98%;
     height: 300px;
     border-top: 0px solid #333;
     border-bottom: 0px solid #333;
@@ -82,7 +82,7 @@ RadioButton > .RadioBox{
 }
 
 .ParticleRadioButton {
-    width: 300px;
+    width: 20%;
     height: 300px;
     padding-left: 5px;
     padding-right: 5px;
@@ -121,14 +121,14 @@ RadioButton > .RadioBox{
     border: 1px solid #000;
     background-color: gradient( linear, 0% 0%, 0% 100%, from(#a50a04), to(#670303));
     box-shadow: inset #ffffff50 1px 1px 2px 2px;
-    margin-left: 400px;
+    margin-left: 300px;
 }
 
 #ParticleConfirmButton:active {
     background-color: gradient( linear, 0% 0%, 0% 100%, from(#880303), to(#b80803));
     width: 192px;
     height: 48px;
-    margin-left: 404px;
+    margin-left: 304px;
 }
 
 #ParticleConfirmButton Label {
@@ -140,7 +140,7 @@ RadioButton > .RadioBox{
 }
 
 #ParticleCancleButton {
-    horizontal-align: left;
+    horizontal-align: right;
     vertical-align: center;
     width: 200px;
     height: 50px;
@@ -148,14 +148,14 @@ RadioButton > .RadioBox{
     border: 1px solid #000;
     background-color: gradient( linear, 0% 0%, 0% 100%, from(#a50a04), to(#670303));
     box-shadow: inset #ffffff50 1px 1px 2px 2px;
-    margin-left: 900px;
+    margin-right: 300px;
 }
 
 #ParticleCancleButton:active {
     background-color: gradient( linear, 0% 0%, 0% 100%, from(#880303), to(#b80803));
     width: 192px;
     height: 48px;
-    margin-left: 904px;
+    margin-right: 296px;
 }
 
 #ParticleCancleButton Label {

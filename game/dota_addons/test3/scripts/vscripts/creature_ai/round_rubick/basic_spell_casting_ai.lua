@@ -251,7 +251,7 @@ function CastSpell(hSpell)
     local hTarget = nil
     local vTargetLoc = nil
 
-    local nBehavior = hSpell:GetBehavior()
+    local nBehavior = tonumber(tostring(hSpell:GetBehavior()))
     local nTargetTeam = hSpell:GetAbilityTargetTeam()
     local nTargetType = hSpell:GetAbilityTargetType()
 
@@ -271,7 +271,6 @@ function CastSpell(hSpell)
                 return CastSpellTreeTarget(hSpell, Tree)
             end
         end
-
         if bitand(nBehavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 or bitand(nBehavior, DOTA_ABILITY_BEHAVIOR_IMMEDIATE) ~= 0 and IsNoTargetSpellCastValid(hSpell) then
             if bBasicSpellDebug then
                 print("Try to cast no target or immediate spell")

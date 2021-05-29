@@ -6267,13 +6267,13 @@
 	"Round29-1"
 	{
 		"round_title"				"#DOTA_Holdout_Round_Invoker_Title"
-		"MaxGold"					"23000"
+		"MaxGold"					"33000"
 		"BagCount"					"0"
 		"BagVariance"			    "0"
 		"FixedXP"					"18000"
 		"alias"                     "invoker"
 		"ShortTitle"                "#invoker_short_title"
-		"ExpectedGold"              "25000"
+		"ExpectedGold"              "35000"
 		
 		"Unit1"
 		{
@@ -6301,14 +6301,14 @@
 	"Round30-1"
 	{
 		"round_title"				"#DOTA_Holdout_Round_Rubick_Title"
-		"MaxGold"					"28000"
+		"MaxGold"					"38000"
 		"BagCount"					"0"
 		"BagVariance"			    "0"
-		"FixedXP"					"20000"
+		"FixedXP"					"40000"
 		"alias"                     "rubick"
 		"type"                      "boss"
 		"ShortTitle"                "#rubick_short_title"
-		"ExpectedGold"              "30000"
+		"ExpectedGold"              "50000"
 		
 		"Unit1"
 		{

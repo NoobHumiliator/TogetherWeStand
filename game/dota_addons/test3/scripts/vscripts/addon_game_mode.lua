@@ -75,7 +75,7 @@ function Precache(context)
     PrecacheResource('particle', 'particles/units/heroes/hero_huskar/huskar_berserkers_blood_glow.vpcf', context)
     PrecacheResource('particle', 'particles/units/heroes/hero_meepo/meepo_geostrike_ambient.vpcf', context)
     PrecacheResource('particle', 'particles/units/heroes/hero_luna/luna_ambient_lunar_blessing.vpcf', context)
-
+    
     --自定义技能的 光环类特效也必须 提前预加载 否则闪退
     PrecacheResource('particle', 'particles/units/heroes/hero_drow/drow_aura_buff.vpcf', context)
 
@@ -205,7 +205,7 @@ function Precache(context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts", context)
 
     -- Boss Rubick
-    if GameRules:IsCheatMode() then
+    --if GameRules:IsCheatMode() then
         PrecacheResource("particle_folder", "particles/units/heroes/hero_windrunner", context)
         PrecacheResource("particle_folder", "particles/units/heroes/hero_rubick", context)
         PrecacheResource("particle_folder", "particles/units/heroes/keeper_of_the_light", context)
@@ -250,7 +250,7 @@ function Precache(context)
         PrecacheResource("particle", "particles/econ/items/rubick/rubick_arcana/rbck_arc_skywrath_mage_mystic_flare_ambient.vpcf", context)
         PrecacheResource("particle", "particles/rubick/rubick_frosthaven_cube_projectile.vpcf", context)
         PrecacheResource("particle", "particles/rubick/rubick_frosthaven_spellsteal.vpcf", context)
-    end
+    --end
     -- 修复对海民放链接闪退
     PrecacheResource("model", "models/heroes/tuskarr/tuskarr_sigil.vmdl", context)
 end
@@ -295,9 +295,9 @@ function CHoldoutGameMode:InitGameMode()
     end)
 
     -- 暂时只在测试模式放出奥术神符
-    if not GameRules:IsCheatMode() then
-        GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_ARCANE, false)
-    end
+    -- if not GameRules:IsCheatMode() then
+    --     GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_ARCANE, false)
+    -- end
     GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_BOUNTY, false)
     GameRules:SetRuneMinimapIconScale(0.7)
     GameRules:SetRuneSpawnTime(240)
@@ -1243,7 +1243,7 @@ function CHoldoutGameMode:RoundEnd()
             end)
         end
     end
-    if self._nRoundNumber > (#self._vRounds - 1) then
+    if self._nRoundNumber > #self._vRounds then
         if self.map_difficulty >= 3 and not GameRules:IsCheatMode() and not self.bLoadFlag then
             Rank:RecordGame(self._nRoundNumber - 1, DOTA_TEAM_BADGUYS) --储存游戏
             return false

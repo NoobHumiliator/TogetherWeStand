@@ -652,6 +652,10 @@
 	"npc_precache_npc_dota_hero_void_spirit"{"BaseClass""npc_dota_creep""precache"{"particle_folder" "particles/units/heroes/hero_void_spirit""soundfile" "soundevents/game_sounds_heroes/game_sounds_void_spirit.vsndevts"}}
 
 	"npc_precache_npc_dota_hero_snapfire"{"BaseClass""npc_dota_creep""precache"{"particle_folder" "particles/units/heroes/hero_snapfire""soundfile" "soundevents/game_sounds_heroes/game_sounds_snapfire.vsndevts"}}
+
+	"npc_precache_npc_dota_hero_hoodwink"{"BaseClass""npc_dota_creep""precache"{"particle_folder" "particles/units/heroes/hero_hoodwink""soundfile" "soundevents/game_sounds_heroes/game_sounds_hoodwink.vsndevts"}}
+
+	"npc_precache_npc_dota_hero_dawnbreaker"{"BaseClass""npc_dota_creep""precache"{"particle_folder" "particles/units/heroes/hero_dawnbreaker""soundfile" "soundevents/game_sounds_heroes/game_sounds_dawnbreaker.vsndevts"}}
 }
 
 // 以下是技能商店中重写的技能相关单位

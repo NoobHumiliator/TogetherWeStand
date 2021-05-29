@@ -22,7 +22,9 @@ pairedAbility = {
     morphling_morph_agi = "morphling_morph",
     morphling_morph_str = "morphling_morph",
     pangolier_gyroshell = "pangolier_gyroshell_stop",
-    tiny_craggy_exterior = "tiny_toss_tree"
+    tiny_craggy_exterior = "tiny_toss_tree",
+    dawnbreaker_celestial_hammer = "dawnbreaker_converge",
+    hoodwink_sharpshooter = "hoodwink_sharpshooter_release"
 }
 
 -- 卖技能的面板中不显示这些技能
@@ -58,6 +60,8 @@ hideAbility = {
 	["wisp_spirits_in"] = true,
 	["wisp_spirits_out"] = true,
 	["ability_capture"] = true,
+	["dawnbreaker_converge"] = true,
+	["hoodwink_sharpshooter_release"] = true,
 };
 
 brokenModifierCounts = {
@@ -89,6 +93,8 @@ noReturnAbility = {    --不退回升级点数的技能
     morphling_morph_str = true,
     morphling_adaptive_strike_agi = true,
     morphling_adaptive_strike_str = true,
+    dawnbreaker_converge = true,
+    hoodwink_sharpshooter_release = true
 }
 
 meleeMap = {

@@ -766,5 +766,18 @@
   "3"    "snapfire_lil_shredder"
   "4"    "snapfire_mortimer_kisses"
   }
+  "hoodwink" {
+  "1"    "hoodwink_acorn_shot"
+  "2"    "hoodwink_bushwhack"
+  "3"    "hoodwink_scurry"
+  "4"    "hoodwink_decoy"
+  "5"    "hoodwink_hunters_boomerang"
+  "6"    "hoodwink_sharpshooter"
+  }
+  "dawnbreaker" {
+  "1"    "dawnbreaker_fire_wreath"
+  "2"    "dawnbreaker_celestial_hammer"
+  "3"    "dawnbreaker_solar_guardian"
+  }
 
 }

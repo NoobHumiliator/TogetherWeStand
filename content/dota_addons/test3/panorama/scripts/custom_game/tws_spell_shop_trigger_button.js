@@ -17,24 +17,25 @@ function ShowMainBlock() {
 }
 
 function FixSpellShopPosition() {
-    var width = Game.GetScreenWidth()
-    var height = Game.GetScreenHeight()
-    //3.55555 32:9
-    //2.33333 21:9
-    //1.777 16:9
-    //1.6   16:10
-    //1.33  4:3
-    var radio = width / height
+    var width = Game.GetScreenWidth();
+    var height = Game.GetScreenHeight();
+    var radio = width / height;
+
     if (radio < 1.5) {
-        $("#triggerButtonPanel").style.position = "1050px 1020px 0"
+        //1.33  4:3
+        $("#triggerButtonPanel").style.position = "150px 0px 0";
     } else if (radio < 1.7) {
-        $("#triggerButtonPanel").style.position = "1380px 1020px 0"
+        //1.6   16:10
+        $("#triggerButtonPanel").style.position = "150px 0px 0";
     } else if (radio < 2.0) {
-        $("#triggerButtonPanel").style.position = "1500px 1020px 0"
+        //1.777 16:9
+        $("#triggerButtonPanel").style.position = "150px 0px 0";
     } else if (radio < 3.0) {
-        $("#triggerButtonPanel").style.position = "2170px 1020px 0"
+        //2.33333 21:9
+        $("#triggerButtonPanel").style.position = "150px 0px 0";
     } else {
-        $("#triggerButtonPanel").style.position = "2920px 1020px 0"
+        //3.55555 32:9
+        $("#triggerButtonPanel").style.position = "150px 0px 0";
     }
 
     $.DispatchEvent("DOTAShowTitleTextTooltip", $("#triggerButtonPanel"), "#spell_trigger_notice_title", "#spell_trigger_notice_detail");
@@ -45,9 +46,9 @@ function HideTooltip() {
 }
 
 function UpdateAbilityList(keys) {
-   var playerId = keys.playerId
-   var playerHeroIndex = Players.GetPlayerHeroEntityIndex(playerId);
-   $("#spell_shop_hotkey").text = $.Localize("#spell_shop_points")+Entities.GetAbilityPoints(playerHeroIndex)+"(F6)";
+    var playerId = keys.playerId
+    var playerHeroIndex = Players.GetPlayerHeroEntityIndex(playerId);
+    $("#spell_shop_hotkey").text = $.Localize("#spell_shop_points") + Entities.GetAbilityPoints(playerHeroIndex) + "(F6)";
 }
 
 

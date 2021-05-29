@@ -44,8 +44,8 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"320"
-		"MagicalResistance"			"100"
+		"ArmorPhysical"				"800"
+		"MagicalResistance"			"90"
 
 		// Attack
 		//----------------------------------------------------------------
@@ -78,8 +78,8 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"36000000"
-		"StatusHealthRegen"			"200"
+		"StatusHealth"				"30000000"
+		"StatusHealthRegen"			"2000"
 		"StatusMana"				"65000"
 		"StatusManaRegen"			"1000.0"
 		

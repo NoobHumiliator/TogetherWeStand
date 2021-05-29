@@ -3,22 +3,22 @@
 var serverAddress = 'http://106.13.79.105:8090/'
 
 var particleNameMap = [
-//1-5为天梯排名特效
-"legion_wings_vip","legion_wings_pink","legion_wings","paltinum_baby_roshan", "lava_trail", 
-//6 以后为PASS特效
-"rex", "frull", "black", "devourling_gold", "darkmoon",
-"rich","sakura_trail", "ti6","ti7","ti8",
-"ti9","winter18","onibi","sand","frost"
+    //1-5为天梯排名特效
+    "legion_wings_vip", "legion_wings_pink", "legion_wings", "paltinum_baby_roshan", "lava_trail",
+    //6 以后为PASS特效
+    "rex", "frull", "black", "devourling_gold", "darkmoon",
+    "rich", "sakura_trail", "ti6", "ti7", "ti8",
+    "ti9", "winter18", "onibi", "sand", "frost"
 ]
 
 //信使列表
-var couriersList = ["beetle_bark","beetle_jaws","dark_moon","desert_sand","doomling",
-"drodo","eimer","faceless","fezzle","gingerbread",
-"golden_roshan","golden_beetlejaws","golden_doomling","golden_greevil","golden_huntling",
-"golden_krobeling","golden_venoling","hakobi","huntling","ice_roshan",
-"krobeling","lava_roshan","lockjaw","murrissey","nian",
-"onibi","osky","pholi","platinum_roshan","stumpy",
-"trapjaw","mountain_yak","venoling","war_dog","jade_roshan"
+var couriersList = ["beetle_bark", "beetle_jaws", "dark_moon", "desert_sand", "doomling",
+    "drodo", "eimer", "faceless", "fezzle", "gingerbread",
+    "golden_roshan", "golden_beetlejaws", "golden_doomling", "golden_greevil", "golden_huntling",
+    "golden_krobeling", "golden_venoling", "hakobi", "huntling", "ice_roshan",
+    "krobeling", "lava_roshan", "lockjaw", "murrissey", "nian",
+    "onibi", "osky", "pholi", "platinum_roshan", "stumpy",
+    "trapjaw", "mountain_yak", "venoling", "war_dog", "jade_roshan"
 ]
 
 

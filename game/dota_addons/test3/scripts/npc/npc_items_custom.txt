@@ -2990,7 +2990,7 @@
         "AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
+		"ItemCost"						"2050"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2999,7 +2999,7 @@
 		"ItemResult"					"item_summon_crown_3"
 		"ItemRequirements"
 		{
-			"01"						"item_summon_crown_2;item_necronomicon;item_ultimate_orb"
+			"01"						"item_summon_crown_2;item_ultimate_orb"
 		}
     }
 
@@ -3098,7 +3098,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
+		"ItemCost"						"3300"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -3107,7 +3107,7 @@
 		"ItemResult"					"item_summon_crown_4"
 		"ItemRequirements"
 		{
-			"01"						"item_summon_crown_3;item_necronomicon_2;item_ultimate_orb_2"
+			"01"						"item_summon_crown_3;item_ultimate_orb_2"
 		}
     }
 
@@ -3204,7 +3204,7 @@
         "AbilityTextureName"			"item_recipe"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"
+		"ItemCost"						"4550"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -3213,7 +3213,7 @@
 		"ItemResult"					"item_summon_crown_5"
 		"ItemRequirements"
 		{
-			"01"						"item_summon_crown_4;item_necronomicon_3;item_ultimate_orb_3"
+			"01"						"item_summon_crown_4;item_ultimate_orb_3"
 		}
 	}
 
