@@ -100,28 +100,16 @@ function ShowParticleBlock() {
 
 function ShowPayBlock() {
 
-    var button = $("#PayTriggerButton");
-    var payPanelContainer = button.GetParent().GetParent().GetParent().FindChildTraverse("PayPanelContainer");
-
-    var playerId = Players.GetLocalPlayer();
-    var steam_id = Game.GetPlayerInfo(playerId).player_steamid;
-
-    var vipValidDateUTC = CustomNetTables.GetTableValue("vipMap", "" + ConvertToSteamId32(steam_id)).validate_date;
-    if (vipValidDateUTC != null && vipValidDateUTC != "") {
-
-        var utcDate = new Date(vipValidDateUTC.replace(/-/g, '/'));
-        var localOffset = (new Date()).getTimezoneOffset() * 60000;
-        var localDate = new Date(utcDate.getTime() - localOffset);
-        var localDateStr = getFormatDateStr(localDate);
-        payPanelContainer.FindChildInLayoutFile("ValidDateLabel").text = $.Localize("#pass_expire") + localDateStr;
-    }
-
-    if (payPanelContainer.BHasClass("hidden")) {
-        payPanelContainer.SetHasClass("hidden", false);
+    var passPanel = FindDotaHudElement("PassPanel");
+    
+    if (passPanel.BHasClass("Hidden")) {
+        passPanel.SetHasClass("Hidden", false);
     }
     else {
-        payPanelContainer.SetHasClass("hidden", true);
+        passPanel.SetHasClass("Hidden", true);
     }
+
+    
 }
 
 function ShowSaveBlock(bReloadFlag) {

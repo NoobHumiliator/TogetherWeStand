@@ -35,6 +35,7 @@ require("server/patreon")
 require("server/vip")
 require("server/taobao")
 require("server/gamesaver")
+require("server/payment")
 require("vip/courier")
 require("vip/econ_manager")
 require("vip/vip_reward")
@@ -262,6 +263,8 @@ function CHoldoutGameMode:InitGameMode()
     GameRules:GetGameModeEntity().CHoldoutGameMode = self
     LinkLuaModifier("modifier_increase_total_damage_lua", "abilities/modifier_increase_total_damage_lua", LUA_MODIFIER_MOTION_NONE)
     Timers:start()
+    --支付模块
+    Payment:Init()
     LootController:ReadConfigration()
     self.bGameStarted = false
     self.loseflag = 0

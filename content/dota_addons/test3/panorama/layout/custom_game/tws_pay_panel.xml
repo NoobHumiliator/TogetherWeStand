@@ -7,43 +7,44 @@
         <include src="file://{resources}/scripts/custom_game/util.js" />
         <include src="file://{resources}/scripts/custom_game/tws_pay_panel.js" />
     </scripts>
-    <Panel class="PayPanelOutBlock" hittest="false">
-        <Panel class="PayPanelContainer hidden" id="PayPanelContainer" hittest="true">
-            <Button id="PayPanelContainerCloseButton" class="PayLinkInfoCloseButton" onactivate="PayPanelContainerCloseButtonActive()" />
-            <Panel id="PayPalPanel">
-                <Panel id="PayPalLogo" class="PayPalLogo"/>
-                <Button id="PayPalButton" class="PayPalButton" onactivate="OpenPayLink('PayPal')">
-                    <Label text="#purchase_pass" />
-                </Button>
+    <Panel style="width:100%;height:100%; z-index:2;" hittest="false">
+
+        <!--支付弹窗-->
+        <Panel id="PaymentWindow" class="Hidden" onactivate="">
+            <Panel id="PaymentWindowContent">
+                <HTML id="PaymentWindowHTML" acceptsinput="true" />               
+                <Panel id="PaymentWindowLoader">
+                    <Panel class="Spinner" />
+                </Panel>
+                <Panel id="PaymentWindowWaitPaypal">
+                    <Label id="PaymentWindowWaitPaypalMessage" text="#UseBrowerToPay" />
+                </Panel>
+                <Panel id="PaymentWindowError"> 
+                    <Label id="PaymentWindowErrorMessage" />
+                </Panel>
             </Panel>
-            <Panel id="TaoBaoPanel">
-                <Panel id="TaobaoLogo" class="TaoBaoLogo"/>
-                <Button id="PayPalButton" class="PayPalButton" onactivate="OpenPayLink('TaoBao')">
-                    <Label text="#purchase_pass" />
-                </Button>
-            </Panel>
-            <Label id="ValidDateLabel" class="ValidDateLabel" text="" />
+            <Button class="CloseButton" onactivate="SetPaymentWindowStatus('closed')" />
         </Panel>
-        <Panel class="PayLinkPanel hidden" id="PayLinkPanel" hittest="true">
-            <Button id="PayLinkInfoCloseButton" class="PayLinkInfoCloseButton" onactivate="PayLinkInfoCloseButtonActive()" />
-            <Panel class="PayLinkMask" id="PayLinkMask">
-                <Label id="TitleLable" class="PayMaskTitle" text="#apply_payment"/>
-                <Panel id="Spinner" class="Spinner SpinnerVisible" />
-            </Panel>
-            <Panel class="PayLinkInfo" id="PayLinkInfo">
-                <Label class="PayLinkTitle" text="#scan_qr_code"/>
-                <Panel id="PayPalQRCodePanel" class="PayPalQRCodePanel">
-                    <DOTAHTMLPanel id="PayPalQRCodeHtml" url=""></DOTAHTMLPanel>
-                </Panel>
-                <Label class="PayLinkTitle" text="#or_click_url"/>
-            </Panel>
-            <Panel class="TaobaoInfo" id="TaobaoInfo">
-                <Label class="PayLinkTitle" text="#scan_qr_code"/>
-                <Panel id="TaoBaoQRCodePanel" class="TaoBaoQRCodePanel">
-                    <Image hittest="false" class="TaoBaoQRCodeImg" src="file://{images}/custom_game/taobao.png" />
-                </Panel>
-                <Label class="PayLinkTitle" text="#or_click_url"/>
-            </Panel>
+ 
+        <Panel id="PassPanel" class="Hidden">
+          <Button id="PassCloseButton" onactivate="ClosePassPanel()"/>
+          <Panel id="BGImage"/>
+          <Panel id="PassContainer">
+             <Label id="PassContainerTitle" text="#pass_title"/>
+             <Label id="PassContainerText" text="#pass_text"/>
+             <Label id="PassUntilLabel" text=""/>
+             <Panel id="PassCashPanel">
+                    <Panel id="PaymentTabs">
+                      <Panel class="WeChatLogo" onactivate="GetPaymentQRCode('pass','wechat')"/>
+                      <Panel class="AliPayLogo" onactivate="GetPaymentQRCode('pass','alipay')"/>
+                      <Panel class="PayPalTabLogo" onactivate="GetPaymentQRCode('pass','paypal')"/>
+                      <Panel id="PassPaymentTier" class="PaymentTier"> 
+                      <Label id="PassSelectPaymentLabel" class="SelectPaymentLabel" text="#PleaseSelectPayment"/>
+                      </Panel>
+                    </Panel>
+             </Panel>
+
+          </Panel>
         </Panel>
     </Panel>
 </root>

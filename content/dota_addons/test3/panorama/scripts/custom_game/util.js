@@ -92,3 +92,39 @@ function getFormatDateStr(date) {
     S = S < 10 ? '0' + S : S;
     return Y + '-' + M + '-' + D + ' ' + H + ':' + Mi + ':' + S;
 }
+
+const dotaHud = (() => {
+    let panel = $.GetContextPanel();
+    while (panel) {
+        if (panel.id === "DotaHud") return panel;
+        panel = panel.GetParent();
+    }
+})();
+
+
+function FindDotaHudElement(id){
+    var hudRoot;
+    let panel = $.GetContextPanel();
+    for(panel=$.GetContextPanel();panel!=null;panel=panel.GetParent()){
+        hudRoot = panel;
+    }
+    var comp = hudRoot.FindChildTraverse(id);
+    return comp;
+}
+
+
+//带回传的请求，每次调用id都增加1
+function CreateEventRequestCreator(eventName) {
+    var idCounter = 0;
+    return function(data, callback) {
+        var id = ++idCounter;
+        data.id = id;
+        GameEvents.SendCustomGameEventToServer(eventName, data);
+        var listener = GameEvents.Subscribe(eventName, function(data) {
+            if (data.id !== id) return;
+            GameEvents.Unsubscribe(listener);
+            callback(data)
+        });
+        return listener;
+    }
+}

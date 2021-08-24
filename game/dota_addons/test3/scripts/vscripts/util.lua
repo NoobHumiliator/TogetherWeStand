@@ -713,3 +713,11 @@ function AddModifierHelper(hero, modifier_name)
         table.insert(hero.modifier_to_be_added, function() hero:AddNewModifier(hero, nil, modifier_name, {}) end)
     end
 end
+
+--将当前时间转化为可读的时间戳
+function GetServerDateTimeStr()
+    local strDate = GetSystemDate().." "..GetSystemTime()
+    local _, _, m, d, y, hour, min, sec = string.find(strDate, "(%d+)/(%d+)/(%d+)%s*(%d+):(%d+):(%d+)");    
+    --转化为时间戳
+    return (y..m..d..hour..min..sec)
+end

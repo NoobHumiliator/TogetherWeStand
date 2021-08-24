@@ -1,89 +1,111 @@
-"use strict";
+const createPaymentRequest = CreateEventRequestCreator("CreatePayment");
 
-var paymentId = null; //PayPal的付款ID 也是vip_register表的code
+function ClosePassPanel(){
 
-function OpenPayLink(payMethod) {
+    $("#PassPanel").AddClass("Hidden")
+}
 
-    var playerId = Game.GetLocalPlayerInfo().player_id;     //玩家ID
-    var steam_id = Game.GetPlayerInfo(playerId).player_steamid;
-    steam_id = ConvertToSteamId32(steam_id);
+function UpdatePassInfo(){
+    var playerId = Game.GetLocalPlayerInfo().player_id;
 
-    $("#PayLinkPanel").SetHasClass("hidden", false)
-    $("#PayLinkPanel").SetHasClass("PopupPanel", true)
-    $("#PayLinkMask").SetHasClass("hidden", false); //蒙版显示出来
-    $("#PayLinkInfo").SetHasClass("hidden", true); //隐藏二维码
-    $("#TaobaoInfo").SetHasClass("hidden", true); //隐藏淘宝
+    if ( $("#PassUntilLabel") )
+    {
+        
+        var playerId = Players.GetLocalPlayer();
+        var steam_id = Game.GetPlayerInfo(playerId).player_steamid;
 
-    PayPanelContainerCloseButtonActive(); //隐藏付款面板
+        var vipValidDateUTC = CustomNetTables.GetTableValue("vipMap", "" + ConvertToSteamId32(steam_id)).validate_date;
+        if (vipValidDateUTC != null && vipValidDateUTC != "") {
 
-    if (payMethod == "PayPal") {
-        $.AsyncWebRequest(serverAddress + 'applypaypal?steam_id=' + steam_id,  //向服务器请求PayPal的付款链接
-            {
-                type: 'GET',
-                success: function (resultJson) {
-                    var result = JSON.parse(resultJson);
-                    var url = result.url;
-                    var qr64str = result.img_str;
-                    paymentId = result.paymentId;  //全局变量，存一个最新的付款ID
-                    var urlReplace = url.replace("&", "%26") //传参转义
-                    $("#PayPalQRCodeHtml").SetURL(serverAddress + "urltoqrcode?url=" + urlReplace);
-
-
-                    var urlHref = url.replace("&", "&amp;") //href转义
-                    $("#PayLinkInfo").BCreateChildren("<Label html='true' id='PayPalUrl' text='&lt;a href=&quot;" + urlHref + "&quot;&gt;" + urlHref + "&lt;a&gt;'/>")
-
-                    $("#PayLinkMask").SetHasClass("hidden", true); //蒙版隐藏起来
-                    $("#PayLinkInfo").SetHasClass("hidden", false); //显示二维码
-                    $("#MousePanningImage").SetHasClass("hidden", true); //隐藏不知道什么的导航条
-
-                    $.Schedule(4, HasFinishedPay);
-                }
-            });
-    }
-
-    if (payMethod == "TaoBao") {
-
-        $("#PayLinkMask").SetHasClass("hidden", true); //蒙版隐藏起来
-        $("#PayLinkInfo").SetHasClass("hidden", true); //隐藏Paypal
-        $("#TaobaoInfo").SetHasClass("hidden", false); //显示淘宝
-        var taobaoUrl = "https://item.taobao.com/item.htm?id=585208451825";
-        $("#TaobaoInfo").BCreateChildren("<Label html='true' id='PayPalUrl' text='&lt;a href=&quot;" + taobaoUrl + "&quot;&gt;" + taobaoUrl + "&lt;a&gt;'/>")
+            var utcDate = new Date(vipValidDateUTC.replace(/-/g, '/'));
+            var localOffset = (new Date()).getTimezoneOffset() * 60000;
+            var localDate = new Date(utcDate.getTime() - localOffset);
+            var localDateStr = getFormatDateStr(localDate);
+            $("#PassUntilLabel").text = $.Localize("#pass_until") + localDateStr;
+        }
+        
     }
 }
 
-function PayLinkInfoCloseButtonActive() {
-    $("#PayLinkPanel").SetHasClass("hidden", true); //隐藏弹出面板
-}
-
-function PayPanelContainerCloseButtonActive() {
-
-    $("#PayPanelContainer").SetHasClass("hidden", true); //隐藏弹出面板
-
-}
-
-function HasFinishedPay() {
-
-    if (paymentId == null) {
+//切换支付弹窗的显示状态，参数有 "closed" | "loading" | "html"
+function SetPaymentWindowStatus(state) {
+    if ($("#PaymentWindow")==undefined)
+    {
         return;
     }
-    $.AsyncWebRequest(serverAddress + 'querypayment?paymentId=' + paymentId,  //向服务器请求PayPal的付款链接
-        {
-            type: 'GET',
-            success: function (result) {
-                if (result == "success") //如果付款成功
-                {
-                    PayLinkInfoCloseButtonActive(); //关了两个面板
-                    PayPanelContainerCloseButtonActive();
-                    var playerId = Game.GetLocalPlayerInfo().player_id;     //玩家ID
-                    GameEvents.SendCustomGameEventToServer("ReceiveVipQureySuccess", { playerId: playerId, level: 2 }); //默认2级别VIP
-                    paymentId = null; //将paymentID清空 结束循环
-                }
-            }
-        });
+    const hid = $("#PaymentWindow").BHasClass("Hidden");
+    const visible = state !== "closed";
+    $("#PaymentWindow").SetHasClass("Hidden", !visible);
+    GameEvents.SendCustomGameEventToServer("payments:window", { visible });
+    $("#PaymentWindowLoader").visible = state === "loading";
+    $("#PaymentWindowHTML").visible = state === "html";
+    $("#PaymentWindowWaitPaypal").visible = state === "wait_paypal";
 
-    $.Schedule(0.6, HasFinishedPay);
+    const isError = typeof state === "object";
+    $("#PaymentWindowError").visible = isError;
+    if (isError) {
+        $("#PaymentWindow").SetHasClass("Hidden", hid);
+        $("#PaymentWindowErrorMessage").text = state.error;
+    }
 }
 
-(function () {
+function GetPaymentQRCode(tier,type) {
 
+    //打开支付弹窗
+    SetPaymentWindowStatus("loading");
+    
+    paymentWindowUpdateListener = createPaymentRequest({ type:type, tier:tier }, (response) => {   
+
+        if (response.url == null || response.url == "") {
+            SetPaymentWindowStatus({ error: response.error || "Unknown error" });
+            return;
+        } 
+
+        if (type=="wechat" || type=="alipay")
+        {
+            //渲染弹窗
+            $("#PaymentWindowHTML").SetURL(response.url);
+            //延迟0.5 取消loading页面
+             $.Schedule(1.5, () => {
+                SetPaymentWindowStatus("html");
+            });
+        }
+        
+        if (type=="paypal")
+        {
+            //使用内置浏览器支付
+            SetPaymentWindowStatus("wait_paypal");
+            $.DispatchEvent( 'ExternalBrowserGoToURL',response.url );
+        }
+    });
+}
+
+
+
+function ChangePaymentType(type) {
+   
+   $("#PaymentTier").type=type;
+   $("#PaymentTierContainer").RemoveClass("Hidden");
+   $("#SelectPaymentLabel").AddClass("Hidden");
+}
+
+
+function PaymentSuccess(keys) {
+  
+  SetPaymentWindowStatus("closed");
+  $("#PassPanel").AddClass("Hidden");
+  UpdatePassInfo();
+
+}
+
+
+(function()
+{   
+    GameEvents.Subscribe( "UpdatePassInfo", UpdatePassInfo ); //返回订阅通行证信息
+    GameEvents.Subscribe( "PaymentSuccess", PaymentSuccess ); //关闭支付页面
+    if ($("#SelectPaymentLabel"))
+    {
+        $("#SelectPaymentLabel").RemoveClass("Hidden");
+    }
+    UpdatePassInfo();
 })();

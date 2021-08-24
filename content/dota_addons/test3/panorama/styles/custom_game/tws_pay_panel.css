@@ -1,31 +1,1396 @@
-.PayPanelOutBlock {
-  position: 25% 200px 0;
-  /*x,y,z position:absolute? auto?*/
-  width: 50%;
-  height: 800px;
-  border-top: 0px solid #333;
-  border-bottom: 0px solid #333;
-  overflow: clip;
-  /*overflow:hidden*/
+@define dotaPlusGoldGradient: gradient( linear, 0% 0%, 0% 100%, from( #B78946 ), to( #DCD086 ) );
+@define dotaPlusGoldGradientHover: gradient( linear, 0% 0%, 0% 100%, from( #d8a253 ), to( #ecdf90 ) );
+
+Label{
+    color:#939da0;
+    font-family:Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+    text-shadow: 1px 1px 1px 1.0 #000000ff;
 }
 
-.PayTriggerButtonPanel {
-  position: 5px 150px 0;
-  width: 35px;
-  height: 35px;
+@keyframes 'links-and-more-button-focus'
+{
+    from
+    {
+        background-color: gradient( linear, 0% 0%, 0% 100%, from( #a9c8daee ), to( #000000ee ) ); 
+    }
+
+    50%
+    {
+        background-color: gradient( linear, 0% 0%, 0% 100%, from( #272d2eee ), to( #131617ee ) ); 
+    }
+
+    to
+    {
+        background-color: gradient( linear, 0% 0%, 0% 100%, from( #272d2eee ), to( #131617ee ) ); 
+    }
 }
 
-.PayPanelContainer {
-  width: 80%;
-  height: 350px;
-  background-color: #181818;
+.Inventory {
+    width: 1300px;
+    height: 900px;
+    vertical-align: center;
+    horizontal-align: center;
+
+    animation-name: links-and-more-button-focus;
+    animation-duration: 0.6s;
+    animation-delay: 0.0s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+
+    /*transition-property: transform, pre-transform-scale2d, opacity, background-color;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in;
+    transition-delay: 0.0s;*/
+
+    box-shadow: #172a2f -4px -4px 8px 8px;
+    background-color:gradient( linear, 0% 0%, 0% 100%, from( #272d2e ), to( #121212 ) );
+
+    padding: 20px;
+
+    transition-property: transform, opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+
+    flow-children: down;
+}
+
+.Hidden{
+    opacity:0.0;
+}
+
+
+.Inventory.Hidden{
+    transform: translatex(-1000px);
+    opacity:0.0;
+}
+
+.InventoryTop {
+    width:100%;
+    height: 12%;
+}
+
+.InventoryMain {
+    width:100%;
+    height: 85%;
+    flow-children: right;
+}
+
+
+.InventoryLeft {
+    width: 20%;
+    height: 100%;
+    flow-children: down;
+}
+
+
+.DrawMutationButtonIcon {
+   background-image: url("file://{images}/custom_game/inventory/token.png");
+   background-size: 100% 100%;
+   width: 30px;
+   height: 30px;
+   vertical-align: center;
+}
+
+
+.DrawMutationButtonIconAndText {
+
+   horizontal-align: center;
+   vertical-align: center;
+   flow-children: right;
+}
+
+
+
+.DrawButton {
+    horizontal-align: center;
+    width: 220px;
+    height: 50px;
+    margin-top: 25px;
+    border: 1px solid #000;
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #5Aa15E ), to( #87d69533 ) )  ;
+    box-shadow: inset #ffffff50 1px 1px 2px 2px;
+    background-image:url("file://{images}/custom_game/extract/background_play_button_2x.png");
+    background-size:320px 120px;
+
+}
+
+.DrawButton:active {
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #5Aa15E ), to( #87d695ff ) );
+    box-shadow:fill #00000066 -4px -4px 8px 8px;
+    width: 192px;
+    height: 48px;
+}
+
+.DrawButton Label {
+    horizontal-align: center;
+    vertical-align: center;
+    font-size: 22px;
+    color: #fff;
+    padding-top: 5px;
+    text-transform: uppercase;
+}
+
+.DrawButton:active :hover{
+    background-color:gradient( linear, 0% 0%, 0% 100%, from( #7Ac17E ), to( #a7f6b533 ) );
+}
+
+.DrawButton:disabled {
+    saturation: 0;
+}
+
+
+.InventoryTitle {
+
+   horizontal-align:left;
+   height:50px;
+   margin-top:15px;
+   text-align:center;
+   font-size:45px;
+   color:#ddd;
+
+}
+
+#MoneyStoragePanel{
+    z-index:55;
+    horizontal-align:left;
+    width:1300px;
+    height:40px;
+    font-family:Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+    margin-left:230px;
+    margin-top:30px;
+    color:#ffffff;
+    flow-children: right;
+}
+
+#MoneyStorageLabel{
+    font-family:Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+    width:120px;
+    text-align:left;
+    text-shadow: 2px 2px 2px #330000;
+    z-index:100;
+    margin-left:20px;
+    font-size:32px;
+}
+
+#DnaStorageKeyEntry{
+    height:35px;
+    width:250px;
+    background-color: rgba(0,0,0,0.5);
+    vertical-align: center;
+    line-height:25px;
+    font-size:20px;
+    padding:5px;
+}
+
+#DnaStorageKeyButton{
+    height:35px;
+    width:150px;
+    vertical-align: center;
+}
+
+#DnaStorageKeyButton:active{
+    height:33px;
+    width:142px;
+    margin-left: 4px;
+    margin-top: 1px;
+}
+
+
+.EvolveButton Label {
+    horizontal-align: center;
+    vertical-align: center;
+    font-size: 40;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.EvolveButton{
+    background-image:url("file://{images}/custom_game/extract/background_play_button_2x.png");
+    background-color:gradient( linear, 0% 0%, 0% 100%, from( #5Aa15E ), to( #87d69533 ) );
+    background-size: 100% 100%;
+    box-shadow: fill #00000066 -4px -4px 8px 8px;
+    border-top:1px solid #ffffff44;
+    border-right:1px solid #00000088;
+    border-left:1px solid #ffffff44;
+    border-bottom:1px solid #00000088;
+}
+.EvolveButton:hover{
+    background-color:gradient( linear, 0% 0%, 0% 100%, from( #7Ac17E ), to( #a7f6b533 ) );
+}
+
+#SubmitTaobaoCodeButtonLabel{
+    font-size:25px;
+    horizontal-align:center;
+    vertical-align:center;
+    text-overflow: shrink;
+}
+
+#MoneyStorageImg {
+    width:40px;
+    height:40px;
+    z-index:40;
+    margin-left:160px;
+}
+
+#TaobaoPlusIcon{
+    z-index:99999;
+    margin-left:20px;
+    width:35px;
+    height:35px;
+    vertical-align: center;
+    background-image: url("file://{images}/custom_game/inventory/taobao_plus_icon.png");
+    background-size: 100% 100%;
+}
+.InventoryCloseButton
+{
+  horizontal-align:right;
+  background-color:#333333;
+  wash-color:white;
+  border-radius:50%;
+  border:1px solid #333333;
+  width:30px;
+  height:30px;
+  box-shadow:#000000 -3px -3px 6px 3px;
+  z-index:555;
+  background-image:url("file://{images}/custom_game/extract/x_close.png");
+  background-size:28px 28px;
+  background-repeat:no-repeat;
+  background-position:50% 50%;
+  margin:4px;
+  margin-top:-15px;
+  transition-property:wash-color, pre-transform-scale2d, background-color;
+  transition-duration:0.1s;
+  transition-timing-function:ease-in;
+}
+
+.InventoryCloseButton:active
+{
+  background-size:36px 36px;
+  sound:"ui_friends_slide_in"; 
+}
+
+.RedAlert{
+  color: red;
+}
+
+.GreenAlert{
+  color: green;
+}
+
+
+
+
+#TaobaoCodeNotify
+{
+  horizontal-align:right;
+  margin-top: 40px;
+  margin-right: 10px;
+}
+
+
+#button_equip {
+    background-color:gradient( linear, 0% 0%, 0% 100%, from( #60862d ), to( #3d5f1c ) );
+}
+
+#button_remove {
+    background-color:gradient( linear, 0% 0%, 0% 100%, from( #88270d ), to( #99170d ) );
+}
+
+.InventoryRightMain {
+    width: 100%;
+    flow-children:down;
+}
+
+
+.InventoryRight {
+    width: 100%;
+    min-height:500px;
+}
+
+
+.InventoryRightContainer {
+    width: 100%;
+    flow-children: down;
+    overflow: squish scroll;
+}
+
+.InventoryClassTitle {
+    width: 100%;
+    height: 50px;
+}
+
+.InventoryClassTitle.Hidden{
+    transform: translatex(-1000px);
+    opacity:0.0;
+}
+
+.InventoryClassTitle Label {
+    font-size: 40px;
+    width: 100%;
+    margin-left: 12px;
+}
+
+.InventoryClassPanel {
+    width: 100%;
+    flow-children: right-wrap;
+}
+
+
+.CollectionItemRoot {
+    width: 180px;
+    margin: 10px;
+    flow-children: down;
+    background-color: #000000dd;
+    border: 1px solid #7bacff;
+    padding: 4px;
+}
+
+.CollectionItemTitlePanel {
+    width: 100%;
+    height: 30px;
+}
+
+.TitleLimited {
+    background-color: #ff5249;
+}
+
+.TitleRare {
+    background-color: #4b69ff;
+}
+.TitleMythical {
+    background-color: #8847ff;
+}
+.TitleImmortal {
+    background-color: #e4ae39;
+}
+
+
+.CollectionItemTitlePanelInner {
+    width: 100%;
+    height: 30px;
+    background-color : gradient( linear, 0% 50%, 100% 100%, from( #2b2e2faa ), color-stop( 0.5, #00ff0002 ), to( #2b2e2f ) );
+}
+
+
+.CollectionItemTitle {
+    vertical-align: center;
+    horizontal-align: center;
+    color: white;
+    font-size: 20px;
+    width:100%;
+    text-align: center;
+
+}
+.CollectionItemRarity {
+
+    horizontal-align: right;
+    vertical-align: top;
+    font-size: 20px;
+}
+
+.CollectionItemIndex {
+
+    horizontal-align: left;
+    vertical-align: top;
+    font-size: 20px;
+    color: gold;
+}
+
+.CollectionItemDemo {
+    color:gradient( linear, 0% 0%, 0% 100%, from( #665a46 ), to( #e4e1aa ) );
+    font-weight: bold;
+    horizontal-align: right;
+    vertical-align: top;
+    font-size: 20px;
+    margin-top: 25px;
+}
+
+
+.Rarity_Limited {
+     color: #ff5249;
+}
+
+.Rarity_Rare {
+     color: #4b69ff;
+}
+
+.Rarity_Mythical {
+     color: #8847ff;
+}
+
+.Rarity_Immortal {
+     color: #e4ae39;
+}
+
+
+.CollectionItemImagePanel {
+    width: 180px;
+    height: 180px;
+}
+
+.CollectionItemImage {
+    width: 180px;
+    height: 180px;
+}
+
+
+.Spinner{
+  width:48px;
+  height:48px;
+  vertical-align: middle;
+  horizontal-align: middle;
+  background-image:url("file://{images}/custom_game/extract/loadingthrobber_round.png");
+  background-repeat:no-repeat;
+  background-position:50% 50%;
+  background-size:contain;
+
+  animation-name:SpinnerRotate;
+  animation-duration:1.0s;
+  animation-timing-function:linear;
+  animation-iteration-count:infinite;
+}
+
+@keyframes 'SpinnerRotate'
+{
+  0%
+  {
+    transform: rotateZ( 360deg );
+  }
+  
+
+  50%
+  {
+    transform: rotateZ( 180deg );
+  }
+  
+  100%
+  {
+    transform: rotateZ( 0deg );
+  }
+}
+
+
+#LoadingPanel {
+    horizontal-align:center;
+    vertical-align:middle;
+    margin:10px 0px;
+    width: 100%;
+    height: 100%; 
+}
+
+
+#LoadingPanelSpinner {
+    horizontal-align:center;
+    vertical-align:middle;
+    margin:10px 0px;
+    width: 50px;
+    height: 50px;
+}
+
+#LoadingPanelSpinner .Spinner
+{
+    vertical-align:middle;
+}
+
+
+
+#SubmitTaobaoCodeButtonLoading {
+    horizontal-align:center;
+    vertical-align:middle;
+    margin:10px 0px;
+    width: 50px;
+    height: 50px;
+}
+
+#SubmitTaobaoCodeButtonLoading .Spinner
+{
+    vertical-align:middle;
+}
+
+
+
+.InventoryLeftPic{
+
+   horizontal-align:middle;
+   margin-top:150px;
+   width: 200px;
+   height: 200px;
+
+}
+
+
+#PaymentContainer{
+  
+  width: 950px;
+  height: 450px;
+  vertical-align: center;
+  horizontal-align:middle;
+  z-index: 40;
+  background-color: black;
+
+  transition-property:wash-color, pre-transform-scale2d, background-color;
+  transition-duration:0.1s;
+  transition-timing-function:ease-in;
+  flow-children:down;
+
+}
+
+#TaoBaoPart{
+  margin-left: 50px;
+  margin-top: 50px;
+  width: 304px;
+  flow-children:down;
+}
+
+#TaoBaoLogo{
+  width: 304px;
+  height: 99px;
+  background-image: url("file://{images}/custom_game/taobao_logo.png");
+}
+
+
+#TaoBaoQRCode{
+  margin-top: 30px;
+  width: 304px;
+  height: 304px;
+  background-image: url("file://{images}/custom_game/taobao_qr_code.png");
+}
+
+#PayPalPart{
+  margin-top: 50px;
+  margin-left: 150px;
+  width: 400px;
+  height: 503px;
+  flow-children:down;
+}
+
+#PayPalLogo{
+  width: 304px;
+  height: 99px;
   horizontal-align: center;
+  background-image: url("file://{images}/custom_game/paypal_logo.png");
+}
+
+#PayPalQRCode{
+  width: 304px;
+  height: 304px;
+}
+
+
+#PayPalMain{
+  flow-children:down;
+  horizontal-align: center;
+  margin-top: 30px;
+  width: 400px;
+  height: 304px;
+}
+
+#CodeToolTip{
+  
+  height: 30px;
+
+}
+
+#PassCodeToolTip{
+  
+  height: 30px;
+
+}
+
+.PayPalLink{
+  margin-top: 20px;
+  color:blue;
+  height: 120px;
+}
+.PayPalLink Label{
+  color:rgb(137, 207, 240);
+}
+
+#PassPaymentPanel{
+  width: 100%;
+}
+
+#PassPayPalPanel {
+  horizontal-align:center;
+  margin-top: 5%;
+  flow-children:down;
+}
+
+
+#PassCashPanel {
+  horizontal-align:center;
+  margin-top: 15%;
+  flow-children:down;
+  width: 100%;
+  padding-left: 5%;
+}
+
+
+#PayPalButtonLoadingLabel {
+   
+   horizontal-align: right;
+   height: 100%;
+   width: 70%;
+   font-size: 30px;
+   color:white;
+   text-overflow: shrink;
+
+}
+
+
+#PayPalButton{
+
+    horizontal-align: center;
+    width: 200px;
+    height: 50px;
+    margin-top: 25px;
+    border: 1px solid #000;
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #5Aa15E ), to( #87d69533 ) )  ;
+    box-shadow: inset #ffffff50 1px 1px 2px 2px;
+    background-image:url("file://{images}/custom_game/extract/background_play_button_2x.png");
+    background-size:320px 120px;
+
+}
+
+#PayPalButtonLabel
+{
+   
+   text-align: center;
+   text-overflow: shrink;
+   height: 50px;
+   width: 100%;
+   font-size: 30px;
+   color:white;
+
+}
+
+
+.TaoBaoQRCodeCloseButton
+{
+  horizontal-align:right;
+  background-color:#333333;
+  wash-color:white;
+  border-radius:50%;
+  border:1px solid #333333;
+  width:50px;
+  height:50px;
+  box-shadow:#000000 -3px -3px 6px 6px;
+  z-index:555;
+  background-image:url("file://{images}/custom_game/extract/x_close.png");
+  background-size:40px 40px;
+  background-repeat:no-repeat;
+  background-position:50% 50%;
+  margin-right:1px;
+  margin-top:1px;
+
+}
+
+.TaoBaoQRCodeCloseButton:active
+{
+  background-size:26px 26px;
+  sound:"ui_friends_slide_in"; 
+}
+
+
+.PaymentContainerCloseButton {
+      wash-color:#888888;
+      width:30px;
+      height:30px;
+      z-index:555;
+      background-image:url("file://{images}/custom_game/extract/x_close.png");
+      background-size:30px 30px;
+      background-repeat:no-repeat;
+      background-position:50% 50%;
+      margin-right:1px;
+      margin-top:-100px;
+      transition-property: wash-color, pre-transform-scale2d, background-color;
+      transition-duration: 0.1s;
+      transition-timing-function: ease-in;
+      horizontal-align: right;
+}
+
+.PaymentContainerCloseButton:active {
+   background-size:26px 26px;
+   sound:"ui_friends_slide_in"; 
+}
+
+
+#PassButton{
+
+  width:220px;
+  margin-left: 30px;
+  background-color:dotaPlusGoldGradient;
+  border-top:1px solid #DCD08680;
+}
+
+#PassButton:hover{
+  background-color:dotaPlusGoldGradientHover;
+}
+
+#PassButton Label {
+
+  text-align:center;
+  color:white;
+  text-transform:uppercase;
+  padding:8px;
+  font-size:20px;
+  letter-spacing:2px;
+  font-weight:bold;
+  horizontal-align:center;
+  text-shadow:1px 1px 4px black;
+  text-overflow: shrink;
+}
+
+
+#PassContainerTitle{
+  
+
+  color:gradient( linear, 0% 0%, 0% 100%, from( #665a46 ), to( #e4e1aa ) );
+  font-size:36px;
+  font-weight:bold;
+  width:fill-parent-flow( 1 );
+  horizontal-align:center;
+  text-align:center;
+  margin-top:30px;
+  letter-spacing:1px;
+  text-shadow:1px 1px 3 black;
+
+}
+
+#PassContainerText{
+  
+  text-align:left;
+  width:70%;
+  horizontal-align:center;
+  color:#cccccc;
+  margin:50px 60px 10px 60px;
+  text-shadow:1px 1px 3 black;
+
+}
+
+#BGImage{
+  width:100%;
+  height:100%;
+  background-image:url("file://{images}/custom_game/inventory/dotaplus_logo.png");
+  background-repeat:no-repeat;
+  background-position:50% 60px;
+  opacity:0.05;
+}
+
+#PassContainer{
+  flow-children:down;
+}
+
+
+#PassPanel{
+  
+  horizontal-align:center;
+  vertical-align: top;
+  margin-top: 200px;
+  z-index: 50;
+
+  animation-name:links-and-more-button-focus;
+  animation-duration:0.6s;
+  animation-delay:0.0s;
+  animation-timing-function:ease-in-out;
+  animation-iteration-count:1;
+  animation-direction:normal;
+
+  transition-property:transform, pre-transform-scale2d, opacity, background-color, height;
+  transition-duration:0.2s;
+  transition-timing-function:ease-in;
+  transition-delay:0.0s;
+
+  width:800px;
+  height:600px;
+
+  background-color:gradient( linear, 0% 0%, 0% 100%, from( #272d2e ), to( #121212 ) );
+  box-shadow:#172a2f -4px -4px 8px 8px;
+  flow-children:none;
+}
+
+
+#PassCloseButton{
+  width:24px;
+  height:24px;
+  wash-color:#888888;
+
+  background-image:url("file://{images}/custom_game/extract/x_close.png");
+  background-size:24px 24px;
+  background-repeat:no-repeat;
+  background-position:50% 50%;
+
+  transition-property:wash-color, pre-transform-scale2d, background-color;
+  transition-duration:0.1s;
+  transition-timing-function:ease-in;
+
+  horizontal-align:right;
+}
+
+#ButtonContainer{
+   
+   flow-children:right;
+   horizontal-align:center;
+   margin-top: 40px;
+}
+
+.PassSubscribeButton{
+  
+  horizontal-align:center;
+  width:250px;
+  height:50px; 
+  background-color:gradient( linear, 0% 0%, 0% 100%, from( #e0c59a ), to( #ae9249 ) );
+  padding:8px 16px 4px 16px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
+
+.PassSubscribeButton:active{
+  
+  width:242px;
+  height:46px; 
+  margin-top: 2px;
+  margin-left: 14px;
+  margin-right: 12px;
+
+}
+
+.PassSubscribeButton:disabled{
+  
+  background-color:gradient( linear, 0% 0%, 0% 100%, from( #5A615Ecc ), to( #879695cc ) );
+}
+
+
+
+.PassSubscribeButton Label {
+   color:white;
+   font-weight:bold;
+   text-shadow:1px 1px 2px black;
+   vertical-align:center;
+   text-overflow:shrink;
+   width: 100%;
+   height:34px;
+   text-transform:uppercase;
+   text-align:center;
+   horizontal-align:center;
+}
+
+#CoinSubscribeLoading {
+    horizontal-align:center;
+    vertical-align:middle;
+    margin:10px 0px;
+    width: 50px;
+    height: 50px;
+}
+
+#CoinSubscribeLoading .Spinner
+{
+    vertical-align:middle;
+}
+
+
+#PassTaoBaoQRCode{
+  margin-top: 50px;
+  width: 304px;
+  height: 304px;
+  background-image: url("file://{images}/custom_game/pass_taobao_qr_code.png");
+}
+
+#PassTaoBaoPanel
+{
+    horizontal-align:center;
+}
+
+#InventoryLabelPanel
+{
+    padding-left: 15px;
+    flow-children: down;
+}
+
+.HandbookTitle{
+  vertical-align:center;
+  horizontal-align:center;
+  color:rgb(137, 207, 240);
+  text-decoration:underline;
+  font-size: 22px;
+  margin-top: 10px;
+}
+
+#page_handbook {
+    
+    width: 1500px;
+    height: 900px;
+    vertical-align: center;
+    horizontal-align: center;
+
+    animation-name: links-and-more-button-focus;
+    animation-duration: 0.6s;
+    animation-delay: 0.0s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+
+    box-shadow: #172a2f -4px -4px 8px 8px;
+    background-color:gradient( linear, 0% 0%, 0% 100%, from( #272d2e ), to( #121212 ) );
+
+    padding: 20px;
+
+    transition-property: transform, opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+
+    flow-children: down;
+}
+
+#FragmentStorageImg {
+    width:40px;
+    height:40px;
+    z-index:40;
+    margin-left:20px;
+}
+
+#FragmentStorageLabel{
+    font-family:Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+    width:140px;
+    text-align:left;
+    text-shadow: 2px 2px 2px #330000;
+    z-index:100;
+    margin-left:20px;
+    font-size:32px;
+}
+
+#HandbookTitlePanel{
+  width: 100%;
+  height: 12%;
+  flow-children: right;
+}
+
+#HandbookMainPanel{
+  width: 100%;
+}
+#HandbookTitle{
+   height: 100%;
+   margin-left: 30%;
+   horizontal-align:left;
+   height:50px;
+   margin-top:20px;
+   text-align:center;
+   font-size:50px;
+   color:#ddd;
+}
+
+#FragmentStoragePanel{
+    z-index:55;
+    horizontal-align:left;
+    width:300px;
+    height:40px;
+    font-family:Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+    margin-left:230px;
+    margin-top:30px;
+    color:#ffffff;
+    flow-children: right;
+}
+
+#HandbookContainer {
+    width: 100%;
+    flow-children: down;
+    overflow: squish scroll;
+    margin-top: 10px;
+}
+
+.HandbookCloseButton
+{
+  horizontal-align:right;
+  background-color:#333333;
+  wash-color:white;
+  border-radius:50%;
+  border:1px solid #333333;
+  width:30px;
+  height:30px;
+  box-shadow:#000000 -3px -3px 6px 3px;
+  z-index:555;
+  background-image:url("file://{images}/custom_game/extract/x_close.png");
+  background-size:28px 28px;
+  background-repeat:no-repeat;
+  background-position:50% 50%;
+  margin:4px;
+  transition-property:wash-color, pre-transform-scale2d, background-color;
+  transition-duration:0.1s;
+  transition-timing-function:ease-in;
+}
+
+.HandbookCloseButton:active
+{
+  background-size:36px 36px;
+  sound:"ui_friends_slide_in"; 
+}
+
+.HandbookButton Label
+{
+  font-size: 14px;
+}
+
+.HandbookButton
+{
+  padding: 4px,4px;
+}
+
+.HandbookButton:disabled Label
+{
+  color:white;
+}
+
+.HandbookButton:disabled
+{
+ wash-color:white;
+ saturation:1;
+}
+
+.ButtonFragmentBuy{
+  background-color:gradient( linear, 0% 0%, 0% 100%, from( #60862d ), to( #3d5f1c ) );
+}
+
+.ButtonFragmentBuy:enabled:hover
+{
+  background-color:gradient( linear, 0% 0%, 0% 100%, from( #60862d ), to( #3d5f1c ) );
+  brightness: 1.6;
+}
+
+#Tabs {
+  flow-children:right;
+  vertical-align:middle;
+  padding-left:4px;
+  padding-bottom:7px;
+  width: 100%;
+}
+
+
+.TabSeperator {
+   color:#768e8d;
+   margin-left:2px;
+   margin-right:2px;
+   margin-bottom:1px;
+   vertical-align:middle;
+   font-size:20px;
+}
+
+.TabButton {
+  margin:0px;
+  vertical-align:middle;
+  wash-color:white;
+  transition-property: wash-color;
+  transition-duration: 0.6s;
+  transition-timing-function:ease-in-out;
+  flow-children:right;
+}
+
+.TabButton Label{
+  font-size:20px;
+}
+
+
+.TabButton .RadioBox {
+  visibility:collapse;
+}
+
+#HandbookTabsAndContainer {
+  width:100%;
+  flow-children:down;
+}
+
+#PaymentTabs{
+    height: 100px;
+    flow-children: right;
+    width: 100%;
+}
+
+.PaymentTab
+{
+    opacity: 0.4;
+    width: 33.3%;
+    margin-right: 18px;
+    background-color: #1a1a1a;
+    height: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    flow-children: right;
+
+}
+
+.PaymentTab:selected
+{
+    opacity: 1.1;
+    border: 3px solid #5b687233;
+    border-bottom: -1px;
+}
+
+.WeChatLogo{
+   height: 80px;
+   width: 198px;
+   background-image: url("file://{images}/custom_game/payment/wechat.png");
+   background-size: 100% 100%;
+   vertical-align: center;
+   margin-left: 40px;
+}
+
+
+.AliPayLogo{
+   height: 80px;
+   width: 198px;
+   background-image: url("file://{images}/custom_game/payment/alipay.png");
+   background-size: 100% 100%;
+   vertical-align: center;
+   margin-left: 40px;
+}
+
+
+.PaymentLabel {
+    color: white;
+    font-size: 50px;
+    vertical-align: center;
+    margin-left: 10px;
+}
+
+.PayPalTabLogo
+{
+  height: 80px;
+  width: 198px;  
+  background-image: url("file://{images}/custom_game/payment/paypal_logo.png");
+  background-size: 100% 100%;
+  vertical-align: center;
+  margin-left: 40px;
+}
+
+.TierName {
+    font-size: 36px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-weight: bold;
+    horizontal-align: center;
+    font-family: titleFont;
+    margin-top: 5px;
+    text-shadow: 2px 2px 2px #00000090;
+}
+
+.TierButtons {
+    flow-children: down;
+    horizontal-align: center;
+    vertical-align: bottom;
+    margin-bottom: 30px;
+    width: 100%;
+    height: 40px;
+}
+
+.BuyBtn {
+    height: 100%;
+    width: 100%;
+}
+
+.BuyBtn Label{
+    font-size: 20px;
+    color: #ffffff;
+    text-transform: uppercase;
+    horizontal-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 10px 10px 10px 10px;
+    text-shadow: 0px 0px 15px 3.0 ultraDarkColor&EF;
+    vertical-align: center;
+}
+
+.Tier1-btn {
+    background-color: gradient( linear, 0% 0%, 100% 0%, from( #5a6278 ), to( #3a4358 ) );
+    box-shadow:  0px 0px 15px 8.0 #000000;
+    transition-property: background-color;
+    transition-duration: 0.1s;
+}
+
+
+.Tier2-btn {
+    background-color: gradient( linear, 0% 0%, 100% 0%, from( #69a1cb ), to( #576ad7 ) );
+    box-shadow:  0px 0px 15px 8.0 #000000;
+    transition-property: background-color;
+    transition-duration: 0.1s;
+}
+
+
+.Tier3-btn {
+    background-color: gradient( linear, 0% 0%, 100% 0%, from( #E4C269 ), to( #ECD393 ) );
+    box-shadow:  0px 0px 15px 8.0 #000000;
+    transition-property: background-color;
+    transition-duration: 0.1s;
+}
+
+
+
+
+.BuyBtn:hover{
+    brightness: 1.5;
+    background-color: gradient( linear, 0% 0%, 100% 0%, from( #539f42 ), to( #366345 ) );
+}
+
+
+.PaymentTier{
+    width: 100%;
+    height: 450px;
+    padding-top: 80px;
+    margin-top: 60px;
+    background-color: #1a1a1a;
+}
+
+.Tier {
+    width: 300px;
+    height: 200px;
+    flow-children: down;
+    padding: 10px 30px 10px 30px;
+}
+
+
+#Tier1 {
+    background-image: url("file://{images}/custom_game/payment/tier1.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 30px #00000088;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#Tier2 {
+    background-image: url("file://{images}/custom_game/payment/tier2.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 30px #00000088;
+    margin-right: 0 5px;
+}
+
+#Tier3 {
+    background-image: url("file://{images}/custom_game/payment/tier3.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 30px #00000088;
+    margin-left: 10px;
+}
+
+.PaymentTierContainer {
+    width: 100%;
+    height: 100%;
+    flow-children: right;
+}
+
+.SelectPaymentLabel {
+    font-size: 40px;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#PaymentWindow {
+    z-index: 65;
+    align: center center;
+    width: 860px;
+    height: 800px;
+    background-color: #444;
+    background-image: url("file://{images}/custom_game/payment/payment_bg.png");
+    background-size: 100%;
+    box-shadow: black 0px 0px 20px 0px;
+    pre-transform-scale2d: 1;
+}
+#PaymentWindow > .CloseButton
+{
+    horizontal-align: right;
+    wash-color: #a4beef;
+    brightness: 1;
+    margin-right: 10px;
+    margin-top: 10px;
+     
+    height: 24px;
+    width: 24px;
+    background-image:url("file://{images}/custom_game/extract/x_close.png");
+    background-size:24px 24px;
+    background-repeat:no-repeat;
+    background-position:50% 50%;
+}
+
+#PaymentWindow > .CloseButton:hover{
+    brightness: 1.5;
+}
+
+#PaymentWindowContent{
+    width: 700px;
+    height: 800px;
+    align: center center;
+}
+
+#PaymentWindowContent > Panel{
+    width: 100%;height: 100%;
+}
+#PaymentWindowLoader > .Spinner{
+    align: center center;
+}
+#PaymentWindowErrorMessage{
+    align: center center;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+}
+#PaymentWindowHTML{
+    width: 100%;
+    height: 100%;
+}
+
+
+#BuyRabbitCoinButton Label {
+    horizontal-align: center;
+    vertical-align: center;
+    font-size: 40;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#BuyRabbitCoinButton{
+    margin-left: 40px;
+    background-image:url("file://{images}/custom_game/extract/background_play_button_2x.png");
+    background-color:gradient( linear, 0% 0%, 0% 100%, from( #5Aa15E ), to( #87d69533 ) );
+    background-size: 100% 100%;
+    box-shadow: fill #00000066 -1px -1px 2px 2px;
+    border-top:1px solid #ffffff44;
+    border-right:1px solid #00000088;
+    border-left:1px solid #ffffff44;
+    border-bottom:1px solid #00000088;
+}
+
+#BuyRabbitCoinButton:hover{
+    background-color:gradient( linear, 0% 0%, 0% 100%, from( #7Ac17E ), to( #a7f6b533 ) );
+}
+
+#PaymentWindowWaitPaypalMessage{
+    align: center center;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+}
+
+.Discount{
+    margin-top: 15px;
+    color: #8FED31;
+    text-shadow: 0px 0px 7.9194px rgba(143, 237, 49, 0.3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    horizontal-align: center;
+    margin-bottom: 0px;
 }
 
 #PayTriggerButton {
   height: 32px;
   width: 32px;
-  background-image: url("s2r://panorama/images/hud/reborn/sharedunit_rest_png.vtex");
+  background-image: url("file://{images}/custom_game/payment/sharedunit_rest.png");
   background-size: 30px;
   brightness: 1.0;
   wash-color: #CDF;
@@ -38,249 +1403,16 @@
   vertical-align: bottom;
 }
 
-.PayPalLogo {
-  width: 175px;
-  height: 120px;
-  margin-top: 60px;
-  border-top: 0px solid #333;
-  border-bottom: 0px solid #333;
-  horizontal-align: center;
-  background-image: url("file://{images}/custom_game/paypal_logo.png");
-  background-size: 100% 100%;
+.PayTriggerButtonPanel {
+  position: 5px 150px 0;
+  width: 35px;
+  height: 35px;
 }
 
-.TaoBaoLogo {
-  width: 175px;
-  height: 105px;
-  margin-top: 67.5px;
-  border-top: 0px solid #333;
-  border-bottom: 0px solid #333;
-  horizontal-align: center;
-  background-image: url("file://{images}/custom_game/taobao_logo.png");
-  background-size: 100% 100%;
-}
-
-#PayPalPanel {
-  flow-children: down;
-  height: 80%;
-  margin-left: 10%;
-  vertical-align: top;
-}
-
-#TaoBaoPanel {
-  flow-children: down;
-  height: 80%;
-  margin-left: 60%;
-  vertical-align: top;
-}
-
-.PayPalButton {
-  margin-top: 20px;
-}
-
-#PayPalButton {
-  horizontal-align: center;
-  vertical-align: center;
-  width: 200px;
-  height: 50px;
-  background-color: gradient( linear, 0% 0%, 0% 100%, from( #5e842c), to( #40621d));
-  border-right: 1px solid #496922;
-  border-left: 1px solid #496922;
-  border-bottom: 1px solid #294211;
-}
-
-#PayPalButton:active {
-  background-color: gradient( linear, 0% 0%, 0% 100%, from( #204200), to( #5e842c));
-  border-top: 1px solid #294211;
-  border-right: 1px solid #496922;
-  border-left: 1px solid #496922;
-  border-bottom: 1px solid #859d6e;
-}
-
-#PayPalButton:hover {
-  background-color: gradient( linear, 0% 0%, 0% 100%, from( #9eb46c), to( #60823d));
-  border-top: 1px solid #294211;
-  border-right: 1px solid #496922;
-  border-left: 1px solid #496922;
-  border-bottom: 1px solid #859d6e;
-}
-
-#PayPalButton Label {
-  horizontal-align: center;
-  vertical-align: center;
-  font-size: 20;
-  color: #fff;
-  text-transform: uppercase;
-}
-
-.Spinner {
-  width: 48px;
-  height: 48px;
-  vertical-align: middle;
-  background-image: url("s2r://panorama/images/status_icons/loadingthrobber_round_psd.vtex");
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: contain;
-  animation-name: SpinnerRotate;
-  animation-duration: 1.0s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-@keyframes 'SpinnerRotate' {
-  0% {
-    transform: rotateZ( 360deg);
-  }
-  50% {
-    transform: rotateZ( 180deg);
-  }
-  100% {
-    transform: rotateZ( 0deg);
-  }
-}
-
-#Spinner {
-  horizontal-align: center;
-  margin-top: 10px;
-}
-
-#Spinner.SpinnerVisible {
-  visibility: visible;
-}
-
-.PayLinkMask {
+#PassUntilLabel {
+  text-align: center;
   width: 100%;
-  height: 100%;
-  flow-children: down;
-}
-
-.PayMaskTitle {
-  height: 50px;
-  font-size: 30px;
-  font-weight: thin;
-  color: #afb4b4;
-  margin-top: 50px;
-  horizontal-align: center;
-  font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, YDYGO 540, Gulim, MingLiU;
-}
-
-.PayPalQRCodePanel {
-  width: 100%;
-  height: 360px;
-  horizontal-align: middle;
-}
-
-.TaoBaoQRCodePanel {
-  width: 100%;
-  height: 285px;
-  horizontal-align: middle;
-}
-
-.PayLinkInfo {
-  width: 100%;
-  height: 100%;
-  flow-children: down;
-}
-
-.TaobaoInfo {
-  width: 100%;
-  height: 100%;
-  flow-children: down;
-}
-
-#PayPalQRCodeHtml {
-  width: 400px;
-  height: 450px;
-  border: 1px solid #000;
-  background-color: #111;
-  overflow: clip;
-  horizontal-align: middle;
-}
-
-.PopupPanel {
-  background-color: gradient( linear, 0% 0%, 0% 100%, from( #272d2eee), to( #131617ee));
-  border: 1px solid #5e6869;
-  width: 500px;
-  height: 540px;
-  horizontal-align: center;
-  opacity: 1.0;
-  box-shadow: black -4px -4px 8px 8px;
-  animation-name: links-and-more-button-focus;
-  animation-duration: 0.6s;
-  animation-delay: 0.0s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: 1;
-  animation-direction: normal;
-  transition-property: transform, pre-transform-scale2d, opacity, background-color, height;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in;
-  transition-delay: 0.0s;
-}
-
-@keyframes 'links-and-more-button-focus' {
-  from {
-    background-color: gradient( linear, 0% 0%, 0% 100%, from( #a9c8daee), to( #000000ee));
-  }
-  50% {
-    background-color: gradient( linear, 0% 0%, 0% 100%, from( #272d2eee), to( #131617ee));
-  }
-  to {
-    background-color: gradient( linear, 0% 0%, 0% 100%, from( #272d2eee), to( #131617ee));
-  }
-}
-
-.ValidDateLabel {
-  vertical-align: bottom;
-  horizontal-align: middle;
-  color: #ffffff;
-  font-size: 30px;
-  padding-bottom: 10px;
-}
-
-.PayLinkInfoCloseButton {
-  horizontal-align: right;
-  background-color: #333333;
-  wash-color: white;
-  border-radius: 50%;
-  border: 1px solid #333333;
-  width: 38px;
-  height: 38px;
-  box-shadow: #000000 -3px -3px 6px 6px;
-  z-index: 555;
-  background-image: url("s2r://panorama/images/control_icons/x_close_png.vtex");
-  background-size: 24px 24px;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  margin: 4px;
-  transition-property: wash-color, pre-transform-scale2d, background-color;
-  transition-duration: 0.1s;
-  transition-timing-function: ease-in;
-}
-
-.PayLinkInfoCloseButton:active {
-  background-size: 20px 20px;
-  sound: "ui_friends_slide_in";
-}
-
-#PayPalUrl {
-  width: 100%;
-  height: 50px;
-  font-size: 15px;
-  color: #0099ff;
-}
-
-.PayLinkTitle {
-  height: 30px;
   font-size: 25px;
-  font-weight: thin;
-  color: #afb4b4;
-  margin-top: 10px;
-  horizontal-align: left;
-  font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, YDYGO 540, Gulim, MingLiU;
-  margin-left: 2%;
-  margin-bottom: 2%;
-}
-
-.TaoBaoQRCodeImg {
-  horizontal-align: middle;
+  color: white;
+  margin-top: 20px;
 }

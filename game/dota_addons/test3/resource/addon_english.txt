@@ -3560,6 +3560,8 @@
 		"venoling"                    "Venoling"
 		"war_dog"                     "The Defense Season 2 War Dog"
 		"jade_roshan"                 "Jade Baby Roshan"
-
+        "pass_title"                  "Together We Stand Battle Pass"
+        "pass_text"                   "《TWS》 Pass will unlock：\n● Two more chanllenge chance for your team\n●Extra one Magic Mulberry\n●Vip particle\n●5 extra courier abilities\n●Triple compensation in Trail Tablet\n●Game Saving(Beta Phase)"
+        "pass_until"                  "PASS UNTIL: "
 	} 
 }
