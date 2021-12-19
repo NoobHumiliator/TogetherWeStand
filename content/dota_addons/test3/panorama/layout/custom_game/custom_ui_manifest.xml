@@ -25,5 +25,6 @@
     <CustomUIElement type="Hud" id="PayPanelHub" layoutfile="file://{resources}/layout/custom_game/tws_pay_panel.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_hud_base.xml" />
     <CustomUIElement type="GameInfo" layoutfile="file://{resources}/layout/custom_game/tws_rank_panel.xml" />
+    
   </Panel>
 </root>

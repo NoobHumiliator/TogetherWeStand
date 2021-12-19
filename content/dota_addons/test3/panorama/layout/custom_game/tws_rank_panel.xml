@@ -1,6 +1,6 @@
 <root>
    <styles>
-      <include src="file://{resources}/styles/dotastyles.css" />
+      <include src="s2r://panorama/styles/dotastyles.css" />
       <include src="file://{resources}/styles/custom_game/tws_rank_panel.css" />
    </styles>
    <scripts>

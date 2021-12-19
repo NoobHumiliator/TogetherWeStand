@@ -8,7 +8,7 @@
 		<include src="file://{resources}/scripts/custom_game/util.js" />
 	</scripts>
 	<snippets>
-		<snippet hittest="false" name="QuestLine">
+		<snippet name="QuestLine">
 			<Panel hittest="false">
 				<Panel hittest="false" direction="horizontal" class="Progress">
 					<Panel hittest="false" class="Progress_Left" style="margin-bottom: 0;"/>
@@ -19,7 +19,7 @@
 				</Panel>
 			</Panel>
 		</snippet>
-		<snippet hittest="false" name="AchievementLine">
+		<snippet name="AchievementLine">
 			<Panel hittest="false">
 				<Panel hittest="false" direction="horizontal" class="Progress">
 					<Panel hittest="false" class="Progress_Left" style="margin-bottom: 0;"/>
